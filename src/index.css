@@ -1,0 +1,40 @@
+.card-container {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 50vh;
+  justify-content: space-around;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 24px;
+  display: block;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 16px;
+  display: block;
+  font-weight: normal;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.card {
+  align-self: stretch;
+  width: 45vw
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+  box-shadow: 2px 2px 16px 0 #88a5bf7a, -2px -2px 4px 0 #fffc;
+}
+
+.image-caption {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  text-align: center;
+}
