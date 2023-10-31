@@ -154,7 +154,7 @@
               "onLoadData": [
                 {
                   "name": "loadData",
-                  "type": "custom"
+                  "type": "code"
                 }
               ]
             }
@@ -266,7 +266,7 @@
                   "onLoadData": [
                     {
                       "name": "loadData",
-                      "type": "custom"
+                      "type": "code"
                     }
                   ]
                 },
@@ -296,7 +296,7 @@
                   "onLoadData": [
                     {
                       "name": "loadData",
-                      "type": "custom"
+                      "type": "code"
                     }
                   ]
                 },
@@ -326,7 +326,7 @@
                   "onLoadData": [
                     {
                       "name": "loadData",
-                      "type": "custom"
+                      "type": "code"
                     }
                   ]
                 },
@@ -624,7 +624,7 @@
                 },
                 {
                   "name": "showValidationResult",
-                  "type": "custom"
+                  "type": "code"
                 }
               ]
             }
