@@ -1,12 +1,12 @@
 {
   "name": "formengine",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Example application",
   "private": true,
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^0.0.13",
-    "@react-form-builder/core": "^0.0.13",
-    "@react-form-builder/designer": "^0.0.13",
+    "@react-form-builder/components-rsuite": "^0.0.14",
+    "@react-form-builder/core": "^0.0.14",
+    "@react-form-builder/designer": "^0.0.14",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
