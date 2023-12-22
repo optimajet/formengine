@@ -649,7 +649,7 @@
               }
             },
             "renderWhen": {
-              "value": false
+              "value": "false"
             }
           },
           {
@@ -666,7 +666,7 @@
               }
             },
             "renderWhen": {
-              "value": false
+              "value": "false"
             }
           }
         ]
