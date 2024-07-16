@@ -1,4 +1,5 @@
 import {
+  formEngineRsuiteCssLoader,
   ltrCssLoader,
   rsErrorMessage,
   RsLocalizationWrapper,
@@ -18,6 +19,7 @@ const builderView = new BuilderView(builderComponents)
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
+  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 const getForm = (_?: string) => JSON.stringify(SampleForm)
 
