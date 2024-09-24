@@ -1,6 +1,6 @@
 # Formik integration example
 
-This code corresponds to Formik [https://formengine.io/documentation/formik-integration](integration example)
+This code corresponds to Formik [integration example](https://formengine.io/documentation/formik-integration).
 
 ## How to run
 
