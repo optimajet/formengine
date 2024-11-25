@@ -1,0 +1,90 @@
+{
+  "version": "1",
+  "errorType": "RsErrorMessage",
+  "form": {
+    "key": "Screen",
+    "type": "Screen",
+    "props": {},
+    "children": [
+      {
+        "key": "fullName",
+        "type": "RsInput",
+        "props": {
+          "label": {
+            "value": "Full name"
+          }
+        },
+        "schema": {
+          "validations": [
+            {
+              "key": "isFullName",
+              "type": "custom"
+            }
+          ]
+        }
+      },
+      {
+        "key": "checkinDate",
+        "type": "RsDatePicker",
+        "props": {
+          "label": {
+            "value": "Check-in date"
+          }
+        },
+        "schema": {
+          "validations": [
+            {
+              "key": "dateInTheFuture",
+              "type": "custom"
+            }
+          ]
+        }
+      },
+      {
+        "key": "guestCount",
+        "type": "RsNumberFormat",
+        "props": {
+          "label": {
+            "value": "Guest count"
+          }
+        },
+        "schema": {
+          "validations": [
+            {
+              "key": "checkGuestCount",
+              "type": "custom"
+            }
+          ]
+        }
+      },
+      {
+        "key": "rsButton1",
+        "type": "RsButton",
+        "props": {
+          "children": {
+            "value": "Send"
+          }
+        },
+        "events": {
+          "onClick": [
+            {
+              "name": "submitForm",
+              "type": "custom"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "localization": {},
+  "languages": [
+    {
+      "code": "en",
+      "dialect": "US",
+      "name": "English",
+      "description": "American English",
+      "bidi": "ltr"
+    }
+  ],
+  "defaultLanguage": "en-US"
+}
