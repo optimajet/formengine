@@ -1,0 +1,17 @@
+{
+    "name": "file-uploader-server",
+    "version": "1.0.0",
+    "description": "This project is a simple Node.js server built with `express`, `multer`, and `cors` to handle file uploads and serve static files.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "multer": "^1.4.5-lts.1"
+    }
+}
