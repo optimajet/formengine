@@ -16,7 +16,7 @@
     "@react-form-builder/designer": "^2.1.0",
     "@remix-run/node": "^2.14.0",
     "@remix-run/react": "^2.14.0",
-    "@remix-run/serve": "^2.14.0",
+    "@remix-run/serve": "^2.16.4",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -37,7 +37,7 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
-    "vite": "^5.4.15",
+    "vite": "^5.4.17",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {
