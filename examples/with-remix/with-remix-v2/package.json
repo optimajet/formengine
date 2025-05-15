@@ -1,6 +1,8 @@
 {
   "name": "formengine-with-remix-v2",
   "private": true,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -37,7 +39,7 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
-    "vite": "^5.4.18",
+    "vite": "^5.4.19",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {

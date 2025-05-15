@@ -3,6 +3,8 @@
   "description": "FormEngine with Next.js v15 example",
   "version": "0.1.0",
   "private": true,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
