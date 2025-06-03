@@ -1,14 +1,14 @@
 {
   "name": "formengine",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Example application",
   "author": "Optimajet",
   "homepage": "https://formengine.io/",
   "private": true,
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^4.1.0",
-    "@react-form-builder/core": "^4.1.0",
-    "@react-form-builder/designer": "^4.1.0",
+    "@react-form-builder/components-rsuite": "^4.2.0",
+    "@react-form-builder/core": "^4.2.0",
+    "@react-form-builder/designer": "^4.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
