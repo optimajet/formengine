@@ -131,7 +131,7 @@ Important: Some features and modules (e.g., Form Designer) are only available un
 
 ```bash
 npm install
-npm run start
+npm run dev
 ```
 
 ## Key Features

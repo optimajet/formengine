@@ -7,7 +7,6 @@ import {
   rtlCssLoader
 } from '@react-form-builder/components-rsuite'
 import {BiDi, createView, FormViewer} from '@react-form-builder/core'
-import React from 'react'
 import * as SampleForm from './SampleForm.json'
 
 const viewerComponents = rSuiteComponents.map(c => c.build().model)
