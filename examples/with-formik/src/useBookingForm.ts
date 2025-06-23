@@ -1,6 +1,6 @@
-import {useFormik} from 'formik';
-import {useMemo, useState} from 'react';
-import {FormikProps} from 'formik/dist/types';
+import {useFormik} from 'formik'
+import {useMemo, useState} from 'react'
+import {FormikProps} from 'formik/dist/types'
 
 export type BookingForm = Partial<{
   fullName: string,
@@ -11,13 +11,13 @@ export type BookingForm = Partial<{
 export type BookingFormErrors = Partial<Record<keyof BookingForm, string>>
 
 export const useBookingForm = (): [FormikProps<BookingForm>, BookingForm] => {
-  const [formData, setFormData] = useState<BookingForm>({});
+  const [formData, setFormData] = useState<BookingForm>({})
 
   const initialValues = useMemo<BookingForm>(() => ({
     fullName: '',
     guestCount: 1,
     checkinDate: new Date()
-  }), []);
+  }), [])
 
   const formik = useFormik<BookingForm>({
     initialValues,
@@ -38,11 +38,11 @@ export const useBookingForm = (): [FormikProps<BookingForm>, BookingForm] => {
     //     errors.guestCount = 'No guest entered.';
     //   }
     //
-      // return errors;
+    // return errors;
     // },
     onSubmit: (data) => {
-      setFormData(data);
-      console.log(data);
+      setFormData(data)
+      console.log(data)
     }
   })
 

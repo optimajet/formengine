@@ -1,0 +1,73 @@
+{
+  "default": {
+    "Breadcrumb": {
+      "expandText": "Прикажи пут"
+    },
+    "CloseButton": {
+      "closeLabel": "Затвори"
+    },
+    "DateRangePicker": {
+      "last7Days": "Последњих 7 дана"
+    },
+    "Pagination": {
+      "first": "Први",
+      "last": "Последњи",
+      "limit": "{{0}} / страна",
+      "more": "Више",
+      "next": "Следећи",
+      "prev": "Претходни",
+      "skip": "Иди на{{0}}",
+      "total": "Укупан број редова:{{0}}"
+    },
+    "Plaintext": {
+      "notSelected": "Није изабран",
+      "notUploaded": "Није учитан",
+      "unfilled": "Неиспуњен"
+    },
+    "Toggle": {
+      "off": "Затвори",
+      "on": "Отвори"
+    },
+    "Uploader": {
+      "complete": "Завршен",
+      "emptyFile": "Празно",
+      "error": "Грешка",
+      "inited": "Оригинални",
+      "progress": "Преузимање",
+      "removeFile": "Избришите датотеку",
+      "upload": "Преузимање"
+    },
+    "common": {
+      "clear": "Јасно",
+      "emptyMessage": "Подаци нису пронађени",
+      "loading": "Преузимање...",
+      "remove": "Избриши"
+    }
+  },
+  "genericCombobox": {
+    "checkAll": "Све",
+    "noResultsText": "Нису пронађени резултати",
+    "placeholder": "Изаберите",
+    "searchPlaceholder": "Претрага"
+  },
+  "genericCreatableComboBox": {
+    "createOption": "Креирајте опцију \"{{0}}\"",
+    "newItem": "Нова ставка"
+  },
+  "genericDateTimeFormats": {
+    "friday": "Фр",
+    "hours": "Сати",
+    "minutes": "Минута",
+    "monday": "Mo",
+    "now": "Сада",
+    "ok": "ОК",
+    "saturday": "Са",
+    "seconds": "Секунди",
+    "sunday": "Су",
+    "thursday": "Th",
+    "today": "Данас",
+    "tuesday": "Tu",
+    "wednesday": "Ми",
+    "yesterday": "Јуче"
+  }
+}

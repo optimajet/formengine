@@ -1,0 +1,296 @@
+.optimajet-formbuilder,
+.optimajet-formviewer,
+.rs-toast-provider,
+.rs-modal,
+.rs-tooltip,
+.rs-picker-menu,
+.rs-picker-popup,
+.rs-picker-popup-date,
+.rs-picker-select-menu,
+.rs-popover {
+  & *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  & *::-webkit-scrollbar-thumb {
+    background: rgb(179 179 179 / 60%);
+    border-radius: 4px;
+  }
+
+  & *::-webkit-scrollbar-thumb:hover {
+    background: rgb(179 179 179);
+  }
+
+  @-moz-document url-prefix() {
+    & * {
+      scrollbar-width: thin;
+    }
+  }
+
+  & * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  & *::before,
+  & *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  & a {
+    background-color: transparent;
+  }
+
+  & a:active,
+  & a:hover {
+    outline: 0;
+  }
+
+  & b,
+  & strong {
+    font-weight: bold;
+  }
+
+  & sub,
+  & sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  & sup {
+    top: -0.5em;
+  }
+
+  & sub {
+    bottom: -0.25em;
+  }
+
+  & img {
+    border: 0;
+  }
+
+  & svg:not(:root) {
+    overflow: hidden;
+  }
+
+  & hr {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+  }
+
+  & pre {
+    overflow: auto;
+  }
+
+  & button,
+  & select {
+    text-transform: none;
+  }
+
+  & button,
+  & html input[type='button'],
+  & input[type='reset'],
+  & input[type='submit'] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  & button[disabled],
+  & html input[disabled] {
+    cursor: not-allowed;
+  }
+
+  & input,
+  & textarea.rs-input {
+    font-family: inherit;
+    color: var(--rs-text-primary);
+  }
+
+  & input[type='checkbox'],
+  & input[type='radio'] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  & input[type='number']::-webkit-inner-spin-button,
+  & input[type='number']::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  & textarea {
+    overflow: auto;
+  }
+
+  & table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  & td,
+  & th {
+    padding: 0;
+  }
+
+  [tabindex='-1'] {
+    outline: none;
+  }
+
+  & input::-ms-clear {
+    display: none;
+  }
+
+  & input[type='file']::-webkit-file-upload-button,
+  & input[type='file']::-ms-browse {
+    border-width: 0;
+    background: transparent;
+    color: currentColor;
+  }
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Apple-System, Arial, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, STXihei, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-family: inherit;
+    font-weight: bolder;
+    color: inherit;
+    margin: 0;
+  }
+
+  & h1 small,
+  & h2 small,
+  & h3 small,
+  & h4 small,
+  & h5 small,
+  & h6 small {
+    font-weight: normal;
+    line-height: 1;
+    color: #c5c6c7;
+    color: var(--rs-text-disabled);
+  }
+
+  & h1 {
+    font-size: 46px;
+    line-height: 62px;
+  }
+
+  & h2 {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  & h3 {
+    font-size: 28px;
+    line-height: 42px;
+  }
+
+  & h4 {
+    font-size: 22px;
+    line-height: 34px;
+  }
+
+  & h5 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  & h6 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  & p {
+    margin: 0;
+  }
+
+  & p + p {
+    margin-top: 8px;
+  }
+
+  & small {
+    font-size: 85%;
+  }
+
+  & mark {
+    background-color: #fff9e6;
+    background-color: var(--rs-bg-warning);
+    padding: 0.2em;
+    font-weight: bolder;
+  }
+
+  & ul,
+  & ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  & ul ul,
+  & ol ul,
+  & ul ol,
+  ol ol {
+    margin-bottom: 0;
+  }
+
+  dl {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  dt,
+  dd {
+    line-height: 1.42857143;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  @font-face {
+    font-family: Apple-System;
+    src: local(-apple-system), local(BlinkMacSystemFont), local(system-ui);
+  }
+
+  & button::-moz-focus-inner,
+  & input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+.optimajet-formbuilder, .optimajet-formviewer {
+  .rs-nav button {
+    font-size: 14px;
+  }
+}
+
+.optimajet-formbuilder,
+.rs-toast-provider,
+.rs-modal,
+.rs-picker-popup,
+.rs-picker-popup-date,
+.rs-picker-menu {
+  background-color: var(--rs-body) !important;
+  color: var(--rs-text-primary) !important;
+}
+
+.rs-picker .rs-picker-clean.rs-btn-close {
+  color: var(--rs-text-secondary);
+}

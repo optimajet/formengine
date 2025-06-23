@@ -124,14 +124,28 @@ Important: Some features and modules (e.g., Form Designer) are only available un
       The package contains visual components based on <a href="https://www.npmjs.com/package/fast_qr">Fast QR</a>.
     </td>
   </tr>
+  <tr>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/components-signature">@react-form-builder/components-signature</a>
+    </td>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/components-signature">
+        <img alt="npm @react-form-builder/components-signature" src="https://img.shields.io/npm/v/@react-form-builder/components-fast-qr"></a>
+      <img alt="license @react-form-builder/components-signature" src="https://img.shields.io/npm/l/@react-form-builder/components-fast-qr">
+    </td>
+    <td>
+      The package contains visual components based on <a href="https://www.npmjs.com/package/signature_pad">SignaturePad</a>.
+    </td>
+  </tr>
   </tbody>
 </table>
 
 ## How to start
 
 ```bash
+cd formengine
 npm install
-npm run dev
+npm run start
 ```
 
 ## Key Features

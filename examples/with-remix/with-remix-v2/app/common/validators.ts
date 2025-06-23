@@ -37,7 +37,7 @@ export const customValidators: Validators = {
         today.setHours(0, 0, 0, 0)
         date.setHours(0, 0, 0, 0)
 
-        if(+date >= +today) return true
+        if (+date >= +today) return true
 
         return 'Please select valid date'
       }

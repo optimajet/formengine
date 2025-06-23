@@ -1,0 +1,286 @@
+import type {CSSObject} from '@emotion/serialize'
+import type {ComponentType, ReactNode} from 'react'
+import {ComponentStore} from '../../../stores/ComponentStore'
+import {commonStyles, getDefault, getDefaultCss} from '../../annotation'
+import {toArray} from '../../annotation/toArray'
+import {toStyleProperties} from '../../annotation/toStyleProperties'
+import type {Annotations} from '../../annotation/utils/builders/Annotations'
+import {modules} from '../constants'
+import type {ActionsInitializer, ComponentKind} from '../types'
+import type {BuilderComponent} from './BuilderComponent'
+import type {ComponentMetadataEventListeners} from './ComponentMetadataEventListeners'
+import type {ComponentPropertyBindType} from './ComponentPropertyBindType'
+import type {InsertRestrictionFn} from './InsertRestrictionFn'
+import {Meta} from './Meta'
+import {Model} from './Model'
+
+/**
+ * Definer class data.
+ * @template T React component property type.
+ */
+export type DefinerData<T extends object> = {
+  /**
+   * The React component.
+   */
+  readonly component: ComponentType<T>,
+  /**
+   * The component name.
+   */
+  name?: string,
+  /**
+   * The component kind.
+   */
+  kind?: ComponentKind,
+  /**
+   * The component category.
+   */
+  category?: string,
+  /**
+   * The CSS metadata.
+   */
+  cssObject?: Annotations<CSSObject>,
+  /**
+   * The component icon.
+   */
+  icon?: ComponentType,
+  /**
+   * The function that initializes an actions on a component (for internal use only).
+   */
+  readonly actionsInitializer?: ActionsInitializer,
+  /**
+   * The property metadata.
+   */
+  properties?: Annotations<T>,
+  /**
+   * The custom component to display in the component list (unused).
+   */
+  customPreview?: ReactNode,
+  /**
+   * The JSON source for the component (instance of {@link ComponentStore} class serialised to JSON).
+   */
+  initialJson?: string
+  /**
+   * The component metadata event listeners.
+   */
+  eventListeners?: ComponentMetadataEventListeners
+  /**
+   * The function that restricts the insertion of a component into another component.
+   */
+  insertRestriction?: InsertRestrictionFn
+}
+
+/**
+ * The builder class to define the metadata of the form builder component.
+ * @template T React component property type.
+ */
+export class Definer<T extends object> {
+  /**
+   * Definer class data.
+   * @template T React component property type.
+   */
+  data: DefinerData<T>
+
+  /**
+   * Static method to create an instance of the component's metadata builder class.
+   * @param component the React component.
+   * @param displayName the display name for the anonymous component.
+   * @returns the instance of the {@link Definer} class.
+   */
+  static define<T extends object>(component: ComponentType<T>, displayName?: string) {
+    const name = displayName ?? component.displayName ?? component.name
+    if (!name) throw Error('Anonymous components are not allowed!')
+    const definer = new Definer<T>(component)
+    if (displayName) definer.type(displayName)
+    return definer
+  }
+
+  /**
+   * Static method to create an instance of the preset component's metadata builder class.
+   * @param name the preset name.
+   * @param components the components of the preset.
+   * @returns the instance of the {@link Definer} class.
+   */
+  static definePreset(name: string, components: ComponentStore[]) {
+    if (!name) throw Error('Anonymous components are not allowed!')
+    const PresetComponent = () => null
+    const definer = new Definer(PresetComponent)
+      .kind('preset')
+      .type(name)
+      .name(name)
+
+    const source = new ComponentStore('', name)
+    source.children = components
+    return definer.initialJson(JSON.stringify(source))
+  }
+
+  private constructor(component: ComponentType<T>) {
+    this.data = {component}
+  }
+
+  /**
+   * Sets the name of the component.
+   * @param name the component name.
+   * @returns the modified Definer class instance.
+   */
+  name = (name: string) => this.#updateWith({name})
+
+  /**
+   * Sets the kind of the component.
+   * @param kind the component kind.
+   * @returns the modified Definer class instance.
+   */
+  kind = (kind: ComponentKind) => this.#updateWith({kind})
+
+  /**
+   * Sets the icon of the component.
+   * @param icon the component icon.
+   * @returns the modified Definer class instance.
+   */
+  icon = (icon: ComponentType) => this.#updateWith({icon})
+
+  /**
+   * Sets the category of the component.
+   * @param category the component category.
+   * @returns the modified Definer class instance.
+   */
+  category = (category: string) => this.#updateWith({category})
+
+  /**
+   * Sets the type of the component.
+   * @param type the component type.
+   * @returns the modified Definer class instance.
+   */
+  type = (type: string) => {
+    this.data.component.displayName = type
+    return this
+  }
+
+  /**
+   * Sets the metadata of the component's properties.
+   * @param properties the metadata of the component's properties.
+   * @returns the modified Definer class instance.
+   */
+  props = (properties: Annotations<T>) => this.#updateWith({properties})
+
+  /**
+   * Sets the component CSS metadata.
+   * @param css the component CSS metadata.
+   * @returns the modified Definer class instance.
+   */
+  css = (css: Annotations<CSSObject>): Definer<T> => this.#updateWith({cssObject: css})
+
+  /**
+   * Adds the metadata of the component's actions. **Internal use only.**
+   * @param fn the function that initializes an actions on a component.
+   * @returns the modified Definer class instance.
+   */
+  actions = (fn: ActionsInitializer) => this.#updateWith({actionsInitializer: fn})
+
+  /**
+   * Adds the custom component to be displayed in the component list. **Internal use only.**
+   * @param customPreview the custom component.
+   * @returns the modified Definer class instance.
+   */
+  preview = (customPreview: ReactNode) => this.#updateWith({customPreview})
+
+  /**
+   * @returns the component type name.
+   */
+  getType(): string {
+    return this.data.component.displayName || this.data.component.name
+  }
+
+  /**
+   * Sets initial component JSON.
+   * @param initialJson the JSON source for the component (instance of {@link ComponentStore} class serialised to JSON).
+   * @returns the modified Definer class instance.
+   */
+  initialJson = (initialJson?: string) => this.#updateWith({initialJson})
+
+  /**
+   * Sets the component metadata event listeners.
+   * @param eventListeners the component metadata event listeners.
+   * @returns the modified Definer class instance.
+   */
+  eventListeners = (eventListeners?: ComponentMetadataEventListeners) => this.#updateWith({eventListeners})
+
+  /**
+   * Sets the function that restricts the insertion of a component into another component.
+   * @param insertRestriction the function that restricts the insertion of a component into another component.
+   * @returns the modified Definer class instance.
+   */
+  insertRestriction = (insertRestriction?: InsertRestrictionFn) => {
+    return this.#updateWith({insertRestriction})
+  }
+
+  /**
+   * Creates component metadata for the form builder and form viewer.
+   * @returns component metadata for the form builder and form viewer.
+   */
+  build(): BuilderComponent {
+    const propAns = toArray(this.data.properties)
+    const cssAns = toStyleProperties(this.data.cssObject)
+    const cssWrapperAns = toStyleProperties(commonStyles)
+    const valuedAnnotations = propAns.filter(an => an.valued === true)
+    const firstValuedAn = valuedAnnotations[0]
+    if (valuedAnnotations.length > 1) {
+      console.warn('Several annotations with the "valued" property were found.' +
+        ' There should be only one "valued" property in the component description!' +
+        ` The annotation with the key "${valuedAnnotations[0].key}" will be used.`)
+    }
+    const valuedAn = firstValuedAn ?? propAns.find(an => an.name === 'value')
+    const readOnlyAn = propAns.find(an => an.readOnly)
+    const disabledAn = propAns.find(an => an.disabled)
+    const propsBindingTypes = propAns.reduce((props, an) => {
+      if (an.bindingType) props[an.key] = an.bindingType
+      return props
+    }, {} as Record<string, ComponentPropertyBindType>)
+
+    const model = new Model(
+      this.data.component,
+      this.data.name || this.getType(),
+      this.data.actionsInitializer,
+      valuedAn?.key,
+      valuedAn?.type,
+      getDefault(propAns),
+      getDefaultCss(cssAns),
+      getDefaultCss(cssWrapperAns),
+      this.getType(),
+      this.data.kind,
+      readOnlyAn?.key,
+      propsBindingTypes,
+      valuedAn?.uncontrolledValue,
+      disabledAn?.key
+    )
+
+    const meta = new Meta(
+      this.getType(),
+      propAns,
+      cssAns,
+      cssWrapperAns,
+      modules,
+      this.data.customPreview,
+      valuedAn,
+      this.data.kind,
+      this.data.initialJson,
+      this.data.eventListeners,
+      this.data.icon,
+      this.data.insertRestriction
+    )
+
+    return {model, meta, category: this.data.category} as const
+  }
+
+  /**
+   * Modifies the component's metadata builder with custom options.
+   * @param opts the custom options.
+   * @returns the modified instance of the builder.
+   */
+  #updateWith(opts: Partial<DefinerData<T>>): Definer<T> {
+    Object.assign(this.data, opts)
+    return this
+  }
+}
+
+export const define = Definer.define
+export const definePreset = Definer.definePreset

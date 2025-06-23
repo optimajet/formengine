@@ -1,0 +1,10 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./src/index.ts"
+  ],
+  "disableSources": true,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "readme": "none"
+}

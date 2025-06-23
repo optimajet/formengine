@@ -8,7 +8,7 @@ import {
 import {ActionDefinition, BiDi, ComponentData, IFormData, RuleValidatorResult, Validators} from '@react-form-builder/core'
 import {BuilderView, FormBuilder, IFormStorage} from '@react-form-builder/designer'
 import debounce from 'lodash/debounce'
-import React, {useMemo} from 'react'
+import {useMemo} from 'react'
 import {Schema} from 'yup'
 import form from './form.json'
 import {useBookingForm} from './useBookingForm'

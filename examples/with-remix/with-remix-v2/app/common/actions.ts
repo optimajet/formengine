@@ -13,5 +13,5 @@ export const actions = {
       console.error(e.store.formData.errors)
     }
   })
-};
+}
 

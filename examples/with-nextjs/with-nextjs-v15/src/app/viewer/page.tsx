@@ -44,7 +44,7 @@ const view = createView(viewerComponents)
 const ViewerWrap = ({children}: { children: ReactNode }) => (
   <MessageProvider>
     {children}
-    <Message />
+    <Message/>
   </MessageProvider>
 )
 
@@ -72,7 +72,7 @@ const Viewer = () => {
         open(message)
       }
     })
-  }), [])
+  }), [open, setOpen])
 
   return (
     <FormViewer

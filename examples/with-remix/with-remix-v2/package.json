@@ -1,8 +1,11 @@
 {
   "name": "formengine-with-remix-v2",
-  "private": true,
+  "description": "FormEngine with Remix v2 example",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": false,
   "author": "Optimajet",
-  "homepage": "https://formengine.io/",
+  "homepage": "https://github.com/optimajet/formengine",
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -13,9 +16,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^2.1.0",
-    "@react-form-builder/core": "^2.1.0",
-    "@react-form-builder/designer": "^2.1.0",
+    "@react-form-builder/components-rsuite": "^5.0.0",
+    "@react-form-builder/core": "^5.0.0",
+    "@react-form-builder/designer": "^5.0.0",
     "@remix-run/node": "^2.14.0",
     "@remix-run/react": "^2.14.0",
     "@remix-run/serve": "^2.16.4",
@@ -38,7 +41,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.1.6",
+    "typescript": "5.1.6",
     "vite": "^5.4.19",
     "vite-tsconfig-paths": "^4.2.1"
   },

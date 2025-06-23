@@ -1,20 +1,19 @@
 'use client'
 
-import {
-  formEngineRsuiteCssLoader,
-  ltrCssLoader,
-  RsLocalizationWrapper,
-  rSuiteComponents,
-  rsErrorMessage,
-  rtlCssLoader,
-  rsTooltip
-} from '@react-form-builder/components-rsuite'
-import {BiDi, BuilderView} from '@react-form-builder/core'
-import {IFormStorage} from '@react-form-builder/designer'
-
 import {actions} from '@/app/common/actions'
 import form from '@/app/common/form.json'
 import {customValidators} from '@/app/common/validators'
+import {
+  formEngineRsuiteCssLoader,
+  ltrCssLoader,
+  rsErrorMessage,
+  RsLocalizationWrapper,
+  rsTooltip,
+  rSuiteComponents,
+  rtlCssLoader
+} from '@react-form-builder/components-rsuite'
+import {BiDi, BuilderView} from '@react-form-builder/core'
+import {IFormStorage} from '@react-form-builder/designer'
 import dynamic from 'next/dynamic'
 
 const FormBuilder = dynamic(() => import('@react-form-builder/designer').then((mod) => mod.FormBuilder), {
@@ -54,13 +53,13 @@ const customization = {
 
 export default function Builder() {
   return (
-      <FormBuilder
-        view={view}
-        actions={actions}
-        formName={formName}
-        getForm={loadForm}
-        validators={customValidators}
-        customization={customization}
-      />
+    <FormBuilder
+      view={view}
+      actions={actions}
+      formName={formName}
+      getForm={loadForm}
+      validators={customValidators}
+      customization={customization}
+    />
   )
 }

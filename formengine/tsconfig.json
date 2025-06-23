@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "target": "ES2021",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "declarationMap": true,
+    "outDir": "dist",
+    "types": [
+      "vite/client",
+      "vitest/globals"
+    ],
+    "jsxImportSource": "@emotion/react",
+    "noUnusedLocals": true
+  },
+  "include": [
+    "types",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "scripts/**/*.js"
+  ],
+  "exclude": [
+    "examples",
+    "node_modules",
+    "sample-apps",
+    "documentation",
+    "examples",
+    "packages/core/dist",
+    "packages/designer/dist",
+    "packages/views/fast-qr/dist",
+    "packages/views/rsuite/dist",
+    "packages/views/signature/dist"
+  ]
+}

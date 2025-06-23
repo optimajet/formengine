@@ -23,7 +23,15 @@ module.exports = {
 
   // Base config
   extends: ["eslint:recommended"],
-
+  rules: {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  },
   overrides: [
     // React
     {
@@ -41,8 +49,8 @@ module.exports = {
         },
         formComponents: ["Form"],
         linkComponents: [
-          { name: "Link", linkAttribute: "to" },
-          { name: "NavLink", linkAttribute: "to" },
+          {name: "Link", linkAttribute: "to"},
+          {name: "NavLink", linkAttribute: "to"},
         ],
         "import/resolver": {
           typescript: {},

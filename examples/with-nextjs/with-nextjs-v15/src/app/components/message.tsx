@@ -37,34 +37,37 @@ interface MessageContext {
 }
 
 const MessageContext = createContext<MessageContext>({
-  open: (_: string) => {},
-  close: () => {},
+  open: (_: string) => {
+  },
+  close: () => {
+  },
   isOpen: false,
-  setOpen: (_: boolean) => {},
+  setOpen: (_: boolean) => {
+  },
   message: ''
-});
+})
 
-export const MessageProvider = ({ children }: {children: ReactNode}) => {
-    const {isOpen, close, setOpen} = useToggle()
-    const [message, setMessage] = useState<string>('')
+export const MessageProvider = ({children}: { children: ReactNode }) => {
+  const {isOpen, close, setOpen} = useToggle()
+  const [message, setMessage] = useState<string>('')
 
-    const openDialog = useCallback((msg: string) => {
-      setMessage(msg)
-      setOpen(true)
-    }, [])
+  const openDialog = useCallback((msg: string) => {
+    setMessage(msg)
+    setOpen(true)
+  }, [setOpen])
 
-    const contextValue = useMemo(() => ({
-      setOpen, isOpen, open: openDialog, close, message
-    }), [isOpen, setOpen, openDialog, close, message])
+  const contextValue = useMemo(() => ({
+    setOpen, isOpen, open: openDialog, close, message
+  }), [isOpen, setOpen, openDialog, close, message])
 
-    return (
-        <MessageContext.Provider value={contextValue}>
-            {children}
-        </MessageContext.Provider>
-    );
-};
+  return (
+    <MessageContext.Provider value={contextValue}>
+      {children}
+    </MessageContext.Provider>
+  )
+}
 
-export const useMessage = (): MessageContext => useContext(MessageContext);
+export const useMessage = (): MessageContext => useContext(MessageContext)
 
 export const Message = ({open: propsOpen = false}: {
   open?: boolean
@@ -73,7 +76,7 @@ export const Message = ({open: propsOpen = false}: {
 
   useEffect(() => {
     setOpen(propsOpen)
-  }, [propsOpen])
+  }, [propsOpen, setOpen])
 
   return <dialog className={styles.dialog} open={isOpen}>
     <p dangerouslySetInnerHTML={{__html: message}}/>

@@ -1,11 +1,11 @@
-import type { MetaFunction } from "@remix-run/node";
+import type {MetaFunction} from '@remix-run/node'
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "FormEngine with Remix" },
-    { name: "description", content: "Welcome to FormEngine!" },
-  ];
-};
+    {title: 'FormEngine with Remix'},
+    {name: 'description', content: 'Welcome to FormEngine!'},
+  ]
+}
 
 export default function Index() {
   return (
@@ -60,7 +60,7 @@ export default function Index() {
         </nav>
       </div>
     </div>
-  );
+  )
 }
 
 const resources = [
@@ -104,4 +104,4 @@ const resources = [
       </svg>
     ),
   },
-];
+]

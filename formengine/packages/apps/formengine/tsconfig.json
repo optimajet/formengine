@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "target": "ES2021",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "declarationMap": true,
+    "outDir": "dist",
+    "types": [
+      "vite/client",
+      "vitest/globals"
+    ],
+    "jsxImportSource": "@emotion/react",
+    "noUnusedLocals": true
+  },
+  "include": [
+    "src",
+    "vite.config.ts"
+  ]
+}
