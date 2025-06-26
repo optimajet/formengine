@@ -1,0 +1,35 @@
+{
+  "name": "formengine-nextjs-v15",
+  "description": "FormEngine with Next.js v15 example",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": false,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-form-builder/components-rsuite": "^5.0.1",
+    "@react-form-builder/core": "^5.0.1",
+    "@react-form-builder/designer": "^5.0.1",
+    "next": "15.3.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.1",
+    "typescript": "^5"
+  }
+}

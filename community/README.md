@@ -1,8 +1,6 @@
-# Optimajet FormEngine Community and FormEngine Premium repository
+# Optimajet FormEngine Community
 
 ## Overview
-
-This repository contains two products in the **FormEngine** suite.
 
 **FormEngine Community**
 A free,
@@ -10,14 +8,7 @@ open-source solution for building forms in React with code that is straightforwa
 Similar to React Hook Form, it lowers the entry barrier for creating complex React forms while offering more features out of the box,
 including event handling, computed fields, validation, localization, and a ready-to-use component library.
 
-**FormEngine Premium**
-A commercial drag-and-drop form builder for React that includes everything in **FormEngine Community**,
-plus an embeddable visual form editor and a set of business-specific components.
-Build front-end forms visually to cut costs and speed up development.
-
 ## Key Features
-
-These features apply to both products.
 
 - **UI-Agnostic Components:** Works seamlessly with any UI
   library ([MUI](https://mui.com/), [Ant Design](https://ant.design/), [shadcn/ui](https://ui.shadcn.com/)
@@ -45,25 +36,64 @@ These features apply to both products.
 
 [Documentation website](https://formengine.io/documentation)
 
-## Repository structure
+## How to start
 
-- **community**: source code and examples for **FormEngine Community** product (MIT license).
-- **premium**: examples for **FormEngine Premium** product (commercial license).
+```bash
+git clone git@github.com:optimajet/formengine.git
+cd formengine/community/src
+npm install
+npm run start
+```
+
+## FormEngine Community packages
+
+<table>
+  <thead>
+  <tr>
+    <th>Package</th>
+    <th>Badges</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/core">@react-form-builder/core</a>
+    </td>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/core">
+        <img alt="npm @react-form-builder/core" src="https://img.shields.io/npm/v/@react-form-builder/core"></a>
+      <img alt="license @react-form-builder/core" src="https://img.shields.io/npm/l/@react-form-builder/core">
+    </td>
+    <td>The main package responsible for rendering forms.</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/components-rsuite">@react-form-builder/components-rsuite</a>
+    </td>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/components-rsuite">
+        <img alt="npm @react-form-builder/components-rsuite" src="https://img.shields.io/npm/v/@react-form-builder/components-rsuite"></a>
+      <img alt="license @react-form-builder/components-rsuite" src="https://img.shields.io/npm/l/@react-form-builder/components-rsuite">
+    </td>
+    <td>The package with visual components based on <a href="https://rsuitejs.com/">React Suite</a>.</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/viewer-bundle">@react-form-builder/viewer-bundle</a>
+    </td>
+    <td>
+      <a href="https://www.npmjs.com/package/@react-form-builder/viewer-bundle">
+        <img alt="npm @react-form-builder/viewer-bundle" src="https://img.shields.io/npm/v/@react-form-builder/viewer-bundle"></a>
+      <img alt="license @react-form-builder/viewer-bundle" src="https://img.shields.io/npm/l/@react-form-builder/viewer-bundle">
+    </td>
+    <td>The <code>@react-form-builder/core</code> and <code>@react-form-builder/components-rsuite</code> packages built for use on an HTML
+      page without React.
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 ## Screenshots
 
-### Form Engine Community
-
-[![Form Engine Community](./screenshots/viewer.png "Form Engine Community")](https://demo.formengine.io)
-
-### Form Engine Premium
-
-[![Form Engine Premium](./screenshots/builder.png "Form Engine Premium")](https://demo.formengine.io)
-
-## Information
-
-- Website: [formengine.io](https://formengine.io).
-- Demo: [demo.formengine.io](https://demo.formengine.io).
-- Documentation: [formengine.io/documentation](https://formengine.io/documentation).
-
-For FormEngine Premium inquiries, please contact [sales@optimajet.com](mailto:sales@optimajet.com).
+[![Form Engine Community](./../screenshots/viewer.png "Form Engine Community")](https://demo.formengine.io)

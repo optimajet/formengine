@@ -1,0 +1,33 @@
+{
+  "name": "@react-form-builder/example-viewer",
+  "version": "5.0.1",
+  "license": "MIT",
+  "private": true,
+  "main": "src/index.tsx",
+  "type": "module",
+  "description": "OptimaJet Form Viewer Application",
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "bugs": {
+    "email": "support@optimajet.com"
+  },
+  "scripts": {
+    "build": "vite build",
+    "start": "vite -c ../../../vite.config.ts --open",
+    "dev": "vite -c ../../../vite.config.ts"
+  },
+  "dependencies": {
+    "@react-form-builder/components-rsuite": "^5.0.1",
+    "@react-form-builder/core": "^5.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.83",
+    "@types/react-dom": "^17.0.26"
+  }
+}

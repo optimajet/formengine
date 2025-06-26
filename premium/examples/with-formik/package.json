@@ -1,0 +1,35 @@
+{
+  "name": "with-formik",
+  "description": "FormEngine with Formik example",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": false,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview"
+  },
+  "dependencies": {
+    "@react-form-builder/components-rsuite": "^5.0.1",
+    "@react-form-builder/core": "^5.0.1",
+    "@react-form-builder/designer": "^5.0.1",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "formik": "^2.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vite": "^6.3.5",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "vite-plugin-svgr": "^4.3.0"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "name": "@react-form-builder/core",
+  "description": "React hook form alternative.",
+  "version": "5.0.1",
+  "license": "MIT",
+  "private": false,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "main": "src/index.ts",
+  "type": "module",
+  "keywords": [
+    "react",
+    "form",
+    "forms",
+    "form-validation",
+    "validation",
+    "formengine",
+    "form-library",
+    "react-component",
+    "react-dom",
+    "hooks",
+    "render props",
+    "validation",
+    "react-component",
+    "schema",
+    "form-builder",
+    "optimajet",
+    "react-hook-form",
+    "react hook form alternative",
+    "react form validation",
+    "react form library"
+  ],
+  "bugs": {
+    "email": "support@optimajet.com"
+  },
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf dist temp",
+    "bundle": "npm-run-all -l clean build create-archive",
+    "create-archive": "node ./config/pack"
+  },
+  "dependencies": {
+    "@fluent/bundle": "^0.18.0",
+    "lodash-es": "^4.17.21",
+    "zod": "^3.22.4"
+  },
+  "peerDependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "mobx": "^6.13.5",
+    "mobx-react": "^9.2.0",
+    "react": ">=17.0.2 || ^18 || ^19",
+    "rxjs": "^7.8.0",
+    "stylis-plugin-rtl": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.7"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "files": [
+    "dist/index.js.map",
+    "dist/index.js",
+    "dist/index.d.ts",
+    "README.md",
+    "LICENSE"
+  ]
+}

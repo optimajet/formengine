@@ -1,0 +1,23 @@
+{
+  "name": "file-uploader-server",
+  "description": "This project is a simple Node.js server built with `express`, `multer`, and `cors` to handle file uploads and serve static files.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": false,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "multer": "^2.0.1"
+  }
+}

@@ -1,0 +1,22 @@
+*.tgz
+build/
+dist/
+coverage/
+.swc/
+node_modules/
+.idea/
+.archives/
+
+# Folder config file
+Desktop.ini
+
+# Mac desktop service store files
+.DS_Store
+
+# Test reports
+src/tests/e2e/playwright-report
+src/tests/e2e/reports
+src/tests/module/reports
+src/tests/react-17/reports
+src/tests/react-18/reports
+src/tests/react-19/reports
