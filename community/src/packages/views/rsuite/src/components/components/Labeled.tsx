@@ -39,7 +39,7 @@ interface LabeledProps extends ComponentProps<any> {
  */
 export const RawLabeled = ({label, children, ...props}: LabeledProps) => {
   const {id} = useComponentData()
-  const aria = useAriaAttributes()
+  const aria = useAriaAttributes({labeled: !!label})
   return <Container {...props} role="group">
     {label && <label id={aria['aria-labelledby']} htmlFor={id}>{label}</label>}
     {cloneElement(children, {id, ...aria})}

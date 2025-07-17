@@ -297,7 +297,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
 
   private createField(componentData: ComponentData, deferFieldCalculation: boolean) {
     const {model, store: componentStore} = componentData
-    if (!model.valued) return
+    if (!model.valued || model.dataBindingType !== 'twoWay') return
 
     const calculateValue: CalculatePropertyFn = (component: ComponentStore, key: string) => {
       return this.calculateProperty(componentData, component, key)

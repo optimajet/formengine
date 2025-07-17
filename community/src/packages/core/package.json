@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/core",
   "description": "React hook form alternative.",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",

@@ -13,6 +13,7 @@ import {FormViewer} from '../form-viewer'
 import {useViewerProps} from '../form-viewer/components/ViewerPropsContext'
 import {generateTemplateTypeName, getTemplateName} from '../ui/templateUtil'
 import {TemplateField} from '../validation/utils/TemplateField'
+import type {TemplateProps} from './TemplateProps'
 
 const templateLoadErrorStyle: CSSProperties = {
   fontSize: 'xx-large',
@@ -39,12 +40,13 @@ export const [
    */
   TemplateProvider] = createNonNullableContext<TemplateContext>('TemplateContext')
 
-const Template = (templateProps: Record<string, any>) => {
+const Template = (templateProps: TemplateProps) => {
   const viewerProps = useViewerProps()
   const data = useComponentData()
   const templateViewerProps = useMemo(() => {
     const overrideProps: Partial<FormViewerProps> = {
       formName: getTemplateName(data.store.type),
+      formOptions: templateProps.options,
       onFormDataChange: undefined,
       formValidators: undefined,
       disabled: templateProps.disabled,

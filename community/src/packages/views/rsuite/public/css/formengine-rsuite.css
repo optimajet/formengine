@@ -289,6 +289,10 @@
 .rs-picker-menu {
   background-color: var(--rs-body) !important;
   color: var(--rs-text-primary) !important;
+
+  & .valueModified {
+    color: var(--rs-text-active);
+  }
 }
 
 .rs-picker .rs-picker-clean.rs-btn-close {

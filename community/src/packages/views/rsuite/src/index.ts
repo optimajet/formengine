@@ -1,5 +1,6 @@
 import type {Definer} from '@react-form-builder/core'
 import {BiDi, BuilderView, createView} from '@react-form-builder/core'
+import {rsAutoComplete} from './components/RsAutocomplete'
 import {rsBreadcrumb} from './components/RsBreadcrumb'
 import {rsButton} from './components/RsButton'
 import {rsCalendar} from './components/RsCalendar'
@@ -47,6 +48,7 @@ import {formEngineRsuiteCssLoader, ltrCssLoader, rtlCssLoader} from './cssLoader
 
 const categories = {
   fields: [
+    rsAutoComplete,
     rsCalendar,
     rsCheckbox,
     rsDatePicker,
@@ -155,4 +157,3 @@ export const builderViewWithCss = new BuilderView(components)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
   .withCssLoader('common', formEngineRsuiteCssLoader)
-

@@ -1,7 +1,7 @@
 import {cx} from '@emotion/css'
 import styled from '@emotion/styled'
 import type {ErrorWrapperProps} from '@react-form-builder/core'
-import {define, string, useAriaAttributesIds} from '@react-form-builder/core'
+import {define, string, useAriaErrorMessage} from '@react-form-builder/core'
 import {Form} from 'rsuite'
 import type {TypeAttributes} from 'rsuite/esm/internals/types'
 import {placement} from '../commonProperties'
@@ -25,7 +25,7 @@ export interface RsErrorMessageProps extends ErrorWrapperProps {
 
 const RsErrorMessage = ({error, children, placement, className}: RsErrorMessageProps) => {
   const divClassName = error ? 'rs-form-control-wrapper' : undefined
-  const aria = useAriaAttributesIds()
+  const aria = useAriaErrorMessage()
 
   return <SDiv className={cx(className, divClassName)}>
     {children}

@@ -17,14 +17,22 @@ export interface FormViewerProps {
   /**
    * Loads the form.
    * @param name the form name.
+   * @param options the form options.
    * @returns the string or Promise with the form.
    */
-  getForm?: (name?: string) => string | Promise<string>
+  getForm?: (name?: string, options?: any) => string | Promise<string>
 
   /**
    * The form name.
+   * Updating the value triggers the {@link FormViewerProps.getForm} function.
    */
   formName?: string
+
+  /**
+   * The form options. Used to transfer any options to the {@link FormViewerProps.getForm} function.
+   * Updating the value triggers the {@link FormViewerProps.getForm} function.
+   */
+  formOptions?: any
 
   /**
    * All the metadata of the components of the form viewer.

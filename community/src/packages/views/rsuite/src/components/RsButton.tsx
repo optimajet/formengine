@@ -9,7 +9,7 @@ export const rsButton = define(Button, 'RsButton')
     appearance: oneOf('default', 'primary', 'link', 'subtle', 'ghost')
       .default('default')
       .hinted('A button can have different appearances'),
-    children: string.required.named('Content').default('Button'),
+    children: string.required.named('Content').default('Button').dataBound,
     color: controlColor,
     disabled: disabled.hinted('A button can show it is currently unable to be interacted with').default(false),
     readOnly,

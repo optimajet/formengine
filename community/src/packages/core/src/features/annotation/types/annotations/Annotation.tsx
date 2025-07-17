@@ -1,5 +1,6 @@
 import type {ReactNode} from 'react'
 import type {ComponentPropertyBindType} from '../../../define/utils/ComponentPropertyBindType'
+import type {DataBindingType} from '../../../define/utils/DataBindingType'
 import type {RuleValidator, SchemaType} from '../../../validation'
 import type {ErrorMap} from '../../../validation/ErrorMap'
 import type {EditorType} from './EditorType'
@@ -38,6 +39,11 @@ export class Annotation {
    * True if the property value is bound to form data, false otherwise.
    */
   readonly valued: boolean = false
+
+  /**
+   * The type of component data binding.
+   */
+  readonly dataBindingType: DataBindingType = 'none'
 
   /**
    * True if the property value controls a read-only flag, false otherwise.

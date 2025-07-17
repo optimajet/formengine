@@ -1,3 +1,6 @@
+import type {ComponentProperty} from '../../stores/ComponentStore'
+import type {LocalizationValue} from '../../stores/LocalizationStore'
+import type {LanguageFullCode} from '../localization/types'
 import type {Device, FormOptions, IComponentBuilder, IEventHandlerBuilder, IFormJsonBuilder, IValidationBuilder} from './types'
 
 type Event = {
@@ -11,7 +14,22 @@ type Validation = {
   args?: any
 }
 
-type Props = Record<string, { value: any }>
+type SimplePropValue = {
+  value: any
+}
+
+type LocalizedPropValue = {
+  values: Record<LanguageFullCode, any>
+  localized: boolean
+}
+
+type ComputedPropValue = {
+  fnSource: string
+}
+
+type PropValue = SimplePropValue | LocalizedPropValue | ComputedPropValue
+
+type Props = Record<string, PropValue>
 
 type Css = {
   [device in Device]?: {
@@ -40,12 +58,28 @@ type FormRoot = {
   form: Form
 }
 
+type LocalizedForm = FormRoot & {
+  localization?: LocalizationValue
+  languages?: Array<{
+    code: string
+    dialect: string
+  }>
+}
+
 interface INeedFinalize {
   finalize(): IComponentBuilder
 }
 
+function isComputedProp(value: any): value is ComputedPropValue {
+  return !!(value?.['fnSource'])
+}
+
+function isLocalizedProp(value: any): value is LocalizedPropValue {
+  return value?.['localized'] === true
+}
+
 function isNeedFinalize(obj: any): obj is INeedFinalize {
-  return typeof obj?.finalize === 'function';
+  return typeof obj?.finalize === 'function'
 }
 
 class EventHandlerBuilder implements IEventHandlerBuilder, INeedFinalize {
@@ -86,6 +120,18 @@ class EventHandlerBuilder implements IEventHandlerBuilder, INeedFinalize {
    * @inheritDoc
    */
   prop = (key: string, value: any): IComponentBuilder => this.finalize().prop(key, value)
+
+  /**
+   * @inheritDoc
+   */
+  localizedProp = (key: string, language: LanguageFullCode, value: any): IComponentBuilder => {
+    return this.finalize().localizedProp(key, language, value)
+  }
+
+  /**
+   * @inheritDoc
+   */
+  computedProp = (key: string, value: string): IComponentBuilder => this.finalize().computedProp(key, value)
 
   /**
    * @inheritDoc
@@ -154,6 +200,18 @@ class ValidationBuilder implements IValidationBuilder, INeedFinalize {
   /**
    * @inheritDoc
    */
+  localizedProp = (key: string, language: LanguageFullCode, value: any): IComponentBuilder => {
+    return this.finalize().localizedProp(key, language, value)
+  }
+
+  /**
+   * @inheritDoc
+   */
+  computedProp = (key: string, value: string): IComponentBuilder => this.finalize().computedProp(key, value)
+
+  /**
+   * @inheritDoc
+   */
   validation = (key: string) => this.finalize().validation(key)
 
   /**
@@ -202,6 +260,27 @@ class ComponentBuilder implements IComponentBuilder {
    */
   prop(key: string, value: any): IComponentBuilder {
     this.props[key] = {value}
+    return this
+  }
+
+  /**
+   * @inheritDoc
+   */
+  localizedProp(key: string, language: LanguageFullCode, value: any): IComponentBuilder {
+    const prop = this.props[key]
+    if (isLocalizedProp(prop)) {
+      prop.values[language] = value
+    } else {
+      this.props[key] = {localized: true, values: {[language]: value}}
+    }
+    return this
+  }
+
+  /**
+   * @inheritDoc
+   */
+  computedProp(key: string, value: string): IComponentBuilder {
+    this.props[key] = {fnSource: value}
     return this
   }
 
@@ -304,7 +383,18 @@ class FormJsonBuilder implements IFormJsonBuilder {
    * @inheritDoc
    */
   json(): string {
-    return JSON.stringify(this.build())
+    const built = this.build()
+    // root will be changed, so we will create a copy of this object
+    const root = JSON.parse(JSON.stringify(built)) as LocalizedForm
+    const localization: LocalizationValue = {}
+
+    this.toComponentProperties(root.form, localization)
+    if (Object.keys(localization).length > 0) {
+      root.localization = localization
+      root.languages = this.toLanguages(localization)
+    }
+
+    return JSON.stringify(root)
   }
 
   build(): FormRoot {
@@ -323,6 +413,43 @@ class FormJsonBuilder implements IFormJsonBuilder {
       form.form.children = this.components
     }
     return form
+  }
+
+  private toLanguages(localization: LocalizationValue) {
+    return Object.keys(localization).map(langCode => {
+      const [code, dialect] = langCode.split('-')
+      return {
+        code,
+        dialect: dialect ?? code
+      }
+    })
+  }
+
+  private toComponentProperties(form: Form & { props?: Props }, localization: LocalizationValue) {
+    const props: Record<string, PropValue | ComponentProperty> = form.props ?? {}
+
+    Object.entries(props).forEach(([key, value]) => {
+      if (isComputedProp(value)) {
+        props[key] = {computeType: 'function', fnSource: value.fnSource}
+        return
+      }
+
+      if (isLocalizedProp(value)) {
+        props[key] = {computeType: 'localization'}
+        Object.entries(value.values).forEach(([language, val]) => {
+          const langKey = language as LanguageFullCode
+          localization[langKey] ??= {}
+          localization[langKey][form.key] ??= {}
+          localization[langKey][form.key]['component'] ??= {}
+          localization[langKey][form.key]['component']![key] = val
+        })
+      }
+    })
+
+    const children = form.children ?? []
+    children.forEach(child => {
+      this.toComponentProperties(child, localization)
+    })
   }
 }
 

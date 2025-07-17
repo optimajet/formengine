@@ -50,11 +50,12 @@ const onFormLoadError = (store: Store, e: any) => {
   })
 }
 
-const applyForm = async (store: Store, getForm: FormViewerProps['getForm'], formName?: string) => {
+const applyForm = async (store: Store, getForm: FormViewerProps['getForm'], formName?: string,
+                         options?: any) => {
   if (!getForm) return
 
   try {
-    const form = getForm(formName)
+    const form = getForm(formName, options)
     if (isPromise<string>(form)) {
       const data = await form
       store.applyStringForm(data)
@@ -83,13 +84,13 @@ const RawViewer = () => {
   useAutoViewMode()
 
   useEffect(() => {
-    applyForm(store, props.getForm, props.formName)
+    applyForm(store, props.getForm, props.formName, props.formOptions)
       .then(() => {
         // we use ref because we don't want to have a dependency on props.errors in this effect.
         applyValidationErrors(store, errorsRef.current)
       })
       .catch(console.error)
-  }, [store, props.getForm, props.formName])
+  }, [store, props.getForm, props.formName, props.formOptions])
 
   useEffect(() => {
     if (formErrors !== props.errors) {

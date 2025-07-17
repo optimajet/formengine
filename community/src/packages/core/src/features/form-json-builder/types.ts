@@ -1,4 +1,5 @@
 import type {CSSProperties} from 'react'
+import type {LanguageFullCode} from '../localization/types'
 
 /**
  * Represents the target device for applying styles.
@@ -35,6 +36,23 @@ export interface IComponentBuilder extends IFormJsonBuilder {
    * @returns the component builder for method chaining.
    */
   prop(key: string, value: any): IComponentBuilder
+
+  /**
+   * Sets a localized property on the component.
+   * @param key the name of the property.
+   * @param language the localized code, e.g. 'en-US'.
+   * @param value the localized value of the property.
+   * @returns the component builder for method chaining.
+   */
+  localizedProp(key: string, language: LanguageFullCode, value: any): IComponentBuilder
+
+  /**
+   * Sets a computed property on the component.
+   * @param key the name of the property.
+   * @param value the code of the function for calculating the property value.
+   * @returns the component builder for method chaining.
+   */
+  computedProp(key: string, value: string): IComponentBuilder
 
   /**
    * Starts configuring validation rules for the specified field.
@@ -112,4 +130,8 @@ export type FormOptions = {
    * The type of component that displays validation errors.
    */
   errorType?: string
+  /**
+   * The default form language.
+   */
+  defaultLanguage?: string
 }

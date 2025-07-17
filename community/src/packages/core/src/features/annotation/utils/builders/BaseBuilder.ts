@@ -46,7 +46,14 @@ export class BaseBuilder<T> {
    * @returns the main component property that is used as form data and for validation rules.
    */
   get valued() {
-    return this.setup({valued: true})
+    return this.setup({valued: true, dataBindingType: 'twoWay'})
+  }
+
+  /**
+   * @returns the main property of the component that uses the form data as data (one-way data binding).
+   */
+  get dataBound() {
+    return this.setup({valued: true, dataBindingType: 'oneWay'})
   }
 
   /**

@@ -2,18 +2,46 @@ import type {AriaAttributes} from 'react'
 import {useMemo} from 'react'
 import {useComponentData} from './contexts/ComponentDataContext'
 
-type AriaAttributesIds = Record<
+/**
+ * Represents the options for ARIA attributes configurations.
+ */
+export type AriaAttributesOptions = {
+  /**
+   * Indicates whether an item, element, or entity is marked or tagged with a label.
+   */
+  labeled: boolean
+}
+
+/**
+ * The record with 'aria' attributes.
+ */
+export type AriaAttributesIds = Record<
   keyof Pick<AriaAttributes, 'aria-labelledby' | 'aria-errormessage'>,
   string
 >
 
 /**
+ * @param options options for configuring the generation of ARIA attributes.
  * @returns a map of aria attributes ids.
  */
-export const useAriaAttributesIds = (): AriaAttributesIds => {
+export const useAriaAttributesIds = (options: AriaAttributesOptions): AriaAttributesIds => {
+  const {id} = useComponentData()
+  return useMemo(() => {
+    const result = {} as AriaAttributesIds
+    if (options.labeled) {
+      result['aria-labelledby'] = `${id}-label`
+    }
+    result['aria-errormessage'] = `${id}-error`
+    return result
+  }, [id, options.labeled])
+}
+
+/**
+ * @returns a record with an 'aria-errormessage' attribute.
+ */
+export const useAriaErrorMessage = () => {
   const {id} = useComponentData()
   return useMemo(() => ({
-    'aria-labelledby': `${id}-label`,
     'aria-errormessage': `${id}-error`
   }), [id])
 }
@@ -28,11 +56,12 @@ export const useAriaInvalid = () => {
 }
 
 /**
- * @returns a record with an 'aria' attributes.
+ * @param options options for configuring the generation of ARIA attributes.
+ * @returns a record with 'aria' attributes.
  */
-export const useAriaAttributes = () => {
+export const useAriaAttributes = (options: AriaAttributesOptions) => {
   const invalid = useAriaInvalid()
-  const attributesIds = useAriaAttributesIds()
+  const attributesIds = useAriaAttributesIds(options)
   return useMemo(() => {
     return {
       ...attributesIds,

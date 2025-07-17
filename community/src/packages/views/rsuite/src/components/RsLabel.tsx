@@ -11,7 +11,7 @@ const RsLabel = ({text, ...props}: RsLabelProps) => <label {...props}>{text}</la
 export const rsLabel = define(RsLabel, 'RsLabel')
   .name('Label')
   .props({
-    text: string.default('Label'),
+    text: string.default('Label').dataBound,
   })
   .css({
     ...textStyles

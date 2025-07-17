@@ -250,7 +250,8 @@ export class Definer<T extends object> {
       readOnlyAn?.key,
       propsBindingTypes,
       valuedAn?.uncontrolledValue,
-      disabledAn?.key
+      disabledAn?.key,
+      valuedAn?.dataBindingType,
     )
 
     const meta = new Meta(

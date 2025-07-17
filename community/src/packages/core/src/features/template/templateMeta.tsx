@@ -1,21 +1,20 @@
-import {boolean, disabled, readOnly} from '../annotation'
+import {boolean, disabled, object, readOnly} from '../annotation'
 import {toArray} from '../annotation/toArray'
 import {modules} from '../define/constants'
 import {Meta} from '../define/utils/Meta'
 import {generateTemplateTypeName} from '../ui/templateUtil'
 import {templateStyleProperties} from './templateModel'
-
-interface TemplateProps {
-  storeDataInParentForm?: boolean
-  disabled?: boolean
-  readOnly?: boolean
-}
+import type {TemplateProps} from './TemplateProps'
 
 const storeDataInParentForm = boolean
   .default(true)
   .calculable(false)
   .hinted('Store data in parent form')
   .named('Store data in parent form')
+
+const templateOptions = object
+  .hinted('The additional options for loading the template')
+  .named('Template options')
 
 /**
  * Creates the template component metadata for the form builder.
@@ -27,6 +26,7 @@ export function createTemplateMeta(name: string) {
   return new Meta(typeName,
     toArray<TemplateProps>({
       storeDataInParentForm,
+      options: templateOptions,
       disabled: disabled,
       readOnly: readOnly,
     }),

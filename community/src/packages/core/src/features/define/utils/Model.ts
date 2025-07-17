@@ -4,6 +4,7 @@ import type {Css} from '../../style/types'
 import type {SchemaType} from '../../validation'
 import type {ActionsInitializer, ComponentKind} from '../types'
 import type {ComponentPropertyBindType} from './ComponentPropertyBindType'
+import type {DataBindingType} from './DataBindingType'
 
 /**
  * Represents component metadata for the form viewer.
@@ -32,6 +33,7 @@ export class Model<T = any> {
    * @param propsBindingTypes the component property binding types.
    * @param uncontrolledValue the value for the uncontrolled (undefined) state.
    * @param disabled the name of the component property that stores the disabled flag.
+   * @param dataBindingType the type of component data binding.
    * @template T the type of React component properties.
    */
   constructor(
@@ -49,7 +51,11 @@ export class Model<T = any> {
     readonly propsBindingTypes: Readonly<Record<string, ComponentPropertyBindType>> = {},
     readonly uncontrolledValue?: unknown,
     readonly disabled?: string,
+    readonly dataBindingType: DataBindingType = 'none',
   ) {
+    if (this.valued && this.dataBindingType === 'none' ) {
+      this.dataBindingType = 'twoWay'
+    }
     this.component = observer(component)
     this.component.displayName = component.displayName || component.name
     this.#name = name

@@ -30,12 +30,13 @@ export type ComponentPropertyComputeType = 'function' | 'localization'
 
 /**
  * The value of the component property.
+ * @template T the value type.
  */
-export interface ComponentProperty {
+export interface ComponentProperty<T = any> {
   /**
    * The simple value of a component property.
    */
-  value?: any
+  value?: T
   /**
    * Source code of the function for calculating the value of a component property.
    */
@@ -162,6 +163,11 @@ export class ComponentStore {
    * The expression or function to conditionally render a component.
    */
   renderWhen?: ComponentProperty
+
+  /**
+   * Disables data binding for the component.
+   */
+  disableDataBinding?: ComponentProperty<boolean>
 
   /**
    * Creates the component settings.

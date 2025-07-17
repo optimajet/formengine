@@ -4,6 +4,8 @@ import {makeAutoObservable} from 'mobx'
 import {calculateProperties} from '../features/calculation/propertyCalculator'
 import type {ActionData, EventName} from '../features/event'
 import {ActionEventArgs, DidMountEvent, WillUnmountEvent} from '../features/event'
+import type {ComponentPropertiesContext} from '../features/properties-context/ComponentPropertiesContext'
+import {getDefaultPropertiesContext} from '../features/properties-context/getDefaultPropertiesContext'
 import type {CssPart} from '../features/style/types'
 import {isPromise} from '../utils'
 import type {ComputeChildren} from '../utils/ComputeChildren'
@@ -113,6 +115,11 @@ const computeEvents = (componentState: ComponentState) => {
 export class ComponentState implements IComponentState {
 
   /**
+   * The context for working with component properties.
+   */
+  readonly context: ComponentPropertiesContext
+
+  /**
    * Creates an instance that calculates the properties of the form viewer component.
    * @param data the data needed to display the component.
    * @param store the form viewer settings.
@@ -125,6 +132,7 @@ export class ComponentState implements IComponentState {
     readonly localizer: ComponentStoreLocalizer,
     readonly computeChildren: ComputeChildren,
   ) {
+    this.context = getDefaultPropertiesContext(data)
     makeAutoObservable(this, undefined, {name: nameObservable('ComponentState', {key: data.key})})
   }
 
@@ -167,10 +175,9 @@ export class ComponentState implements IComponentState {
    * @returns the component's field value data, if the component can have a field value.
    */
   get value() {
-    if (this.data.model.kind === 'template') return
-    if (this.data.field) {
-      const value = this.data.field.value ?? this.data.model.uncontrolledValue
-      return {[this.data.field.valued]: value}
+    const valueProperty = this.context.valueProperty
+    if (valueProperty) {
+      return {[valueProperty.propertyName]: valueProperty.propertyValue}
     }
   }
 

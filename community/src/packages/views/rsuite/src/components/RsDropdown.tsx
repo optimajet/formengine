@@ -1,7 +1,7 @@
 import {array, boolean, define, string, toLabeledValues} from '@react-form-builder/core'
 import type {ReactNode} from 'react'
-import {useCallback} from 'react'
-import type {InputPickerProps} from 'rsuite'
+import {useCallback, useEffect, useRef} from 'react'
+import type {InputPickerProps, PickerHandle} from 'rsuite'
 import {InputPicker} from 'rsuite'
 import {pickerProps} from '../commonProperties'
 import type {LoadDataProps} from '../hooks'
@@ -26,8 +26,17 @@ const RsDropdown = ({
                       disableVirtualized,
                       ...props
                     }: RsDropdownProps) => {
+
+  const inputRef = useRef<PickerHandle>(null)
   const {loading, ...loadProps} = useLoadData({data, onLoadData, onSearch, onOpen, value, preload, disableVirtualized})
   const onClean = useTouchOnEvent(props, 'onClean')
+
+  useEffect(() => {
+    const rsPickerSearch = inputRef.current?.root?.querySelector('input.rs-picker-search-input')
+    if (rsPickerSearch && !rsPickerSearch.hasAttribute('aria-hidden')) {
+      rsPickerSearch.setAttribute('aria-hidden', 'true')
+    }
+  }, [])
 
   const renderMenu = useCallback((menu: ReactNode) => <>
     {menu}
@@ -37,6 +46,7 @@ const RsDropdown = ({
   return (
     <Labeled label={label} className={className}>
       <InputPicker
+        ref={inputRef}
         {...props}
         {...loadProps}
         onClean={onClean}

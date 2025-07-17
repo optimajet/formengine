@@ -1,6 +1,6 @@
 import {css, cx} from '@emotion/css'
 import type {ReactNode} from 'react'
-import {useAriaAttributesIds} from '../../../utils/useAriaAttributesIds'
+import {useAriaErrorMessage} from '../../../utils/useAriaAttributesIds'
 import {Model} from '../../define'
 
 /**
@@ -45,7 +45,7 @@ const divClass = css`
 `
 
 const DefaultErrorMessage = ({children, error, className}: ErrorWrapperProps) => {
-  const aria = useAriaAttributesIds()
+  const aria = useAriaErrorMessage()
   return (
     <div className={divClass}>
       {children}
