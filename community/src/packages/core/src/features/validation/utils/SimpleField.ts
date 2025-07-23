@@ -1,4 +1,4 @@
-import {autorun, makeAutoObservable, observable, reaction, untracked} from 'mobx'
+import {autorun, makeAutoObservable, observable, reaction} from 'mobx'
 import type {ComponentStore} from '../../../stores/ComponentStore'
 import {isComputedProperty} from '../../../stores/ComponentStore'
 import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
@@ -20,8 +20,6 @@ import type {GetInitialDataFn} from './GetInitialDataFn'
  * Field with form data, contains only one value. **Internal use only.**
  */
 export class SimpleField implements Field {
-
-  #oldDataValidator?: DataValidator
 
   /**
    * @inheritDoc
@@ -93,13 +91,8 @@ export class SimpleField implements Field {
             this.valueType,
             error => this.error = error
           )
-          untracked(() => {
-            this.#oldDataValidator?.dispose()
-            this.#oldDataValidator = this.dataValidator
-          })
         }
         , {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}),
-      () => this.dataValidator?.dispose()
     ]
 
     // then, sign up for data changes, this could be:

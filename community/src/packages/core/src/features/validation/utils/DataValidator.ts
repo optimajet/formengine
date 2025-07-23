@@ -1,4 +1,4 @@
-import {debounceTime, map, Subject, switchMap} from 'rxjs'
+import {debounce} from 'lodash-es'
 import type {IStore} from '../../../stores/IStore'
 import type {Setter} from '../../../types'
 import type {IFormData} from '../../../utils/IFormData'
@@ -46,10 +46,9 @@ function concatErrorMessages(value: ValidationResult[] | undefined) {
  * Binds all parts of the validation and performs the validation.
  */
 export class DataValidator {
-  readonly #subject = new Subject<any>()
-  readonly #subscriptions
-  readonly #stream
   readonly #validator
+  readonly #localizedValidator
+  readonly #debouncedValidator
 
   private constructor(
     store: IStore,
@@ -67,16 +66,15 @@ export class DataValidator {
     }
 
     this.#validator = (value: any) => validator(value, store, getFormData)
-    this.#stream = this.#subject
-      .pipe(
-        debounceTime(200),
-        map(this.#validator),
-        switchMap(promise => promise),
-        map(localizer),
-      )
-    this.#subscriptions = [
-      this.#stream.subscribe(setter),
-    ]
+
+    this.#localizedValidator = async (value: any) => {
+      const result = await validator(value, store, getFormData)
+      const error = localizer(result)
+      setter(error)
+      return error
+    }
+
+    this.#debouncedValidator = debounce(this.#localizedValidator, 200)
   }
 
   /**
@@ -100,7 +98,7 @@ export class DataValidator {
    * @param value the validated value.
    */
   sendValidationEvent = (value: any) => {
-    this.#subject.next(value)
+    this.#debouncedValidator(value)?.catch(console.error)
   }
 
   /**
@@ -108,15 +106,8 @@ export class DataValidator {
    * @param value the validated value.
    * @returns the Promise with the result of the validation.
    */
-  validate = (value: any) => {
-    const promise = new Promise<string | undefined>(resolve => {
-      const subscribe = this.#stream.subscribe(next => {
-        resolve(next)
-        subscribe.unsubscribe()
-      })
-    })
-    this.sendValidationEvent(value)
-    return promise
+  validate = async (value: any) => {
+    return await this.#localizedValidator(value)
   }
 
   /**
@@ -126,12 +117,5 @@ export class DataValidator {
    */
   getValidationResult = (value: any) => {
     return this.#validator(value)
-  }
-
-  /**
-   * Releases allocated resources, must be used when destroying an object instance.
-   */
-  dispose = () => {
-    this.#subscriptions.forEach(s => s.unsubscribe())
   }
 }

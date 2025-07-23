@@ -1,28 +1,21 @@
 import type {Definer} from '@react-form-builder/core'
-import {BiDi, BuilderView, createView} from '@react-form-builder/core'
+import {createView} from '@react-form-builder/core'
+import {BiDi, BuilderView} from '@react-form-builder/core'
 import {rsAutoComplete} from './components/RsAutocomplete'
 import {rsBreadcrumb} from './components/RsBreadcrumb'
 import {rsButton} from './components/RsButton'
 import {rsCalendar} from './components/RsCalendar'
 import {rsCard} from './components/RsCard'
 import {rsCheckbox} from './components/RsCheckbox'
-import {rsCollectionEditor} from './components/RsCollectionEditor'
 import {rsContainer} from './components/RsContainer'
-import {rsCustomBlock} from './components/RsCustomBlock'
-import {rsCustomControl} from './components/RsCustomControl'
 import {rsDatePicker} from './components/RsDatePicker'
 import {rsDropdown} from './components/RsDropdown'
-import {rsDropzone} from './components/RsDropzone'
 import type {RsErrorMessageProps} from './components/RsErrorMessage'
 import {rsErrorMessage} from './components/RsErrorMessage'
-import {rsGrid} from './components/RsGrid'
-import {rsGridLayout} from './components/RsGridLayout'
-import {rsGridView} from './components/RsGridView'
 import {rsHeader} from './components/RsHeader'
 import {rsImage} from './components/RsImage'
 import {rsInput} from './components/RsInput'
 import {rsLabel} from './components/RsLabel'
-import {rsContent, rsFooter, rsHeader as rSuiteHeader, rsSidebar} from './components/RsLayout'
 import {rsLink} from './components/RsLink'
 import {RsLocalizationWrapper} from './components/RsLocalizationWrapper'
 import {rsMenu} from './components/RsMenu'
@@ -40,7 +33,6 @@ import {rsTimePicker} from './components/RsTimePicker'
 import {rsToggle} from './components/RsToggle'
 import type {RsTooltipProps} from './components/RsTooltip'
 import {rsTooltip} from './components/RsTooltip'
-import {rsTreePicker} from './components/RsTreePicker'
 import {rsUploader} from './components/RsUploader'
 import {rsWizard} from './components/RsWizard/RsWizard'
 import {rsWizardStep} from './components/RsWizard/RsWizardStep'
@@ -86,30 +78,15 @@ const categories = {
     rsWizard,
     rsWizardStep
   ],
-  notImplemented: [
-    rsCollectionEditor,
-    rsTreePicker,
-    rsCustomBlock,
-    rsCustomControl,
-    rsDropzone,
-    rsGrid,
-    rsGridLayout,
-    rsGridView,
-    rsContent,
-    rsFooter,
-    rSuiteHeader,
-    rsSidebar,
-  ]
 }
 
 /**
  * An array of rSuite component metadata factories.
  */
 const rSuiteComponents: Definer<any>[] = []
-const {notImplemented, ...implemented} = categories
 
 const prefix = 'Rs'
-Object.entries(implemented).forEach(([category, components]) => {
+Object.entries(categories).forEach(([category, components]) => {
   components.forEach(c => {
     if (!c.getType().startsWith(prefix)) {
       throw new Error(`The component type must start with '${prefix}', type: '${c.getType()}'`)

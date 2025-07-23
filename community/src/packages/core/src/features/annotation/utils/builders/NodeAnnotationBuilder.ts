@@ -3,6 +3,7 @@ import type {Annotation} from '../../types/annotations/Annotation'
 import type {ContainerAnnotation} from '../../types/annotations/ContainerAnnotation'
 import type {EditorType} from '../../types/annotations/EditorType'
 import {AnnotationBuilder} from './AnnotationBuilder'
+import type {NodeEditorType} from './NodeEditorType'
 
 /**
  * The builder class to define the node metadata property.
@@ -14,6 +15,11 @@ export class NodeAnnotationBuilder<T> extends AnnotationBuilder<T> {
    * The function that checks whether a child component can be inserted into a parent component.
    */
   insertPredicate?: (self: ComponentData, child: ComponentData) => boolean
+
+  /**
+   * The default editor.
+   */
+  defaultEditor?: NodeEditorType
 
   /**
    * Creates a component property metadata builder.
@@ -39,6 +45,7 @@ export class NodeAnnotationBuilder<T> extends AnnotationBuilder<T> {
   build(key: string): Annotation {
     const result = super.build(key) as ContainerAnnotation
     result.insertPredicate = this.insertPredicate
+    result.defaultEditor = this.defaultEditor
     return result
   }
 
@@ -50,6 +57,17 @@ export class NodeAnnotationBuilder<T> extends AnnotationBuilder<T> {
   withInsertRestriction(predicate?: (self: ComponentData, child: ComponentData) => boolean) {
     const clone = this.clone()
     clone.insertPredicate = predicate
+    return clone
+  }
+
+  /**
+   * Specifies the default editor for the property.
+   * @param defaultEditor the default editor.
+   * @returns the modified instance of the builder.
+   */
+  withDefaultEditor(defaultEditor: NodeEditorType) {
+    const clone = this.clone()
+    clone.defaultEditor = defaultEditor
     return clone
   }
 }

@@ -45,6 +45,11 @@ export interface ComponentProperty<T = any> {
    * Type of the component's calculated property. If not specified - the value from value is used.
    */
   computeType?: ComponentPropertyComputeType
+
+  /**
+   * The component property editor type, only used in Designer mode.
+   */
+  editorType?: string
 }
 
 /**

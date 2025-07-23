@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/core",
   "description": "React hook form alternative.",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -55,7 +55,6 @@
     "mobx": "^6.13.5",
     "mobx-react": "^9.2.0",
     "react": ">=17.0.2 || ^18 || ^19",
-    "rxjs": "^7.8.0",
     "stylis-plugin-rtl": "^2.1.1"
   },
   "devDependencies": {

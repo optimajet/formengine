@@ -112,6 +112,13 @@ export const event = createAnnotation<Function>('event').setup({annotationType: 
 export const node = createNodeAnnotation<ReactNode>('node').setup({annotationType: 'Container'})
 
 /**
+ * The annotation builder for a component property with type 'ReactNode'/'string'.
+ */
+export const stringNode = createNodeAnnotation<ReactNode>('node')
+  .setup({annotationType: 'Container'})
+  .withDefaultEditor('string')
+
+/**
  * The annotation builder for a component property with type 'ReactNode[]'.
  */
 export const nodeArray = createNodeAnnotation<ReactNode[]>('nodeArray')

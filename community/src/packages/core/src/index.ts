@@ -165,3 +165,4 @@ export type {
 } from './features/form-json-builder/types'
 export type {DataBindingType} from './features/define/utils/DataBindingType'
 export type {ComponentPropertiesContext, ReactProperty} from './features/properties-context/ComponentPropertiesContext'
+export type {NodeEditorType} from './features/annotation/utils/builders/NodeEditorType'

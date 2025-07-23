@@ -1,4 +1,4 @@
-import {autorun, makeAutoObservable, observable, reaction, runInAction, untracked} from 'mobx'
+import {autorun, makeAutoObservable, observable, reaction, runInAction} from 'mobx'
 import {ComponentStore, dataKey, isComputedProperty} from '../../../stores/ComponentStore'
 import {isRecord} from '../../../utils'
 import type {ComponentData, IComponentDataProvider} from '../../../utils/contexts/ComponentDataContext'
@@ -21,7 +21,6 @@ import type {IComponentDataFactory} from './IComponentDataFactory'
  */
 export class RepeaterField implements Field, IComponentDataProvider {
 
-  #oldDataValidator?: DataValidator
   #oldComponentDatas: ComponentData[] = []
 
   /**
@@ -93,13 +92,8 @@ export class RepeaterField implements Field, IComponentDataProvider {
             this.valueType,
             error => this.error = error
           )
-          untracked(() => {
-            this.#oldDataValidator?.dispose()
-            this.#oldDataValidator = this.dataValidator
-          })
         }
         , {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}),
-      () => this.dataValidator?.dispose()
     ]
 
     // then, sign up for data changes, this could be:
