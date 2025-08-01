@@ -10,7 +10,7 @@ interface RsTextAreaProps extends InputProps {
 }
 
 const RsTextArea = ({style, className, label, ...props}: RsTextAreaProps) => (
-  <Labeled label={label} style={style} className={className}>
+  <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
     <Input as="textarea" {...props}/>
   </Labeled>
 )

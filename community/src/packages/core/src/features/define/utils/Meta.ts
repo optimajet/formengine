@@ -8,6 +8,12 @@ import type {InsertRestrictionFn} from './InsertRestrictionFn'
  * Component metadata for the form builder.
  */
 export class Meta {
+
+  /**
+   * @deprecated the component kind. Use the {@link Model.kind}.
+   */
+  readonly kind: ComponentKind
+
   /**
    * Creates the component metadata for the form builder.
    * @param type the component type name.
@@ -31,11 +37,12 @@ export class Meta {
     readonly modules: Annotation[],
     readonly customPreview?: ReactNode,
     readonly valuedAn?: Annotation,
-    readonly kind: ComponentKind = 'component',
+    kind: ComponentKind = 'component',
     readonly initialJson?: string,
     readonly eventListeners?: ComponentMetadataEventListeners,
     readonly icon?: ComponentType,
     readonly insertRestriction?: InsertRestrictionFn,
   ) {
+    this.kind = kind
   }
 }

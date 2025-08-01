@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
-import {boolean, define, string} from '@react-form-builder/core'
+import {boolean, define, string, useAriaAttributes, useComponentData} from '@react-form-builder/core'
 import {Search} from '@rsuite/icons'
 import type {ReactNode} from 'react'
 import type {InputPickerProps} from 'rsuite'
 import {InputPicker, Loader} from 'rsuite'
 import {pickerProps} from '../commonProperties'
 import type {LoadDataProps} from '../hooks'
-import {useLoadData} from '../hooks'
+import {useFixAriaAttributesForInputPicker, useLoadData} from '../hooks'
 import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
 
@@ -40,13 +40,16 @@ const RsSearch = ({data, label, onLoadData, onSearch, value = '', className, pre
   const {loading, onOpen, ...loadProps} = useLoadData({data, onLoadData, onSearch, value, preload, disableVirtualized})
   const renderMenu = (menu: ReactNode) => loadProps.data?.length ? menu : null
   const onClean = useTouchOnEvent(props, 'onClean')
-
   const Icon = loading ? Loader : Search
+  const {id} = useComponentData()
+  const aria = useAriaAttributes({labeled: !!label})
+  const inputRef = useFixAriaAttributesForInputPicker()
 
   return (
-    <Labeled label={label} className={className}>
+    <Labeled label={label} className={className} passAriaToChildren={false}>
       <Container>
-        <SInputPicker {...props} {...loadProps} onClean={onClean} renderMenu={renderMenu} caretAs={CustomCaret}/>
+        <SInputPicker id={id} {...aria} {...props} {...loadProps} onClean={onClean} renderMenu={renderMenu} caretAs={CustomCaret}
+                      ref={inputRef}/>
         {!(props.cleanable && value) && <Icon className={'search-icon'}/>}
       </Container>
     </Labeled>

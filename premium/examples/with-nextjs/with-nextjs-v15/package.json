@@ -17,9 +17,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^5.2.0",
-    "@react-form-builder/core": "^5.2.0",
-    "@react-form-builder/designer": "^5.2.0",
+    "@react-form-builder/components-rsuite": "^6.0.0",
+    "@react-form-builder/core": "^6.0.0",
+    "@react-form-builder/designer": "^6.0.0",
     "next": "15.3.3",
     "react": "18.3.1",
     "react-dom": "18.3.1"

@@ -20,7 +20,7 @@ interface RsAutoCompleteProps extends AutoCompleteProps {
 }
 
 const RsAutoComplete = ({label, style, className, ...props}: RsAutoCompleteProps) => {
-  return <Labeled label={label} style={style} className={className}>
+  return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
     <AutoComplete {...props} />
   </Labeled>
 }

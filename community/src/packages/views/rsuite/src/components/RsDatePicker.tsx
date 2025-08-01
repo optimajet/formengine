@@ -34,7 +34,7 @@ const RsDatePicker = ({label, value, className, format, defaultValue, ...props}:
   const parsedValue = useMemo(() => parseDateValue(value), [value])
 
   return (
-    <Labeled label={label} className={className}>
+    <Labeled label={label} className={className} passAriaToChildren={true}>
       <DatePicker {...props} value={parsedValue ?? defaultValue ?? null} format={safeFormat} onClean={onClean}/>
     </Labeled>
   )

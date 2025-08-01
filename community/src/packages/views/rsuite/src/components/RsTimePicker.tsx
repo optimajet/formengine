@@ -54,7 +54,7 @@ const RsTimePicker = ({open, label, value, className, format, defaultValue, onCh
   }, [onChange])
 
   return (
-    <Labeled label={label} className={className}>
+    <Labeled label={label} className={className} passAriaToChildren={true}>
       <DatePicker {...props} onChange={handleChange} value={parsedValue ?? parsedDefaultValue ?? null}
                   open={pickerOpen} format={safeFormat ?? timeFormat} onClean={onClean} preventOverflow/>
     </Labeled>

@@ -9,6 +9,7 @@ import {rsCard} from './components/RsCard'
 import {rsCheckbox} from './components/RsCheckbox'
 import {rsContainer} from './components/RsContainer'
 import {rsDatePicker} from './components/RsDatePicker'
+import {rsDivider} from './components/RsDivider'
 import {rsDropdown} from './components/RsDropdown'
 import type {RsErrorMessageProps} from './components/RsErrorMessage'
 import {rsErrorMessage} from './components/RsErrorMessage'
@@ -22,6 +23,7 @@ import {rsMenu} from './components/RsMenu'
 import {rsMessage} from './components/RsMessage'
 import {rsNumberFormat} from './components/RsNumberFormat'
 import {rsPatternFormat} from './components/RsPatternFormat'
+import {rsPlaceholderGraph, rsPlaceholderGrid, rsPlaceholderParagraph} from './components/RsPlaceholder'
 import {rsProgressCircle, rsProgressLine} from './components/RsProgress'
 import {rsRadioGroup} from './components/RsRadioGroup'
 import {rsSearch} from './components/RsSearch'
@@ -59,11 +61,15 @@ const categories = {
   static: [
     rsButton,
     rsErrorMessage,
+    rsDivider,
     rsHeader,
     rsImage,
     rsLabel,
     rsMenu,
     rsMessage,
+    rsPlaceholderGraph,
+    rsPlaceholderGrid,
+    rsPlaceholderParagraph,
     rsProgressCircle,
     rsProgressLine,
     rsStaticContent,

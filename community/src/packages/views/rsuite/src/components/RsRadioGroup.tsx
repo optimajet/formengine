@@ -12,7 +12,7 @@ interface RsRadioGroupProps extends RadioGroupProps<string> {
 
 const RsRadioGroup = ({items, label, value, className, ...props}: RsRadioGroupProps) => {
   return (
-    <Labeled label={label} className={className}>
+    <Labeled label={label} className={className} passAriaToChildren={true}>
       <RadioGroup {...props as any} value={value ?? ''}>
         {items.map(({value, label}, i) => (
           <Radio value={value} key={i}>{label ?? value}</Radio>

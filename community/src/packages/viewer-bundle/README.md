@@ -2,13 +2,6 @@
 
 This library is part of the [React Form Builder](https://formengine.io/) project.
 
-# OptimaJet React Form Builder RSuite components library
-
-This library is part of the [React Form Builder](https://formengine.io/) project.
-
-This package contains visual components based on [React Suite](https://rsuitejs.com/). To learn how to use the package, see
-our [documentation](https://formengine.io/documentation/).
-
 ## Key Features
 
 - **UI-Agnostic Components:** Works seamlessly with any UI

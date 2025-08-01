@@ -27,7 +27,11 @@ const Container = styled.div`
 `
 
 interface LabeledProps extends ComponentProps<any> {
-  label?: string
+  label?: string,
+  /**
+   * If true, ARIA attributes will be passed automatically to children.
+   */
+  passAriaToChildren: boolean
 }
 
 /**
@@ -35,14 +39,15 @@ interface LabeledProps extends ComponentProps<any> {
  * @param props the React component properties.
  * @param props.label the component label.
  * @param props.children the children component.
+ * @param props.passAriaToChildren if true, ARIA attributes will be passed automatically to children.
  * @returns the React element.
  */
-export const RawLabeled = ({label, children, ...props}: LabeledProps) => {
+export const RawLabeled = ({label, children, passAriaToChildren, ...props}: LabeledProps) => {
   const {id} = useComponentData()
   const aria = useAriaAttributes({labeled: !!label})
   return <Container {...props} role="group">
     {label && <label id={aria['aria-labelledby']} htmlFor={id}>{label}</label>}
-    {cloneElement(children, {id, ...aria})}
+    {passAriaToChildren ? cloneElement(children, {id, ...aria}) : children}
   </Container>
 }
 

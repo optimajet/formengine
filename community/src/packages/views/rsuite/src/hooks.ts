@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react'
-import type {InputPickerProps} from 'rsuite'
+import {useEffect, useRef, useState} from 'react'
+import type {InputPickerProps, PickerHandle} from 'rsuite'
 import type {ItemDataType} from 'rsuite/esm/internals/types'
 import type {ListProps} from 'rsuite/esm/internals/Windowing'
 
@@ -120,4 +120,27 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
   const virtualized = !!onLoadData && disableVirtualized !== true
 
   return {data, value, loading, listProps, onSearch, onOpen, onCreate, virtualized}
+}
+
+/**
+ * Sets aria-hidden="true" on the HTML element if the attribute is not already set.
+ * @param element element on which to set the aria-hidden attribute to true.
+ */
+export function setAriaHiddenIfNotExists(element: Element | null | undefined) {
+  if (element && !element.hasAttribute('aria-hidden')) {
+    element.setAttribute('aria-hidden', 'true')
+  }
+}
+
+/**
+ * Adds aria-hidden to the internal input of the RSuite InputPicker.
+ * @returns ref that should be set by the InputPicker component.
+ */
+export const useFixAriaAttributesForInputPicker = () => {
+  const inputRef = useRef<PickerHandle>(null)
+  useEffect(() => {
+    const rsPickerSearch = inputRef.current?.root?.querySelector('input.rs-picker-search-input')
+    setAriaHiddenIfNotExists(rsPickerSearch)
+  }, [])
+  return inputRef
 }

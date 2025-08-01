@@ -1,8 +1,9 @@
 import {array, boolean, define, disabled, event, node, oneOf, string} from '@react-form-builder/core'
-import {useMemo} from 'react'
+import {useEffect, useMemo, useRef} from 'react'
 import type {UploaderProps} from 'rsuite'
 import {Uploader} from 'rsuite'
 import {nonNegNumber, readOnly} from '../commonProperties'
+import {setAriaHiddenIfNotExists} from '../hooks'
 import {InputCell} from './components/InputCell'
 import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
@@ -13,7 +14,16 @@ interface RsUploaderProps extends UploaderProps {
 }
 
 const RsUploader = ({customElement, children, disabled, multiple, fileList, className, label, ...props}: RsUploaderProps) => {
+  const uploaderRef = useRef<any>(null)
   const onRemove = useTouchOnEvent(props, 'onRemove')
+
+  useEffect(() => {
+    const fileInput = uploaderRef.current?.root?.querySelector('input[type="file"]')
+    setAriaHiddenIfNotExists(fileInput)
+    if (fileInput && !fileInput.hasAttribute('tabIndex')) {
+      fileInput.setAttribute('tabIndex', '-1')
+    }
+  }, [])
 
   const canUpload = useMemo(() => {
     if (multiple) return true
@@ -22,9 +32,9 @@ const RsUploader = ({customElement, children, disabled, multiple, fileList, clas
 
   const disabledButton = useMemo(() => disabled || !canUpload, [disabled, canUpload])
 
-  return <Labeled label={label} className={className}>
+  return <Labeled label={label} className={className} passAriaToChildren={true}>
     <Uploader {...props} disabled={disabledButton} multiple={multiple}
-              fileList={fileList} onRemove={onRemove}>
+              fileList={fileList} onRemove={onRemove} ref={uploaderRef}>
       {customElement ? <div>{children}</div> : undefined}
     </Uploader>
   </Labeled>

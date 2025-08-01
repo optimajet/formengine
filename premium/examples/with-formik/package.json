@@ -17,9 +17,9 @@
     "start": "vite preview"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^5.2.0",
-    "@react-form-builder/core": "^5.2.0",
-    "@react-form-builder/designer": "^5.2.0",
+    "@react-form-builder/components-rsuite": "^6.0.0",
+    "@react-form-builder/core": "^6.0.0",
+    "@react-form-builder/designer": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "formik": "^2.4.6",
     "react": "^19.0.0",

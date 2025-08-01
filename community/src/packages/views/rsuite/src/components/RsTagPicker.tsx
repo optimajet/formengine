@@ -1,9 +1,10 @@
 import type {LabeledValue} from '@react-form-builder/core'
 import {array, define, toLabeledValues} from '@react-form-builder/core'
-import {useMemo} from 'react'
-import type {TagPickerProps} from 'rsuite'
+import {useEffect, useMemo, useRef} from 'react'
+import type {PickerHandle, TagPickerProps} from 'rsuite'
 import {TagPicker} from 'rsuite'
 import {pickerProps} from '../commonProperties'
+import {setAriaHiddenIfNotExists} from '../hooks'
 import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
 
@@ -17,19 +18,26 @@ const fixEmptyItem = ({value, label}: LabeledValue) => ({
 })
 
 const RsTagPicker = ({data, label, value, className, ...props}: RsTagPickerProps) => {
+  const inputRef = useRef<PickerHandle>(null)
   const onClean = useTouchOnEvent(props, 'onClean')
+
+  useEffect(() => {
+    const searchInput = inputRef.current?.root?.querySelector('.rs-picker-search-input input')
+    setAriaHiddenIfNotExists(searchInput)
+  }, [])
 
   const transformedData = useMemo(() => {
     return toLabeledValues((data ?? []) as LabeledValue[]).map(fixEmptyItem)
   }, [data])
 
   return (
-    <Labeled label={label} className={className}>
+    <Labeled label={label} className={className} passAriaToChildren={true}>
       <TagPicker
         value={value ?? []}
         data={transformedData}
         onClean={onClean}
         {...props}
+        ref={inputRef}
       />
     </Labeled>
   )

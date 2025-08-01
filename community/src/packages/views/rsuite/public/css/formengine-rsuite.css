@@ -298,3 +298,13 @@
 .rs-picker .rs-picker-clean.rs-btn-close {
   color: var(--rs-text-secondary);
 }
+
+.rs-theme-dark .rs-divider:not(.rs-divider-with-text),
+.rs-theme-dark .rs-divider.rs-divider-vertical {
+  background-color: var(--rs-text-secondary);
+}
+
+.rs-theme-dark .rs-divider-horizontal.rs-divider-with-text:after,
+.rs-theme-dark .rs-divider-horizontal.rs-divider-with-text:before {
+  border-top: 1px solid var(--rs-text-secondary);
+}

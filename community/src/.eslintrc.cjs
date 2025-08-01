@@ -5,6 +5,7 @@ const projects = [
   './packages/designer-bundle/tsconfig.json',
   './packages/indexed-db-form-storage/tsconfig.json',
   './packages/viewer-bundle/tsconfig.json',
+  './packages/viewer-bundle-premium/tsconfig.json',
   './packages/views/rich-text/tsconfig.json',
   './packages/views/google-map/tsconfig.json',
   './packages/views/fast-qr/tsconfig.json',

@@ -43,4 +43,4 @@ export function renderFormViewer(elementId: string, props: Partial<FormViewerPro
 }
 
 export {rSuiteComponents}
-export {ActionDefinition, buildForm, Language} from '@react-form-builder/core'
+export {ActionDefinition, createView, buildForm, Language} from '@react-form-builder/core'

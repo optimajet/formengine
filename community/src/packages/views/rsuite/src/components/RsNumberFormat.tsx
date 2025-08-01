@@ -53,7 +53,7 @@ const RsNumberFormat = ({style, className, label, onChange, value, ...props}: Rs
 
   const onValueChange = useCallback((values: NumberFormatValues) => onChange?.(values.value), [onChange])
 
-  return <Labeled label={label} style={style} className={className}>
+  return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
     {/* TODO FE-1066 */}
     {/* @ts-ignore FE-1066 */}
     <NumericFormat customInput={WrappedInput}

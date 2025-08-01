@@ -10,7 +10,7 @@ interface RsCalendarProps extends CalendarProps {
 }
 
 const RsCalendar = ({label, style, className, ...props}: RsCalendarProps) => {
-  return <Labeled label={label} style={style} className={className}>
+  return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
     {
       props.readOnly
         ? <Calendar {...props} onChange={undefined}/>

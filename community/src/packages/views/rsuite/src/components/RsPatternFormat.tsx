@@ -21,7 +21,7 @@ const RsPatternFormat = ({style, className, label, format, onChange, value, ...p
     }
   }
 
-  return <Labeled label={label} style={style} className={className}>
+  return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
     <PatternFormat customInput={WrappedInput} format={format ?? ''} {...props} mask={mask}
                    onValueChange={values => onChange?.(values.formattedValue)}
                    value={value ?? ''}/>
