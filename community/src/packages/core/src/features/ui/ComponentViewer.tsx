@@ -23,6 +23,7 @@ const RawComponentViewer = () => {
   const {key, ...otherProps} = componentState.get
   const {kind, component: Component} = data.model
   const containerClassName = cx(otherProps.className, componentState.wrapperClassName)
+  const containerStyle = componentState.wrapperStyle
 
   const Wrapper = componentWrapper ?? DefaultWrapper
   const Tooltip = data.store.tooltipProps ? TooltipWrapper : Fragment
@@ -30,16 +31,16 @@ const RawComponentViewer = () => {
   const component = <Component key={key} {...otherProps}/>
 
   if (kind === 'container') {
-    return <ContainerComponent key={key} {...otherProps} className={containerClassName}/>
+    return <ContainerComponent key={key} {...otherProps} className={containerClassName} {...containerStyle}/>
   }
 
   if (kind === 'repeater') {
     return <Wrapper><Tooltip><Erroneous>
-      <Component key={key} {...otherProps} wrapperClassName={containerClassName}/>
+      <Component key={key} {...otherProps} wrapperClassName={containerClassName} {...containerStyle}/>
     </Erroneous></Tooltip></Wrapper>
   }
 
-  return <Wrapper className={kind === 'template' ? containerClassName : componentState.wrapperClassName}>
+  return <Wrapper className={kind === 'template' ? containerClassName : componentState.wrapperClassName} {...containerStyle}>
     {kind === 'template'
       ? component
       : <Tooltip><Erroneous>{component}</Erroneous></Tooltip>

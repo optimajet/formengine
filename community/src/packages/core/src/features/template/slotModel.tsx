@@ -4,6 +4,13 @@ import {namedObserver} from '../../utils'
 import {ComponentDataProvider, useComponentData} from '../../utils/contexts/ComponentDataContext'
 import {StoreProvider, useStore} from '../../utils/contexts/StoreContext'
 import {Model} from '../define'
+import {addOrUpdateFeatures} from '../define/utils/ComponentFeature'
+import {
+  cfDisableAdditionalProperties,
+  cfDisableMainComponentProperties,
+  cfDisableStyleProperties,
+  cfDisableTooltipProperties
+} from '../define/utils/integratedComponentFeatures'
 import {ViewerPropsProvider} from '../form-viewer/components/ViewerPropsContext'
 import {useTemplate} from './templateModel'
 
@@ -44,8 +51,16 @@ const Slot = () => {
 }
 Slot.displayName = 'Slot'
 
+const slotFeatures = addOrUpdateFeatures({},
+  {name: cfDisableMainComponentProperties, value: true},
+  {name: cfDisableTooltipProperties, value: true},
+  {name: cfDisableStyleProperties, value: true},
+  {name: cfDisableAdditionalProperties, value: true},
+)
+
 /**
  * Form viewer slot metadata. **Internal use only.**
  */
 export const slotModel = new Model(Slot, 'Slot', undefined, undefined, undefined,
-  undefined, undefined, undefined, undefined, 'slot')
+  undefined, undefined, undefined, undefined, 'slot', undefined, undefined,
+  undefined, undefined, undefined, slotFeatures)

@@ -1,6 +1,6 @@
 {
   "name": "@react-form-builder/example-viewer",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "license": "MIT",
   "private": true,
   "main": "src/index.tsx",
@@ -17,12 +17,12 @@
   },
   "scripts": {
     "build": "vite build",
-    "start": "vite -c ../../../vite.config.ts --open",
-    "dev": "vite -c ../../../vite.config.ts"
+    "start": "vite -c ../../../vite.config.ts --open --host",
+    "dev": "vite -c ../../../vite.config.ts --host"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^6.0.0",
-    "@react-form-builder/core": "^6.0.0",
+    "@react-form-builder/components-rsuite": "^6.1.0",
+    "@react-form-builder/core": "^6.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

@@ -14,7 +14,7 @@ export type ParameterName = string
 /**
  * Parameter type.
  */
-export type ParameterType = 'string' | 'number' | 'boolean'
+export type ParameterType = 'string' | 'number' | 'boolean' | 'function'
 
 /**
  * Represents a set of action parameters.
@@ -22,9 +22,28 @@ export type ParameterType = 'string' | 'number' | 'boolean'
 export type ActionParameters = Record<ParameterName, ParameterType>
 
 /**
+ * Primitive argument value type.
+ */
+export type PrimitiveArgumentValue = string | number | boolean
+
+/**
+ * Function argument value type.
+ */
+export type FunctionArgumentValue = {
+  /**
+   * Argument type for function type.
+   */
+  type: 'fn'
+  /**
+   * The source code of the function for use in design mode.
+   */
+  body?: string
+}
+
+/**
  * The type of the argument value of the function.
  */
-export type ArgumentValue = string | number | boolean
+export type ArgumentValue = PrimitiveArgumentValue | FunctionArgumentValue
 
 /**
  * Action type.

@@ -93,6 +93,38 @@ export function dataKey(componentStore: ComponentStore) {
  */
 export type HtmlAttribute = Record<string, string>
 
+/**
+ * Styles for a device.
+ */
+export type ComponentDeviceStyle = {
+  /**
+   * The CSS string.
+   */
+  string?: string
+}
+
+/**
+ * The type for the style property of a React component.
+ */
+export type ComponentStyle = {
+  /**
+   * Styles for an arbitrary device.
+   */
+  any?: ComponentDeviceStyle
+  /**
+   * Styles for mobile devices.
+   */
+  mobile?: ComponentDeviceStyle
+  /**
+   * Styles for tablet devices.
+   */
+  tablet?: ComponentDeviceStyle
+  /**
+   * Styles for desktop devices.
+   */
+  desktop?: ComponentDeviceStyle
+}
+
 //No functions here
 /**
  * Component settings for serialization in JSON.
@@ -128,6 +160,16 @@ export class ComponentStore {
    * The component wrapper CSS styles.
    */
   wrapperCss?: Css
+
+  /**
+   * The component styles for the `style` attribute.
+   */
+  style?: ComponentStyle
+
+  /**
+   * The component wrapper styles for the `style` attribute.
+   */
+  wrapperStyle?: ComponentStyle
 
   /**
    * The set of event handlers.

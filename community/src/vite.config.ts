@@ -27,7 +27,7 @@ export default defineConfig(({command}) => ({
     dedupe: ['react', 'react-dom'],
   },
   server: {
-    allowedHosts: ['foo.testnet.local', 'bar.foo.testnet.local', 'foobar.testnet.local', 'testnet.local']
+    allowedHosts: ['formengine.local']
   },
   test: {
     globals: true,

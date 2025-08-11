@@ -3,8 +3,12 @@ import type {ComponentType} from 'react'
 import type {Css} from '../../style/types'
 import type {SchemaType} from '../../validation'
 import type {ActionsInitializer, ComponentKind} from '../types'
+import type {ComponentFeatures} from './ComponentFeature'
+import {getComponentFeature} from './ComponentFeature'
 import type {ComponentPropertyBindType} from './ComponentPropertyBindType'
+import type {ComponentRole} from './ComponentRole'
 import type {DataBindingType} from './DataBindingType'
+import {cfComponentRole} from './integratedComponentFeatures'
 
 /**
  * Represents component metadata for the form viewer.
@@ -34,6 +38,7 @@ export class Model<T = any> {
    * @param uncontrolledValue the value for the uncontrolled (undefined) state.
    * @param disabled the name of the component property that stores the disabled flag.
    * @param dataBindingType the type of component data binding.
+   * @param features the component features that provide additional information about component's characteristic.
    * @template T the type of React component properties.
    */
   constructor(
@@ -52,8 +57,9 @@ export class Model<T = any> {
     readonly uncontrolledValue?: unknown,
     readonly disabled?: string,
     readonly dataBindingType: DataBindingType = 'none',
+    readonly features: ComponentFeatures = {},
   ) {
-    if (this.valued && this.dataBindingType === 'none' ) {
+    if (this.valued && this.dataBindingType === 'none') {
       this.dataBindingType = 'twoWay'
     }
     this.component = observer(component)
@@ -73,5 +79,41 @@ export class Model<T = any> {
    */
   get type(): string {
     return this.typeName || this.component.displayName || this.component.name
+  }
+
+  /**
+   * Returns true if feature is present in the component feature set and equals value, false otherwise.
+   * @param name the feature name.
+   * @param value the feature value.
+   * @returns true if feature is present in the component feature set and equals value, false otherwise.
+   */
+  hasFeatureValue(name: string, value: unknown) {
+    const item = this.features[name]
+    if (!item) return false
+
+    const componentFeature = getComponentFeature(name)
+    if (!componentFeature.allowMultiple) {
+      return item === value
+    }
+
+    return Array.isArray(item) ? item.indexOf(value) >= 0 : false
+  }
+
+  /**
+   * Returns true if feature is present in the component feature set and equals `true`, false otherwise.
+   * @param name the feature name.
+   * @returns true if feature is present in the component feature set and equals `true`, false otherwise.
+   */
+  isFeatureEnabled(name: string) {
+    return this.features[name] === true
+  }
+
+  /**
+   * Returns true if the role is defined in the component's roles, false otherwise.
+   * @param value the component role.
+   * @returns true if the role is defined in the component's roles, false otherwise.
+   */
+  hasComponentRole(value: ComponentRole) {
+    return this.hasFeatureValue(cfComponentRole, value)
   }
 }

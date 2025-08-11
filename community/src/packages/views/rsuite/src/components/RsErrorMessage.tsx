@@ -44,3 +44,4 @@ export const rsErrorMessage = define(RsErrorMessage, 'RsErrorMessage')
     placement: placement.default('bottomStart'),
     className: string,
   })
+  .componentRole('error-message')

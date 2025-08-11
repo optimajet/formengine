@@ -1,3 +1,5 @@
+import type {CSSProperties} from 'react'
+
 /**
  * Calculates all the properties of the form view component.
  */
@@ -9,9 +11,14 @@ export interface IComponentState {
 
   /**
    * Calculates and returns wrapper className property.
-   * @returns the Record that contains the className property for the wrapper of component.
+   * @returns the className for the wrapper of component.
    */
   get wrapperClassName(): string
+
+  /**
+   * @returns the Record that contains the style property for the wrapper of component.
+   */
+  get wrapperStyle(): { style: CSSProperties } | undefined
 
   /**
    * @returns combined component properties in order of priority, excluding child components, the className property
@@ -60,6 +67,12 @@ export const defaultComponentState: IComponentState = {
    */
   get wrapperClassName() {
     return ''
+  },
+  /**
+   * @inheritDoc
+   */
+  get wrapperStyle() {
+    return undefined
   },
   /**
    * @inheritDoc

@@ -2,8 +2,10 @@ import {css, cx} from '@emotion/css'
 import {assign} from 'lodash-es'
 import {makeAutoObservable} from 'mobx'
 import {calculateProperties} from '../features/calculation/propertyCalculator'
+import {silentTransformCssString} from '../features/css-style/cssTransform'
 import type {ActionData, EventName} from '../features/event'
 import {ActionEventArgs, DidMountEvent, WillUnmountEvent} from '../features/event'
+import {getArgumentFunction, isFunctionArgumentValue} from '../features/event/consts/functionArgument'
 import type {ComponentPropertiesContext} from '../features/properties-context/ComponentPropertiesContext'
 import {getDefaultPropertiesContext} from '../features/properties-context/getDefaultPropertiesContext'
 import type {CssPart} from '../features/style/types'
@@ -11,7 +13,7 @@ import {isPromise} from '../utils'
 import type {ComputeChildren} from '../utils/ComputeChildren'
 import type {ComponentData} from '../utils/contexts/ComponentDataContext'
 import {nameObservable} from '../utils/observableNaming'
-import type {ComponentStore} from './ComponentStore'
+import type {ComponentStore, ComponentStyle} from './ComponentStore'
 import type {ComponentStoreLocalizer} from './ComponentStoreLocalizer'
 import type {IComponentState} from './IComponentState'
 import type {Store} from './Store'
@@ -48,6 +50,24 @@ const isRequired = (componentStore: ComponentStore) => {
   return !!componentStore.schema?.validations?.find(v => v.key === 'required')
 }
 
+const bindFunctionsInArgs = (e: ActionEventArgs, args: Record<string, any>) => {
+  const functionEntries: [string, Function][] = []
+
+  for (const [key, value] of Object.entries(args)) {
+    if (isFunctionArgumentValue(value)) {
+      const fn = getArgumentFunction(value.body || '')
+      functionEntries.push([key, fn])
+    }
+  }
+
+  const boundArgs = {...args}
+  for (const [key, fn] of functionEntries) {
+    boundArgs[key] = fn.bind(null, e, boundArgs)
+  }
+
+  return boundArgs
+}
+
 function createActionHandlersChain(store: Store, actionDataList: ActionData[]) {
   const actions = actionDataList.map(data => ({
     func: store.findAction(data).func,
@@ -57,7 +77,9 @@ function createActionHandlersChain(store: Store, actionDataList: ActionData[]) {
   return async (e: ActionEventArgs) => {
     try {
       for (const {func, args} of actions) {
-        const result = func(e, args)
+        const withBoundFnArgs = bindFunctionsInArgs(e, args)
+
+        const result = func(e, withBoundFnArgs)
         if (isPromise(result)) await result
       }
     } catch (e) {
@@ -167,6 +189,7 @@ export class ComponentState implements IComponentState {
       this.disabled,
       this.events,
       htmlAttributes ?? this.htmlAttributes,
+      this.style,
       this.data.userDefinedProps,
     )
   }
@@ -263,6 +286,20 @@ export class ComponentState implements IComponentState {
   }
 
   /**
+   * @returns the Record that contains the style property for the component.
+   */
+  get style() {
+    return this.getStyleFromStylePart(this.data.store.style)
+  }
+
+  /**
+   * @inheritDoc
+   */
+  get wrapperStyle() {
+    return this.getStyleFromStylePart(this.data.store.wrapperStyle)
+  }
+
+  /**
    * @returns all arbitrary HTML attributes of the component.
    */
   get htmlAttributes() {
@@ -298,6 +335,15 @@ export class ComponentState implements IComponentState {
     handler(mountEvent).catch(console.error)
   }
 
+  private getStyleFromStylePart(stylePart?: ComponentStyle) {
+    const {viewMode} = this.store
+
+    const anyCss = silentTransformCssString(stylePart?.any?.string)
+    const viewModeCss = silentTransformCssString(stylePart?.[viewMode]?.string)
+
+    if (anyCss || viewModeCss) return {style: {...anyCss, ...viewModeCss}}
+  }
+
   private getClassNameFromCssPart(cssPart: CssPart) {
     const {model, store} = this.data
     const {viewMode} = this.store
@@ -328,7 +374,8 @@ export class ComponentState implements IComponentState {
       ...calculated,
       ...this.localizedProps,
       ...this.value,
+      ...this.style,
       ...this.data.userDefinedProps,
-    }
+    } as Record<string, any>
   }
 }

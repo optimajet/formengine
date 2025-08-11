@@ -16,3 +16,4 @@ export const rsLabel = define(RsLabel, 'RsLabel')
   .css({
     ...textStyles
   })
+  .componentRole('label')
