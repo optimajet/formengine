@@ -101,7 +101,7 @@ const RawNewStoreProvider = ({children, props}: ViewerStoreProviderProps) => {
   return <ExistingStoreProvider children={children} props={props} store={store}/>
 }
 
-const NewStoreProvider = namedObserver('FactoryStoreProvider', RawNewStoreProvider)
+export const NewStoreProvider = namedObserver('NewStoreProvider', RawNewStoreProvider)
 
 /**
  * React component encapsulating MobX storage for the form viewer.

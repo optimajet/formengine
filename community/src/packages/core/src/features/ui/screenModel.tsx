@@ -1,6 +1,8 @@
 import {commonStyles, containerStyles, getDefaultCss} from '../annotation'
 import {toStyleProperties} from '../annotation/toStyleProperties'
 import {Model} from '../define'
+import {addOrUpdateFeatures} from '../define/utils/ComponentFeature'
+import {cfHideFromComponentPalette} from '../define/utils/integratedComponentFeatures'
 import {DefaultWrapper} from './DefaultWrapper'
 
 const {height} = commonStyles
@@ -15,9 +17,13 @@ export const screenStyleProperties = toStyleProperties({
 
 const defaultCss = getDefaultCss(screenStyleProperties)
 
+const screenFeatures = addOrUpdateFeatures({},
+  {name: cfHideFromComponentPalette, value: true},
+)
+
 /**
  * Form viewer screen metadata. **Internal use only.**
  */
 export const screenModel = new Model(DefaultWrapper, undefined, undefined,
   undefined, undefined, undefined, defaultCss, undefined, undefined, 'container',
-  'readOnly', undefined, undefined, 'disabled')
+  'readOnly', undefined, undefined, 'disabled', undefined, screenFeatures)

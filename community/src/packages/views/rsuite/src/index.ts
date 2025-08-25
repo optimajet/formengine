@@ -1,6 +1,5 @@
 import type {Definer} from '@react-form-builder/core'
-import {createView} from '@react-form-builder/core'
-import {BiDi, BuilderView} from '@react-form-builder/core'
+import {BiDi, BuilderView, createView} from '@react-form-builder/core'
 import {rsAutoComplete} from './components/RsAutocomplete'
 import {rsBreadcrumb} from './components/RsBreadcrumb'
 import {rsButton} from './components/RsButton'
@@ -21,6 +20,8 @@ import {rsLink} from './components/RsLink'
 import {RsLocalizationWrapper} from './components/RsLocalizationWrapper'
 import {rsMenu} from './components/RsMenu'
 import {rsMessage} from './components/RsMessage'
+import {rsModal} from './components/RsModal'
+import {rsModalLayout} from './components/RsModalLayout'
 import {rsNumberFormat} from './components/RsNumberFormat'
 import {rsPatternFormat} from './components/RsPatternFormat'
 import {rsPlaceholderGraph, rsPlaceholderGrid, rsPlaceholderParagraph} from './components/RsPlaceholder'
@@ -75,6 +76,10 @@ const categories = {
     rsStaticContent,
     rsTooltip,
     rsLink,
+  ],
+  modal: [
+    rsModal,
+    rsModalLayout,
   ],
   structure: [
     rsBreadcrumb,
@@ -133,8 +138,6 @@ export const viewWithCss = createView(models)
  * This view contains CSS loaders.
  */
 export const builderViewWithCss = new BuilderView(components)
-  .withErrorMeta(rsErrorMessage.build())
-  .withTooltipMeta(rsTooltip.build())
   .withTemplates([])
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)

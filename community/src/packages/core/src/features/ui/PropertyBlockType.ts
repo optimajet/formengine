@@ -1,7 +1,7 @@
 /**
  * Represents the type of property block.
  */
-export type PropertyBlockType = 'component' | 'tooltip' | string
+export type PropertyBlockType = 'component' | 'tooltip' | 'modal' | string
 
 const validatorBlockPrefix = 'validator-'
 

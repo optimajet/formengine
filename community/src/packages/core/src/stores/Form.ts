@@ -49,6 +49,11 @@ export class Form {
   errorType?: string
 
   /**
+   * The type name of the component displaying the modal.
+   */
+  modalType?: string
+
+  /**
    * Default localization language of the form.
    */
   defaultLanguage: Language

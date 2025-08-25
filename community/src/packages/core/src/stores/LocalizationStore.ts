@@ -50,7 +50,7 @@ const className = 'LocalizationStore'
 /**
  * Represents the type of localization. The localization can be for a component, tooltip or for validator.
  */
-export type LocalizationType = 'component' | 'tooltip' | string
+export type LocalizationType = 'component' | 'tooltip' | 'modal' | string
 
 class FluentBundleHolder {
 

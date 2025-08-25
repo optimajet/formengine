@@ -36,6 +36,11 @@ export interface PersistedForm {
   errorProps?: any,
 
   /**
+   * Name of the type of component that displays the modal.
+   */
+  modalType?: string,
+
+  /**
    * Name of the type of component that displays the tooltip.
    */
   tooltipType?: string,

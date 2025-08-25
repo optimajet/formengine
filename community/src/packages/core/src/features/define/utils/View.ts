@@ -1,12 +1,14 @@
 import type {ComponentType, ReactNode} from 'react'
 import {BiDi} from '../../localization/bidi'
 import type {Language} from '../../localization/types'
+import {modalModel} from '../../modal/modalModel'
 import {repeaterItemModel} from '../../repeater/RepeaterItem'
 import {repeaterModel} from '../../repeater/repeaterModel'
 import {slotModel} from '../../template'
 import {fragmentModel} from '../../template/fragmentModel'
 import {internalErrorModel} from '../../ui/internalErrorModel'
 import {screenModel} from '../../ui/screenModel'
+import {errorMessageModel} from '../../validation/components/DefaultErrorMessage'
 import type {Model} from './Model'
 
 /**
@@ -61,6 +63,8 @@ export class View {
     this.define(fragmentModel)
     this.define(repeaterModel)
     this.define(repeaterItemModel)
+    this.define(errorMessageModel)
+    this.define(modalModel)
     models.forEach(this.define.bind(this))
   }
 
@@ -97,6 +101,16 @@ export class View {
    */
   all() {
     return [...this.#modelMap.values()]
+  }
+
+  /**
+   * Returns the array of component metadata filtered using the predicate function.
+   * @param predicate the filter function.
+   * @returns the array of component metadata filtered using the predicate function.
+   */
+  filterModels(predicate: (model: Model) => boolean) {
+    return Array.from(this.#modelMap.values())
+      .filter(predicate)
   }
 
   /**

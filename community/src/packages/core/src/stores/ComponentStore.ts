@@ -125,6 +125,21 @@ export type ComponentStyle = {
   desktop?: ComponentDeviceStyle
 }
 
+/**
+ * Modal settings for serialization in JSON.
+ */
+export type ModalComponentStore = {
+  /**
+   * The component properties.
+   */
+  props: Record<string, ComponentProperty>
+
+  /**
+   * The set of event handlers.
+   */
+  events?: Record<EventName, ActionData[]>
+}
+
 //No functions here
 /**
  * Component settings for serialization in JSON.
@@ -195,6 +210,11 @@ export class ComponentStore {
    * The tooltip settings.
    */
   tooltipProps?: Record<string, ComponentProperty>
+
+  /**
+   * The modal settings.
+   */
+  modal?: ModalComponentStore
 
   /**
    * The name of the occupied component property in the parent component.

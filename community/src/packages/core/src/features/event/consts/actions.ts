@@ -1,5 +1,6 @@
 import type {ActionValues} from '../types'
 import {ActionDefinition} from '../types'
+import {closeModal, openModal} from './modalActions'
 import {addRowAction, removeRowAction} from './repeaterActions'
 
 export const commonActions: ActionValues = {
@@ -18,4 +19,6 @@ export const commonActions: ActionValues = {
   reset: ActionDefinition.functionalAction(e => e.store.form.componentTree.reset()),
   addRow: addRowAction,
   removeRow: removeRowAction,
+  openModal,
+  closeModal,
 }

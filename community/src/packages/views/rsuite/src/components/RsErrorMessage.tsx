@@ -45,3 +45,4 @@ export const rsErrorMessage = define(RsErrorMessage, 'RsErrorMessage')
     className: string,
   })
   .componentRole('error-message')
+  .hideFromComponentPalette()

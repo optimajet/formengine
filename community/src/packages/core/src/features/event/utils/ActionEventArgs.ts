@@ -1,23 +1,7 @@
 import type {SyntheticEvent} from 'react'
 import type {Store} from '../../../stores/Store'
 import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
-
-function createComponentDataProxy(componentData: ComponentData) {
-  return new Proxy(componentData, {
-    get(target, property: string) {
-      if (property === 'toJSON') return () => target.data
-      return target.data[property]
-    },
-    set(target, property: string, value): boolean {
-      target.allComponentFields
-        .filter(({dataKey}) => dataKey === property)
-        .forEach(({field}) => {
-          field.setValue(value)
-        })
-      return true
-    }
-  })
-}
+import {createDataProxy} from './createComponentDataProxy'
 
 /**
  * Arguments passed to the event handler.
@@ -50,12 +34,12 @@ export class ActionEventArgs {
     this.index = sender.nearestIndex
     const indexExists = typeof this.index === 'number'
     const componentData = sender.dataRoot
-    this.#componentDataProxy = createComponentDataProxy(componentData)
+    this.#componentDataProxy = createDataProxy(componentData)
     if (indexExists) {
       const parentComponentData = componentData.parent?.dataRoot ?? this.store.formData
-      this.#parentComponentDataProxy = createComponentDataProxy(parentComponentData)
+      this.#parentComponentDataProxy = createDataProxy(parentComponentData)
     }
-    this.#rootComponentDataProxy = createComponentDataProxy(this.store.formData)
+    this.#rootComponentDataProxy = createDataProxy(this.store.formData)
   }
 
   /**

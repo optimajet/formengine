@@ -2,8 +2,8 @@ import {css, cx} from '@emotion/css'
 import type {ReactNode} from 'react'
 import {useAriaErrorMessage} from '../../../utils/useAriaAttributesIds'
 import {Model} from '../../define'
-import {addOrUpdateFeature} from '../../define/utils/ComponentFeature'
-import {cfComponentRole} from '../../define/utils/integratedComponentFeatures'
+import {addOrUpdateFeatures} from '../../define/utils/ComponentFeature'
+import {cfComponentRole, cfHideFromComponentPalette} from '../../define/utils/integratedComponentFeatures'
 
 /**
  * Properties of the React component that wraps the form view component and displays validation errors.
@@ -57,7 +57,10 @@ const DefaultErrorMessage = ({children, error, className}: ErrorWrapperProps) =>
 }
 DefaultErrorMessage.displayName = 'DefaultErrorMessage'
 
-const errorMessageFeatures = addOrUpdateFeature({}, cfComponentRole, 'error-message')
+const errorMessageFeatures = addOrUpdateFeatures({},
+  {name: cfComponentRole, value: 'error-message'},
+  {name: cfHideFromComponentPalette, value: true},
+)
 
 /**
  * The component metadata for error message. **Internal use only.**

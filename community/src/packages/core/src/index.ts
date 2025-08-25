@@ -13,6 +13,7 @@ export {definePreset} from './features/define/utils/Definer'
 export {BuilderView} from './features/define/utils/BuilderView'
 export {useComponentData, ComponentDataProvider} from './utils/contexts/ComponentDataContext'
 export {ComponentStore} from './stores/ComponentStore'
+export type {ModalComponentStore} from './stores/ComponentStore'
 export type {ErrorWrapperProps} from './features/validation'
 export {Store} from './stores/Store'
 export type {IStore} from './stores/IStore'
@@ -174,5 +175,9 @@ export {
   cfComponentIsPreset,
   cfDisableStylesForClassNameEditor,
   cfEnableInlineStylesEditor,
+  cfHideFromComponentPalette,
 } from './features/define/utils/integratedComponentFeatures'
 export type {ComponentFeature, ComponentFeatures} from './features/define/utils/ComponentFeature'
+export type {ComponentRole} from './features/define/utils/ComponentRole'
+export {useModalType} from './features/modal/useModalType'
+export {useModalComponentData} from './features/modal/useModalComponentData'

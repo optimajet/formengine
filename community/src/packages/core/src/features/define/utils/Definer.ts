@@ -18,7 +18,8 @@ import {
   cfComponentIsPreset,
   cfComponentRole,
   cfDisableStylesForClassNameEditor,
-  cfEnableInlineStylesEditor
+  cfEnableInlineStylesEditor,
+  cfHideFromComponentPalette
 } from './integratedComponentFeatures'
 import {Meta} from './Meta'
 import {Model} from './Model'
@@ -245,6 +246,15 @@ export class Definer<T extends object> {
    */
   componentRole(value: ComponentRole) {
     return this.addFeature(cfComponentRole, value)
+  }
+
+  /**
+   * Hides a component from the component palette.
+   * @param value true to hide the component, false otherwise.
+   * @returns the modified Definer class instance.
+   */
+  hideFromComponentPalette(value = true) {
+    return this.addFeature(cfHideFromComponentPalette, value)
   }
 
   /**

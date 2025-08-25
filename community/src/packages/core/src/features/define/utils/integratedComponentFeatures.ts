@@ -50,3 +50,9 @@ registerBooleanComponentFeature(cfDisableStylesForClassNameEditor)
  */
 export const cfEnableInlineStylesEditor = 'enable-inline-styles-editor'
 registerBooleanComponentFeature(cfEnableInlineStylesEditor)
+
+/**
+ * Enabling this component feature will hide it from the component palette.
+ */
+export const cfHideFromComponentPalette = 'hide-from-component-palette'
+registerBooleanComponentFeature(cfHideFromComponentPalette)

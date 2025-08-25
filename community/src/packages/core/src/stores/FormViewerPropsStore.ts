@@ -59,6 +59,10 @@ export class FormViewerPropsStore {
    * If true, all validation errors will be displayed.
    */
   showAllValidationErrors?: boolean
+  /**
+   * The arbitrary user context.
+   */
+  context?: any
 
   /**
    * Constructs a new FormViewerPropsStore from the given FormViewerProps.
@@ -82,6 +86,7 @@ export class FormViewerPropsStore {
       disabled: observable.ref,
       readOnly: observable.ref,
       showAllValidationErrors: observable.ref,
+      context: observable.ref,
     }, {name: nameObservable(`FormViewerPropsStore`)})
   }
 
@@ -101,6 +106,7 @@ export class FormViewerPropsStore {
     this.readOnly = formViewerProps.readOnly
     this.disabled = formViewerProps.disabled
     this.showAllValidationErrors = formViewerProps.showAllValidationErrors
+    this.context = formViewerProps.context
   }
 
   /**
@@ -120,6 +126,7 @@ export class FormViewerPropsStore {
     clone.readOnly = this.readOnly
     clone.disabled = this.disabled
     clone.showAllValidationErrors = this.showAllValidationErrors
+    clone.context = this.context
     return clone
   }
 }

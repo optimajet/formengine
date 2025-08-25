@@ -1,6 +1,8 @@
 import type {CSSProperties} from 'react'
 import {ComponentStore} from '../../stores/ComponentStore'
 import {Model} from '../define'
+import {addOrUpdateFeatures} from '../define/utils/ComponentFeature'
+import {cfHideFromComponentPalette} from '../define/utils/integratedComponentFeatures'
 import {screenModel} from './screenModel'
 
 /**
@@ -22,11 +24,17 @@ const InternalError = ({error}: InternalErrorProps) => {
 }
 InternalError.displayName = 'InternalError'
 
+const internalErrorFeatures = addOrUpdateFeatures({},
+  {name: cfHideFromComponentPalette, value: true},
+)
+
 /**
  * Form viewer internal error metadata. **Internal use only.**
  * @internal
  */
-export const internalErrorModel = new Model(InternalError)
+export const internalErrorModel = new Model(InternalError, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, internalErrorFeatures)
 
 /**
  * Creates the component setting for the internal form viewer error.

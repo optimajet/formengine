@@ -1,6 +1,7 @@
 import {assign} from 'lodash-es'
 import {makeObservable, observable, runInAction} from 'mobx'
 import type {Model} from '../features/define'
+import type {ComponentRole} from '../features/define/utils/ComponentRole'
 import type {ActionData, ActionDefinition, ActionType} from '../features/event'
 import {createActionValuesFromObject} from '../features/event'
 import {commonActions} from '../features/event/consts/actions'
@@ -123,6 +124,8 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     const componentTree = this.createDataRoot()
     const localization = new LocalizationStore()
     this.form = new Form(componentTree, localization, {}, [], globalDefaultLanguage)
+    this.form.modalType = this.getFirstComponentTypeWithRole('modal')
+    this.form.tooltipType = this.getFirstComponentTypeWithRole('tooltip')
 
     makeObservable(this, {
       form: observable,
@@ -181,6 +184,8 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     const componentTree = this.createDataRoot()
     const localization = new LocalizationStore()
     this.form = new Form(componentTree, localization, {}, oldForm.languages, oldForm.defaultLanguage)
+    this.form.modalType = this.getFirstComponentTypeWithRole('modal')
+    this.form.tooltipType = this.getFirstComponentTypeWithRole('tooltip')
     oldForm.dispose()
   }
 
@@ -411,6 +416,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       this.form.errorProps = persistedForm.errorProps ?? {}
       this.form.tooltipType = persistedForm.tooltipType
       this.form.errorType = persistedForm.errorType
+      this.form.modalType = persistedForm.modalType
       this.form.formValidator = persistedForm.formValidator
     })
 
@@ -516,4 +522,15 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     return results.filter(value => typeof value !== 'undefined') as Record<string, string>[]
   }
 
+  /**
+   * Returns the first type of component with the specified role.
+   * @param componentRole the component role.
+   * @returns the first type of component with the specified role.
+   */
+  getFirstComponentTypeWithRole(componentRole: ComponentRole) {
+    const components = this.formViewerPropsStore.view
+      .filterModels(model => model.hasComponentRole(componentRole))
+      .map(model => model.type)
+    return components.length ? components[0] : undefined
+  }
 }

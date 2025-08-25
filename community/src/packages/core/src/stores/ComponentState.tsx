@@ -62,7 +62,13 @@ const bindFunctionsInArgs = (e: ActionEventArgs, args: Record<string, any>) => {
 
   const boundArgs = {...args}
   for (const [key, fn] of functionEntries) {
-    boundArgs[key] = fn.bind(null, e, boundArgs)
+    boundArgs[key] = (evtOrParam: any, argsOrParam: any, ...userArgs: any) => {
+      if (!(evtOrParam instanceof ActionEventArgs) && argsOrParam !== boundArgs) {
+        return fn(e, boundArgs, ...userArgs)
+      }
+
+      return fn(evtOrParam, argsOrParam, ...userArgs)
+    }
   }
 
   return boundArgs
@@ -71,15 +77,15 @@ const bindFunctionsInArgs = (e: ActionEventArgs, args: Record<string, any>) => {
 function createActionHandlersChain(store: Store, actionDataList: ActionData[]) {
   const actions = actionDataList.map(data => ({
     func: store.findAction(data).func,
-    args: data.args ? {...data.args} : {}
+    args: {...data.args}
   }))
 
   return async (e: ActionEventArgs) => {
     try {
       for (const {func, args} of actions) {
         const withBoundFnArgs = bindFunctionsInArgs(e, args)
-
         const result = func(e, withBoundFnArgs)
+
         if (isPromise(result)) await result
       }
     } catch (e) {
