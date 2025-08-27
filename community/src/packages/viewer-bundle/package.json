@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/viewer-bundle",
   "description": "Optimajet Form Builder Develop front-end drag n drop forms with ease.",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -26,8 +26,8 @@
     "create-archive": "node ./config/pack"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^6.2.0",
-    "@react-form-builder/core": "^6.2.0",
+    "@react-form-builder/components-rsuite": "^6.2.1",
+    "@react-form-builder/core": "^6.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0"
