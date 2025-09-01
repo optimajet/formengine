@@ -71,13 +71,15 @@ export interface IFormData {
 
   /**
    * Sets the form to its default value.
+   * @param clearInitialData if true, then also clear the initial data. @default true
    */
-  reset: () => void
+  reset: (clearInitialData?: boolean) => void
 
   /**
    * Clears the form data.
+   * @param clearInitialData if true, then also clear the initial data. @default true
    */
-  clear: () => void
+  clear: (clearInitialData?: boolean) => void
 
   /**
    * @returns the index in the array if the component is in the component array.
@@ -129,7 +131,7 @@ export const IFormDataDeclaration = `declare interface IFormData {
    * Validates the data in the form.
    */
   validate(): Promise<void>
-    
+
   /**
    * Returns the validation results without triggering an events and changing the state of the form.
    * @returns the validation results.
@@ -143,13 +145,15 @@ export const IFormDataDeclaration = `declare interface IFormData {
 
   /**
    * Sets the form to its default value.
+   * @param clearInitialData if true, then also clear the initial data. @default true
    */
-  reset(): void
+  reset(clearInitialData?: boolean): void
 
   /**
    * Clears the form data.
+   * @param clearInitialData if true, then also clear the initial data. @default true
    */
-  clear(): void
+  clear(clearInitialData?: boolean): void
 
   /**
    * @returns the index in the array if the component is in the component array.

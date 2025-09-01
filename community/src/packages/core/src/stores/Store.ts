@@ -11,7 +11,7 @@ import {findLanguage} from '../features/localization/findLanguage'
 import {localizeErrorMessage, localizeProperties} from '../features/localization/localizer'
 import {Language} from '../features/localization/types'
 import {createTemplateModel} from '../features/template'
-import {buildInternalErrorModel, buildInternalErrorStore} from '../features/ui/internalErrorModel'
+import {buildInternalErrorModel} from '../features/ui/internalErrorModel'
 import {screenModel} from '../features/ui/screenModel'
 import {getTemplateName, isTemplateType} from '../features/ui/templateUtil'
 import type {SchemaType} from '../features/validation'
@@ -27,12 +27,13 @@ import type {DataValidatorFactoryFn} from '../features/validation/utils/DataVali
 import type {GetInitialDataFn} from '../features/validation/utils/GetInitialDataFn'
 import type {IComponentDataFactory} from '../features/validation/utils/IComponentDataFactory'
 import {RepeaterField} from '../features/validation/utils/RepeaterField'
+import type {SetInitialDataFn} from '../features/validation/utils/SetInitialDataFn'
 import {SimpleField} from '../features/validation/utils/SimpleField'
 import {TemplateField} from '../features/validation/utils/TemplateField'
 import {isStoreDataInParentForm} from '../features/validation/utils/util'
 import {typedValidatorsResolver} from '../features/validation/utils/validatorsResolver'
 import type {Setter, ViewMode} from '../types'
-import {isNumber, isPromise, isString} from '../utils'
+import {isNumber, isRecord, isString} from '../utils'
 import {ComponentData} from '../utils/contexts/ComponentDataContext'
 import type {IFormData} from '../utils/IFormData'
 import {nameObservable} from '../utils/observableNaming'
@@ -116,11 +117,14 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    * @param componentStateFactory the factory for creating component states.
    * @param parentStore the form viewer settings, used in templates.
    * @param getInitialData the function to get initial data for the Store.
+   * @param setInitialData the function for updating initial data.
    */
   constructor(public formViewerPropsStore: FormViewerPropsStore,
               public readonly componentStateFactory: ComponentStateFactory,
               public readonly parentStore?: Store,
-              public readonly getInitialData?: GetInitialDataFn) {
+              public readonly getInitialData?: GetInitialDataFn,
+              public readonly setInitialData?: SetInitialDataFn
+  ) {
     const componentTree = this.createDataRoot()
     const localization = new LocalizationStore()
     this.form = new Form(componentTree, localization, {}, [], globalDefaultLanguage)
@@ -251,29 +255,6 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
   }
 
   /**
-   * @deprecated
-   * Loads a form by form name and sets that form in the form viewer.
-   * @param getForm the function that loads the form.
-   * @param formName the form name.
-   */
-  loadForm(getForm?: (name?: string) => string | Promise<string>, formName?: string) {
-    if (!getForm) return
-
-    try {
-      const form = getForm(formName)
-      if (isPromise<string>(form)) {
-        form
-          .then(this.applyStringForm.bind(this))
-          .catch(this.#onLoadError.bind(this))
-        return
-      }
-      this.applyStringForm(form)
-    } catch (e) {
-      this.#onLoadError(e)
-    }
-  }
-
-  /**
    * @inheritDoc
    */
   createComponentData(componentStore: ComponentStore, deferFieldCalculation = false): ComponentData {
@@ -319,7 +300,13 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     }
 
     if (model.kind === 'repeater') {
-      return new RepeaterField(componentData, calculateValue, createDataValidator, getInitialData, this, deferFieldCalculation)
+      const repeaterSetInitialData = (value: unknown) => {
+        const repeaterKey = dataKey(componentStore)
+        componentData.dataRoot.updateInitialData(repeaterKey, value)
+      }
+
+      return new RepeaterField(componentData, calculateValue, createDataValidator, getInitialData, repeaterSetInitialData,
+        this, deferFieldCalculation)
     }
 
     if (!isTemplateType(model.type)) {
@@ -331,24 +318,18 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       return dataPart(componentData.initialData, dataKey(componentStore))
     }
 
-    const childStore = new Store(this.formViewerPropsStore.clone(), this.componentStateFactory, this, templateGetInitialData)
-    return new TemplateField(componentStore, childStore)
-  }
+    const templateSetInitialData = (key: string | number, value: unknown) => {
+      if (isStoreDataInParentForm(componentStore)) return this.updateInitialData(key, value)
 
-  /**
-   * Changes the form to the component with an error description.
-   * @param e the error.
-   */
-  #onLoadError(e: any) {
-    console.error(e)
-    this.formLoadError = e?.message ?? e
-    const componentStore = buildInternalErrorStore(e)
-    this.applyPersistedForm({
-      form: componentStore,
-      localization: {},
-      defaultLanguage: globalDefaultLanguage.fullCode,
-      languages: []
-    })
+      const templateKey = dataKey(componentStore)
+      const initial = dataPart(componentData.initialData, templateKey) ?? {}
+      if (isRecord(initial)) initial[key] = value
+      this.updateInitialData(templateKey, initial)
+    }
+
+    const childStore = new Store(this.formViewerPropsStore.clone(), this.componentStateFactory, this, templateGetInitialData,
+      templateSetInitialData)
+    return new TemplateField(componentStore, childStore)
   }
 
   /**
@@ -403,6 +384,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
 
       const componentData = this.createComponentData(componentStore, true)
       componentData.getInitialData = () => this.initialDataSlice
+      componentData.setInitialData = this.updateInitialData
 
       const localization = new LocalizationStore(assign({}, persistedForm.localization))
 
@@ -455,7 +437,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     return validationResults.map(result => {
       const errorMessage = localizeErrorMessage(this.form, formData, this.displayedLanguage, componentStore, result.settings.key)
       return errorMessage ?? getDefaultErrorMessage(result)
-    }).join(' ')
+    })
   }
 
   private calculateProperty(componentData: ComponentData, component: ComponentStore, key: string) {
@@ -495,6 +477,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     const componentStore = new ComponentStore(screenModel.name, screenModel.type)
     const componentData = this.createComponentData(componentStore)
     componentData.getInitialData = () => this.initialDataSlice
+    componentData.setInitialData = this.updateInitialData
     return componentData
   }
 
@@ -532,5 +515,14 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       .filterModels(model => model.hasComponentRole(componentRole))
       .map(model => model.type)
     return components.length ? components[0] : undefined
+  }
+
+  private updateInitialData = (key: string | number, value: unknown) => {
+    if (this.setInitialData) {
+      this.setInitialData(key, value)
+      return
+    }
+
+    this.formViewerPropsStore.initialData[key] = value
   }
 }

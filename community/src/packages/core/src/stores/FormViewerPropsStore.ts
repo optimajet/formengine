@@ -76,7 +76,7 @@ export class FormViewerPropsStore {
 
     makeObservable(this, {
       view: observable.ref,
-      initialData: observable.ref,
+      initialData: observable.deep,
       validators: observable.ref,
       formValidators: observable.ref,
       localizer: observable.ref,

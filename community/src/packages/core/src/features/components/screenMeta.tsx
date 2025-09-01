@@ -15,7 +15,4 @@ export const screenMeta = new Meta(
   screenStyleProperties,
   [],
   modules,
-  undefined,
-  undefined,
-  'container'
 )

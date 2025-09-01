@@ -14,4 +14,4 @@ export const repeaterModules: Annotation[] = [
 ]
 
 export const repeaterMeta = new Meta(repeaterModel.type, repeaterProps, repeaterItemStyleProperties, repeaterWrapperStyleProperties,
-  repeaterModules, undefined, repeaterValuedAnnotation.build('value'), repeaterModel.kind)
+  repeaterModules, undefined, repeaterValuedAnnotation.build('value'))

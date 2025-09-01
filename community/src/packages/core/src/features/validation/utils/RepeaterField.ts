@@ -2,6 +2,7 @@ import {autorun, makeAutoObservable, observable, reaction, runInAction} from 'mo
 import {ComponentStore, dataKey, isComputedProperty} from '../../../stores/ComponentStore'
 import {isRecord} from '../../../utils'
 import type {ComponentData, IComponentDataProvider} from '../../../utils/contexts/ComponentDataContext'
+import {mergeData} from '../../../utils/data-utils'
 import {needRender} from '../../../utils/needRender'
 import {nameAutorun, nameObservable} from '../../../utils/observableNaming'
 import type {Model} from '../../define'
@@ -15,11 +16,12 @@ import type {Field} from './Field'
 import type {FieldType} from './FieldType'
 import type {GetInitialDataFn} from './GetInitialDataFn'
 import type {IComponentDataFactory} from './IComponentDataFactory'
+import type {IDataReaction} from './IDataReaction'
 
 /**
  * Field with repeater data. **Internal use only.**
  */
-export class RepeaterField implements Field, IComponentDataProvider {
+export class RepeaterField implements Field, IDataReaction, IComponentDataProvider {
 
   #oldComponentDatas: ComponentData[] = []
 
@@ -43,6 +45,7 @@ export class RepeaterField implements Field, IComponentDataProvider {
   valueType: SchemaType
   dataValidator?: DataValidator
   readonly #disposers: Disposer[]
+  #dataReactionDisposer?: Disposer
 
   initialData: unknown
   readonly componentStore: ComponentStore
@@ -54,6 +57,7 @@ export class RepeaterField implements Field, IComponentDataProvider {
    * @param calculateValue the function for calculating the value of the field.
    * @param createDataValidator the function to create a data validator.
    * @param getInitialData the function to get initial data for the field.
+   * @param setInitialData the function to update initial data for the field.
    * @param componentDataFactory the factory for creating ComponentData instances.
    * @param deferFieldCalculation if true, then the calculated field must be explicitly initialized.
    */
@@ -62,6 +66,7 @@ export class RepeaterField implements Field, IComponentDataProvider {
     readonly calculateValue: CalculatePropertyFn,
     readonly createDataValidator: DataValidatorFactoryFn,
     readonly getInitialData: GetInitialDataFn,
+    readonly setInitialData: (value: unknown) => void,
     readonly componentDataFactory: IComponentDataFactory,
     public deferFieldCalculation: boolean,
   ) {
@@ -100,15 +105,7 @@ export class RepeaterField implements Field, IComponentDataProvider {
     // 1. changing the form data.
     // 2. automatic recalculation of the value if the property is computable.
     // 3. if the data change has occurred, we save the value in the field.
-    this.#disposers.push(
-      reaction(() => ({
-        isComputed: this.isComputed,
-        computedValue: this.computedValue,
-        initialDataValue: this.initialDataValue
-      }), (data) => {
-        this.initialData = data.isComputed ? data.computedValue : data.initialDataValue
-      }, {name: nameObservable(className, {key: this.componentStore.key})})
-    )
+    this.#dataReactionDisposer = this.createDataChangeReaction()
   }
 
   /**
@@ -141,13 +138,13 @@ export class RepeaterField implements Field, IComponentDataProvider {
    * @returns the initial value for the field.
    */
   get initialValue() {
-    return this.componentStore.props[this.valued]?.value ?? this.defaultValue
+    return this.componentStore.props[this.valued]?.value ?? this.modelValue
   }
 
   /**
-   * @returns the default value for the field.
+   * @returns the default value for the field from {@link Model}.
    */
-  get defaultValue() {
+  get modelValue() {
     return this.model.defaultProps?.[this.valued]
   }
 
@@ -156,6 +153,7 @@ export class RepeaterField implements Field, IComponentDataProvider {
    */
   dispose() {
     this.#disposers.forEach(dispose => dispose())
+    this.disableReaction()
     this.disposeOldComponentDatas()
   }
 
@@ -163,11 +161,7 @@ export class RepeaterField implements Field, IComponentDataProvider {
    * @inheritDoc
    */
   get value() {
-    const result: any[] = []
-    this.componentData.forEach(cd => {
-      result.push(cd.data)
-    })
-    return result
+    return this.componentData.map(cd => cd.generatedData())
   }
 
   /**
@@ -239,7 +233,7 @@ export class RepeaterField implements Field, IComponentDataProvider {
    * @inheritDoc
    */
   clear() {
-    this.setValue(this.defaultValue)
+    this.setValue(this.modelValue)
     this.touched = false
     this.clearError()
   }
@@ -346,6 +340,16 @@ export class RepeaterField implements Field, IComponentDataProvider {
           const initialData = this.initialData
           if (Array.isArray(initialData)) return initialData[i]
         }
+        contextData.setInitialData = (key, value) => {
+          const initialData = this.initialData
+          const array: Array<Record<string, unknown>> = Array.isArray(initialData) ? [...initialData] : []
+
+          const item = mergeData(contextData.generatedData(), array[i])
+          item[key] = value
+          array[i] = item
+
+          this.setInitialData(array)
+        }
 
         // now create the root element of the inner form, it is necessary for correct work of itemRenderWhen property
         const rootStore = new ComponentStore(`${repeaterKey}-root-item-${i}`, 'Fragment')
@@ -406,5 +410,29 @@ export class RepeaterField implements Field, IComponentDataProvider {
     this.#oldComponentDatas.forEach(componentData => {
       componentData.dispose()
     })
+  }
+
+  /**
+   * @inheritDoc
+   */
+  disableReaction() {
+    this.#dataReactionDisposer?.()
+  }
+
+  /**
+   * @inheritDoc
+   */
+  enableReaction() {
+    this.#dataReactionDisposer = this.createDataChangeReaction()
+  }
+
+  private createDataChangeReaction() {
+    return reaction(() => ({
+      isComputed: this.isComputed,
+      computedValue: this.computedValue,
+      initialDataValue: this.initialDataValue
+    }), (data) => {
+      this.initialData = data.isComputed ? data.computedValue : data.initialDataValue
+    }, {name: nameObservable('RepeaterField', {key: this.componentStore.key})})
   }
 }

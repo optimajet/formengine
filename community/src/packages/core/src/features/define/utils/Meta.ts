@@ -1,6 +1,5 @@
 import type {ComponentType, ReactNode} from 'react'
 import type {Annotation} from '../../annotation/types/annotations/Annotation'
-import type {ComponentKind} from '../types'
 import type {ComponentMetadataEventListeners} from './ComponentMetadataEventListeners'
 import type {InsertRestrictionFn} from './InsertRestrictionFn'
 
@@ -8,11 +7,6 @@ import type {InsertRestrictionFn} from './InsertRestrictionFn'
  * Component metadata for the form builder.
  */
 export class Meta {
-
-  /**
-   * @deprecated the component kind. Use the {@link Model.kind}.
-   */
-  readonly kind: ComponentKind
 
   /**
    * Creates the component metadata for the form builder.
@@ -23,7 +17,6 @@ export class Meta {
    * @param modules common metadata for the component.
    * @param customPreview the custom ReactNode to be drawn on the toolbar.
    * @param valuedAn the metadata for the component value.
-   * @param kind the component kind.
    * @param initialJson the JSON source for the component (instance of {@link ComponentStore} class serialised to JSON).
    * @param eventListeners the component metadata event listeners.
    * @param icon the component icon.
@@ -37,12 +30,10 @@ export class Meta {
     readonly modules: Annotation[],
     readonly customPreview?: ReactNode,
     readonly valuedAn?: Annotation,
-    kind: ComponentKind = 'component',
     readonly initialJson?: string,
     readonly eventListeners?: ComponentMetadataEventListeners,
     readonly icon?: ComponentType,
     readonly insertRestriction?: InsertRestrictionFn,
   ) {
-    this.kind = kind
   }
 }

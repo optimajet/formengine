@@ -60,12 +60,6 @@ export interface FormViewerProps {
   errors?: Record<string, unknown>
 
   /**
-   * If true, the component will not be wrapped by the error display component.
-   * @deprecated **Attention! Don't use it! Unstable API.**
-   */
-  erroneous?: boolean
-
-  /**
    * The React component that wraps every component in a form. **Internal use only.**
    */
   componentWrapper?: ComponentType<any>

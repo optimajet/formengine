@@ -6,7 +6,7 @@ const rsCommonProgressProps = {
   percent: number.default(50)
     .withEditorProps({min: 0, max: 100})
     .hinted('Percent of progress')
-    .valued,
+    .dataBound,
   showInfo: boolean.default(true).hinted('Show text'),
   status: oneOf('success', 'fail', 'active')
     .default('active')

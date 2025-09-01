@@ -40,7 +40,7 @@ export interface IStore {
    * @param validationResults the results of the validation.
    * @returns the result of localization or undefined.
    */
-  localizeErrorMessages(formData: IFormData, componentStore: ComponentStore, validationResults?: ValidationResult[]): string | undefined
+  localizeErrorMessages(formData: IFormData, componentStore: ComponentStore, validationResults?: ValidationResult[]): string[] | undefined
 
   /**
    * Localizes a component store based on the given localization type. If a custom localizer is available, it will be used.

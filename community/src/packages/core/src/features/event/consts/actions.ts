@@ -15,8 +15,16 @@ export const commonActions: ActionValues = {
   }, {
     failOnError: 'boolean',
   }),
-  clear: ActionDefinition.functionalAction(e => e.store.form.componentTree.clear()),
-  reset: ActionDefinition.functionalAction(e => e.store.form.componentTree.reset()),
+  clear: ActionDefinition.functionalAction((e, args) => {
+    e.store.form.componentTree.clear(args.clearInitialData)
+  }, {
+    clearInitialData: 'boolean',
+  }),
+  reset: ActionDefinition.functionalAction((e, args) => {
+    e.store.form.componentTree.reset(args.clearInitialData)
+  }, {
+    clearInitialData: 'boolean',
+  }),
   addRow: addRowAction,
   removeRow: removeRowAction,
   openModal,

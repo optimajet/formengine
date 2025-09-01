@@ -1,15 +1,19 @@
 import {camelCase, isArray, isEmpty, merge} from 'lodash-es'
 import type {IReactionDisposer} from 'mobx'
 import {makeAutoObservable, reaction} from 'mobx'
+import {isRecord} from '..'
 import type {Model} from '../../features/define'
 import {getFluentData} from '../../features/localization/getFluentData'
 import type {Field} from '../../features/validation'
 import type {ValidationMessages} from '../../features/validation/types/ValidationResult'
 import type {ComponentField} from '../../features/validation/utils/Field'
+import type {IDataReaction} from '../../features/validation/utils/IDataReaction'
+import type {SetInitialDataFn} from '../../features/validation/utils/SetInitialDataFn'
 import type {ComponentStore} from '../../stores/ComponentStore'
 import {dataKey} from '../../stores/ComponentStore'
 import {defaultComponentState} from '../../stores/IComponentState'
 import {createNonNullableContext} from '../createNonNullableContext'
+import {mergeData} from '../data-utils'
 import type {IFormData} from '../IFormData'
 import {nameObservable} from '../observableNaming'
 import {SyncEvent} from '../SyncEvent'
@@ -28,6 +32,10 @@ function assignNewKey(item: ComponentStore, existingKeys: Set<string>) {
   while (existingKeys.has(generateKey())) count++
   item.key = generateKey()
   return item.key
+}
+
+function isDataReactionField(value: any): value is IDataReaction {
+  return typeof value['disableReaction'] === 'function'
 }
 
 /**
@@ -163,6 +171,11 @@ export class ComponentData implements IFormData {
   getInitialData?: () => unknown
 
   /**
+   * The function for updating initial data.
+   */
+  setInitialData?: SetInitialDataFn
+
+  /**
    * Constructor.
    * @param componentStore the component settings.
    * @param model the component metadata for the form viewer.
@@ -238,6 +251,15 @@ export class ComponentData implements IFormData {
    */
   get initialData() {
     return this.dataRoot.getInitialData?.()
+  }
+
+  /**
+   * Updates the initial data.
+   * @param key the initial data key.
+   * @param value the initial data value.
+   */
+  updateInitialData(key: string | number, value: unknown) {
+    this.dataRoot.setInitialData?.(key, value)
   }
 
   /**
@@ -371,6 +393,18 @@ export class ComponentData implements IFormData {
    * @inheritDoc
    */
   get data() {
+    // first, we use the generated form data as the main form object.
+    // const result = this.generatedData
+    const result: Record<string, unknown> = {...this.generatedData()}
+    // secondly, we use the initial data object as additional data.
+    const initialObject: Record<string, unknown> = isRecord(this.initialData) ? {...this.initialData} : {}
+    return mergeData(result, initialObject)
+  }
+
+  /**
+   * @returns the generated form data.
+   */
+  generatedData() {
     const result: Record<string, unknown> = {}
     for (const {dataKey, field} of this.allComponentFields) {
       if (field.storeDataInParentForm) {
@@ -501,15 +535,33 @@ export class ComponentData implements IFormData {
   /**
    * @inheritDoc
    */
-  reset() {
-    this.allFields.forEach(f => f.reset())
+  reset(clearInitialData = true) {
+    if (clearInitialData) this.clearInitialData()
+    // first, disable the response to the data in the fields, so as not to cause a change in the values in the fields
+    this.allFields.forEach(f => {
+      if (isDataReactionField(f)) f.disableReaction()
+      f.reset()
+    })
+    // then we turn on the reactions to the data in the fields when the changes are completed
+    this.allFields.forEach(f => {
+      if (isDataReactionField(f)) f.enableReaction()
+    })
   }
 
   /**
    * @inheritDoc
    */
-  clear() {
-    this.allFields.forEach(f => f.clear())
+  clear(clearInitialData = true) {
+    if (clearInitialData) this.clearInitialData()
+    // first, disable the response to the data in the fields, so as not to cause a change in the values in the fields
+    this.allFields.forEach(f => {
+      if (isDataReactionField(f)) f.disableReaction()
+      f.clear()
+    })
+    // then we turn on the reactions to the data in the fields when the changes are completed
+    this.allFields.forEach(f => {
+      if (isDataReactionField(f)) f.enableReaction()
+    })
   }
 
   /**
@@ -668,6 +720,13 @@ export class ComponentData implements IFormData {
       nodes.forEach(node => this.#events?.onBeforeDelete.invoke(node, undefined))
     }
     this.parent?.invokeOnBeforeDeleted(nodes)
+  }
+
+  private clearInitialData() {
+    const initialData = this.initialData
+    if (initialData && isRecord(initialData)) {
+      Object.keys(initialData).forEach(key => delete initialData[key])
+    }
   }
 }
 

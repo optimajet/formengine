@@ -6,9 +6,7 @@ import {customValidators} from '@/app/common/validators'
 import {
   formEngineRsuiteCssLoader,
   ltrCssLoader,
-  rsErrorMessage,
   RsLocalizationWrapper,
-  rsTooltip,
   rSuiteComponents,
   rtlCssLoader
 } from '@react-form-builder/components-rsuite'
@@ -20,7 +18,7 @@ const FormBuilder = dynamic(() => import('@react-form-builder/designer').then((m
   ssr: false
 })
 
-const components = [...rSuiteComponents, rsErrorMessage]
+const components = [...rSuiteComponents]
   .map(definer => definer.build())
 
 const formName = 'nextForm'
@@ -35,14 +33,10 @@ const formStorage: IFormStorage = {
 const loadForm = () => formStorage.getForm('')
 
 const view = new BuilderView(components)
-  .withErrorMeta(rsErrorMessage.build())
-  .withTooltipMeta(rsTooltip.build())
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
   .withCssLoader('common', formEngineRsuiteCssLoader)
-  .withErrorMeta(rsErrorMessage.build())
-  .withTooltipMeta(rsTooltip.build())
 
 // We're hiding the form panel because it's not fully functional in this example
 const customization = {

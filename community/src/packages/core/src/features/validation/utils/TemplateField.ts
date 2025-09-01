@@ -52,7 +52,7 @@ export class TemplateField implements Field {
    * @inheritDoc
    */
   get value(): unknown {
-    return this.form.data
+    return this.form.generatedData()
   }
 
   /**

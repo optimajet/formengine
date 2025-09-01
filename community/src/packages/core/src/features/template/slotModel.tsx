@@ -62,5 +62,5 @@ const slotFeatures = addOrUpdateFeatures({},
  * Form viewer slot metadata. **Internal use only.**
  */
 export const slotModel = new Model(Slot, 'Slot', undefined, undefined, undefined,
-  undefined, undefined, undefined, undefined, 'slot', undefined, undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined, undefined,
   undefined, undefined, undefined, slotFeatures)

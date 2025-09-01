@@ -1,9 +1,7 @@
 import {
   formEngineRsuiteCssLoader,
   ltrCssLoader,
-  rsErrorMessage,
   RsLocalizationWrapper,
-  rsTooltip,
   rSuiteComponents,
   rtlCssLoader
 } from '@react-form-builder/components-rsuite'
@@ -13,8 +11,6 @@ import * as SampleForm from './SampleForm.json'
 
 const builderComponents = rSuiteComponents.map(c => c.build())
 const builderView = new BuilderView(builderComponents)
-  .withErrorMeta(rsErrorMessage.build())
-  .withTooltipMeta(rsTooltip.build())
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)

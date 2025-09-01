@@ -30,5 +30,5 @@ export function createTemplateMeta(name: string) {
       disabled: disabled,
       readOnly: readOnly,
     }),
-    [], templateStyleProperties, modules, undefined, undefined, 'template')
+    [], templateStyleProperties, modules)
 }

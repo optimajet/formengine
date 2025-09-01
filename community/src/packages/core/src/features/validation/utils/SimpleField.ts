@@ -1,12 +1,11 @@
 import {autorun, makeAutoObservable, observable, reaction} from 'mobx'
 import type {ComponentStore} from '../../../stores/ComponentStore'
-import {isComputedProperty} from '../../../stores/ComponentStore'
+import {dataKey, isComputedProperty} from '../../../stores/ComponentStore'
 import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
 import {needRender} from '../../../utils/needRender'
 import {nameAutorun, nameObservable} from '../../../utils/observableNaming'
 import type {Model} from '../../define'
 import type {SchemaType} from '../types/SchemaType'
-import type {ValidationMessages} from '../types/ValidationResult'
 import {autoConvertField} from './autoConvertField'
 import type {CalculatePropertyFn} from './CalculatePropertyFn'
 import type {DataValidator} from './DataValidator'
@@ -15,11 +14,12 @@ import type {Disposer} from './Disposer'
 import type {Field} from './Field'
 import type {FieldType} from './FieldType'
 import type {GetInitialDataFn} from './GetInitialDataFn'
+import type {IDataReaction} from './IDataReaction'
 
 /**
  * Field with form data, contains only one value. **Internal use only.**
  */
-export class SimpleField implements Field {
+export class SimpleField implements Field, IDataReaction {
 
   /**
    * @inheritDoc
@@ -46,6 +46,7 @@ export class SimpleField implements Field {
   valueType: SchemaType
   dataValidator?: DataValidator
   readonly #disposers: Disposer[]
+  #dataReactionDisposer?: Disposer
   readonly componentStore: ComponentStore
   readonly model: Model
 
@@ -99,15 +100,7 @@ export class SimpleField implements Field {
     // 1. changing the form data.
     // 2. automatic recalculation of the value if the property is computable.
     // 3. if the data change has occurred, we save the value in the field.
-    this.#disposers.push(
-      reaction(() => ({
-        isComputed: this.isComputed,
-        computedValue: this.computedValue,
-        initialDataValue: this.initialDataValue
-      }), (data) => {
-        this.value = data.isComputed ? data.computedValue : data.initialDataValue
-      }, {name: nameObservable(className, {key: this.componentStore.key})})
-    )
+    this.#dataReactionDisposer = this.createDataChangeReaction()
   }
 
   /**
@@ -138,13 +131,13 @@ export class SimpleField implements Field {
    * @returns the initial value for the field.
    */
   get initialValue() {
-    return this.componentStore.props[this.valued]?.value ?? this.defaultValue
+    return this.componentStore.props[this.valued]?.value ?? this.modelValue
   }
 
   /**
-   * @returns the default value for the field.
+   * @returns the default value for the field from {@link Model}.
    */
-  get defaultValue() {
+  get modelValue() {
     return this.model.defaultProps?.[this.valued]
   }
 
@@ -153,6 +146,7 @@ export class SimpleField implements Field {
    */
   dispose() {
     this.#disposers.forEach(dispose => dispose())
+    this.disableReaction()
   }
 
   /**
@@ -160,6 +154,7 @@ export class SimpleField implements Field {
    */
   setValue(value: unknown) {
     this.innerSetValue(autoConvertField(value, this.valueType))
+    this.updateSiblings(value)
     if (!this.needValidate) {
       this.clearError()
       return
@@ -192,15 +187,14 @@ export class SimpleField implements Field {
    */
   async getValidationResult() {
     if (!this.needValidate) return
-    const result = await this.dataValidator?.getValidationResult?.(this.value)
-    return result?.map(({message}) => message) as ValidationMessages
+    return this.dataValidator?.getValidationResult?.(this.value)
   }
 
   /**
    * @inheritDoc
    */
   reset() {
-    this.innerSetValue(this.initialValue ?? this.defaultValue)
+    this.innerSetValue(this.initialValue ?? this.modelValue)
     this.clearError()
   }
 
@@ -208,7 +202,7 @@ export class SimpleField implements Field {
    * @inheritDoc
    */
   clear() {
-    this.innerSetValue(this.defaultValue)
+    this.innerSetValue(this.modelValue)
     this.touched = false
     this.clearError()
   }
@@ -273,5 +267,40 @@ export class SimpleField implements Field {
    */
   innerSetValue(value: unknown) {
     this.value = value
+  }
+
+  /**
+   * @inheritDoc
+   */
+  disableReaction() {
+    this.#dataReactionDisposer?.()
+  }
+
+  /**
+   * @inheritDoc
+   */
+  enableReaction() {
+    this.#dataReactionDisposer = this.createDataChangeReaction()
+  }
+
+  private createDataChangeReaction() {
+    return reaction(() => ({
+      isComputed: this.isComputed,
+      computedValue: this.computedValue,
+      initialDataValue: this.initialDataValue
+    }), (data) => {
+      this.value = data.isComputed ? data.computedValue : data.initialDataValue
+    }, {name: nameObservable('SimpleField', {key: this.componentStore.key})})
+  }
+
+  private updateSiblings(value: unknown) {
+    const key = dataKey(this.componentStore)
+    this.componentData.dataRoot.allComponentFields
+      .filter(({dataKey, field}) => dataKey === key && field !== this)
+      .forEach(({field}) => {
+        if (field instanceof SimpleField) {
+          field.innerSetValue(value)
+        }
+      })
   }
 }

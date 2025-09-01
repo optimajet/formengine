@@ -10,17 +10,6 @@ import type {ActionDefinition, ActionEventHandler, DefineActionHelper, EventName
 export type ActionsInitializer = (props: ComponentStore['props'], def: DefineActionHelper) => Record<EventName, ActionEventHandler | ActionDefinition>
 
 /**
- * @deprecated Use the built-in 'slot' component.
- */
-export type DeprecatedSlotComponentKind = 'slot'
-
-/**
- * @deprecated Use the {@link definePreset} function instead.
- */
-export type DeprecatedPresetComponentKind = 'preset'
-
-/**
  * The component kind type.
  */
 export type ComponentKind = 'container' | 'component' | 'template' | 'repeater'
-  | DeprecatedSlotComponentKind | DeprecatedPresetComponentKind

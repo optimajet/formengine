@@ -12,11 +12,19 @@ export function createDataProxy(componentData: ComponentData): Record<string, un
       return componentData.data[property]
     },
     set(_, property: string, value): boolean {
+      let valueFoundInFields = false
+
       componentData.allComponentFields
         .filter(({dataKey}) => dataKey === property)
         .forEach(({field}) => {
+          valueFoundInFields = true
           field.setValue(value)
         })
+
+      if (!valueFoundInFields) {
+        componentData.updateInitialData(property, value)
+      }
+
       return true
     },
     ownKeys(): ArrayLike<string | symbol> {

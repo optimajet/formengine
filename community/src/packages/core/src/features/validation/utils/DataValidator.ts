@@ -9,7 +9,7 @@ import type {ValidationResult} from '../types/ValidationResult'
  * @param value the results of the validation.
  * @returns the localization result or undefined.
  */
-export type ErrorMessageLocalizer = (value: ValidationResult[] | undefined) => string | undefined
+export type ErrorMessageLocalizer = (value: ValidationResult[] | undefined) => string[] | undefined
 
 /**
  * The function that validates a value and returns the validation result.
@@ -37,44 +37,34 @@ export function getDefaultErrorMessage(result: ValidationResult) {
   return result.message ?? `Validation failed: ${result.settings.key}`
 }
 
-function concatErrorMessages(value: ValidationResult[] | undefined) {
-  if (!value) return undefined
-  return value?.map(getDefaultErrorMessage).join(' ')
-}
-
 /**
  * Binds all parts of the validation and performs the validation.
  */
 export class DataValidator {
   readonly #validator
-  readonly #localizedValidator
-  readonly #debouncedValidator
 
   private constructor(
     store: IStore,
     getFormData: () => IFormData,
     validator: ResolvedValidator,
-    setter: Setter<string | undefined>,
+    private setter: Setter<string | undefined>,
     errorMessageLocalizer?: ErrorMessageLocalizer
   ) {
-    const localizer = (messages?: ValidationResult[]) => {
-      if (!messages || messages.length === 0) return undefined
-      if (store.showAllValidationErrors) {
-        return (errorMessageLocalizer ?? concatErrorMessages)(messages)
+    const localizer = (validationResults: ValidationResult[]) => {
+      return errorMessageLocalizer?.(validationResults) ?? validationResults.map(getDefaultErrorMessage)
+    }
+
+    this.#validator = async (value: any, checkShowAllErrors = false) => {
+      const validationResults = await validator(value, store, getFormData)
+
+      if (!validationResults || validationResults.length === 0) return undefined
+
+      if (checkShowAllErrors && !store.showAllValidationErrors) {
+        return localizer([validationResults[0]])
       }
-      return errorMessageLocalizer?.([messages[0]]) ?? getDefaultErrorMessage(messages[0])
+
+      return localizer(validationResults)
     }
-
-    this.#validator = (value: any) => validator(value, store, getFormData)
-
-    this.#localizedValidator = async (value: any) => {
-      const result = await validator(value, store, getFormData)
-      const error = localizer(result)
-      setter(error)
-      return error
-    }
-
-    this.#debouncedValidator = debounce(this.#localizedValidator, 200)
   }
 
   /**
@@ -98,7 +88,8 @@ export class DataValidator {
    * @param value the validated value.
    */
   sendValidationEvent = (value: any) => {
-    this.#debouncedValidator(value)?.catch(console.error)
+    const debouncedValidator = debounce(this.validate, 200)
+    debouncedValidator(value)?.catch(console.error)
   }
 
   /**
@@ -107,7 +98,10 @@ export class DataValidator {
    * @returns the Promise with the result of the validation.
    */
   validate = async (value: any) => {
-    return await this.#localizedValidator(value)
+    const errorMessages = await this.#validator(value, true)
+    const joinedMessages = errorMessages?.join(' ')
+    this.setter(joinedMessages)
+    return joinedMessages
   }
 
   /**

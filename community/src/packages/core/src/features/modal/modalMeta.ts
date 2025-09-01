@@ -31,4 +31,4 @@ const modalEventListeners: ComponentMetadataEventListeners = {
 }
 
 export const modalMeta = new Meta(modalModel.type, modalProperties, [], [], modalModules,
-  undefined, undefined, modalModel.kind, undefined, modalEventListeners)
+  undefined, undefined, undefined, modalEventListeners)
