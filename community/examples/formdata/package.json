@@ -1,7 +1,7 @@
 {
-  "name": "formengine",
+  "name": "formdata",
   "version": "5.0.0",
-  "description": "FormEngine example application",
+  "description": "FormEngine example application explaining initialData",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -17,14 +17,14 @@
     "start": "vite preview"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.0.0",
     "@react-form-builder/components-rsuite": "^7.1.0",
     "@react-form-builder/core": "^7.1.0",
-    "@react-form-builder/designer": "^7.1.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
+    "lodash-es": "^4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "vite-plugin-svgr": "^4.3.0",
-    "wouter": "^3.7.1"
+    "vite-plugin-svgr": "^4.3.0"
   },
   "devDependencies": {
     "@types/react": "^19.0.7",

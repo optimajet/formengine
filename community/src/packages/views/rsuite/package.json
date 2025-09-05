@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/components-rsuite",
   "description": "OptimaJet Form Builder Components - RSuite",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -22,7 +22,7 @@
     "create-archive": "node ./config/pack"
   },
   "dependencies": {
-    "@react-form-builder/core": "^7.0.0"
+    "@react-form-builder/core": "^7.1.0"
   },
   "peerDependencies": {
     "@emotion/css": "^11.13.5",
@@ -32,7 +32,7 @@
     "date-fns": "^2.30.0",
     "react": ">=17.0.2 || ^18 || ^19",
     "react-number-format": "^5.1.4",
-    "rsuite": "5.83.1"
+    "rsuite": "5.83.3"
   },
   "files": [
     "dist/*",

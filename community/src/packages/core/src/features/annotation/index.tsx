@@ -154,10 +154,10 @@ export const renderWhen = createAnnotation('renderWhen').typed('boolean')
  * // Example usage with TSDoc-style function description:
  * fn(
  *   `/**
- *    @param {string} value
- *    @param {ItemDataType} item
- *    @return {boolean}
- *    \/
+ *     * @param {string} value
+ *     * @param {ItemDataType} item
+ *     * @return {boolean}
+ *     *\/
  *   function filterBy(value, item) {`
  * )
  * ```

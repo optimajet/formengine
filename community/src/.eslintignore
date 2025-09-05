@@ -8,6 +8,7 @@ examples
 scripts/*.js
 scripts/test/**/*
 packages/apps/demo/scripts
+packages/apps/formbuilder/scripts
 packages/designer/scripts
 packages/views/antd
 packages/views/default

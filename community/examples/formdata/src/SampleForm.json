@@ -1,0 +1,268 @@
+{
+  "version": "1",
+  "actions": {
+    "showValidationResult": {
+      "body": "    const setVisible = (key, visible) => {\n        const componentStore = e.store.form.componentTree.findByKey(key)?.store\n        if (componentStore) {\n            componentStore.renderWhen = {value: visible}\n        }\n    }\n    const hasErrors = e.store.form.componentTree.hasErrors\n    setVisible('errorMessage', hasErrors)\n    setVisible('successMessage', !hasErrors)",
+      "params": {}
+    }
+  },
+  "tooltipType": "RsTooltip",
+  "modalType": "RsModal",
+  "errorType": "RsErrorMessage",
+  "form": {
+    "key": "screen 1",
+    "type": "Screen",
+    "props": {
+      "error": {
+        "value": {}
+      }
+    },
+    "children": [
+      {
+        "key": "Main container",
+        "type": "RsContainer",
+        "props": {},
+        "css": {
+          "desktop": {
+            "string": "border: 1px solid lightgray;\nborder-radius: 6px;\npadding: 10px;"
+          }
+        },
+        "children": [
+          {
+            "key": "Name container",
+            "type": "RsContainer",
+            "props": {},
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "row"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "First name",
+                "type": "RsInput",
+                "props": {
+                  "label": {
+                    "value": "First name"
+                  }
+                },
+                "schema": {
+                  "type": "string",
+                  "validations": [
+                    {
+                      "key": "required"
+                    }
+                  ],
+                  "autoValidate": true
+                }
+              },
+              {
+                "key": "Last name",
+                "type": "RsInput",
+                "props": {
+                  "label": {
+                    "value": "Last name"
+                  }
+                },
+                "schema": {
+                  "type": "string",
+                  "validations": [
+                    {
+                      "key": "required"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "key": "Email",
+            "type": "RsInput",
+            "props": {
+              "label": {
+                "value": "Email address"
+              }
+            },
+            "schema": {
+              "type": "string",
+              "validations": [
+                {
+                  "key": "email"
+                },
+                {
+                  "key": "required"
+                }
+              ]
+            }
+          },
+          {
+            "key": "rsContainer1",
+            "type": "RsContainer",
+            "props": {},
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "row"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "rsContainer3",
+                "type": "RsContainer",
+                "props": {},
+                "children": [
+                  {
+                    "key": "Message",
+                    "type": "RsTextArea",
+                    "props": {
+                      "label": {
+                        "value": "Message"
+                      }
+                    },
+                    "schema": {
+                      "validations": [
+                        {
+                          "key": "required"
+                        },
+                        {
+                          "key": "min",
+                          "args": {
+                            "limit": 20
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "key": "rsContainer2",
+                "type": "RsContainer",
+                "props": {},
+                "css": {
+                  "any": {
+                    "object": {
+                      "alignItems": "center",
+                      "justifyContent": "center"
+                    }
+                  }
+                },
+                "wrapperCss": {
+                  "any": {
+                    "object": {
+                      "width": "10%"
+                    }
+                  }
+                },
+                "children": [
+                  {
+                    "key": "suggestText",
+                    "type": "RsButton",
+                    "props": {
+                      "children": {
+                        "value": "Generate"
+                      },
+                      "disabled": {
+                        "value": false
+                      }
+                    },
+                    "events": {
+                      "onClick": [
+                        {
+                          "name": "suggestMessage",
+                          "type": "custom"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "Save button",
+            "type": "RsButton",
+            "props": {
+              "block": {
+                "value": false
+              },
+              "appearance": {
+                "value": "primary"
+              },
+              "children": {
+                "value": "Save"
+              },
+              "size": {
+                "value": "sm"
+              },
+              "loading": {
+                "computeType": "function",
+                "fnSource": "    return form.isValidating"
+              }
+            },
+            "events": {
+              "onClick": [
+                {
+                  "name": "validate",
+                  "type": "common"
+                },
+                {
+                  "name": "showValidationResult",
+                  "type": "code"
+                }
+              ]
+            }
+          },
+          {
+            "key": "errorMessage",
+            "type": "RsStaticContent",
+            "props": {
+              "content": {
+                "value": "Not all fields of the form are filled in correctly. Correct the values of the form fields and try again."
+              }
+            },
+            "css": {
+              "any": {
+                "string": "color: red;"
+              }
+            },
+            "renderWhen": {
+              "value": "false"
+            }
+          },
+          {
+            "key": "successMessage",
+            "type": "RsStaticContent",
+            "props": {
+              "content": {
+                "value": "The form has been sent, thank you!"
+              }
+            },
+            "css": {
+              "any": {
+                "string": "color: green;"
+              }
+            },
+            "renderWhen": {
+              "value": "false"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "localization": {},
+  "languages": [
+    {
+      "code": "en",
+      "dialect": "US",
+      "name": "English",
+      "description": "American English",
+      "bidi": "ltr"
+    }
+  ],
+  "defaultLanguage": "en-US"
+}

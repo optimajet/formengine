@@ -50,6 +50,9 @@ const RsNumberFormat = ({style, className, label, onChange, value, ...props}: Rs
   const {decimalSeparator, thousandSeparator} = getSeparators(props)
 
   value = value ?? ''
+  if (typeof value === 'number' && !Number.isFinite(value)) {
+    value = ''
+  }
 
   const onValueChange = useCallback((values: NumberFormatValues) => onChange?.(values.value), [onChange])
 

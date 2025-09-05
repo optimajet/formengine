@@ -1,0 +1,49 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.fieldset {
+  border: 1px solid #ccc;
+  padding: 10px 15px 15px 15px;
+  margin: 15px 0;
+  position: relative;
+}
+
+.legend {
+  font-weight: bold;
+  padding: 0 5px;
+  position: absolute;
+  top: -0.7em;
+  left: 10px;
+  background: #fff;
+}
+
+.field {
+  margin-top: 10px;
+}
+
+.button {
+  margin-top: 10px;
+  font-size: 0.9em;
+  padding: 4px 6px;
+}
+
+.button:not(:first-of-type) {
+  margin-left: 1em;
+}
+
+.label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.9em;
+}
+
+.value {
+  display: block;
+  padding: 4px 6px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background: #f9f9f9;
+}

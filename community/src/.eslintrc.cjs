@@ -108,6 +108,9 @@ module.exports = {
         'contexts': ['TSInterfaceDeclaration', 'TSTypeAliasDeclaration', 'TSEnumDeclaration', 'TSPropertySignature'],
       },
     ],
+    'jsdoc/no-multi-asterisks': ['error', {
+      'allowWhitespace': true
+    }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'error'
   },

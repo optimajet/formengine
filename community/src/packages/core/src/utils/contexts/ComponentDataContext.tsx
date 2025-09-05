@@ -166,12 +166,12 @@ export class ComponentData implements IFormData {
   componentState = defaultComponentState
 
   /**
-   * The function for getting initial data.
+   * The function for getting initial data. **Internal use only.**
    */
   getInitialData?: () => unknown
 
   /**
-   * The function for updating initial data.
+   * The function for updating initial data. **Internal use only.**
    */
   setInitialData?: SetInitialDataFn
 
@@ -254,7 +254,7 @@ export class ComponentData implements IFormData {
   }
 
   /**
-   * Updates the initial data.
+   * Updates the initial data. **Internal use only.**
    * @param key the initial data key.
    * @param value the initial data value.
    */
