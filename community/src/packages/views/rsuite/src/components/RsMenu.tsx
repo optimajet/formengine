@@ -1,5 +1,6 @@
 import {array, define, oneOf, useComponentData} from '@react-form-builder/core'
-import type {ElementType} from 'react'
+import type {ElementType, SyntheticEvent} from 'react'
+import {useCallback} from 'react'
 import type {NavProps} from 'rsuite'
 import {Nav} from 'rsuite'
 import {navProps} from '../commonProperties'
@@ -45,13 +46,14 @@ interface RsMenuProps extends NavProps {
 
 const RsMenu = ({onSelect, items, itemsAs, ...props}: RsMenuProps) => {
   const componentData = useComponentData()
-  if (!items?.length) return null
 
-  const onNavSelect: NavProps['onSelect'] = (eventKey, event) => {
+  const onNavSelect: NavProps['onSelect'] = useCallback((eventKey: any, event: SyntheticEvent) => {
     componentData.userDefinedProps ??= {}
     componentData.userDefinedProps.activeKey = eventKey
     onSelect?.(eventKey, event)
-  }
+  }, [componentData, onSelect])
+
+  if (!items?.length) return null
 
   return <Nav onSelect={onNavSelect} {...props}>
     {items.map(({title, href}, index) =>
@@ -65,7 +67,7 @@ const RsMenu = ({onSelect, items, itemsAs, ...props}: RsMenuProps) => {
 const columns = [
   {name: 'title', input: InputCell},
   {name: 'href', title: 'Url', input: InputCell}
-]
+] as const
 
 const {activeKey, ...props} = navProps
 

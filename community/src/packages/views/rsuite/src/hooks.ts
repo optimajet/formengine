@@ -1,5 +1,6 @@
-import {useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import type {InputPickerProps, PickerHandle} from 'rsuite'
+import type {ValueType} from 'rsuite/esm/InputPicker/InputPicker'
 import type {ItemDataType} from 'rsuite/esm/internals/types'
 import type {ListProps} from 'rsuite/esm/internals/Windowing'
 
@@ -58,9 +59,9 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
   const [searchValue, setSearchValue] = useState('')
   const [data, setData] = useState<ItemDataType[]>(initialData ?? [])
   const [loading, setLoading] = useState(false)
-  const hasValue = (item: ItemDataType) => item.value === value
+  const hasValue = useCallback((item: ItemDataType) => item.value === value, [value])
 
-  const loadCallback: LoadCallback = newData => {
+  const loadCallback: LoadCallback = useCallback((newData) => {
     let filteredData = data
 
     if (value && newData.some(hasValue)) {
@@ -69,7 +70,7 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
 
     setData([...filteredData, ...newData])
     setLoading(false)
-  }
+  }, [data, hasValue, value])
 
   useEffect(() => {
     if (preload) onLoadData?.('', loadCallback, 0)
@@ -101,21 +102,21 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
     }
   }
 
-  const onSearch = (value: string) => {
+  const onSearch = useCallback((value: string) => {
     if (onLoadData) setData([])
     setSearchValue(value)
     props.onSearch?.(value)
-  }
+  }, [onLoadData, props])
 
-  const onOpen = () => {
+  const onOpen = useCallback(() => {
     props.onOpen?.()
     if (!value && !preload) onLoadData?.('', loadCallback, 0)
-  }
+  }, [props, value, preload, onLoadData, loadCallback])
 
-  const onCreate: InputPickerProps['onCreate'] = (_, item) => {
+  const onCreate: InputPickerProps['onCreate'] = useCallback((_: ValueType, item: ItemDataType) => {
     setData([item, ...data])
     setSearchValue('')
-  }
+  }, [data])
 
   const virtualized = !!onLoadData && disableVirtualized !== true
 
@@ -143,4 +144,19 @@ export const useFixAriaAttributesForInputPicker = () => {
     setAriaHiddenIfNotExists(rsPickerSearch)
   }, [])
   return inputRef
+}
+
+/**
+ * Returns the memoized conversion value over an array.
+ * @param array the array.
+ * @param mapFn the conversion function.
+ * @returns the memoized conversion value over an array.
+ */
+export const useArrayMapMemo = <T, R>(array: T[] | undefined,
+                                      mapFn: (item: T, index: number) => R) => {
+  const length = array?.length
+  return useMemo(() => {
+    if (!length) return []
+    return array.map(mapFn)
+  }, [array, length, mapFn])
 }

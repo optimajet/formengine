@@ -4,6 +4,8 @@ import {array, containerStyles, getDefaultCss, node, string} from '../annotation
 import {toArray} from '../annotation/toArray'
 import {toStyleProperties} from '../annotation/toStyleProperties'
 import {Model} from '../define'
+import {addOrUpdateFeatures} from '../define/utils/ComponentFeature'
+import {cfSkipChildrenDuringFieldCollection} from '../define/utils/integratedComponentFeatures'
 import {RepeaterItem} from './RepeaterItem'
 import type {RepeaterProps} from './RepeaterProps'
 import {RepeaterPropsProvider} from './RepeaterPropsContext'
@@ -68,5 +70,10 @@ const repeaterDefaultProps = repeaterProps
     return acc
   }, {})
 
+const repeaterFeatures = addOrUpdateFeatures({},
+  {name: cfSkipChildrenDuringFieldCollection, value: true},
+)
+
 export const repeaterModel = new Model(Repeater, 'Repeater', undefined, 'value', 'array',
-  repeaterDefaultProps, repeaterItemCss, repeaterWrapperCss, 'Repeater', 'repeater')
+  repeaterDefaultProps, repeaterItemCss, repeaterWrapperCss, 'Repeater', 'repeater',
+  undefined, undefined, undefined, undefined, undefined, repeaterFeatures)

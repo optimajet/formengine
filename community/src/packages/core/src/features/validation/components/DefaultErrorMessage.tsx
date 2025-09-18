@@ -51,7 +51,9 @@ const DefaultErrorMessage = ({children, error, className}: ErrorWrapperProps) =>
   return (
     <div className={divClass}>
       {children}
-      {error && <p id={aria['aria-errormessage']} className={cx(className, ErrorMessageStyle)} children={error}/>}
+      {error && <p id={aria['aria-errormessage']} className={cx(className, ErrorMessageStyle)}>
+        {error}
+      </p>}
     </div>
   )
 }

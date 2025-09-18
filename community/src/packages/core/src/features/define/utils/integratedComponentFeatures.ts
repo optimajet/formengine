@@ -56,3 +56,9 @@ registerBooleanComponentFeature(cfEnableInlineStylesEditor)
  */
 export const cfHideFromComponentPalette = 'hide-from-component-palette'
 registerBooleanComponentFeature(cfHideFromComponentPalette)
+
+/**
+ * Enabling this feature of the component will exclude the fields of the child components when assembling all the fields of the form.
+ */
+export const cfSkipChildrenDuringFieldCollection = 'skip-children-during-field-collection'
+registerBooleanComponentFeature(cfSkipChildrenDuringFieldCollection)

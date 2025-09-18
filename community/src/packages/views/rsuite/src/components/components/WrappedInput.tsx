@@ -1,3 +1,4 @@
+import {useCallback} from 'react'
 import type {InputProps} from 'rsuite'
 import {Input} from 'rsuite'
 
@@ -9,6 +10,7 @@ import {Input} from 'rsuite'
  * @returns the React element.
  */
 export const WrappedInput = ({onChange, ...props}: InputProps) => {
-  const handleChange = (value: any, event: any) => onChange?.(event, value)
+  const handleChange = useCallback((value: any, event: any) => onChange?.(event, value), [onChange])
+
   return <Input onChange={handleChange} {...props}/>
 }

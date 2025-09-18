@@ -66,7 +66,8 @@ export function getChildren(
 
     if (filteredChildren.length) {
       currentProps[key] = data.model.propsBindingTypes[key] === 'array'
-        ? filteredChildren.map((item, index) => <ComponentTree key={index} data={[item]}/>)
+        ? filteredChildren.map(item => [item])
+          .map((data, index) => <ComponentTree key={index} data={data}/>)
         : <ComponentTree data={filteredChildren}/>
     }
   }

@@ -182,3 +182,4 @@ export type {ComponentFeature, ComponentFeatures} from './features/define/utils/
 export type {ComponentRole} from './features/define/utils/ComponentRole'
 export {useModalType} from './features/modal/useModalType'
 export {useModalComponentData} from './features/modal/useModalComponentData'
+export {useBuilderValue} from './utils/useBuilderValue'

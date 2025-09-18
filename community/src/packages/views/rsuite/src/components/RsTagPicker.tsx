@@ -17,6 +17,8 @@ const fixEmptyItem = ({value, label}: LabeledValue) => ({
   label: label ?? ''
 })
 
+const EMPTY_LIST = [] as const
+
 const RsTagPicker = ({data, label, value, className, ...props}: RsTagPickerProps) => {
   const inputRef = useRef<PickerHandle>(null)
   const onClean = useTouchOnEvent(props, 'onClean')
@@ -33,7 +35,7 @@ const RsTagPicker = ({data, label, value, className, ...props}: RsTagPickerProps
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
       <TagPicker
-        value={value ?? []}
+        value={value ?? EMPTY_LIST}
         data={transformedData}
         onClean={onClean}
         {...props}

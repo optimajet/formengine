@@ -1,5 +1,6 @@
 import {viewWithCss} from '@react-form-builder/components-rsuite'
 import {buildForm, FormViewer} from '@react-form-builder/core'
+import {useMemo} from 'react'
 
 const simpleForm = buildForm({errorType: 'RsErrorMessage'})
   .component('container', 'RsContainer')
@@ -31,18 +32,22 @@ const simpleForm = buildForm({errorType: 'RsErrorMessage'})
   .customAction('onSubmit')
   .json()
 
+// Utility functions that don't depend on component state
+const getForm = () => simpleForm
+const onSubmit = (e: any) => {
+  // submit the form to the backend
+  alert('Form data: ' + JSON.stringify(e.data))
+}
+
 /**
  * @returns the App element.
  */
 export const ExampleViewerApp = () => {
+  const actions = useMemo(() => ({onSubmit}), [])
+
   return <FormViewer
     view={viewWithCss}
-    getForm={() => simpleForm}
-    actions={{
-      onSubmit: (e) => {
-        // submit the form to the backend
-        alert('Form data: ' + JSON.stringify(e.data))
-      },
-    }}
+    getForm={getForm}
+    actions={actions}
   />
 }

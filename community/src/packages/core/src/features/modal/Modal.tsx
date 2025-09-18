@@ -50,7 +50,7 @@ const RawModalBuilder = ({modalTemplate}: ModalProps) => {
     return <div>Modal: template not specified</div>
   }
 
-  return <div>Modal: '{modalTemplateName}'</div>
+  return <div>{`Modal: '${modalTemplateName}'`}</div>
 }
 
 const ModalBuilder = namedObserver('ModalBuilder', RawModalBuilder)
@@ -105,27 +105,27 @@ const RawModalViewer = (props: ModalProps) => {
     }
   }, [componentData, parentStore.formData])
 
-  if (!modalModel || !modalTemplate) return null
+  const contextValue = useMemo(() => ({
+    ...formViewerProps.context,
+    modalContext: {
+      [closeCurrentModalActionName]: handleClose,
+      [modalBeforeHideFnName]: postFn,
+      parentContext: context
+    }
+  }), [context, formViewerProps.context, handleClose, postFn])
 
-  const modalViewerProps: FormViewerProps = {
+  const modalViewerProps: FormViewerProps = useMemo(() => ({
     ...formViewerProps,
-
     formName: getTemplateName(modalTemplate),
     initialData: initialData,
     errors: undefined,
     onFormDataChange: undefined,
     readOnly: undefined,
     disabled: undefined,
+    context: contextValue
+  }), [formViewerProps, modalTemplate, initialData, contextValue])
 
-    context: {
-      ...formViewerProps.context,
-      modalContext: {
-        [closeCurrentModalActionName]: handleClose,
-        [modalBeforeHideFnName]: postFn,
-        parentContext: context
-      }
-    }
-  }
+  if (!modalModel || !modalTemplate) return null
 
   return <ComponentModal model={modalModel} open={open} handleClose={handleClose}>
     <NewStoreProvider props={modalViewerProps}>

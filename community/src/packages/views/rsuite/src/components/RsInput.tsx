@@ -1,6 +1,6 @@
 import {boolean, define, oneOf, string, useAriaAttributes, useComponentData} from '@react-form-builder/core'
 import {EyeClose as EyeSlashIcon, Visible as EyeIcon} from '@rsuite/icons'
-import {useState} from 'react'
+import {useCallback, useState} from 'react'
 import type {InputProps} from 'rsuite'
 import {Input, InputGroup} from 'rsuite'
 import {inputProps} from '../commonProperties'
@@ -18,10 +18,12 @@ const RsInput = ({style, className, label, passwordMask, showPasswordAriaLabel, 
   const {id} = useComponentData()
   const aria = useAriaAttributes({labeled: !!label})
 
+  const toggleVisible = useCallback(() => setVisible(v => !v), [])
+
   const input = passwordMask
     ? <InputGroup inside>
       <Input id={id} {...aria} type={visible ? 'text' : 'password'} value={value ?? ''} {...props}/>
-      <InputGroup.Button aria-label={showPasswordAriaLabel} aria-pressed={visible} onClick={() => setVisible(!visible)}>
+      <InputGroup.Button aria-label={showPasswordAriaLabel} aria-pressed={visible} onClick={toggleVisible}>
         {visible ? <EyeIcon/> : <EyeSlashIcon/>}
       </InputGroup.Button>
     </InputGroup>

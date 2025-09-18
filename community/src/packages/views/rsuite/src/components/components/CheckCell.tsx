@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import {useCallback} from 'react'
 import {Checkbox} from 'rsuite'
 import type {InputCellProps} from './InputCellProps'
 import {SCell} from './SCell'
@@ -21,10 +22,11 @@ const SCheckbox = styled(Checkbox)`
  * @returns the React element.
  */
 export const CheckCell = ({rowData, dataKey, rowIndex, onChange, ...props}: InputCellProps) => {
-  const handleChange = (_: any, checked: boolean) => {
+  const handleChange = useCallback((_: any, checked: boolean) => {
     rowData[dataKey] = checked
     onChange?.(checked, dataKey, rowIndex)
-  }
+  }, [dataKey, onChange, rowData, rowIndex])
+
   return (
     <SCell {...props}>
       <SCheckbox inline checked={rowData[dataKey] ?? false} onChange={handleChange}/>

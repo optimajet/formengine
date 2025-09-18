@@ -43,6 +43,13 @@ export class ActionEventArgs {
   }
 
   /**
+   * @returns user-defined properties for the React component that override other properties of the component.
+   */
+  get userDefinedProps(): Record<string, any> {
+    return {...this.sender.userDefinedProps}
+  }
+
+  /**
    * Sets user-defined properties for the React component that override other properties of the component.
    * @param props the component properties.
    */
@@ -117,6 +124,11 @@ declare class ActionEventArgs {
    * The index of the component in the array, if the component is in the array.
    */
   readonly index?: number
+
+  /**
+   * @returns user-defined properties for the React component that override other properties of the component.
+   */
+  get userDefinedProps(): Record<string, any>
 
   /**
    * Sets current props of component.

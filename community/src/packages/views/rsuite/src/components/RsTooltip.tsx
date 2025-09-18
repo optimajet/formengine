@@ -1,5 +1,6 @@
 import type {WrapperProps} from '@react-form-builder/core'
 import {define, node, oneOf, someOf, string} from '@react-form-builder/core'
+import {useMemo} from 'react'
 import {Tooltip, Whisper} from 'rsuite'
 import type {OverlayTriggerType} from 'rsuite/esm/internals/Overlay/OverlayTrigger'
 import type {TypeAttributes} from 'rsuite/esm/internals/types'
@@ -22,11 +23,15 @@ export interface RsTooltipProps extends WrapperProps {
   trigger: OverlayTriggerType
 }
 
-const RsTooltip = ({text, placement, trigger, children}: RsTooltipProps) => {
+const wrapperStyle = {width: '100%', height: '100%'} as const
+
+const RsTooltip = ({text, placement, trigger, children, ...props}: RsTooltipProps) => {
+  const tooltip = useMemo(() => <Tooltip>{text}</Tooltip>, [text])
+
   if (!children) return null
 
-  return <Whisper placement={placement} trigger={trigger} speaker={<Tooltip>{text}</Tooltip>}>
-    <div style={{width: '100%', height: '100%'}}>{children}</div>
+  return <Whisper placement={placement} trigger={trigger} speaker={tooltip}>
+    <div {...props} style={wrapperStyle}>{children}</div>
   </Whisper>
 }
 

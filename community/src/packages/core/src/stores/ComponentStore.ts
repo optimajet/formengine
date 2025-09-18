@@ -270,4 +270,14 @@ export class ComponentStore {
     store.events[eventName] ??= []
     store.events[eventName].push(data)
   }
+
+  /**
+   * Returns a clone of the specified component settings.
+   * @param store the component settings.
+   * @returns the clone of the specified component settings.
+   */
+  static clone(store: ComponentStore) {
+    const obj = JSON.parse(JSON.stringify(store))
+    return ComponentStore.createFromObject(obj)
+  }
 }

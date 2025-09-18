@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import {array, boolean, define, node, toLabeledValues, useComponentData} from '@react-form-builder/core'
 import type {ReactNode, SyntheticEvent} from 'react'
+import {useCallback} from 'react'
 import type {NavProps} from 'rsuite'
 import {Nav} from 'rsuite'
 import {navProps} from '../commonProperties'
@@ -37,13 +38,13 @@ const RsTab = ({
                }: RsTabProps) => {
   const componentData = useComponentData()
 
-  if (!items?.length) return null
-
-  const onNavSelect = (eventKey: string, event: SyntheticEvent) => {
+  const onNavSelect = useCallback((eventKey: string, event: SyntheticEvent) => {
     componentData.userDefinedProps ??= {}
     componentData.userDefinedProps.activeKey = eventKey
     onSelect?.(eventKey, event)
-  }
+  }, [componentData, onSelect])
+
+  if (!items?.length) return null
 
   const activeKey = props.activeKey ?? items?.[0].value
 

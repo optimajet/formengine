@@ -1,7 +1,9 @@
-import {define, string} from '@react-form-builder/core'
+import {define, string, useBuilderValue} from '@react-form-builder/core'
 import {createElement} from 'react'
 import {backgroundColor, headerSize, textStyles} from '../commonProperties'
 import type {TextProps} from '../commonTypes'
+
+const defaultContent = 'Header'
 
 interface RsHeaderProps extends TextProps {
   content?: string
@@ -17,7 +19,8 @@ interface RsHeaderProps extends TextProps {
  * @returns the React element.
  */
 export const RsHeader = ({content, headerSize, ...props}: RsHeaderProps) => {
-  return createElement(headerSize, {children: content, ...props})
+  const children = useBuilderValue(content, defaultContent)
+  return createElement(headerSize, props, children)
 }
 
 const {textAlign, color} = textStyles
@@ -25,7 +28,7 @@ const {textAlign, color} = textStyles
 export const rsHeader = define(RsHeader, 'RsHeader')
   .name('Header')
   .props({
-    content: string.required.default('Header').dataBound,
+    content: string.required.default(defaultContent).dataBound,
     headerSize
   })
   .css({
@@ -33,4 +36,3 @@ export const rsHeader = define(RsHeader, 'RsHeader')
     textAlign,
     color
   })
-

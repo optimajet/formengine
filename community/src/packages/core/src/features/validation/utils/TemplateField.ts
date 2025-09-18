@@ -24,7 +24,7 @@ export class TemplateField implements Field {
   /**
    * Creates the nested form field with form data for the component.
    * @param componentStore the component settings.
-   * @param viewerStore viewerStore the form viewer settings.
+   * @param viewerStore the form viewer settings.
    */
   constructor(
     readonly componentStore: ComponentStore,

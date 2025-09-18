@@ -18,6 +18,7 @@ import type {CSSProperties, PropsWithChildren} from 'react'
 import {useCallback, useEffect, useMemo, useState} from 'react'
 import type {StepItemProps} from 'rsuite'
 import {Button, ButtonToolbar, Steps} from 'rsuite'
+import {useArrayMapMemo} from '../../hooks'
 import {Rows} from '../components/Layout'
 import {createStep, editorProps} from './editorProps'
 import {eventListeners} from './eventListeners'
@@ -43,15 +44,8 @@ interface RsWizardProps extends PropsWithChildren<any> {
   onFinish?: () => void
 }
 
-const containerStyle = {
-  gap: 10,
-  padding: 10
-}
-
-const toolbarStyle = {
-  justifyContent: 'end',
-  zIndex: 7
-}
+const containerStyle = {gap: 10, padding: 10} as const
+const toolbarStyle = {justifyContent: 'end', zIndex: 7} as const
 
 const SCentered = styled.div`
   display: flex;
@@ -62,6 +56,13 @@ const SCentered = styled.div`
 `
 
 const EmptyContent = () => <SCentered>Missing content</SCentered>
+
+interface WizardStepItemProps {
+  label?: string
+  className: string
+  status: StepItemProps['status']
+  onClick: () => void
+}
 
 const RsWizard = ({
                     children,
@@ -89,9 +90,11 @@ const RsWizard = ({
   }, [visited, activeIndex])
 
   const componentData = useComponentData()
-  const labels = componentData.store.children?.map(({props}) => ({
-    label: props.label?.value
-  })) ?? []
+
+  const labels = useArrayMapMemo(
+    componentData.store.children,
+    ({props}) => ({label: props.label?.value})
+  )
 
   const openStep = useCallback((index: number) => {
     if (visited < index) setVisited(index)
@@ -160,7 +163,7 @@ const RsWizard = ({
     ? children[activeIndex] ?? children[0]
     : null
 
-  const buttons = (
+  const buttons = useMemo(() => (
     <ButtonToolbar style={toolbarStyle} className={'buttons'}>
       {!isStart && <Button onClick={handlePrev} disabled={isStart}>{prevButtonLabel}</Button>}
       <Button onClick={isFinish ? handleFinish : handleNext} disabled={disableNextButton}
@@ -168,17 +171,40 @@ const RsWizard = ({
         {isFinish ? finishButtonLabel : nextButtonLabel}
       </Button>
     </ButtonToolbar>
-  )
+  ), [disableNextButton, finishButtonLabel, handleFinish, handleNext, handlePrev, isFinish, isStart, nextButtonLabel, prevButtonLabel])
+
+  const wizardItems: WizardStepItemProps[] = useMemo(() => {
+    return labels.map(({label}, index) => {
+      const className = cx({
+        available: isStepAvailable(index),
+        active: index === activeIndex
+      })
+
+      const onClick = () => handleStepClick(index)
+      const status = getStepStatus(index)
+
+      return {
+        label,
+        className,
+        status,
+        onClick,
+      }
+    })
+  }, [activeIndex, getStepStatus, handleStepClick, isStepAvailable, labels])
 
   return <Rows style={containerStyle} {...props}>
     <div style={stepsContainerStyle}>
       {showSteps && !!content &&
         <Steps current={activeIndex} vertical={verticalSteps} className={'steps'}>
-          {labels.map(({label}, index) =>
-            <SItem key={index} title={showStepsLabels && label} onClick={() => handleStepClick(index)}
-                   status={getStepStatus(index)}
-                   className={cx({available: isStepAvailable(index), active: index === activeIndex})}/>
-          )}
+          {wizardItems.map(({label, onClick, status, className}, index) => (
+            <SItem
+              key={index}
+              title={showStepsLabels && label}
+              onClick={onClick}
+              status={status}
+              className={className}
+            />
+          ))}
         </Steps>
       }
       <div className={'content'}>{content ?? <EmptyContent/>}</div>

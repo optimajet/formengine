@@ -3,6 +3,7 @@ import type {IReactionDisposer} from 'mobx'
 import {makeAutoObservable, reaction} from 'mobx'
 import {isRecord} from '..'
 import type {Model} from '../../features/define'
+import {cfSkipChildrenDuringFieldCollection} from '../../features/define/utils/integratedComponentFeatures'
 import {getFluentData} from '../../features/localization/getFluentData'
 import type {Field} from '../../features/validation'
 import type {ValidationMessages} from '../../features/validation/types/ValidationResult'
@@ -667,8 +668,8 @@ export class ComponentData implements IFormData {
 
   private collectAllFields(acc: Map<ComponentData, Field>) {
     if (this.field) acc.set(this, this.field)
-    // we must skip all children in the repeater field
-    if (this.field?.fieldType === 'repeater') return acc
+    // we must skip all children if the feature is enabled
+    if (this.model.isFeatureEnabled(cfSkipChildrenDuringFieldCollection)) return acc
     for (let i = 0; i < this.children.length; i++) {
       const child = this.children[i]
       child.collectAllFields(acc)

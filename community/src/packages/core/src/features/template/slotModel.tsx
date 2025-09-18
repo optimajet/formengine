@@ -38,7 +38,7 @@ const slotPlaceholder: CSSProperties = {
 
 const RawSlotPlaceholder = () => {
   const {key} = useComponentData()
-  return <div style={slotPlaceholder}>Slot: '{key}'</div>
+  return <div style={slotPlaceholder}>{`Slot: '${key}'`}</div>
 }
 
 const SlotPlaceholder = namedObserver('SlotPlaceholder', RawSlotPlaceholder)

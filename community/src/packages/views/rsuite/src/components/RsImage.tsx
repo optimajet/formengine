@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import {define, oneOf, string} from '@react-form-builder/core'
+import {define, oneOf, string, useBuilderValue} from '@react-form-builder/core'
 import type {ComponentProps} from 'react'
 import logo from '../../public/images/logo.png'
 import type {AreaProps} from '../commonTypes'
@@ -12,7 +12,10 @@ const SImage = styled.img`
   height: 100%;
 `
 
-const RsImage = ({alt, ...props}: RsImageProps) => <SImage {...props} alt={alt}/>
+const RsImage = ({alt, src, ...props}: RsImageProps) => {
+  const source = useBuilderValue(src, logo)
+  return <SImage {...props} alt={alt} src={source}/>
+}
 
 export const rsImage = define(RsImage, 'RsImage')
   .name('Image')

@@ -98,7 +98,9 @@ const RawNewStoreProvider = ({children, props}: ViewerStoreProviderProps) => {
 
   if (!store) return null
 
-  return <ExistingStoreProvider children={children} props={props} store={store}/>
+  return <ExistingStoreProvider props={props} store={store}>
+    {children}
+  </ExistingStoreProvider>
 }
 
 export const NewStoreProvider = namedObserver('NewStoreProvider', RawNewStoreProvider)
@@ -110,9 +112,10 @@ export const NewStoreProvider = namedObserver('NewStoreProvider', RawNewStorePro
  */
 const RawViewerStoreProvider = (props: ViewerStoreProviderProps) => {
   const storeFromContext = useContext(StoreContext)
+
   return storeFromContext
-    ? <ExistingStoreProvider children={props.children} props={props.props} store={storeFromContext}/>
-    : <NewStoreProvider children={props.children} props={props.props}/>
+    ? <ExistingStoreProvider props={props.props} store={storeFromContext}>{props.children}</ExistingStoreProvider>
+    : <NewStoreProvider props={props.props}>{props.children}</NewStoreProvider>
 }
 
 export const ViewerStoreProvider = namedObserver('ViewerStoreProvider', RawViewerStoreProvider)

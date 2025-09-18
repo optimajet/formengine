@@ -1,4 +1,5 @@
 import {array, define, event, oneOf, string} from '@react-form-builder/core'
+import {useMemo} from 'react'
 import type {BreadcrumbProps} from 'rsuite'
 import {Breadcrumb} from 'rsuite'
 import {nonNegNumber} from '../commonProperties'
@@ -22,21 +23,27 @@ const columns = [
   {name: 'title', input: InputCell},
   {name: 'href', title: 'Url', input: InputCell},
   {name: 'active', input: CheckCell}
-]
+] as const
 
-const RsBreadcrumb = ({items, onItemClick, ...props}: RsBreadcrumbProps) => (
-  <Breadcrumb {...props} style={{display: 'flex'}}>
-    {items?.map(item => {
+const containerStyle = {display: 'flex'} as const
+
+const RsBreadcrumb = ({items, onItemClick, ...props}: RsBreadcrumbProps) => {
+  const clickHandlers = useMemo(() => (items ?? []).map((it) => {
+    return () => onItemClick?.(it)
+  }), [items, onItemClick])
+
+  return (
+    <Breadcrumb {...props} style={containerStyle}>
+      {items?.map((item, idx) => {
         const {title = '', ...itemProps} = item
-        const handleClick = () => onItemClick?.(item)
         return (
-          <Breadcrumb.Item {...itemProps} onClick={handleClick} key={title}>
+          <Breadcrumb.Item {...itemProps} onClick={clickHandlers[idx]} key={title}>
             {title}
           </Breadcrumb.Item>)
-      }
-    )}
-  </Breadcrumb>
-)
+      })}
+    </Breadcrumb>
+  )
+}
 
 export const rsBreadcrumb = define(RsBreadcrumb, 'RsBreadcrumb')
   .name('Breadcrumb')

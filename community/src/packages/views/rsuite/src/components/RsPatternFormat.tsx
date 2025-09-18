@@ -1,4 +1,5 @@
 import {boolean, define, string} from '@react-form-builder/core'
+import {useCallback} from 'react'
 import type {PatternFormatProps} from 'react-number-format'
 import {PatternFormat} from 'react-number-format'
 import type {InputProps} from 'rsuite'
@@ -13,6 +14,7 @@ interface RsPatternFormatProps extends PatternFormatProps<InputProps> {
 
 const RsPatternFormat = ({style, className, label, format, onChange, value, ...props}: RsPatternFormatProps) => {
   let {mask} = props
+
   if (mask) {
     const maskAsStr = mask === 'string' ? mask : mask.toString()
     if (maskAsStr.match(/\d/g)) {
@@ -21,9 +23,11 @@ const RsPatternFormat = ({style, className, label, format, onChange, value, ...p
     }
   }
 
+  const handleValueChange = useCallback((values: any) => onChange?.(values.formattedValue), [onChange])
+
   return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
     <PatternFormat customInput={WrappedInput} format={format ?? ''} {...props} mask={mask}
-                   onValueChange={values => onChange?.(values.formattedValue)}
+                   onValueChange={handleValueChange}
                    value={value ?? ''}/>
   </Labeled>
 }
