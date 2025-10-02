@@ -177,9 +177,17 @@ export {
   cfDisableStylesForClassNameEditor,
   cfEnableInlineStylesEditor,
   cfHideFromComponentPalette,
+  cfDisableActionEditors,
+  cfDisableStyles,
+  cfDisableWrapperStyles,
+  cfDisableComponentRemove
 } from './features/define/utils/integratedComponentFeatures'
 export type {ComponentFeature, ComponentFeatures} from './features/define/utils/ComponentFeature'
 export type {ComponentRole} from './features/define/utils/ComponentRole'
 export {useModalType} from './features/modal/useModalType'
 export {useModalComponentData} from './features/modal/useModalComponentData'
 export {useBuilderValue} from './utils/useBuilderValue'
+export {CellInfoContextProvider} from './features/table/CellInfoContext'
+export type {DataKeyType, CellInfo} from './features/table/CellInfo'
+export {needRender} from './utils/needRender'
+export {useBuilderComponent} from './utils/useBuilderComponent'

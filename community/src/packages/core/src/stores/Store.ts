@@ -10,6 +10,7 @@ import {globalDefaultLanguage} from '../features/localization/default'
 import {findLanguage} from '../features/localization/findLanguage'
 import {localizeErrorMessage, localizeProperties} from '../features/localization/localizer'
 import {Language} from '../features/localization/types'
+import type {ComponentPropertiesContext} from '../features/properties-context/ComponentPropertiesContext'
 import {createTemplateModel} from '../features/template'
 import {buildInternalErrorModel} from '../features/ui/internalErrorModel'
 import {screenModel} from '../features/ui/screenModel'
@@ -77,9 +78,10 @@ function reduceTree<U extends object, T, K extends keyof U>(tree: Tree<U, K>,
  * The component state factory that calculates the properties of the form viewer component.
  * @param data the data needed to display the component.
  * @param store the form viewer settings.
+ * @param context the context for working with component properties.
  * @returns the component property calculator.
  */
-export type ComponentStateFactory = (data: ComponentData, store: Store) => IComponentState
+export type ComponentStateFactory = (data: ComponentData, store: Store, context?: ComponentPropertiesContext) => IComponentState
 
 /**
  * The form viewer settings. **Internal use only.**

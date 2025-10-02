@@ -1,5 +1,6 @@
 import {boolean, define, string} from '@react-form-builder/core'
 import {Divider} from 'rsuite'
+import {staticCategory} from './categories'
 
 const iconStyle = {width: 24, height: 24}
 
@@ -11,6 +12,7 @@ const Icon = () => (
 
 export const rsDivider = define(Divider, 'RsDivider')
   .name('Divider')
+  .category(staticCategory)
   .icon(Icon)
   .props({
     children: string,

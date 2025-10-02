@@ -1,5 +1,14 @@
-import {viewWithCss} from '@react-form-builder/components-rsuite'
-import {buildForm, FormViewer} from '@react-form-builder/core'
+import {
+  formEngineRsuiteCssLoader,
+  ltrCssLoader,
+  rsButton,
+  rsContainer,
+  rsDatePicker,
+  rsErrorMessage,
+  rsInput,
+  RsLocalizationWrapper
+} from '@react-form-builder/components-rsuite'
+import {BiDi, buildForm, createView, FormViewer} from '@react-form-builder/core'
 import {useMemo} from 'react'
 
 const simpleForm = buildForm({errorType: 'RsErrorMessage'})
@@ -38,6 +47,14 @@ const onSubmit = (e: any) => {
   // submit the form to the backend
   alert('Form data: ' + JSON.stringify(e.data))
 }
+
+const components = [rsContainer, rsInput, rsButton, rsDatePicker, rsErrorMessage]
+  .map(def => def.build().model)
+
+const viewWithCss = createView(components)
+  .withViewerWrapper(RsLocalizationWrapper)
+  .withCssLoader(BiDi.LTR, ltrCssLoader)
+  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 /**
  * @returns the App element.

@@ -1,6 +1,7 @@
 import type {SyntheticEvent} from 'react'
 import type {Store} from '../../../stores/Store'
 import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
+import type {CellInfo} from '../../table/CellInfo'
 import {createDataProxy} from './createComponentDataProxy'
 
 /**
@@ -23,6 +24,7 @@ export class ActionEventArgs {
    * @param store the form viewer settings.
    * @param args the event arguments.
    * @param renderedProps the component properties that were used to render the sender component.
+   * @param cellInfo the information about the current table cell.
    */
   constructor(
     readonly type: string,
@@ -30,6 +32,7 @@ export class ActionEventArgs {
     readonly store: Store,
     readonly args: any[],
     readonly renderedProps: Record<string, any>,
+    readonly cellInfo?: CellInfo,
   ) {
     this.index = sender.nearestIndex
     const indexExists = typeof this.index === 'number'
@@ -169,5 +172,10 @@ declare class ActionEventArgs {
    * @returns the object to read and modify root form data.
    */
   get rootData(): Record<string, unknown>
+  
+  /**
+   * The information about the current cell.
+   */
+  readonly cellInfo?: CellInfo
 }
 `

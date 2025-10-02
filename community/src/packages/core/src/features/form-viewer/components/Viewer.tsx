@@ -10,7 +10,7 @@ import type {FormViewerProps} from '../types'
 import {useViewerProps} from './ViewerPropsContext'
 
 const getViewMode = (): ViewMode => {
-  const width = window.innerWidth
+  const width = globalThis.innerWidth
 
   if (width <= 600) return 'mobile'
   if (width <= 900) return 'tablet'
@@ -29,8 +29,8 @@ function useAutoViewMode() {
     }
 
     const onResize = () => store.viewMode = getViewMode()
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
+    globalThis.addEventListener('resize', onResize)
+    return () => globalThis.removeEventListener('resize', onResize)
   }, [props.viewMode, store])
 }
 

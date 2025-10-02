@@ -1,3 +1,6 @@
+import type {ActionEventHandler, EventName} from '../event'
+import type {CellInfo} from '../table/CellInfo'
+
 /**
  * The React component property.
  */
@@ -17,7 +20,17 @@ export type ReactProperty = {
  */
 export type ComponentPropertiesContext = {
   /**
+   * The event handlers.
+   */
+  readonly eventHandlers?: Record<EventName, ActionEventHandler>
+
+  /**
    * The value property.
    */
   readonly valueProperty?: ReactProperty
+
+  /**
+   * The information about the cell.
+   */
+  readonly cellInfo?: CellInfo
 }

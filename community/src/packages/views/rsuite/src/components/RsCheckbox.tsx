@@ -4,6 +4,7 @@ import {useMemo} from 'react'
 import type {CheckboxProps} from 'rsuite'
 import {Checkbox} from 'rsuite'
 import {readOnly} from '../commonProperties'
+import {fieldsCategory} from './categories'
 import {requiredStyle} from './components/Labeled'
 
 const SCheckbox = styled(Checkbox)`
@@ -21,6 +22,7 @@ const RsCheckbox = (props: CheckboxProps<any>) => {
 
 export const rsCheckbox = define(RsCheckbox, 'RsCheckbox')
   .name('Checkbox')
+  .category(fieldsCategory)
   .props({
     children: string.named('Label').default('Checkbox'),
     checked: boolean.hinted('Specifies whether the checkbox is selected')

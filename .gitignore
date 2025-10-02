@@ -20,3 +20,5 @@ src/tests/module/reports
 src/tests/react-17/reports
 src/tests/react-18/reports
 src/tests/react-19/reports
+
+!src/documentation/website/packages/*.tgz

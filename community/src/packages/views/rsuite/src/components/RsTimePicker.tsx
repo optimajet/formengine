@@ -6,6 +6,7 @@ import type {DatePickerProps} from 'rsuite'
 import {DatePicker} from 'rsuite'
 import {placement, readOnly, size} from '../commonProperties'
 import {formatValidator, toSafeFormat} from '../dateTimeUtils'
+import {fieldsCategory} from './categories'
 import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
 
@@ -29,12 +30,41 @@ const parseTimeValue = (value: any, format: string) => {
   return value
 }
 
-interface RsTimePickerProps extends Omit<DatePickerProps, 'value' | 'onChange'> {
+/**
+ * Props for the RsTimePicker component.
+ */
+export interface RsTimePickerProps extends Omit<DatePickerProps, 'value' | 'onChange'> {
+  /**
+   * Value of the time picker.
+   */
   value?: string
+  /**
+   * Callback when value changes.
+   */
   onChange?: (value: string | null, event: SyntheticEvent) => void
+  /**
+   * Label for the time picker.
+   */
   label: string
+  /**
+   * @deprecated
+   */
+  inline?: boolean
 }
 
+/**
+ * Time picker component with label support.
+ * @param props the component props.
+ * @param props.open whether the time picker is open.
+ * @param props.label the label for the time picker.
+ * @param props.value the value of the time picker.
+ * @param props.className the CSS class name.
+ * @param props.format the format of the time.
+ * @param props.defaultValue the default value of the time picker.
+ * @param props.onChange the callback when value changes.
+ * @param props.props the additional time picker props.
+ * @returns the React element.
+ */
 const RsTimePicker = ({open, label, value, className, format, defaultValue, onChange, ...props}: RsTimePickerProps) => {
   const safeFormat = useMemo(() => toSafeFormat(format), [format])
   const onClean = useTouchOnEvent(props, 'onClean')
@@ -63,6 +93,7 @@ const RsTimePicker = ({open, label, value, className, format, defaultValue, onCh
 
 export const rsTimePicker = define(RsTimePicker, 'RsTimePicker')
   .name('TimePicker')
+  .category(fieldsCategory)
   .props({
     label: string.default('Time'),
     placeholder: string,

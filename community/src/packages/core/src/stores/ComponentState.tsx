@@ -3,7 +3,9 @@ import {assign} from 'lodash-es'
 import {makeAutoObservable} from 'mobx'
 import {calculateProperties} from '../features/calculation/propertyCalculator'
 import {silentTransformCssString} from '../features/css-style/cssTransform'
-import type {ActionData, EventName} from '../features/event'
+import type {Model} from '../features/define'
+import {cfEventHandlers} from '../features/define/utils/integratedComponentFeatures'
+import type {ActionData, ActionEventHandler, EventName} from '../features/event'
 import {ActionEventArgs, DidMountEvent, WillUnmountEvent} from '../features/event'
 import {getArgumentFunction, isFunctionArgumentValue} from '../features/event/consts/functionArgument'
 import type {ComponentPropertiesContext} from '../features/properties-context/ComponentPropertiesContext'
@@ -18,22 +20,9 @@ import type {ComponentStoreLocalizer} from './ComponentStoreLocalizer'
 import type {IComponentState} from './IComponentState'
 import type {Store} from './Store'
 
-/**
- * The generic asynchronous function type.
- */
-type GenericVoidFunction = (...args: any[]) => void
-
-const createEventHandlers = (data: ComponentData): Record<EventName, GenericVoidFunction> => {
-  if (!data.field) return {}
-
-  return {
-    onChange: (e: ActionEventArgs) => {
-      data.field?.setValue(e.value)
-    },
-    onBlur: () => {
-      data.field?.setTouched()
-    }
-  }
+const getCustomEventHandlers = (model: Model) => {
+  const customHandlers = model.features[cfEventHandlers]
+  if (customHandlers) return customHandlers as Record<EventName, ActionEventHandler>
 }
 
 const getHtmlAttributes = (componentStore: ComponentStore) => componentStore.htmlAttributes
@@ -101,7 +90,7 @@ const createDefaultActionHandler = (componentState: ComponentState, eventName: E
     const actionDataList = data.store.events?.[eventName] ?? []
     const handlersChain = createActionHandlersChain(store, actionDataList)
     const renderedProps = componentState.get
-    const actionEventArgs = new ActionEventArgs(eventName, data, store, args, renderedProps)
+    const actionEventArgs = new ActionEventArgs(eventName, data, store, args, renderedProps, componentState.context.cellInfo)
     await handlersChain(actionEventArgs)
   }
 }
@@ -110,7 +99,7 @@ const computeEvents = (componentState: ComponentState) => {
   const events = {} as Record<EventName, Function>
   const {data} = componentState
 
-  const eventHandlers = createEventHandlers(data)
+  const eventHandlers = getCustomEventHandlers(data.model) ?? componentState.context.eventHandlers ?? {}
 
   const eventKeyArray = [
     ...Object.keys(data.store.events ?? {}),
@@ -125,8 +114,10 @@ const computeEvents = (componentState: ComponentState) => {
     events[name] = async (...args: any[]) => {
       const handler = eventHandlers[name]
       if (handler) {
-        const actionEventArgs = new ActionEventArgs(name, data, componentState.store, args, componentState.get)
-        handler(actionEventArgs)
+        const actionEventArgs = new ActionEventArgs(name, data, componentState.store, args, componentState.get,
+          componentState.context.cellInfo)
+        const handlerResult = handler(actionEventArgs)
+        if (isPromise(handlerResult)) await handlerResult
       }
 
       const defaultHandler = createDefaultActionHandler(componentState, name)
@@ -153,14 +144,16 @@ export class ComponentState implements IComponentState {
    * @param store the form viewer settings.
    * @param localizer the function to localize the properties of a component, returns a Record with localized properties.
    * @param computeChildren the function that calculates all child properties of a component.
+   * @param context the context for working with component properties.
    */
   constructor(
     readonly data: ComponentData,
     readonly store: Store,
     readonly localizer: ComponentStoreLocalizer,
     readonly computeChildren: ComputeChildren,
+    context?: ComponentPropertiesContext,
   ) {
-    this.context = getDefaultPropertiesContext(data)
+    this.context = context ?? getDefaultPropertiesContext(data)
     makeAutoObservable(this, undefined, {name: nameObservable('ComponentState', {key: data.key})})
   }
 
@@ -337,7 +330,7 @@ export class ComponentState implements IComponentState {
 
   private executeLifecycleEvent(eventName: EventName) {
     const handler = createDefaultActionHandler(this, eventName)
-    const mountEvent = new ActionEventArgs(eventName, this.data, this.store, [], this.get)
+    const mountEvent = new ActionEventArgs(eventName, this.data, this.store, [], this.get, this.context.cellInfo)
     handler(mountEvent).catch(console.error)
   }
 

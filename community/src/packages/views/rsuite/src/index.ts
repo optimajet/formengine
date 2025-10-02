@@ -1,145 +1,75 @@
-import type {Definer} from '@react-form-builder/core'
-import {BiDi, BuilderView, createView} from '@react-form-builder/core'
-import {rsAutoComplete} from './components/RsAutocomplete'
-import {rsBreadcrumb} from './components/RsBreadcrumb'
-import {rsButton} from './components/RsButton'
-import {rsCalendar} from './components/RsCalendar'
-import {rsCard} from './components/RsCard'
-import {rsCheckbox} from './components/RsCheckbox'
-import {rsContainer} from './components/RsContainer'
-import {rsDatePicker} from './components/RsDatePicker'
-import {rsDivider} from './components/RsDivider'
-import {rsDropdown} from './components/RsDropdown'
-import type {RsErrorMessageProps} from './components/RsErrorMessage'
-import {rsErrorMessage} from './components/RsErrorMessage'
-import {rsHeader} from './components/RsHeader'
-import {rsImage} from './components/RsImage'
-import {rsInput} from './components/RsInput'
-import {rsLabel} from './components/RsLabel'
-import {rsLink} from './components/RsLink'
-import {RsLocalizationWrapper} from './components/RsLocalizationWrapper'
-import {rsMenu} from './components/RsMenu'
-import {rsMessage} from './components/RsMessage'
-import {rsModal} from './components/RsModal'
-import {rsModalLayout} from './components/RsModalLayout'
-import {rsNumberFormat} from './components/RsNumberFormat'
-import {rsPatternFormat} from './components/RsPatternFormat'
-import {rsPlaceholderGraph, rsPlaceholderGrid, rsPlaceholderParagraph} from './components/RsPlaceholder'
-import {rsProgressCircle, rsProgressLine} from './components/RsProgress'
-import {rsRadioGroup} from './components/RsRadioGroup'
-import {rsSearch} from './components/RsSearch'
-import {rsStaticContent} from './components/RsStaticContent'
-import {rsTab} from './components/RsTab'
-import {rsTagPicker} from './components/RsTagPicker'
-import {rsTextArea} from './components/RsTextArea'
-import {rsTimePicker} from './components/RsTimePicker'
-import {rsToggle} from './components/RsToggle'
-import type {RsTooltipProps} from './components/RsTooltip'
-import {rsTooltip} from './components/RsTooltip'
-import {rsUploader} from './components/RsUploader'
-import {rsWizard} from './components/RsWizard/RsWizard'
-import {rsWizardStep} from './components/RsWizard/RsWizardStep'
-import {formEngineRsuiteCssLoader, ltrCssLoader, rtlCssLoader} from './cssLoader'
+export type {RsErrorMessageProps} from './components/RsErrorMessage'
+export type {RsTooltipProps} from './components/RsTooltip'
+export {RsLocalizationWrapper} from './components/RsLocalizationWrapper'
+export {formEngineRsuiteCssLoader, ltrCssLoader, rtlCssLoader} from './cssLoader'
+export {rSuiteComponents} from './rSuiteComponents'
+export {models} from './models'
+export {view} from './view'
+export {viewWithCss} from './viewWithCss'
+export {builderViewWithCss} from './builderViewWithCss'
+//single components export
+export {rsAutoComplete} from './components/RsAutocomplete'
+export {rsBreadcrumb} from './components/RsBreadcrumb'
+export {rsButton} from './components/RsButton'
+export {rsCalendar} from './components/RsCalendar'
+export {rsCard} from './components/RsCard'
+export {rsCheckbox} from './components/RsCheckbox'
+export {rsContainer} from './components/RsContainer'
+export {rsDatePicker} from './components/RsDatePicker'
+export {rsDivider} from './components/RsDivider'
+export {rsDropdown} from './components/RsDropdown'
+export {rsHeader} from './components/RsHeader'
+export {rsImage} from './components/RsImage'
+export {rsInput} from './components/RsInput'
+export {rsLabel} from './components/RsLabel'
+export {rsLink} from './components/RsLink'
+export {rsMenu} from './components/RsMenu'
+export {rsMessage} from './components/RsMessage'
+export {rsModal} from './components/RsModal'
+export {rsModalLayout} from './components/RsModalLayout'
+export {rsNumberFormat} from './components/RsNumberFormat'
+export {rsPatternFormat} from './components/RsPatternFormat'
+export {rsPlaceholderGraph, rsPlaceholderGrid, rsPlaceholderParagraph} from './components/RsPlaceholder'
+export {rsProgressCircle, rsProgressLine} from './components/RsProgress'
+export {rsRadioGroup} from './components/RsRadioGroup'
+export {rsSearch} from './components/RsSearch'
+export {rsStaticContent} from './components/RsStaticContent'
+export {rsTab} from './components/RsTab'
+export {rsTagPicker} from './components/RsTagPicker'
+export {rsTextArea} from './components/RsTextArea'
+export {rsTimePicker} from './components/RsTimePicker'
+export {rsToggle} from './components/RsToggle'
+export {rsUploader} from './components/RsUploader'
+export {rsWizard} from './components/RsWizard/RsWizard'
+export {rsWizardStep} from './components/RsWizard/RsWizardStep'
+export {rsErrorMessage} from './components/RsErrorMessage'
+export {rsTooltip} from './components/RsTooltip'
 
-const categories = {
-  fields: [
-    rsAutoComplete,
-    rsCalendar,
-    rsCheckbox,
-    rsDatePicker,
-    rsTimePicker,
-    rsDropdown,
-    rsInput,
-    rsNumberFormat,
-    rsPatternFormat,
-    rsRadioGroup,
-    rsSearch,
-    rsTagPicker,
-    rsTextArea,
-    rsToggle,
-    rsUploader
-  ],
-  static: [
-    rsButton,
-    rsErrorMessage,
-    rsDivider,
-    rsHeader,
-    rsImage,
-    rsLabel,
-    rsMenu,
-    rsMessage,
-    rsPlaceholderGraph,
-    rsPlaceholderGrid,
-    rsPlaceholderParagraph,
-    rsProgressCircle,
-    rsProgressLine,
-    rsStaticContent,
-    rsTooltip,
-    rsLink,
-  ],
-  modal: [
-    rsModal,
-    rsModalLayout,
-  ],
-  structure: [
-    rsBreadcrumb,
-    rsCard,
-    rsContainer,
-    rsTab,
-    rsWizard,
-    rsWizardStep
-  ],
-}
-
-/**
- * An array of rSuite component metadata factories.
- */
-const rSuiteComponents: Definer<any>[] = []
-
-const prefix = 'Rs'
-Object.entries(categories).forEach(([category, components]) => {
-  components.forEach(c => {
-    if (!c.getType().startsWith(prefix)) {
-      throw new Error(`The component type must start with '${prefix}', type: '${c.getType()}'`)
-    }
-    c.category(category)
-    rSuiteComponents.push(c)
-  })
-})
-
-export {rSuiteComponents, rsErrorMessage, rsTooltip, RsLocalizationWrapper, rtlCssLoader, ltrCssLoader, formEngineRsuiteCssLoader}
-export type {RsErrorMessageProps, RsTooltipProps}
-
-const components = rSuiteComponents.map(def => def.build())
-
-/**
- * An array of rSuite component metadata for use in FormViewer.
- */
-export const models = components.map(({model}) => model)
-
-/**
- * An assembled set of rSuite components, ready to be passed as a property to the FormViewer.
- */
-export const view = createView(models)
-
-/**
- * An assembled set of rSuite components, ready to be passed as a property to the FormViewer.
- * This view contains CSS loaders.
- */
-export const viewWithCss = createView(models)
-  // The following parameters are required for correct CSS loading in LTR and RTL modes
-  .withViewerWrapper(RsLocalizationWrapper)
-  .withCssLoader(BiDi.LTR, ltrCssLoader)
-  .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
-
-/**
- * An assembled set of rSuite components metadata, ready to be passed as a property to the FormBuilder.
- * This view contains CSS loaders.
- */
-export const builderViewWithCss = new BuilderView(components)
-  .withTemplates([])
-  .withViewerWrapper(RsLocalizationWrapper)
-  .withCssLoader(BiDi.LTR, ltrCssLoader)
-  .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
+export type {RsAutoCompleteProps} from './components/RsAutocomplete'
+export type {RsBreadcrumbProps, RsBreadcrumbItemProps} from './components/RsBreadcrumb'
+export type {RsCalendarProps} from './components/RsCalendar'
+export type {RsCardProps} from './components/RsCard'
+export type {RsContainerProps} from './components/RsContainer'
+export type {RsDatePickerProps} from './components/RsDatePicker'
+export type {RsDropdownProps} from './components/RsDropdown'
+export type {RsHeaderProps} from './components/RsHeader'
+export type {RsImageProps} from './components/RsImage'
+export type {RsInputProps} from './components/RsInput'
+export type {RsLabelProps} from './components/RsLabel'
+export type {RsLinkProps} from './components/RsLink'
+export type {RsMenuProps, MenuItem} from './components/RsMenu'
+export type {RsModalProps} from './components/RsModal'
+export type {RsModalLayoutProps} from './components/RsModalLayout'
+export type {RsNumberFormatProps} from './components/RsNumberFormat'
+export type {RsPatternFormatProps} from './components/RsPatternFormat'
+export type {RsRadioGroupProps} from './components/RsRadioGroup'
+export type {RsSearchProps} from './components/RsSearch'
+export type {RsStaticContentProps} from './components/RsStaticContent'
+export type {RsTabItem, RsTabProps} from './components/RsTab'
+export type {RsTagPickerProps} from './components/RsTagPicker'
+export type {RsTextAreaProps} from './components/RsTextArea'
+export type {RsTimePickerProps} from './components/RsTimePicker'
+export type {RsUploaderProps} from './components/RsUploader'
+export type {RsWizardProps} from './components/RsWizard/RsWizard'
+export type {RsWizardStepProps} from './components/RsWizard/RsWizardStep'
+export type {LoadCallback, LoadDataHandler} from './hooks'

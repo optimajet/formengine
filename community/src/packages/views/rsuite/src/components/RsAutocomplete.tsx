@@ -3,6 +3,7 @@ import type {CSSProperties} from 'react'
 import type {AutoCompleteProps} from 'rsuite'
 import {AutoComplete} from 'rsuite'
 import {inputProps} from '../commonProperties'
+import {fieldsCategory} from './categories'
 import {Labeled} from './components/Labeled'
 
 const AutoCompleteIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
@@ -13,10 +14,27 @@ const AutoCompleteIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18
         d="M9.81 12.33h.01m.5 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm4.5 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
 </svg>
 
-interface RsAutoCompleteProps extends AutoCompleteProps {
+/**
+ * The properties of the RsAutoComplete component.
+ */
+export interface RsAutoCompleteProps extends AutoCompleteProps {
+  /**
+   * The component label.
+   */
   label?: string
+  /**
+   * The component class name.
+   */
   className?: string
+  /**
+   * The component styles.
+   */
   style?: CSSProperties
+  /**
+   * Called after the value has been changed.
+   * @param value the value.
+   */
+  onChange?: (value: string) => void
 }
 
 const RsAutoComplete = ({label, style, className, ...props}: RsAutoCompleteProps) => {
@@ -34,6 +52,7 @@ function filterBy(value, item) {`
 
 export const rsAutoComplete = define(RsAutoComplete, 'RsAutoComplete')
   .name('AutoComplete')
+  .category(fieldsCategory)
   .icon(AutoCompleteIcon)
   .props({
     ...inputProps,

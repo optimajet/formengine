@@ -1,8 +1,8 @@
 import type {ComponentData} from '../../utils/contexts/ComponentDataContext'
 import type {ComponentPropertiesContext} from './ComponentPropertiesContext'
+import {emptyPropertiesContext} from './emptyPropertiesContext'
+import {getFieldPropertiesContext} from './getFieldPropertiesContext'
 import {getOneWayPropertiesContext} from './getOneWayPropertiesContext'
-
-const emptyContext: ComponentPropertiesContext = {}
 
 /**
  * Returns a default property context.
@@ -10,23 +10,12 @@ const emptyContext: ComponentPropertiesContext = {}
  * @returns a default property context.
  */
 export const getDefaultPropertiesContext = (componentData: ComponentData): ComponentPropertiesContext => {
-  const valued = componentData.model.valued
-  if (!valued || componentData.model.dataBindingType === 'none') return emptyContext
+  const {model, field} = componentData
+  if (!model.valued || model.dataBindingType === 'none') return emptyPropertiesContext
 
-  if (componentData.model.dataBindingType === 'oneWay') {
+  if (model.dataBindingType === 'oneWay') {
     return getOneWayPropertiesContext(componentData)
   }
 
-  if (componentData.model.kind !== 'template' && componentData.field) {
-    return {
-      valueProperty: {
-        propertyName: valued,
-        get propertyValue() {
-          return componentData.field?.value ?? componentData.model.uncontrolledValue
-        }
-      }
-    }
-  }
-
-  return emptyContext
+  return field ? getFieldPropertiesContext(field, model) : emptyPropertiesContext
 }

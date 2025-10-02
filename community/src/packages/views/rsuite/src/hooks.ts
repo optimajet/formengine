@@ -4,7 +4,11 @@ import type {ValueType} from 'rsuite/esm/InputPicker/InputPicker'
 import type {ItemDataType} from 'rsuite/esm/internals/types'
 import type {ListProps} from 'rsuite/esm/internals/Windowing'
 
-type LoadCallback = (newData: ItemDataType[]) => void
+/**
+ * The callback function for loading data into the component.
+ * @param newData the new data to be loaded into the component.
+ */
+export type LoadCallback = (newData: ItemDataType[]) => void
 
 /**
  * Describes a function that is called when data is to be loaded into the component.
@@ -37,7 +41,9 @@ export interface LoadDataProps {
   disableVirtualized?: boolean
 }
 
-
+/**
+ * Props for the useLoadData hook combining InputPickerProps and LoadDataProps.
+ */
 interface UseLoadDataProps extends Pick<InputPickerProps,
   'data' | 'value' | 'onSearch' | 'onOpen' | 'onCreate'>, LoadDataProps {
 }

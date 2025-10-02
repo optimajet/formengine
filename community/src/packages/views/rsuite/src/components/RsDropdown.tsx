@@ -6,14 +6,45 @@ import {InputPicker} from 'rsuite'
 import {pickerProps} from '../commonProperties'
 import type {LoadDataProps} from '../hooks'
 import {useFixAriaAttributesForInputPicker, useLoadData} from '../hooks'
+import {fieldsCategory} from './categories'
 import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
 import {SLoader} from './SLoader'
 
-interface RsDropdownProps extends InputPickerProps, LoadDataProps {
+/**
+ * Props for the RsDropdown component.
+ */
+export interface RsDropdownProps extends InputPickerProps, LoadDataProps {
+  /**
+   * The label for the dropdown.
+   */
   label: string
+  /**
+   * The htmlSize attribute defines the width of the &laquo;input> element.
+   */
+  htmlSize?: number
+  /**
+   * Called after the value has been changed.
+   * @param value the value.
+   */
+  onChange?: (value: any) => void
 }
 
+/**
+ * Dropdown component with label and data loading support.
+ * @param props the component props.
+ * @param props.data the data for the dropdown.
+ * @param props.label the label for the dropdown.
+ * @param props.onLoadData the callback for loading data.
+ * @param props.onSearch the callback for search.
+ * @param props.onOpen the callback for open.
+ * @param props.value the value of the dropdown.
+ * @param props.className the css class name.
+ * @param props.preload whether to preload data.
+ * @param props.disableVirtualized whether to disable virtualization.
+ * @param props.props the additional dropdown props.
+ * @returns the React element.
+ */
 const RsDropdown = ({
                       data,
                       label,
@@ -26,8 +57,6 @@ const RsDropdown = ({
                       disableVirtualized,
                       ...props
                     }: RsDropdownProps) => {
-
-
   const {loading, ...loadProps} = useLoadData({data, onLoadData, onSearch, onOpen, value, preload, disableVirtualized})
   const onClean = useTouchOnEvent(props, 'onClean')
   const inputRef = useFixAriaAttributesForInputPicker()
@@ -52,6 +81,7 @@ const RsDropdown = ({
 
 export const rsDropdown = define(RsDropdown, 'RsDropdown')
   .name('Dropdown')
+  .category(fieldsCategory)
   .props({
     ...pickerProps,
     preload: boolean.default(false),

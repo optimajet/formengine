@@ -34,7 +34,7 @@ export const cfDisableStyleProperties = 'disable-style-properties'
 registerBooleanComponentFeature(cfDisableStyleProperties)
 
 /**
- * Enabling this component feature will hide the component's additional properties editor.
+ * Enabling this component feature will hide the component's additional properties' editor.
  */
 export const cfDisableAdditionalProperties = 'disable-additional-properties'
 registerBooleanComponentFeature(cfDisableAdditionalProperties)
@@ -58,7 +58,40 @@ export const cfHideFromComponentPalette = 'hide-from-component-palette'
 registerBooleanComponentFeature(cfHideFromComponentPalette)
 
 /**
+ * Enabling this component feature will prevent this component from being removed.
+ */
+export const cfDisableComponentRemove = 'disable-component-remove'
+registerBooleanComponentFeature(cfDisableComponentRemove)
+
+/**
+ * Enabling this component feature will disable the styling of the component.
+ */
+export const cfDisableStyles = 'disable-component-styling'
+registerBooleanComponentFeature(cfDisableStyles)
+
+/**
+ * Enabling this component feature will disable the styling of the component wrapper.
+ */
+export const cfDisableWrapperStyles = 'disable-component-wrapper-styling'
+registerBooleanComponentFeature(cfDisableWrapperStyles)
+
+/**
  * Enabling this feature of the component will exclude the fields of the child components when assembling all the fields of the form.
  */
 export const cfSkipChildrenDuringFieldCollection = 'skip-children-during-field-collection'
 registerBooleanComponentFeature(cfSkipChildrenDuringFieldCollection)
+
+/**
+ * Adding this feature allows you to override the standard onBlur and onChange handlers.
+ */
+export const cfEventHandlers = 'event-handlers'
+registerComponentFeature({
+  name: cfEventHandlers,
+  allowMultiple: false,
+})
+
+/**
+ * Enabling this component feature will hide the 'Actions' editors.
+ */
+export const cfDisableActionEditors = 'disable-action-editors'
+registerBooleanComponentFeature(cfDisableActionEditors)

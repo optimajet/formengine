@@ -40,6 +40,7 @@ export const size = oneOf(
   'Medium',
   'Large'
 ).default('md')
+  .withEditorProps({creatable: false})
 
 export const backgroundColor = color.named('Background')
 
@@ -65,12 +66,14 @@ export const inputProps = {
 export const headerSize = oneOf('h1', 'h2', 'h3', 'h4', 'h5', 'h6')
   .default('h4')
   .hinted('Header level')
+  .withEditorProps({creatable: false})
 
 export const navProps = {
   activeKey: string.hinted('Active key, corresponding to one of items value').default('Item1'),
   appearance: oneOf('default', 'tabs', 'subtle', 'pills')
     .default('default')
-    .hinted('A navigation can have different appearances'),
+    .hinted('A navigation can have different appearances')
+    .withEditorProps({creatable: false}),
   items: array.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
   justified: boolean.hinted('Justified navigation').default(false),
   onSelect: event,
@@ -101,3 +104,4 @@ export const pickerProps = {
 }
 
 export const controlColor = oneOf('red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'violet')
+  .withEditorProps({creatable: false})

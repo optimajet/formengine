@@ -1,5 +1,6 @@
 import {boolean, define, number, oneOf, size} from '@react-form-builder/core'
 import {Placeholder} from 'rsuite'
+import {staticCategory} from './categories'
 
 const iconStyle = {width: 24, height: 24}
 
@@ -30,6 +31,7 @@ const IconGraph = () => (
 
 export const rsPlaceholderGraph = define(Placeholder.Graph, 'RsPlaceholderGraph')
   .name('Placeholder graph')
+  .category(staticCategory)
   .icon(IconGraph)
   .props({
     width: size.default('100%'),
@@ -39,6 +41,7 @@ export const rsPlaceholderGraph = define(Placeholder.Graph, 'RsPlaceholderGraph'
 
 export const rsPlaceholderGrid = define(Placeholder.Grid, 'RsPlaceholderGrid')
   .name('Placeholder grid')
+  .category(staticCategory)
   .icon(IconGrid)
   .props({
     rows: number.default(5),
@@ -50,11 +53,13 @@ export const rsPlaceholderGrid = define(Placeholder.Grid, 'RsPlaceholderGrid')
 
 export const rsPlaceholderParagraph = define(Placeholder.Paragraph, 'RsPlaceholderParagraph')
   .name('Placeholder paragraph')
+  .category(staticCategory)
   .icon(IconParagraph)
   .props({
     rows: number.default(2),
     rowHeight: number.default(10),
     rowSpacing: number.default(20),
-    graph: oneOf('circle', 'square', 'image'),
+    graph: oneOf('circle', 'square', 'image')
+      .withEditorProps({creatable: false}),
     active: boolean,
   })

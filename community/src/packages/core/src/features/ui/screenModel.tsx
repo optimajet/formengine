@@ -2,7 +2,7 @@ import {commonStyles, containerStyles, getDefaultCss} from '../annotation'
 import {toStyleProperties} from '../annotation/toStyleProperties'
 import {Model} from '../define'
 import {addOrUpdateFeatures} from '../define/utils/ComponentFeature'
-import {cfHideFromComponentPalette} from '../define/utils/integratedComponentFeatures'
+import {cfDisableComponentRemove, cfHideFromComponentPalette} from '../define/utils/integratedComponentFeatures'
 import {DefaultWrapper} from './DefaultWrapper'
 
 const {height} = commonStyles
@@ -19,6 +19,7 @@ const defaultCss = getDefaultCss(screenStyleProperties)
 
 const screenFeatures = addOrUpdateFeatures({},
   {name: cfHideFromComponentPalette, value: true},
+  {name: cfDisableComponentRemove, value: true}
 )
 
 /**

@@ -10,6 +10,7 @@ import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
 import {StoreContext, StoreProvider} from '../../../utils/contexts/StoreContext'
 import {getChildren} from '../../../utils/getChildren'
 import {useDisposable} from '../../../utils/useDisposable'
+import type {ComponentPropertiesContext} from '../../properties-context/ComponentPropertiesContext'
 import {ComponentTree} from '../../ui/ComponentTree'
 import type {FormViewerProps} from '../types'
 import {ViewerPropsProvider} from './ViewerPropsContext'
@@ -78,9 +79,11 @@ const ExistingStoreProvider = namedObserver('ExistingStoreProvider', RawExisting
  * The default component state factory.
  * @param data the data needed to display the component.
  * @param store the form viewer settings.
+ * @param context the context for working with component properties.
  * @returns the component property calculator.
  */
-export const defaultComponentStateFactory: ComponentStateFactory = (data: ComponentData, store: Store) => {
+export const defaultComponentStateFactory: ComponentStateFactory = (data: ComponentData, store: Store,
+                                                                    context?: ComponentPropertiesContext) => {
   function defaultComponentLocalizer(componentStore: ComponentStore) {
     return store.localizeComponent('component', data.dataRoot, componentStore)
   }
@@ -89,7 +92,7 @@ export const defaultComponentStateFactory: ComponentStateFactory = (data: Compon
     return getChildren(componentData, ComponentTree, componentProps)
   }
 
-  return new ComponentState(data, store, defaultComponentLocalizer, defaultComputeChildren)
+  return new ComponentState(data, store, defaultComponentLocalizer, defaultComputeChildren, context)
 }
 
 const RawNewStoreProvider = ({children, props}: ViewerStoreProviderProps) => {

@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import {boolean, define, disabled, event, oneOf, string} from '@react-form-builder/core'
 import {Toggle} from 'rsuite'
 import {controlColor, readOnly} from '../commonProperties'
+import {fieldsCategory} from './categories'
 import {requiredStyle} from './components/Labeled'
 
 const SToggle = styled(Toggle)`
@@ -12,6 +13,7 @@ const SToggle = styled(Toggle)`
 
 export const rsToggle = define(SToggle, 'RsToggle')
   .name('Toggle')
+  .category(fieldsCategory)
   .props({
     children: string.named('Label'),
     checked: boolean.valued.default(true).uncontrolledValue(false),
@@ -21,7 +23,8 @@ export const rsToggle = define(SToggle, 'RsToggle')
     readOnly,
     size: oneOf('sm', 'md', 'lg')
       .labeled('Small', 'Medium', 'Large')
-      .default('md'),
+      .default('md')
+      .withEditorProps({creatable: false}),
     color: controlColor,
     loading: boolean.default(false),
     onChange: event,

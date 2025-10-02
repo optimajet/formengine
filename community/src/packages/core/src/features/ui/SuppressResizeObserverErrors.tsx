@@ -18,10 +18,10 @@ export interface SuppressResizeObserverErrorsProps {
  * @returns the rendered child elements.
  */
 export const SuppressResizeObserverErrors = ({children}: SuppressResizeObserverErrorsProps) => {
-  const [defaultOnErrorFn] = useState(window.onerror)
+  const [defaultOnErrorFn] = useState(globalThis.onerror)
 
   useEffect(() => {
-    window.onerror = (event) => {
+    globalThis.onerror = (event) => {
       if (event?.toString().search('ResizeObserver') !== -1) {
         const resizeObserverErrDiv = document.getElementById(
           'webpack-dev-server-client-overlay-div'
@@ -40,7 +40,7 @@ export const SuppressResizeObserverErrors = ({children}: SuppressResizeObserverE
       return false
     }
     return () => {
-      window.onerror = defaultOnErrorFn
+      globalThis.onerror = defaultOnErrorFn
     }
   }, [defaultOnErrorFn])
 

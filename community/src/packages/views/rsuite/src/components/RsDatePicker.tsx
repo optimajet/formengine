@@ -4,11 +4,27 @@ import type {DatePickerProps} from 'rsuite'
 import {DatePicker} from 'rsuite'
 import {placement, readOnly, size} from '../commonProperties'
 import {formatValidator, toSafeFormat} from '../dateTimeUtils'
+import {fieldsCategory} from './categories'
 import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
 
-interface RsDatePickerProps extends DatePickerProps {
+/**
+ * Props for the RsDatePicker component.
+ */
+export interface RsDatePickerProps extends DatePickerProps {
+  /**
+   * Label for the date picker.
+   */
   label: string
+  /**
+   * Called after the value has been changed.
+   * @param value the value.
+   */
+  onChange?: (value: Date | null) => void
+  /**
+   * @deprecated
+   */
+  inline?: boolean
 }
 
 /**
@@ -28,6 +44,17 @@ const parseDateValue = (value: any) => {
   return value
 }
 
+/**
+ * Date picker component with label support.
+ * @param props the component props.
+ * @param props.label the label for the date picker.
+ * @param props.value the value of the date picker.
+ * @param props.className the CSS class name.
+ * @param props.format the format of the date.
+ * @param props.defaultValue the default value of the date picker.
+ * @param props.props the additional date picker props.
+ * @returns the React element.
+ */
 const RsDatePicker = ({label, value, className, format, defaultValue, ...props}: RsDatePickerProps) => {
   const componentData = useComponentData()
   const safeFormat = useMemo(() => toSafeFormat(format), [format])
@@ -52,9 +79,11 @@ const RsDatePicker = ({label, value, className, format, defaultValue, ...props}:
 
 export const rsDatePicker = define(RsDatePicker, 'RsDatePicker')
   .name('DatePicker')
+  .category(fieldsCategory)
   .props({
     label: string.default('Date'),
-    appearance: oneOf('default', 'subtle').hinted('Set picker appearance'),
+    appearance: oneOf('default', 'subtle').hinted('Set picker appearance')
+      .withEditorProps({creatable: false}),
     calendarDefaultDate: date.hinted('Calendar panel default presentation date and time'),
     cleanable: boolean.hinted('Whether the selected value can be cleared').default(false),
     defaultOpen: boolean.hinted('Default value of open property').default(false),

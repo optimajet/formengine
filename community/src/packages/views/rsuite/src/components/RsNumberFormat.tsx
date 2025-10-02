@@ -5,14 +5,35 @@ import {NumericFormat} from 'react-number-format'
 import type {NumberFormatValues} from 'react-number-format/types/types'
 import type {InputProps} from 'rsuite'
 import {inputProps, nonNegNumber} from '../commonProperties'
+import {fieldsCategory} from './categories'
 import {Labeled} from './components/Labeled'
 import {WrappedInput} from './components/WrappedInput'
 
-interface RsNumberFormatProps extends NumericFormatProps<InputProps> {
+/**
+ * Props for the RsNumberFormat component.
+ */
+export interface RsNumberFormatProps extends NumericFormatProps<InputProps> {
+  /**
+   * The label for the number input.
+   */
   label: string
+  /**
+   * The callback function called when the value changes.
+   */
   onChange: (value: any) => void
+  /**
+   * The htmlSize attribute defines the width of the &laquo;input> element.
+   */
+  htmlSize?: number
 }
 
+/**
+ * Gets the decimal and a thousand separators with validation.
+ * @param props the separator properties.
+ * @param props.thousandSeparator the thousand separator.
+ * @param props.decimalSeparator the decimal separator.
+ * @returns the validated separators.
+ */
 function getSeparators(props: { thousandSeparator?: boolean | string, decimalSeparator?: string }) {
   let {decimalSeparator = '.'} = props
   let {thousandSeparator} = props
@@ -46,6 +67,16 @@ function getSeparators(props: { thousandSeparator?: boolean | string, decimalSep
   return {decimalSeparator, thousandSeparator}
 }
 
+/**
+ * A number format input component with validation and formatting.
+ * @param props the component props.
+ * @param props.style the CSS style for the component.
+ * @param props.className the CSS class name for the component.
+ * @param props.label the label for the number input.
+ * @param props.onChange the callback function called when the value changes.
+ * @param props.value the current value of the input.
+ * @returns the React element.
+ */
 const RsNumberFormat = ({style, className, label, onChange, value, ...props}: RsNumberFormatProps) => {
   const {decimalSeparator, thousandSeparator} = getSeparators(props)
 
@@ -70,6 +101,7 @@ const RsNumberFormat = ({style, className, label, onChange, value, ...props}: Rs
 
 export const rsNumberFormat = define(RsNumberFormat, 'RsNumberFormat')
   .name('Number format')
+  .category(fieldsCategory)
   .props({
     label: string.default('Number input'),
     value: number.valued,

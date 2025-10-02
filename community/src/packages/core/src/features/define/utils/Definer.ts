@@ -5,6 +5,7 @@ import {commonStyles, getDefault, getDefaultCss} from '../../annotation'
 import {toArray} from '../../annotation/toArray'
 import {toStyleProperties} from '../../annotation/toStyleProperties'
 import type {Annotations} from '../../annotation/utils/builders/Annotations'
+import type {ActionEventHandler, EventName} from '../../event'
 import {modules} from '../constants'
 import type {ActionsInitializer, ComponentKind} from '../types'
 import type {BuilderComponent} from './BuilderComponent'
@@ -17,9 +18,14 @@ import type {InsertRestrictionFn} from './InsertRestrictionFn'
 import {
   cfComponentIsPreset,
   cfComponentRole,
+  cfDisableActionEditors,
+  cfDisableComponentRemove,
+  cfDisableStyles,
   cfDisableStylesForClassNameEditor,
   cfDisableTooltipProperties,
+  cfDisableWrapperStyles,
   cfEnableInlineStylesEditor,
+  cfEventHandlers,
   cfHideFromComponentPalette,
   cfSkipChildrenDuringFieldCollection
 } from './integratedComponentFeatures'
@@ -259,6 +265,33 @@ export class Definer<T extends object> {
   }
 
   /**
+   * Prevent this component from being removed.
+   * @param value true to disable removal, false otherwise.
+   * @returns the modified Definer class instance.
+   */
+  disableRemove(value = true) {
+    return this.addFeature(cfDisableComponentRemove, value)
+  }
+
+  /**
+   * Disables the styling of the component.
+   * @param value true to disable the styling of the component.
+   * @returns the modified Definer class instance.
+   */
+  withoutStyles(value = true) {
+    return this.addFeature(cfDisableStyles, value)
+  }
+
+  /**
+   * Disables the styling of the component wrapper.
+   * @param value true to disable the styling of the component wrapper.
+   * @returns the modified Definer class instance.
+   */
+  withoutWrapperStyles(value = true) {
+    return this.addFeature(cfDisableWrapperStyles, value)
+  }
+
+  /**
    * Show or hide 'Styles for className' editor.
    * @param value if the value is `true` or `undefined`, the editor will be displayed.
    * @returns the modified Definer class instance.
@@ -293,6 +326,24 @@ export class Definer<T extends object> {
    */
   hideTooltipEditor(value = true) {
     return this.addFeature(cfDisableTooltipProperties, value)
+  }
+
+  /**
+   * Overrides event handlers (for example, onChange, onBlur) that are added to the component.
+   * @param eventHandlers the custom event handlers.
+   * @returns the modified instance of the builder.
+   */
+  overrideEventHandlers(eventHandlers: Record<EventName, ActionEventHandler>) {
+    return this.addFeature(cfEventHandlers, eventHandlers)
+  }
+
+  /**
+   * Hides or shows the 'Actions' editors.
+   * @param value if the value is true, the editors will be hidden.
+   * @returns the modified Definer class instance.
+   */
+  hideActionEditors(value = true) {
+    return this.addFeature(cfDisableActionEditors, value)
   }
 
   /**

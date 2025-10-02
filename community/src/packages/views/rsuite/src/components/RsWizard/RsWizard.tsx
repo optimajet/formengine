@@ -19,6 +19,7 @@ import {useCallback, useEffect, useMemo, useState} from 'react'
 import type {StepItemProps} from 'rsuite'
 import {Button, ButtonToolbar, Steps} from 'rsuite'
 import {useArrayMapMemo} from '../../hooks'
+import {structureCategory} from '../categories'
 import {Rows} from '../components/Layout'
 import {createStep, editorProps} from './editorProps'
 import {eventListeners} from './eventListeners'
@@ -27,20 +28,65 @@ import {RsWizardStepComponentType} from './RsWizardStep'
 import {WizardIcon} from './WizardIcon'
 import './toolbar.css'
 
-interface RsWizardProps extends PropsWithChildren<any> {
+/**
+ * Props for the RsWizard component.
+ */
+export interface RsWizardProps extends PropsWithChildren<any> {
+  /**
+   * Whether to show steps.
+   */
   showSteps?: boolean
+  /**
+   * Whether to show step labels.
+   */
   showStepsLabels?: boolean
+  /**
+   * Whether steps are vertical.
+   */
   verticalSteps?: boolean
+  /**
+   * Navigation mode for steps.
+   */
   stepsNavigation?: 'disable' | 'onlyVisited' | 'any'
+  /**
+   * Active step index.
+   */
   activeIndex?: number
+  /**
+   * Label for previous button.
+   */
   prevButtonLabel?: string
+  /**
+   * Label for next button.
+   */
   nextButtonLabel?: string
+  /**
+   * Label for finish button.
+   */
   finishButtonLabel?: string
+  /**
+   * Whether to validate on next.
+   */
   validateOnNext: boolean,
+  /**
+   * Whether to validate on finish.
+   */
   validateOnFinish: boolean,
+  /**
+   * Callback when step changes.
+   */
   onChange?: (activeIndex?: number) => void
+  /**
+   * Callback when next button is clicked.
+   */
   onNext?: () => void
+  /**
+   * Callback when previous button is clicked.
+   */
   onPrev?: () => void
+  /**
+   * Callback when finish button is clicked.
+   */
   onFinish?: () => void
 }
 
@@ -57,13 +103,49 @@ const SCentered = styled.div`
 
 const EmptyContent = () => <SCentered>Missing content</SCentered>
 
+/**
+ * Props for wizard step item component.
+ */
 interface WizardStepItemProps {
+  /**
+   * Label for the step.
+   */
   label?: string
+  /**
+   * CSS class name.
+   */
   className: string
+  /**
+   * Status of the step.
+   */
   status: StepItemProps['status']
+  /**
+   * Click handler for the step.
+   */
   onClick: () => void
 }
 
+/**
+ * Wizard component with step navigation and validation.
+ * @param props the component props.
+ * @param props.children the children components.
+ * @param props.activeIndex the active step index.
+ * @param props.onChange the callback when step changes.
+ * @param props.onNext the callback when next button is clicked.
+ * @param props.onPrev the callback when previous button is clicked.
+ * @param props.onFinish the callback when finish button is clicked.
+ * @param props.showSteps whether to show steps.
+ * @param props.showStepsLabels whether to show step labels.
+ * @param props.verticalSteps whether steps are vertical.
+ * @param props.stepsNavigation the navigation mode for steps.
+ * @param props.prevButtonLabel the label for previous button.
+ * @param props.nextButtonLabel the label for next button.
+ * @param props.finishButtonLabel the label for finish button.
+ * @param props.validateOnNext whether to validate on next.
+ * @param props.validateOnFinish whether to validate on finish.
+ * @param props.props the additional wizard props.
+ * @returns the React element.
+ */
 const RsWizard = ({
                     children,
                     activeIndex = 0,
@@ -213,8 +295,15 @@ const RsWizard = ({
   </Rows>
 }
 
+/**
+ * Component type for RsWizard.
+ */
 const RsWizardComponentType = 'RsWizard'
 
+/**
+ * Get initial json for wizard component.
+ * @returns initial json string.
+ */
 const getInitialJson = () => {
   const componentStore = new ComponentStore(RsWizardComponentType, RsWizardComponentType)
   componentStore.children = [1, 2, 3].map(index => createStep(index))
@@ -223,6 +312,7 @@ const getInitialJson = () => {
 
 export const rsWizard = define(RsWizard, RsWizardComponentType)
   .name('Wizard')
+  .category(structureCategory)
   .icon(WizardIcon)
   .initialJson(getInitialJson())
   .eventListeners(eventListeners)
@@ -241,7 +331,8 @@ export const rsWizard = define(RsWizard, RsWizardComponentType)
       }),
     stepsNavigation: oneOf('disable', 'onlyVisited', 'any')
       .labeled('Disable', 'Only visited', 'Any')
-      .default('onlyVisited'),
+      .default('onlyVisited')
+      .withEditorProps({creatable: false}),
     steps: array
       .default([])
       .withEditorProps(editorProps),
