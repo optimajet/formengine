@@ -1,4 +1,4 @@
-import {isObject, upperFirst} from 'lodash-es'
+import {isObject, upperFirst} from '../../../utils/tools'
 
 /**
  * The element with the value and the label.
@@ -20,10 +20,10 @@ export interface LabeledValue {
  * @param upper if true, the first character in {@link LabeledValue.label} will be capitalized.
  * @returns the array of {@link LabeledValue} elements.
  */
-export const toLabeledValues = (items: string[] | LabeledValue[], upper = true) =>
-  items.map(item => ({
-    value: isObject(item) ? item.value : item,
-    label: isObject(item)
-      ? item.label
-      : (upper ? upperFirst(item) : item)
-  }))
+export const toLabeledValues = (items: Array<string | number | LabeledValue>, upper = true): LabeledValue[] =>
+  items.map(item => {
+    if (isObject(item)) return {value: item.value as string | number, label: item.label as string | undefined}
+    const value = item as string | number
+    const label = upper ? upperFirst(String(item)) : String(item)
+    return {value, label}
+  })

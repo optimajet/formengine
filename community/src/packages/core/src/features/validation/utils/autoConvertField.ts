@@ -1,4 +1,4 @@
-import {isObject} from 'lodash-es'
+import {isNull, isObject, isUndefined} from '../../../utils/tools'
 import type {SchemaType} from '../types/SchemaType'
 
 const same = (from: any) => from
@@ -144,7 +144,7 @@ const getValueType = (value: unknown): SchemaType => {
  * @returns the converted value.
  */
 export const autoConvertField = (from: any, toType: SchemaType): unknown => {
-  if (from === null || typeof from === 'undefined') return undefined
+  if (isNull(from) || isUndefined(from)) return undefined
 
   const fromType = getValueType(from)
   const converter = converters[fromType]?.[toType]

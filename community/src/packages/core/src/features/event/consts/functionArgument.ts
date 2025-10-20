@@ -1,3 +1,4 @@
+import {isNull} from '../../../utils/tools'
 import type {ArgumentValue, FunctionArgumentValue} from '../types'
 
 const fnArgumentFunctionCache = new Map<string, Function>()
@@ -25,7 +26,7 @@ ${source}
  */
 export const isFunctionArgumentValue = (value: ArgumentValue): value is FunctionArgumentValue => {
   return typeof value === 'object'
-    && value !== null
+    && !isNull(value)
     && 'type' in value
     && value.type === 'fn'
 }

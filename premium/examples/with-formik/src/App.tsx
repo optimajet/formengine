@@ -5,9 +5,8 @@ import {
   rSuiteComponents,
   rtlCssLoader
 } from '@react-form-builder/components-rsuite'
-import {ActionDefinition, BiDi, ComponentData, IFormData, RuleValidatorResult, Validators} from '@react-form-builder/core'
+import {ActionDefinition, BiDi, ComponentData, debounce, IFormData, RuleValidatorResult, Validators} from '@react-form-builder/core'
 import {BuilderView, FormBuilder, IFormStorage} from '@react-form-builder/designer'
-import debounce from 'lodash/debounce'
 import {useMemo} from 'react'
 import {Schema} from 'yup'
 import form from './form.json'

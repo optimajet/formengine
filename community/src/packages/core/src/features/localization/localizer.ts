@@ -7,6 +7,7 @@ import type {Form} from '../../stores/Form'
 import type {LocalizationType} from '../../stores/LocalizationStore'
 import {CalculableResult} from '../../utils/CalculableResult'
 import type {IFormData} from '../../utils/IFormData'
+import {isNull, isUndefined} from '../../utils/tools'
 import {getValidatorPropertyBlockType} from '../ui/PropertyBlockType'
 import {replaceDots, restoreDots} from './dots'
 import {getFluentCompatibleId} from './getFluentCompatibleId'
@@ -100,11 +101,11 @@ export const testFluentLocalization = (request: LocalizationTestRequest): Calcul
 
   const message = bundle.getMessage(request.localizationStringId)
 
-  if (typeof message === 'undefined') {
+  if (isUndefined(message)) {
     return CalculableResult.error([{message: 'Localization message not found', name: 'MessageNotFound'}])
   }
 
-  if (message.value === null) {
+  if (isNull(message.value)) {
     return CalculableResult.error([{message: 'Localization message is null', name: 'MessageIsNull'}])
   }
 

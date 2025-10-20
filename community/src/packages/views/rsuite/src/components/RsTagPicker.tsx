@@ -51,7 +51,7 @@ const RsTagPicker = ({data, label, value, className, ...props}: RsTagPickerProps
   }, [])
 
   const transformedData = useMemo(() => {
-    return toLabeledValues((data ?? []) as LabeledValue[]).map(fixEmptyItem)
+    return toLabeledValues((data ?? []) as Array<string | LabeledValue>).map(fixEmptyItem)
   }, [data])
 
   return (

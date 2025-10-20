@@ -1,4 +1,3 @@
-import {assign} from 'lodash-es'
 import {makeAutoObservable} from 'mobx'
 import {KeySymbol} from '../consts'
 import type {ActionData, EventName} from '../features/event'
@@ -253,7 +252,7 @@ export class ComponentStore {
    * @returns the component Store.
    */
   static createFromObject(value: any) {
-    const result = assign(new ComponentStore(value.key, value.type), value)
+    const result = Object.assign(new ComponentStore(value.key, value.type), value)
     initActionDataKeys(result)
     return result
   }

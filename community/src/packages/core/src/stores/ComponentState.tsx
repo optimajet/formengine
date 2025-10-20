@@ -1,5 +1,4 @@
 import {css, cx} from '@emotion/css'
-import {assign} from 'lodash-es'
 import {makeAutoObservable} from 'mobx'
 import {calculateProperties} from '../features/calculation/propertyCalculator'
 import {silentTransformCssString} from '../features/css-style/cssTransform'
@@ -347,11 +346,11 @@ export class ComponentState implements IComponentState {
     const {model, store} = this.data
     const {viewMode} = this.store
 
-    const cssObjectAny = assign({},
+    const cssObjectAny = Object.assign({},
       model[cssPart]?.any?.object,
       store[cssPart]?.any?.object
     )
-    const cssObjectCurrent = assign({},
+    const cssObjectCurrent = Object.assign({},
       model[cssPart]?.[viewMode]?.object,
       store[cssPart]?.[viewMode]?.object
     )

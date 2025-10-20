@@ -99,7 +99,7 @@ const columns = [
 
 const {activeKey, ...props} = navProps
 
-const tags = Array.from(suitableReactElementTypes)
+const tags = [...suitableReactElementTypes]
 
 export const rsMenu = define(RsMenu, 'RsMenu')
   .name('Menu')

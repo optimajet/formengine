@@ -1,4 +1,5 @@
 import {isRecord} from './index'
+import {isUndefined} from './tools'
 
 const mergeArrays = (generatedData: unknown[], initialData: unknown[]) => {
   const result = [...generatedData]
@@ -48,7 +49,7 @@ export const mergeData = (generatedData: Record<string, unknown>, initialData: R
       // we need to save the `undefined` from the generated form data,
       // because the value `undefined` means that the value is cleared and should not be replaced
       // with data from the initial data.
-      if (typeof generatedData[key] === 'undefined') return
+      if (isUndefined(generatedData[key])) return
 
       result[key] = mergeValues(generatedData[key], initialData[key])
       return

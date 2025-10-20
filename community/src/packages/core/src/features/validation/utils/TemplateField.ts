@@ -2,6 +2,7 @@ import {makeAutoObservable} from 'mobx'
 import type {ComponentStore} from '../../../stores/ComponentStore'
 import type {IStore} from '../../../stores/IStore'
 import {nameObservable} from '../../../utils/observableNaming'
+import {isUndefined} from '../../../utils/tools'
 import type {Field} from './Field'
 import type {FieldType} from './FieldType'
 import {isStoreDataInParentForm} from './util'
@@ -98,7 +99,7 @@ export class TemplateField implements Field {
     this.form.allComponentFields.forEach(({field, dataKey}) => {
       const val = data[dataKey]
       // prevent uncontrolled value
-      typeof val === 'undefined' ? field.reset() : field.setValue(val)
+      isUndefined(val) ? field.reset() : field.setValue(val)
     })
   }
 

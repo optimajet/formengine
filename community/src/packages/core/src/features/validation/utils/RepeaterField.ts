@@ -5,6 +5,7 @@ import type {ComponentData, IComponentDataProvider} from '../../../utils/context
 import {mergeData} from '../../../utils/data-utils'
 import {needRender} from '../../../utils/needRender'
 import {nameAutorun, nameObservable} from '../../../utils/observableNaming'
+import {isNull, isUndefined} from '../../../utils/tools'
 import type {Model} from '../../define'
 import type {SchemaType} from '../types/SchemaType'
 import type {ValidationMessages} from '../types/ValidationResult'
@@ -168,7 +169,7 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
    * @inheritDoc
    */
   setValue(value: unknown) {
-    if (value === null || typeof value === 'undefined' || Array.isArray(value)) {
+    if (isNull(value) || isUndefined(value) || Array.isArray(value)) {
       this.initialData = value
       return
     }
@@ -273,7 +274,7 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
    * @inheritDoc
    */
   setError = (error: unknown) => {
-    if (typeof error === 'undefined' || error === null) {
+    if (isUndefined(error) || isNull(error)) {
       this.clearError()
       return
     }

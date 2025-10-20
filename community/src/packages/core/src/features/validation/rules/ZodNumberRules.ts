@@ -1,5 +1,5 @@
-import {isNull, isUndefined} from 'lodash-es'
 import {z} from 'zod'
+import {isNull, isUndefined} from '../../../utils/tools'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
 import {required} from '../utils/util'

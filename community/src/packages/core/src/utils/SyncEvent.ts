@@ -44,7 +44,7 @@ export class SyncEvent<TSender, TEventArgs> {
    */
   public invoke(sender: TSender, eventArgs: TEventArgs): void {
     // Duplicate the array to avoid side effects during iteration.
-    this.handlers.slice().forEach(handler => handler(sender, eventArgs))
+    [...this.handlers].forEach(handler => handler(sender, eventArgs))
   }
 
   /**

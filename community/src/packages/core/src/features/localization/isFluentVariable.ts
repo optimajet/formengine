@@ -1,5 +1,6 @@
 import type {FluentVariable} from '@fluent/bundle/esm/bundle'
 import type {FluentType} from '@fluent/bundle/esm/types.js'
+import {isUndefined} from '../../utils/tools'
 
 /**
  * The type checker for the {@link FluentVariable} type.
@@ -11,5 +12,5 @@ export const isFluentVariable = (value: any): value is FluentVariable => {
     return true
   }
 
-  return typeof (value as FluentType<unknown>)?.value !== 'undefined'
+  return !isUndefined((value as FluentType<unknown>)?.value)
 }

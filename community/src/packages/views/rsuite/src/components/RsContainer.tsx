@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
-import {containerStyles, define, disabled, node, readOnly} from '@react-form-builder/core'
-import type {ReactNode} from 'react'
+import {containerStyles, define, disabled, forwardRef, node, readOnly} from '@react-form-builder/core'
+import type {ForwardedRef, ReactNode} from 'react'
 import {structureCategory} from './categories'
 
 const SDiv = styled.div`
   display: flex;
+  flex-direction: column;
 `
 const {flexDirection, gap} = containerStyles
 
@@ -31,10 +32,10 @@ export interface RsContainerProps {
  * @param props the component props.
  * @returns the React element.
  */
-const RsContainer = (props: RsContainerProps) => {
+const RsContainer = forwardRef((props: RsContainerProps, ref: ForwardedRef<any>) => {
   const {disabled, readOnly, ...otherProps} = props
-  return <SDiv {...otherProps} />
-}
+  return <SDiv {...otherProps} ref={ref}/>
+})
 
 export const rsContainer = define(RsContainer, 'RsContainer')
   .name('Container')

@@ -1,8 +1,7 @@
 import {faker} from '@faker-js/faker'
 import {viewWithCss} from '@react-form-builder/components-rsuite'
 import type {IFormData, IFormViewer} from '@react-form-builder/core'
-import {ActionDefinition, ComponentData, FormViewer} from '@react-form-builder/core'
-import isEqual from 'lodash/isEqual'
+import {ActionDefinition, ComponentData, FormViewer, isEqual} from '@react-form-builder/core'
 import {ReactNode, useCallback, useRef, useState} from 'react'
 import * as SampleForm from './SampleForm.json'
 

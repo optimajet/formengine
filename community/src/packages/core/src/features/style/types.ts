@@ -1,5 +1,3 @@
-import type {CSSObject} from '@emotion/react'
-
 /**
  * CSS styles for a device.
  */
@@ -8,7 +6,7 @@ export type DeviceStyle = {
   /**
    * CSS styles defined in the general style settings.
    */
-  object?: CSSObject
+  object?: any
 
   /**
    * CSS styles defined in the style code editor.

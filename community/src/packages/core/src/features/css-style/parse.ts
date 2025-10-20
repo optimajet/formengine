@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-use-before-define,no-cond-assign,no-useless-escape */
+/* eslint-disable @typescript-eslint/no-use-before-define,no-cond-assign,no-useless-escape,unicorn/prefer-spread */
 // http://www.w3.org/TR/CSS21/grammar.html
 // https://github.com/visionmedia/css-parse/pull/49#issuecomment-30088027
 // original https://github.com/reworkcss/css/blob/master/lib/parse/index.js

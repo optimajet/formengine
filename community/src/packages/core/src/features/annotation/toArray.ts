@@ -1,4 +1,4 @@
-import {reduce} from 'lodash-es'
+import {isUndefined} from '../../utils/tools'
 import {string} from './index'
 import type {Annotation} from './types/annotations/Annotation'
 import type {Annotations} from './utils/builders/Annotations'
@@ -11,8 +11,15 @@ import type {BuilderSetup} from './utils/builders/BaseBuilder'
  * @returns the metadata array of the component properties.
  */
 export function toArray<T extends object = any>(annotations?: Annotations<T>, setup: BuilderSetup = {}) {
-  return reduce(annotations, (prev: Annotation[], value, key) => {
-    prev.push(value?.setup(setup)?.build(key) ?? string.setup(setup).build(key))
-    return prev
-  }, [])
+  const result: Annotation[] = []
+  if (isUndefined(annotations)) return result
+
+  for (const key of Object.keys(annotations)) {
+    const value = (annotations as any)[key]
+    const built = value?.setup(setup)?.build(key) ?? string.setup(setup).build(key)
+
+    result.push(built)
+  }
+
+  return result
 }

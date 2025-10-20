@@ -17,7 +17,7 @@ const Container = styled.div`
   flex: 1;
 
   .search-icon {
-    margin-left: -28px;
+    margin-inline-start: -28px;
     margin-top: 10px;
     z-index: 10;
   }

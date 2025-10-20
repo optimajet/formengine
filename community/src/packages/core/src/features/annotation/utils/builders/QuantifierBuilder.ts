@@ -1,4 +1,4 @@
-import {startCase} from 'lodash-es'
+import {startCase} from '../../../../utils/tools'
 import type {Annotation} from '../../types/annotations/Annotation'
 import type {PropertyAnnotation} from '../../types/annotations/PropertyAnnotation'
 import {TypedBuilder} from './TypedBuilder'

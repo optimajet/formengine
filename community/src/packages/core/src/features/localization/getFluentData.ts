@@ -1,4 +1,5 @@
 import type {FluentVariable} from '@fluent/bundle/esm/bundle'
+import {isNull} from '../../utils/tools'
 import {dotInternalValue} from './dots'
 import {getFluentCompatibleId} from './getFluentCompatibleId'
 import {isFluentVariable} from './isFluentVariable'
@@ -18,7 +19,7 @@ export const getFluentData = (data: Record<string, unknown>, parentKey = ''): Re
       fluentData[getFluentCompatibleId(newKey)] = value
     } else if (typeof value === 'boolean') {
       fluentData[getFluentCompatibleId(newKey)] = value ? 'true' : 'false'
-    } else if (typeof value === 'object' && value !== null) {
+    } else if (typeof value === 'object' && !isNull(value)) {
       Object.assign(fluentData, getFluentData(value as Record<string, unknown>, newKey))
     }
   }

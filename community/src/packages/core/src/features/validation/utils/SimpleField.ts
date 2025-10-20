@@ -4,6 +4,7 @@ import {dataKey, isComputedProperty} from '../../../stores/ComponentStore'
 import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
 import {needRender} from '../../../utils/needRender'
 import {nameAutorun, nameObservable} from '../../../utils/observableNaming'
+import {isNull, isUndefined} from '../../../utils/tools'
 import type {Model} from '../../define'
 import type {SchemaType} from '../types/SchemaType'
 import {autoConvertField} from './autoConvertField'
@@ -229,7 +230,7 @@ export class SimpleField implements Field, IDataReaction {
   setError = (error: unknown) => {
     if (typeof error === 'string') {
       this.error = error
-    } else if (typeof error === 'undefined' || error === null) {
+    } else if (isUndefined(error) || isNull(error)) {
       this.error = undefined
     } else {
       throw new Error(`Expected 'string | undefined | null' type, got '${typeof error}'`)

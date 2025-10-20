@@ -191,3 +191,20 @@ export {CellInfoContextProvider} from './features/table/CellInfoContext'
 export type {DataKeyType, CellInfo} from './features/table/CellInfo'
 export {needRender} from './utils/needRender'
 export {useBuilderComponent} from './utils/useBuilderComponent'
+export {
+  debounce,
+  isUndefined,
+  isNull,
+  camelCase,
+  upperFirst,
+  isEqual,
+  startCase,
+  isEmpty,
+  isObject,
+  merge,
+  toUpper,
+  uniqueId,
+  isEqualWith,
+  isNumber,
+  cloneDeep
+} from './utils/tools'

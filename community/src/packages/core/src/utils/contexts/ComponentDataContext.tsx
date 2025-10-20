@@ -1,4 +1,3 @@
-import {camelCase, isArray, isEmpty, merge} from 'lodash-es'
 import type {IReactionDisposer} from 'mobx'
 import {makeAutoObservable, reaction} from 'mobx'
 import {isRecord} from '..'
@@ -18,13 +17,8 @@ import {mergeData} from '../data-utils'
 import type {IFormData} from '../IFormData'
 import {nameObservable} from '../observableNaming'
 import {SyncEvent} from '../SyncEvent'
+import {camelCase, isEmpty, isUndefined, merge, uniqueId} from '../tools'
 import {treeForEach} from '../treeUtils'
-
-let counter = 0
-
-function generateId(prefix: string) {
-  return `${prefix}_${++counter}`
-}
 
 function assignNewKey(item: ComponentStore, existingKeys: Set<string>) {
   let count = 1
@@ -188,7 +182,7 @@ export class ComponentData implements IFormData {
               getFormValidationResult?: () => Promise<Record<string, string>[]>) {
     this.store = componentStore
     this.model = model
-    this.id = generateId(this.model.type)
+    this.id = uniqueId(`${this.model.type}_`)
     this.#getFormValidatorsResult = getFormValidationResult
 
     componentStore.children?.forEach(childComponentStore => {
@@ -331,7 +325,7 @@ export class ComponentData implements IFormData {
 
     existingKeysMap.forEach((set, key) => {
       if (set.size <= 1) return
-      const items = Array.from(set).slice(1)
+      const items = [...set].slice(1)
       items.forEach(item => {
         const newKey = assignNewKey(item, existingKeys)
         existingKeys.add(newKey)
@@ -508,7 +502,7 @@ export class ComponentData implements IFormData {
       messages ??= {}
       let source = messages
       if (!field.storeDataInParentForm) {
-        const initialValue = isArray(result) ? [] : {}
+        const initialValue = Array.isArray(result) ? [] : {}
         messages[dataKey] ??= initialValue
         source = messages[dataKey]
       }
@@ -593,7 +587,7 @@ export class ComponentData implements IFormData {
    * (looks for the nearest index in the component hierarchy).
    */
   get nearestIndex(): number | undefined {
-    if (typeof this.index !== 'undefined') return this.index
+    if (!isUndefined(this.index)) return this.index
     return this.parent?.nearestIndex
   }
 

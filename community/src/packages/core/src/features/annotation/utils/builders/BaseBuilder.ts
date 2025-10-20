@@ -1,5 +1,5 @@
-import {assign, clone as lodashClone, startCase} from 'lodash-es'
 import type {ReactNode} from 'react'
+import {cloneDeep, startCase} from '../../../../utils/tools'
 import {AnnotationMap} from '../../consts'
 import type {AnnotationType} from '../../types'
 import type {Annotation} from '../../types/annotations/Annotation'
@@ -116,7 +116,7 @@ export class BaseBuilder<T> {
     const clone = this.clone()
     clone.options.annotationType = annotationType ?? clone.options.annotationType
     clone.options.autoName = autoName ?? clone.options.autoName
-    assign(clone.annotation, annotation)
+    Object.assign(clone.annotation, annotation)
     return clone
   }
 
@@ -125,11 +125,10 @@ export class BaseBuilder<T> {
    * @returns the cloned instance of the builder.
    */
   clone(): this {
-    const clone = lodashClone(this)
-    clone.options = lodashClone(this.options)
-    clone.annotation = lodashClone(this.annotation)
-    clone.annotation ??= {} as PreAnnotation
-    return clone
+    const copy = cloneDeep(this)
+
+    copy.annotation ??= {} as PreAnnotation
+    return copy
   }
 
   /**
@@ -140,7 +139,7 @@ export class BaseBuilder<T> {
   build(key: string): Annotation {
     const name = this.getName(key)
     const annotation = new AnnotationMap[this.options.annotationType](key, name)
-    assign(annotation, this.annotation)
+    Object.assign(annotation, this.annotation)
     return annotation
   }
 
@@ -151,7 +150,7 @@ export class BaseBuilder<T> {
    */
   withEditorProps(props: any): this {
     const clone = this.clone()
-    assign(clone.annotation, {editorProps: props})
+    Object.assign(clone.annotation, {editorProps: props})
     return clone
   }
 
@@ -161,7 +160,7 @@ export class BaseBuilder<T> {
    */
   hideEditor(): this {
     const clone = this.clone()
-    assign(clone.annotation, {editor: undefined})
+    Object.assign(clone.annotation, {editor: undefined})
     return clone
   }
 

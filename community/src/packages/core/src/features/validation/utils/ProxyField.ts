@@ -2,6 +2,7 @@ import {autorun, makeAutoObservable, observable} from 'mobx'
 import type {ComponentStore} from '../../../stores/ComponentStore'
 import type {Setter} from '../../../types'
 import {nameAutorun, nameObservable} from '../../../utils/observableNaming'
+import {isNull, isUndefined} from '../../../utils/tools'
 import type {Model} from '../../define'
 import type {SchemaType} from '../types/SchemaType'
 import {autoConvertField} from './autoConvertField'
@@ -200,7 +201,7 @@ export class ProxyField implements Field {
   setError = (error: unknown) => {
     if (typeof error === 'string') {
       this.error = error
-    } else if (typeof error === 'undefined' || error === null) {
+    } else if (isUndefined(error) || isNull(error)) {
       this.error = undefined
     } else {
       throw new Error(`Expected 'string | undefined | null' type, got '${typeof error}'`)

@@ -1,5 +1,6 @@
 import {useBuilderMode} from '../../utils/contexts/BuilderModeContext'
 import {useStore} from '../../utils/contexts/StoreContext'
+import {isUndefined} from '../../utils/tools'
 import {array, containerStyles, getDefaultCss, node, string} from '../annotation'
 import {toArray} from '../annotation/toArray'
 import {toStyleProperties} from '../annotation/toStyleProperties'
@@ -64,7 +65,7 @@ export const repeaterWrapperStyleProperties = toStyleProperties({
 const repeaterWrapperCss = getDefaultCss(repeaterWrapperStyleProperties)
 
 const repeaterDefaultProps = repeaterProps
-  .filter(an => typeof an.default !== 'undefined')
+  .filter(an => !isUndefined(an.default))
   .reduce<Record<string, any>>((acc, an) => {
     acc[an.key] = an.default
     return acc

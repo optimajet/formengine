@@ -1,7 +1,7 @@
-import {debounce} from 'lodash-es'
 import type {IStore} from '../../../stores/IStore'
 import type {Setter} from '../../../types'
 import type {IFormData} from '../../../utils/IFormData'
+import {debounce} from '../../../utils/tools'
 import type {ValidationResult} from '../types/ValidationResult'
 
 /**

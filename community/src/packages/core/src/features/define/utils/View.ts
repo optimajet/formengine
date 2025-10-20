@@ -109,7 +109,7 @@ export class View {
    * @returns the array of component metadata filtered using the predicate function.
    */
   filterModels(predicate: (model: Model) => boolean) {
-    return Array.from(this.#modelMap.values())
+    return [...this.#modelMap.values()]
       .filter(predicate)
   }
 

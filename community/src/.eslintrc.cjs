@@ -24,7 +24,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-perf/all'
   ],
-  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'react-hooks', 'no-secrets'],
+  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'react-hooks', 'no-secrets', 'unicorn'],
   rules: {
     'no-restricted-syntax': ['error', {
       "selector": "CallExpression[callee.name='customizableObserver'] > ArrowFunctionExpression.arguments",
@@ -49,6 +49,9 @@ module.exports = {
     'react-hooks/exhaustive-deps': ['error', {
       'additionalHooks': ''
     }],
+    'unicorn/no-useless-fallback-in-spread': 'error',
+    'unicorn/no-useless-spread': 'error',
+    'unicorn/prefer-spread': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/ban-types': 'off',

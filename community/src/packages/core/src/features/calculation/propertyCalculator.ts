@@ -1,8 +1,8 @@
-import {isUndefined} from 'lodash-es'
 import type {ComponentProperty, ComponentStore} from '../../stores/ComponentStore'
 import {isFunctionalProperty} from '../../stores/ComponentStore'
 import {CalculableResult} from '../../utils/CalculableResult'
 import type {IFormData} from '../../utils/IFormData'
+import {isUndefined} from '../../utils/tools'
 
 const fnCache = new Map<string, Function>()
 

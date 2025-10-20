@@ -1,6 +1,7 @@
 import type {SyntheticEvent} from 'react'
 import type {Store} from '../../../stores/Store'
 import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
+import {isUndefined} from '../../../utils/tools'
 import type {CellInfo} from '../../table/CellInfo'
 import {createDataProxy} from './createComponentDataProxy'
 
@@ -71,7 +72,7 @@ export class ActionEventArgs {
    * @returns the first element of the event argument array, which is treated as a value.
    */
   get value() {
-    return this.args.filter(v => typeof v !== 'undefined').find(this.#isNotEvent)
+    return this.args.filter(v => !isUndefined(v)).find(this.#isNotEvent)
   }
 
   /**

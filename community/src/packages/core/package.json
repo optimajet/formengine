@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/core",
-  "description": "React hook form alternative.",
-  "version": "7.3.0",
+  "description": "React JSON Schema Form Builder to create complex, validated, reusable forms with no deep React knowledge required",
+  "version": "7.4.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -46,7 +46,6 @@
   },
   "dependencies": {
     "@fluent/bundle": "^0.18.0",
-    "lodash-es": "^4.17.21",
     "zod": "^3.22.4"
   },
   "peerDependencies": {
@@ -55,11 +54,7 @@
     "@emotion/react": "^11.14.0",
     "mobx": "^6.13.5",
     "mobx-react": "^9.2.0",
-    "react": ">=17.0.2 || ^18 || ^19",
-    "stylis-plugin-rtl": "^2.1.1"
-  },
-  "devDependencies": {
-    "@types/lodash-es": "^4.17.7"
+    "react": ">=17.0.2 || ^18 || ^19"
   },
   "browserslist": {
     "production": [

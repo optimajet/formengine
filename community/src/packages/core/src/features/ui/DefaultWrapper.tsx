@@ -1,9 +1,11 @@
 import {css, cx} from '@emotion/css'
-import type {DetailedHTMLProps, HTMLAttributes} from 'react'
+import type {ComponentProps, ForwardedRef} from 'react'
 import {useMemo} from 'react'
+import {forwardRef} from '../../utils/forwardRefShim'
 
 const defaultWrapperClass = css`
   display: flex;
+  flex-direction: column;
 `
 
 /**
@@ -11,9 +13,9 @@ const defaultWrapperClass = css`
  * @param props the React component properties.
  * @returns the React element.
  */
-export const DefaultWrapper = (props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
+export const DefaultWrapper = forwardRef((props: ComponentProps<any>, ref: ForwardedRef<any>) => {
   const {className, children, ...otherProps} = props
   const cls = useMemo(() => cx(defaultWrapperClass, className), [className])
-  return <div className={cls} {...otherProps}>{children}</div>
-}
+  return <div className={cls} {...otherProps} ref={ref}>{children}</div>
+})
 DefaultWrapper.displayName = 'Screen'

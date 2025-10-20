@@ -1,4 +1,5 @@
 import type {ComponentStore} from '../../../stores/ComponentStore'
+import {isUndefined} from '../../../utils/tools'
 
 /**
  * Returns true if the component's data should be stored in the parent form's data, otherwise, false.
@@ -7,7 +8,7 @@ import type {ComponentStore} from '../../../stores/ComponentStore'
  */
 export function isStoreDataInParentForm(componentStore: ComponentStore) {
   const val = componentStore.props['storeDataInParentForm']?.value
-  return typeof val === 'undefined' ? true : val
+  return isUndefined(val) ? true : val
 }
 
 /**

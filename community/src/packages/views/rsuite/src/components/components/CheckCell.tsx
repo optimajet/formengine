@@ -6,7 +6,7 @@ import {SCell} from './SCell'
 
 const SCheckbox = styled(Checkbox)`
   & .rs-checkbox-wrapper {
-    left: 4px;
+    inset-inline-start: 4px;
     top: 6px;
   }
 `

@@ -1,4 +1,3 @@
-import {assign} from 'lodash-es'
 import {makeObservable, observable, runInAction} from 'mobx'
 import type {Model} from '../features/define'
 import type {ComponentRole} from '../features/define/utils/ComponentRole'
@@ -38,6 +37,7 @@ import {isNumber, isRecord, isString} from '../utils'
 import {ComponentData} from '../utils/contexts/ComponentDataContext'
 import type {IFormData} from '../utils/IFormData'
 import {nameObservable} from '../utils/observableNaming'
+import {isUndefined} from '../utils/tools'
 import {ComponentStore, dataKey} from './ComponentStore'
 import {Form} from './Form'
 import type {FormViewerPropsStore} from './FormViewerPropsStore'
@@ -376,7 +376,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     const oldForm = this.form
 
     const version = persistedForm.version
-    if (typeof version !== 'undefined' && version !== PersistedFormVersion.version1) {
+    if (!isUndefined(version) && version !== PersistedFormVersion.version1) {
       console.warn(`An unsupported version of form '${version}' has been detected. An attempt will be made to upload` +
         ` the form as version '${PersistedFormVersion.version1}'.`)
     }
@@ -388,7 +388,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       componentData.getInitialData = () => this.initialDataSlice
       componentData.setInitialData = this.updateInitialData
 
-      const localization = new LocalizationStore(assign({}, persistedForm.localization))
+      const localization = new LocalizationStore(Object.assign({}, persistedForm.localization))
 
       const languages = persistedForm.languages?.map(Language.clone) ?? []
       const defaultLanguage = languages.find(l => l.fullCode === persistedForm.defaultLanguage) ?? globalDefaultLanguage
@@ -504,7 +504,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       return result.value
     })
 
-    return results.filter(value => typeof value !== 'undefined') as Record<string, string>[]
+    return results.filter(value => !isUndefined(value)) as Record<string, string>[]
   }
 
   /**

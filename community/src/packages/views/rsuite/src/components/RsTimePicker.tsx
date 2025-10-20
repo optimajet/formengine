@@ -1,4 +1,4 @@
-import {boolean, define, disabled, event, string, time, timeFormat} from '@react-form-builder/core'
+import {boolean, define, disabled, event, isNull, string, time, timeFormat} from '@react-form-builder/core'
 import {format as formatDate, parse} from 'date-fns'
 import type {SyntheticEvent} from 'react'
 import {useCallback, useMemo} from 'react'
@@ -73,7 +73,7 @@ const RsTimePicker = ({open, label, value, className, format, defaultValue, onCh
   const pickerOpen = useMemo(() => open === true ? true : undefined, [open])
 
   const handleChange = useCallback((value: Date | null, e: SyntheticEvent) => {
-    if (value === null) {
+    if (isNull(value)) {
       onChange?.(null, e)
       return
     }

@@ -181,9 +181,9 @@ export const commonStyles = {
   width: cssSize.setup({default: '100%'}),
   height: cssSize,
   marginTop: cssSize,
-  marginRight: cssSize,
+  marginInlineEnd: cssSize,
   marginBottom: cssSize,
-  marginLeft: cssSize,
+  marginInlineStart: cssSize,
   color: cssColor,
   backgroundColor: cssColor,
 }
