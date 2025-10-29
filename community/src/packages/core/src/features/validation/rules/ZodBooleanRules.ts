@@ -1,18 +1,18 @@
 import {z} from 'zod'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
-import {required} from '../utils/util'
-import {zodAnyToValidator} from './zodAnyToValidator'
+import {errorMapForUndefined, requiredMessage} from './consts'
+import {zodTypeToValidator} from './zodTypeToValidator'
 
-const scheme = z.boolean()
+const scheme = z.boolean(errorMapForUndefined)
 
 export const ZodBooleanRules: ValidationRuleSet = {
   required: ruleBuilder()
-    .withValidatorFactory(({message}) => zodAnyToValidator(scheme.refine(val => val, required(message)))),
+    .withValidatorFactory(() => zodTypeToValidator(scheme.refine(val => val, requiredMessage))),
 
   truthy: ruleBuilder()
-    .withValidatorFactory(({message}) => zodAnyToValidator(scheme.refine(arg => arg, message))),
+    .withValidatorFactory(({message}) => zodTypeToValidator(scheme.refine(arg => arg, message))),
 
   falsy: ruleBuilder()
-    .withValidatorFactory(({message}) => zodAnyToValidator(scheme.refine(arg => !arg, message)))
+    .withValidatorFactory(({message}) => zodTypeToValidator(scheme.refine(arg => !arg, message)))
 }

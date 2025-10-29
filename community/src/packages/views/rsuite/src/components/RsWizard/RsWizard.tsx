@@ -26,7 +26,6 @@ import {eventListeners} from './eventListeners'
 import {SItem} from './Item'
 import {RsWizardStepComponentType} from './RsWizardStep'
 import {WizardIcon} from './WizardIcon'
-import './toolbar.css'
 
 /**
  * Props for the RsWizard component.
@@ -90,8 +89,18 @@ export interface RsWizardProps extends PropsWithChildren<any> {
   onFinish?: () => void
 }
 
-const containerStyle = {gap: 10, padding: 10} as const
 const toolbarStyle = {justifyContent: 'end', zIndex: 7} as const
+
+const Container = styled(Rows)`
+  gap: 10px;
+  padding: 10px;
+
+  .parent-type-RsWizard.Toolbar {
+    .add-button {
+      display: none;
+    }
+  }
+`
 
 const SCentered = styled.div`
   display: flex;
@@ -274,7 +283,7 @@ const RsWizard = ({
     })
   }, [activeIndex, getStepStatus, handleStepClick, isStepAvailable, labels])
 
-  return <Rows style={containerStyle} {...props}>
+  return <Container {...props}>
     <div style={stepsContainerStyle}>
       {showSteps && !!content &&
         <Steps current={activeIndex} vertical={verticalSteps} className={'steps'}>
@@ -292,7 +301,7 @@ const RsWizard = ({
       <div className={'content'}>{content ?? <EmptyContent/>}</div>
     </div>
     {!!content && buttons}
-  </Rows>
+  </Container>
 }
 
 /**

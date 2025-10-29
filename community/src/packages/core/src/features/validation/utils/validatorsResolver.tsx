@@ -75,7 +75,7 @@ function validatorsResolver(validationRules: FormViewerValidationRules, schema?:
       if (ruleResult !== true) {
         validationResults.push({
           settings: settings,
-          message: typeof ruleResult === 'string' ? ruleResult : args.message as string
+          message: (args.message ?? ruleResult) as string
         })
       }
     }

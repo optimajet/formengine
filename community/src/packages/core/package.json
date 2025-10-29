@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/core",
   "description": "React JSON Schema Form Builder to create complex, validated, reusable forms with no deep React knowledge required",
-  "version": "7.4.0",
+  "version": "7.5.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@fluent/bundle": "^0.18.0",
-    "zod": "^3.22.4"
+    "zod": "^4.0.0"
   },
   "peerDependencies": {
     "@emotion/cache": "^11.14.0",

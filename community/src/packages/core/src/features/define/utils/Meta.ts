@@ -9,6 +9,12 @@ import type {InsertRestrictionFn} from './InsertRestrictionFn'
 export class Meta {
 
   /**
+   * @deprecated
+   * The custom ReactNode to be drawn on the toolbar.
+   */
+  readonly customPreview?: ReactNode
+
+  /**
    * Creates the component metadata for the form builder.
    * @param type the component type name.
    * @param properties the component's properties metadata.
@@ -28,12 +34,13 @@ export class Meta {
     readonly css: Annotation[],
     readonly wrapperCss: Annotation[],
     readonly modules: Annotation[],
-    readonly customPreview?: ReactNode,
+    customPreview?: ReactNode,
     readonly valuedAn?: Annotation,
     readonly initialJson?: string,
     readonly eventListeners?: ComponentMetadataEventListeners,
     readonly icon?: ComponentType,
     readonly insertRestriction?: InsertRestrictionFn,
   ) {
+    this.customPreview = customPreview
   }
 }

@@ -93,11 +93,13 @@ export interface IDataRootProvider {
  * @param form the form.
  * @returns all form data where empty fields are filled with empty strings.
  */
-export const initFormFields = (form: ComponentData) => {
+export const getEditableFormData = (form: ComponentData) => {
   const result: Record<string, unknown> = {}
-  form.allComponentFields.forEach(({dataKey}) => {
-    result[dataKey] = form.data[dataKey] ?? ''
+
+  Object.entries(form.data).forEach(([key, value]) => {
+    result[key] = value ?? ''
   })
+
   return result
 }
 
@@ -433,7 +435,7 @@ export class ComponentData implements IFormData {
    * Additionally, the keys of the returned object are converted to the snake case.
    */
   get fluentData() {
-    const initializedData = initFormFields(this)
+    const initializedData = getEditableFormData(this)
     return getFluentData(initializedData)
   }
 

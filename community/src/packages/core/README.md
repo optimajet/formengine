@@ -1,6 +1,6 @@
 # React JSON schema form builder
 
-[![Formengine](https://formengine.io/repository-images/Formengine_bigpicture_2.png)](https://formengine.io/documentation/?utm_source=github&utm_medium=banner-top&utm_campaign=readme#quick-start)
+[![Formengine](https://formengine.io/repository-images/Formengine_bigpicture_2.png)](https://formengine.io/documentation/?utm_source=npmjs&utm_medium=banner-top&utm_campaign=readme#quick-start)
 <!-- ==================== FORMENGINE CORE BADGES ==================== -->
 [![Stars](https://img.shields.io/github/stars/optimajet/formengine?style=for-the-badge&logo=github&logoColor=white)](https://github.com/optimajet/formengine/stargazers)
 [![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://github.com/optimajet/formengine/blob/master/LICENSE)
@@ -16,7 +16,7 @@ render it across your apps. No hooks. No context. No boilerplate. No pain.
 
 ### Simple Form Example
 
-[![Formengine](https://formengine.io/repository-images/simpleform.png)](https://formengine.io/documentation/?utm_source=github&utm_medium=article_banner-for&utm_campaign=readme#quick-start)
+[![Formengine](https://formengine.io/repository-images/simpleform.png)](https://formengine.io/documentation/?utm_source=npmjs&utm_medium=article_banner-for&utm_campaign=readme#quick-start)
 
 ### Simple Form JSON Example
 
@@ -251,7 +251,7 @@ export const App = () => (
  npm install @react-form-builder/components-rsuite  
  ```  
 
-[![Formengine Drag and n Drop](https://formengine.io/repository-images/components-ui.png)](https://formengine.io/react-form-components-library?utm_source=github&utm_medium=article_banne-dndr&utm_campaign=readme)
+[![Formengine Drag and n Drop](https://formengine.io/repository-images/components-ui.png)](https://formengine.io/react-form-components-library?utm_source=npmjs&utm_medium=article_banne-dndr&utm_campaign=readme)
 
 ## 🟦🟥🟨🟩 Custom components
 
@@ -314,9 +314,9 @@ controls, export, and integrations.
 
 [![Contributions welcome](https://img.shields.io/badge/Contribute-💡_Ideas-FF69B4?style=for-the-badge&logo=github)](https://github.com/optimajet/formengine/issues?utm_source=nmpjs&utm_medium=article-badge&utm_campaign=readme)
 [![Try Demo](https://img.shields.io/badge/🚀_Try_Live_Demo-4286F4?style=for-the-badge)](https://demo.formengine.io/?utm_source=nmpjs&utm_medium=article-badge&utm_campaign=readme)
-[![Meet with US](https://img.shields.io/badge/Book_a_Meeting-WITH_OPTIMAJET-4286F4?style=for-the-badge&logo=calendar&logoColor=white)](https://optimajet.com/book-a-meeting/?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
+[![Meet with US](https://img.shields.io/badge/Book_a_Meeting-WITH_OPTIMAJET-4286F4?style=for-the-badge&logo=calendar&logoColor=white)](https://optimajet.com/book-a-meeting/?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme)
 
-[![Formengine Drag and n Drop](https://formengine.io/repository-images/DND-react-form-builder.png)](https://formbuilder.formengine.io?utm_source=github&utm_medium=banner&utm_campaign=readme)
+[![Formengine Drag and n Drop](https://formengine.io/repository-images/DND-react-form-builder.png)](https://formbuilder.formengine.io?utm_source=npmjs&utm_medium=banner&utm_campaign=readme)
 
 ### 📦 Formengine Core Installation.
 
@@ -330,9 +330,9 @@ controls, export, and integrations.
 
 #### Formengine Core — You’re not alone. Forms shouldn’t be this hard!
 
-[![Documentation](https://img.shields.io/badge/Documentation-Install-4286F4?style=for-the-badge&logo=read-the-docs&logoColor=white)](https://formengine.io/documentation/#quick-start?utm_source=github&utm_medium=article-badge&utm_campaign=readme#quick-start)
-[![LLMs.txt](https://img.shields.io/badge/_LLMs.txt-FF69B4?style=for-the-badge)](https://formengine.io/llms?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://hk.linkedin.com/company/optimajet?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@optimajet?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
-[![dev.to](https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white)](https://dev.to/optimajet?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
-[![Join Community](https://img.shields.io/badge/💬_Join-Community-4286F4?style=for-the-badge&logo=github)](https://github.com/optimajet/formengine/discussions?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
+[![Documentation](https://img.shields.io/badge/Documentation-Install-4286F4?style=for-the-badge&logo=read-the-docs&logoColor=white)](https://formengine.io/documentation/#quick-start?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme#quick-start)
+[![LLMs.txt](https://img.shields.io/badge/_LLMs.txt-FF69B4?style=for-the-badge)](https://formengine.io/llms?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://hk.linkedin.com/company/optimajet?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@optimajet?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme)
+[![dev.to](https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white)](https://dev.to/optimajet?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme)
+[![Join Community](https://img.shields.io/badge/💬_Join-Community-4286F4?style=for-the-badge&logo=github)](https://github.com/optimajet/formengine/discussions?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme)

@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@faker-js/faker": "^10.0.0",
-    "@react-form-builder/components-rsuite": "^7.4.0",
-    "@react-form-builder/core": "^7.4.0",
+    "@react-form-builder/components-rsuite": "^7.5.0",
+    "@react-form-builder/core": "^7.5.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

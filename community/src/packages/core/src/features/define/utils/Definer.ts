@@ -74,6 +74,7 @@ export type DefinerData<T extends object> = {
    */
   properties?: Annotations<T>,
   /**
+   * @deprecated
    * The custom component to display in the component list (unused).
    */
   customPreview?: ReactNode,
@@ -210,6 +211,7 @@ export class Definer<T extends object> {
   actions = (fn: ActionsInitializer) => this.#updateWith({actionsInitializer: fn})
 
   /**
+   * @deprecated
    * Adds the custom component to be displayed in the component list. **Internal use only.**
    * @param customPreview the custom component.
    * @returns the modified Definer class instance.

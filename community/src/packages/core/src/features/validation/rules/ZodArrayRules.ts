@@ -1,27 +1,27 @@
 import {z} from 'zod'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
-import {required} from '../utils/util'
-import {zodAnyToValidator} from './zodAnyToValidator'
+import {errorMapForUndefined, requiredMessage} from './consts'
+import {zodTypeToValidator} from './zodTypeToValidator'
 
-const scheme = z.array(z.any())
+const scheme = z.array(z.any(), errorMapForUndefined)
 
 export const ZodArrayRules: ValidationRuleSet = {
   required: ruleBuilder()
-    .withValidatorFactory(({message}) => zodAnyToValidator(scheme.nonempty(required(message)))),
+    .withValidatorFactory(() => zodTypeToValidator(scheme.nonempty(requiredMessage))),
 
   nonEmpty: ruleBuilder()
-    .withValidatorFactory(({message}) => zodAnyToValidator(scheme.nonempty(message))),
+    .withValidatorFactory(() => zodTypeToValidator(scheme.nonempty())),
 
   length: ruleBuilder()
     .withParameter('length', 'number', true)
-    .withValidatorFactory(({length, message}) => zodAnyToValidator(scheme.length(length, message))),
+    .withValidatorFactory(({length, message}) => zodTypeToValidator(scheme.length(length, message))),
 
   min: ruleBuilder()
     .withParameter('limit', 'number', true)
-    .withValidatorFactory(({limit, message}) => zodAnyToValidator(scheme.min(limit, message))),
+    .withValidatorFactory(({limit, message}) => zodTypeToValidator(scheme.min(limit, message))),
 
   max: ruleBuilder()
     .withParameter('limit', 'number', true)
-    .withValidatorFactory(({limit, message}) => zodAnyToValidator(scheme.max(limit, message)))
+    .withValidatorFactory(({limit, message}) => zodTypeToValidator(scheme.max(limit, message)))
 }

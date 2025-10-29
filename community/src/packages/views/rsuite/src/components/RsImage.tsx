@@ -40,4 +40,3 @@ export const rsImage = define(RsImage, 'RsImage')
     objectFit: oneOf('contain', 'cover', 'fill', 'none', 'scale-down').default('scale-down')
       .withEditorProps({creatable: false}),
   })
-  .preview(<img src={logo} width="200px" height="auto" alt="Image"/>)

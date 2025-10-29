@@ -2,11 +2,11 @@ import {css, cx} from '@emotion/css'
 import type {DetailedHTMLProps, HTMLAttributes} from 'react'
 import {useMemo} from 'react'
 import {namedObserver} from '../../utils'
+import {useMobxConfig} from '../../utils/useMobxConfig'
 import {ViewerLocalizationProvider} from '../localization/ViewerLocalizationProvider'
 import {SuppressResizeObserverErrors} from '../ui/SuppressResizeObserverErrors'
 import {Viewer} from './components/Viewer'
 import {ViewerStoreProvider} from './components/ViewerStoreProvider'
-import './setupMobx'
 import type {FormViewerProps} from './types'
 
 const divClass = css`
@@ -33,15 +33,20 @@ export const SDiv = (props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
  * @param props the React component properties.
  * @returns the React element.
  */
-const RawFormViewer = (props: FormViewerProps) =>
-  <SuppressResizeObserverErrors>
-    <ViewerStoreProvider props={props}>
-      <ViewerLocalizationProvider>
-        <SDiv>
-          <Viewer/>
-        </SDiv>
-      </ViewerLocalizationProvider>
-    </ViewerStoreProvider>
-  </SuppressResizeObserverErrors>
+const RawFormViewer = (props: FormViewerProps) => {
+  useMobxConfig()
+
+  return (
+    <SuppressResizeObserverErrors>
+      <ViewerStoreProvider props={props}>
+        <ViewerLocalizationProvider>
+          <SDiv>
+            <Viewer/>
+          </SDiv>
+        </ViewerLocalizationProvider>
+      </ViewerStoreProvider>
+    </SuppressResizeObserverErrors>
+  )
+}
 
 export const FormViewer = namedObserver('FormViewer', RawFormViewer)
