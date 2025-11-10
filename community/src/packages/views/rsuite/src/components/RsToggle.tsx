@@ -15,11 +15,11 @@ export const rsToggle = define(SToggle, 'RsToggle')
   .name('Toggle')
   .category(fieldsCategory)
   .props({
-    children: string.named('Label'),
+    children: string,
     checked: boolean.valued.default(true).uncontrolledValue(false),
-    checkedChildren: string.named('Checked text'),
-    unCheckedChildren: string.named('Unchecked text'),
-    disabled: disabled.hinted('Whether disabled').default(false),
+    checkedChildren: string,
+    unCheckedChildren: string,
+    disabled: disabled.default(false),
     readOnly,
     size: oneOf('sm', 'md', 'lg')
       .labeled('Small', 'Medium', 'Large')

@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "description": "El componente Repetidor es un componente especial que se encarga de mostrar una matriz de componentes repetidos",
+      "name": "Repetidor",
+      "props": {
+        "itemRenderWhen": {
+          "description": "La expresión o función para representar condicionalmente un elemento repetidor",
+          "name": "Elemento renderizado cuando"
+        }
+      }
+    }
+  }
+}

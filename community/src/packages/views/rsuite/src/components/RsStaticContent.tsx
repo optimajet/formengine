@@ -40,5 +40,5 @@ export const rsStaticContent = define(RsStaticContent, 'RsStaticContent')
   .category(staticCategory)
   .props({
     content: string.required.default(defaultContent).dataBound,
-    allowHtml: boolean.named('Allow HTML').default(false),
+    allowHtml: boolean.default(false),
   })

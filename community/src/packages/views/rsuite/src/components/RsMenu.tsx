@@ -115,4 +115,3 @@ export const rsMenu = define(RsMenu, 'RsMenu')
       .default(makeItems(['Home', 'News', 'Products']))
       .withEditorProps({columns}),
   })
-

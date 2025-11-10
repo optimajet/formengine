@@ -1,4 +1,4 @@
-import type {FluentVariable} from '@fluent/bundle/esm/bundle'
+import type {FluentVariable} from '@fluent/bundle'
 import type {ValidationMessages} from '../features/validation/types/ValidationResult'
 
 /**

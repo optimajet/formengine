@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "name": "Repeater",
+      "description": "The Repeater component is a special component that is responsible for displaying an array of repeating components",
+      "props": {
+        "itemRenderWhen": {
+          "name": "Item render when",
+          "description": "The expression or function to conditionally render a repeater item"
+        }
+      }
+    }
+  }
+}

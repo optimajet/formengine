@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "description": "리피터 구성 요소는 반복 구성 요소의 배열을 표시하는 특수 구성 요소입니다",
+      "name": "리피터",
+      "props": {
+        "itemRenderWhen": {
+          "description": "중계기 항목을 조건부로 렌더링하는 식 또는 함수",
+          "name": "항목 렌더링 때"
+        }
+      }
+    }
+  }
+}

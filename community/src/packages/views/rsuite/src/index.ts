@@ -1,3 +1,5 @@
+import rSuiteEnUsComponentsDescriptions from './i18n/en-US.json'
+
 export type {RsErrorMessageProps} from './components/RsErrorMessage'
 export type {RsTooltipProps} from './components/RsTooltip'
 export {RsLocalizationWrapper} from './components/RsLocalizationWrapper'
@@ -73,3 +75,6 @@ export type {RsUploaderProps} from './components/RsUploader'
 export type {RsWizardProps} from './components/RsWizard/RsWizard'
 export type {RsWizardStepProps} from './components/RsWizard/RsWizardStep'
 export type {LoadCallback, LoadDataHandler} from './hooks'
+
+export {rSuiteEnUsComponentsDescriptions}
+export {rSuiteComponentsDescriptions} from './i18n/rSuiteComponentsDescriptions'

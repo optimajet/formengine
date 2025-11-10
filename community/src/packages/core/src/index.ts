@@ -94,6 +94,7 @@ export type {PropertyBlockType} from './features/ui/PropertyBlockType'
 export {getValidatorPropertyBlockType, isValidatorPropertyBlockType} from './features/ui/PropertyBlockType'
 export {useErrorModel} from './utils/useErrorModel'
 export {useMobxConfig} from './utils/useMobxConfig'
+export {useErrorMessage} from './utils/useErrorMessage'
 export {ComponentState} from './stores/ComponentState'
 export type {ErrorMap} from './features/validation/ErrorMap'
 export {BuilderOptions} from './features/annotation/utils/builders/BaseBuilder'
@@ -209,3 +210,7 @@ export {
   isNumber,
   cloneDeep
 } from './utils/tools'
+export type {
+  ComponentDescription, ComponentLibraryDescription, I18nItem
+} from './features/annotation/ComponentDescriptions'
+export {coreComponentsDescriptions} from './i18n/coreComponentsDescriptions'

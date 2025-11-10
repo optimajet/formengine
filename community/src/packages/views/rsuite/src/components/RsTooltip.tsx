@@ -43,7 +43,7 @@ export const rsTooltip = define(RsTooltip, 'RsTooltip')
   .name('Tooltip')
   .category(staticCategory)
   .props({
-    text: string.required.default('Tooltip message...').hinted('Tooltip text').dataBound,
+    text: string.required.default('Tooltip message...').dataBound,
     children: node,
     placement: oneOf('top', 'bottom', 'right', 'left', 'bottomStart', 'bottomEnd',
       'topStart', 'topEnd', 'leftStart', 'rightStart', 'leftEnd', 'rightEnd', 'auto',

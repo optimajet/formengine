@@ -1,0 +1,1492 @@
+{
+  "categories": {
+    "fields": {
+      "name": "رشته ها"
+    },
+    "modal": {
+      "name": "مدال"
+    },
+    "static": {
+      "name": "استاتیک"
+    },
+    "structure": {
+      "name": "ساختار"
+    }
+  },
+  "commonProperties": {
+    "backgroundColor": {
+      "description": "رنگ پس زمینه",
+      "name": "پس زمینه"
+    },
+    "children": {
+      "description": "کودکان جزء",
+      "name": "کودکان"
+    },
+    "className": {
+      "description": "نام کلاس CSS",
+      "name": "کلاس CSS"
+    },
+    "disabled": {
+      "description": "آیا یک جزء غیرفعال است",
+      "name": "معلول"
+    },
+    "fontSize": {
+      "description": "اندازه فونت",
+      "name": "اندازه فونت"
+    },
+    "fontWeight": {
+      "description": "وزن فونت",
+      "name": "وزن فونت"
+    },
+    "label": {
+      "description": "برچسب اجزا",
+      "name": "برچسب"
+    },
+    "placeholder": {
+      "description": "جای نگهدار",
+      "name": "جای نگهدارنده"
+    },
+    "placement": {
+      "description": "قرار دادن یک جزء",
+      "name": "قرار دادن"
+    },
+    "readOnly": {
+      "description": "پرچم فقط برای خواندن",
+      "name": "فقط بخوانید"
+    },
+    "size": {
+      "description": "اندازه یک جزء",
+      "name": "اندازه"
+    },
+    "textAlign": {
+      "description": "تراز متن",
+      "name": "متن تراز"
+    },
+    "value": {
+      "description": "ارزش فعلی (کنترل شده)",
+      "name": "ارزش"
+    }
+  },
+  "components": {
+    "RsAutoComplete": {
+      "description": "ارائه قابلیت تکمیل خودکار برای جعبه ورودی",
+      "name": "تکمیل خودکار",
+      "props": {
+        "classPrefix": {
+          "description": "پیشوند کلاس component css",
+          "name": "پیشوند کلاس"
+        },
+        "data": {
+          "description": "داده های جزء",
+          "name": "داده ها"
+        },
+        "defaultValue": {
+          "description": "مقدار پیش فرض (غیر کنترل شده)",
+          "name": "مقدار پیش فرض"
+        },
+        "filterBy": {
+          "description": "قوانین فیلتر سفارشی (فقط آیتم هایی را نمایش می دهد که ارزش یک زیر رشته از آنها به طور پیش فرض است)",
+          "name": "فیلتر بر اساس"
+        },
+        "menuClassName": {
+          "description": "یک کلاس CSS برای اعمال به منوی DOM",
+          "name": "نام کلاس منو"
+        },
+        "onChange": {
+          "description": "وقتی گزینه ای را انتخاب می کنید یا تغییر مقدار ورودی را انتخاب می کنید یا مقدار ورودی تغییر می کند",
+          "name": "اونچنج"
+        },
+        "onClose": {
+          "description": "تماس برگشت در صورت پنهان شدن",
+          "name": "آنکلوز"
+        },
+        "onEnter": {
+          "description": "قبل از انتقال پوشش در",
+          "name": "اونتر"
+        },
+        "onEntered": {
+          "description": "بعد از اینکه پوشش به پایان رسید و در",
+          "name": "onEntered"
+        },
+        "onEntering": {
+          "description": "به عنوان پوشش شروع به انتقال در",
+          "name": "onEntering"
+        },
+        "onExit": {
+          "description": "تماس برگشت درست قبل از انتقال پوشش شلیک شد",
+          "name": "onExit"
+        },
+        "onExited": {
+          "description": "بعد از اينکه پوشش تموم شد ، دوباره تماس گرفته شد",
+          "name": "itedexited"
+        },
+        "onExiting": {
+          "description": "به عنوان پوشش شروع به انتقال می کند",
+          "name": "یکجانبه"
+        },
+        "onSelect": {
+          "description": "وقتی گزینه ای انتخاب می شود فراخوانده می شود",
+          "name": "ectselect"
+        },
+        "renderMenu": {
+          "description": "سفارشی کردن لیست منو رندر",
+          "name": "منوی رندر"
+        },
+        "renderMenuItem": {
+          "description": "آیتم های منو رندر سفارشی",
+          "name": "آیتم منو رندر"
+        },
+        "selectOnEnter": {
+          "description": "هنگامی که به false تنظیم می شود ، تابع انتخاب کلید Enter نامعتبر است",
+          "name": "در Enter را انتخاب کنید"
+        }
+      }
+    },
+    "RsBreadcrumb": {
+      "description": "برای نمایش مسیر صفحه فعلی و بازگشت سریع به صفحه تاریخچه استفاده می شود",
+      "name": "آرد نان",
+      "props": {
+        "items": {
+          "description": "مجموعه ای از اقلام نان خرد شده برای نمایش",
+          "name": "آیتم ها"
+        },
+        "maxItems": {
+          "description": "حداکثر تعداد نان خرد شده را برای نمایش تنظیم کنید",
+          "name": "حداکثر موارد"
+        },
+        "onExpand": {
+          "description": "تابع فراخوانی برای کلیک بر روی بیضوی",
+          "name": "اون اکسپند"
+        },
+        "onItemClick": {
+          "description": "تابع فراخوانی زمانی که یک آیتم نان خرد شده کلیک می شود",
+          "name": "onItemClick"
+        },
+        "separator": {
+          "description": "جداکننده بین هر مورد آرد سوخاری",
+          "name": "جدا کننده"
+        }
+      }
+    },
+    "RsButton": {
+      "description": "دکمه",
+      "name": "دکمه",
+      "props": {
+        "active": {
+          "description": "یک دکمه می تواند نشان دهد که در حال حاضر انتخاب کاربر فعال است",
+          "name": "فعال"
+        },
+        "appearance": {
+          "description": "یک دکمه می تواند ظاهر متفاوتی داشته باشد",
+          "name": "ظاهر"
+        },
+        "children": {
+          "description": "محتوای اصلی",
+          "name": "محتوا"
+        },
+        "disabled": {
+          "description": "یک دکمه می تواند نشان دهد که در حال حاضر قادر به تعامل با آن نیست",
+          "name": "معلول"
+        },
+        "href": {
+          "description": "ارائه یک href یک <a> عنصر",
+          "name": "Href"
+        },
+        "loading": {
+          "description": "یک دکمه می تواند نشانگر بارگیری را نشان دهد",
+          "name": "بارگیری"
+        },
+        "onClick": {
+          "description": "تابع فراخوانی زمانی که یک دکمه کلیک می شود",
+          "name": "onClick"
+        }
+      }
+    },
+    "RsCalendar": {
+      "description": "یک جزء که داده ها را بر اساس تقویم نمایش می دهد",
+      "name": "تقویم",
+      "props": {
+        "bordered": {
+          "description": "مرز نمایش",
+          "name": "مرز"
+        },
+        "compact": {
+          "description": "نمایش یک تقویم جمع و جور",
+          "name": "جمع و جور"
+        },
+        "defaultValue": {
+          "description": "مقدار پیش فرض",
+          "name": "مقدار پیش فرض"
+        },
+        "isoWeek": {
+          "description": "استاندارد ایزو 8601, هر هفته تقویمی از دوشنبه و یکشنبه در روز هفتم آغاز می شود",
+          "name": "هفته ایزو"
+        },
+        "onChange": {
+          "description": "قبل از اينکه ارزش عوض بشه ، دوباره تماس گرفته شد",
+          "name": "اونچنج"
+        },
+        "onSelect": {
+          "description": "تماس مجدد قبل از تاریخ انتخاب شده",
+          "name": "ectselect"
+        }
+      }
+    },
+    "RsCard": {
+      "description": "کارت یک جزء کانتینر برای نمایش داده ها است,",
+      "name": "کارت",
+      "props": {
+        "bodyFill": {
+          "description": "منطقه محتوا پر از ظروف",
+          "name": "پر کردن بدن"
+        },
+        "bordered": {
+          "description": "مرز نمایش",
+          "name": "مرز"
+        },
+        "children": {
+          "description": "محتوای اصلی",
+          "name": "محتوا"
+        },
+        "collapsible": {
+          "description": "آیا این یک پانل قابل جمع شدن است",
+          "name": "قابل جمع شدن"
+        },
+        "defaultExpanded": {
+          "description": "گسترش سپس پانل به طور پیش فرض",
+          "name": "پیش فرض گسترش یافته است"
+        },
+        "eventKey": {
+          "description": "کلید رویداد مربوط به پانل",
+          "name": "کلید رویداد"
+        },
+        "header": {
+          "description": "سر اطلاعات را نمایش می دهد",
+          "name": "هدر"
+        },
+        "headerSize": {
+          "description": "اندازه سرصفحه برای سرصفحه پانل",
+          "name": "اندازه هدر"
+        },
+        "onSelect": {
+          "description": "وقتی پنل انتخاب می شود فراخوانده می شود",
+          "name": "ectselect"
+        },
+        "shaded": {
+          "description": "آیا سایه ای وجود دارد",
+          "name": "سایه دار"
+        },
+        "title": {
+          "description": "عنوان برای هدر پنل",
+          "name": "عنوان"
+        }
+      }
+    },
+    "RsCheckbox": {
+      "description": "جعبه های چک معمولا در گروه ها استفاده می شوند. اجازه دهید کاربران یک یا چند مقدار را از یک مجموعه انتخاب کنند",
+      "name": "جعبه چک",
+      "props": {
+        "checked": {
+          "description": "مشخص می کند که آیا جعبه چک انتخاب شده است",
+          "name": "چک شده"
+        },
+        "children": {
+          "description": "برچسب اجزا",
+          "name": "برچسب"
+        },
+        "indeterminate": {
+          "description": "هنگام چک باکس بودن ، تنظیم سبک ها پس از انتخاب قسمت کودک",
+          "name": "نامشخص"
+        },
+        "inline": {
+          "description": "طرح خطی",
+          "name": "در خط"
+        },
+        "onChange": {
+          "description": "وقتی کاربر سعی می کند وضعیت چک شده را تغییر دهد فراخوانده می شود",
+          "name": "اونچنج"
+        },
+        "title": {
+          "description": "عنوان HTML",
+          "name": "عنوان"
+        }
+      }
+    },
+    "RsContainer": {
+      "description": "کانتینر یک جزء طرح بندی است که می تواند برای بسته بندی اجزای دیگر استفاده شود",
+      "name": "ظرف",
+      "props": {
+        "children": {
+          "description": "کودکان جزء",
+          "name": "کودکان"
+        }
+      }
+    },
+    "RsDatePicker": {
+      "description": "DatePicker یک جزء بسیار قابل تنظیم است که به کاربران اجازه می دهد تا تاریخ و زمان را در فرمت های مختلف وارد و انتخاب کنند",
+      "name": "انتخاب تاریخ",
+      "props": {
+        "appearance": {
+          "description": "ظاهر جمع کننده را تنظیم کنید",
+          "name": "ظاهر"
+        },
+        "calendarDefaultDate": {
+          "description": "تاریخ و زمان ارائه پیش فرض پنل تقویم",
+          "name": "تاریخ پیش فرض تقویم"
+        },
+        "cleanable": {
+          "description": "آیا می توان مقدار انتخاب شده را پاک کرد",
+          "name": "قابل تمیز کردن"
+        },
+        "defaultOpen": {
+          "description": "مقدار پیش فرض ویژگی باز",
+          "name": "پیش فرض باز"
+        },
+        "defaultValue": {
+          "description": "مقدار پیش فرض",
+          "name": "مقدار پیش فرض"
+        },
+        "editable": {
+          "description": "به عنوان یک ورودی ارائه شده ، تاریخ را می توان از طریق صفحه کلید وارد کرد",
+          "name": "قابل ویرایش"
+        },
+        "format": {
+          "description": "فرمت تاریخ زمانی که در ورودی ارائه شده است",
+          "name": "فرمت"
+        },
+        "isoWeek": {
+          "description": "استاندارد ایزو 8601, هر هفته تقویمی از دوشنبه و یکشنبه در روز هفتم آغاز می شود",
+          "name": "هفته ایزو"
+        },
+        "limitEndYear": {
+          "description": "حد بالایی سال موجود را نسبت به تاریخ انتخاب فعلی تعیین کنید",
+          "name": "محدودیت پایان سال"
+        },
+        "limitStartYear": {
+          "description": "حد پایین سال موجود را نسبت به تاریخ انتخاب فعلی تعیین کنید",
+          "name": "محدودیت سال شروع"
+        },
+        "onChange": {
+          "description": "تماس برگشت وقتی ارزش تغییر کرد",
+          "name": "اونچنج"
+        },
+        "onChangeCalendarDate": {
+          "description": "تابع Callback که تاریخ تقویم را تغییر می دهد",
+          "name": "alchangecalendardate"
+        },
+        "onClean": {
+          "description": "تماس برگشت وقتی که ارزش پاک شد",
+          "name": "onClean"
+        },
+        "onClose": {
+          "description": "تماس برگشت در صورت بسته شدن قطعه",
+          "name": "آنکلوز"
+        },
+        "onEnter": {
+          "description": "قبل از انتقال پوشش در",
+          "name": "اونتر"
+        },
+        "onEntered": {
+          "description": "بعد از اینکه پوشش به پایان رسید و در",
+          "name": "onEntered"
+        },
+        "onEntering": {
+          "description": "به عنوان پوشش شروع به انتقال در",
+          "name": "onEntering"
+        },
+        "onExit": {
+          "description": "تماس برگشت درست قبل از انتقال پوشش شلیک شد",
+          "name": "onExit"
+        },
+        "onExited": {
+          "description": "بعد از اينکه پوشش تموم شد ، دوباره تماس گرفته شد",
+          "name": "itedexited"
+        },
+        "onExiting": {
+          "description": "به عنوان پوشش شروع به انتقال می کند",
+          "name": "یکجانبه"
+        },
+        "onNextMonth": {
+          "description": "برای ماه بعد به تابع callback بروید",
+          "name": "ماه بعد"
+        },
+        "onOk": {
+          "description": "روی تابع OK callback کلیک کنید",
+          "name": "اونوک"
+        },
+        "onOpen": {
+          "description": "تماس برگشت در هنگام باز کردن کامپوننت",
+          "name": "اوناپن"
+        },
+        "onPrevMonth": {
+          "description": "برای ماه قبل به تابع callback بروید",
+          "name": "vprevmonth"
+        },
+        "onSelect": {
+          "description": "تماس مجدد در زمان انتخاب تاریخ یا زمان",
+          "name": "ectselect"
+        },
+        "onToggleMonthDropdown": {
+          "description": "تابع Callback که به نمایش ماه تغییر می کند",
+          "name": "downtogglemonthdropdown"
+        },
+        "onToggleTimeDropdown": {
+          "description": "تابع Callback که به نمایش زمان تغییر می کند",
+          "name": "roptoggletimedropdown"
+        },
+        "oneTap": {
+          "description": "تاریخ انتخاب با یک کلیک",
+          "name": "یک ضربه"
+        },
+        "open": {
+          "description": "آیا جزء را باز کنید",
+          "name": "باز"
+        },
+        "preventOverflow": {
+          "description": "جلوگیری از سرریز عناصر شناور",
+          "name": "جلوگیری از سرریز"
+        },
+        "showMeridiem": {
+          "description": "ساعت نمایش در قالب 12",
+          "name": "نمایش مریدیم"
+        },
+        "showWeekNumbers": {
+          "description": "آیا شماره های هفته را نشان دهیم",
+          "name": "نمایش شماره های هفته"
+        }
+      }
+    },
+    "RsDivider": {
+      "description": "تقسیم کننده برای گروه بندی محتوا به صورت افقی یا عمودی استفاده می شود",
+      "name": "تقسیم کننده",
+      "props": {
+        "children": {
+          "description": "متن را روی خط تقسیم تنظیم کنید",
+          "name": "محتوا"
+        },
+        "vertical": {
+          "description": "خط تقسیم عمودی",
+          "name": "عمودی"
+        }
+      }
+    },
+    "RsDropdown": {
+      "description": "یک منوی کشویی یک ناوبری است که از selectpicker استفاده می کند اگر می خواهید یک مقدار را انتخاب کنید",
+      "name": "فهرست کشویی",
+      "props": {
+        "cleanable": {
+          "description": "آیا می توان این گزینه را خالی کرد",
+          "name": "قابل تمیز کردن"
+        },
+        "creatable": {
+          "description": "تنظیمات می تواند گزینه های جدید ایجاد کند",
+          "name": "قابل ایجاد"
+        },
+        "data": {
+          "description": "داده های قابل انتخاب",
+          "name": "داده ها"
+        },
+        "disableVirtualized": {
+          "description": "غیرفعال کردن مجازی سازی",
+          "name": "غیر فعال کردن مجازی"
+        },
+        "groupBy": {
+          "description": "تعیین معیارهای گروه بندی \"کلید\" در \"داده ها\"",
+          "name": "گروه بندی بر اساس"
+        },
+        "onChange": {
+          "description": "تابع فراخوانی زمانی که مقدار تغییر می کند",
+          "name": "اونچنج"
+        },
+        "onClean": {
+          "description": "تماس مجدد برای تمیز کردن",
+          "name": "onClean"
+        },
+        "onClose": {
+          "description": "فراخوان برگشت برای بستن",
+          "name": "آنکلوز"
+        },
+        "onCreate": {
+          "description": "فراخوان برگشت برای ایجاد",
+          "name": "onCreate"
+        },
+        "onLoadData": {
+          "description": "فراخوان برگشت برای بارگذاری اطلاعات",
+          "name": "ataloaddata"
+        },
+        "onSearch": {
+          "description": "فراخوان برگشت برای جستجو",
+          "name": "جستجو"
+        },
+        "onSelect": {
+          "description": "فراخوان برگشت برای انتخاب",
+          "name": "ectselect"
+        },
+        "preload": {
+          "description": "آیا داده ها را از قبل بارگذاری کنیم",
+          "name": "پیش بار"
+        }
+      }
+    },
+    "RsErrorMessage": {
+      "description": "مولفه ای که پیام اعتبارسنجی را نمایش می دهد",
+      "name": "پیام خطا"
+    },
+    "RsHeader": {
+      "description": "هدر html ساده",
+      "name": "هدر",
+      "props": {
+        "content": {
+          "description": "متن هدر",
+          "name": "محتوا"
+        },
+        "headerSize": {
+          "description": "سطح هدر",
+          "name": "اندازه هدر"
+        }
+      }
+    },
+    "RsImage": {
+      "description": "تصویر ساده HTML",
+      "name": "تصویر",
+      "props": {
+        "alt": {
+          "description": "توضیحات تصویر",
+          "name": "توضیحات"
+        },
+        "src": {
+          "description": "منبع تصویر",
+          "name": "Src"
+        }
+      }
+    },
+    "RsInput": {
+      "description": "ورودی اجازه دهید کاربران متن را وارد و ویرایش کنند",
+      "name": "ورودی",
+      "props": {
+        "passwordMask": {
+          "description": "استفاده از ماسک رمز عبور",
+          "name": "ماسک رمز عبور"
+        },
+        "showPasswordAriaLabel": {
+          "description": "مقدار ویژگی aria-label برای دکمه show password زمانی که ورودی در حالت password mask است",
+          "name": "برچسب آریا برای نمایش دکمه رمز عبور"
+        },
+        "type": {
+          "description": "نوع ورودی HTML",
+          "name": "نوع"
+        }
+      }
+    },
+    "RsLabel": {
+      "description": "برچسب html ساده",
+      "name": "برچسب",
+      "props": {
+        "text": {
+          "description": "برچسب مطالب متنی",
+          "name": "متن"
+        }
+      }
+    },
+    "RsLink": {
+      "description": "لنگر html ساده",
+      "name": "لینک",
+      "props": {
+        "children": {
+          "description": "کودکان جزء",
+          "name": "کودکان"
+        },
+        "content": {
+          "description": "نوع محتوا (متن یا سفارشی)",
+          "name": "محتوا"
+        },
+        "download": {
+          "description": "باعث می شود مرورگر URL مرتبط را به عنوان یک دانلود در نظر بگیرد",
+          "name": "دانلود فیلم"
+        },
+        "downloadFilename": {
+          "description": "تعریف یک مقدار آن را به عنوان نام فایل نشان می دهد. / و \\ کاراکترها به زیرنویس ها تبدیل می شوند (_)",
+          "name": "دانلود نام فایل"
+        },
+        "href": {
+          "description": "URL که لینک به آن اشاره می کند",
+          "name": "Href"
+        },
+        "onClick": {
+          "description": "تابع Callback زمانی که یک لینک کلیک می شود",
+          "name": "onClick"
+        },
+        "target": {
+          "description": "جایی که URL مرتبط را به عنوان نام یک زمینه مرور (یک برگه ، پنجره یا <iframe>)",
+          "name": "هدف"
+        },
+        "text": {
+          "description": "محتوای متن لینک",
+          "name": "متن"
+        }
+      }
+    },
+    "RsMenu": {
+      "description": "لیستی از انواع مختلف منوهای ناوبری را ارائه می دهد که می تواند طرح منظره و پرتره باشد",
+      "name": "منو",
+      "props": {
+        "activeKey": {
+          "description": "کلید فعال ، مربوط به یکی از ارزش آیتم ها",
+          "name": "کلید فعال"
+        },
+        "appearance": {
+          "description": "ناوبری می تواند ظاهر متفاوتی داشته باشد",
+          "name": "ظاهر"
+        },
+        "items": {
+          "description": "آیتم های منو",
+          "name": "آیتم ها"
+        },
+        "itemsAs": {
+          "description": "عنصر html برای ارائه آیتم منو",
+          "name": "موارد به عنوان"
+        },
+        "justified": {
+          "description": "ناوبری توجیهی",
+          "name": "توجیه شده"
+        },
+        "onSelect": {
+          "description": "عملکرد Callback پس از انتخاب ایجاد شد",
+          "name": "ectselect"
+        },
+        "reversed": {
+          "description": "جهت معکوس زبانه ها / ظریف",
+          "name": "معکوس شده"
+        },
+        "vertical": {
+          "description": "ناوبری انباشته شده",
+          "name": "عمودی"
+        }
+      }
+    },
+    "RsMessage": {
+      "description": "برای نشان دادن نکات مهم در یک صفحه استفاده می شود",
+      "name": "پیام",
+      "props": {
+        "closable": {
+          "description": "آیا امکان بسته شدن جعبه پیام وجود دارد ؟ ",
+          "name": "قابل بسته شدن"
+        },
+        "header": {
+          "description": "عنوان پیام",
+          "name": "هدر"
+        },
+        "type": {
+          "description": "نوع جعبه پیام",
+          "name": "نوع"
+        }
+      }
+    },
+    "RsModal": {
+      "description": "یک جزء جعبه گفتگو مودال برای پیام های پیام، پیام های تایید و ارسال",
+      "name": "مدال",
+      "props": {
+        "autoFocus": {
+          "description": "هنگامی که به true تنظیم می شود ، مودال باز می شود و به طور خودکار بر روی خود متمرکز می شود و برای خوانندگان صفحه نمایش قابل دسترسی است",
+          "name": "تمرکز خودکار"
+        },
+        "backdrop": {
+          "description": "وقتی به true تنظیم شود ، مدال پس زمینه را هنگام باز شدن نمایش می دهد. با کلیک بر روی پس زمینه ، مدال بسته می شود",
+          "name": "پس زمینه"
+        },
+        "backdropClassName": {
+          "description": "اضافه کردن یک نام کلاس اضافی اختیاری به .پس زمینه مودال می تواند به نظر برسد که کلاس=پس زمینه مودال foo-modal-پس زمینه در",
+          "name": "نام کلاس پس زمینه"
+        },
+        "classPrefix": {
+          "description": "پیشوند کلاس component css",
+          "name": "پیشوند کلاس CSS"
+        },
+        "dialogClassName": {
+          "description": "کلاس CSS به گره های Dialog dom اعمال می شود",
+          "name": "کلاس CSS برای گفتگو"
+        },
+        "enforceFocus": {
+          "description": "هنگامی که به true تنظیم می شود ، Modal مانع از ترک فوکوس در هنگام باز شدن می شود و دسترسی خواننده صفحه ثانویه را آسان تر می کند",
+          "name": "تمرکز را اعمال کنید"
+        },
+        "keyboard": {
+          "description": "هنگام فشار دادن کلید Esc ، مدال را ببندید",
+          "name": "نزدیک Esc"
+        },
+        "onClose": {
+          "description": "هنگامی که Modal بسته می شود فراخوانده می شود",
+          "name": "آنکلوز"
+        },
+        "onOpen": {
+          "description": "وقتی مودال نمایش داده می شود فراخوانده می شود",
+          "name": "اوناپن"
+        },
+        "overflow": {
+          "description": "هنگامی که محتوای بدن بیش از حد طولانی است ، به طور خودکار ارتفاع را تنظیم می کند",
+          "name": "سرریز"
+        },
+        "size": {
+          "description": "عرض مدال را تعیین کنید",
+          "name": "اندازه"
+        }
+      }
+    },
+    "RsModalLayout": {
+      "description": "مولفه چیدمان مودال با بخش های هدر ، بدنه و پاورقی",
+      "name": "طرح بندی مدال",
+      "props": {
+        "body": {
+          "description": "مطالب مربوط به بدنه مودال",
+          "name": "بدن"
+        },
+        "closeButton": {
+          "description": "نمایش دکمه بستن",
+          "name": "دکمه بستن"
+        },
+        "footer": {
+          "description": "مطالب مربوط به فوتر مودال",
+          "name": "فوتر"
+        },
+        "headerTitle": {
+          "description": "عنوان برای هدر مودال",
+          "name": "عنوان هدر"
+        }
+      }
+    },
+    "RsNumberFormat": {
+      "description": "یک جزء ورودی فرمت شماره با اعتبارسنجی و قالب بندی",
+      "name": "فرمت شماره",
+      "props": {
+        "allowLeadingZeros": {
+          "description": "این اجازه می دهد تا صفر های پیشرو را در فیلد ورودی فعال یا غیرفعال کند. به طور پیش فرض ، در تاری ورودی ، صفر های پیشرو حذف می شوند",
+          "name": "اجازه دهید صفر های پیشرو"
+        },
+        "allowNegative": {
+          "description": "اگر به اعداد غلط تنظیم شود ، اعداد منفی مجاز نخواهند بود",
+          "name": "اجازه منفی"
+        },
+        "allowedDecimalSeparators": {
+          "description": "کاراکتر هایی که وقتی فشار داده می شوند به یک جدا کننده اعشاری منجر می شوند. هنگامی که از دست رفته, جدا کننده اعشاری و'.'استفاده می شود",
+          "name": "جداکننده های اعشاری مجاز"
+        },
+        "decimalScale": {
+          "description": "اگر تعریف شود ، تعداد ارقام بعد از نقطه اعشاری را محدود می کند",
+          "name": "مقیاس اعشاری"
+        },
+        "decimalSeparator": {
+          "description": "کاراکتر اعشاری را تعریف می کند",
+          "name": "جداکننده اعشاری"
+        },
+        "fixedDecimalScale": {
+          "description": "اگر به true تنظیم شود ، 0 های عقب را پس از جداکننده اعشاری اضافه می کند تا با مقیاس اعشاری داده شده مطابقت داشته باشد",
+          "name": "مقیاس اعشاری ثابت"
+        },
+        "prefix": {
+          "description": "قبل از مقدار ورودی ، کاراکتر پیشوند را اضافه می کند",
+          "name": "پیشوند"
+        },
+        "suffix": {
+          "description": "پسوند را پس از مقدار ورودی اضافه می کند",
+          "name": "پسوند"
+        },
+        "thousandSeparator": {
+          "description": "هزار جدا کننده",
+          "name": "هزار جدا کننده"
+        },
+        "thousandsGroupStyle": {
+          "description": "هزار سبک (هزار): 123,456,789, سبک هندی (میلیون): 12,34,56,789, سبک چینی (wan): 1,2345,6789",
+          "name": "هزاران سبک گروه"
+        }
+      }
+    },
+    "RsPatternFormat": {
+      "description": "جزء ورودی قالب الگو با پشتیبانی از برچسب",
+      "name": "قالب الگوی",
+      "props": {
+        "allowEmptyFormatting": {
+          "description": "به طور پیش فرض ، جزء PatternFormat در صورت خالی بودن مقدار (null ، undefined یا\") ، قالب بندی را اعمال نمی کند",
+          "name": "اجازه دادن به قالب بندی خالی"
+        },
+        "format": {
+          "description": "الگوی فرمت با استفاده از کاراکتر # (یا یک کاراکتر الگوی). # کاراکتر نگهدارنده برای اعداد است. مثال:\"######\"",
+          "name": "فرمت"
+        },
+        "mask": {
+          "description": "به عنوان کاراکتر ماسک برای مکان های عددی استفاده می شود ، تا زمانی که هر کاراکتر عددی برای آن موقعیت فراهم شود",
+          "name": "ماسک"
+        },
+        "patternChar": {
+          "description": "این به تعریف کاراکتر الگوی فرمت کمک می کند",
+          "name": "الگوی چار"
+        }
+      }
+    },
+    "RsPlaceholderGraph": {
+      "description": "Placeholder قبل از بارگذاری جزء به شکل مستطیل",
+      "name": "نمودار جای نگهدارنده",
+      "props": {
+        "active": {
+          "description": "آیا جای نگهدارنده فعال است",
+          "name": "فعال"
+        },
+        "height": {
+          "description": "ارتفاع نمودار",
+          "name": "ارتفاع"
+        },
+        "width": {
+          "description": "عرض نمودار",
+          "name": "عرض"
+        }
+      }
+    },
+    "RsPlaceholderGrid": {
+      "description": "Placeholder قبل از بارگذاری جزء به شکل یک شبکه",
+      "name": "شبکه نگهدارنده",
+      "props": {
+        "active": {
+          "description": "آیا جای نگهدارنده فعال است",
+          "name": "فعال"
+        },
+        "columns": {
+          "description": "تعداد ستون ها",
+          "name": "ستون ها"
+        },
+        "rowHeight": {
+          "description": "ارتفاع ردیف",
+          "name": "ارتفاع ردیف"
+        },
+        "rowSpacing": {
+          "description": "فاصله بین ردیف ها",
+          "name": "فاصله ردیف"
+        },
+        "rows": {
+          "description": "تعداد ردیف ها",
+          "name": "ردیف ها"
+        }
+      }
+    },
+    "RsPlaceholderParagraph": {
+      "description": "Placeholder قبل از بارگذاری جزء به شکل یک پاراگراف",
+      "name": "پاراگراف جای نگهدار",
+      "props": {
+        "active": {
+          "description": "آیا جای نگهدارنده فعال است",
+          "name": "فعال"
+        },
+        "graph": {
+          "description": "شکل نمودار",
+          "name": "نمودار"
+        },
+        "rowHeight": {
+          "description": "ارتفاع ردیف",
+          "name": "ارتفاع ردیف"
+        },
+        "rowSpacing": {
+          "description": "فاصله بین ردیف ها",
+          "name": "فاصله ردیف"
+        },
+        "rows": {
+          "description": "تعداد ردیف ها",
+          "name": "ردیف ها"
+        }
+      }
+    },
+    "RsProgressCircle": {
+      "description": "نمایش پیشرفت فعلی یک عملیات به صورت دایره",
+      "name": "دایره پیشرفت",
+      "props": {
+        "classPrefix": {
+          "description": "پیشوند کلاس component css",
+          "name": "پیشوند کلاس"
+        },
+        "gapDegree": {
+          "description": "درجه شکاف نیم دایره ، 0 ~ 360",
+          "name": "درجه شکاف"
+        },
+        "gapPosition": {
+          "description": "موقعیت نوار پیشرفت دایره ای",
+          "name": "موقعیت شکاف"
+        },
+        "percent": {
+          "description": "درصد پیشرفت",
+          "name": "درصد"
+        },
+        "showInfo": {
+          "description": "نمایش متن",
+          "name": "نمایش اطلاعات"
+        },
+        "status": {
+          "description": "وضعیت پیشرفت",
+          "name": "وضعیت"
+        },
+        "strokeColor": {
+          "description": "رنگ خط",
+          "name": "رنگ سکته مغزی"
+        },
+        "strokeLinecap": {
+          "description": "پایان انواع مختلف مسیرهای باز",
+          "name": "خط خط سکته مغزی"
+        },
+        "strokeWidth": {
+          "description": "عرض خط",
+          "name": "عرض سکته مغزی"
+        },
+        "trailColor": {
+          "description": "رنگ مسیر",
+          "name": "رنگ مسیر"
+        },
+        "trailWidth": {
+          "description": "عرض مسیر",
+          "name": "عرض مسیر"
+        }
+      }
+    },
+    "RsProgressLine": {
+      "description": "نمایش پیشرفت فعلی یک عملیات به عنوان یک خط",
+      "name": "خط پیشرفت",
+      "props": {
+        "classPrefix": {
+          "description": "پیشوند کلاس component css",
+          "name": "پیشوند کلاس"
+        },
+        "percent": {
+          "description": "درصد پیشرفت",
+          "name": "درصد"
+        },
+        "showInfo": {
+          "description": "نمایش متن",
+          "name": "نمایش اطلاعات"
+        },
+        "status": {
+          "description": "وضعیت پیشرفت",
+          "name": "وضعیت"
+        },
+        "strokeColor": {
+          "description": "رنگ خط",
+          "name": "رنگ سکته مغزی"
+        },
+        "strokeWidth": {
+          "description": "عرض خط",
+          "name": "عرض سکته مغزی"
+        },
+        "vertical": {
+          "description": "نوار پیشرفت به صورت عمودی نمایش داده می شود",
+          "name": "عمودی"
+        }
+      }
+    },
+    "RsRadioGroup": {
+      "description": "رادیوها زمانی استفاده می شوند که تنها یک انتخاب در یک سری گزینه ها انتخاب شود",
+      "name": "گروه رادیویی",
+      "props": {
+        "appearance": {
+          "description": "یک گروه رادیویی می تواند ظاهر متفاوتی داشته باشد",
+          "name": "ظاهر"
+        },
+        "inline": {
+          "description": "طرح خطی",
+          "name": "در خط"
+        },
+        "items": {
+          "description": "مطالب مربوط به گروه رادیو",
+          "name": "آیتم ها"
+        },
+        "name": {
+          "description": "نام گروه رادیویی",
+          "name": "نام"
+        },
+        "onChange": {
+          "description": "بعد از تغییر ارزش فراخوانده شد",
+          "name": "اونچنج"
+        }
+      }
+    },
+    "RsSearch": {
+      "description": "جزء جستجو با پشتیبانی از برچسب و بارگذاری داده ها",
+      "name": "جستجو",
+      "props": {
+        "cleanable": {
+          "description": "آیا می توان این گزینه را خالی کرد",
+          "name": "قابل تمیز کردن"
+        },
+        "creatable": {
+          "description": "تنظیمات می تواند گزینه های جدید ایجاد کند",
+          "name": "قابل ایجاد"
+        },
+        "data": {
+          "description": "داده های قابل انتخاب",
+          "name": "داده ها"
+        },
+        "disableVirtualized": {
+          "description": "غیرفعال کردن مجازی سازی",
+          "name": "غیر فعال کردن مجازی"
+        },
+        "groupBy": {
+          "description": "تعیین معیارهای گروه بندی \"کلید\" در \"داده ها\"",
+          "name": "گروه بندی بر اساس"
+        },
+        "onChange": {
+          "description": "تابع فراخوانی زمانی که مقدار تغییر می کند",
+          "name": "اونچنج"
+        },
+        "onClean": {
+          "description": "تماس مجدد برای تمیز کردن",
+          "name": "onClean"
+        },
+        "onClose": {
+          "description": "فراخوان برگشت برای بستن",
+          "name": "آنکلوز"
+        },
+        "onCreate": {
+          "description": "فراخوان برگشت برای ایجاد",
+          "name": "onCreate"
+        },
+        "onLoadData": {
+          "description": "فراخوان برگشت برای بارگذاری اطلاعات",
+          "name": "ataloaddata"
+        },
+        "onSearch": {
+          "description": "فراخوان برگشت برای جستجو",
+          "name": "جستجو"
+        },
+        "onSelect": {
+          "description": "فراخوان برگشت برای انتخاب",
+          "name": "ectselect"
+        },
+        "preload": {
+          "description": "آیا داده ها را از قبل بارگذاری کنیم",
+          "name": "پیش بار"
+        }
+      }
+    },
+    "RsStaticContent": {
+      "description": "یک جزء محتوای استاتیک که محتوای متن یا html را نمایش می دهد",
+      "name": "محتوای استاتیک",
+      "props": {
+        "allowHtml": {
+          "description": "اجازه دادن به محتوای HTML",
+          "name": "اجازه HTML"
+        },
+        "content": {
+          "description": "محتوایی که باید نمایش داده شود",
+          "name": "محتوا"
+        }
+      }
+    },
+    "RsTab": {
+      "description": "تب ها مجموعه ای از بخش های لایه ای از محتوا هستند که به عنوان پنل های تب شناخته می شوند و یک پنل محتوا را در یک زمان نمایش می دهند",
+      "name": "برگه",
+      "props": {
+        "activeKey": {
+          "description": "کلید فعال ، مربوط به یکی از ارزش آیتم ها",
+          "name": "کلید فعال"
+        },
+        "appearance": {
+          "description": "یک تب می تواند ظاهر متفاوتی داشته باشد",
+          "name": "ظاهر"
+        },
+        "items": {
+          "description": "موارد مربوط به برگه",
+          "name": "آیتم ها"
+        },
+        "justified": {
+          "description": "ناوبری توجیهی",
+          "name": "توجیه شده"
+        },
+        "onSelect": {
+          "description": "عملکرد Callback پس از انتخاب ایجاد شد",
+          "name": "ectselect"
+        },
+        "pane": {
+          "description": "یک جزء کودک از برگه",
+          "name": "پنجره"
+        },
+        "reversed": {
+          "description": "جهت معکوس زبانه ها / ظریف",
+          "name": "معکوس شده"
+        },
+        "showNavigation": {
+          "description": "نمایش یا پنهان کردن ناوبری",
+          "name": "نمایش ناوبری"
+        },
+        "vertical": {
+          "description": "ناوبری انباشته شده",
+          "name": "عمودی"
+        }
+      }
+    },
+    "RsTagPicker": {
+      "description": "جزء tag picker با پشتیبانی از برچسب",
+      "name": "انتخاب کننده برچسب",
+      "props": {
+        "cleanable": {
+          "description": "آیا می توان این گزینه را خالی کرد",
+          "name": "قابل تمیز کردن"
+        },
+        "creatable": {
+          "description": "تنظیمات می تواند گزینه های جدید ایجاد کند",
+          "name": "قابل ایجاد"
+        },
+        "data": {
+          "description": "داده های قابل انتخاب",
+          "name": "داده ها"
+        },
+        "groupBy": {
+          "description": "تعیین معیارهای گروه بندی \"کلید\" در \"داده ها\"",
+          "name": "گروه بندی بر اساس"
+        },
+        "onChange": {
+          "description": "تابع فراخوانی زمانی که مقدار تغییر می کند",
+          "name": "اونچنج"
+        },
+        "onClean": {
+          "description": "تماس مجدد برای تمیز کردن",
+          "name": "onClean"
+        },
+        "onClose": {
+          "description": "فراخوان برگشت برای بستن",
+          "name": "آنکلوز"
+        },
+        "onCreate": {
+          "description": "فراخوان برگشت برای ایجاد",
+          "name": "onCreate"
+        },
+        "onSearch": {
+          "description": "فراخوان برگشت برای جستجو",
+          "name": "جستجو"
+        },
+        "onSelect": {
+          "description": "فراخوان برگشت برای انتخاب",
+          "name": "ectselect"
+        }
+      }
+    },
+    "RsTextArea": {
+      "description": "یک جزء منطقه متن برای ورودی متن چند خطی",
+      "name": "منطقه متن",
+      "props": {
+        "onChange": {
+          "description": "تابع فراخوانی که در آن مقدار تغییر می کند",
+          "name": "اونچنج"
+        },
+        "onPressEnter": {
+          "description": "فراخوانده شده enter را فشار دهید",
+          "name": "resspressenter"
+        },
+        "rows": {
+          "description": "تعداد خطوط متنی قابل مشاهده",
+          "name": "ردیف ها"
+        }
+      }
+    },
+    "RsTimePicker": {
+      "description": "جزء Time picker با پشتیبانی از برچسب",
+      "name": "انتخاب کننده زمان",
+      "props": {
+        "cleanable": {
+          "description": "آیا می توان مقدار انتخاب شده را پاک کرد",
+          "name": "قابل تمیز کردن"
+        },
+        "defaultValue": {
+          "description": "مقدار پیش فرض",
+          "name": "مقدار پیش فرض"
+        },
+        "editable": {
+          "description": "به عنوان یک ورودی ارائه شده ، زمان را می توان از طریق صفحه کلید وارد کرد",
+          "name": "قابل ویرایش"
+        },
+        "format": {
+          "description": "فرمت زمانی که در ورودی ارائه شده است",
+          "name": "فرمت"
+        },
+        "onChange": {
+          "description": "تماس برگشت وقتی ارزش تغییر کرد",
+          "name": "اونچنج"
+        },
+        "onClean": {
+          "description": "تماس برگشت وقتی که ارزش پاک شد",
+          "name": "onClean"
+        },
+        "onClose": {
+          "description": "تماس برگشت در صورت بسته شدن قطعه",
+          "name": "آنکلوز"
+        },
+        "onEnter": {
+          "description": "قبل از انتقال پوشش در",
+          "name": "اونتر"
+        },
+        "onEntered": {
+          "description": "بعد از اینکه پوشش به پایان رسید و در",
+          "name": "onEntered"
+        },
+        "onEntering": {
+          "description": "به عنوان پوشش شروع به انتقال در",
+          "name": "onEntering"
+        },
+        "onExit": {
+          "description": "تماس برگشت درست قبل از انتقال پوشش شلیک شد",
+          "name": "onExit"
+        },
+        "onExited": {
+          "description": "بعد از اينکه پوشش تموم شد ، دوباره تماس گرفته شد",
+          "name": "itedexited"
+        },
+        "onExiting": {
+          "description": "به عنوان پوشش شروع به انتقال می کند",
+          "name": "یکجانبه"
+        },
+        "onOk": {
+          "description": "روی تابع OK callback کلیک کنید",
+          "name": "اونوک"
+        },
+        "onOpen": {
+          "description": "تماس برگشت در هنگام باز کردن کامپوننت",
+          "name": "اوناپن"
+        },
+        "onSelect": {
+          "description": "تماس مجدد در زمان انتخاب تاریخ یا زمان",
+          "name": "ectselect"
+        },
+        "open": {
+          "description": "آیا جزء را باز کنید",
+          "name": "باز"
+        }
+      }
+    },
+    "RsToggle": {
+      "description": "سوئیچ ضامن ، برای انتخاب بین دو مقدار استفاده می شود",
+      "name": "تغییر",
+      "props": {
+        "checked": {
+          "description": "آیا ضامن بررسی شده است",
+          "name": "چک شده"
+        },
+        "checkedChildren": {
+          "description": "متنی که در حالت چک شده نمایش داده می شود",
+          "name": "چک کردن متن"
+        },
+        "children": {
+          "description": "برچسب اجزا",
+          "name": "برچسب"
+        },
+        "color": {
+          "description": "رنگ ضامن",
+          "name": "رنگ"
+        },
+        "loading": {
+          "description": "اینکه آیا جزء در حالت بارگذاری است",
+          "name": "بارگیری"
+        },
+        "onChange": {
+          "description": "وقتی وضعیت تغییر می کند فراخوانده می شود",
+          "name": "اونچنج"
+        },
+        "unCheckedChildren": {
+          "description": "متنی که در حالت بدون چک نمایش داده می شود",
+          "name": "متن غیر قابل کنترل"
+        }
+      }
+    },
+    "RsTooltip": {
+      "description": "یک نکته متنی برای ثانویه، که جایگزین ویژگی عنوان پیش فرض یک عنصر HTML می شود",
+      "name": "نکته ابزار",
+      "props": {
+        "children": {
+          "description": "عنصر کودک یک ابزار",
+          "name": "کودکان"
+        },
+        "text": {
+          "description": "متن ابزار",
+          "name": "متن"
+        },
+        "trigger": {
+          "description": "ماشه ابزار",
+          "name": "ماشه"
+        }
+      }
+    },
+    "RsUploader": {
+      "description": "با کلیک کردن یا کشیدن و رها کردن فایل ها را آپلود کنید ، از پیش نمایش تصویر آپلود شده پشتیبانی می کند",
+      "name": "آپلودر",
+      "props": {
+        "accept": {
+          "description": "انواع فایل هایی که می توانند پذیرفته شوند. ویژگی استاندارد HTML را ببینید: قبول کنید",
+          "name": "قبول کن"
+        },
+        "action": {
+          "description": "بارگذاری URL",
+          "name": "اقدام"
+        },
+        "autoUpload": {
+          "description": "آپلود خودکار فایل ها پس از انتخاب آنها",
+          "name": "آپلود خودکار"
+        },
+        "children": {
+          "description": "محتوای اصلی",
+          "name": "کودکان"
+        },
+        "customElement": {
+          "description": "اینکه آیا از یک عنصر سفارشی برای آپلود کننده استفاده کنیم",
+          "name": "عنصر سفارشی"
+        },
+        "disableMultipart": {
+          "description": "اگر \"درست\" باشد ، با استفاده از یک فرم چند بخشی برای آپلود فایل غیرفعال کنید و در عوض فایل را جریان دهید. برخی از Api ها (به عنوان مثال آمازون S3) ممکن است انتظار داشته باشند که فایل به جای ارسال از طریق فرم پخش شود",
+          "name": "چند بخش را غیرفعال کنید"
+        },
+        "disabledFileItem": {
+          "description": "غیر فعال کردن فایل مورد",
+          "name": "غیر فعال کردن فایل مورد"
+        },
+        "draggable": {
+          "description": "فعال کردن کشیدن و رها کردن برای آپلود",
+          "name": "قابل کشیدن"
+        },
+        "fileList": {
+          "description": "لیست فایل های آپلود شده",
+          "name": "لیست فایل ها"
+        },
+        "fileListVisible": {
+          "description": "لیست فایل را می توان رندر کرد",
+          "name": "لیست فایل قابل مشاهده"
+        },
+        "listType": {
+          "description": "سبک لیست آپلود",
+          "name": "نوع لیست"
+        },
+        "method": {
+          "description": "روش http درخواست آپلود",
+          "name": "روش"
+        },
+        "multiple": {
+          "description": "امکان آپلود چند فایل",
+          "name": "چندگانه"
+        },
+        "name": {
+          "description": "نام پارامتر فایل مربوطه را آپلود کنید",
+          "name": "نام"
+        },
+        "onChange": {
+          "description": "تابع Callback که صف آپلود تغییر کرده است",
+          "name": "اونچنج"
+        },
+        "onError": {
+          "description": "عملکرد فراخوانی را با خطا بارگذاری کنید",
+          "name": "rorerror"
+        },
+        "onPreview": {
+          "description": "در لیست فایل ، روی تابع callback برای فایل آپلود شده کلیک کنید",
+          "name": "iewpreview"
+        },
+        "onProgress": {
+          "description": "توابع فراخوانی که تغییر پیشرفت را آپلود می کنند",
+          "name": "پیشرفت"
+        },
+        "onRemove": {
+          "description": "در لیست فایل ، برای حذف یک فایل ، روی تابع callback کلیک کنید",
+          "name": "onRemove"
+        },
+        "onReupload": {
+          "description": "در لیست فایل ها ، برای آپلود فایل های شکست خورده ، روی تابع callback کلیک کنید تا آپلود شود",
+          "name": "ploreupload"
+        },
+        "onSuccess": {
+          "description": "عملکرد Callback پس از آپلود موفق",
+          "name": "موفقیت"
+        },
+        "onUpload": {
+          "description": "تابع فراخوانی که فایل آپلود را شروع می کند",
+          "name": "ploupload"
+        },
+        "removable": {
+          "description": "فایل لیست قابل جابجایی",
+          "name": "قابل جابجایی"
+        },
+        "timeout": {
+          "description": "زمان بندی بارگذاری را تنظیم کنید",
+          "name": "زمان بندی"
+        },
+        "withCredentials": {
+          "description": "آیا هنگام آپلود درخواست ها کوکی حمل کنید",
+          "name": "دارای اعتبار نامه"
+        }
+      }
+    },
+    "RsWizard": {
+      "description": "جزء جادوگر با ناوبری گام و اعتبار سنجی",
+      "name": "جادوگر",
+      "props": {
+        "activeIndex": {
+          "description": "شاخص گام فعال",
+          "name": "شاخص فعال"
+        },
+        "children": {
+          "description": "کودکان جادوگر",
+          "name": "کودکان"
+        },
+        "finishButtonLabel": {
+          "description": "برچسب دکمه پایان",
+          "name": "برچسب دکمه پایان"
+        },
+        "nextButtonLabel": {
+          "description": "برچسب دکمه بعدی",
+          "name": "برچسب دکمه بعدی"
+        },
+        "onFinish": {
+          "description": "تماس پس از کلیک بر روی دکمه finish",
+          "name": "infinish"
+        },
+        "onNext": {
+          "description": "وقتی دکمه بعدی کلیک شد ، دوباره تماس بگیرید",
+          "name": "xtnext"
+        },
+        "onPrev": {
+          "description": "تماس مجدد زمانی که دکمه قبلی کلیک می شود",
+          "name": "اونپریو"
+        },
+        "prevButtonLabel": {
+          "description": "برچسب دکمه های قبلی",
+          "name": "برچسب دکمه قبلی"
+        },
+        "showSteps": {
+          "description": "اگر درست باشد ، مراحل نشان داده خواهد شد",
+          "name": "مراحل را نشان دهید"
+        },
+        "showStepsLabels": {
+          "description": "اگر درست باشد ، برچسب های مراحل نشان داده خواهد شد",
+          "name": "نمایش مراحل برچسب ها"
+        },
+        "steps": {
+          "description": "مراحل جادوگر",
+          "name": "مراحل"
+        },
+        "stepsNavigation": {
+          "description": "با کلیک کردن مشخص می کند که کدام مراحل برای ناوبری در دسترس است",
+          "name": "مراحل ناوبری"
+        },
+        "validateOnFinish": {
+          "description": "اگر درست باشد ، جادوگر قبل از اتمام جادوگر تأیید می شود",
+          "name": "اعتبار سنجی در پایان"
+        },
+        "validateOnNext": {
+          "description": "اگر درست باشد ، مرحله قبل از حرکت به مرحله بعدی تایید خواهد شد",
+          "name": "اعتبار در بعدی"
+        },
+        "verticalSteps": {
+          "description": "اگر درست باشد ، مراحل به صورت عمودی نمایش داده می شوند",
+          "name": "مراحل عمودی"
+        }
+      }
+    },
+    "RsWizardStep": {
+      "description": "جزء گام جادوگر با طرح انعطاف پذیر",
+      "name": "گام جادوگر",
+      "props": {
+        "children": {
+          "description": "کودکان جزء",
+          "name": "کودکان"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1492 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Fields"
+    },
+    "modal": {
+      "name": "Modal"
+    },
+    "static": {
+      "name": "Static"
+    },
+    "structure": {
+      "name": "Structure"
+    }
+  },
+  "commonProperties": {
+    "backgroundColor": {
+      "name": "Background",
+      "description": "The background color"
+    },
+    "children": {
+      "name": "Children",
+      "description": "Component children"
+    },
+    "className": {
+      "name": "CSS class",
+      "description": "The CSS class name"
+    },
+    "disabled": {
+      "name": "Disabled",
+      "description": "Whether a component is disabled"
+    },
+    "fontSize": {
+      "name": "Font size",
+      "description": "Font size"
+    },
+    "fontWeight": {
+      "name": "Font weight",
+      "description": "Font weight"
+    },
+    "label": {
+      "name": "Label",
+      "description": "The component label"
+    },
+    "placeholder": {
+      "name": "Placeholder",
+      "description": "The placeholder"
+    },
+    "placement": {
+      "name": "Placement",
+      "description": "The placement of a component"
+    },
+    "readOnly": {
+      "name": "Read only",
+      "description": "Read-only flag"
+    },
+    "size": {
+      "name": "Size",
+      "description": "A component size"
+    },
+    "textAlign": {
+      "name": "Text align",
+      "description": "Text alignment"
+    },
+    "value": {
+      "name": "Value",
+      "description": "The current value (controlled)"
+    }
+  },
+  "components": {
+    "RsAutoComplete": {
+      "name": "AutoComplete",
+      "description": "Provide auto-complete functionality for input box",
+      "props": {
+        "classPrefix": {
+          "name": "Class prefix",
+          "description": "The prefix of the component CSS class"
+        },
+        "data": {
+          "name": "Data",
+          "description": "The data of component"
+        },
+        "defaultValue": {
+          "name": "Default value",
+          "description": "The default value (uncontrolled)"
+        },
+        "filterBy": {
+          "name": "Filter by",
+          "description": "Custom filter rules (will only display items that value is a substring of which by default)"
+        },
+        "menuClassName": {
+          "name": "Menu class name",
+          "description": "A CSS class to apply to the Menu DOM"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Called when select an option or input value change, or value of input is changed"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "Callback fired when hidden"
+        },
+        "onEnter": {
+          "name": "onEnter",
+          "description": "Callback fired before the overlay transitions in"
+        },
+        "onEntered": {
+          "name": "onEntered",
+          "description": "Callback fired after the overlay finishes transitioning in"
+        },
+        "onEntering": {
+          "name": "onEntering",
+          "description": "Callback fired as the overlay begins to transition in"
+        },
+        "onExit": {
+          "name": "onExit",
+          "description": "Callback fired right before the overlay transitions out"
+        },
+        "onExited": {
+          "name": "onExited",
+          "description": "Callback fired after the overlay finishes transitioning out"
+        },
+        "onExiting": {
+          "name": "onExiting",
+          "description": "Callback fired as the overlay begins to transition out"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Called when a option is selected"
+        },
+        "renderMenu": {
+          "name": "Render menu",
+          "description": "Customizing the Rendering Menu list"
+        },
+        "renderMenuItem": {
+          "name": "Render menu item",
+          "description": "Custom render menu items"
+        },
+        "selectOnEnter": {
+          "name": "Select on Enter",
+          "description": "When set to false, the Enter key selection function is invalid"
+        }
+      }
+    },
+    "RsBreadcrumb": {
+      "name": "Breadcrumb",
+      "description": "Used to display the current page path and quickly return to the history page",
+      "props": {
+        "separator": {
+          "name": "Separator",
+          "description": "The separator between each breadcrumb item"
+        },
+        "maxItems": {
+          "name": "Max items",
+          "description": "Set the maximum number of breadcrumbs to display"
+        },
+        "items": {
+          "name": "Items",
+          "description": "Array of breadcrumb items to display"
+        },
+        "onItemClick": {
+          "name": "onItemClick",
+          "description": "Callback function when a breadcrumb item is clicked"
+        },
+        "onExpand": {
+          "name": "onExpand",
+          "description": "Callback function for clicking the ellipsis"
+        }
+      }
+    },
+    "RsButton": {
+      "name": "Button",
+      "description": "The button",
+      "props": {
+        "active": {
+          "name": "Active",
+          "description": "A button can show it is currently the active user selection"
+        },
+        "appearance": {
+          "name": "Appearance",
+          "description": "A button can have different appearances"
+        },
+        "children": {
+          "name": "Content",
+          "description": "Primary content"
+        },
+        "disabled": {
+          "name": "Disabled",
+          "description": "A button can show it is currently unable to be interacted with"
+        },
+        "href": {
+          "name": "Href",
+          "description": "Providing a href will render an <a> element"
+        },
+        "loading": {
+          "name": "Loading",
+          "description": "A button can show a loading indicator"
+        },
+        "onClick": {
+          "name": "onClick",
+          "description": "Callback function when a button is clicked"
+        }
+      }
+    },
+    "RsCalendar": {
+      "name": "Calendar",
+      "description": "A component that displays data by calendar",
+      "props": {
+        "bordered": {
+          "name": "Bordered",
+          "description": "Show border"
+        },
+        "compact": {
+          "name": "Compact",
+          "description": "Display a compact calendar"
+        },
+        "defaultValue": {
+          "name": "Default value",
+          "description": "Default value"
+        },
+        "isoWeek": {
+          "name": "ISO week",
+          "description": "ISO 8601 standard, each calendar week begins on Monday and Sunday on the seventh day"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Callback fired before the value changed"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Callback fired before the date selected"
+        }
+      }
+    },
+    "RsCard": {
+      "name": "Card",
+      "description": "Card is a container component for displaying data,",
+      "props": {
+        "header": {
+          "name": "Header",
+          "description": "The head displays information"
+        },
+        "children": {
+          "name": "Content",
+          "description": "Primary content"
+        },
+        "title": {
+          "name": "Title",
+          "description": "The title for the panel header"
+        },
+        "headerSize": {
+          "name": "Header size",
+          "description": "The header size for the panel header"
+        },
+        "bodyFill": {
+          "name": "Body fill",
+          "description": "Content area filled with containers"
+        },
+        "bordered": {
+          "name": "Bordered",
+          "description": "Show border"
+        },
+        "shaded": {
+          "name": "Shaded",
+          "description": "Whether there is a shadow"
+        },
+        "defaultExpanded": {
+          "name": "Default expanded",
+          "description": "Expand then panel by default"
+        },
+        "collapsible": {
+          "name": "Collapsible",
+          "description": "Whether it is a collapsible panel"
+        },
+        "eventKey": {
+          "name": "Event key",
+          "description": "The event key corresponding to the panel"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Called when the panel is selected"
+        }
+      }
+    },
+    "RsCheckbox": {
+      "name": "Checkbox",
+      "description": "Check boxes are usually used in groups. Allow users to select one or more values from a set",
+      "props": {
+        "children": {
+          "name": "Label",
+          "description": "The component label"
+        },
+        "checked": {
+          "name": "Checked",
+          "description": "Specifies whether the checkbox is selected"
+        },
+        "indeterminate": {
+          "name": "Indeterminate",
+          "description": "When being a checkbox, setting styles after the child part is selected"
+        },
+        "inline": {
+          "name": "Inline",
+          "description": "Inline layout"
+        },
+        "title": {
+          "name": "Title",
+          "description": "HTML title"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Called when the user attempts to change the checked state"
+        }
+      }
+    },
+    "RsContainer": {
+      "name": "Container",
+      "description": "Container is a layout component that can be used to wrap other components",
+      "props": {
+        "children": {
+          "name": "Children",
+          "description": "Component children"
+        }
+      }
+    },
+    "RsDatePicker": {
+      "name": "DatePicker",
+      "description": "DatePicker is a highly customizable component that allows users to enter and pick dates and times in different formats",
+      "props": {
+        "appearance": {
+          "name": "Appearance",
+          "description": "Set picker appearance"
+        },
+        "calendarDefaultDate": {
+          "name": "Calendar default date",
+          "description": "Calendar panel default presentation date and time"
+        },
+        "cleanable": {
+          "name": "Cleanable",
+          "description": "Whether the selected value can be cleared"
+        },
+        "defaultOpen": {
+          "name": "Default open",
+          "description": "Default value of open property"
+        },
+        "defaultValue": {
+          "name": "Default value",
+          "description": "Default value"
+        },
+        "editable": {
+          "name": "Editable",
+          "description": "Rendered as an input, the date can be entered via the keyboard"
+        },
+        "format": {
+          "name": "Format",
+          "description": "Format of the date when rendered in the input"
+        },
+        "isoWeek": {
+          "name": "ISO week",
+          "description": "ISO 8601 standard, each calendar week begins on Monday and Sunday on the seventh day"
+        },
+        "limitEndYear": {
+          "name": "Limit end year",
+          "description": "Set the upper limit of the available year relative to the current selection date"
+        },
+        "limitStartYear": {
+          "name": "Limit start year",
+          "description": "Set the lower limit of the available year relative to the current selection date"
+        },
+        "oneTap": {
+          "name": "One tap",
+          "description": "One-click selection date"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Callback fired when value changed"
+        },
+        "onChangeCalendarDate": {
+          "name": "onChangeCalendarDate",
+          "description": "Callback function that changes the calendar date"
+        },
+        "onClean": {
+          "name": "onClean",
+          "description": "Callback fired when value clean"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "Callback fired when close component"
+        },
+        "onEnter": {
+          "name": "onEnter",
+          "description": "Callback fired before the overlay transitions in"
+        },
+        "onEntered": {
+          "name": "onEntered",
+          "description": "Callback fired after the overlay finishes transitioning in"
+        },
+        "onEntering": {
+          "name": "onEntering",
+          "description": "Callback fired as the overlay begins to transition in"
+        },
+        "onExit": {
+          "name": "onExit",
+          "description": "Callback fired right before the overlay transitions out"
+        },
+        "onExited": {
+          "name": "onExited",
+          "description": "Callback fired after the overlay finishes transitioning out"
+        },
+        "onExiting": {
+          "name": "onExiting",
+          "description": "Callback fired as the overlay begins to transition out"
+        },
+        "onNextMonth": {
+          "name": "onNextMonth",
+          "description": "Switch to the callback function for the next Month"
+        },
+        "onOk": {
+          "name": "onOk",
+          "description": "Click the OK callback function"
+        },
+        "onOpen": {
+          "name": "onOpen",
+          "description": "Callback fired when open component"
+        },
+        "onPrevMonth": {
+          "name": "onPrevMonth",
+          "description": "Switch to the callback function for the previous Month"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Callback fired when date or time is selected"
+        },
+        "onToggleMonthDropdown": {
+          "name": "onToggleMonthDropdown",
+          "description": "Callback function that switches to the month view"
+        },
+        "onToggleTimeDropdown": {
+          "name": "onToggleTimeDropdown",
+          "description": "Callback function that switches to the time view"
+        },
+        "open": {
+          "name": "Open",
+          "description": "Whether open the component"
+        },
+        "preventOverflow": {
+          "name": "Prevent overflow",
+          "description": "Prevent floating element overflow"
+        },
+        "showMeridiem": {
+          "name": "Show meridiem",
+          "description": "Display hours in 12 format"
+        },
+        "showWeekNumbers": {
+          "name": "Show week numbers",
+          "description": "Whether to show week numbers"
+        }
+      }
+    },
+    "RsDivider": {
+      "name": "Divider",
+      "description": "Divider are used to group content horizontally or vertically",
+      "props": {
+        "children": {
+          "name": "Content",
+          "description": "Set the text on the dividing line"
+        },
+        "vertical": {
+          "name": "Vertical",
+          "description": "Vertical dividing line"
+        }
+      }
+    },
+    "RsDropdown": {
+      "name": "Dropdown",
+      "description": "A drop-down menu is a navigation that uses selectpicker if you want to select a value",
+      "props": {
+        "data": {
+          "name": "Data",
+          "description": "Selectable data"
+        },
+        "cleanable": {
+          "name": "Cleanable",
+          "description": "Whether the option can be emptied"
+        },
+        "creatable": {
+          "name": "Creatable",
+          "description": "Settings can create new options"
+        },
+        "groupBy": {
+          "name": "Group by",
+          "description": "Set grouping criteria 'key' in 'data'"
+        },
+        "disableVirtualized": {
+          "name": "Disable virtualized",
+          "description": "Whether to disable virtualization"
+        },
+        "onLoadData": {
+          "name": "onLoadData",
+          "description": "The callback for loading data"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "The callback for select"
+        },
+        "onClean": {
+          "name": "onClean",
+          "description": "The callback for clean"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "The callback for close"
+        },
+        "onCreate": {
+          "name": "onCreate",
+          "description": "The callback for create"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Callback function when value changes"
+        },
+        "onSearch": {
+          "name": "onSearch",
+          "description": "The callback for search"
+        },
+        "preload": {
+          "name": "Preload",
+          "description": "Whether to preload data"
+        }
+      }
+    },
+    "RsErrorMessage": {
+      "name": "Error message",
+      "description": "The component that displays the validation message"
+    },
+    "RsHeader": {
+      "name": "Header",
+      "description": "Simple HTML header",
+      "props": {
+        "content": {
+          "name": "Content",
+          "description": "Header text"
+        },
+        "headerSize": {
+          "name": "Header size",
+          "description": "Header level"
+        }
+      }
+    },
+    "RsImage": {
+      "name": "Image",
+      "description": "Simple HTML image",
+      "props": {
+        "src": {
+          "name": "Src",
+          "description": "Image source"
+        },
+        "alt": {
+          "name": "Description",
+          "description": "Image description"
+        }
+      }
+    },
+    "RsInput": {
+      "name": "Input",
+      "description": "Input let users enter and edit text",
+      "props": {
+        "passwordMask": {
+          "name": "Password mask",
+          "description": "Use password mask"
+        },
+        "showPasswordAriaLabel": {
+          "name": "ARIA label for show password button",
+          "description": "Value of the aria-label attribute for the show password button when the input is in password mask mode"
+        },
+        "type": {
+          "name": "Type",
+          "description": "HTML input type"
+        }
+      }
+    },
+    "RsLabel": {
+      "name": "Label",
+      "description": "Simple HTML label",
+      "props": {
+        "text": {
+          "name": "Text",
+          "description": "The label text content"
+        }
+      }
+    },
+    "RsLink": {
+      "name": "Link",
+      "description": "Simple HTML anchor",
+      "props": {
+        "content": {
+          "name": "Content",
+          "description": "The content type (text or custom)"
+        },
+        "text": {
+          "name": "Text",
+          "description": "The link text content"
+        },
+        "href": {
+          "name": "Href",
+          "description": "The URL that the hyperlink points to"
+        },
+        "children": {
+          "name": "Children",
+          "description": "Component children"
+        },
+        "target": {
+          "name": "Target",
+          "description": "Where to display the linked URL, as the name for a browsing context (a tab, window, or <iframe>)"
+        },
+        "download": {
+          "name": "Download",
+          "description": "Causes the browser to treat the linked URL as a download"
+        },
+        "downloadFilename": {
+          "name": "Download filename",
+          "description": "Defining a value suggests it as the filename. / and \\ characters are converted to underscores (_)"
+        },
+        "onClick": {
+          "name": "onClick",
+          "description": "Callback function when a link is clicked"
+        }
+      }
+    },
+    "RsMenu": {
+      "name": "Menu",
+      "description": "Provides a list of various forms of navigation menus, which can be landscape and portrait layout",
+      "props": {
+        "activeKey": {
+          "name": "Active key",
+          "description": "Active key, corresponding to one of items value"
+        },
+        "appearance": {
+          "name": "Appearance",
+          "description": "A navigation can have different appearances"
+        },
+        "items": {
+          "name": "Items",
+          "description": "The items for the menu"
+        },
+        "justified": {
+          "name": "Justified",
+          "description": "Justified navigation"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Callback function triggered after selection"
+        },
+        "reversed": {
+          "name": "Reversed",
+          "description": "Reverse direction of tabs/subtle"
+        },
+        "vertical": {
+          "name": "Vertical",
+          "description": "Stacked navigation"
+        },
+        "itemsAs": {
+          "name": "Items As",
+          "description": "HTML element to render menu item"
+        }
+      }
+    },
+    "RsMessage": {
+      "name": "Message",
+      "description": "Used to show important tips on a page",
+      "props": {
+        "closable": {
+          "name": "Closable",
+          "description": "Whether it is possible to close the message box"
+        },
+        "header": {
+          "name": "Header",
+          "description": "The title of the message"
+        },
+        "type": {
+          "name": "Type",
+          "description": "The type of the message box"
+        }
+      }
+    },
+    "RsModal": {
+      "name": "Modal",
+      "description": "A modal dialog box component for message prompts, acknowledgement messages, and submissions",
+      "props": {
+        "autoFocus": {
+          "name": "Auto focus",
+          "description": "When set to true, the Modal is opened and is automatically focused on its own, accessible to screen readers"
+        },
+        "backdrop": {
+          "name": "Backdrop",
+          "description": "When set to true, the Modal will display the background when it is opened. Clicking on the background will close the Modal"
+        },
+        "backdropClassName": {
+          "name": "Backdrop className",
+          "description": "Add an optional extra class name to .modal-backdrop It could end up looking like class=\"modal-backdrop foo-modal-backdrop in\""
+        },
+        "classPrefix": {
+          "name": "CSS class prefix",
+          "description": "The prefix of the component CSS class"
+        },
+        "dialogClassName": {
+          "name": "CSS class for dialog",
+          "description": "CSS class applied to Dialog DOM nodes"
+        },
+        "enforceFocus": {
+          "name": "Enforce focus",
+          "description": "When set to true, Modal will prevent the focus from leaving when opened, making it easier for the secondary screen reader to access"
+        },
+        "keyboard": {
+          "name": "Close by Esc",
+          "description": "Close Modal when Esc key is pressed"
+        },
+        "overflow": {
+          "name": "Overflow",
+          "description": "Automatically sets the height when the body content is too long"
+        },
+        "size": {
+          "name": "Size",
+          "description": "Determine the width of the modal"
+        },
+        "onOpen": {
+          "name": "onOpen",
+          "description": "Called when Modal is displayed"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "Called when Modal is closed"
+        }
+      }
+    },
+    "RsModalLayout": {
+      "name": "Modal layout",
+      "description": "Modal layout component with header, body and footer sections",
+      "props": {
+        "closeButton": {
+          "name": "Close button",
+          "description": "Display close button"
+        },
+        "headerTitle": {
+          "name": "Header title",
+          "description": "The title for the modal header"
+        },
+        "body": {
+          "name": "Body",
+          "description": "The content for the modal body"
+        },
+        "footer": {
+          "name": "Footer",
+          "description": "The content for the modal footer"
+        }
+      }
+    },
+    "RsNumberFormat": {
+      "name": "Number format",
+      "description": "A number format input component with validation and formatting",
+      "props": {
+        "allowedDecimalSeparators": {
+          "name": "Allowed decimal separators",
+          "description": "Characters which when pressed result in a decimal separator. When missing, decimal separator and '.' are used"
+        },
+        "allowLeadingZeros": {
+          "name": "Allow leading zeros",
+          "description": "This allows enabling or disabling leading zeros in the input field. By default, on blur of an input, leading zeros are removed"
+        },
+        "allowNegative": {
+          "name": "Allow negative",
+          "description": "If set to false, negative numbers will not be allowed"
+        },
+        "decimalScale": {
+          "name": "Decimal scale",
+          "description": "If defined, it limits the number of digits after the decimal point"
+        },
+        "decimalSeparator": {
+          "name": "Decimal separator",
+          "description": "Defines the decimal character"
+        },
+        "fixedDecimalScale": {
+          "name": "Fixed decimal scale",
+          "description": "If set to true, it adds trailing 0s after decimalSeparator to match given decimalScale"
+        },
+        "prefix": {
+          "name": "Prefix",
+          "description": "Adds the prefix character before the input value"
+        },
+        "suffix": {
+          "name": "Suffix",
+          "description": "Adds the suffix after the input value"
+        },
+        "thousandsGroupStyle": {
+          "name": "Thousands group style",
+          "description": "Thousand style (thousand) : 123,456,789, indian style (lakh) : 12,34,56,789, chinese style (wan) : 1,2345,6789"
+        },
+        "thousandSeparator": {
+          "name": "Thousand separator",
+          "description": "Thousand separator"
+        }
+      }
+    },
+    "RsPatternFormat": {
+      "name": "Pattern format",
+      "description": "Pattern format input component with label support",
+      "props": {
+        "format": {
+          "name": "Format",
+          "description": "Format pattern using the # (or a Pattern char) character. # is the placeholder character for numbers. Example: '### ###'"
+        },
+        "mask": {
+          "name": "Mask",
+          "description": "Used as mask character for numeric places, until any numeric character is provided for that position"
+        },
+        "patternChar": {
+          "name": "Pattern char",
+          "description": "This helps define the format pattern character"
+        },
+        "allowEmptyFormatting": {
+          "name": "Allow empty formatting",
+          "description": "By default PatternFormat component does not apply formatting when value is empty (null, undefined or ‘’)"
+        }
+      }
+    },
+    "RsPlaceholderGraph": {
+      "name": "Placeholder graph",
+      "description": "Placeholder before loading the component in the form of a rectangle",
+      "props": {
+        "width": {
+          "name": "Width",
+          "description": "The graph width"
+        },
+        "height": {
+          "name": "Height",
+          "description": "The graph height"
+        },
+        "active": {
+          "name": "Active",
+          "description": "Whether the placeholder is active"
+        }
+      }
+    },
+    "RsPlaceholderGrid": {
+      "name": "Placeholder grid",
+      "description": "Placeholder before loading the component in the form of a grid",
+      "props": {
+        "rows": {
+          "name": "Rows",
+          "description": "The number of rows"
+        },
+        "columns": {
+          "name": "Columns",
+          "description": "The number of columns"
+        },
+        "rowHeight": {
+          "name": "Row height",
+          "description": "The height of the row"
+        },
+        "rowSpacing": {
+          "name": "Row spacing",
+          "description": "The spacing between rows"
+        },
+        "active": {
+          "name": "Active",
+          "description": "Whether the placeholder is active"
+        }
+      }
+    },
+    "RsPlaceholderParagraph": {
+      "name": "Placeholder paragraph",
+      "description": "Placeholder before loading the component in the form of a paragraph",
+      "props": {
+        "rows": {
+          "name": "Rows",
+          "description": "The number of rows"
+        },
+        "rowHeight": {
+          "name": "Row height",
+          "description": "The height of the row"
+        },
+        "rowSpacing": {
+          "name": "Row spacing",
+          "description": "The spacing between rows"
+        },
+        "graph": {
+          "name": "Graph",
+          "description": "The shape of the graph"
+        },
+        "active": {
+          "name": "Active",
+          "description": "Whether the placeholder is active"
+        }
+      }
+    },
+    "RsProgressCircle": {
+      "name": "Progress circle",
+      "description": "Displaying the current progress of an operation as a circle",
+      "props": {
+        "classPrefix": {
+          "name": "Class prefix",
+          "description": "The prefix of the component CSS class"
+        },
+        "percent": {
+          "name": "Percent",
+          "description": "Percent of progress"
+        },
+        "showInfo": {
+          "name": "Show info",
+          "description": "Show text"
+        },
+        "status": {
+          "name": "Status",
+          "description": "Progress status"
+        },
+        "strokeColor": {
+          "name": "Stroke color",
+          "description": "Line color"
+        },
+        "strokeWidth": {
+          "name": "Stroke width",
+          "description": "Line width"
+        },
+        "gapDegree": {
+          "name": "Gap degree",
+          "description": "The gap degree of half circle, 0 ~ 360"
+        },
+        "gapPosition": {
+          "name": "Gap position",
+          "description": "Circular progress bar Notch position"
+        },
+        "strokeLinecap": {
+          "name": "Stroke linecap",
+          "description": "The end of different types of open paths"
+        },
+        "trailColor": {
+          "name": "Trail color",
+          "description": "Trail color"
+        },
+        "trailWidth": {
+          "name": "Trail width",
+          "description": "Trail width"
+        }
+      }
+    },
+    "RsProgressLine": {
+      "name": "Progress line",
+      "description": "Displaying the current progress of an operation as a line",
+      "props": {
+        "classPrefix": {
+          "name": "Class prefix",
+          "description": "The prefix of the component CSS class"
+        },
+        "percent": {
+          "name": "Percent",
+          "description": "Percent of progress"
+        },
+        "showInfo": {
+          "name": "Show info",
+          "description": "Show text"
+        },
+        "status": {
+          "name": "Status",
+          "description": "Progress status"
+        },
+        "strokeColor": {
+          "name": "Stroke color",
+          "description": "Line color"
+        },
+        "strokeWidth": {
+          "name": "Stroke width",
+          "description": "Line width"
+        },
+        "vertical": {
+          "name": "Vertical",
+          "description": "The progress bar is displayed vertically"
+        }
+      }
+    },
+    "RsRadioGroup": {
+      "name": "Radio group",
+      "description": "Radios are used when only one choice may be selected in a series of options",
+      "props": {
+        "name": {
+          "name": "Name",
+          "description": "Radio group name"
+        },
+        "appearance": {
+          "name": "Appearance",
+          "description": "A radio group can have different appearances"
+        },
+        "inline": {
+          "name": "Inline",
+          "description": "Inline layout"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Called after the value has been changed"
+        },
+        "items": {
+          "name": "Items",
+          "description": "The items for the radio group"
+        }
+      }
+    },
+    "RsSearch": {
+      "name": "Search",
+      "description": "Search component with label and data loading support",
+      "props": {
+        "data": {
+          "name": "Data",
+          "description": "Selectable data"
+        },
+        "cleanable": {
+          "name": "Cleanable",
+          "description": "Whether the option can be emptied"
+        },
+        "creatable": {
+          "name": "Creatable",
+          "description": "Settings can create new options"
+        },
+        "groupBy": {
+          "name": "Group by",
+          "description": "Set grouping criteria 'key' in 'data'"
+        },
+        "disableVirtualized": {
+          "name": "Disable virtualized",
+          "description": "Whether to disable virtualization"
+        },
+        "onLoadData": {
+          "name": "onLoadData",
+          "description": "The callback for loading data"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "The callback for select"
+        },
+        "onClean": {
+          "name": "onClean",
+          "description": "The callback for clean"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "The callback for close"
+        },
+        "onCreate": {
+          "name": "onCreate",
+          "description": "The callback for create"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Callback function when value changes"
+        },
+        "onSearch": {
+          "name": "onSearch",
+          "description": "The callback for search"
+        },
+        "preload": {
+          "name": "Preload",
+          "description": "Whether to preload data"
+        }
+      }
+    },
+    "RsStaticContent": {
+      "name": "Static content",
+      "description": "A static content component that displays text or HTML content",
+      "props": {
+        "content": {
+          "name": "Content",
+          "description": "The content to display"
+        },
+        "allowHtml": {
+          "name": "Allow HTML",
+          "description": "Whether to allow HTML content"
+        }
+      }
+    },
+    "RsTab": {
+      "name": "Tab",
+      "description": "Tabs are a set of layered sections of content, known as tab panels, that display one panel of content at a time",
+      "props": {
+        "activeKey": {
+          "name": "Active key",
+          "description": "Active key, corresponding to one of items value"
+        },
+        "appearance": {
+          "name": "Appearance",
+          "description": "A tab can have different appearances"
+        },
+        "justified": {
+          "name": "Justified",
+          "description": "Justified navigation"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Callback function triggered after selection"
+        },
+        "reversed": {
+          "name": "Reversed",
+          "description": "Reverse direction of tabs/subtle"
+        },
+        "vertical": {
+          "name": "Vertical",
+          "description": "Stacked navigation"
+        },
+        "items": {
+          "name": "Items",
+          "description": "Items for the tab"
+        },
+        "showNavigation": {
+          "name": "Show navigation",
+          "description": "Show or hide navigation"
+        },
+        "pane": {
+          "name": "Pane",
+          "description": "A child component of the tab"
+        }
+      }
+    },
+    "RsTagPicker": {
+      "name": "Tag picker",
+      "description": "Tag picker component with label support",
+      "props": {
+        "data": {
+          "name": "Data",
+          "description": "Selectable data"
+        },
+        "cleanable": {
+          "name": "Cleanable",
+          "description": "Whether the option can be emptied"
+        },
+        "creatable": {
+          "name": "Creatable",
+          "description": "Settings can create new options"
+        },
+        "groupBy": {
+          "name": "Group by",
+          "description": "Set grouping criteria 'key' in 'data'"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "The callback for select"
+        },
+        "onClean": {
+          "name": "onClean",
+          "description": "The callback for clean"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "The callback for close"
+        },
+        "onCreate": {
+          "name": "onCreate",
+          "description": "The callback for create"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Callback function when value changes"
+        },
+        "onSearch": {
+          "name": "onSearch",
+          "description": "The callback for search"
+        }
+      }
+    },
+    "RsTextArea": {
+      "name": "Text area",
+      "description": "A text area component for multi-line text input",
+      "props": {
+        "rows": {
+          "name": "Rows",
+          "description": "The number of visible text lines"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "The callback function in which value is changed"
+        },
+        "onPressEnter": {
+          "name": "onPressEnter",
+          "description": "Called on press enter"
+        }
+      }
+    },
+    "RsTimePicker": {
+      "name": "Time picker",
+      "description": "Time picker component with label support",
+      "props": {
+        "defaultValue": {
+          "name": "Default value",
+          "description": "Default value"
+        },
+        "format": {
+          "name": "Format",
+          "description": "Format of the time when rendered in the input"
+        },
+        "editable": {
+          "name": "Editable",
+          "description": "Rendered as an input, the time can be entered via the keyboard"
+        },
+        "cleanable": {
+          "name": "Cleanable",
+          "description": "Whether the selected value can be cleared"
+        },
+        "open": {
+          "name": "Open",
+          "description": "Whether open the component"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Callback fired when value changed"
+        },
+        "onClean": {
+          "name": "onClean",
+          "description": "Callback fired when value clean"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "Callback fired when close component"
+        },
+        "onEnter": {
+          "name": "onEnter",
+          "description": "Callback fired before the overlay transitions in"
+        },
+        "onEntered": {
+          "name": "onEntered",
+          "description": "Callback fired after the overlay finishes transitioning in"
+        },
+        "onEntering": {
+          "name": "onEntering",
+          "description": "Callback fired as the overlay begins to transition in"
+        },
+        "onExit": {
+          "name": "onExit",
+          "description": "Callback fired right before the overlay transitions out"
+        },
+        "onExited": {
+          "name": "onExited",
+          "description": "Callback fired after the overlay finishes transitioning out"
+        },
+        "onExiting": {
+          "name": "onExiting",
+          "description": "Callback fired as the overlay begins to transition out"
+        },
+        "onOk": {
+          "name": "onOk",
+          "description": "Click the OK callback function"
+        },
+        "onOpen": {
+          "name": "onOpen",
+          "description": "Callback fired when open component"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Callback fired when date or time is selected"
+        }
+      }
+    },
+    "RsToggle": {
+      "name": "Toggle",
+      "description": "Toggle switch, used for selection between two values",
+      "props": {
+        "children": {
+          "name": "Label",
+          "description": "The component label"
+        },
+        "checked": {
+          "name": "Checked",
+          "description": "Whether the toggle is checked"
+        },
+        "checkedChildren": {
+          "name": "Checked text",
+          "description": "The text that is displayed in the checked state"
+        },
+        "unCheckedChildren": {
+          "name": "Unchecked text",
+          "description": "The text that is displayed in the unchecked state"
+        },
+        "color": {
+          "name": "Color",
+          "description": "The color of the toggle"
+        },
+        "loading": {
+          "name": "Loading",
+          "description": "Whether the component is in loading state"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Called when the state of the toggle changes"
+        }
+      }
+    },
+    "RsTooltip": {
+      "name": "Tooltip",
+      "description": "A text tip for secondary, which replaces the default title property of an HTML element",
+      "props": {
+        "text": {
+          "name": "Text",
+          "description": "Tooltip text"
+        },
+        "children": {
+          "name": "Children",
+          "description": "Child element of a tooltip"
+        },
+        "trigger": {
+          "name": "Trigger",
+          "description": "The tooltip trigger"
+        }
+      }
+    },
+    "RsUploader": {
+      "name": "Uploader",
+      "description": "Upload files by clicking or drag-and-drop, it supports previewing the uploaded image",
+      "props": {
+        "action": {
+          "name": "Action",
+          "description": "Uploading URL"
+        },
+        "accept": {
+          "name": "Accept",
+          "description": "File types that can be accepted. See standard HTML attribute: accept"
+        },
+        "autoUpload": {
+          "name": "Auto upload",
+          "description": "Automatically upload files after selecting them"
+        },
+        "customElement": {
+          "name": "Custom element",
+          "description": "Whether to use a custom element for the uploader"
+        },
+        "children": {
+          "name": "Children",
+          "description": "Primary content"
+        },
+        "disableMultipart": {
+          "name": "Disable multipart",
+          "description": "If 'true', disable using a multipart form for file upload and instead stream the file. Some APIs (e.g. Amazon S3) may expect the file to be streamed rather than sent via a form"
+        },
+        "disabledFileItem": {
+          "name": "Disabled file item",
+          "description": "Disabled file item"
+        },
+        "draggable": {
+          "name": "Draggable",
+          "description": "Enabled drag and drop to upload"
+        },
+        "fileListVisible": {
+          "name": "File list visible",
+          "description": "File list can be rendered"
+        },
+        "listType": {
+          "name": "List type",
+          "description": "Upload list style"
+        },
+        "method": {
+          "name": "Method",
+          "description": "The HTTP method of upload request"
+        },
+        "multiple": {
+          "name": "Multiple",
+          "description": "Allow multiple file uploads"
+        },
+        "name": {
+          "name": "Name",
+          "description": "Upload the parameter name of the corresponding file"
+        },
+        "onChange": {
+          "name": "onChange",
+          "description": "Callback function that the upload queue has changed"
+        },
+        "onError": {
+          "name": "onError",
+          "description": "Upload callback function with error"
+        },
+        "onPreview": {
+          "name": "onPreview",
+          "description": "In the file list, click the callback function for the uploaded file"
+        },
+        "onProgress": {
+          "name": "onProgress",
+          "description": "Callback functions that upload progress change"
+        },
+        "onRemove": {
+          "name": "onRemove",
+          "description": "In the file list, click the callback function to delete a file"
+        },
+        "onReupload": {
+          "name": "onReupload",
+          "description": "In the file list, for uploading failed files, click the callback function to upload"
+        },
+        "onSuccess": {
+          "name": "onSuccess",
+          "description": "Callback function after successful upload"
+        },
+        "onUpload": {
+          "name": "onUpload",
+          "description": "The callback function that starts the upload file"
+        },
+        "removable": {
+          "name": "Removable",
+          "description": "Removable list file"
+        },
+        "timeout": {
+          "name": "Timeout",
+          "description": "Set upload timeout"
+        },
+        "withCredentials": {
+          "name": "With credentials",
+          "description": "Whether to carry cookies when uploading requests"
+        },
+        "fileList": {
+          "name": "File list",
+          "description": "List of uploaded files"
+        }
+      }
+    },
+    "RsWizard": {
+      "name": "Wizard",
+      "description": "Wizard component with step navigation and validation",
+      "props": {
+        "activeIndex": {
+          "name": "Active index",
+          "description": "The active step index"
+        },
+        "prevButtonLabel": {
+          "name": "Previous button label",
+          "description": "The previous button label"
+        },
+        "nextButtonLabel": {
+          "name": "Next button label",
+          "description": "The next button label"
+        },
+        "finishButtonLabel": {
+          "name": "Finish button label",
+          "description": "The finish button label"
+        },
+        "steps": {
+          "name": "Steps",
+          "description": "The wizard steps"
+        },
+        "children": {
+          "name": "Children",
+          "description": "The wizard children"
+        },
+        "showSteps": {
+          "name": "Show steps",
+          "description": "If true, the steps will be shown"
+        },
+        "showStepsLabels": {
+          "name": "Show steps labels",
+          "description": "If true, the steps labels will be shown"
+        },
+        "verticalSteps": {
+          "name": "Vertical steps",
+          "description": "If true, the steps will be displayed vertically"
+        },
+        "stepsNavigation": {
+          "name": "Steps navigation",
+          "description": "Determines which steps are available for navigation by clicking"
+        },
+        "validateOnNext": {
+          "name": "Validate on next",
+          "description": "If true, the step will be validated before moving to the next step"
+        },
+        "validateOnFinish": {
+          "name": "Validate on finish",
+          "description": "If true, the wizard will be validated before finishing the wizard"
+        },
+        "onNext": {
+          "name": "onNext",
+          "description": "Callback when next button is clicked"
+        },
+        "onPrev": {
+          "name": "onPrev",
+          "description": "Callback when previous button is clicked"
+        },
+        "onFinish": {
+          "name": "onFinish",
+          "description": "Callback when finish button is clicked"
+        }
+      }
+    },
+    "RsWizardStep": {
+      "name": "Wizard step",
+      "description": "Wizard step component with flex layout",
+      "props": {
+        "children": {
+          "name": "Children",
+          "description": "Component children"
+        }
+      }
+    }
+  }
+}

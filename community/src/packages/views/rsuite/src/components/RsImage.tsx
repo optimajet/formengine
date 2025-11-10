@@ -32,8 +32,8 @@ export const rsImage = define(RsImage, 'RsImage')
   .name('Image')
   .category(staticCategory)
   .props({
-    src: string.required.default(logo).hinted('Image source').dataBound,
-    alt: string.named('Description').default('Image').hinted('Image description'),
+    src: string.required.default(logo).dataBound,
+    alt: string.default('Image'),
   })
   .css({
     objectPosition: oneOf('top', 'bottom', 'left', 'right', 'center').default('left'),

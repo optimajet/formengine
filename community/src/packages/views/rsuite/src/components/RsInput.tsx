@@ -71,7 +71,7 @@ export const rsInput = define(RsInput, 'RsInput')
   .name('Input')
   .category(fieldsCategory)
   .props({
-    label: string.default('Input').hinted('Input label'),
+    label: string.default('Input'),
     ...inputProps,
     type: oneOf('text', 'password', 'email', 'number', 'search', 'tel', 'url', 'time').default('text'),
     value: string.valued.uncontrolledValue(''),

@@ -1,5 +1,7 @@
+import type {ComponentLibraryDescription} from '../../annotation/ComponentDescriptions'
 import {internalErrorMeta} from '../../components/internalErrorMeta'
 import {screenMeta} from '../../components/screenMeta'
+import type {LanguageFullCode} from '../../localization/types'
 import {modalMeta} from '../../modal/modalMeta'
 import {modalModel} from '../../modal/modalModel'
 import {repeaterMeta} from '../../repeater/repeaterMeta'
@@ -27,6 +29,11 @@ export class BuilderView extends View {
    * The function for filtering components on the component palette.
    */
   paletteFilter?: (builderComponent: BuilderComponent) => boolean
+
+  /**
+   * The description of the component library in different languages.
+   */
+  i18nDescriptions?: Array<Record<LanguageFullCode, ComponentLibraryDescription>>
 
   /**
    * Returns the component metadata for the specified component type name.
@@ -87,6 +94,17 @@ export class BuilderView extends View {
    */
   withPaletteFilter(filter: (builderComponent: BuilderComponent) => boolean): this {
     this.paletteFilter = filter
+    return this
+  }
+
+  /**
+   * Adds a description of the component library in different languages.
+   * @param i18nDescription the description of the component library in different languages.
+   * @returns the instance of the {@link BuilderView} class.
+   */
+  withComponentLibraryDescription(i18nDescription: Record<LanguageFullCode, ComponentLibraryDescription>): this {
+    this.i18nDescriptions ??= []
+    this.i18nDescriptions.push(i18nDescription)
     return this
   }
 

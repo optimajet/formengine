@@ -15,16 +15,15 @@ export const rsButton = define(RsButton, 'RsButton')
   .name('Button')
   .category(staticCategory)
   .props({
-    active: boolean.hinted('A button can show it is currently the active user selection').default(false),
+    active: boolean.default(false),
     appearance: oneOf('default', 'primary', 'link', 'subtle', 'ghost')
       .default('default')
-      .hinted('A button can have different appearances')
       .withEditorProps({creatable: false}),
-    children: string.required.named('Content').default(defaultContent).dataBound,
+    children: string.required.default(defaultContent).dataBound,
     color: controlColor,
-    disabled: disabled.hinted('A button can show it is currently unable to be interacted with').default(false),
-    href: string.hinted('Providing a href will render an <a> element'),
-    loading: boolean.hinted('A button can show a loading indicator').default(false),
+    disabled: disabled.default(false),
+    href: string,
+    loading: boolean.default(false),
     size,
     onClick: event,
   })

@@ -24,13 +24,13 @@ export const rsCheckbox = define(RsCheckbox, 'RsCheckbox')
   .name('Checkbox')
   .category(fieldsCategory)
   .props({
-    children: string.named('Label').default('Checkbox'),
-    checked: boolean.hinted('Specifies whether the checkbox is selected')
+    children: string.default('Checkbox'),
+    checked: boolean
       .valued.default(true).uncontrolledValue(false),
-    disabled: disabled.hinted('Whether disabled').default(false),
+    disabled: disabled.default(false),
     readOnly,
-    indeterminate: boolean.hinted('When being a checkbox, setting styles after the child part is selected').default(false),
-    inline: boolean.hinted('Inline layout').default(false),
-    title: string.hinted('HTML title'),
+    indeterminate: boolean,
+    inline: boolean.default(false),
+    title: string,
     onChange: event,
   })

@@ -38,7 +38,7 @@ const modalSize = oneOf('xs', 'sm', 'md', 'lg', 'full')
   .default('md')
 
 export const rsModal = define(RsModal, 'RsModal')
-  .name('RsModal')
+  .name('Modal')
   .category(modalCategory)
   .props({
     autoFocus: boolean.default(true),

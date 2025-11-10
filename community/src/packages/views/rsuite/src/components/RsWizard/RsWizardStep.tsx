@@ -35,7 +35,7 @@ export const rsWizardStep = define(RsWizardStep, RsWizardStepComponentType)
   .icon(WizardStepIcon)
   .props({
     label: string.default('Step'),
-    children: node.hinted('Component children')
+    children: node
   })
   .css({
     ...containerStyles,

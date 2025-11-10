@@ -42,43 +42,39 @@ export const size = oneOf(
 ).default('md')
   .withEditorProps({creatable: false})
 
-export const backgroundColor = color.named('Background')
-
 export const textStyles = {
   textAlign: oneOf('start', 'center', 'end')
     .default('start')
-    .radio()
-    .hinted('Text alignment'),
-  fontSize: nonNegNumber.default(14).hinted('Font size'),
+    .radio(),
+  fontSize: nonNegNumber.default(14),
   fontWeight: oneOf('lighter', 'normal', 'bold').default('normal'),
-  color: color,
+  color,
 }
 
-export const readOnly = readOnlyProp.hinted('Read only component').default(false)
+export const readOnly = readOnlyProp.default(false)
+
 export const inputProps = {
-  placeholder: string.hinted('Input placeholder'),
+  placeholder: string,
   size,
-  disabled: disabled.hinted('Disabled component').default(false),
+  disabled: disabled.default(false),
   readOnly,
   onChange: event,
 }
 
 export const headerSize = oneOf('h1', 'h2', 'h3', 'h4', 'h5', 'h6')
   .default('h4')
-  .hinted('Header level')
   .withEditorProps({creatable: false})
 
 export const navProps = {
-  activeKey: string.hinted('Active key, corresponding to one of items value').default('Item1'),
+  activeKey: string.default('Item1'),
   appearance: oneOf('default', 'tabs', 'subtle', 'pills')
     .default('default')
-    .hinted('A navigation can have different appearances')
     .withEditorProps({creatable: false}),
   items: array.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
-  justified: boolean.hinted('Justified navigation').default(false),
+  justified: boolean.default(false),
   onSelect: event,
-  reversed: boolean.hinted('Reverse direction of tabs/subtle').default(false),
-  vertical: boolean.hinted('Stacked navigation').default(false)
+  reversed: boolean.default(false),
+  vertical: boolean.default(false)
 }
 
 export const pickerProps = {

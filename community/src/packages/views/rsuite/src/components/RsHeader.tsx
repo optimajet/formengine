@@ -1,6 +1,6 @@
-import {define, string, useBuilderValue} from '@react-form-builder/core'
+import {color as backgroundColor, define, string, useBuilderValue} from '@react-form-builder/core'
 import {createElement} from 'react'
-import {backgroundColor, headerSize, textStyles} from '../commonProperties'
+import {headerSize, textStyles} from '../commonProperties'
 import type {TextProps} from '../commonTypes'
 import {staticCategory} from './categories'
 

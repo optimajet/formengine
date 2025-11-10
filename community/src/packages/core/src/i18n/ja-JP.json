@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "description": "Repeaterコンポーネントは、繰り返しコンポーネントの配列を表示するための特別なコンポーネントです",
+      "name": "リピータ",
+      "props": {
+        "itemRenderWhen": {
+          "description": "リピータアイテムを条件付きでレンダリングする式または関数",
+          "name": "アイテムレンダリング時"
+        }
+      }
+    }
+  }
+}

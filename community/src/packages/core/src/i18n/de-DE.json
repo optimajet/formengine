@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "description": "Die Repeater-Komponente ist eine spezielle Komponente, die für die Anzeige eines Arrays sich wiederholender Komponenten verantwortlich ist",
+      "name": "Verstärker",
+      "props": {
+        "itemRenderWhen": {
+          "description": "Der Ausdruck oder die Funktion zum bedingten Rendern eines Wiederholungselements",
+          "name": "Objekt rendern wann"
+        }
+      }
+    }
+  }
+}

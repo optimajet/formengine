@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "description": "Le composant Répéteur est un composant spécial chargé d'afficher un tableau de composants répétitifs",
+      "name": "Répéteur",
+      "props": {
+        "itemRenderWhen": {
+          "description": "L'expression ou la fonction pour rendre conditionnellement un élément répétiteur",
+          "name": "Rendu de l'élément quand"
+        }
+      }
+    }
+  }
+}

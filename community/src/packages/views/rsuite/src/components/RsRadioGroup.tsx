@@ -52,15 +52,14 @@ export const rsRadioGroup = define(RsRadioGroup, 'RsRadioGroup')
   .name('Radio group')
   .category(fieldsCategory)
   .props({
-    name: string.default('RadioGroup').hinted('Radio group name'),
+    name: string.default('RadioGroup'),
     appearance: oneOf('default', 'picker').labeled('Default', 'Picker').default('default')
       .withEditorProps({creatable: false}),
     label: string.default('Radio'),
-    disabled: disabled.hinted('The disable of component').default(false),
+    disabled: disabled.default(false),
     readOnly,
     inline: boolean.default(false),
     onChange: event,
     items: array.default(toLabeledValues(['a', 'b', 'c'])),
-    value: string.valued.hinted('Radio group value')
+    value: string.valued
   })
-

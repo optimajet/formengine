@@ -45,7 +45,7 @@ export const rsLink = define(RsLink, 'RsLink')
     content: oneOf('text', 'custom').default('text').radio(),
     text: string.default('Link'),
     href: string,
-    children: node.hinted('Component children'),
+    children: node,
     target: oneOf('_self', '_blank', '_parent', '_top', '_unfencedTop').default('_blank')
       .withEditorProps({creatable: false}),
     download: boolean.default(false),

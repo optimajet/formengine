@@ -1,4 +1,4 @@
-import type {FluentVariable} from '@fluent/bundle/esm/bundle'
+import type {FluentVariable} from '@fluent/bundle'
 import {isNull} from '../../utils/tools'
 import {dotInternalValue} from './dots'
 import {getFluentCompatibleId} from './getFluentCompatibleId'

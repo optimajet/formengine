@@ -42,7 +42,7 @@ export const rsContainer = define(RsContainer, 'RsContainer')
   .category(structureCategory)
   .kind('container')
   .props({
-    children: node.hinted('Component children'),
+    children: node,
     disabled: disabled,
     readOnly: readOnly,
   })

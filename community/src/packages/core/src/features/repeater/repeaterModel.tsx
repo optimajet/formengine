@@ -40,8 +40,7 @@ export const repeaterValuedAnnotation = array.valued
   .setup({editor: 'arrayOfObject'})
 
 export const repeaterProps = toArray<RepeaterProps>({
-  itemRenderWhen: string.notLocalize
-    .hinted('The expression or function to conditionally render a repeater item.'),
+  itemRenderWhen: string.notLocalize,
   value: repeaterValuedAnnotation,
   children: node,
 })

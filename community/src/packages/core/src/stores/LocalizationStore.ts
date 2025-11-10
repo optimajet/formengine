@@ -61,7 +61,7 @@ class FluentBundleHolder {
 
   get fluentBundle() {
     const componentsLocalization = this.localizationStore.value[this.languageFullCode]
-    const bundle = new FluentBundle(this.languageFullCode)
+    const bundle = new FluentBundle(this.languageFullCode, {useIsolating: false})
 
     if (componentsLocalization) {
       const localizationItems = this.#getLocalizationItems(componentsLocalization)

@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "description": "Il componente Repeater è un componente speciale che è responsabile della visualizzazione di una serie di componenti ripetuti",
+      "name": "Ripetitore",
+      "props": {
+        "itemRenderWhen": {
+          "description": "L'espressione o la funzione per il rendering condizionale di un elemento ripetitore",
+          "name": "Elemento render quando"
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import {FluentBundle, FluentResource} from '@fluent/bundle'
 import type {Pattern} from '@fluent/bundle/esm/ast'
-import type {FluentVariable} from '@fluent/bundle/esm/bundle'
+import type {FluentVariable} from '@fluent/bundle'
 import type {ComponentStore} from '../../stores/ComponentStore'
 import {isLocalizedProperty} from '../../stores/ComponentStore'
 import type {Form} from '../../stores/Form'
@@ -93,7 +93,7 @@ export const testFluentLocalization = (request: LocalizationTestRequest): Calcul
   request.localization = replaceDots(request.localization)
   const localizationSting = `${request.localizationStringId} = ${request.localization}`
   const resource = new FluentResource(localizationSting)
-  const bundle = new FluentBundle(`${request.language.fullCode}`)
+  const bundle = new FluentBundle(`${request.language.fullCode}`, {useIsolating: false})
   const errors = bundle.addResource(resource)
   if (errors.length > 0) {
     return CalculableResult.error([...errors])

@@ -94,7 +94,7 @@ export const rsBreadcrumb = define(RsBreadcrumb, 'RsBreadcrumb')
   .category(structureCategory)
   .props({
     separator: string.default('/'),
-    maxItems: nonNegNumber.hinted('Set the maximum number of breadcrumbs to display'),
+    maxItems: nonNegNumber,
     items: array
       .default(makeItems(['one', 'two', 'three']))
       .withEditorProps({columns}),

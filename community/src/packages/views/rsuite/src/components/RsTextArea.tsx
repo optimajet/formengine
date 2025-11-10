@@ -46,7 +46,7 @@ export const rsTextArea = define(RsTextArea, 'RsTextArea')
     placeholder: string,
     rows: positiveNumber.default(5),
     size,
-    disabled: disabled.hinted('Disabled component').default(false),
+    disabled: disabled.default(false),
     readOnly,
     onChange: event,
     onPressEnter: event

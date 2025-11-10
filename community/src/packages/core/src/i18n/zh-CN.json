@@ -1,0 +1,14 @@
+{
+  "components": {
+    "Repeater": {
+      "description": "Repeater组件是一个特殊的组件，负责显示重复组件的数组",
+      "name": "中继器",
+      "props": {
+        "itemRenderWhen": {
+          "description": "有条件地呈现repeater项的表达式或函数",
+          "name": "项目呈现时"
+        }
+      }
+    }
+  }
+}
