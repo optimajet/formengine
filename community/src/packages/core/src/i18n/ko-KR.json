@@ -1,5 +1,31 @@
 {
   "components": {
+    "EmbeddedForm": {
+      "description": "다른 양식에 포함된 양식",
+      "name": "임베디드 양식",
+      "props": {
+        "disabled": {
+          "description": "참인 경우 포함된 양식을 사용할 수 없습니다",
+          "name": "사용 안 함"
+        },
+        "formName": {
+          "description": "양식 이름",
+          "name": "양식 이름"
+        },
+        "options": {
+          "description": "포함된 양식을 로드하기 위한 추가 옵션",
+          "name": "옵션"
+        },
+        "readOnly": {
+          "description": "참인 경우 포함된 양식은 읽기 전용입니다",
+          "name": "읽기 전용"
+        },
+        "storeDataInParentForm": {
+          "description": "거짓이면 중첩 된 양식 데이터가 중첩 된 개체로 표시되고 그렇지 않으면 참입니다",
+          "name": "부모 형태로 데이터 저장"
+        }
+      }
+    },
     "Repeater": {
       "description": "리피터 구성 요소는 반복 구성 요소의 배열을 표시하는 특수 구성 요소입니다",
       "name": "리피터",

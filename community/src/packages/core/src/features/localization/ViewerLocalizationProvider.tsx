@@ -7,7 +7,7 @@ import {useStore} from '../../utils/contexts/StoreContext'
 import type {FormViewerWrapperComponentProps} from '../define/utils/View'
 import {BiDi} from './bidi'
 import {emotionCache} from './emotionCache'
-import type {Language} from './types'
+import type {Language} from './language'
 
 interface ViewerLocalizationProviderProps {
   children: ReactNode

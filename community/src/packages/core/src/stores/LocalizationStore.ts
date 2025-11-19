@@ -1,93 +1,51 @@
-import {FluentBundle, FluentResource} from '@fluent/bundle'
 import {makeAutoObservable} from 'mobx'
-import {replaceDots} from '../features/localization/dots'
-import {getFluentCompatibleId} from '../features/localization/getFluentCompatibleId'
-import type {LanguageFullCode} from '../features/localization/types'
+import type {ILocalizationEngine} from '../features/localization/ILocalizationEngine'
+import type {LanguageFullCode} from '../features/localization/language'
+import type {ComponentsLocalization, LocalizationType, LocalizationValue} from '../features/localization/types'
 import {nameObservable} from '../utils/observableNaming'
-
-/**
- * The format in which localization is stored.
- * @example
- * {
- *  "en-US" :
- *  {
- *    "componentKey:
- *      {
- *        "property" : "This {$value} is localized!"
- *      }
- *  }
- * }
- */
-export type LocalizationValue = Record<LanguageFullCode, ComponentsLocalization>
-
-/**
- * A record containing localizations grouped by component key.
- */
-export type ComponentsLocalization = Record<ComponentKey, TypedLocalization>
-
-/**
- * A record containing localizations grouped by localization type.
- */
-export type TypedLocalization = Partial<Record<LocalizationType, ComponentPropsLocalization>>
-
-/**
- * A record containing localizations for the component properties.
- */
-export type ComponentPropsLocalization = Record<ComponentPropertyName, string>
-
-/**
- * The component key.
- */
-export type ComponentKey = string
-
-/**
- * The component property name.
- */
-export type ComponentPropertyName = string
+import type {ILocalizationStore} from './ILocalizationStore'
 
 const className = 'LocalizationStore'
 
-/**
- * Represents the type of localization. The localization can be for a component, tooltip or for validator.
- */
-export type LocalizationType = 'component' | 'tooltip' | 'modal' | string
-
-class FluentBundleHolder {
+class LocalizationObservable {
 
   constructor(readonly languageFullCode: LanguageFullCode,
               readonly localizationStore: LocalizationStore) {
-    makeAutoObservable(this, undefined, {name: nameObservable('FluentBundleHolder')})
+    makeAutoObservable(this, undefined, {name: nameObservable('LocalizationObservable')})
   }
 
-  get fluentBundle() {
+  get items() {
     const componentsLocalization = this.localizationStore.value[this.languageFullCode]
-    const bundle = new FluentBundle(this.languageFullCode, {useIsolating: false})
+    const {engine} = this.localizationStore
 
     if (componentsLocalization) {
       const localizationItems = this.#getLocalizationItems(componentsLocalization)
-      localizationItems.forEach(item => {
-        const errors = bundle.addResource(new FluentResource(item))
-        if (errors.length > 0) {
-          console.error(`Unable to add localization resource: ${item}`)
-          errors.forEach(console.error)
-        }
-      })
+      const errors = engine.addMessages(this.languageFullCode, localizationItems)
+
+      if (errors.length !== 0) {
+        console.error(`Unable to add localization resource: ${errors}`)
+        return null
+      }
+
+      return localizationItems
     }
 
-    return bundle
+    return null
   }
 
   #getLocalizationItems(componentsLocalization: ComponentsLocalization) {
-    const localizationItems: string[] = []
+    const localizationItems: Record<string, string> = {}
+
     Object.entries(componentsLocalization).forEach(([componentKey, allComponentsLocalizationConstants]) => {
       Object.entries(allComponentsLocalizationConstants ?? {}).forEach(([type, componentLocalizationConstants]) => {
         Object.entries(componentLocalizationConstants ?? {}).forEach(([propertyName, localizationConstant]) => {
           if (localizationConstant) {
-            localizationItems.push(`${componentKey}_${type}_${propertyName} = ${replaceDots(localizationConstant)}`)
+            localizationItems[`${componentKey}_${type}_${propertyName}`] = localizationConstant
           }
         })
       })
     })
+
     return localizationItems
   }
 }
@@ -95,14 +53,18 @@ class FluentBundleHolder {
 /**
  * Observable storage of localization. **Internal use only.**
  */
-export class LocalizationStore {
+export class LocalizationStore implements ILocalizationStore {
 
-  private localizationCache = new Map<string, FluentBundleHolder>()
+  private localizationCache = new Map<string, LocalizationObservable>()
 
   /**
-   * The localization data.
+   * Creates a new LocalizationStore instance.
+   * @param value the initial localization value.
+   * @param engine the localization engine to use.
    */
-  readonly value: LocalizationValue = {}
+  constructor(readonly value: LocalizationValue = {}, readonly engine: ILocalizationEngine) {
+    makeAutoObservable(this, undefined, {name: nameObservable(className)})
+  }
 
   /**
    * Returns value of localization constant.
@@ -113,9 +75,10 @@ export class LocalizationStore {
    * @returns the value of localization constant.
    */
   getLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType) {
-    const fluentCompatibleComponentKey = getFluentCompatibleId(componentKey)
-    const fluentCompatiblePropertyName = getFluentCompatibleId(propertyName)
-    return this.value[languageFullCode]?.[fluentCompatibleComponentKey]?.[type]?.[fluentCompatiblePropertyName]
+    const compatibleKey = this.engine.getCompatibleId(componentKey)
+    const compatibleName = this.engine.getCompatibleId(propertyName)
+
+    return this.value[languageFullCode]?.[compatibleKey]?.[type]?.[compatibleName]
   }
 
   /**
@@ -127,12 +90,12 @@ export class LocalizationStore {
    * @param value the localization value.
    */
   setLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType, value: string) {
-    const fluentCompatibleComponentKey = getFluentCompatibleId(componentKey)
-    const fluentCompatiblePropertyName = getFluentCompatibleId(propertyName)
+    const compatibleId = this.engine.getCompatibleId(componentKey)
+    const compatibleName = this.engine.getCompatibleId(propertyName)
     this.value[languageFullCode] ??= {}
-    this.value[languageFullCode][fluentCompatibleComponentKey] ??= {}
-    this.value[languageFullCode][fluentCompatibleComponentKey][type] ??= {}
-    this.value[languageFullCode][fluentCompatibleComponentKey][type]![fluentCompatiblePropertyName] = value
+    this.value[languageFullCode][compatibleId] ??= {}
+    this.value[languageFullCode][compatibleId][type] ??= {}
+    this.value[languageFullCode][compatibleId][type]![compatibleName] = value
   }
 
   /**
@@ -140,9 +103,10 @@ export class LocalizationStore {
    * @param componentKey the component key that requires localization removal.
    */
   removeLocalization(componentKey: string) {
-    const fluentCompatibleComponentKey = getFluentCompatibleId(componentKey)
+    const compatibleKey = this.engine.getCompatibleId(componentKey)
+
     for (const languageFullCode of this.langCodes) {
-      delete this.value[languageFullCode][fluentCompatibleComponentKey]
+      delete this.value[languageFullCode][compatibleKey]
       if (Object.keys(this.value[languageFullCode]).length === 0) {
         delete this.value[languageFullCode]
       }
@@ -155,12 +119,13 @@ export class LocalizationStore {
    * @param type the localization type.
    */
   removeLocalizationForType(componentKey: string, type: LocalizationType) {
-    const fluentCompatibleComponentKey = getFluentCompatibleId(componentKey)
+    const compatibleKey = this.engine.getCompatibleId(componentKey)
+
     for (const languageFullCode of this.langCodes) {
-      if (!this.value[languageFullCode][fluentCompatibleComponentKey]) continue
-      delete this.value[languageFullCode][fluentCompatibleComponentKey][type]
-      if (Object.keys(this.value[languageFullCode][fluentCompatibleComponentKey]).length === 0) {
-        delete this.value[languageFullCode][fluentCompatibleComponentKey]
+      if (!this.value[languageFullCode][compatibleKey]) continue
+      delete this.value[languageFullCode][compatibleKey][type]
+      if (Object.keys(this.value[languageFullCode][compatibleKey]).length === 0) {
+        delete this.value[languageFullCode][compatibleKey]
       }
       if (Object.keys(this.value[languageFullCode]).length === 0) {
         delete this.value[languageFullCode]
@@ -185,23 +150,23 @@ export class LocalizationStore {
    * @returns true if the specified property has localization in at least one language.
    */
   hasLocalization(componentKey: string, propertyName: string, type: LocalizationType) {
-    const key = getFluentCompatibleId(componentKey)
-    const property = getFluentCompatibleId(propertyName)
+    const key = this.engine.getCompatibleId(componentKey)
+    const property = this.engine.getCompatibleId(propertyName)
+
     return Object.values(this.value).some(localization => {
       return localization?.[key]?.[type]?.[property]
     })
   }
 
   /**
-   * If the FluentBundle for the specified language is found, this function returns it.
-   * Otherwise, an empty FluentBundle is returned.
-   * @param languageFullCode the full code (en-US, en-GB etc.) of the language to get fluent bundle.
-   * @returns the FluentBundle for the specified language.
+   * @inheritDoc
    */
-  getFluentBundle(languageFullCode: LanguageFullCode) {
-    const holder = this.localizationCache.get(languageFullCode) ?? new FluentBundleHolder(languageFullCode, this)
+  getItems(languageFullCode: LanguageFullCode) {
+    const holder = this.localizationCache.get(languageFullCode) ?? new LocalizationObservable(languageFullCode, this)
+
     if (!this.localizationCache.has(languageFullCode)) this.localizationCache.set(languageFullCode, holder)
-    return holder.fluentBundle
+
+    return holder.items
   }
 
   /**
@@ -210,13 +175,14 @@ export class LocalizationStore {
    * @param newComponentKey the new component key to replace the old component key.
    */
   changeComponentKey(oldComponentKey: string, newComponentKey: string) {
-    const fluentCompatibleOldComponentKey = getFluentCompatibleId(oldComponentKey)
-    const fluentCompatibleNewComponentKey = getFluentCompatibleId(newComponentKey)
+    const compatibleOldKey = this.engine.getCompatibleId(oldComponentKey)
+    const compatibleNewKey = this.engine.getCompatibleId(newComponentKey)
+
     for (const languageFullCode of this.langCodes) {
-      const component = this.value[languageFullCode][fluentCompatibleOldComponentKey]
+      const component = this.value[languageFullCode][compatibleOldKey]
       if (component) {
-        this.value[languageFullCode][fluentCompatibleNewComponentKey] = component
-        delete this.value[languageFullCode][fluentCompatibleOldComponentKey]
+        this.value[languageFullCode][compatibleNewKey] = component
+        delete this.value[languageFullCode][compatibleOldKey]
       }
     }
   }
@@ -227,10 +193,11 @@ export class LocalizationStore {
    * @returns the object containing the localization values for the component in each supported language.
    */
   getLocalizationForComponent(componentKey: string) {
-    const fluentCompatibleComponentKey = getFluentCompatibleId(componentKey)
+    const compatibleKey = this.engine.getCompatibleId(componentKey)
     const localization: LocalizationValue = {}
+
     for (const languageFullCode of this.langCodes) {
-      const component = this.value[languageFullCode][fluentCompatibleComponentKey]
+      const component = this.value[languageFullCode][compatibleKey]
       if (component) {
         localization[languageFullCode] = {}
         localization[languageFullCode][componentKey] = component
@@ -246,12 +213,13 @@ export class LocalizationStore {
    * @param newComponentKey the new component key to be added.
    */
   addLocalizationWithNewKey(localization: LocalizationValue, oldComponentKey: string, newComponentKey: string) {
-    const fluentCompatibleNewComponentKey = getFluentCompatibleId(newComponentKey)
+    const compatibleKey = this.engine.getCompatibleId(newComponentKey)
     const langCodes = Object.keys(localization) as Array<LanguageFullCode>
+
     for (const languageFullCode of langCodes) {
       const component = localization[languageFullCode][oldComponentKey]
       if (component) {
-        this.value[languageFullCode][fluentCompatibleNewComponentKey] = component
+        this.value[languageFullCode][compatibleKey] = component
       }
     }
   }
@@ -261,15 +229,5 @@ export class LocalizationStore {
    */
   get langCodes() {
     return Object.keys(this.value) as Array<LanguageFullCode>
-  }
-
-  /**
-   * The constructor.
-   * @param value the initial localization value.
-   */
-  constructor(value: LocalizationValue = {}) {
-    makeAutoObservable(this, undefined, {name: nameObservable(className)})
-
-    this.value = value
   }
 }

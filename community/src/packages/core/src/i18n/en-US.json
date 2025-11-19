@@ -1,5 +1,31 @@
 {
   "components": {
+    "EmbeddedForm": {
+      "name": "Embedded form",
+      "description": "A form embedded in another form",
+      "props": {
+        "storeDataInParentForm": {
+          "name": "Store data in parent form",
+          "description": "If false, nested form data show as nested object, true otherwise"
+        },
+        "formName": {
+          "name": "Form name",
+          "description": "The form name"
+        },
+        "options": {
+          "name": "Options",
+          "description": "The additional options for loading the embedded form"
+        },
+        "disabled": {
+          "name": "Disabled",
+          "description": "If true, the embedded form is disabled"
+        },
+        "readOnly": {
+          "name": "Read only",
+          "description": "If true, the embedded form is read-only"
+        }
+      }
+    },
     "Repeater": {
       "name": "Repeater",
       "description": "The Repeater component is a special component that is responsible for displaying an array of repeating components",

@@ -1,9 +1,9 @@
+import type {LocalizationType} from '../features/localization/types'
 import type {ValidationResult} from '../features/validation/types/ValidationResult'
 import type {ComponentData} from '../utils/contexts/ComponentDataContext'
 import type {IFormData} from '../utils/IFormData'
 import type {ComponentStore} from './ComponentStore'
 import type {Form} from './Form'
-import type {LocalizationType} from './LocalizationStore'
 
 /**
  * The form viewer settings interface.

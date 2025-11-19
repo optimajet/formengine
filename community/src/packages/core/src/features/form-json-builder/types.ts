@@ -1,5 +1,5 @@
 import type {CSSProperties} from 'react'
-import type {LanguageFullCode} from '../localization/types'
+import type {LanguageFullCode} from '../localization/language'
 
 /**
  * Represents the target device for applying styles.

@@ -1,45 +1,44 @@
-import {BiDi} from './bidi'
+import type {LanguageFullCode} from './language'
 
 /**
- * The full language code, e.g. 'en-US'.
+ * The format in which localization is stored.
+ * @example
+ * {
+ *  "en-US": {
+ *    "componentKey": {
+ *      "property": "This {$value} is localized!"
+ *    }
+ *  }
+ * }
  */
-export type LanguageFullCode = `${string}-${string}`
+export type LocalizationValue = Record<LanguageFullCode, ComponentsLocalization>
 
 /**
- * The language to localize the form builder.
+ * A record containing localizations grouped by component key.
  */
-export class Language {
+export type ComponentsLocalization = Record<ComponentKey, TypedLocalization>
 
-  /**
-   * Creates a localization language for the form builder.
-   * @param code the language code, for example, 'en'.
-   * @param dialect the dialect code, for example, 'US'.
-   * @param name the name of the language, for example 'English'.
-   * @param description the description of the language, for example 'American English'.
-   * @param bidi the type of text layout, for example, BiDi.LTR.
-   */
-  constructor(
-    readonly code: string,
-    readonly dialect: string,
-    readonly name: string,
-    readonly description: string,
-    readonly bidi: BiDi = BiDi.LTR,
-  ) {
-  }
+/**
+ * A record containing localizations grouped by localization type.
+ */
+export type TypedLocalization = Partial<Record<LocalizationType, ComponentPropsLocalization>>
 
-  /**
-   * @returns Full code of the Language i.e en-US, en-GB etc.
-   */
-  get fullCode(): LanguageFullCode {
-    return `${this.code}-${this.dialect}`
-  }
+/**
+ * A record containing localizations for the component properties.
+ */
+export type ComponentPropsLocalization = Record<ComponentPropertyName, string>
 
-  /**
-   * Clones an existing instance of the language.
-   * @param source the cloning object.
-   * @returns the object clone.
-   */
-  static clone(source: Language) {
-    return new Language(source.code, source.dialect, source.name, source.description, source.bidi)
-  }
-}
+/**
+ * The component key.
+ */
+export type ComponentKey = string
+
+/**
+ * The component property name.
+ */
+export type ComponentPropertyName = string
+
+/**
+ * Represents the type of localization. The localization can be for a component, tooltip or for validator.
+ */
+export type LocalizationType = 'component' | 'tooltip' | 'modal' | string

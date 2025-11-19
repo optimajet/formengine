@@ -1,5 +1,5 @@
 import type {ComponentStore} from '../../stores/ComponentStore'
-import type {Language} from '../localization/types'
+import type {Language} from '../localization/language'
 
 /**
  * The function to localize the properties of a component.

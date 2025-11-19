@@ -7,8 +7,9 @@ import {commonActions} from '../features/event/consts/actions'
 import type {IFormViewer} from '../features/form-viewer'
 import {globalDefaultLanguage} from '../features/localization/default'
 import {findLanguage} from '../features/localization/findLanguage'
-import {localizeErrorMessage, localizeProperties} from '../features/localization/localizer'
-import {Language} from '../features/localization/types'
+import {Language} from '../features/localization/language'
+import {NoopLocalizationEngine} from '../features/localization/NoopLocalizationEngine'
+import type {LocalizationType} from '../features/localization/types'
 import type {ComponentPropertiesContext} from '../features/properties-context/ComponentPropertiesContext'
 import {createTemplateModel} from '../features/template'
 import {buildInternalErrorModel} from '../features/ui/internalErrorModel'
@@ -44,7 +45,6 @@ import type {FormViewerPropsStore} from './FormViewerPropsStore'
 import type {FormViewerValidationRules} from './FormViewerValidationRules'
 import type {IComponentState} from './IComponentState'
 import type {IStore} from './IStore'
-import type {LocalizationType} from './LocalizationStore'
 import {LocalizationStore} from './LocalizationStore'
 import type {PersistedForm} from './PersistedForm'
 import {PersistedFormVersion} from './PersistedForm'
@@ -128,7 +128,8 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
               public readonly setInitialData?: SetInitialDataFn
   ) {
     const componentTree = this.createDataRoot()
-    const localization = new LocalizationStore()
+    const locEngine = formViewerPropsStore.localizationEngine ?? new NoopLocalizationEngine()
+    const localization = new LocalizationStore({}, locEngine)
     this.form = new Form(componentTree, localization, {}, [], globalDefaultLanguage)
     this.form.modalType = this.getFirstComponentTypeWithRole('modal')
     this.form.tooltipType = this.getFirstComponentTypeWithRole('tooltip')
@@ -188,7 +189,8 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
   clear() {
     const oldForm = this.form
     const componentTree = this.createDataRoot()
-    const localization = new LocalizationStore()
+    const locEngine = this.formViewerPropsStore.localizationEngine ?? new NoopLocalizationEngine()
+    const localization = new LocalizationStore({}, locEngine)
     this.form = new Form(componentTree, localization, {}, oldForm.languages, oldForm.defaultLanguage)
     this.form.modalType = this.getFirstComponentTypeWithRole('modal')
     this.form.tooltipType = this.getFirstComponentTypeWithRole('tooltip')
@@ -311,7 +313,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
         this, deferFieldCalculation)
     }
 
-    if (!isTemplateType(model.type)) {
+    if (model.kind !== 'template') {
       return new SimpleField(componentData, calculateValue, createDataValidator, getInitialData, deferFieldCalculation)
     }
 
@@ -388,7 +390,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       componentData.getInitialData = () => this.initialDataSlice
       componentData.setInitialData = this.updateInitialData
 
-      const localization = new LocalizationStore(Object.assign({}, persistedForm.localization))
+      const localization = new LocalizationStore(Object.assign({}, persistedForm.localization), this.form.localization.engine)
 
       const languages = persistedForm.languages?.map(Language.clone) ?? []
       const defaultLanguage = languages.find(l => l.fullCode === persistedForm.defaultLanguage) ?? globalDefaultLanguage
@@ -427,8 +429,11 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    * @inheritDoc
    */
   localizeComponent(type: LocalizationType, formData: IFormData, componentStore: ComponentStore) {
-    if (this.formViewerPropsStore.localizer) return this.formViewerPropsStore.localizer(componentStore, this.displayedLanguage)
-    return localizeProperties(this.form, formData, this.displayedLanguage, componentStore, type)
+    if (this.formViewerPropsStore.localizer) {
+      return this.formViewerPropsStore.localizer(componentStore, this.displayedLanguage)
+    }
+
+    return this.form.localization.engine.localizeProperties(this.form, formData, this.displayedLanguage, componentStore, type)
   }
 
   /**
@@ -436,8 +441,10 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    */
   localizeErrorMessages(formData: IFormData, componentStore: ComponentStore, validationResults?: ValidationResult[]) {
     if (!validationResults) return
+
     return validationResults.map(result => {
-      const errorMessage = localizeErrorMessage(this.form, formData, this.displayedLanguage, componentStore, result.settings.key)
+      const {engine} = this.form.localization
+      const errorMessage = engine.localizeErrorMessage(this.form, formData, this.displayedLanguage, componentStore, result.settings.key)
       return errorMessage ?? getDefaultErrorMessage(result)
     })
   }

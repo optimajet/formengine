@@ -3,7 +3,7 @@ import {toArray} from '../annotation/toArray'
 import {modules} from '../define/constants'
 import {Meta} from '../define/utils/Meta'
 import {generateTemplateTypeName} from '../ui/templateUtil'
-import {templateStyleProperties} from './templateModel'
+import {embeddedFormStyleProperties} from './embeddedFormModel'
 import type {TemplateProps} from './TemplateProps'
 
 const storeDataInParentForm = boolean
@@ -30,5 +30,5 @@ export function createTemplateMeta(name: string) {
       disabled: disabled,
       readOnly: readOnly,
     }),
-    [], templateStyleProperties, modules)
+    [], embeddedFormStyleProperties, modules)
 }

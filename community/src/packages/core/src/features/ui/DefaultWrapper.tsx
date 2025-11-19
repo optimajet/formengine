@@ -1,6 +1,5 @@
 import {css, cx} from '@emotion/css'
 import type {ComponentProps, ForwardedRef} from 'react'
-import {useMemo} from 'react'
 import {forwardRef} from '../../utils/forwardRefShim'
 
 const defaultWrapperClass = css`
@@ -15,7 +14,7 @@ const defaultWrapperClass = css`
  */
 export const DefaultWrapper = forwardRef((props: ComponentProps<any>, ref: ForwardedRef<any>) => {
   const {className, children, ...otherProps} = props
-  const cls = useMemo(() => cx(defaultWrapperClass, className), [className])
+  const cls = cx(defaultWrapperClass, className)
   return <div className={cls} {...otherProps} ref={ref}>{children}</div>
 })
 DefaultWrapper.displayName = 'Screen'

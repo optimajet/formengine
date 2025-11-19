@@ -1,5 +1,31 @@
 {
   "components": {
+    "EmbeddedForm": {
+      "description": "Una forma incorporata in un'altra forma",
+      "name": "Modulo incorporato",
+      "props": {
+        "disabled": {
+          "description": "Se true, il modulo incorporato è disabilitato",
+          "name": "Disabilita"
+        },
+        "formName": {
+          "description": "Il nome del modulo",
+          "name": "Nome modulo"
+        },
+        "options": {
+          "description": "Le opzioni aggiuntive per il caricamento del modulo incorporato",
+          "name": "Opzioni"
+        },
+        "readOnly": {
+          "description": "Se true, il modulo incorporato è di sola lettura",
+          "name": "Sola lettura"
+        },
+        "storeDataInParentForm": {
+          "description": "Se false, i dati del modulo nidificati vengono visualizzati come oggetto nidificato, true altrimenti",
+          "name": "Memorizzare i dati in forma padre"
+        }
+      }
+    },
     "Repeater": {
       "description": "Il componente Repeater è un componente speciale che è responsabile della visualizzazione di una serie di componenti ripetuti",
       "name": "Ripetitore",

@@ -10,7 +10,7 @@ export function generateTemplateTypeName(name: string) {
 }
 
 /**
- * Extracts the template name from the specified component type name.
+ * Extracts the template name from the specified component type name. **Internal use only.**
  * @param typeName the component type name.
  * @returns the template name.
  */
@@ -20,7 +20,7 @@ export function getTemplateName(typeName: string) {
 }
 
 /**
- * Returns true if typeName is the template type, false otherwise.
+ * Returns true if typeName is the template type, false otherwise. **Internal use only.**
  * @param typeName the type name.
  * @returns true if typeName is the template type, false otherwise.
  */

@@ -1,6 +1,6 @@
 import type {ComponentProperty} from '../../stores/ComponentStore'
-import type {LocalizationValue} from '../../stores/LocalizationStore'
-import type {LanguageFullCode} from '../localization/types'
+import type {LanguageFullCode} from '../localization/language'
+import type {LocalizationValue} from '../localization/types'
 import type {Device, FormOptions, IComponentBuilder, IEventHandlerBuilder, IFormJsonBuilder, IValidationBuilder} from './types'
 
 type Event = {

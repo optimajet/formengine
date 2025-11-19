@@ -2,7 +2,8 @@ import type {ComponentType, ForwardedRef} from 'react'
 import type {ViewMode} from '../../types'
 import type {IFormData} from '../../utils/IFormData'
 import type {View} from '../define'
-import type {LanguageFullCode} from '../localization/types'
+import type {ILocalizationEngine} from '../localization/ILocalizationEngine'
+import type {LanguageFullCode} from '../localization/language'
 import type {ErrorWrapperProps} from '../validation'
 import type {Validators} from '../validation/types/CustomValidationRules'
 import type {ComponentLocalizer} from './ComponentLocalizer'
@@ -119,6 +120,11 @@ export interface FormViewerProps {
    * The arbitrary user context.
    */
   context?: any
+
+  /**
+   * The localization engine used by the viewer.
+   */
+  localizationEngine?: ILocalizationEngine
 }
 
 /**

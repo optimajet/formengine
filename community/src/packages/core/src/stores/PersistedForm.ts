@@ -1,7 +1,7 @@
 import type {ActionValues} from '../features/event'
-import type {Language} from '../features/localization/types'
+import type {Language} from '../features/localization/language'
+import type {LocalizationValue} from '../features/localization/types'
 import type {ComponentStore} from './ComponentStore'
-import type {LocalizationValue} from './LocalizationStore'
 
 /**
  * The version of the saved form.

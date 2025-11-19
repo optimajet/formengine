@@ -1,5 +1,31 @@
 {
   "components": {
+    "EmbeddedForm": {
+      "description": "嵌入另一种形式的形式",
+      "name": "嵌入式表格",
+      "props": {
+        "disabled": {
+          "description": "如果为true，则禁用嵌入表单",
+          "name": "残疾人士"
+        },
+        "formName": {
+          "description": "表格名称",
+          "name": "表格名称"
+        },
+        "options": {
+          "description": "加载嵌入表单的其他选项",
+          "name": "选项"
+        },
+        "readOnly": {
+          "description": "如果为true，则嵌入表单为只读",
+          "name": "只读"
+        },
+        "storeDataInParentForm": {
+          "description": "如果为false，则嵌套表单数据显示为嵌套对象，否则为true",
+          "name": "以父窗体存储数据"
+        }
+      }
+    },
     "Repeater": {
       "description": "Repeater组件是一个特殊的组件，负责显示重复组件的数组",
       "name": "中继器",

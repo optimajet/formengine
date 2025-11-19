@@ -1,5 +1,31 @@
 {
   "components": {
+    "EmbeddedForm": {
+      "description": "Ein Formular, das in ein anderes Formular eingebettet ist",
+      "name": "Eingebettetes Formular",
+      "props": {
+        "disabled": {
+          "description": "Wenn true, ist das eingebettete Formular deaktiviert",
+          "name": "Behinderte"
+        },
+        "formName": {
+          "description": "Der Name des Formulars",
+          "name": "Name des Formulars"
+        },
+        "options": {
+          "description": "Die zusätzlichen Optionen zum Laden des eingebetteten Formulars",
+          "name": "Option"
+        },
+        "readOnly": {
+          "description": "Wenn true, ist das eingebettete Formular schreibgeschützt",
+          "name": "Schreibgesch"
+        },
+        "storeDataInParentForm": {
+          "description": "Wenn false, werden verschachtelte Formulardaten als verschachteltes Objekt angezeigt, andernfalls true",
+          "name": "Daten im übergeordneten Formular speichern"
+        }
+      }
+    },
     "Repeater": {
       "description": "Die Repeater-Komponente ist eine spezielle Komponente, die für die Anzeige eines Arrays sich wiederholender Komponenten verantwortlich ist",
       "name": "Verstärker",

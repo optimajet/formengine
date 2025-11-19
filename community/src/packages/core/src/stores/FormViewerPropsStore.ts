@@ -6,7 +6,8 @@ import type {FormViewerProps} from '../features/form-viewer'
 import type {ComponentLocalizer} from '../features/form-viewer/ComponentLocalizer'
 import {customActionsToActionsValues} from '../features/form-viewer/CustomActions'
 import type {FormValidators} from '../features/form-viewer/FormValidators'
-import type {LanguageFullCode} from '../features/localization/types'
+import type {ILocalizationEngine} from '../features/localization/ILocalizationEngine'
+import type {LanguageFullCode} from '../features/localization/language'
 import type {ErrorWrapperProps} from '../features/validation'
 import type {Validators} from '../features/validation/types/CustomValidationRules'
 import {nameObservable} from '../utils/observableNaming'
@@ -65,6 +66,11 @@ export class FormViewerPropsStore {
   context?: any
 
   /**
+   * The localization engine provided via FormViewer props.
+   */
+  localizationEngine?: ILocalizationEngine
+
+  /**
    * Constructs a new FormViewerPropsStore from the given FormViewerProps.
    * @param formViewerProps the FormViewer props.
    * @returns the FormViewerPropsStore.
@@ -87,6 +93,7 @@ export class FormViewerPropsStore {
       readOnly: observable.ref,
       showAllValidationErrors: observable.ref,
       context: observable.ref,
+      localizationEngine: observable.ref,
     }, {name: nameObservable(`FormViewerPropsStore`)})
   }
 
@@ -107,6 +114,7 @@ export class FormViewerPropsStore {
     this.disabled = formViewerProps.disabled
     this.showAllValidationErrors = formViewerProps.showAllValidationErrors
     this.context = formViewerProps.context
+    this.localizationEngine = formViewerProps.localizationEngine
   }
 
   /**
@@ -127,6 +135,7 @@ export class FormViewerPropsStore {
     clone.disabled = this.disabled
     clone.showAllValidationErrors = this.showAllValidationErrors
     clone.context = this.context
+    clone.localizationEngine = this.localizationEngine
     return clone
   }
 }

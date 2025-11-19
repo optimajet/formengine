@@ -3,6 +3,7 @@ import type {DetailedHTMLProps, HTMLAttributes} from 'react'
 import {useMemo} from 'react'
 import {namedObserver} from '../../utils'
 import {useMobxConfig} from '../../utils/useMobxConfig'
+import {FluentLocalizationEngine} from '../localization/fluent/FluentLocalizationEngine'
 import {ViewerLocalizationProvider} from '../localization/ViewerLocalizationProvider'
 import {SuppressResizeObserverErrors} from '../ui/SuppressResizeObserverErrors'
 import {Viewer} from './components/Viewer'
@@ -27,7 +28,6 @@ export const SDiv = (props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
   return <div className={cls} {...otherProps}>{children}</div>
 }
 
-//No other code here
 /**
  * The main React component of the form viewer.
  * @param props the React component properties.
@@ -36,17 +36,21 @@ export const SDiv = (props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
 const RawFormViewer = (props: FormViewerProps) => {
   useMobxConfig()
 
-  return (
-    <SuppressResizeObserverErrors>
-      <ViewerStoreProvider props={props}>
-        <ViewerLocalizationProvider>
-          <SDiv>
-            <Viewer/>
-          </SDiv>
-        </ViewerLocalizationProvider>
-      </ViewerStoreProvider>
-    </SuppressResizeObserverErrors>
-  )
+  const localizationEngine = useMemo(() => props.localizationEngine ?? new FluentLocalizationEngine(), [props.localizationEngine])
+  const finalProps = useMemo(() => ({
+    ...props,
+    localizationEngine
+  }), [localizationEngine, props])
+
+  return <SuppressResizeObserverErrors>
+    <ViewerStoreProvider props={finalProps}>
+      <ViewerLocalizationProvider>
+        <SDiv>
+          <Viewer/>
+        </SDiv>
+      </ViewerLocalizationProvider>
+    </ViewerStoreProvider>
+  </SuppressResizeObserverErrors>
 }
 
 export const FormViewer = namedObserver('FormViewer', RawFormViewer)

@@ -1,4 +1,3 @@
-import type {FluentVariable} from '@fluent/bundle'
 import type {ValidationMessages} from '../features/validation/types/ValidationResult'
 
 /**
@@ -39,12 +38,6 @@ export interface IFormData {
    * @returns A user-defined key-value observable storage. Utilize it to store and share any custom data.
    */
   get state(): Record<string, unknown>
-
-  /**
-   * @returns all the form data that is of the FluentVariable type.
-   * Additionally, the keys of the returned object are converted to the snake case.
-   */
-  get fluentData(): Record<string, FluentVariable>
 
   /**
    * Sets the validation error message for all form data fields.

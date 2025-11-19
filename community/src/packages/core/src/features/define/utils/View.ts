@@ -1,10 +1,11 @@
 import type {ComponentType, ReactNode} from 'react'
 import {BiDi} from '../../localization/bidi'
-import type {Language} from '../../localization/types'
+import type {Language} from '../../localization/language'
 import {modalModel} from '../../modal/modalModel'
 import {repeaterItemModel} from '../../repeater/RepeaterItem'
 import {repeaterModel} from '../../repeater/repeaterModel'
 import {slotModel} from '../../template'
+import {embeddedFormModel} from '../../template/embeddedFormModel'
 import {fragmentModel} from '../../template/fragmentModel'
 import {internalErrorModel} from '../../ui/internalErrorModel'
 import {screenModel} from '../../ui/screenModel'
@@ -60,6 +61,7 @@ export class View {
     this.define(screenModel)
     this.define(internalErrorModel)
     this.define(slotModel)
+    this.define(embeddedFormModel)
     this.define(fragmentModel)
     this.define(repeaterModel)
     this.define(repeaterItemModel)

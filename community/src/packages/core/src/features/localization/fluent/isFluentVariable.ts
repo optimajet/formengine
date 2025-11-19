@@ -1,6 +1,5 @@
-import type {FluentVariable} from '@fluent/bundle'
-import type {FluentType} from '@fluent/bundle/esm/types.js'
-import {isUndefined} from '../../utils/tools'
+import type {FluentType, FluentVariable} from '@fluent/bundle'
+import {isUndefined} from '../../../utils/tools'
 
 /**
  * The type checker for the {@link FluentVariable} type.

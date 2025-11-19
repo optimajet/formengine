@@ -1,5 +1,5 @@
 import type {ComponentLibraryDescription} from '../features/annotation/ComponentDescriptions'
-import type {LanguageFullCode} from '../features/localization/types'
+import type {LanguageFullCode} from '../features/localization/language'
 import arEgComponentsDescriptions from './ar-EG.json'
 import deDeComponentsDescriptions from './de-DE.json'
 import enUsComponentsDescriptions from './en-US.json'

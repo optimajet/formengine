@@ -1,5 +1,31 @@
 {
   "components": {
+    "EmbeddedForm": {
+      "description": "別のフォームに埋め込まれたフォーム",
+      "name": "埋め込みフォーム",
+      "props": {
+        "disabled": {
+          "description": "Trueの場合、埋め込みフォームは無効になります",
+          "name": "無効"
+        },
+        "formName": {
+          "description": "フォーム名",
+          "name": "フォーム名"
+        },
+        "options": {
+          "description": "埋め込みフォームを読み込むための追加オプション",
+          "name": "オプション"
+        },
+        "readOnly": {
+          "description": "Trueの場合、埋め込みフォームは読み取り専用です",
+          "name": "読み取り専用"
+        },
+        "storeDataInParentForm": {
+          "description": "Falseの場合はネストされたフォームデータがネストされたオブジェクトとして表示され、そうでない場合はtrue",
+          "name": "親フォームにデータを保存する"
+        }
+      }
+    },
     "Repeater": {
       "description": "Repeaterコンポーネントは、繰り返しコンポーネントの配列を表示するための特別なコンポーネントです",
       "name": "リピータ",

@@ -12,17 +12,17 @@ import {
   cfDisableTooltipProperties
 } from '../define/utils/integratedComponentFeatures'
 import {ViewerPropsProvider} from '../form-viewer/components/ViewerPropsContext'
-import {useTemplate} from './templateModel'
+import {useEmbeddedForm} from './embeddedFormModel'
 
 const RawSlotContent = ({parentStore}: { parentStore: Store }) => {
   const {key} = useComponentData()
-  const {viewerProps, data, templateProps} = useTemplate()
+  const {viewerProps, data, embeddedFormProps} = useEmbeddedForm()
 
   return (
     <StoreProvider value={parentStore}>
       <ViewerPropsProvider value={viewerProps}>
         <ComponentDataProvider value={data}>
-          {templateProps[key]}
+          {embeddedFormProps[key]}
         </ComponentDataProvider>
       </ViewerPropsProvider>
     </StoreProvider>

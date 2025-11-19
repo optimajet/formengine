@@ -1,12 +1,14 @@
 import type {ComponentLibraryDescription} from '../../annotation/ComponentDescriptions'
 import {internalErrorMeta} from '../../components/internalErrorMeta'
 import {screenMeta} from '../../components/screenMeta'
-import type {LanguageFullCode} from '../../localization/types'
+import type {LanguageFullCode} from '../../localization/language'
 import {modalMeta} from '../../modal/modalMeta'
 import {modalModel} from '../../modal/modalModel'
 import {repeaterMeta} from '../../repeater/repeaterMeta'
 import {repeaterModel} from '../../repeater/repeaterModel'
 import {createTemplateMeta, createTemplateModel, slotMeta, slotModel} from '../../template'
+import {embeddedFormMeta} from '../../template/embeddedFormMeta'
+import {embeddedFormModel} from '../../template/embeddedFormModel'
 import {internalErrorModel} from '../../ui/internalErrorModel'
 import {screenModel} from '../../ui/screenModel'
 import {errorMessageModel} from '../../validation/components/DefaultErrorMessage'
@@ -128,6 +130,7 @@ export class BuilderView extends View {
     this.builderComponents.push({meta: screenMeta, model: screenModel})
     this.builderComponents.push({meta: internalErrorMeta, model: internalErrorModel})
     this.builderComponents.push({meta: slotMeta, model: slotModel, category: templatesCategoryName})
+    this.builderComponents.push({meta: embeddedFormMeta, model: embeddedFormModel, category: templatesCategoryName})
     this.builderComponents.push({meta: repeaterMeta, model: repeaterModel, category: structureCategoryName})
     this.builderComponents.push({meta: errorMessageMeta, model: errorMessageModel})
     this.builderComponents.push({meta: modalMeta, model: modalModel, category: modalCategoryName})

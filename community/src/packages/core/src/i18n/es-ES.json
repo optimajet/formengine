@@ -1,5 +1,31 @@
 {
   "components": {
+    "EmbeddedForm": {
+      "description": "Un formulario incrustado en otro formulario",
+      "name": "Formulario incrustado",
+      "props": {
+        "disabled": {
+          "description": "Si es verdadero, el formulario incrustado está deshabilitado",
+          "name": "Discapacitados"
+        },
+        "formName": {
+          "description": "El nombre del formulario",
+          "name": "Nombre del formulario"
+        },
+        "options": {
+          "description": "Las opciones adicionales para cargar el formulario incrustado",
+          "name": "Opciones"
+        },
+        "readOnly": {
+          "description": "Si es true, el formulario incrustado es de solo lectura",
+          "name": "Solo lectura"
+        },
+        "storeDataInParentForm": {
+          "description": "Si es falso, los datos del formulario anidado se muestran como objeto anidado, verdadero de lo contrario",
+          "name": "Almacenar datos en forma principal"
+        }
+      }
+    },
     "Repeater": {
       "description": "El componente Repetidor es un componente especial que se encarga de mostrar una matriz de componentes repetidos",
       "name": "Repetidor",

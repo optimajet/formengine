@@ -1,4 +1,4 @@
-import type {Language, LanguageFullCode} from './types'
+import type {Language, LanguageFullCode} from './language'
 
 function findLanguageByCode(availableLanguages: Language[], code: string) {
   return availableLanguages.find(l => l.code === code)

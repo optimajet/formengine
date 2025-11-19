@@ -1,4 +1,4 @@
-import {Language} from './types'
+import {Language} from './language'
 
 /**
  * The default language for the application.

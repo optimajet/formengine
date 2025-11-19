@@ -275,7 +275,7 @@ export class ComponentStore {
    * @param store the component settings.
    * @returns the clone of the specified component settings.
    */
-  static clone(store: ComponentStore) {
+  static clone(store: ComponentStore): ComponentStore {
     const obj = JSON.parse(JSON.stringify(store))
     return ComponentStore.createFromObject(obj)
   }

@@ -3,7 +3,6 @@ import {makeAutoObservable, reaction} from 'mobx'
 import {isRecord} from '..'
 import type {Model} from '../../features/define'
 import {cfSkipChildrenDuringFieldCollection} from '../../features/define/utils/integratedComponentFeatures'
-import {getFluentData} from '../../features/localization/getFluentData'
 import type {Field} from '../../features/validation'
 import type {ValidationMessages} from '../../features/validation/types/ValidationResult'
 import type {ComponentField} from '../../features/validation/utils/Field'
@@ -93,7 +92,7 @@ export interface IDataRootProvider {
  * @param form the form.
  * @returns all form data where empty fields are filled with empty strings.
  */
-export const getEditableFormData = (form: ComponentData) => {
+export const getEditableFormData = (form: IFormData) => {
   const result: Record<string, unknown> = {}
 
   Object.entries(form.data).forEach(([key, value]) => {
@@ -428,15 +427,6 @@ export class ComponentData implements IFormData {
    */
   get rootData() {
     return this.root.data
-  }
-
-  /**
-   * @returns all the form data that is of the FluentVariable type.
-   * Additionally, the keys of the returned object are converted to the snake case.
-   */
-  get fluentData() {
-    const initializedData = getEditableFormData(this)
-    return getFluentData(initializedData)
   }
 
   /**

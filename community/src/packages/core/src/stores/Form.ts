@@ -2,24 +2,25 @@ import {makeAutoObservable} from 'mobx'
 import type {ActionData, ActionValues, NamedActionDefinition} from '../features/event'
 import {ActionDefinition} from '../features/event'
 import type {FormValidator} from '../features/form-viewer/FormValidators'
-import type {Language} from '../features/localization/types'
+import type {Language} from '../features/localization/language'
 import {AsyncFunction} from '../utils/AsyncFunction'
 import type {ComponentData} from '../utils/contexts/ComponentDataContext'
 import {generateUniqueName} from '../utils/generateUniqueName'
 import type {ComponentStore} from './ComponentStore'
+import type {IForm} from './IForm'
 import type {LocalizationStore} from './LocalizationStore'
 
 /**
  * Represents a form that is rendered in Viewer or edited in Builder.
  */
-export class Form {
+export class Form implements IForm {
   /**
    * Root component of the form.
    */
   readonly componentTree: ComponentData
 
   /**
-   * Localization of the form.
+   * @inheritDoc
    */
   readonly localization: LocalizationStore
 
@@ -54,7 +55,7 @@ export class Form {
   modalType?: string
 
   /**
-   * Default localization language of the form.
+   * @inheritDoc
    */
   defaultLanguage: Language
 

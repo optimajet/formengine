@@ -1,8 +1,8 @@
 import type {ComponentStore} from '../../../stores/ComponentStore'
 import {isFunctionalProperty, isLocalizedProperty} from '../../../stores/ComponentStore'
-import type {LocalizationType} from '../../../stores/LocalizationStore'
 import type {IFormData} from '../../../utils/IFormData'
 import {calculatePropertyValue} from '../../calculation/propertyCalculator'
+import type {LocalizationType} from '../../localization/types'
 
 /**
  * The function to localize the properties of a component.
