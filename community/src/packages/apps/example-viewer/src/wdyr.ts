@@ -6,6 +6,6 @@ if (process.env.NODE_ENV === 'development' && !!process.env.WDYR) {
   // @ts-ignore react version
   whyDidYouRender(React, {
     trackAllPureComponents: true,
-    trackHooks: true
+    trackHooks: true,
   })
 }

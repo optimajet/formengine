@@ -6,8 +6,8 @@ import {TagPicker} from 'rsuite'
 import {pickerProps} from '../commonProperties'
 import {setAriaHiddenIfNotExists} from '../hooks'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
+import {Labeled} from './internal/Labeled'
 
 /**
  * Props for the RsTagPicker component.

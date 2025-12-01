@@ -5,8 +5,8 @@ import {PatternFormat} from 'react-number-format'
 import type {InputProps} from 'rsuite'
 import {inputProps} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
-import {WrappedInput} from './components/WrappedInput'
+import {Labeled} from './internal/Labeled'
+import {WrappedInput} from './internal/WrappedInput'
 
 /**
  * Props for the RsPatternFormat component.

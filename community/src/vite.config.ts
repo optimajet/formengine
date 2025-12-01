@@ -9,7 +9,7 @@ import {configDefaults} from 'vitest/config'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-export default defineConfig(({command}) => ({
+export default defineConfig(() => ({
   plugins: [
     analyzer({
       analyzerMode: 'static',

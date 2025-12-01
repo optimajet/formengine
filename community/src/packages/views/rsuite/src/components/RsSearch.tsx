@@ -9,8 +9,8 @@ import {pickerProps} from '../commonProperties'
 import type {LoadDataProps} from '../hooks'
 import {useFixAriaAttributesForInputPicker, useLoadData} from '../hooks'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
+import {Labeled} from './internal/Labeled'
 
 const Container = styled.div`
   display: flex;

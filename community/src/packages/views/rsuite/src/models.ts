@@ -1,6 +1,4 @@
-import {rSuiteComponents} from './rSuiteComponents'
-
-export const components = rSuiteComponents.map(def => def.build())
+import {components} from './definitions'
 
 /**
  * An array of rSuite component metadata for use in FormViewer.

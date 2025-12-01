@@ -15,11 +15,13 @@ import {createRoot} from 'react-dom/client'
 export function renderFormViewerTo(container: HTMLElement, props: Partial<FormViewerProps>) {
   const root = createRoot(container)
 
-  const componentsView = props.view ?? view
-    .withViewerWrapper(RsLocalizationWrapper)
-    .withCssLoader(BiDi.LTR, ltrCssLoader)
-    .withCssLoader(BiDi.RTL, rtlCssLoader)
-    .withCssLoader('common', formEngineRsuiteCssLoader)
+  const componentsView =
+    props.view ??
+    view
+      .withViewerWrapper(RsLocalizationWrapper)
+      .withCssLoader(BiDi.LTR, ltrCssLoader)
+      .withCssLoader(BiDi.RTL, rtlCssLoader)
+      .withCssLoader('common', formEngineRsuiteCssLoader)
 
   const formViewerProps: FormViewerProps = {
     ...props,

@@ -6,7 +6,7 @@
     "bootstrap": "npx lerna bootstrap",
     "start": "npx lerna run dev --scope=@react-form-builder/example-viewer",
     "build": "npx lerna run build",
-    "bundle": "npx lerna run bundle",
+    "pack": "npx lerna run pack",
     "clean": "lerna exec -- npx rimraf node_modules dist build *.tgz && rimraf node_modules",
     "check:tsc": "tsc --noEmit --emitDeclarationOnly false",
     "eslint": "npx eslint .",

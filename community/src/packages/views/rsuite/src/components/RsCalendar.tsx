@@ -3,7 +3,7 @@ import {Calendar} from 'rsuite'
 import type {CalendarProps} from 'rsuite/esm/Calendar/Calendar'
 import {readOnly} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
+import {Labeled} from './internal/Labeled'
 
 /**
  * Props for the RsCalendar component.

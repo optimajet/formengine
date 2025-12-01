@@ -1,5 +1,5 @@
 /* eslint-env node */
-const projects = [
+const project = [
   './packages/core/tsconfig.json',
   './packages/designer/tsconfig.json',
   './packages/designer-bundle/tsconfig.json',
@@ -10,7 +10,9 @@ const projects = [
   './packages/views/google-map/tsconfig.json',
   './packages/views/fast-qr/tsconfig.json',
   './packages/views/rsuite/tsconfig.json',
+  './packages/views/rsuite/config/tsconfig.json',
   './packages/views/signature/tsconfig.json',
+  './packages/views/uploader/tsconfig.json',
   './tests/component/tsconfig.json'
 ]
 
@@ -123,8 +125,21 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: projects,
+    project,
     tsconfigRootDir: __dirname,
   },
   root: true,
+  overrides: [
+    {
+      files: ['**/config/*.ts'],
+      rules: {
+        'import/no-nodejs-modules': 'off',
+        'no-console': 'off',
+        'jsdoc/require-jsdoc': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'no-inner-declarations': 'off',
+      },
+    },
+  ],
 };

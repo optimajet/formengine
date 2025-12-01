@@ -3,7 +3,7 @@ import type {InputProps} from 'rsuite'
 import {Input} from 'rsuite'
 import {positiveNumber, readOnly, size} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
+import {Labeled} from './internal/Labeled'
 
 /**
  * Props for the RsTextArea component.

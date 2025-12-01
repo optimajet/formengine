@@ -3,7 +3,7 @@ import {boolean, define, disabled, event, oneOf, string} from '@react-form-build
 import {Toggle} from 'rsuite'
 import {controlColor, readOnly} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {requiredStyle} from './components/Labeled'
+import {requiredStyle} from './internal/Labeled'
 
 const SToggle = styled(Toggle)`
   &.required .rs-toggle-label::after {

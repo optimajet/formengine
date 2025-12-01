@@ -1,4 +1,6 @@
 import type {Definer} from '@react-form-builder/core'
+import {fieldsCategory, modalCategory, staticCategory, structureCategory} from './components/categories'
+import {rsWizardStep} from './components/internal/RsWizard/RsWizardStep'
 import {rsAutoComplete} from './components/RsAutocomplete'
 import {rsBreadcrumb} from './components/RsBreadcrumb'
 import {rsButton} from './components/RsButton'
@@ -33,11 +35,10 @@ import {rsTimePicker} from './components/RsTimePicker'
 import {rsToggle} from './components/RsToggle'
 import {rsTooltip} from './components/RsTooltip'
 import {rsUploader} from './components/RsUploader'
-import {rsWizard} from './components/RsWizard/RsWizard'
-import {rsWizardStep} from './components/RsWizard/RsWizardStep'
+import {rsWizard} from './components/RsWizard'
 
 const categories = {
-  fields: [
+  [fieldsCategory]: [
     rsAutoComplete,
     rsCalendar,
     rsCheckbox,
@@ -54,7 +55,7 @@ const categories = {
     rsToggle,
     rsUploader
   ],
-  static: [
+  [staticCategory]: [
     rsButton,
     rsErrorMessage,
     rsDivider,
@@ -72,11 +73,11 @@ const categories = {
     rsTooltip,
     rsLink,
   ],
-  modal: [
+  [modalCategory]: [
     rsModal,
     rsModalLayout,
   ],
-  structure: [
+  [structureCategory]: [
     rsBreadcrumb,
     rsCard,
     rsContainer,

@@ -7,9 +7,9 @@ import {pickerProps} from '../commonProperties'
 import type {LoadDataProps} from '../hooks'
 import {useFixAriaAttributesForInputPicker, useLoadData} from '../hooks'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
-import {SLoader} from './SLoader'
+import {Labeled} from './internal/Labeled'
+import {SLoader} from './internal/SLoader'
 
 /**
  * Props for the RsDropdown component.

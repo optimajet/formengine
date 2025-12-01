@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Champs"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "Composant de téléchargement de fichiers avec prise en charge du glisser-déposer",
+      "name": "Téléchargeur de fichiers",
+      "props": {
+        "accept": {
+          "description": "Types de fichiers acceptés (par exemple, image/*,.pdf,.docx)",
+          "name": "Accepter"
+        },
+        "action": {
+          "description": "URL vers laquelle télécharger des fichiers",
+          "name": "URL de l'ACTION"
+        },
+        "children": {
+          "description": "Contenu à afficher à l'intérieur de l'uploader",
+          "name": "Enfants"
+        },
+        "disabled": {
+          "description": "Si c'est vrai, les enfants sont dans un état handicapé",
+          "name": "Désactivé"
+        },
+        "dropzone": {
+          "description": "Si vrai, la zone de dépôt affichera",
+          "name": "Zone de Dépôt"
+        },
+        "multiple": {
+          "description": "Autoriser la sélection de fichiers multiples",
+          "name": "Fichiers multiples"
+        },
+        "onChange": {
+          "description": "Rappel lorsque les fichiers sont téléchargés avec succès",
+          "name": "Sur Le Changement"
+        },
+        "onError": {
+          "description": "Rappel lorsqu'une erreur se produit lors du téléchargement",
+          "name": "En Cas D'Erreur"
+        },
+        "readOnly": {
+          "description": "Si vrai, les enfants sont en lecture seule",
+          "name": "Lecture Seule"
+        }
+      }
+    }
+  }
+}

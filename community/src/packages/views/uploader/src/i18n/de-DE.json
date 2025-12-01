@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Datenfelder"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "Datei-Upload-Komponente mit Drag &amp; Drop-Unterstützung",
+      "name": "Datei-Uploader",
+      "props": {
+        "accept": {
+          "description": "Akzeptierte Dateitypen (z. B. image/*, .PDF, .docx)",
+          "name": "Akzeptieren"
+        },
+        "action": {
+          "description": "URL zum Hochladen von Dateien",
+          "name": "Aktions-URL"
+        },
+        "children": {
+          "description": "Inhalt, der im Uploader angezeigt werden soll",
+          "name": "Kinder"
+        },
+        "disabled": {
+          "description": "Wenn wahr, sind die Kinder im behinderten Zustand",
+          "name": "Behinderte"
+        },
+        "dropzone": {
+          "description": "Wenn wahr, wird die Dropzone angezeigt",
+          "name": "Dropzone"
+        },
+        "multiple": {
+          "description": "Auswahl mehrerer Dateien zulassen",
+          "name": "Mehrere Dateien"
+        },
+        "onChange": {
+          "description": "Rückruf, wenn Dateien erfolgreich hochgeladen wurden",
+          "name": "Bei Veränderung"
+        },
+        "onError": {
+          "description": "Rückruf, wenn beim Hochladen ein Fehler auftritt",
+          "name": "Bei Fehler"
+        },
+        "readOnly": {
+          "description": "Wenn wahr, sind die Kinder schreibgeschützt",
+          "name": "schreibgesch"
+        }
+      }
+    }
+  }
+}

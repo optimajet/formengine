@@ -10,21 +10,18 @@ const peerDependencies = (packageJson as any)['peerDependencies'] || {}
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-export default defineConfig((env) => mergeConfig(base(env), {
-  resolve: {
-    alias: {
-      lodash: 'lodash-es'
-    }
-  },
-  build: {
-    sourcemap: true,
-    lib: {
-      entry: path.resolve(__dirname, 'src/index.tsx'),
-      formats: ['es'],
-      fileName: 'index'
+export default defineConfig(env =>
+  mergeConfig(base(env), {
+    build: {
+      sourcemap: true,
+      lib: {
+        entry: path.resolve(__dirname, 'src/index.tsx'),
+        formats: ['es'],
+        fileName: 'index',
+      },
+      rollupOptions: {
+        external: Object.keys(peerDependencies),
+      },
     },
-    rollupOptions: {
-      external: Object.keys(peerDependencies),
-    }
-  },
-}))
+  })
+)

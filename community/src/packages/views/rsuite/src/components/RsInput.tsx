@@ -5,7 +5,7 @@ import type {InputProps} from 'rsuite'
 import {Input, InputGroup} from 'rsuite'
 import {inputProps} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
+import {Labeled} from './internal/Labeled'
 
 /**
  * Props for the RsInput component.

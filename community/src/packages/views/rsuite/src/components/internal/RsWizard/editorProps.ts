@@ -1,6 +1,6 @@
 import type {ComponentData, Store} from '@react-form-builder/core'
 import {ComponentStore} from '@react-form-builder/core'
-import {InputCell} from '../components/InputCell'
+import {InputCell} from '../InputCell'
 import {RsWizardStepComponentType} from './RsWizardStep'
 
 type LabelValue = { label: string }

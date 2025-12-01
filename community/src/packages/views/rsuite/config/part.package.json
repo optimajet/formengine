@@ -1,5 +1,10 @@
 {
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts"
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./css/formengine-rsuite.css": "./dist/css/formengine-rsuite.css",
+    "./css/rsuite-no-reset.min.css": "./dist/css/rsuite-no-reset.min.css",
+    "./css/rsuite-no-reset-rtl.min.css": "./dist/css/rsuite-no-reset-rtl.min.css"
+  }
 }

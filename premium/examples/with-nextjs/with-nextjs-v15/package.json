@@ -8,7 +8,7 @@
   "homepage": "https://formengine.io/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:optimajet/formengine.git"
+    "url": "git+ssh://git@github.com/optimajet/formengine.git"
   },
   "scripts": {
     "dev": "next dev",
@@ -17,9 +17,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^7.7.0",
-    "@react-form-builder/core": "^7.7.0",
-    "@react-form-builder/designer": "^7.7.0",
+    "@react-form-builder/components-rsuite": "^7.8.0",
+    "@react-form-builder/core": "^7.8.0",
+    "@react-form-builder/designer": "^7.8.0",
     "next": "15.4.7",
     "react": "18.3.1",
     "react-dom": "18.3.1"

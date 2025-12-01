@@ -5,7 +5,7 @@ import type {CheckboxProps} from 'rsuite'
 import {Checkbox} from 'rsuite'
 import {readOnly} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {requiredStyle} from './components/Labeled'
+import {requiredStyle} from './internal/Labeled'
 
 const SCheckbox = styled(Checkbox)`
   &.required label::after {

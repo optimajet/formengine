@@ -18,14 +18,14 @@ import type {CSSProperties, PropsWithChildren} from 'react'
 import {useCallback, useEffect, useMemo, useState} from 'react'
 import type {StepItemProps} from 'rsuite'
 import {Button, ButtonToolbar, Steps} from 'rsuite'
-import {useArrayMapMemo} from '../../hooks'
-import {structureCategory} from '../categories'
-import {Rows} from '../components/Layout'
-import {createStep, editorProps} from './editorProps'
-import {eventListeners} from './eventListeners'
-import {SItem} from './Item'
-import {RsWizardStepComponentType} from './RsWizardStep'
-import {WizardIcon} from './WizardIcon'
+import {useArrayMapMemo} from '../hooks'
+import {structureCategory} from './categories'
+import {Rows} from './internal/Layout'
+import {createStep, editorProps} from './internal/RsWizard/editorProps'
+import {eventListeners} from './internal/RsWizard/eventListeners'
+import {SItem} from './internal/RsWizard/Item'
+import {RsWizardStepComponentType} from './internal/RsWizard/RsWizardStep'
+import {WizardIcon} from './internal/RsWizard/WizardIcon'
 
 /**
  * Props for the RsWizard component.
@@ -318,6 +318,8 @@ const getInitialJson = () => {
   componentStore.children = [1, 2, 3].map(index => createStep(index))
   return JSON.stringify(componentStore)
 }
+
+export {rsWizardStep} from './internal/RsWizard/RsWizardStep'
 
 export const rsWizard = define(RsWizard, RsWizardComponentType)
   .name('Wizard')

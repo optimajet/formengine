@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Campo"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "Componente di caricamento file con supporto drag and drop",
+      "name": "Uploader file",
+      "props": {
+        "accept": {
+          "description": "Tipi di file accettati (ad esempio, immagine/*,.PDF, .docx)",
+          "name": "Accettare"
+        },
+        "action": {
+          "description": "URL su cui caricare i file",
+          "name": "URL azione"
+        },
+        "children": {
+          "description": "Contenuto da visualizzare all'interno dell'uploader",
+          "name": "Bambino"
+        },
+        "disabled": {
+          "description": "Se è vero, i bambini sono in stato disabilitato",
+          "name": "Disabilita"
+        },
+        "dropzone": {
+          "description": "Se è vero, la dropzone mostrerà",
+          "name": "Dropzone"
+        },
+        "multiple": {
+          "description": "Consenti la selezione di più file",
+          "name": "Più file"
+        },
+        "onChange": {
+          "description": "Callback quando i file vengono caricati correttamente",
+          "name": "Sul cambiamento"
+        },
+        "onError": {
+          "description": "Callback quando si verifica un errore durante il caricamento",
+          "name": "Su errore"
+        },
+        "readOnly": {
+          "description": "Se è vero, i bambini sono in stato di sola lettura",
+          "name": "Sola lettura"
+        }
+      }
+    }
+  }
+}

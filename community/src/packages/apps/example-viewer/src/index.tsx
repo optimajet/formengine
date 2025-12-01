@@ -7,7 +7,7 @@ import {ExampleViewerApp} from './ExampleViewerApp'
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(
   <React.StrictMode>
-    <ExampleViewerApp/>
+    <ExampleViewerApp />
   </React.StrictMode>,
   document.getElementById('root')
 )

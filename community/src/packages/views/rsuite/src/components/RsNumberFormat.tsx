@@ -6,8 +6,8 @@ import type {NumberFormatValues} from 'react-number-format/types/types'
 import type {InputProps} from 'rsuite'
 import {inputProps, nonNegNumber} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
-import {WrappedInput} from './components/WrappedInput'
+import {Labeled} from './internal/Labeled'
+import {WrappedInput} from './internal/WrappedInput'
 
 /**
  * Props for the RsNumberFormat component.

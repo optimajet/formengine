@@ -1,5 +1,5 @@
-import type {InnerCellProps} from 'rsuite-table/lib/Cell'
 import type {RowDataType} from 'rsuite-table/lib'
+import type {InnerCellProps} from 'rsuite-table/lib/Cell'
 
 /**
  * React component properties for the {@link InputCell} component.

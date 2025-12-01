@@ -7,8 +7,8 @@ import {DatePicker} from 'rsuite'
 import {placement, readOnly, size} from '../commonProperties'
 import {formatValidator, toSafeFormat} from '../dateTimeUtils'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
+import {Labeled} from './internal/Labeled'
 
 const isValidDate = (value: any) => value instanceof Date && !Number.isNaN(value.getTime())
 

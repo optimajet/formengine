@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "字段"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "支持拖放的文件上传组件",
+      "name": "文件上传器",
+      "props": {
+        "accept": {
+          "description": "接受的文件类型（例如，image/*，.pdf，。docx）",
+          "name": "接受"
+        },
+        "action": {
+          "description": "将文件上载至",
+          "name": "动作URL"
+        },
+        "children": {
+          "description": "要在上传器内显示的内容",
+          "name": "儿童"
+        },
+        "disabled": {
+          "description": "如果为true，则儿童处于残疾状态",
+          "name": "残疾人士"
+        },
+        "dropzone": {
+          "description": "如果为true，则dropzone将显示",
+          "name": "下拉区"
+        },
+        "multiple": {
+          "description": "允许多个文件选择",
+          "name": "多个文件"
+        },
+        "onChange": {
+          "description": "文件上传成功时回调",
+          "name": "关于变化"
+        },
+        "onError": {
+          "description": "上传过程中发生错误时的回调",
+          "name": "关于错误"
+        },
+        "readOnly": {
+          "description": "如果为true，则子项处于只读状态",
+          "name": "只读"
+        }
+      }
+    }
+  }
+}

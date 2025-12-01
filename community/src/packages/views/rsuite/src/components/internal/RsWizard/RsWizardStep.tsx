@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import {containerStyles, define, node, string} from '@react-form-builder/core'
-import {structureCategory} from '../categories'
+import {structureCategory} from '../../categories'
 import {WizardStepIcon} from './WizardStepIcon'
 
 /**

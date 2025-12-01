@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "フィールド"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "ドラッグアンドドロップをサポートするファイルアップロードコンポーネント",
+      "name": "ファイルアップローダー",
+      "props": {
+        "accept": {
+          "description": "受け入れられるファイルタイプ(例:image/*,.pdf,.docx）\"をリリース。",
+          "name": "受け入れる"
+        },
+        "action": {
+          "description": "ファイルをアップロードするURL",
+          "name": "アクションURL"
+        },
+        "children": {
+          "description": "アップローダー内に表示するコンテンツ",
+          "name": "子供たち"
+        },
+        "disabled": {
+          "description": "Trueの場合、子は無効状態になります",
+          "name": "無効"
+        },
+        "dropzone": {
+          "description": "Trueの場合、dropzoneが表示されます",
+          "name": "ドロップゾーン"
+        },
+        "multiple": {
+          "description": "複数のファイル選択を許可する",
+          "name": "複数のファイル"
+        },
+        "onChange": {
+          "description": "ファイルが正常にアップロードされたときのコールバック",
+          "name": "変更時"
+        },
+        "onError": {
+          "description": "アップロード中にエラーが発生したときのコールバック",
+          "name": "エラー時"
+        },
+        "readOnly": {
+          "description": "Trueの場合、子は読み取り専用状態になります",
+          "name": "読み取り専用"
+        }
+      }
+    }
+  }
+}

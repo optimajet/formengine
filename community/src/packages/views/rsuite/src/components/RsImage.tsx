@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import {define, oneOf, string, useBuilderValue} from '@react-form-builder/core'
 import type {ComponentProps} from 'react'
-import logo from '../../public/images/logo.png'
+import rawLogo from '../../public/images/logo.svg?raw'
 import type {AreaProps} from '../commonTypes'
 import {staticCategory} from './categories'
 
@@ -16,6 +16,8 @@ const SImage = styled.img`
   height: 100%;
 `
 
+const inlineLogo = `data:image/svg+xml,${encodeURIComponent(rawLogo)}`
+
 /**
  * An image component that displays an image with configurable source and styling.
  * @param props the component props.
@@ -24,7 +26,7 @@ const SImage = styled.img`
  * @returns the React element.
  */
 const RsImage = ({alt, src, ...props}: RsImageProps) => {
-  const source = useBuilderValue(src, logo)
+  const source = useBuilderValue(src, inlineLogo)
   return <SImage {...props} alt={alt} src={source}/>
 }
 
@@ -32,7 +34,7 @@ export const rsImage = define(RsImage, 'RsImage')
   .name('Image')
   .category(staticCategory)
   .props({
-    src: string.required.default(logo).dataBound,
+    src: string.required.default(inlineLogo).dataBound,
     alt: string.default('Image'),
   })
   .css({

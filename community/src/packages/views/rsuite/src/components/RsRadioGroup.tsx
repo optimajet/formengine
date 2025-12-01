@@ -4,7 +4,7 @@ import type {RadioGroupProps} from 'rsuite'
 import {Radio, RadioGroup} from 'rsuite'
 import {readOnly} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
+import {Labeled} from './internal/Labeled'
 
 /**
  * Props for the RsRadioGroup component.

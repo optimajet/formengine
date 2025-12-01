@@ -21,9 +21,9 @@
         "^start"
       ]
     },
-    "bundle": {
+    "pack": {
       "dependsOn": [
-        "^bundle"
+        "^pack"
       ]
     }
   }

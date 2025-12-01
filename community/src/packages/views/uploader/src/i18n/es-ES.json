@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Campos"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "Componente de carga de archivos con soporte de arrastrar y soltar",
+      "name": "Cargador de archivos",
+      "props": {
+        "accept": {
+          "description": "Tipos de archivo aceptados (por ejemplo, image/*,.pdf, .docx)",
+          "name": "Aceptar"
+        },
+        "action": {
+          "description": "URL para subir archivos",
+          "name": "URL de ACCIÓN"
+        },
+        "children": {
+          "description": "Contenido para mostrar dentro del cargador",
+          "name": "Niños"
+        },
+        "disabled": {
+          "description": "Si es cierto, los niños están en estado de discapacidad. ",
+          "name": "Discapacitados"
+        },
+        "dropzone": {
+          "description": "Si es verdadero, se mostrará la zona de caída",
+          "name": "Zona de Caída"
+        },
+        "multiple": {
+          "description": "Permitir la selección de varios archivos",
+          "name": "Varios archivos"
+        },
+        "onChange": {
+          "description": "Devolución de llamada cuando los archivos se cargan correctamente",
+          "name": "Sobre el Cambio"
+        },
+        "onError": {
+          "description": "Devolución de llamada cuando se produce un error durante la carga",
+          "name": "En Caso de Error"
+        },
+        "readOnly": {
+          "description": "Si es true, los hijos están en estado de solo lectura",
+          "name": "Solo Lectura"
+        }
+      }
+    }
+  }
+}

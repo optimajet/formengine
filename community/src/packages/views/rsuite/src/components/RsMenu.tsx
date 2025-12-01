@@ -5,7 +5,7 @@ import type {NavProps} from 'rsuite'
 import {Nav} from 'rsuite'
 import {navProps} from '../commonProperties'
 import {staticCategory} from './categories'
-import {InputCell} from './components/InputCell'
+import {InputCell} from './internal/InputCell'
 
 /**
  * Menu item for RsMenu component.

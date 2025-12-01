@@ -4,8 +4,8 @@ import type {BreadcrumbProps} from 'rsuite'
 import {Breadcrumb} from 'rsuite'
 import {nonNegNumber} from '../commonProperties'
 import {structureCategory} from './categories'
-import {CheckCell} from './components/CheckCell'
-import {InputCell} from './components/InputCell'
+import {CheckCell} from './internal/CheckCell'
+import {InputCell} from './internal/InputCell'
 
 /**
  * Props for a single breadcrumb item.

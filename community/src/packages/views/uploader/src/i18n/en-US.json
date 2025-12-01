@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Fields"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "name": "File uploader",
+      "description": "File upload component with drag and drop support",
+      "props": {
+        "action": {
+          "name": "Action URL",
+          "description": "URL to upload files to"
+        },
+        "dropzone": {
+          "name": "Dropzone",
+          "description": "If true, the dropzone will show"
+        },
+        "accept": {
+          "name": "Accept",
+          "description": "Accepted file types (e.g., image/*, .pdf, .docx)"
+        },
+        "multiple": {
+          "name": "Multiple files",
+          "description": "Allow multiple file selection"
+        },
+        "children": {
+          "name": "Children",
+          "description": "Content to display inside the uploader"
+        },
+        "onChange": {
+          "name": "On Change",
+          "description": "Callback when files are successfully uploaded"
+        },
+        "onError": {
+          "name": "On Error",
+          "description": "Callback when an error occurs during upload"
+        },
+        "disabled": {
+          "name": "Disabled",
+          "description": "If true, the children are in disabled state"
+        },
+        "readOnly": {
+          "name": "Read Only",
+          "description": "If true, the children are in read-only state"
+        }
+      }
+    }
+  }
+}

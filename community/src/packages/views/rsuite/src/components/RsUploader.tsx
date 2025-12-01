@@ -5,9 +5,9 @@ import {Uploader} from 'rsuite'
 import {nonNegNumber, readOnly} from '../commonProperties'
 import {setAriaHiddenIfNotExists} from '../hooks'
 import {fieldsCategory} from './categories'
-import {InputCell} from './components/InputCell'
-import {Labeled} from './components/Labeled'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
+import {InputCell} from './internal/InputCell'
+import {Labeled} from './internal/Labeled'
 
 /**
  * Props for the RsUploader component.
@@ -73,7 +73,7 @@ export const rsUploader = define(RsUploader, 'RsUploader')
   .category(fieldsCategory)
   .props({
     label: string,
-    action: string.required.default('/'),
+    action: string.default('/'),
     accept: string,
     autoUpload: boolean.default(true),
     customElement: boolean.default(false),

@@ -4,7 +4,7 @@ import type {AutoCompleteProps} from 'rsuite'
 import {AutoComplete} from 'rsuite'
 import {inputProps} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {Labeled} from './components/Labeled'
+import {Labeled} from './internal/Labeled'
 
 const AutoCompleteIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
                                     viewBox="0 0 24 24">

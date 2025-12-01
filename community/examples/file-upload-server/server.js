@@ -25,7 +25,8 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     // Create a unique filename using the current timestamp
-    cb(null, `${Date.now()}-${file.originalname}`);
+    const originalName = Buffer.from(file.originalname, 'latin1').toString('utf8');
+    cb(null, `${Date.now()}-${originalName}`);
   }
 });
 const upload = multer({storage});
