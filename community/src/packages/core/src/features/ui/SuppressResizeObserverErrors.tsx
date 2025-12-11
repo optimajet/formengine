@@ -12,6 +12,24 @@ export interface SuppressResizeObserverErrorsProps {
 }
 
 /**
+ * Extracts the message from an unknown error event.
+ * @param event the event captured by the global error handler.
+ * @returns the event message or an empty string.
+ */
+const getEventText = (event: unknown): string => {
+  if (typeof event === 'string') {
+    return event
+  }
+  if (event && typeof event === 'object' && 'message' in event) {
+    const message = (event as { message?: unknown }).message
+    if (typeof message === 'string') {
+      return message
+    }
+  }
+  return ''
+}
+
+/**
  * SuppressResizeObserverErrors component is used to suppress ResizeObserver errors. **Internal use only.**
  * @param props the component props.
  * @param props.children the child elements to render.
@@ -22,7 +40,8 @@ export const SuppressResizeObserverErrors = ({children}: SuppressResizeObserverE
 
   useEffect(() => {
     globalThis.onerror = (event) => {
-      if (event?.toString().search('ResizeObserver') !== -1) {
+      const eventText = getEventText(event)
+      if (eventText.includes('ResizeObserver')) {
         const resizeObserverErrDiv = document.getElementById(
           'webpack-dev-server-client-overlay-div'
         )

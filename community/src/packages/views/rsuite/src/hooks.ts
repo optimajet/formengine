@@ -20,7 +20,7 @@ export type LoadDataHandler = (
   searchKeyword: string,
   loadCallback: LoadCallback,
   currentDataLength: number
-) => {}
+) => void
 
 
 /**

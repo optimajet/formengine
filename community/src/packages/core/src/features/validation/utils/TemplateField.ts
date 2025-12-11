@@ -99,7 +99,11 @@ export class TemplateField implements Field {
     this.form.allComponentFields.forEach(({field, dataKey}) => {
       const val = data[dataKey]
       // prevent uncontrolled value
-      isUndefined(val) ? field.reset() : field.setValue(val)
+      if (isUndefined(val)) {
+        field.reset()
+      } else {
+        field.setValue(val)
+      }
     })
   }
 

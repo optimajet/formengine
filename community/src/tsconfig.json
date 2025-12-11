@@ -24,24 +24,10 @@
     "jsxImportSource": "@emotion/react",
     "noUnusedLocals": true
   },
-  "include": [
-    "types",
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "scripts/**/*.js"
-  ],
   "exclude": [
-    "examples",
-    "node_modules",
-    "sample-apps",
     "documentation",
-    "examples",
-    "packages/core/dist",
-    "packages/designer/dist",
-    "packages/views/fast-qr/dist",
-    "packages/views/rsuite/dist",
-    "packages/views/signature/dist"
+    "node_modules",
+    "packages/**/dist",
+    "scripts"
   ]
 }

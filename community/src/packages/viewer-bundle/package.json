@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/viewer-bundle",
   "description": "Optimajet Form Builder Develop front-end drag n drop forms with ease.",
-  "version": "7.8.0",
+  "version": "7.9.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -27,13 +27,13 @@
     "create-archive": "node ./config/pack"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^7.8.0",
+    "@react-form-builder/components-rsuite": "^7.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0"
   },
   "peerDependencies": {
-    "@react-form-builder/core": "7.8.0"
+    "@react-form-builder/core": "7.9.0"
   },
   "peerDependenciesMeta": {
     "@react-form-builder/core": {
@@ -60,5 +60,8 @@
     "dist/rsuite-no-reset-rtl.min.css",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "devDependencies": {
+    "vite-inline-css-plugin": "^0.0.1"
+  }
 }

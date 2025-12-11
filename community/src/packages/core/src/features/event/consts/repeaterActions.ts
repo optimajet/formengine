@@ -17,9 +17,11 @@ const addRow = (data: Record<string, any>, repeaterKey: string, maxItems?: numbe
 
   const rowData = parseRowData(rowValue) ?? {}
   const modifiedData = [...repeaterData]
-  typeof rowIndex === 'number'
-    ? modifiedData.splice(rowIndex, 0, rowData)
-    : modifiedData.push(rowData)
+  if (typeof rowIndex === 'number') {
+    modifiedData.splice(rowIndex, 0, rowData)
+  } else {
+    modifiedData.push(rowData)
+  }
   data[repeaterKey] = modifiedData
 }
 

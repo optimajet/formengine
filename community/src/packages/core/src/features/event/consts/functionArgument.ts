@@ -1,20 +1,22 @@
 import {isNull} from '../../../utils/tools'
 import type {ArgumentValue, FunctionArgumentValue} from '../types'
 
-const fnArgumentFunctionCache = new Map<string, Function>()
+type ArgumentExecutor = (e: unknown, args: unknown, ...userArgs: unknown[]) => Promise<unknown>
+
+const fnArgumentFunctionCache = new Map<string, ArgumentExecutor>()
 
 /**
  * Creates an argument function from its source with caching.
  * @param source the function source.
  * @returns the executable function.
  */
-export function getArgumentFunction(source: string) {
+export function getArgumentFunction(source: string): ArgumentExecutor {
   const fn = fnArgumentFunctionCache.get(source)
   if (fn) return fn
 
   const result = new Function('e', 'args', '...userArgs', `return (async function(){
 ${source}
-  })()`)
+  })()`) as ArgumentExecutor
   fnArgumentFunctionCache.set(source, result)
   return result
 }

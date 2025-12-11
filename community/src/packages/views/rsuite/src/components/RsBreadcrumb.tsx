@@ -43,7 +43,7 @@ export interface RsBreadcrumbProps extends BreadcrumbProps {
   /**
    * Callback function when a breadcrumb item is clicked.
    */
-  onItemClick: (item: RsBreadcrumbItemProps) => {}
+  onItemClick: (item: RsBreadcrumbItemProps) => void
 }
 
 /**

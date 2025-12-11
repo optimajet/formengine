@@ -1,5 +1,3 @@
-import {css, cx} from '@emotion/css'
-import type {DetailedHTMLProps, HTMLAttributes} from 'react'
 import {useMemo} from 'react'
 import {namedObserver} from '../../utils'
 import {useMobxConfig} from '../../utils/useMobxConfig'
@@ -8,25 +6,8 @@ import {ViewerLocalizationProvider} from '../localization/ViewerLocalizationProv
 import {SuppressResizeObserverErrors} from '../ui/SuppressResizeObserverErrors'
 import {Viewer} from './components/Viewer'
 import {ViewerStoreProvider} from './components/ViewerStoreProvider'
+import {ViewerWrapper} from './components/ViewerWrapper'
 import type {FormViewerProps} from './types'
-
-const divClass = css`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 5px;
-`
-
-/**
- * The React component that wraps every component in a form.
- * @param props the React component properties.
- * @returns the React element.
- */
-export const SDiv = (props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
-  const {className, children, ...otherProps} = props
-  const cls = useMemo(() => cx(divClass, className), [className])
-  return <div className={cls} {...otherProps}>{children}</div>
-}
 
 /**
  * The main React component of the form viewer.
@@ -45,9 +26,9 @@ const RawFormViewer = (props: FormViewerProps) => {
   return <SuppressResizeObserverErrors>
     <ViewerStoreProvider props={finalProps}>
       <ViewerLocalizationProvider>
-        <SDiv>
+        <ViewerWrapper>
           <Viewer/>
-        </SDiv>
+        </ViewerWrapper>
       </ViewerLocalizationProvider>
     </ViewerStoreProvider>
   </SuppressResizeObserverErrors>

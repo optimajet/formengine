@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react-swc'
+import {playwright} from '@vitest/browser-playwright'
 import path from 'path'
 import {fileURLToPath} from 'url'
 import {defineConfig} from 'vite'
@@ -52,7 +53,7 @@ export default defineConfig(() => ({
     },
     testTimeout: 60_000,
     browser: {
-      provider: 'playwright',
+      provider: playwright(),
       enabled: false,
       name: 'chromium',
       instances: [{browser: 'chromium'}],
@@ -67,7 +68,7 @@ export default defineConfig(() => ({
           devtools: !!process.env.BROWSER_DEVTOOL
         }
       }
-    },
+    }
     // reporters: ['verbose']
   }
 }))

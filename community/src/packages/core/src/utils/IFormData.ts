@@ -64,13 +64,15 @@ export interface IFormData {
 
   /**
    * Sets the form to its default value.
-   * @param clearInitialData if true, then also clear the initial data. @default true
+   * @param clearInitialData if true, then also clear the initial data.
+   * @default true
    */
   reset: (clearInitialData?: boolean) => void
 
   /**
    * Clears the form data.
-   * @param clearInitialData if true, then also clear the initial data. @default true
+   * @param clearInitialData if true, then also clear the initial data.
+   * @default true
    */
   clear: (clearInitialData?: boolean) => void
 
@@ -138,13 +140,13 @@ export const IFormDataDeclaration = `declare interface IFormData {
 
   /**
    * Sets the form to its default value.
-   * @param clearInitialData if true, then also clear the initial data. @default true
+   * @param clearInitialData if true, then also clear the initial data. Defaults to true.
    */
   reset(clearInitialData?: boolean): void
 
   /**
    * Clears the form data.
-   * @param clearInitialData if true, then also clear the initial data. @default true
+   * @param clearInitialData if true, then also clear the initial data. Defaults to true.
    */
   clear(clearInitialData?: boolean): void
 

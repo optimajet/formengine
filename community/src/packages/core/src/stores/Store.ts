@@ -229,7 +229,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    * Searches for an action, returns definition for the found action.
    * @param actionData the action's data.
    * @returns the action definition.
-   * @throws Error, if action was not found.
+   * @throws {Error} If the action was not found.
    */
   findAction(actionData: ActionData) {
     return this.getAction(actionData.name, actionData.type)
@@ -511,7 +511,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       return result.value
     })
 
-    return results.filter(value => !isUndefined(value)) as Record<string, string>[]
+    return results.filter((value): value is Record<string, string> => !isUndefined(value))
   }
 
   /**

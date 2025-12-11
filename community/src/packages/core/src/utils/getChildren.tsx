@@ -5,13 +5,15 @@ import type {ComponentData, IComponentDataProvider} from './contexts/ComponentDa
 import {groupBy} from './groupBy'
 import {needRender} from './needRender'
 
-const fnCache = new Map<string, Function>()
+type SlotConditionFn = (parentProps: Record<string, unknown>) => boolean
 
-function getOrCreateFn(source: string) {
+const fnCache = new Map<string, SlotConditionFn>()
+
+function getOrCreateFn(source: string): SlotConditionFn {
   const fn = fnCache.get(source)
   if (fn) return fn
 
-  const result = new Function('parentProps', source)
+  const result = new Function('parentProps', source) as SlotConditionFn
   fnCache.set(source, result)
   return result
 }

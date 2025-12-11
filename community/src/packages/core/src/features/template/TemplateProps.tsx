@@ -3,5 +3,4 @@ import type {EmbeddedFormProps} from './EmbeddedFormProps'
 /**
  * The template component properties.
  */
-export interface TemplateProps extends Omit<EmbeddedFormProps, 'formName'> {
-}
+export type TemplateProps = Omit<EmbeddedFormProps, 'formName'>

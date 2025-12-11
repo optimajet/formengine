@@ -6,6 +6,7 @@ import {ExampleViewerApp} from './ExampleViewerApp'
 
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(
+  // @ts-ignore emotion mismatch with react types
   <React.StrictMode>
     <ExampleViewerApp />
   </React.StrictMode>,

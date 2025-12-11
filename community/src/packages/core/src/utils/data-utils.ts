@@ -1,13 +1,13 @@
 import {isRecord} from './index'
 import {isUndefined} from './tools'
 
-const mergeArrays = (generatedData: unknown[], initialData: unknown[]) => {
+const mergeArrays = (generatedData: ValueType[], initialData: ValueType[]): ValueType[] => {
   const result = [...generatedData]
 
   generatedData.forEach((item, index) => {
     if (index in initialData) {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      result[index] = mergeValues(item, initialData[index])
+      result[index] = mergeValues(item, initialData[index] ?? undefined)
     }
   })
 
@@ -22,7 +22,9 @@ const isMergeableObject = (value: any): value is Record<string, unknown> => {
 
 const mergeValues = (generatedData: ValueType, initialData: ValueType) => {
   if (Array.isArray(generatedData)) {
-    return Array.isArray(initialData) ? mergeArrays(generatedData, initialData) : generatedData
+    return Array.isArray(initialData)
+      ? mergeArrays(generatedData as ValueType[], initialData as ValueType[])
+      : generatedData
   }
 
   if (Array.isArray(initialData)) return generatedData
@@ -51,7 +53,7 @@ export const mergeData = (generatedData: Record<string, unknown>, initialData: R
       // with data from the initial data.
       if (isUndefined(generatedData[key])) return
 
-      result[key] = mergeValues(generatedData[key], initialData[key])
+      result[key] = mergeValues(generatedData[key] as ValueType, initialData[key] as ValueType)
       return
     }
 

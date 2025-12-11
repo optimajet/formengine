@@ -4,13 +4,15 @@ import {CalculableResult} from '../../utils/CalculableResult'
 import type {IFormData} from '../../utils/IFormData'
 import {isUndefined} from '../../utils/tools'
 
-const fnCache = new Map<string, Function>()
+type CalculableFunction = (form: IFormData) => unknown
 
-const getOrCreateFn = (source: string) => {
+const fnCache = new Map<string, CalculableFunction>()
+
+const getOrCreateFn = (source: string): CalculableFunction => {
   const fn = fnCache.get(source)
   if (fn) return fn
 
-  const result = new Function('form', source)
+  const result = new Function('form', source) as CalculableFunction
   fnCache.set(source, result)
   return result
 }

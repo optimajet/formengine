@@ -1,5 +1,17 @@
 {
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts"
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./lite": {
+      "import": "./dist/index-lite.js",
+      "types": "./dist/index-lite.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./schemas/persisted-form.schema.json": "./dist/schemas/persisted-form.schema.json"
+  }
 }

@@ -4,6 +4,11 @@ import {createNodeAnnotation} from './utils/builders/NodeAnnotationBuilder'
 import {isUniqueKey} from './utils/isUniqueKey'
 
 /**
+ * The event handler function.
+ */
+export type EventHandler = (...args: unknown[]) => unknown
+
+/**
  * The annotation for the 'key' property of the component.
  */
 export const key = createAnnotation('key')
@@ -104,7 +109,7 @@ export const className = createProperty('string')
 /**
  * The annotation builder for a component property with type 'event' (or event handler, or just a function).
  */
-export const event = createAnnotation<Function>('event').setup({annotationType: 'Event'})
+export const event = createAnnotation<EventHandler>('event').setup({annotationType: 'Event'})
 
 /**
  * The annotation builder for a component property with type 'ReactNode'.

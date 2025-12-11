@@ -1,4 +1,5 @@
 import type {FormViewerWrapperComponentProps} from '@react-form-builder/core'
+import {BiDi} from '@react-form-builder/core'
 import {CustomProvider} from 'rsuite'
 import {
   arEG,
@@ -60,7 +61,7 @@ export const defaultComponentsLocale = enUS
  * @returns the wrapped components with localization settings applied.
  */
 export const RsLocalizationWrapper = ({language, children}: FormViewerWrapperComponentProps) => {
-  return <CustomProvider rtl={language.bidi === 'rtl'} locale={rSuiteLocales[language.fullCode] ?? defaultComponentsLocale}>
+  return <CustomProvider rtl={language.bidi === BiDi.RTL} locale={rSuiteLocales[language.fullCode] ?? defaultComponentsLocale}>
     {children}
   </CustomProvider>
 }

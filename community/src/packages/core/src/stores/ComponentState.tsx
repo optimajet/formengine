@@ -39,7 +39,7 @@ const isRequired = (componentStore: ComponentStore) => {
 }
 
 const bindFunctionsInArgs = (e: ActionEventArgs, args: Record<string, any>) => {
-  const functionEntries: [string, Function][] = []
+  const functionEntries: Array<[string, (...fnArgs: unknown[]) => unknown]> = []
 
   for (const [key, value] of Object.entries(args)) {
     if (isFunctionArgumentValue(value)) {
@@ -84,7 +84,7 @@ function createActionHandlersChain(store: Store, actionDataList: ActionData[]) {
 }
 
 const createDefaultActionHandler = (componentState: ComponentState, eventName: EventName) => {
-  return async (...args: any[]) => {
+  return async (...args: unknown[]) => {
     const {data, store} = componentState
     const actionDataList = data.store.events?.[eventName] ?? []
     const handlersChain = createActionHandlersChain(store, actionDataList)
@@ -95,7 +95,7 @@ const createDefaultActionHandler = (componentState: ComponentState, eventName: E
 }
 
 const computeEvents = (componentState: ComponentState) => {
-  const events = {} as Record<EventName, Function>
+  const events = {} as Record<EventName, (...args: unknown[]) => Promise<void>>
   const {data} = componentState
 
   const eventHandlers = getCustomEventHandlers(data.model) ?? componentState.context.eventHandlers ?? {}
@@ -110,7 +110,7 @@ const computeEvents = (componentState: ComponentState) => {
   set.delete(WillUnmountEvent)
 
   set.forEach((name) => {
-    events[name] = async (...args: any[]) => {
+    events[name] = async (...args: unknown[]) => {
       const handler = eventHandlers[name]
       if (handler) {
         const actionEventArgs = new ActionEventArgs(name, data, componentState.store, args, componentState.get,

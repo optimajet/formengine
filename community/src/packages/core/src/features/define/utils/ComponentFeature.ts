@@ -23,7 +23,7 @@ const componentFeatureRegistry: Record<string, ComponentFeature> = {}
 /**
  * Registers the component feature in the component feature registry.
  * @param feature the component feature.
- * @throws the Error if the component feature is already registered.
+ * @throws {Error} the error thrown when the component feature is already registered.
  */
 export function registerComponentFeature(feature: ComponentFeature) {
   const key = feature.name
@@ -50,7 +50,7 @@ export function registerBooleanComponentFeature(name: string) {
  * Returns the component feature from the component feature registry by the component feature name.
  * @param name the component feature name.
  * @returns the component feature from the component feature registry by the component feature name.
- * @throws the Error if the component feature is not registered.
+ * @throws {Error} the error thrown when the component feature is not registered.
  */
 export function getComponentFeature(name: string) {
   const result = componentFeatureRegistry[name]

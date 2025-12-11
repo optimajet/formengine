@@ -46,6 +46,6 @@ export function ruleBuilder() {
     withValidatorFactory(validatorFactory) {
       return {...this, validatorFactory}
     }
-  } as ValidationRuleBuilder<{}>
+  } as ValidationRuleBuilder<Record<string, never>>
   return builder.withParameter('message')
 }

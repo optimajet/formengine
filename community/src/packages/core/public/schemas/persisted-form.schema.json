@@ -1,0 +1,586 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "$ref": "#/definitions/PersistedFormVersion",
+      "description": "The version of the saved form."
+    },
+    "actions": {
+      "$ref": "#/definitions/ActionValues",
+      "description": "Represents a set of action definitions."
+    },
+    "formValidator": {
+      "type": "string",
+      "description": "The form validator."
+    },
+    "errorProps": {
+      "description": "Properties of the component displaying the error."
+    },
+    "modalType": {
+      "type": "string",
+      "description": "Name of the type of component that displays the modal."
+    },
+    "tooltipType": {
+      "type": "string",
+      "description": "Name of the type of component that displays the tooltip."
+    },
+    "errorType": {
+      "type": "string",
+      "description": "Name of the type of component displaying the error."
+    },
+    "form": {
+      "$ref": "#/definitions/ComponentStore",
+      "description": "Settings for components that display the form."
+    },
+    "localization": {
+      "$ref": "#/definitions/LocalizationValue",
+      "description": "Localization of the form."
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Language"
+      },
+      "description": "Form languages."
+    },
+    "defaultLanguage": {
+      "type": "string",
+      "description": "The default form language."
+    }
+  },
+  "required": [
+    "form",
+    "localization",
+    "languages",
+    "defaultLanguage"
+  ],
+  "description": "The format for saving a form designed in Form Builder.",
+  "definitions": {
+    "PersistedFormVersion": {
+      "type": "string",
+      "const": "1",
+      "description": "The version of the saved form."
+    },
+    "ActionValues": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/PersistedActionDefinition"
+      },
+      "description": "Represents a set of action definitions."
+    },
+    "ActionParameters": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ParameterType"
+      },
+      "propertyNames": {
+        "description": "The type for the parameter name."
+      },
+      "description": "Represents a set of action parameters."
+    },
+    "ParameterType": {
+      "type": "string",
+      "enum": [
+        "string",
+        "number",
+        "boolean",
+        "function"
+      ],
+      "description": "Parameter type."
+    },
+    "ComponentStore": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The React component key"
+        },
+        "dataKey": {
+          "type": "string",
+          "description": "The component data key."
+        },
+        "type": {
+          "type": "string",
+          "description": "The component type"
+        },
+        "props": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ComponentProperty"
+          },
+          "description": "The component properties."
+        },
+        "css": {
+          "$ref": "#/definitions/Css",
+          "description": "The component CSS styles."
+        },
+        "wrapperCss": {
+          "$ref": "#/definitions/Css",
+          "description": "The component wrapper CSS styles."
+        },
+        "style": {
+          "$ref": "#/definitions/ComponentStyle",
+          "description": "The component styles for the `style` attribute."
+        },
+        "wrapperStyle": {
+          "$ref": "#/definitions/ComponentStyle",
+          "description": "The component wrapper styles for the `style` attribute."
+        },
+        "events": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ActionData"
+            }
+          },
+          "propertyNames": {
+            "description": "The type for the event name."
+          },
+          "description": "The set of event handlers."
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ComponentStore"
+          },
+          "description": "The array of child components."
+        },
+        "schema": {
+          "$ref": "#/definitions/BoundValueSchema",
+          "description": "The component value validation settings."
+        },
+        "htmlAttributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HtmlAttribute"
+          },
+          "description": "The set of arbitrary HTML attributes added to the component."
+        },
+        "tooltipProps": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ComponentProperty"
+          },
+          "description": "The tooltip settings."
+        },
+        "modal": {
+          "$ref": "#/definitions/ModalComponentStore",
+          "description": "The modal settings."
+        },
+        "slot": {
+          "type": "string",
+          "description": "The name of the occupied component property in the parent component."
+        },
+        "slotCondition": {
+          "type": "string",
+          "description": "The condition for binding a child element to a parent element."
+        },
+        "renderWhen": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "The expression or function to conditionally render a component."
+        },
+        "disableDataBinding": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "Disables data binding for the component."
+        }
+      },
+      "required": [
+        "key",
+        "type",
+        "props"
+      ],
+      "description": "Component settings for serialization in JSON."
+    },
+    "ComponentProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a component property."
+        },
+        "computeType": {
+          "$ref": "#/definitions/ComponentPropertyComputeType",
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        },
+        "editorType": {
+          "type": "string",
+          "description": "The component property editor type, only used in Designer mode."
+        }
+      },
+      "description": "The value of the component property."
+    },
+    "ComponentPropertyComputeType": {
+      "type": "string",
+      "enum": [
+        "function",
+        "localization"
+      ],
+      "description": "The component property value type."
+    },
+    "Css": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for arbitrary device."
+        },
+        "mobile": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for mobile devices."
+        },
+        "tablet": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for tablet devices."
+        },
+        "desktop": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for desktop devices."
+        }
+      },
+      "description": "The type for the CSS property of a React component."
+    },
+    "DeviceStyle": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "description": "CSS styles defined in the general style settings."
+        },
+        "string": {
+          "type": "string",
+          "description": "CSS styles defined in the style code editor."
+        }
+      },
+      "description": "CSS styles for a device."
+    },
+    "ComponentStyle": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for an arbitrary device."
+        },
+        "mobile": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for mobile devices."
+        },
+        "tablet": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for tablet devices."
+        },
+        "desktop": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for desktop devices."
+        }
+      },
+      "description": "The type for the style property of a React component."
+    },
+    "ComponentDeviceStyle": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string",
+          "description": "The CSS string."
+        }
+      },
+      "description": "Styles for a device."
+    },
+    "ActionData": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The action name."
+        },
+        "type": {
+          "$ref": "#/definitions/ActionType",
+          "description": "The action type."
+        },
+        "args": {
+          "$ref": "#/definitions/Arguments",
+          "description": "The action arguments."
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "description": "Action Storage. Used for add a new action, store information about it."
+    },
+    "ActionType": {
+      "type": "string",
+      "enum": [
+        "common",
+        "code",
+        "custom"
+      ],
+      "description": "Action type."
+    },
+    "Arguments": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ArgumentValue"
+      },
+      "propertyNames": {
+        "description": "The type for the parameter name."
+      },
+      "description": "It will be transformed in arguments before passing in action."
+    },
+    "ArgumentValue": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/PrimitiveArgumentValue"
+        },
+        {
+          "$ref": "#/definitions/FunctionArgumentValue"
+        }
+      ],
+      "description": "The type of the argument value of the function."
+    },
+    "PrimitiveArgumentValue": {
+      "type": [
+        "string",
+        "number",
+        "boolean"
+      ],
+      "description": "Primitive argument value type."
+    },
+    "FunctionArgumentValue": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "fn",
+          "description": "Argument type for function type."
+        },
+        "body": {
+          "type": "string",
+          "description": "The source code of the function for use in design mode."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Function argument value type."
+    },
+    "BoundValueSchema": {
+      "type": "object",
+      "properties": {
+        "autoValidate": {
+          "type": "boolean",
+          "description": "Flag, if true then automatic validation of the value works, false otherwise."
+        },
+        "validations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidationRuleSettings"
+          },
+          "description": "The array of validation rule settings."
+        }
+      },
+      "description": "Value validation rules."
+    },
+    "ValidationRuleSettings": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The unique key of the validation rule. The key is unique within the value type."
+        },
+        "type": {
+          "$ref": "#/definitions/ValidatorType",
+          "description": "The type of validator."
+        },
+        "args": {
+          "type": "object",
+          "description": "Arguments of the validation rule."
+        },
+        "validateWhen": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "The property that determines when validation needs to be performed."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "description": "The validation rule settings."
+    },
+    "ValidatorType": {
+      "type": "string",
+      "enum": [
+        "internal",
+        "custom"
+      ],
+      "description": "The type of validator."
+    },
+    "HtmlAttribute": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "The arbitrary HTML attributes for the component."
+    },
+    "ModalComponentStore": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ComponentProperty"
+          },
+          "description": "The component properties."
+        },
+        "events": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ActionData"
+            }
+          },
+          "propertyNames": {
+            "description": "The type for the event name."
+          },
+          "description": "The set of event handlers."
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "description": "Modal settings for serialization in JSON."
+    },
+    "ComponentProperty<boolean>": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "The simple value of a component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a component property."
+        },
+        "computeType": {
+          "$ref": "#/definitions/ComponentPropertyComputeType",
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        },
+        "editorType": {
+          "type": "string",
+          "description": "The component property editor type, only used in Designer mode."
+        }
+      },
+      "description": "The value of the component property."
+    },
+    "LocalizationValue": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentsLocalization"
+      },
+      "propertyNames": {
+        "description": "The full language code, e.g. 'en-US'."
+      },
+      "description": "The format in which localization is stored."
+    },
+    "ComponentsLocalization": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/TypedLocalization"
+      },
+      "propertyNames": {
+        "description": "The component key."
+      },
+      "description": "A record containing localizations grouped by component key."
+    },
+    "TypedLocalization": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        },
+        "tooltip": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        },
+        "modal": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentPropsLocalization"
+      },
+      "description": "A record containing localizations grouped by localization type."
+    },
+    "ComponentPropsLocalization": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "description": "The component property name."
+      },
+      "description": "A record containing localizations for the component properties."
+    },
+    "Language": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "the language code, for example, 'en'."
+        },
+        "dialect": {
+          "type": "string",
+          "description": "the dialect code, for example, 'US'."
+        },
+        "name": {
+          "type": "string",
+          "description": "the name of the language, for example 'English'."
+        },
+        "description": {
+          "type": "string",
+          "description": "the description of the language, for example 'American English'."
+        },
+        "bidi": {
+          "$ref": "#/definitions/BiDi",
+          "description": "the type of text layout, for example, BiDi.LTR."
+        }
+      },
+      "required": [
+        "code",
+        "dialect",
+        "name",
+        "description",
+        "bidi"
+      ],
+      "description": "The language to localize the form builder."
+    },
+    "BiDi": {
+      "type": "string",
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "description": "The enumeration of bidirectional text layout types."
+    },
+    "PersistedActionDefinition": {
+      "type": "object",
+      "description": "The definition of an action.",
+      "properties": {
+        "body": {
+          "type": "string",
+          "description": "The source code of the Action."
+        },
+        "params": {
+          "$ref": "#/definitions/ActionParameters",
+          "description": "The parameters of the Action."
+        }
+      },
+      "required": [
+        "params"
+      ]
+    }
+  },
+  "title": "FormEngine's Form Schema"
+}

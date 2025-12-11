@@ -1,9 +1,8 @@
 import {normalize, resolve} from 'node:path'
-import type {ModuleFormat, OutputOptions} from 'rollup'
-// @ts-ignore
+import type {ModuleFormat} from 'rollup'
 import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
-import type {LibraryFormats} from 'vite'
-import {defineConfig} from 'vite'
+import {defineConfig, mergeConfig} from 'vite'
+import {inlineCssPlugin} from 'vite-inline-css-plugin'
 import dts from 'vite-plugin-dts'
 import base from '../../../vite.config'
 import {exportsToEntries, getDirname, getFilesByMask, readPackageJson} from './config/build-tools'
@@ -36,28 +35,29 @@ if (missingInEntry.length > 0) {
   process.exit(1)
 }
 
-export default defineConfig(() => ({
-  ...base,
-  // publicDir: false, // do not copy static files
-  plugins: [dts({rollupTypes: true, tsconfigPath: './bundle.tsconfig.json'})],
-  build: {
-    sourcemap: true,
-    assetsInlineLimit: 0, // don't inline
-    lib: {
-      entry,
-      formats: ['es'] satisfies LibraryFormats[],
-      fileName: (_: ModuleFormat, entryName: string): string => {
-        if (entryName === 'index') {
-          return 'index.js'
-        }
-        return `${entryName}.js`
+export default defineConfig(env =>
+  mergeConfig(base(env), {
+    // publicDir: false, // do not copy static files
+    plugins: [dts({rollupTypes: true, tsconfigPath: './bundle.tsconfig.json'}), inlineCssPlugin()],
+    build: {
+      sourcemap: true,
+      assetsInlineLimit: 0, // don't inline
+      lib: {
+        entry,
+        formats: ['es'],
+        fileName: (_: ModuleFormat, entryName: string) => {
+          if (entryName === 'index') {
+            return 'index.js'
+          }
+          return `${entryName}.js`
+        },
+      },
+      rollupOptions: {
+        plugins: [excludeDependenciesFromBundle({dependencies: true, peerDependencies: true})],
+        output: {
+          exports: 'named',
+        },
       },
     },
-    rollupOptions: {
-      plugins: [excludeDependenciesFromBundle({dependencies: true, peerDependencies: true})],
-      output: {
-        exports: 'named' as const satisfies OutputOptions['exports'],
-      },
-    },
-  },
-}))
+  })
+)
