@@ -15,6 +15,6 @@ const defaultWrapperClass = css`
 export const DefaultWrapper = forwardRef((props: ComponentProps<any>, ref: ForwardedRef<any>) => {
   const {className, children, ...otherProps} = props
   const cls = cx(defaultWrapperClass, className)
-  return <div className={cls} {...otherProps} ref={ref}>{children}</div>
+  return <div className={cls} data-testid={'default-wrapper'} {...otherProps} ref={ref}>{children}</div>
 })
 DefaultWrapper.displayName = 'Screen'

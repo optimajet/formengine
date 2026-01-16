@@ -214,6 +214,7 @@ export const App = () => (
 - **Multi-Database Support** — Compatible with MySQL, PostgreSQL, MongoDB, SQLite, and more.
 - **Built-in Validation with Zod** — Pre-configured validation powered by Zod.
 - **Extensible Validation Support** — Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries.
+- **Localization** - Powerful capabilities for localizing forms using [Fluent.js](https://projectfluent.org).
 - **Responsive Layouts** — Build forms that automatically adapt to all screen sizes.
 - **Custom Actions** — Enhance forms with interactive logic through custom JavaScript.
 - **Dynamic Properties** — Enable real-time component updates with MobX-powered reactivity.

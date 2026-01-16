@@ -1,0 +1,501 @@
+{
+  "categories": {
+    "inputs": {
+      "name": "Inputs"
+    },
+    "dataDisplay": {
+      "name": "Data display"
+    },
+    "feedback": {
+      "name": "Feedback"
+    },
+    "layout": {
+      "name": "Layout"
+    },
+    "surfaces": {
+      "name": "Surfaces"
+    },
+    "navigation": {
+      "name": "Navigation"
+    },
+    "form": {
+      "name": "Form"
+    }
+  },
+  "commonProperties": {
+    "children": {
+      "name": "Children",
+      "description": "The content of the component"
+    },
+    "disabled": {
+      "name": "Disabled",
+      "description": "If true, the component is disabled"
+    },
+    "margin": {
+      "name": "Margin",
+      "description": "Defines the margin applied to the component"
+    },
+    "size": {
+      "name": "Size",
+      "description": "The size of the component"
+    },
+    "value": {
+      "name": "Value",
+      "description": "The value of the component"
+    },
+    "color": {
+      "name": "Color",
+      "description": "The color of the component"
+    },
+    "variant": {
+      "name": "Variant",
+      "description": "The variant to use"
+    },
+    "checked": {
+      "name": "Checked",
+      "description": "If true, the component is checked"
+    },
+    "fullWidth": {
+      "name": "Full width",
+      "description": "If true, the component takes up the full width of its container"
+    },
+    "dense": {
+      "name": "Dense",
+      "description": "If true, reduces vertical padding"
+    },
+    "defaultValue": {
+      "name": "Default value",
+      "description": "The default value. Use when the component is not controlled"
+    },
+    "disablePadding": {
+      "name": "Disable padding",
+      "description": "If true, disables the default padding"
+    },
+    "sx": {
+      "name": "Sx",
+      "description": "The system prop that allows defining system overrides as well as additional CSS styles"
+    },
+    "disableGutters": {
+      "name": "Disable gutters",
+      "description": "If true, disables the left and right padding"
+    },
+    "required": {
+      "name": "Required",
+      "description": "If true, the input element is required"
+    },
+    "error": {
+      "name": "Error",
+      "description": "If true, the component is displayed in an error state"
+    },
+    "helperText": {
+      "name": "Helper text",
+      "description": "The helper text content"
+    },
+    "onChange": {
+      "name": "onChange",
+      "description": "Callback fired when the value is changed"
+    },
+    "onClick": {
+      "name": "onClick",
+      "description": "Callback fired when the component is clicked"
+    },
+    "noWrap": {
+      "name": "No wrap",
+      "description": "If true, the text will not wrap, but instead will truncate with a text overflow ellipsis"
+    },
+    "gutterBottom": {
+      "name": "Gutter bottom",
+      "description": "If true, the text will have a bottom margin"
+    },
+    "textAlign": {
+      "name": "Alignment",
+      "description": "Text alignment"
+    }
+  },
+  "components": {
+    "MuiButton": {
+      "name": "Button",
+      "description": "A button component used to trigger actions or events",
+      "props": {
+        "children": {
+          "name": "Content",
+          "description": "The caption"
+        },
+        "disableElevation": {
+          "name": "Disable elevation",
+          "description": "Removes the button shadow when set to true"
+        },
+        "loading": {
+          "name": "Loading",
+          "description": "Displays a loading indicator and disables interaction"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "name": "Button group",
+      "description": "Groups related buttons together",
+      "props": {
+        "fullWidth": {
+          "name": "Full width",
+          "description": "Makes the button group span the full container width"
+        },
+        "orientation": {
+          "name": "Orientation",
+          "description": "Sets the layout direction of the buttons"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "name": "Checkbox",
+      "description": "Allows selecting one or more options",
+      "props": {
+        "defaultChecked": {
+          "name": "Default checked",
+          "description": "Initial checked state when uncontrolled"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "name": "Radio group",
+      "description": "Allows selecting a single option from a set",
+      "props": {
+        "name": {
+          "name": "Name",
+          "description": "Name attribute used to group radio buttons"
+        },
+        "row": {
+          "name": "Row",
+          "description": "Displays radio buttons horizontally"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "name": "Radio item",
+      "description": "A single radio button used within a radio group"
+    },
+    "MuiSelect": {
+      "name": "Select",
+      "description": "Dropdown component for selecting options",
+      "props": {
+        "autoFocus": {
+          "name": "Auto focus",
+          "description": "Automatically focuses the field on mount"
+        },
+        "multiple": {
+          "name": "Multiple",
+          "description": "Allows selecting multiple options"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "name": "Switch",
+      "description": "Toggle control for switching between two states",
+      "props": {
+        "defaultChecked": {
+          "name": "Default checked",
+          "description": "Initial toggle state when uncontrolled"
+        }
+      }
+    },
+    "MuiTextField": {
+      "name": "Text field",
+      "description": "Input field for text and form data",
+      "props": {
+        "multiline": {
+          "name": "Multiline",
+          "description": "Renders a textarea instead of a single-line input"
+        },
+        "maxRows": {
+          "name": "Max rows",
+          "description": "Maximum number of visible rows for multiline input"
+        },
+        "autoFocus": {
+          "name": "Auto focus",
+          "description": "Automatically focuses the field on mount"
+        },
+        "type": {
+          "name": "Type",
+          "description": "HTML input type (text, password, email, etc.)"
+        }
+      }
+    },
+    "MuiTypography": {
+      "name": "Typography",
+      "description": "Displays text with predefined typography styles",
+      "props": {
+        "children": {
+          "name": "Content",
+          "description": "The text content"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "name": "Tooltip",
+      "description": "Displays contextual information on hover, focus, or touch",
+      "props": {
+        "arrow": {
+          "name": "Arrow",
+          "description": "Displays an arrow pointing to the target element"
+        },
+        "disableFocusListener": {
+          "name": "Disable focus listener",
+          "description": "Prevents the tooltip from appearing on focus"
+        },
+        "disableInteractive": {
+          "name": "Disable interactive",
+          "description": "Disables interaction with the tooltip content"
+        },
+        "disableHoverListener": {
+          "name": "Disable hover listener",
+          "description": "Prevents the tooltip from appearing on hover"
+        },
+        "disableTouchListener": {
+          "name": "Disable touch listener",
+          "description": "Prevents the tooltip from appearing on touch"
+        },
+        "followCursor": {
+          "name": "Follow cursor",
+          "description": "Makes the tooltip follow the cursor position"
+        },
+        "enterDelay": {
+          "name": "Enter delay",
+          "description": "Delay in milliseconds before showing the tooltip"
+        },
+        "leaveDelay": {
+          "name": "Leave delay",
+          "description": "Delay in milliseconds before hiding the tooltip"
+        },
+        "title": {
+          "name": "Title",
+          "description": "Text content displayed inside the tooltip"
+        }
+      }
+    },
+    "MuiList": {
+      "name": "List",
+      "description": "Displays a vertical list of items"
+    },
+    "MuiListItem": {
+      "name": "List item",
+      "description": "Represents a single item inside a list",
+      "props": {
+        "divider": {
+          "name": "Divider",
+          "description": "Displays a divider below the list item"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "name": "Circular progress",
+      "description": "Indicates loading or progress in a circular form",
+      "props": {
+        "thickness": {
+          "name": "Thickness",
+          "description": "Controls the stroke width of the circle"
+        },
+        "disableShrink": {
+          "name": "Disable shrink",
+          "description": "Disables the shrink animation"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "name": "Error wrapper",
+      "description": "Wraps content and displays an error state or message"
+    },
+    "MuiLinearProgress": {
+      "name": "Linear progress",
+      "description": "Indicates loading or progress in a linear bar",
+      "props": {
+        "valueBuffer": {
+          "name": "Value buffer",
+          "description": "Secondary buffer value for buffered progress mode"
+        }
+      }
+    },
+    "MuiBox": {
+      "name": "Box",
+      "description": "Generic layout container with system styling support"
+    },
+    "MuiContainer": {
+      "name": "Container",
+      "description": "Centers and constrains content horizontally",
+      "props": {
+        "fixed": {
+          "name": "Fixed",
+          "description": "Sets a fixed max width instead of a fluid one"
+        },
+        "maxWidth": {
+          "name": "Max width",
+          "description": "Defines the maximum width of the container"
+        }
+      }
+    },
+    "MuiStack": {
+      "name": "Stack",
+      "description": "Layouts children in a one-dimensional stack",
+      "props": {
+        "direction": {
+          "name": "Direction",
+          "description": "Defines whether items are stacked in a row or column"
+        },
+        "spacing": {
+          "name": "Spacing",
+          "description": "Spacing between stacked items"
+        },
+        "justifyContent": {
+          "name": "Justify content",
+          "description": "Controls main-axis alignment"
+        },
+        "alignItems": {
+          "name": "Align items",
+          "description": "Controls cross-axis alignment"
+        },
+        "flexWrap": {
+          "name": "Flex wrap",
+          "description": "Controls whether items wrap onto multiple lines"
+        },
+        "useFlexGap": {
+          "name": "Use flex gap",
+          "description": "Uses CSS gap instead of margins for spacing"
+        }
+      }
+    },
+    "MuiCard": {
+      "name": "Card",
+      "description": "Surface component for grouping related content",
+      "props": {
+        "useHeader": {
+          "name": "Use header",
+          "description": "Enables the card header section"
+        },
+        "useHeaderAction": {
+          "name": "Use header action",
+          "description": "Enables an action area inside the header"
+        },
+        "useHeaderAvatar": {
+          "name": "Use header avatar",
+          "description": "Displays an avatar inside the header"
+        },
+        "useSubheader": {
+          "name": "Use subheader",
+          "description": "Displays a subheader below the main header"
+        },
+        "useMedia": {
+          "name": "Use media",
+          "description": "Enables a media section inside the card"
+        },
+        "useActions": {
+          "name": "Use actions",
+          "description": "Displays an actions section at the bottom"
+        },
+        "useCardActionArea": {
+          "name": "Use card action area",
+          "description": "Wraps content with a clickable action area"
+        },
+        "header": {
+          "name": "Header",
+          "description": "Content rendered in the card header"
+        },
+        "headerAction": {
+          "name": "Header action",
+          "description": "Action element displayed in the header"
+        },
+        "headerAvatar": {
+          "name": "Header avatar",
+          "description": "Avatar element displayed in the header"
+        },
+        "subHeader": {
+          "name": "Sub header",
+          "description": "Secondary text displayed below the header"
+        },
+        "media": {
+          "name": "Media",
+          "description": "Media content such as an image or video"
+        },
+        "actions": {
+          "name": "Actions",
+          "description": "Action buttons or controls for the card"
+        },
+        "onSelect": {
+          "name": "onSelect",
+          "description": "Callback triggered when the card is selected"
+        }
+      }
+    },
+    "MuiBreadcrumbs": {
+      "name": "Breadcrumbs",
+      "description": "Shows the current page location within a hierarchy",
+      "props": {
+        "maxItems": {
+          "name": "Max items",
+          "description": "Specifies the maximum number of breadcrumbs to display"
+        },
+        "itemsAfterCollapse": {
+          "name": "Items after collapse",
+          "description": "If max items is exceeded, the number of items to show after the ellipsis"
+        },
+        "itemsBeforeCollapse": {
+          "name": "Items before collapse",
+          "description": "If max items is exceeded, the number of items to show before the ellipsis"
+        },
+        "separator": {
+          "name": "Separator",
+          "description": "Element used to separate breadcrumb items"
+        },
+        "items": {
+          "name": "Items",
+          "description": "Breadcrumb items to display"
+        }
+      }
+    },
+    "MuiLink": {
+      "name": "Link",
+      "description": "Clickable element for navigation or actions",
+      "props": {
+        "href": {
+          "name": "Href",
+          "description": "Destination URL"
+        }
+      }
+    },
+    "MuiFormControlLabel": {
+      "name": "Form control label",
+      "description": "Associates a label with a form control",
+      "props": {
+        "control": {
+          "name": "Control",
+          "description": "Form control element (checkbox, radio, switch)"
+        },
+        "labelPlacement": {
+          "name": "Label placement",
+          "description": "Position of the label relative to the control"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "name": "Form label",
+      "description": "Label for grouping or describing form fields",
+      "props": {
+        "filled": {
+          "name": "Filled",
+          "description": "Applies the filled state styling"
+        }
+      }
+    },
+    "MuiUploader": {
+      "name": "Uploader",
+      "description": "Component for uploading one or more files",
+      "props": {
+        "accept": {
+          "name": "Accept",
+          "description": "Allowed file types (e.g. \".jpg,.png\")"
+        },
+        "multiple": {
+          "name": "Multiple",
+          "description": "Allows selecting multiple files"
+        }
+      }
+    }
+  }
+}

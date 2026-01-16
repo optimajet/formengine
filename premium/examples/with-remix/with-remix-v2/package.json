@@ -20,18 +20,18 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^7.9.0",
-    "@react-form-builder/core": "^7.9.0",
-    "@react-form-builder/designer": "^7.9.0",
-    "@remix-run/node": "^2.14.0",
-    "@remix-run/react": "^2.14.0",
-    "@remix-run/serve": "^2.16.4",
+    "@react-form-builder/components-rsuite": "^7.10.0",
+    "@react-form-builder/core": "^7.10.0",
+    "@react-form-builder/designer": "^7.10.0",
+    "@remix-run/node": "^2.17.3",
+    "@remix-run/react": "^2.17.3",
+    "@remix-run/serve": "^2.17.3",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.14.0",
+    "@remix-run/dev": "^2.17.3",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",

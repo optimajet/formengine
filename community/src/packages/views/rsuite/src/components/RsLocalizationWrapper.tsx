@@ -1,5 +1,5 @@
 import type {FormViewerWrapperComponentProps} from '@react-form-builder/core'
-import {BiDi} from '@react-form-builder/core'
+import {BiDi, useBuilderTheme} from '@react-form-builder/core'
 import {CustomProvider} from 'rsuite'
 import {
   arEG,
@@ -53,6 +53,12 @@ const rSuiteLocales: Record<string, any> = {
 
 export const defaultComponentsLocale = enUS
 
+const containerStyle = {
+  height: '100%',
+  width: '100%',
+  backgroundColor: 'var(--rs-bg-card)'
+}
+
 /**
  * Wrapper component for RSuite components localization.
  * @param props the component props.
@@ -61,7 +67,10 @@ export const defaultComponentsLocale = enUS
  * @returns the wrapped components with localization settings applied.
  */
 export const RsLocalizationWrapper = ({language, children}: FormViewerWrapperComponentProps) => {
-  return <CustomProvider rtl={language.bidi === BiDi.RTL} locale={rSuiteLocales[language.fullCode] ?? defaultComponentsLocale}>
-    {children}
+  const theme = useBuilderTheme()
+  const className = theme === 'dark' ? 'rs-theme-dark' : 'rs-theme-light'
+  const locale = rSuiteLocales[language.fullCode] ?? defaultComponentsLocale
+  return <CustomProvider rtl={language.bidi === BiDi.RTL} locale={locale} theme={theme}>
+    <div className={className} style={containerStyle}>{children}</div>
   </CustomProvider>
 }

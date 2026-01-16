@@ -1,6 +1,6 @@
 {
   "name": "@react-form-builder/example-viewer",
-  "version": "7.9.0",
+  "version": "7.10.0",
   "license": "MIT",
   "private": true,
   "main": "src/index.tsx",
@@ -22,15 +22,21 @@
     "bundle-size": "npx vite-bundle-visualizer"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^7.9.0",
-    "@react-form-builder/core": "^7.9.0",
+    "@react-form-builder/apps-common": "^7.10.0",
+    "@react-form-builder/components-material-ui": "^7.10.0",
+    "@react-form-builder/components-rsuite": "^7.10.0",
+    "@react-form-builder/core": "^7.10.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "rsuite": "5.83.4"
   },
   "devDependencies": {
     "@types/react": "^17.0.90",
     "@types/react-dom": "^17.0.26",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "vite-bundle-visualizer": "^1.2.1"
+  },
+  "overrides": {
+    "react-is": ">=17.0.2"
   }
 }

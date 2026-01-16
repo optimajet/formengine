@@ -19,6 +19,7 @@ This library is part of the [React Form Builder](https://formengine.io/) project
   with [Yup](https://github.com/jquense/yup), [AJV](https://github.com/ajv-validator/ajv), [Zod](https://github.com/colinhacks/zod),
   [Superstruct](https://github.com/ianstormtaylor/superstruct),
   [Joi](https://github.com/hapijs/joi), and other custom validation libraries.
+- **Localization** - Powerful capabilities for localizing forms using [Fluent.js](https://projectfluent.org).
 - **Responsive Layouts**: Build forms that automatically [adapt](https://formengine.io/documentation/adaptive-layout) to all screen sizes.
 - **Custom Actions**: Enhance forms with interactive logic through [custom JavaScript code](https://formengine.io/documentation/actions).
 - **Dynamic Properties**: Implement real-time component changes with [MobX](https://github.com/mobxjs/mobx)-powered reactive properties.

@@ -50,18 +50,28 @@ const RawComponentViewer = () => {
   }
 
   if (kind === 'repeater') {
-    return <Wrapper><Tooltip><Erroneous>
-      <Component key={key} {...otherProps} wrapperClassName={className} {...containerStyle}/>
-    </Erroneous></Tooltip></Wrapper>
+    return <Tooltip>
+      <Wrapper>
+        <Erroneous>
+          <Component key={key} {...otherProps} wrapperClassName={className} {...containerStyle}/>
+        </Erroneous>
+      </Wrapper>
+    </Tooltip>
   }
 
-  return <Wrapper
-    className={kind === 'template' ? className : useWrapperStyles ? componentState.wrapperClassName : undefined} {...containerStyle}>
-    {kind === 'template'
-      ? component
-      : <Tooltip><Erroneous>{component}</Erroneous></Tooltip>
-    }
-  </Wrapper>
+  if (kind === 'template') {
+    return <Wrapper className={className} {...containerStyle}>
+      {component}
+    </Wrapper>
+  }
+  
+  const wrapperClassName = useWrapperStyles ? componentState.wrapperClassName : undefined
+
+  return <Tooltip>
+    <Wrapper className={wrapperClassName} {...containerStyle}>
+      <Erroneous>{component}</Erroneous>
+    </Wrapper>
+  </Tooltip>
 }
 
 export const ComponentViewer = namedObserver('ComponentViewer', RawComponentViewer)

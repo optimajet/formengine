@@ -6,6 +6,7 @@ coverage/
 node_modules/
 .idea/
 .archives/
+.zed/
 
 # Folder config file
 Desktop.ini

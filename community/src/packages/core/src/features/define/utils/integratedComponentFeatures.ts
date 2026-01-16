@@ -95,3 +95,12 @@ registerComponentFeature({
  */
 export const cfDisableActionEditors = 'disable-action-editors'
 registerBooleanComponentFeature(cfDisableActionEditors)
+
+/**
+ * Adding this feature allows you to specify some component properties as "required".
+ */
+export const cfRequiredProperties = 'required-properties'
+registerComponentFeature({
+  name: cfRequiredProperties,
+  allowMultiple: true
+})

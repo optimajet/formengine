@@ -1,0 +1,501 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "데이터 표시"
+    },
+    "feedback": {
+      "name": "피드백"
+    },
+    "form": {
+      "name": "양식"
+    },
+    "inputs": {
+      "name": "입력"
+    },
+    "layout": {
+      "name": "레이아웃"
+    },
+    "navigation": {
+      "name": "탐색"
+    },
+    "surfaces": {
+      "name": "표면"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "참인 경우 구성 요소가 확인됩니다",
+      "name": "체크"
+    },
+    "children": {
+      "description": "구성 요소의 내용",
+      "name": "어린이"
+    },
+    "color": {
+      "description": "구성 요소의 색상",
+      "name": "색상"
+    },
+    "defaultValue": {
+      "description": "기본값입니다. 구성 요소가 제어되지 않을 때 사용",
+      "name": "기본값"
+    },
+    "dense": {
+      "description": "사실 인 경우 수직 패딩을 줄입니다",
+      "name": "밀도"
+    },
+    "disableGutters": {
+      "description": "참인 경우 왼쪽 및 오른쪽 패딩을 비활성화합니다",
+      "name": "홈통 비활성화"
+    },
+    "disablePadding": {
+      "description": "참인 경우 기본 패딩을 비활성화합니다",
+      "name": "패딩 비활성화"
+    },
+    "disabled": {
+      "description": "해당되는 경우 구성 요소가 비활성화됩니다",
+      "name": "사용 안 함"
+    },
+    "error": {
+      "description": "참인 경우 구성 요소가 오류 상태로 표시됩니다",
+      "name": "오류"
+    },
+    "fullWidth": {
+      "description": "만약 사실이라면,구성 요소는 컨테이너의 전체 너비를 차지합니다.",
+      "name": "가득 차있는 폭"
+    },
+    "gutterBottom": {
+      "description": "만약 사실이라면,텍스트는 하단 여백을 갖게 될 것입니다.",
+      "name": "거터 바닥"
+    },
+    "helperText": {
+      "description": "도우미 텍스트 내용",
+      "name": "도우미 텍스트"
+    },
+    "margin": {
+      "description": "구성 요소에 적용된 여백을 정의합니다",
+      "name": "마진"
+    },
+    "noWrap": {
+      "description": "참이면 텍스트가 줄 바꿈되지 않고 텍스트 오버플로 줄임표 대신 잘립니다",
+      "name": "포장 없음"
+    },
+    "onChange": {
+      "description": "값이 변경 될 때 콜백이 발생합니다",
+      "name": "변경"
+    },
+    "onClick": {
+      "description": "구성 요소를 클릭하면 콜백이 실행됩니다",
+      "name": "온클릭"
+    },
+    "required": {
+      "description": "참인 경우 입력 요소가 필요합니다",
+      "name": "필수"
+    },
+    "size": {
+      "description": "구성 요소의 크기",
+      "name": "크기"
+    },
+    "sx": {
+      "description": "시스템 재정의 및 추가 스타일을 정의할 수 있는 시스템 소품",
+      "name": "에스엑스"
+    },
+    "textAlign": {
+      "description": "텍스트 정렬",
+      "name": "정렬"
+    },
+    "value": {
+      "description": "구성 요소의 값",
+      "name": "값"
+    },
+    "variant": {
+      "description": "사용할 변형",
+      "name": "변종"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "시스템 스타일을 지원하는 일반 레이아웃 컨테이너",
+      "name": "상자"
+    },
+    "MuiBreadcrumbs": {
+      "description": "계층 내에서 현재 페이지 위치를 표시합니다",
+      "name": "빵 부스러기",
+      "props": {
+        "items": {
+          "description": "표시할 이동 경로 항목",
+          "name": "항목"
+        },
+        "itemsAfterCollapse": {
+          "description": "최대 항목을 초과하면 줄임표 뒤에 표시할 항목 수입니다",
+          "name": "축소 후 항목"
+        },
+        "itemsBeforeCollapse": {
+          "description": "최대 항목을 초과하면 줄임표 앞에 표시할 항목 수입니다",
+          "name": "축소 전 항목"
+        },
+        "maxItems": {
+          "description": "표시할 최대 이동 경로 수를 지정합니다",
+          "name": "최대 항목"
+        },
+        "separator": {
+          "description": "이동 경로 항목을 분리하는 데 사용되는 요소",
+          "name": "분리기"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "작업 또는 이벤트를 트리거하는 데 사용되는 단추 구성 요소",
+      "name": "버튼",
+      "props": {
+        "children": {
+          "description": "캡션",
+          "name": "내용"
+        },
+        "disableElevation": {
+          "description": "참으로 설정하면 단추 그림자를 제거합니다",
+          "name": "상승 비활성화"
+        },
+        "loading": {
+          "description": "로드 표시기를 표시하고 상호 작용을 비활성화합니다",
+          "name": "로드 중"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "관련 버튼을 함께 그룹화",
+      "name": "버튼 그룹",
+      "props": {
+        "fullWidth": {
+          "description": "단추 그룹을 전체 컨테이너 너비에 걸쳐 만듭니다",
+          "name": "가득 차있는 폭"
+        },
+        "orientation": {
+          "description": "단추의 레이아웃 방향을 설정합니다",
+          "name": "방향"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "관련 콘텐츠 그룹화를 위한 표면 구성 요소",
+      "name": "카드",
+      "props": {
+        "actions": {
+          "description": "카드의 동작 버튼 또는 컨트롤",
+          "name": "행동"
+        },
+        "header": {
+          "description": "카드 헤더에 렌더링된 콘텐츠",
+          "name": "헤더"
+        },
+        "headerAction": {
+          "description": "헤더에 표시된 작업 요소",
+          "name": "헤더 동작"
+        },
+        "headerAvatar": {
+          "description": "헤더에 표시된 아바타 요소",
+          "name": "헤더 아바타"
+        },
+        "media": {
+          "description": "이미지 또는 비디오와 같은 미디어 콘텐츠",
+          "name": "미디어"
+        },
+        "onSelect": {
+          "description": "카드를 선택하면 콜백이 트리거됩니다",
+          "name": "선택"
+        },
+        "subHeader": {
+          "description": "머리글 아래에 표시되는 보조 텍스트",
+          "name": "서브 헤더"
+        },
+        "useActions": {
+          "description": "아래쪽에 작업 섹션을 표시합니다",
+          "name": "작업 사용"
+        },
+        "useCardActionArea": {
+          "description": "클릭 가능한 작업 영역으로 콘텐츠를 래핑합니다",
+          "name": "카드 작업 영역 사용"
+        },
+        "useHeader": {
+          "description": "카드 헤더 섹션을 활성화합니다",
+          "name": "헤더 사용"
+        },
+        "useHeaderAction": {
+          "description": "헤더 내부의 작업 영역을 활성화합니다",
+          "name": "헤더 작업 사용"
+        },
+        "useHeaderAvatar": {
+          "description": "헤더 안에 아바타를 표시합니다",
+          "name": "헤더 아바타 사용"
+        },
+        "useMedia": {
+          "description": "카드 내부의 미디어 섹션을 활성화합니다",
+          "name": "미디어 사용"
+        },
+        "useSubheader": {
+          "description": "주 헤더 아래에 하위 헤더를 표시합니다",
+          "name": "서브 헤더 사용"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "하나 이상의 옵션을 선택할 수 있습니다",
+      "name": "체크박스",
+      "props": {
+        "defaultChecked": {
+          "description": "통제되지 않은 경우 초기 검사 상태",
+          "name": "기본값 선택"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "순환 형태로 로드 또는 진행 상황을 나타냅니다",
+      "name": "순환 진행",
+      "props": {
+        "disableShrink": {
+          "description": "축소 애니메이션 비활성화",
+          "name": "축소 비활성화"
+        },
+        "thickness": {
+          "description": "원의 획 폭을 제어합니다",
+          "name": "두께"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "콘텐츠를 가로로 가운데 및 제한",
+      "name": "컨테이너",
+      "props": {
+        "fixed": {
+          "description": "유체 너비 대신 고정 최대 너비를 설정합니다",
+          "name": "고정"
+        },
+        "maxWidth": {
+          "description": "컨테이너의 최대 너비를 정의합니다",
+          "name": "최대 폭"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "콘텐츠를 래핑하고 오류 상태 또는 메시지를 표시합니다",
+      "name": "오류 래퍼"
+    },
+    "MuiFormControlLabel": {
+      "description": "레이블을 양식 컨트롤과 연결",
+      "name": "양식 제어 레이블",
+      "props": {
+        "control": {
+          "description": "양식 제어 요소(체크 박스,라디오,스위치)",
+          "name": "제어"
+        },
+        "labelPlacement": {
+          "description": "컨트롤에 대한 레이블의 위치",
+          "name": "라벨 배치"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "양식 필드를 그룹화하거나 설명하는 레이블",
+      "name": "양식 레이블",
+      "props": {
+        "filled": {
+          "description": "채워진 상태 스타일 적용",
+          "name": "채워진"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "선형 막대에서 로드 또는 진행 상황을 나타냅니다",
+      "name": "선형 진행",
+      "props": {
+        "valueBuffer": {
+          "description": "버퍼링된 진행 모드의 보조 버퍼 값",
+          "name": "값 버퍼"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "탐색 또는 작업을 위해 클릭 가능한 요소",
+      "name": "링크",
+      "props": {
+        "href": {
+          "description": "목적지",
+          "name": "헤프"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "항목의 수직 목록을 표시합니다",
+      "name": "목록"
+    },
+    "MuiListItem": {
+      "description": "목록 내의 단일 항목을 나타냅니다",
+      "name": "목록 항목",
+      "props": {
+        "divider": {
+          "description": "목록 항목 아래에 구분선을 표시합니다",
+          "name": "분할기"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "집합에서 단일 옵션을 선택할 수 있습니다",
+      "name": "라디오 그룹",
+      "props": {
+        "name": {
+          "description": "라디오 단추를 그룹화하는 데 사용되는 이름 속성",
+          "name": "이름"
+        },
+        "row": {
+          "description": "라디오 버튼을 수평으로 표시합니다.",
+          "name": "행"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "라디오 그룹 내에서 사용되는 단일 라디오 버튼",
+      "name": "라디오 항목"
+    },
+    "MuiSelect": {
+      "description": "옵션 선택을위한 드롭 다운 구성 요소",
+      "name": "선택",
+      "props": {
+        "autoFocus": {
+          "description": "자동으로 마운트에 필드를 집중",
+          "name": "자동 초점"
+        },
+        "multiple": {
+          "description": "여러 옵션을 선택할 수 있습니다",
+          "name": "다중"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "1 차원 스택의 레이아웃 어린이",
+      "name": "스택",
+      "props": {
+        "alignItems": {
+          "description": "교차 축 정렬을 제어합니다",
+          "name": "항목 정렬"
+        },
+        "direction": {
+          "description": "항목이 행 또는 열에 누적되는지 여부를 정의합니다",
+          "name": "방향"
+        },
+        "flexWrap": {
+          "description": "항목이 여러 줄로 줄 바꿈 여부를 제어합니다",
+          "name": "플렉스 랩"
+        },
+        "justifyContent": {
+          "description": "주축 정렬을 제어합니다",
+          "name": "콘텐츠 정당화"
+        },
+        "spacing": {
+          "description": "누적 된 항목 사이의 간격",
+          "name": "간격"
+        },
+        "useFlexGap": {
+          "description": "간격에 여백 대신 간격 사용",
+          "name": "플렉스 갭 사용"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "두 상태 간 전환을 위한 토글 제어",
+      "name": "스위치",
+      "props": {
+        "defaultChecked": {
+          "description": "제어되지 않은 경우 초기 토글 상태",
+          "name": "기본값 선택"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "텍스트 및 양식 데이터의 입력 필드",
+      "name": "텍스트 필드",
+      "props": {
+        "autoFocus": {
+          "description": "자동으로 마운트에 필드를 집중",
+          "name": "자동 초점"
+        },
+        "maxRows": {
+          "description": "여러 줄 입력에 대해 표시되는 최대 행 수",
+          "name": "최대 행"
+        },
+        "multiline": {
+          "description": "한 줄 입력 대신 텍스트 영역을 렌더링합니다",
+          "name": "여러 줄"
+        },
+        "type": {
+          "description": "입력 유형(텍스트,비밀번호,이메일 등))",
+          "name": "유형"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "호버,포커스 또는 터치에 대한 상황별 정보를 표시합니다",
+      "name": "툴팁",
+      "props": {
+        "arrow": {
+          "description": "대상 요소를 가리키는 화살표를 표시합니다",
+          "name": "화살표"
+        },
+        "disableFocusListener": {
+          "description": "도구 설명이 포커스에 나타나지 않도록 합니다",
+          "name": "포커스 리스너 비활성화"
+        },
+        "disableHoverListener": {
+          "description": "마우스에 도구 설명이 나타나지 않도록 합니다",
+          "name": "호버 리스너 비활성화"
+        },
+        "disableInteractive": {
+          "description": "도구 설명 콘텐츠와의 상호 작용을 비활성화합니다",
+          "name": "대화식 비활성화"
+        },
+        "disableTouchListener": {
+          "description": "터치 시 툴팁이 나타나지 않도록 합니다",
+          "name": "터치 리스너 비활성화"
+        },
+        "enterDelay": {
+          "description": "도구 설명을 표시하기 전에 밀리 초 지연",
+          "name": "지연 입력"
+        },
+        "followCursor": {
+          "description": "툴팁이 커서 위치를 따르도록 합니다",
+          "name": "커서를 따라"
+        },
+        "leaveDelay": {
+          "description": "도구 설명을 숨기기 전에 밀리 초 지연",
+          "name": "지연 휴가"
+        },
+        "title": {
+          "description": "도구 설명 안에 표시되는 텍스트 내용",
+          "name": "제목"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "미리 정의된 타이포그래피 스타일로 텍스트를 표시합니다",
+      "name": "타이포그래피",
+      "props": {
+        "children": {
+          "description": "텍스트 내용",
+          "name": "내용"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "하나 이상의 파일을 업로드하기 위한 구성 요소",
+      "name": "업 로더",
+      "props": {
+        "accept": {
+          "description": "허용된 파일 형식(예:\".-그래,그래\")",
+          "name": "동의"
+        },
+        "multiple": {
+          "description": "여러 파일을 선택할 수 있습니다",
+          "name": "다중"
+        }
+      }
+    }
+  }
+}

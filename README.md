@@ -1,33 +1,65 @@
-[![Formengine](https://formengine.io/repository-images/Formengine_bigpicture_2.png?utm_source=github&utm_medium=banner-top&utm_campaign=readme)](https://formengine.io/documentation/?utm_source=github&utm_medium=banner-top&utm_campaign=readme#quick-start)
+[![FormEngine](https://formengine.io/repository-images/hero-1.jpg)](https://formengine.io/documentation/?utm_source=github&utm_medium=banner-top&utm_campaign=readme#quick-start)
 <!-- ==================== FORMENGINE CORE BADGES ==================== -->
+[![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge&logo=github&logoColor=white&color=4286F4)](https://github.com/optimajet/formengine/blob/master/LICENSE)
+[![Closed Issues](https://img.shields.io/github/issues-closed/optimajet/formengine?style=for-the-badge&logo=github&logoColor=white&color=4286F4)](https://github.com/optimajet/formengine/issues?q=is%3Aissue+is%3Aclosed)
+[![Release date](https://img.shields.io/github/release-date/optimajet/formengine?style=for-the-badge&logo=github&logoColor=white&color=4286F4)](https://github.com/optimajet/formengine/releases)
 [![Total Downloads](https://img.shields.io/npm/dt/@react-form-builder/core?style=for-the-badge&logo=npm&color=4286F4)](https://www.npmjs.com/package/@react-form-builder/core)
-[![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://github.com/optimajet/formengine/blob/master/LICENSE)
-[![Open Issues](https://img.shields.io/github/issues/optimajet/formengine?style=for-the-badge&logo=github&logoColor=white&color=orange)](https://github.com/optimajet/formengine/issues)
-[![Closed Issues](https://img.shields.io/github/issues-closed/optimajet/formengine?style=for-the-badge&logo=github&logoColor=white&color=green)](https://github.com/optimajet/formengine/issues?q=is%3Aissue+is%3Aclosed)
 <!-- ================================================================ -->
 
-### Struggled with React Hook Form, Formik, or TanStack Form? You’re not alone. It’s time to use something better. Forms shouldn’t be this hard!
+# Lightweight React JSON Schema form builder library for MUI, Shadcn, RSuite, Mantine, Tailwind, Bootstrap
 
-#### That’s why we built Formengine Core — a JSON-first React Form Renderer and open-source form engine for React. Describe your form in JSON and render it across your apps. No hooks. No context. No boilerplate. No pain.
+## Supported Themes
 
-### Simple Form Example
+- [**MUI**](https://formengine.io/react-form-components-library/mui/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=mui)
+- [**shadcn/ui**](https://formengine.io/react-form-components-library/shadcn-ui/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=shadcn)
+- [**React Suite**](https://formengine.io/react-form-components-library?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=rsuite#free)
+- [**Mantine UI**](https://formengine.io/react-form-components-library/mantine/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=mantine)
 
-[![Formengine](https://formengine.io/repository-images/simpleform.png?utm_source=github&utm_medium=banner-top&utm_campaign=readme)](https://formengine.io/documentation/?utm_source=github&utm_medium=article_banner-for&utm_campaign=readme#quick-start)
+## Supported Themes — coming soon (click link to check status)
 
-### Simple Form JSON Example
+- [**Tailwind**](https://formengine.io/react-form-components-library/tailwind/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=tailwind)
+- [**Ant Design**](https://formengine.io/react-form-components-library/ant-design/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=ant-design)
+- [**Bootstrap**](https://formengine.io/react-form-components-library/bootstrap/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=bootstrap)
+- [**Chakra-UI**](https://formengine.io/react-form-components-library/chakra-ui/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=chakra-ui)
+- [**daisyUI**](https://formengine.io/react-form-components-library/daisyui/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=daisyui)
+
+## Bundle size FormEngine Core (for comparison with popular libraries)
+
+| Package                | Total size JS + CSS (raw/gzip) | Framework / Library      | Description                   |
+|------------------------|--------------------------------|--------------------------|-------------------------------|
+| **FormEngine Core**    | 618.80 KB / 188.54KB           | React                    | FormEngine Core + MUI         |
+| survey                 | 1.47 MB / 391.72KB             | Plain JavaScript + React | survey-react + MUI            |
+| vueform                | 467.35 KB / 141.09K            | Vue3                     | Tree-shaked vueform + MUI CSS |
+| React JSON Schema Form | 721.54 KB / 231.62KB           | React                    | RJSF + MUI                    |
+
+<small>
+Bundle sizes are approximate and depend on build configuration, tree-shaking, and selected features.  
+We are preparing a public benchmark for comparing assembly sizes..
+</small>
+
+## 📦 FormEngine Core MUI Installation
+
+**It’s time to use something better. Install the core package and MUI free form components:**
+
+```bash
+npm install @react-form-builder/core @mui/material @emotion/react @emotion/styled @react-form-builder/components-material-ui
+```
+
+## Simple Form Example
+
+[![FormEngine](https://formengine.io/repository-images/simpleform-mui.png)](https://formengine.io/documentation/?utm_source=github&utm_medium=article_banner-for&utm_campaign=readme#quick-start)
+
+## Simple Form JSON Example
 
 ```json  
 {
-  "version": "1",
-  "errorType": "RsErrorMessage",
   "form": {
     "key": "Screen",
     "type": "Screen",
-    "props": {},
     "children": [
       {
         "key": "name",
-        "type": "RsInput",
+        "type": "MuiTextField",
         "props": {
           "label": {
             "value": "Name"
@@ -36,23 +68,16 @@
       },
       {
         "key": "email",
-        "type": "RsInput",
+        "type": "MuiTextField",
         "props": {
           "label": {
             "value": "Email"
           }
-        },
-        "schema": {
-          "validations": [
-            {
-              "key": "email"
-            }
-          ]
         }
       },
       {
         "key": "submit",
-        "type": "RsButton",
+        "type": "MuiButton",
         "props": {
           "appearance": {
             "value": "primary"
@@ -65,121 +90,100 @@
           "onClick": [
             {
               "name": "validate",
-              "type": "common",
-              "args": {
-                "failOnError": true
-              }
-            },
-            {
-              "name": "onSubmit",
-              "type": "custom"
+              "type": "common"
             }
           ]
         }
       }
     ]
-  },
-  "localization": {},
-  "languages": [
-    {
-      "code": "en",
-      "dialect": "US",
-      "name": "English",
-      "description": "American English",
-      "bidi": "ltr"
-    }
-  ],
-  "defaultLanguage": "en-US"
+  }
 }
 ```  
 
 <details> 
-<summary> Click to see how you can define your entire form in JSON and render it with Formengine Core. </summary>
+<summary> Click to see how you can define your entire form in JSON and render it with FormEngine Core. </summary>
 
-### Here’s a simple form example you can use in your React app
+## Here’s a simple form example you can use in your React app
 
 ```tsx
-import {viewWithCss} from '@react-form-builder/components-rsuite'
+import {view as muiView} from '@react-form-builder/components-material-ui'
 import {FormViewer} from '@react-form-builder/core'
 
 const simpleForm = {
-  version: '1',
-  errorType: 'RsErrorMessage',
-  form: {
-    key: 'Screen',
-    type: 'Screen',
-    props: {},
-    children: [
+  'errorType': 'MuiErrorWrapper',
+  'form': {
+    'key': 'Screen',
+    'type': 'Screen',
+    'children': [
       {
-        key: 'name',
-        type: 'RsInput',
-        props: {
-          label: {
-            value: 'Name'
-          }
-        }
-      },
-      {
-        key: 'email',
-        type: 'RsInput',
-        props: {
-          label: {
-            value: 'Email'
+        'key': 'name',
+        'type': 'MuiTextField',
+        'props': {
+          'label': {
+            'value': 'Name'
           }
         },
-        schema: {
-          validations: [
+        'schema': {
+          'validations': [
             {
-              key: 'email'
+              'key': 'required'
             }
           ]
         }
       },
       {
-        key: 'submit',
-        type: 'RsButton',
-        props: {
-          appearance: {
-            value: 'primary'
-          },
-          children: {
-            value: 'Submit'
+        'key': 'email',
+        'type': 'MuiTextField',
+        'props': {
+          'label': {
+            'value': 'Email'
           }
         },
-        events: {
-          onClick: [
+        'schema': {
+          'validations': [
             {
-              name: 'validate',
-              type: 'common',
-              args: {
-                failOnError: true
+              'key': 'required'
+            },
+            {
+              'key': 'email'
+            }
+          ]
+        }
+      },
+      {
+        'key': 'submit',
+        'type': 'MuiButton',
+        'props': {
+          'appearance': {
+            'value': 'primary'
+          },
+          'children': {
+            'value': 'Submit'
+          }
+        },
+        'events': {
+          'onClick': [
+            {
+              'name': 'validate',
+              'type': 'common',
+              'args': {
+                'failOnError': true
               }
             },
             {
-              name: 'onSubmit',
-              type: 'custom'
+              'name': 'onSubmit',
+              'type': 'custom'
             }
-          ],
+          ]
         }
       }
     ]
-  },
-  localization: {},
-  languages: [
-    {
-      code: 'en',
-      dialect: 'US',
-      name: 'English',
-      description: 'American English',
-      bidi: 'ltr'
-    }
-  ],
-  defaultLanguage: 'en-US'
+  }
 }
 
 export const App = () => (
   <FormViewer
-    view={viewWithCss}
+    view={muiView}
     getForm={() => JSON.stringify(simpleForm)}
     actions={{
       onSubmit: (e) => {
@@ -189,27 +193,19 @@ export const App = () => (
   />
 )
 ```
-
 </details> 
 
-### 📦 Formengine Core Installation
+## 💙 Why developers love FormEngine Core?
 
-**It’s time to use something better. Install the core package and RSuite free form components:**
-
- ```bash  
- npm install @react-form-builder/core @react-form-builder/components-rsuite  
- ```  
-
-## 💙 Why developers love Formengine Core?
-
-- **Open Source & Free Forever** – No vendor lock-in, no nonsense.
-- **Less Code, Fewer Bugs** – Logic and UI stay separate.
-- **JSON-First Architecture** – Define, render, and validate without touching React internals.
+- **Open Source & Free Forever** – no vendor lock-in, no nonsense.
+- **Less Code, Fewer Bugs** – logic and UI stay separate.
+- **JSON-First Architecture** – define, render, and validate without touching React internals.
 - **UI-Agnostic Components** — Works seamlessly with any UI library (MUI, Ant Design, shadcn/ui, and others).
 - **Framework-Agnostic** — Can also be used without any framework via CDN.
 - **Multi-Database Support** — Compatible with MySQL, PostgreSQL, MongoDB, SQLite, and more.
 - **Built-in Validation with Zod** — Pre-configured validation powered by Zod.
 - **Extensible Validation Support** — Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries.
+- **Localization** - Powerful capabilities for localizing forms using [Fluent.js](https://projectfluent.org).
 - **Responsive Layouts** — Build forms that automatically adapt to all screen sizes.
 - **Custom Actions** — Enhance forms with interactive logic through custom JavaScript.
 - **Dynamic Properties** — Enable real-time component updates with MobX-powered reactivity.
@@ -226,15 +222,15 @@ export const App = () => (
 
 ## 🗄️ Repository structure
 
-- **Community:** Formengine Core source code and examples for FormEngine Community (MIT license).
+- **Community:** FormEngine Core source code and examples for FormEngine Community (MIT license).
 - **Premium:** Examples for Premium On-Premise Drag-and-Drop React Form Builder (Commercial license). Premium On-Premise Drag-and-Drop React
   Form Builder
 - [Source Code](https://github.com/optimajet/formengine/tree/master/community/src)
 
-## 🧩 Compatibility
+## 🧩 Compatibility 
 
-- **Works out of the box with** - [Next.js](https://formengine.io/documentation/usage-with-nextjs?utm_source=github&utm_medium=article&utm_campaign=readme).
-- **Fully supports** - [Remix](https://formengine.io/documentation/usage-with-remix?utm_source=github&utm_medium=article&utm_campaign=readme).
+- **Works out of the box with** - [Next.js](https://formengine.io/documentation/usage-with-nextjs?utm_source=github&utm_medium=article&utm_campaign=readme). 
+- **Fully supports** - [Remix](https://formengine.io/documentation/usage-with-remix?utm_source=github&utm_medium=article&utm_campaign=readme). 
 
 ## ✅ Validation
 
@@ -243,22 +239,22 @@ export const App = () => (
 
 ## Ready to use Pre-Built RSuite Form UI Components
 
- ```bash  
- npm install @react-form-builder/components-rsuite  
- ```  
+```bash  
+npm install @react-form-builder/components-rsuite  
+```  
 
-[![Formengine Drag and n Drop](https://formengine.io/repository-images/components-ui.png?utm_source=github&utm_medium=banner-top&utm_campaign=readme)](https://formengine.io/react-form-components-library?utm_source=github&utm_medium=article_banne-dndr&utm_campaign=readme)
+[![FormEngine Drag and n Drop](https://formengine.io/repository-images/components-ui.png)](https://formengine.io/react-form-components-library?utm_source=github&utm_medium=article_banne-dndr&utm_campaign=readme)
 
 ## 🟦🟥🟨🟩 Custom components
 
 Component description consists of defining meta-information about the component - component name, component type, component properties.
-Meta-information on component properties in Formengine is called an annotation.
+Meta-information on component properties in FormEngine is called an annotation.
 
 Well, let's describe some existing component from the popular MUI library. As an example, let's take a Button:
 
 #### Example of a custom component definition
 
- ```tsx 
+```tsx 
 import {Button} from '@mui/material'
 import {define, disabled, event, oneOf, string} from '@react-form-builder/core'
 
@@ -281,7 +277,7 @@ export const matButton = define(Button, 'MatButton')
     // callback fired when the button is clicked.
     onClick: event,
   })
- ```
+```
 
 ## 🌍 Free Online Drag & Drop Form Builder
 
@@ -293,39 +289,36 @@ export const matButton = define(Button, 'MatButton')
 - [Community Forum](https://github.com/optimajet/formengine/discussions?utm_source=github&utm_medium=article&utm_campaign=readme) – Best
   for: help with building, discussion about React form best practices.
 - [GitHub Issues](https://github.com/optimajet/formengine/issues?utm_source=github&utm_medium=article&utm_campaign=readme) – Best for: bugs
-  and errors you encounter using Formengine.
-- [Email Support](mailto:support@optimajet.com) – Best for: issues with Formengine
-  libraries or environment.
+  and errors you encounter using FormEngine.
+- [Email Support](mailto:support@optimajet.com) – Best for: issues with FormEngine libraries or environment.
 
 ## A premium on-premise React Form Builder with drag-and-drop, built for SaaS and enterprise teams — backed by Optimajet Premium Support
 
-#### React Form Builder - That Developers Can Customize and Teams Can Use
+### React Form Builder - That Developers Can Customize and Teams Can Use
 
-A powerful commercial drag-and-drop form builder for React, built on top of the free, MIT-licensed FormEngine Core. Advanced form logic, UI
-controls, export, and integrations.
+A powerful commercial drag-and-drop form builder for React, built on top of the free, MIT-licensed FormEngine Core. Advanced form logic, UI controls, export, and integrations.
 
 ```bash  
  npm install @react-form-builder/designer
- ```
+```
 
 [![Contributions welcome](https://img.shields.io/badge/Contribute-💡_Ideas-FF69B4?style=for-the-badge&logo=github)](https://github.com/optimajet/formengine/issues?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
 [![Try Demo](https://img.shields.io/badge/🚀_Try_Live_Demo-4286F4?style=for-the-badge)](https://demo.formengine.io/?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
-[![Meet with US](https://img.shields.io/badge/Book_a_Meeting-WITH_OPTIMAJET-4286F4?style=for-the-badge&logo=calendar&logoColor=white)](https://optimajet.com/book-a-meeting/?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
+[![Meet with US](https://img.shields.io/badge/Book%20a%20Meeting-WITH_OPTIMAJET-4286F4?style=for-the-badge&logo=calendar&logoColor=white)](https://optimajet.com/book-a-meeting/?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
 
-[![Formengine Drag and n Drop](https://formengine.io/repository-images/DND-react-form-builder.png?utm_source=github&utm_medium=banner-top&utm_campaign=readme)](https://formbuilder.formengine.io?utm_source=github&utm_medium=banner&utm_campaign=readme)
+[![FormEngine Drag and n Drop](https://formengine.io/repository-images/DND-react-form-builder.png)](https://formbuilder.formengine.io?utm_source=github&utm_medium=banner&utm_campaign=readme)
 
-### 📦 Formengine Core Installation
+## 📦 FormEngine Core Installation
 
-**It’s time to use something better. Install the core package and RSuite free form components:**
+**It’s time to use something better. Install the core package and RSuite free form components:**  
 
- ```bash  
- npm install @react-form-builder/core @react-form-builder/components-rsuite  
- ``` 
+```bash  
+npm install @react-form-builder/core @react-form-builder/components-rsuite  
+```
 
-## 🫶 We hope this project has saved you hours — ⭐ star this repo to support development. Your support keeps Formengine Core open and free
+## 🫶 We hope this project has saved you hours — ⭐ **star this repo** to support development. Your support keeps FormEngine Core open and free
 
-#### Formengine Core — You’re not alone. Forms shouldn’t be this hard!
-
+[![FormEngine](https://formengine.io/repository-images/star-click.gif)](https://formengine.io/documentation/?utm_source=github&utm_medium=banner-top&utm_campaign=readme#quick-start)
 [![Documentation](https://img.shields.io/badge/Documentation-Install-4286F4?style=for-the-badge&logo=read-the-docs&logoColor=white)](https://formengine.io/documentation/#quick-start?utm_source=github&utm_medium=article-badge&utm_campaign=readme#quick-start)
 [![LLMs.txt](https://img.shields.io/badge/_LLMs.txt-FF69B4?style=for-the-badge)](https://formengine.io/llms?utm_source=github&utm_medium=article-badge&utm_campaign=readme)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://hk.linkedin.com/company/optimajet?utm_source=github&utm_medium=article-badge&utm_campaign=readme)

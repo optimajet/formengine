@@ -1,0 +1,501 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "نمایش داده ها"
+    },
+    "feedback": {
+      "name": "بازخورد"
+    },
+    "form": {
+      "name": "فرم"
+    },
+    "inputs": {
+      "name": "ورودی ها"
+    },
+    "layout": {
+      "name": "طرح بندی"
+    },
+    "navigation": {
+      "name": "ناوبری"
+    },
+    "surfaces": {
+      "name": "سطوح"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "اگر درست باشد ، جزء بررسی می شود",
+      "name": "چک شده"
+    },
+    "children": {
+      "description": "محتوای جزء",
+      "name": "کودکان"
+    },
+    "color": {
+      "description": "رنگ جزء",
+      "name": "رنگ"
+    },
+    "defaultValue": {
+      "description": "مقدار پیش فرض. استفاده از زمانی که جزء کنترل نشده است",
+      "name": "مقدار پیش فرض"
+    },
+    "dense": {
+      "description": "اگر درست باشد ، پودینگ عمودی را کاهش می دهد",
+      "name": "متراکم"
+    },
+    "disableGutters": {
+      "description": "اگر درست باشد ، پودینگ چپ و راست را غیرفعال می کند",
+      "name": "ناودان ها را غیرفعال کنید"
+    },
+    "disablePadding": {
+      "description": "اگر درست باشد ، پودینگ پیش فرض را غیرفعال می کند",
+      "name": "غیر فعال کردن padding"
+    },
+    "disabled": {
+      "description": "اگر درست باشد ، جزء غیرفعال است",
+      "name": "معلول"
+    },
+    "error": {
+      "description": "اگر درست باشد ، جزء در حالت خطا نمایش داده می شود",
+      "name": "خطا"
+    },
+    "fullWidth": {
+      "description": "اگر درست باشد ، جزء عرض کامل ظرف خود را می گیرد",
+      "name": "عرض کامل"
+    },
+    "gutterBottom": {
+      "description": "اگر درست باشد ، متن حاشیه پایین خواهد داشت",
+      "name": "پایین رودخانه"
+    },
+    "helperText": {
+      "description": "محتوای متن یاور",
+      "name": "اس ام اس یار"
+    },
+    "margin": {
+      "description": "حاشیه اعمال شده به جزء را تعریف می کند",
+      "name": "حاشیه"
+    },
+    "noWrap": {
+      "description": "اگر درست باشد ، متن بسته بندی نمی شود ، بلکه در عوض با یک بیضوی سرریز متن قطع می شود",
+      "name": "بدون بسته بندی"
+    },
+    "onChange": {
+      "description": "وقتی مقدار تغییر کرد ، تماس برگشت اخراج شد",
+      "name": "اونچنج"
+    },
+    "onClick": {
+      "description": "وقتی روی کامپوننت کلیک شد ، Callback شلیک شد",
+      "name": "onClick"
+    },
+    "required": {
+      "description": "اگر درست باشد ، عنصر ورودی مورد نیاز است",
+      "name": "مورد نیاز"
+    },
+    "size": {
+      "description": "اندازه قطعه",
+      "name": "اندازه"
+    },
+    "sx": {
+      "description": "پروپ سیستم که اجازه می دهد تا سیستم را تعریف کند و همچنین سبک های css اضافی را حذف کند",
+      "name": "Sx"
+    },
+    "textAlign": {
+      "description": "تراز متن",
+      "name": "تراز بندی"
+    },
+    "value": {
+      "description": "ارزش جزء",
+      "name": "ارزش"
+    },
+    "variant": {
+      "description": "نوع مورد استفاده",
+      "name": "نوع"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "ظرف طرح عمومی با پشتیبانی از یک ظاهر طراحی سیستم",
+      "name": "جعبه"
+    },
+    "MuiBreadcrumbs": {
+      "description": "مکان صفحه فعلی را در یک سلسله مراتب نشان می دهد",
+      "name": "آرد نان",
+      "props": {
+        "items": {
+          "description": "وسایل نان خرد شده برای نمایش",
+          "name": "آیتم ها"
+        },
+        "itemsAfterCollapse": {
+          "description": "اگر حداکثر موارد بیش از حد باشد ، تعداد مواردی که باید پس از بیضوی نشان داده شود",
+          "name": "اقلام پس از فروپاشی"
+        },
+        "itemsBeforeCollapse": {
+          "description": "اگر حداکثر موارد بیش از حد باشد ، تعداد مواردی که باید قبل از بیضوی نشان داده شود",
+          "name": "اقلام قبل از سقوط"
+        },
+        "maxItems": {
+          "description": "حداکثر تعداد نان خرد شده را برای نمایش مشخص می کند",
+          "name": "حداکثر موارد"
+        },
+        "separator": {
+          "description": "عنصر مورد استفاده برای جدا کردن اقلام آرد سوخاری",
+          "name": "جدا کننده"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "یک جزء دکمه ای که برای فعال کردن اقدامات یا رویدادها استفاده می شود",
+      "name": "دکمه",
+      "props": {
+        "children": {
+          "description": "عنوان",
+          "name": "محتوا"
+        },
+        "disableElevation": {
+          "description": "سایه دکمه را هنگام تنظیم به true حذف می کند",
+          "name": "ارتفاع را غیرفعال کنید"
+        },
+        "loading": {
+          "description": "نشانگر بارگذاری را نمایش می دهد و تعامل را غیرفعال می کند",
+          "name": "بارگیری"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "گروه دکمه های مرتبط با هم",
+      "name": "گروه دکمه",
+      "props": {
+        "fullWidth": {
+          "description": "باعث می شود گروه دکمه عرض کامل ظرف را پوشش دهد",
+          "name": "عرض کامل"
+        },
+        "orientation": {
+          "description": "جهت طرح دکمه ها را تنظیم می کند",
+          "name": "جهت گیری"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "جزء سطحی برای گروه بندی مطالب مرتبط",
+      "name": "کارت",
+      "props": {
+        "actions": {
+          "description": "دکمه های عمل یا کنترل برای کارت",
+          "name": "اقدامات"
+        },
+        "header": {
+          "description": "محتوای ارائه شده در سربرگ کارت",
+          "name": "هدر"
+        },
+        "headerAction": {
+          "description": "عنصر اکشن نمایش داده شده در هدر",
+          "name": "اقدام هدر"
+        },
+        "headerAvatar": {
+          "description": "عنصر آواتار نمایش داده شده در هدر",
+          "name": "هدر آواتار"
+        },
+        "media": {
+          "description": "محتوای رسانه ای مانند تصویر یا ویدئو",
+          "name": "رسانه ها"
+        },
+        "onSelect": {
+          "description": "تماس برگشت وقتی کارت انتخاب شد",
+          "name": "ectselect"
+        },
+        "subHeader": {
+          "description": "متن ثانویه نمایش داده شده در زیر هدر",
+          "name": "زیر عنوان"
+        },
+        "useActions": {
+          "description": "بخش اقدامات را در پایین نمایش می دهد",
+          "name": "از اقدامات استفاده کنید"
+        },
+        "useCardActionArea": {
+          "description": "بسته بندی محتوا با یک منطقه عمل قابل کلیک",
+          "name": "استفاده از منطقه عمل کارت"
+        },
+        "useHeader": {
+          "description": "بخش سربرگ کارت را فعال می کند",
+          "name": "استفاده از هدر"
+        },
+        "useHeaderAction": {
+          "description": "یک منطقه عمل را در داخل سرصفحه فعال می کند",
+          "name": "از header action استفاده کنید"
+        },
+        "useHeaderAvatar": {
+          "description": "یک آواتار را در داخل سر صفحه نمایش می دهد",
+          "name": "استفاده از هدر آواتار"
+        },
+        "useMedia": {
+          "description": "بخش رسانه ای را در داخل کارت فعال می کند",
+          "name": "از رسانه ها استفاده کنید"
+        },
+        "useSubheader": {
+          "description": "یک زیرنویس زیر عنوان اصلی را نمایش می دهد",
+          "name": "از زیر عنوان استفاده کنید"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "اجازه انتخاب یک یا چند گزینه را می دهد",
+      "name": "جعبه چک",
+      "props": {
+        "defaultChecked": {
+          "description": "حالت بررسی اولیه در صورت عدم کنترل",
+          "name": "پیش فرض بررسی شده است"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "نشان دهنده بارگذاری یا پیشرفت در یک فرم دایره ای است",
+      "name": "پیشرفت دایره ای",
+      "props": {
+        "disableShrink": {
+          "description": "انیمیشن کوچک کننده را غیرفعال می کند",
+          "name": "کوچک کردن را غیرفعال کنید"
+        },
+        "thickness": {
+          "description": "عرض سکته مغزی دایره را کنترل می کند",
+          "name": "ضخامت"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "مراکز و محدود کردن محتوا به صورت افقی",
+      "name": "ظرف",
+      "props": {
+        "fixed": {
+          "description": "به جای عرض مایع ، حداکثر عرض ثابت را تنظیم می کند",
+          "name": "ثابت"
+        },
+        "maxWidth": {
+          "description": "حداکثر عرض ظرف را تعریف می کند",
+          "name": "حداکثر عرض"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "محتوای را بسته بندی می کند و یک حالت خطا یا پیام را نمایش می دهد",
+      "name": "بسته بندی خطا"
+    },
+    "MuiFormControlLabel": {
+      "description": "برچسب را با کنترل فرم مرتبط می کند",
+      "name": "برچسب کنترل فرم",
+      "props": {
+        "control": {
+          "description": "عنصر کنترل فرم (جعبه چک ، رادیو ، سوئیچ)",
+          "name": "کنترل"
+        },
+        "labelPlacement": {
+          "description": "موقعیت برچسب نسبت به کنترل",
+          "name": "قرار دادن برچسب"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "برچسب برای گروه بندی یا توصیف زمینه های فرم",
+      "name": "برچسب فرم",
+      "props": {
+        "filled": {
+          "description": "یک ظاهر طراحی حالت پر شده را اعمال می کند",
+          "name": "پر شده"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "نشان دهنده بارگذاری یا پیشرفت در یک نوار خطی است",
+      "name": "پیشرفت خطی",
+      "props": {
+        "valueBuffer": {
+          "description": "مقدار بافر ثانویه برای حالت پیشرفت بافر",
+          "name": "بافر ارزش"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "عنصر قابل کلیک برای ناوبری یا اقدامات",
+      "name": "لینک",
+      "props": {
+        "href": {
+          "description": "Destinationl مقصد",
+          "name": "Href"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "یک لیست عمودی از آیتم ها را نمایش می دهد",
+      "name": "لیست"
+    },
+    "MuiListItem": {
+      "description": "نشان دهنده یک آیتم در داخل یک لیست است",
+      "name": "آیتم لیست",
+      "props": {
+        "divider": {
+          "description": "یک تقسیم کننده را در زیر آیتم لیست نمایش می دهد",
+          "name": "تقسیم کننده"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "اجازه انتخاب یک گزینه از یک مجموعه را می دهد",
+      "name": "گروه رادیویی",
+      "props": {
+        "name": {
+          "description": "ویژگی نام برای گروه بندی دکمه های رادیویی استفاده می شود",
+          "name": "نام"
+        },
+        "row": {
+          "description": "دکمه های رادیویی را به صورت افقی نمایش می دهد",
+          "name": "ردیف"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "یک دکمه رادیویی واحد که در یک گروه رادیویی استفاده می شود",
+      "name": "مورد رادیو"
+    },
+    "MuiSelect": {
+      "description": "جزء کشویی برای انتخاب گزینه ها",
+      "name": "انتخاب کنید",
+      "props": {
+        "autoFocus": {
+          "description": "به طور خودکار میدان را بر روی کوه متمرکز می کند",
+          "name": "تمرکز خودکار"
+        },
+        "multiple": {
+          "description": "امکان انتخاب گزینه های متعدد",
+          "name": "چندگانه"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "طرح بندی کودکان در یک پشته یک بعدی",
+      "name": "پشته",
+      "props": {
+        "alignItems": {
+          "description": "کنترل تراز محور متقاطع",
+          "name": "آیتم ها را تراز کنید"
+        },
+        "direction": {
+          "description": "تعریف می کند که آیا آیتم ها در یک ردیف یا ستون انباشته شده اند",
+          "name": "جهت"
+        },
+        "flexWrap": {
+          "description": "کنترل می کند که آیا آیتم ها روی چندین خط بسته بندی می شوند",
+          "name": "بسته بندی انعطاف پذیر"
+        },
+        "justifyContent": {
+          "description": "کنترل تراز محور اصلی",
+          "name": "محتوای را توجیه کنید"
+        },
+        "spacing": {
+          "description": "فاصله بین اقلام انباشته شده",
+          "name": "فاصله"
+        },
+        "useFlexGap": {
+          "description": "از فاصله css به جای حاشیه برای فاصله استفاده می کند",
+          "name": "از flex gap استفاده کنید"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "کنترل ضامن برای تغییر بین دو حالت",
+      "name": "سوئیچ",
+      "props": {
+        "defaultChecked": {
+          "description": "حالت اولیه ضامن زمانی که کنترل نشده است",
+          "name": "پیش فرض بررسی شده است"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "فیلد ورودی برای داده های متن و فرم",
+      "name": "فیلد متن",
+      "props": {
+        "autoFocus": {
+          "description": "به طور خودکار میدان را بر روی کوه متمرکز می کند",
+          "name": "تمرکز خودکار"
+        },
+        "maxRows": {
+          "description": "حداکثر تعداد ردیف های قابل مشاهده برای ورودی چند خطی",
+          "name": "حداکثر ردیف"
+        },
+        "multiline": {
+          "description": "یک textarea را به جای یک ورودی تک خطی ارائه می دهد",
+          "name": "چند خطی"
+        },
+        "type": {
+          "description": "نوع ورودی HTML (متن ، رمز عبور ، ایمیل و غیره)",
+          "name": "نوع"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "اطلاعات زمینه ای در مورد شناور ، تمرکز یا لمس را نمایش می دهد",
+      "name": "نکته ابزار",
+      "props": {
+        "arrow": {
+          "description": "یک تیر را به عنصر هدف نشان می دهد",
+          "name": "تیر"
+        },
+        "disableFocusListener": {
+          "description": "مانع از ظاهر شدن ابزار در فوکوس می شود",
+          "name": "تمرکز شنونده را غیرفعال کنید"
+        },
+        "disableHoverListener": {
+          "description": "مانع از ظاهر شدن ابزار در hover می شود",
+          "name": "شنونده شناور را غیرفعال کنید"
+        },
+        "disableInteractive": {
+          "description": "تعامل با محتوای ابزار را غیرفعال می کند",
+          "name": "غیرفعال کردن تعاملی"
+        },
+        "disableTouchListener": {
+          "description": "مانع از ظاهر شدن ابزار در لمس می شود",
+          "name": "شنونده لمسی را غیرفعال کنید"
+        },
+        "enterDelay": {
+          "description": "تاخیر در میلی ثانیه قبل از نشان دادن ابزار",
+          "name": "تاخیر را وارد کنید"
+        },
+        "followCursor": {
+          "description": "باعث می شود که ابزار از موقعیت نشانگر پیروی کند",
+          "name": "مکان نما را دنبال کنید"
+        },
+        "leaveDelay": {
+          "description": "تاخیر در میلی ثانیه قبل از پنهان کردن ابزار",
+          "name": "تاخیر مرخصی"
+        },
+        "title": {
+          "description": "محتوای متنی که در داخل ابزار نمایش داده می شود",
+          "name": "عنوان"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "نمایش متن با سبک های تایپوگرافی از پیش تعریف شده",
+      "name": "تایپوگرافی",
+      "props": {
+        "children": {
+          "description": "محتوای متن",
+          "name": "محتوا"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "جزء برای آپلود یک یا چند فایل",
+      "name": "آپلودر",
+      "props": {
+        "accept": {
+          "description": "انواع فایل های مجاز (به عنوان مثال \".جی پی جی.png\")",
+          "name": "قبول کن"
+        },
+        "multiple": {
+          "description": "امکان انتخاب چند فایل",
+          "name": "چندگانه"
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ import {toStyleProperties} from '../../annotation/toStyleProperties'
 import type {Annotations} from '../../annotation/utils/builders/Annotations'
 import type {ActionEventHandler, EventName} from '../../event'
 import {modules} from '../constants'
-import type {ActionsInitializer, ComponentKind} from '../types'
+import type {ActionsInitializer, ComponentKind, FormBuilderComponentIconName} from '../types'
 import type {BuilderComponent} from './BuilderComponent'
 import type {ComponentFeatures} from './ComponentFeature'
 import {addOrUpdateFeature} from './ComponentFeature'
@@ -27,6 +27,7 @@ import {
   cfEnableInlineStylesEditor,
   cfEventHandlers,
   cfHideFromComponentPalette,
+  cfRequiredProperties,
   cfSkipChildrenDuringFieldCollection
 } from './integratedComponentFeatures'
 import {Meta} from './Meta'
@@ -58,13 +59,17 @@ export type DefinerData<T extends object> = {
    */
   category?: string,
   /**
-   * The CSS metadata.
+   * The component CSS metadata.
    */
   cssObject?: Annotations<CSSObject>,
   /**
-   * The component icon.
+   * The wrapper CSS metadata.
    */
-  icon?: ComponentType,
+  wrapperCssObject?: Annotations<CSSObject>,
+  /**
+   * The component icon or the icon name.
+   */
+  icon?: ComponentType | string,
   /**
    * The function that initializes an actions on a component (for internal use only).
    */
@@ -167,10 +172,10 @@ export class Definer<T extends object> {
 
   /**
    * Sets the icon of the component.
-   * @param icon the component icon.
+   * @param icon the component icon or the icon name.
    * @returns the modified Definer class instance.
    */
-  icon = (icon: ComponentType) => this.#updateWith({icon})
+  icon = (icon: ComponentType | FormBuilderComponentIconName) => this.#updateWith({icon})
 
   /**
    * Sets the category of the component.
@@ -202,6 +207,13 @@ export class Definer<T extends object> {
    * @returns the modified Definer class instance.
    */
   css = (css: Annotations<CSSObject>): Definer<T> => this.#updateWith({cssObject: css})
+
+  /**
+   * Sets the component wrapper CSS metadata.
+   * @param css the component wrapper CSS metadata.
+   * @returns the modified Definer class instance.
+   */
+  wrapperCss = (css: Annotations<CSSObject>): Definer<T> => this.#updateWith({wrapperCssObject: css})
 
   /**
    * Adds the metadata of the component's actions. **Internal use only.**
@@ -355,7 +367,10 @@ export class Definer<T extends object> {
   build(): BuilderComponent {
     const propAns = toArray(this.data.properties)
     const cssAns = toStyleProperties(this.data.cssObject)
-    const cssWrapperAns = toStyleProperties(commonStyles)
+    const cssWrapperAns = toStyleProperties({
+      ...commonStyles,
+      ...this.data.wrapperCssObject
+    })
     const valuedAnnotations = propAns.filter(an => an.valued === true)
     const firstValuedAn = valuedAnnotations[0]
     if (valuedAnnotations.length > 1) {
@@ -370,6 +385,16 @@ export class Definer<T extends object> {
       if (an.bindingType) props[an.key] = an.bindingType
       return props
     }, {} as Record<string, ComponentPropertyBindType>)
+
+    const features = {...this.data.features}
+
+    const requiredProps = propAns
+      .filter(an => an.controlsRequiredProp)
+      .map(an => an.key)
+
+    if (requiredProps.length > 0) {
+      features[cfRequiredProperties] = requiredProps
+    }
 
     const model = new Model(
       this.data.component,
@@ -387,7 +412,7 @@ export class Definer<T extends object> {
       valuedAn?.uncontrolledValue,
       disabledAn?.key,
       valuedAn?.dataBindingType,
-      this.data.features,
+      features,
     )
 
     const meta = new Meta(

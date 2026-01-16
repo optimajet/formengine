@@ -3,6 +3,7 @@ import {KeySymbol} from '../consts'
 import type {ActionData, EventName} from '../features/event'
 import type {Css} from '../features/style/types'
 import type {BoundValueSchema} from '../features/validation'
+import type {ValidatorType} from '../features/validation/types/ValidatorType'
 import {nameObservable} from '../utils/observableNaming'
 
 let actionDataCounter = 0
@@ -244,6 +245,43 @@ export class ComponentStore {
     this.key = key
     this.type = type
     makeAutoObservable(this, undefined, {name: nameObservable('ComponentStore', {key: key})})
+  }
+
+  /**
+   * Adds a validation rule to the component.
+   * @param store the component settings.
+   * @param key the validation key.
+   * @param type the validation type.
+   */
+  static addValidationRule(store: ComponentStore, key: string, type: ValidatorType = 'internal') {
+    if (ComponentStore.hasValidationRule(store, key)) return
+
+    store.schema ??= {validations: []}
+    // don't keep the default 'internal' type for JSON
+    const validationRecord = type === 'internal' ? {key} : {key, type}
+    store.schema.validations?.push(validationRecord)
+  }
+
+  /**
+   * Returns true if the component has a validation rule.
+   * @param store the component settings.
+   * @param key the validation key.
+   * @returns true if the component has a validation rule, otherwise false.
+   */
+  static hasValidationRule(store: ComponentStore, key: string) {
+    const validations = store.schema?.validations
+    return validations?.some(validation => validation.key === key)
+  }
+
+  /**
+   * Removes a validation rule from the component.
+   * @param store the component settings.
+   * @param key the validation key.
+   */
+  static removeValidationRule(store: ComponentStore, key: string) {
+    if (!store.schema?.validations?.length) return
+
+    store.schema.validations = store.schema.validations.filter(rule => rule.key !== key)
   }
 
   /**

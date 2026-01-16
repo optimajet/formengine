@@ -1,0 +1,9 @@
+#root {
+  height: calc(100vh - 48px);
+}
+
+.navbar {
+  height: 48px;
+  align-items: center;
+  gap: 10px;
+}

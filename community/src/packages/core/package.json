@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/core",
   "description": "React JSON Schema Form Builder to create complex, validated, reusable forms with no deep React knowledge required",
-  "version": "7.9.0",
+  "version": "7.10.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -40,7 +40,8 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./src/index.ts"
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
     },
     "./lite": {
       "import": "./src/index-lite.ts"

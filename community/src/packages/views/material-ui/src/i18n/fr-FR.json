@@ -1,0 +1,501 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "Affichage des données"
+    },
+    "feedback": {
+      "name": "Commentaires"
+    },
+    "form": {
+      "name": "Forme"
+    },
+    "inputs": {
+      "name": "Entrées"
+    },
+    "layout": {
+      "name": "Mise en page"
+    },
+    "navigation": {
+      "name": "Navigation"
+    },
+    "surfaces": {
+      "name": "Surfaces"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "Si vrai, le composant est vérifié",
+      "name": "Vérifié"
+    },
+    "children": {
+      "description": "Le contenu du composant",
+      "name": "Enfants"
+    },
+    "color": {
+      "description": "La couleur du composant",
+      "name": "Couleur"
+    },
+    "defaultValue": {
+      "description": "La valeur par défaut. Utiliser lorsque le composant n'est pas contrôlé",
+      "name": "Valeur par défaut"
+    },
+    "dense": {
+      "description": "Si vrai, réduit le remplissage vertical",
+      "name": "Dense"
+    },
+    "disableGutters": {
+      "description": "Si vrai, désactive le remplissage gauche et droit",
+      "name": "Désactiver les gouttières"
+    },
+    "disablePadding": {
+      "description": "Si vrai, désactive le remplissage par défaut",
+      "name": "Désactiver le remplissage"
+    },
+    "disabled": {
+      "description": "Si vrai, le composant est désactivé",
+      "name": "Désactivé"
+    },
+    "error": {
+      "description": "Si vrai, le composant est affiché dans un état d'erreur",
+      "name": "Erreur"
+    },
+    "fullWidth": {
+      "description": "Si true, le composant occupe toute la largeur de son conteneur",
+      "name": "Pleine largeur"
+    },
+    "gutterBottom": {
+      "description": "Si vrai, le texte aura une marge inférieure",
+      "name": "Fond de gouttière"
+    },
+    "helperText": {
+      "description": "Le contenu du texte d'aide",
+      "name": "Texte d'aide"
+    },
+    "margin": {
+      "description": "Définit la marge appliquée au composant",
+      "name": "Marge"
+    },
+    "noWrap": {
+      "description": "Si vrai, le texte ne s'enroulera pas, mais sera tronqué avec des points de suspension de débordement de texte",
+      "name": "Pas d'emballage"
+    },
+    "onChange": {
+      "description": "Rappel déclenché lorsque la valeur est modifiée",
+      "name": "Changement"
+    },
+    "onClick": {
+      "description": "Rappel déclenché lorsque le composant est cliqué",
+      "name": "OnClick"
+    },
+    "required": {
+      "description": "Si vrai, l'élément d'entrée est requis",
+      "name": "Requis"
+    },
+    "size": {
+      "description": "La taille du composant",
+      "name": "Taille"
+    },
+    "sx": {
+      "description": "La prop système qui permet de définir des remplacements système ainsi que des styles CSS supplémentaires",
+      "name": "Sx"
+    },
+    "textAlign": {
+      "description": "Alignement du texte",
+      "name": "Alignement"
+    },
+    "value": {
+      "description": "La valeur du composant",
+      "name": "Valeur"
+    },
+    "variant": {
+      "description": "La variante à utiliser",
+      "name": "Variante"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "Conteneur de mise en page générique avec prise en charge du style système",
+      "name": "Boîte"
+    },
+    "MuiBreadcrumbs": {
+      "description": "Affiche l'emplacement actuel de la page dans une hiérarchie",
+      "name": "Chapelure",
+      "props": {
+        "items": {
+          "description": "Éléments de fil d'ariane à afficher",
+          "name": "Articles"
+        },
+        "itemsAfterCollapse": {
+          "description": "Si le nombre maximal d'éléments est dépassé, le nombre d'éléments à afficher après les points de suspension",
+          "name": "Éléments après effondrement"
+        },
+        "itemsBeforeCollapse": {
+          "description": "Si le nombre maximal d'éléments est dépassé, le nombre d'éléments à afficher avant les points de suspension",
+          "name": "Éléments avant l'effondrement"
+        },
+        "maxItems": {
+          "description": "Spécifie le nombre maximal de fils d'ariane à afficher",
+          "name": "Articles maximum"
+        },
+        "separator": {
+          "description": "Élément utilisé pour séparer les éléments de fil d'ariane",
+          "name": "Séparateur"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "Composant de bouton utilisé pour déclencher des actions ou des événements",
+      "name": "Bouton",
+      "props": {
+        "children": {
+          "description": "La légende",
+          "name": "Contenu"
+        },
+        "disableElevation": {
+          "description": "Supprime l'ombre du bouton lorsqu'il est défini sur true",
+          "name": "Désactiver l'élévation"
+        },
+        "loading": {
+          "description": "Affiche un indicateur de chargement et désactive l'interaction",
+          "name": "Chargement"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "Regroupe les boutons liés ensemble",
+      "name": "Groupe de boutons",
+      "props": {
+        "fullWidth": {
+          "description": "Fait en sorte que le groupe de boutons couvre toute la largeur du conteneur",
+          "name": "Pleine largeur"
+        },
+        "orientation": {
+          "description": "Définit la direction de la disposition des boutons",
+          "name": "Orientation"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "Composant de surface pour regrouper le contenu associé",
+      "name": "Carte",
+      "props": {
+        "actions": {
+          "description": "Boutons d'action ou commandes pour la carte",
+          "name": "Actions"
+        },
+        "header": {
+          "description": "Contenu rendu dans l'en-tête de la carte",
+          "name": "En-tête"
+        },
+        "headerAction": {
+          "description": "Élément d'action affiché dans l'en-tête",
+          "name": "Action d'en-tête"
+        },
+        "headerAvatar": {
+          "description": "Élément Avatar affiché dans l'en-tête",
+          "name": "Avatar d'en-tête"
+        },
+        "media": {
+          "description": "Contenu multimédia tel qu'une image ou une vidéo",
+          "name": "Médias"
+        },
+        "onSelect": {
+          "description": "Rappel déclenché lorsque la carte est sélectionnée",
+          "name": "Sélectionner"
+        },
+        "subHeader": {
+          "description": "Texte secondaire affiché sous l'en-tête",
+          "name": "Sous-en-tête"
+        },
+        "useActions": {
+          "description": "Affiche une section actions en bas",
+          "name": "Utiliser des actions"
+        },
+        "useCardActionArea": {
+          "description": "Enveloppe le contenu avec une zone d'action cliquable",
+          "name": "Utiliser la zone d'action de la carte"
+        },
+        "useHeader": {
+          "description": "Active la section d'en-tête de carte",
+          "name": "Utiliser l'en-tête"
+        },
+        "useHeaderAction": {
+          "description": "Active une zone d'action à l'intérieur de l'en-tête",
+          "name": "Utiliser l'action d'en-tête"
+        },
+        "useHeaderAvatar": {
+          "description": "Affiche un avatar à l'intérieur de l'en-tête",
+          "name": "Utiliser l'avatar d'en-tête"
+        },
+        "useMedia": {
+          "description": "Active une section multimédia à l'intérieur de la carte",
+          "name": "Utiliser des médias"
+        },
+        "useSubheader": {
+          "description": "Affiche un sous-en-tête sous l'en-tête principal",
+          "name": "Utiliser le sous-en-tête"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "Permet de sélectionner une ou plusieurs options",
+      "name": "Case à Cocher",
+      "props": {
+        "defaultChecked": {
+          "description": "État initial vérifié lorsqu'il n'est pas contrôlé",
+          "name": "Valeur par défaut cochée"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "Indique le chargement ou la progression sous forme circulaire",
+      "name": "Progrès circulaire",
+      "props": {
+        "disableShrink": {
+          "description": "Désactive l'animation de rétrécissement",
+          "name": "Désactiver la réduction"
+        },
+        "thickness": {
+          "description": "Contrôle la largeur du trait du cercle",
+          "name": "Épaisseur"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "Centre et contraint le contenu horizontalement",
+      "name": "Conteneur",
+      "props": {
+        "fixed": {
+          "description": "Définit une largeur maximale fixe au lieu d'une largeur fluide",
+          "name": "Fixe"
+        },
+        "maxWidth": {
+          "description": "Définit la largeur maximale du conteneur",
+          "name": "Largeur maximum"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "Encapsule le contenu et affiche un état ou un message d'erreur",
+      "name": "Wrapper d'erreur"
+    },
+    "MuiFormControlLabel": {
+      "description": "Associe une étiquette à un contrôle de formulaire",
+      "name": "Étiquette de contrôle de formulaire",
+      "props": {
+        "control": {
+          "description": "Élément de contrôle de formulaire (case à cocher, radio, commutateur)",
+          "name": "Contrôle"
+        },
+        "labelPlacement": {
+          "description": "Position de l'étiquette par rapport au contrôle",
+          "name": "Placement des étiquettes"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "Étiquette pour regrouper ou décrire les champs de formulaire",
+      "name": "Étiquette de formulaire",
+      "props": {
+        "filled": {
+          "description": "Applique le style d'état rempli",
+          "name": "Rempli"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "Indique le chargement ou la progression dans une barre linéaire",
+      "name": "Progression linéaire",
+      "props": {
+        "valueBuffer": {
+          "description": "Valeur de tampon secondaire pour le mode de progression tamponné",
+          "name": "Tampon de valeur"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "Élément cliquable pour la navigation ou les actions",
+      "name": "Lien",
+      "props": {
+        "href": {
+          "description": "URL de DESTINATION",
+          "name": "FRH"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "Affiche une liste verticale d'éléments",
+      "name": "Liste"
+    },
+    "MuiListItem": {
+      "description": "Représente un seul élément dans une liste",
+      "name": "Élément de liste",
+      "props": {
+        "divider": {
+          "description": "Affiche un diviseur sous l'élément de liste",
+          "name": "Diviseur"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "Permet de sélectionner une seule option dans un ensemble",
+      "name": "Groupe radio",
+      "props": {
+        "name": {
+          "description": "Attribut de nom utilisé pour grouper les boutons radio",
+          "name": "Nom"
+        },
+        "row": {
+          "description": "Affiche les boutons radio horizontalement",
+          "name": "Rangée"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "Un seul bouton radio utilisé au sein d'un groupe radio",
+      "name": "Élément radio"
+    },
+    "MuiSelect": {
+      "description": "Composant déroulant pour la sélection des options",
+      "name": "Sélectionner",
+      "props": {
+        "autoFocus": {
+          "description": "Focalise automatiquement le champ sur la monture",
+          "name": "Mise au point automatique"
+        },
+        "multiple": {
+          "description": "Permet de sélectionner plusieurs options",
+          "name": "Multiples"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "Dispositions des enfants dans une pile unidimensionnelle",
+      "name": "Pile",
+      "props": {
+        "alignItems": {
+          "description": "Contrôle l'alignement des axes croisés",
+          "name": "Aligner les éléments"
+        },
+        "direction": {
+          "description": "Définit si les éléments sont empilés dans une ligne ou une colonne",
+          "name": "Direction Générale"
+        },
+        "flexWrap": {
+          "description": "Contrôle si les éléments s'enroulent sur plusieurs lignes",
+          "name": "Enveloppe flexible"
+        },
+        "justifyContent": {
+          "description": "Contrôle l'alignement de l'axe principal",
+          "name": "Justifier le contenu"
+        },
+        "spacing": {
+          "description": "Espacement entre les éléments empilés",
+          "name": "Espacement"
+        },
+        "useFlexGap": {
+          "description": "Utilise l'écart CSS au lieu des marges pour l'espacement",
+          "name": "Utiliser l'écart flexible"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "Commande à bascule pour basculer entre deux états",
+      "name": "Commutateur",
+      "props": {
+        "defaultChecked": {
+          "description": "État de basculement initial lorsqu'il n'est pas contrôlé",
+          "name": "Valeur par défaut cochée"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "Champ de saisie pour les données de texte et de formulaire",
+      "name": "Champ de texte",
+      "props": {
+        "autoFocus": {
+          "description": "Focalise automatiquement le champ sur la monture",
+          "name": "Mise au point automatique"
+        },
+        "maxRows": {
+          "description": "Nombre maximal de lignes visibles pour l'entrée multiligne",
+          "name": "Lignes max"
+        },
+        "multiline": {
+          "description": "Affiche une zone de texte au lieu d'une entrée sur une seule ligne",
+          "name": "Multiligne"
+        },
+        "type": {
+          "description": "Type de saisie HTML (texte, mot de passe, e-mail, etc.)",
+          "name": "Type"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "Affiche des informations contextuelles sur le survol, le focus ou le toucher",
+      "name": "Infobulle",
+      "props": {
+        "arrow": {
+          "description": "Affiche une flèche pointant vers l'élément cible",
+          "name": "Flèche"
+        },
+        "disableFocusListener": {
+          "description": "Empêche l'info-bulle d'apparaître sur le focus",
+          "name": "Désactiver l'écouteur de focus"
+        },
+        "disableHoverListener": {
+          "description": "Empêche l'infobulle d'apparaître au survol",
+          "name": "Désactiver l'écouteur de survol"
+        },
+        "disableInteractive": {
+          "description": "Désactive l'interaction avec le contenu de l'info-bulle",
+          "name": "Désactiver interactif"
+        },
+        "disableTouchListener": {
+          "description": "Empêche l'infobulle d'apparaître au toucher",
+          "name": "Désactiver l'écouteur tactile"
+        },
+        "enterDelay": {
+          "description": "Délai en millisecondes avant d'afficher l'info-bulle",
+          "name": "Entrer le délai"
+        },
+        "followCursor": {
+          "description": "Fait que l'info-bulle suit la position du curseur",
+          "name": "Suivre le curseur"
+        },
+        "leaveDelay": {
+          "description": "Délai en millisecondes avant de masquer l'info-bulle",
+          "name": "Délai de congé"
+        },
+        "title": {
+          "description": "Contenu textuel affiché à l'intérieur de l'info-bulle",
+          "name": "Titre"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "Affiche du texte avec des styles de typographie prédéfinis",
+      "name": "Typographie",
+      "props": {
+        "children": {
+          "description": "Le contenu du texte",
+          "name": "Contenu"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "Composant pour télécharger un ou plusieurs fichiers",
+      "name": "Téléchargeur",
+      "props": {
+        "accept": {
+          "description": "Types de fichiers autorisés (par exemple \".jpg,.png\")",
+          "name": "Accepter"
+        },
+        "multiple": {
+          "description": "Permet de sélectionner plusieurs fichiers",
+          "name": "Multiples"
+        }
+      }
+    }
+  }
+}

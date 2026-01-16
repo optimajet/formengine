@@ -25,7 +25,7 @@ export class Meta {
    * @param valuedAn the metadata for the component value.
    * @param initialJson the JSON source for the component (instance of {@link ComponentStore} class serialised to JSON).
    * @param eventListeners the component metadata event listeners.
-   * @param icon the component icon.
+   * @param icon the component icon or the icon name.
    * @param insertRestriction the function that restricts the insertion of a component into another component.
    */
   constructor(
@@ -38,7 +38,7 @@ export class Meta {
     readonly valuedAn?: Annotation,
     readonly initialJson?: string,
     readonly eventListeners?: ComponentMetadataEventListeners,
-    readonly icon?: ComponentType,
+    readonly icon?: ComponentType | string,
     readonly insertRestriction?: InsertRestrictionFn,
   ) {
     this.customPreview = customPreview

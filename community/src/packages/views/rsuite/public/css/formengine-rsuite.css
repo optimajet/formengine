@@ -1,13 +1,14 @@
-.optimajet-formbuilder,
-.optimajet-formviewer,
-.rs-toast-provider,
-.rs-modal,
-.rs-tooltip,
-.rs-picker-menu,
-.rs-picker-popup,
-.rs-picker-popup-date,
-.rs-picker-select-menu,
-.rs-popover {
+:where(
+  .optimajet-formviewer,
+  .rs-toast-provider,
+  .rs-modal,
+  .rs-tooltip,
+  .rs-picker-menu,
+  .rs-picker-popup,
+  .rs-picker-popup-date,
+  .rs-picker-select-menu,
+  .rs-popover
+) {
   & *::-webkit-scrollbar {
     width: 4px;
     height: 4px;
@@ -275,14 +276,14 @@
   }
 }
 
-.optimajet-formbuilder, .optimajet-formviewer {
+.optimajet-formviewer {
   .rs-nav button {
     font-size: 14px;
   }
 }
 
-.optimajet-formbuilder,
 .rs-toast-provider,
+.optimajet-formviewer,
 .rs-modal,
 .rs-picker-popup,
 .rs-picker-popup-date,

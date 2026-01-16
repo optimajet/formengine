@@ -5,11 +5,14 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./lite": {
       "import": "./dist/index-lite.js",
-      "types": "./dist/index-lite.d.ts"
+      "types": "./dist/index-lite.d.ts",
+      "require": "./dist/index-lite.js"
     },
     "./package.json": "./package.json",
     "./schemas/persisted-form.schema.json": "./dist/schemas/persisted-form.schema.json"
