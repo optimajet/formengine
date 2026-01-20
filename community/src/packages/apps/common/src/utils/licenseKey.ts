@@ -1,3 +1,0 @@
-/* eslint-disable no-secrets/no-secrets */
-export const licenseKey =
-  'formengine_demo-eyJsaWNlbnNlRW5kRGF0ZSI6IjAzLjA4LjIwMjUiLCJyZWxlYXNlRXhwaXJ5IjoiMDMuMDguMjAyNSIsImNvbXBhbnlOYW1lIjoiZm9ybWVuZ2luZV9kZW1vIiwicmVzdHJpY3Rpb25zIjp7IlN0cmljdENoZWNrIjpmYWxzZX19:noltFwrLcAjviH4VL/zpXK3x0/CilkKwD8+/1g9eG4Noz6T9krEriTrrSZnx3l6Ho0O4cbgrT5qcwxN5NrX5BLIlGBzHZveUWLqandaQaozXECT04nEtosc6i9djfT0T'

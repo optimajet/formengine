@@ -2,8 +2,37 @@
   height: calc(100vh - 48px);
 }
 
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+body::-webkit-scrollbar {
+  width: initial;
+  height: initial;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 .navbar {
+  background-color: #2b2b2b;
+  padding: 8px 16px;
+  display: flex;
+  position: sticky;
+  top: 0;
   height: 48px;
   align-items: center;
   gap: 10px;
+}
+
+.logo-1 {
+  float: left;
+  color: #333;
 }

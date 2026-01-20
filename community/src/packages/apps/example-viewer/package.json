@@ -22,7 +22,6 @@
     "bundle-size": "npx vite-bundle-visualizer"
   },
   "dependencies": {
-    "@react-form-builder/apps-common": "^7.10.0",
     "@react-form-builder/components-material-ui": "^7.10.0",
     "@react-form-builder/components-rsuite": "^7.10.0",
     "@react-form-builder/core": "^7.10.0",

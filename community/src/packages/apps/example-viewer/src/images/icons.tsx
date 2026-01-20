@@ -1,21 +1,3 @@
-export const info = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="1em"
-    height="1em"
-    viewBox="0 0 16 16"
-    fill="currentColor"
-    aria-hidden="true"
-    focusable="false"
-    className="rs-icon"
-    aria-label="info round"
-    data-category="status"
-    data-darkreader-inline-fill=""
-  >
-    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0m0 7a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V8a1 1 0 0 0-1-1m0-4a1 1 0 1 0 0 2 1 1 0 0 0 0-2"></path>
-  </svg>
-)
-
 export const material = (
   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path

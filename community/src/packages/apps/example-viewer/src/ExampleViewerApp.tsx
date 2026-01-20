@@ -1,8 +1,9 @@
-import type {ViewType} from '@react-form-builder/apps-common'
-import {BuilderViewPicker, BuilderViewProvider} from '@react-form-builder/apps-common'
 import type {BuilderTheme} from '@react-form-builder/core'
 import {BuilderThemeProvider} from '@react-form-builder/core'
 import {useEffect, useMemo, useState} from 'react'
+import type {ViewType} from './components/ViewContext'
+import {ViewProvider} from './components/ViewContext'
+import {ViewPicker} from './components/ViewPicker'
 import {MuiViewer} from './components/MuiViewer'
 import {RSuiteViewer} from './components/RSuiteViewer'
 import {ThemePicker} from './components/ThemePicker'
@@ -45,16 +46,16 @@ export const ExampleViewerApp = () => {
 
   return (
     <BuilderThemeProvider value={theme}>
-      <BuilderViewProvider value={providerValue}>
+      <ViewProvider value={providerValue}>
         <div className="navbar rs-theme-dark">
           <a href="https://formengine.io" target="_blank" className="logo-1" aria-label="home" rel="noreferrer">
             <img width="Auto" height="32px" src={logo} alt="" />
           </a>
           <ThemePicker theme={theme} onChange={setTheme} />
-          <BuilderViewPicker />
+          <ViewPicker />
         </div>
         {view === 'rsuite' ? <RSuiteViewer /> : <MuiViewer />}
-      </BuilderViewProvider>
+      </ViewProvider>
     </BuilderThemeProvider>
   )
 }
