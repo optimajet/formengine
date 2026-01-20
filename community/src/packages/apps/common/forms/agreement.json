@@ -1,0 +1,42 @@
+{
+  "tooltipType": "RsTooltip",
+  "errorType": "RsErrorMessage",
+  "modalType": "RsModal",
+  "form": {
+    "key": "Screen",
+    "type": "Screen",
+    "props": {},
+    "children": [
+      {
+        "key": "AgreementSlot",
+        "type": "Slot",
+        "props": {}
+      },
+      {
+        "key": "EmptyAgreementSlot",
+        "type": "Slot",
+        "props": {}
+      },
+      {
+        "key": "agreeCheckbox",
+        "type": "RsCheckbox",
+        "props": {
+          "children": {
+            "value": "I agree to receive updates from Optimajet"
+          },
+          "title": {
+            "value": ""
+          }
+        },
+        "tooltipProps": {
+          "text": {
+            "value": "You will receive news from our company if you tick this checkbox."
+          },
+          "placement": {
+            "value": "right"
+          }
+        }
+      }
+    ]
+  }
+}
