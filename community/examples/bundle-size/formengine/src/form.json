@@ -1,0 +1,739 @@
+{
+  "version": "1",
+  "actions": {
+    "loadCountries": {
+      "body": "  const [searchValue, loadCallback, currentDataLength] = e.args\n\n  fetch('https://surveyjs.io/api/CountriesExample')\n    .then(data => data.json())\n    .then(data => {\n      const preparedData = data\n        //.filter(value => value.toLowerCase().includes(searchValue.toLowerCase()))\n        //.slice(currentDataLength, currentDataLength + 20)\n        .map(item => ({value: item.name, label: item.name}))\n\n      loadCallback(preparedData)\n    })",
+      "params": {}
+    }
+  },
+  "tooltipType": "RsTooltip",
+  "modalType": "RsModal",
+  "errorType": "RsErrorMessage",
+  "form": {
+    "key": "Screen",
+    "type": "Screen",
+    "props": {},
+    "children": [
+      {
+        "key": "rsContainer1",
+        "type": "RsContainer",
+        "props": {},
+        "children": [
+          {
+            "key": "rsHeader1",
+            "type": "RsHeader",
+            "props": {
+              "content": {
+                "value": "Rental Period"
+              }
+            }
+          },
+          {
+            "key": "rsContainer2",
+            "type": "RsContainer",
+            "props": {},
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "row"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "pick-up-date",
+                "type": "RsDatePicker",
+                "props": {
+                  "label": {
+                    "value": "Pick-up Date"
+                  },
+                  "oneTap": {
+                    "value": true
+                  }
+                },
+                "schema": {
+                  "validations": []
+                }
+              },
+              {
+                "key": "pick-up-time",
+                "dataKey": "",
+                "type": "RsTimePicker",
+                "props": {
+                  "placeholder": {
+                    "value": ""
+                  },
+                  "label": {
+                    "value": "Pick-up Time"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "key": "rsContainer3",
+            "type": "RsContainer",
+            "props": {},
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "row"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "drop-off-date",
+                "type": "RsDatePicker",
+                "props": {
+                  "label": {
+                    "value": "Drop-off Date"
+                  },
+                  "oneTap": {
+                    "value": true
+                  }
+                }
+              },
+              {
+                "key": "drop-off-time",
+                "type": "RsTimePicker",
+                "props": {
+                  "label": {
+                    "value": "Drop-off Time"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "rsContainer4",
+        "type": "RsContainer",
+        "props": {},
+        "children": [
+          {
+            "key": "rsHeader2",
+            "type": "RsHeader",
+            "props": {
+              "content": {
+                "value": "Vehicle Information"
+              }
+            }
+          },
+          {
+            "key": "rsContainer5",
+            "type": "RsContainer",
+            "props": {},
+            "children": [
+              {
+                "key": "rsContainer6",
+                "type": "RsContainer",
+                "props": {},
+                "children": [
+                  {
+                    "key": "rsContainer8",
+                    "type": "RsContainer",
+                    "props": {},
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "60%"
+                        }
+                      }
+                    },
+                    "children": [
+                      {
+                        "key": "vehicle-model",
+                        "type": "RsDropdown",
+                        "props": {
+                          "label": {
+                            "value": ""
+                          },
+                          "placeholder": {
+                            "value": "Mark and Model"
+                          },
+                          "data": {
+                            "value": [],
+                            "computeType": "function",
+                            "fnSource": "  const data = [\n            \"Honda CR-V EX-L\",\n            \"Chevrolet Sonic LT\",\n            \"Toyota Highlander Limited\",\n            \"Toyota Sequoia Platinum\",\n            \"Mercedes-Benz C-Class C 250\",\n            \"Volkswagen Passat 2.0T SE\",\n            \"Toyota Corolla SE\",\n            \"Ford Explorer XLT\",\n            \"BMW 335 i xDrive\",\n            \"Jeep Patriot Sport\"\n          ]\n  return data.map(value => ({value, label: value}))"
+                          },
+                          "cleanable": {
+                            "value": false
+                          }
+                        },
+                        "wrapperCss": {
+                          "any": {
+                            "object": {
+                              "width": "80%"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "key": "vehicle-year",
+                        "type": "RsDropdown",
+                        "props": {
+                          "label": {
+                            "value": ""
+                          },
+                          "placeholder": {
+                            "value": "Year"
+                          },
+                          "data": {
+                            "value": [],
+                            "computeType": "function",
+                            "fnSource": "  const result = []\n  for (let i = 2014; i < 2024; i++) {\n    const value = `${i}`\n    result.push({value, label: value})\n  }\n  return result"
+                          },
+                          "cleanable": {
+                            "value": false
+                          }
+                        },
+                        "wrapperCss": {
+                          "any": {
+                            "object": {
+                              "width": "20%"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "key": "rsContainer9",
+                    "type": "RsContainer",
+                    "props": {},
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "40%"
+                        }
+                      }
+                    },
+                    "children": [
+                      {
+                        "key": "vehicle-color",
+                        "type": "RsDropdown",
+                        "props": {
+                          "label": {
+                            "value": ""
+                          },
+                          "placeholder": {
+                            "value": "Color"
+                          },
+                          "data": {
+                            "value": [
+                              {
+                                "value": "Black",
+                                "label": "Black"
+                              },
+                              {
+                                "value": "Silver",
+                                "label": "Silver"
+                              },
+                              {
+                                "value": "Red",
+                                "label": "Red"
+                              },
+                              {
+                                "label": "White",
+                                "value": "White"
+                              },
+                              {
+                                "label": "Gray",
+                                "value": "Gray"
+                              }
+                            ],
+                            "computeType": "function",
+                            "fnSource": "  return [\n            \"White\",\n            \"Black\",\n            \"Gray\",\n            \"Red\",\n            \"Silver\"\n          ].map(value => ({value, label: value}))"
+                          },
+                          "cleanable": {
+                            "value": false
+                          }
+                        },
+                        "wrapperCss": {
+                          "any": {
+                            "object": {}
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "css": {
+                  "any": {
+                    "object": {
+                      "flexDirection": "row"
+                    }
+                  }
+                }
+              },
+              {
+                "key": "rsContainer7",
+                "type": "RsContainer",
+                "props": {},
+                "children": [
+                  {
+                    "key": "rsContainer10",
+                    "type": "RsContainer",
+                    "props": {},
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "60%"
+                        }
+                      }
+                    },
+                    "children": [
+                      {
+                        "key": "vehicle-vin",
+                        "type": "RsInput",
+                        "props": {
+                          "label": {
+                            "value": ""
+                          },
+                          "placeholder": {
+                            "value": "VIN"
+                          }
+                        },
+                        "wrapperCss": {
+                          "any": {
+                            "object": {}
+                          }
+                        },
+                        "schema": {
+                          "validations": [
+                            {
+                              "key": "max",
+                              "args": {
+                                "limit": 17
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "key": "rsContainer11",
+                    "type": "RsContainer",
+                    "props": {},
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "40%"
+                        }
+                      }
+                    },
+                    "children": [
+                      {
+                        "key": "vehicle-mileage",
+                        "type": "RsInput",
+                        "props": {
+                          "label": {
+                            "value": ""
+                          },
+                          "placeholder": {
+                            "value": "Mileage"
+                          }
+                        },
+                        "wrapperCss": {
+                          "any": {
+                            "object": {}
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "css": {
+                  "any": {
+                    "object": {
+                      "flexDirection": "row"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "vehicle-gas-tank",
+        "type": "RsDropdown",
+        "props": {
+          "label": {
+            "value": ""
+          },
+          "placeholder": {
+            "value": "Gasoline Status"
+          },
+          "data": {
+            "value": [
+              {
+                "value": "1",
+                "label": "Empty Tank"
+              },
+              {
+                "value": "2",
+                "label": "1/4"
+              },
+              {
+                "value": "3",
+                "label": "1/2"
+              },
+              {
+                "value": "4",
+                "label": "3/4"
+              },
+              {
+                "value": "5",
+                "label": "Full Tank"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "damage-illustration",
+        "type": "RsSignature",
+        "props": {
+          "label": {
+            "value": ""
+          },
+          "width": {
+            "value": 824
+          },
+          "height": {
+            "value": 684
+          }
+        },
+        "css": {
+          "any": {
+            "string": ""
+          }
+        },
+        "wrapperCss": {
+          "any": {
+            "object": {
+              "width": "fit-content",
+              "marginLeft": "auto",
+              "marginRight": "auto"
+            }
+          }
+        }
+      },
+      {
+        "key": "damage-information",
+        "type": "RsTextArea",
+        "props": {
+          "placeholder": {
+            "value": "Please give more information about the damage you've marked above — if any."
+          },
+          "label": {
+            "value": ""
+          }
+        }
+      },
+      {
+        "key": "rsContainer12",
+        "type": "RsContainer",
+        "props": {},
+        "children": [
+          {
+            "key": "rsHeader3",
+            "type": "RsHeader",
+            "props": {
+              "content": {
+                "value": "License Details"
+              }
+            }
+          },
+          {
+            "key": "rsContainer13",
+            "type": "RsContainer",
+            "props": {},
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "column"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "rsContainer14",
+                "type": "RsContainer",
+                "props": {},
+                "css": {
+                  "any": {
+                    "object": {
+                      "flexDirection": "row"
+                    }
+                  }
+                },
+                "children": [
+                  {
+                    "key": "license-full-name",
+                    "type": "RsInput",
+                    "props": {
+                      "placeholder": {
+                        "value": "Full Name"
+                      },
+                      "label": {
+                        "value": ""
+                      }
+                    },
+                    "css": {
+                      "any": {
+                        "string": ""
+                      }
+                    },
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "60%"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "key": "license-passport-number",
+                    "type": "RsInput",
+                    "props": {
+                      "placeholder": {
+                        "value": "Passport #"
+                      },
+                      "label": {
+                        "value": ""
+                      }
+                    },
+                    "css": {
+                      "any": {
+                        "string": ""
+                      }
+                    },
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "40%"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "key": "license-address",
+                "type": "RsTextArea",
+                "props": {
+                  "placeholder": {
+                    "value": "Address"
+                  },
+                  "label": {
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "key": "rsContainer15",
+                "type": "RsContainer",
+                "props": {},
+                "css": {
+                  "any": {
+                    "object": {
+                      "flexDirection": "row"
+                    }
+                  }
+                },
+                "children": [
+                  {
+                    "key": "license-city",
+                    "type": "RsInput",
+                    "props": {
+                      "placeholder": {
+                        "value": "City"
+                      },
+                      "label": {
+                        "value": ""
+                      }
+                    },
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "40%"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "key": "license-state",
+                    "type": "RsInput",
+                    "props": {
+                      "placeholder": {
+                        "value": "State"
+                      },
+                      "label": {
+                        "value": ""
+                      }
+                    },
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "20%"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "key": "license-zip",
+                    "type": "RsInput",
+                    "props": {
+                      "placeholder": {
+                        "value": "Zip Code"
+                      },
+                      "label": {
+                        "value": ""
+                      }
+                    },
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "40%"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "key": "license-driver-license-number",
+                "type": "RsInput",
+                "props": {
+                  "label": {
+                    "value": ""
+                  },
+                  "placeholder": {
+                    "value": "Driver's License #"
+                  }
+                }
+              },
+              {
+                "key": "rsContainer16",
+                "type": "RsContainer",
+                "props": {},
+                "css": {
+                  "any": {
+                    "object": {
+                      "flexDirection": "row"
+                    }
+                  }
+                },
+                "children": [
+                  {
+                    "key": "license-driving-license-exp-date",
+                    "type": "RsDatePicker",
+                    "props": {
+                      "placeholder": {
+                        "value": "Expiration Date"
+                      },
+                      "label": {
+                        "value": ""
+                      }
+                    },
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "60%"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "key": "license-driving-license-issue-country",
+                    "type": "RsDropdown",
+                    "props": {
+                      "placeholder": {
+                        "value": "Issuing Country"
+                      },
+                      "cleanable": {
+                        "value": false
+                      },
+                      "data": {
+                        "value": []
+                      },
+                      "label": {
+                        "value": ""
+                      }
+                    },
+                    "wrapperCss": {
+                      "any": {
+                        "object": {
+                          "width": "40%"
+                        }
+                      }
+                    },
+                    "events": {
+                      "onLoadData": [
+                        {
+                          "name": "loadCountries",
+                          "type": "code"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "key": "license-driving-license-photo",
+                "type": "RsUploader",
+                "props": {
+                  "timeout": {
+                    "value": 0
+                  },
+                  "label": {
+                    "value": "Please upload a copy of a driver's license"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "rsButton1",
+        "type": "RsButton",
+        "props": {
+          "children": {
+            "value": "Confirm"
+          },
+          "appearance": {
+            "value": "primary"
+          },
+          "color": {
+            "value": "Black"
+          }
+        },
+        "events": {
+          "onClick": [
+            {
+              "name": "validate",
+              "type": "common"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "localization": {},
+  "languages": [
+    {
+      "code": "en",
+      "dialect": "US",
+      "name": "English",
+      "description": "American English",
+      "bidi": "ltr"
+    }
+  ],
+  "defaultLanguage": "en-US"
+}

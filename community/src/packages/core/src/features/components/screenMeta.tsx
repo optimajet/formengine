@@ -1,5 +1,7 @@
 import type {ScreenProps} from '../../types'
-import {disabled, node, readOnly} from '../annotation'
+import {disabled} from '../annotation/disabledAnnotation'
+import {node} from '../annotation/nodeAnnotation'
+import {readOnly} from '../annotation/readOnlyAnnotation'
 import {toArray} from '../annotation/toArray'
 import {modules} from '../define/constants'
 import {Meta} from '../define/utils/Meta'

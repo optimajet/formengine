@@ -1,5 +1,5 @@
 import {useMemo} from 'react'
-import type {Model} from '../features/define'
+import type {Model} from '../features/define/utils/Model'
 import {ComponentState} from '../stores/ComponentState'
 import {ComponentStore} from '../stores/ComponentStore'
 import type {ComponentStoreLocalizer} from '../stores/ComponentStoreLocalizer'

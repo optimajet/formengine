@@ -1,4 +1,4 @@
-import type {ComponentProperty} from '../../../stores/ComponentStore'
+import type {ComponentProperty} from '../../../stores/ComponentProperty'
 import type {ValidatorType} from './ValidatorType'
 
 /**

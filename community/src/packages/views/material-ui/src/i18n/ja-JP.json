@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "オーバーレイでコンテンツを表示するモーダルダイアログコンポーネント",
+      "name": "ダイアログ",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Trueの場合、エスケープキーを押してもダイアログは閉じません",
+          "name": "エスケープキーダウンを無効にする"
+        },
+        "fullScreen": {
+          "description": "Trueの場合、ダイアログは全画面表示になります",
+          "name": "フルスクリーン"
+        },
+        "fullWidth": {
+          "description": "Trueの場合、ダイアログはmaxWidthに伸びます",
+          "name": "全幅"
+        },
+        "maxWidth": {
+          "description": "ダイアログの最大幅(xs,sm,md,lg,xl)",
+          "name": "最高の幅"
+        },
+        "onClose": {
+          "description": "ダイアログが閉じているときに発生するコールバック",
+          "name": "onClose"
+        },
+        "open": {
+          "description": "Trueの場合、ダイアログが開きます",
+          "name": "オープン"
+        },
+        "scroll": {
+          "description": "ダイアログをスクロールするためのコンテナ（用紙または本文）を決定します。",
+          "name": "スクロール"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "ダイアログアクションボタン用のコンテナ",
+      "name": "ダイアログアクション",
+      "props": {
+        "children": {
+          "description": "コンポーネントのコンテンツ",
+          "name": "子供たち"
+        },
+        "disableSpacing": {
+          "description": "Trueの場合、アクションには追加のマージンはありません",
+          "name": "間隔を無効にする"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "ダイアログのメインコンテンツ領域",
+      "name": "ダイアログコンテンツ",
+      "props": {
+        "children": {
+          "description": "コンポーネントのコンテンツ",
+          "name": "子供たち"
+        },
+        "dividers": {
+          "description": "Trueの場合、境界線はダイアログコンテンツの上部と下部に追加されます",
+          "name": "ディバイダー"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "ダイアログ内のテキストコンテンツ",
+      "name": "ダイアログコンテンツテキスト",
+      "props": {
+        "children": {
+          "description": "テキストの内容",
+          "name": "コンテンツ"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "タイトル、コンテンツ、およびアクションボタンを備えたプリセットダイアログレイアウト",
+      "name": "ダイアログレイアウト"
+    },
+    "MuiDialogTitle": {
+      "description": "ダイアログのタイトル",
+      "name": "ダイアログタイトル",
+      "props": {
+        "children": {
+          "description": "タイトルテキスト",
+          "name": "コンテンツ"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "コンテンツをラップし、エラー状態またはメッセージを表示します",
       "name": "エラーラッパー"

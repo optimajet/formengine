@@ -496,6 +496,92 @@
           "description": "Allows selecting multiple files"
         }
       }
+    },
+    "MuiDialog": {
+      "name": "Dialog",
+      "description": "A modal dialog component that displays content in an overlay",
+      "props": {
+        "open": {
+          "name": "Open",
+          "description": "If true, the dialog is open"
+        },
+        "fullScreen": {
+          "name": "Full screen",
+          "description": "If true, the dialog will be full screen"
+        },
+        "fullWidth": {
+          "name": "Full width",
+          "description": "If true, the dialog stretches to maxWidth"
+        },
+        "maxWidth": {
+          "name": "Max width",
+          "description": "Maximum width of the dialog (xs, sm, md, lg, xl)"
+        },
+        "scroll": {
+          "name": "Scroll",
+          "description": "Determines the container for scrolling the dialog (paper or body)"
+        },
+        "disableEscapeKeyDown": {
+          "name": "Disable escape key down",
+          "description": "If true, pressing the escape key will not close the dialog"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "Callback fired when the dialog is closing"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "name": "Dialog actions",
+      "description": "Container for dialog action buttons",
+      "props": {
+        "children": {
+          "name": "Children",
+          "description": "The content of the component"
+        },
+        "disableSpacing": {
+          "name": "Disable spacing",
+          "description": "If true, the actions do not have additional margin"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "name": "Dialog content",
+      "description": "Main content area of a dialog",
+      "props": {
+        "children": {
+          "name": "Children",
+          "description": "The content of the component"
+        },
+        "dividers": {
+          "name": "Dividers",
+          "description": "If true, borders are added to the top and bottom of the dialog content"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "name": "Dialog content text",
+      "description": "Text content inside a dialog",
+      "props": {
+        "children": {
+          "name": "Content",
+          "description": "The text content"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "name": "Dialog layout",
+      "description": "A preset dialog layout with title, content, and action buttons"
+    },
+    "MuiDialogTitle": {
+      "name": "Dialog title",
+      "description": "Title of a dialog",
+      "props": {
+        "children": {
+          "name": "Content",
+          "description": "The title text"
+        }
+      }
     }
   }
 }

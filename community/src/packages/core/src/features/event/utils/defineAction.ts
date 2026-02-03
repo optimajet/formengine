@@ -1,4 +1,5 @@
-import type {ActionDefinition, ParameterType} from '../types'
+import type {ActionDefinition} from '../ActionDefinition'
+import type {ParameterType} from '../types'
 import type {ActionEventArgs} from './ActionEventArgs'
 
 /**

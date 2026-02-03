@@ -1,4 +1,5 @@
-import type {SchemaType, SchemaTypeMap} from '../../../validation'
+import type {SchemaType} from '../../../validation/types/SchemaType'
+import type {SchemaTypeMap} from '../../../validation/types/SchemaTypeMap'
 import type {EditorType} from '../../types/annotations/EditorType'
 import {ArrayBuilder} from './ArrayBuilder'
 import {BaseBuilder} from './BaseBuilder'

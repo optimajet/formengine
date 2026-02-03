@@ -1,10 +1,11 @@
 import {makeAutoObservable} from 'mobx'
 import {KeySymbol} from '../consts'
-import type {ActionData, EventName} from '../features/event'
+import type {ActionData, EventName} from '../features/event/types'
 import type {Css} from '../features/style/types'
-import type {BoundValueSchema} from '../features/validation'
+import type {BoundValueSchema} from '../features/validation/types/BoundValueSchema'
 import type {ValidatorType} from '../features/validation/types/ValidatorType'
 import {nameObservable} from '../utils/observableNaming'
+import type {ComponentProperty} from './ComponentProperty'
 
 let actionDataCounter = 0
 
@@ -21,35 +22,6 @@ function initActionDataKeys(componentStore: ComponentStore) {
       .forEach(data => data.forEach(initActionDataKey))
   }
   componentStore.children?.forEach(initActionDataKeys)
-}
-
-/**
- * The component property value type.
- */
-export type ComponentPropertyComputeType = 'function' | 'localization'
-
-/**
- * The value of the component property.
- * @template T the value type.
- */
-export interface ComponentProperty<T = any> {
-  /**
-   * The simple value of a component property.
-   */
-  value?: T
-  /**
-   * Source code of the function for calculating the value of a component property.
-   */
-  fnSource?: string
-  /**
-   * Type of the component's calculated property. If not specified - the value from value is used.
-   */
-  computeType?: ComponentPropertyComputeType
-
-  /**
-   * The component property editor type, only used in Designer mode.
-   */
-  editorType?: string
 }
 
 /**

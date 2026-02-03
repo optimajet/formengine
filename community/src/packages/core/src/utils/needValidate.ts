@@ -1,5 +1,5 @@
 import {calculateExpressionProperty} from '../features/calculation/propertyCalculator'
-import type {ComponentProperty} from '../stores/ComponentStore'
+import type {ComponentProperty} from '../stores/ComponentProperty'
 import {isFunctionalProperty} from '../stores/ComponentStore'
 import type {IFormData} from './IFormData'
 

@@ -1,0 +1,22 @@
+{
+  "name": "@react-form-builder/bundle-size-shared",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "description": "OptimaJet Bundle Size Application",
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "exports": {
+    "./index.css": "./src/index.css",
+    "./utils": "./src/utils.ts"
+  },
+  "bugs": {
+    "email": "support@optimajet.com"
+  }
+}

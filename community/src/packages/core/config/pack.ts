@@ -120,12 +120,17 @@ function copyFiles(): void {
   })
 }
 
+function normalizePackageFiles(files: string[]): string[] {
+  return files.map(file => file.split(path.sep).join('/'))
+}
+
 function patchPackageJson(): void {
   const data = readJsonFile(packageJson)
   const patch = readJsonFile(path.join(__dirname, 'part.package.json'))
+  const normalizedFiles = normalizePackageFiles(packageFiles)
 
   delete data.scripts
-  Object.assign(data, patch, {files: packageFiles})
+  Object.assign(data, patch, {files: normalizedFiles})
   const patchedData = JSON.stringify(data, undefined, '  ')
   fs.writeFileSync(path.join(tempDir, packageJson), patchedData, 'utf-8')
 }

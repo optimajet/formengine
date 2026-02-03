@@ -1,9 +1,12 @@
-import {boolean, disabled, object, readOnly} from '../annotation'
+import {boolean} from '../annotation/booleanAnnotation'
+import {disabled} from '../annotation/disabledAnnotation'
+import {object} from '../annotation/objectAnnotation'
+import {readOnly} from '../annotation/readOnlyAnnotation'
 import {toArray} from '../annotation/toArray'
 import {modules} from '../define/constants'
 import {Meta} from '../define/utils/Meta'
 import {generateTemplateTypeName} from '../ui/templateUtil'
-import {embeddedFormStyleProperties} from './embeddedFormModel'
+import {embeddedFormStyleProperties} from './embeddedFormStyleProperties'
 import type {TemplateProps} from './TemplateProps'
 
 const storeDataInParentForm = boolean

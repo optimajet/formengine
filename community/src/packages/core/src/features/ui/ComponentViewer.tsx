@@ -1,14 +1,14 @@
 import {cx} from '@emotion/css'
 import {Fragment, useContext, useEffect, useMemo} from 'react'
-import {namedObserver} from '../../utils'
 import {useComponentData} from '../../utils/contexts/ComponentDataContext'
 import {useStore} from '../../utils/contexts/StoreContext'
+import {namedObserver} from '../../utils/namedObserver'
 import {cfDisableStyles, cfDisableWrapperStyles} from '../define/utils/integratedComponentFeatures'
 import {useViewerProps} from '../form-viewer/components/ViewerPropsContext'
 import {getCellInfoPropertiesContext} from '../properties-context/getCellInfoPropertiesContext'
 import {CellInfoContext} from '../table/CellInfoContext'
 import {TooltipWrapper} from '../tooltip/TooltipWrapper'
-import {Erroneous} from '../validation'
+import {Erroneous} from '../validation/components/Erroneous'
 import {DefaultWrapper} from './DefaultWrapper'
 
 const RawComponentViewer = () => {
@@ -64,7 +64,7 @@ const RawComponentViewer = () => {
       {component}
     </Wrapper>
   }
-  
+
   const wrapperClassName = useWrapperStyles ? componentState.wrapperClassName : undefined
 
   return <Tooltip>

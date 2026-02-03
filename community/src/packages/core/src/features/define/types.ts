@@ -1,5 +1,8 @@
 import type {ComponentStore} from '../../stores/ComponentStore'
-import type {ActionDefinition, ActionEventHandler, DefineActionHelper, EventName} from '../event'
+import type {ActionDefinition} from '../event/ActionDefinition'
+import type {ActionEventHandler} from '../event/ActionEventHandler'
+import type {EventName} from '../event/types'
+import type {DefineActionHelper} from '../event/utils/defineAction'
 
 export const iconsList = [
   'Breadcrumb',

@@ -1,6 +1,6 @@
-import {isRecord} from '../../../utils'
+import {isRecord} from '../../../utils/isRecord'
 import {closeCurrentModalActionName} from '../../modal/closeCurrentModalActionName'
-import {ActionDefinition} from '../types'
+import {ActionDefinition} from '../ActionDefinition'
 
 export const modalBeforeShowFnName = 'beforeShow'
 export const modalBeforeHideFnName = 'beforeHide'

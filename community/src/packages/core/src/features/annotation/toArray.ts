@@ -1,5 +1,5 @@
 import {isUndefined} from '../../utils/tools'
-import {string} from './index'
+import {string} from './stringAnnotation'
 import type {Annotation} from './types/annotations/Annotation'
 import type {Annotations} from './utils/builders/Annotations'
 import type {BuilderSetup} from './utils/builders/BaseBuilder'

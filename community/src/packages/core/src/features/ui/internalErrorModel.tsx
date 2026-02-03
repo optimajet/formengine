@@ -1,8 +1,8 @@
 import type {CSSProperties} from 'react'
 import {ComponentStore} from '../../stores/ComponentStore'
-import {Model} from '../define'
 import {addOrUpdateFeatures} from '../define/utils/ComponentFeature'
 import {cfHideFromComponentPalette} from '../define/utils/integratedComponentFeatures'
+import {Model} from '../define/utils/Model'
 import {screenModel} from './screenModel'
 
 /**

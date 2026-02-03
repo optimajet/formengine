@@ -1,8 +1,9 @@
 import type {ReactNode} from 'react'
 import type {ComponentPropertyBindType} from '../../../define/utils/ComponentPropertyBindType'
 import type {DataBindingType} from '../../../define/utils/DataBindingType'
-import type {RuleValidator, SchemaType} from '../../../validation'
 import type {ErrorMap} from '../../../validation/ErrorMap'
+import type {RuleValidator} from '../../../validation/types/RuleValidator'
+import type {SchemaType} from '../../../validation/types/SchemaType'
 import type {EditorType} from './EditorType'
 
 /**

@@ -1,0 +1,33 @@
+{
+  "name": "@react-form-builder/bundle-size-surveyjs",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "main": "src/index.tsx",
+  "type": "module",
+  "description": "OptimaJet Bundle Size Application",
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "bugs": {
+    "email": "support@optimajet.com"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev-login": "dotenv -v APP_INPUT=login npm run dev",
+    "dev-login-mui": "dotenv -v APP_INPUT=login-mui npm run dev",
+    "dev-booking": "dotenv -v APP_INPUT=booking npm run dev",
+    "dev-booking-mui": "dotenv -v APP_INPUT=booking-mui npm run dev",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "serve": "serve dist"
+  },
+  "dependencies": {
+    "survey-core": "^2.4.1",
+    "survey-react-ui": "^2.4.1"
+  }
+}

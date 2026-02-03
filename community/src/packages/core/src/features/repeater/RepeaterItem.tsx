@@ -1,5 +1,5 @@
 import type {ReactNode} from 'react'
-import {Model} from '../define'
+import {Model} from '../define/utils/Model'
 import {useRepeaterProps} from './RepeaterPropsContext'
 
 /**

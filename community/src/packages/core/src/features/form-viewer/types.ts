@@ -1,10 +1,10 @@
 import type {ComponentType, ForwardedRef} from 'react'
 import type {ViewMode} from '../../types'
 import type {IFormData} from '../../utils/IFormData'
-import type {View} from '../define'
+import type {IView} from '../define/utils/IView'
 import type {ILocalizationEngine} from '../localization/ILocalizationEngine'
 import type {LanguageFullCode} from '../localization/language'
-import type {ErrorWrapperProps} from '../validation'
+import type {ErrorWrapperProps} from '../validation/components/DefaultErrorMessage'
 import type {Validators} from '../validation/types/CustomValidationRules'
 import type {ComponentLocalizer} from './ComponentLocalizer'
 import type {CustomActions} from './CustomActions'
@@ -38,7 +38,7 @@ export interface FormViewerProps {
   /**
    * All the metadata of the components of the form viewer.
    */
-  view: View
+  view: IView
 
   /**
    * Custom actions for the form viewer.

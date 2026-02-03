@@ -1,8 +1,8 @@
 import type {ReactNode} from 'react'
 import {cloneDeep, startCase} from '../../../../utils/tools'
 import {AnnotationMap} from '../../consts'
-import type {AnnotationType} from '../../types'
 import type {Annotation} from '../../types/annotations/Annotation'
+import type {AnnotationType} from '../../types/AnnotationType'
 
 /**
  * Options for building an annotation.

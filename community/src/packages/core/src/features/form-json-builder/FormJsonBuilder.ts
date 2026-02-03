@@ -1,4 +1,4 @@
-import type {ComponentProperty} from '../../stores/ComponentStore'
+import type {ComponentProperty} from '../../stores/ComponentProperty'
 import type {LanguageFullCode} from '../localization/language'
 import type {LocalizationValue} from '../localization/types'
 import type {Device, FormOptions, IComponentBuilder, IEventHandlerBuilder, IFormJsonBuilder, IValidationBuilder} from './types'

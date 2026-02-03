@@ -1,4 +1,4 @@
-import {isRecord} from './index'
+import {isRecord} from './isRecord'
 import {isUndefined} from './tools'
 
 const mergeArrays = (generatedData: ValueType[], initialData: ValueType[]): ValueType[] => {

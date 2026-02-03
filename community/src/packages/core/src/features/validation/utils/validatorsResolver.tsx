@@ -1,5 +1,5 @@
 import type {FormViewerValidationRules} from '../../../stores/FormViewerValidationRules'
-import {isPromise} from '../../../utils'
+import {isPromise} from '../../../utils/isPromise'
 import {needValidate} from '../../../utils/needValidate'
 import {isUndefined} from '../../../utils/tools'
 import type {BoundValueSchema} from '../types/BoundValueSchema'

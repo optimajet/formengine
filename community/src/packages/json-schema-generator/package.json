@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/json-schema-generator",
   "description": "OptimaJet Form Builder Components - JSON schema generator",
-  "version": "7.10.0",
+  "version": "7.11.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -28,7 +28,7 @@
     "create-archive": "node ./config/pack"
   },
   "dependencies": {
-    "@react-form-builder/core": "^7.10.0",
+    "@react-form-builder/core": "^7.11.0",
     "json-schema-typed": "^8.0.2"
   },
   "files": [

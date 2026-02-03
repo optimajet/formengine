@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "Un cuadro de diálogo modal componente que se muestra el contenido en una superposición de",
+      "name": "Diálogo",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Si es verdad, pulsar la tecla escape para no cerrar el cuadro de diálogo",
+          "name": "Deshabilitar la tecla de escape hacia abajo"
+        },
+        "fullScreen": {
+          "description": "Si es true, el cuadro de diálogo de pantalla completa",
+          "name": "Pantalla completa"
+        },
+        "fullWidth": {
+          "description": "Si es true, el diálogo se extiende a maxWidth",
+          "name": "Ancho completo"
+        },
+        "maxWidth": {
+          "description": "Ancho máximo del diálogo (xs, sm, md, lg, xl)",
+          "name": "Ancho máximo"
+        },
+        "onClose": {
+          "description": "De devolución de llamada se activa cuando el cuadro de diálogo de cierre",
+          "name": "onClose"
+        },
+        "open": {
+          "description": "Si es true, el diálogo está abierto",
+          "name": "Abierto"
+        },
+        "scroll": {
+          "description": "Determina el contenedor de desplazamiento en el cuadro de diálogo (de papel o de cuerpo)",
+          "name": "Desplazamiento"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Contenedor para el diálogo, botones de acción",
+      "name": "Cuadro de diálogo acciones",
+      "props": {
+        "children": {
+          "description": "El contenido de la componente",
+          "name": "Niños"
+        },
+        "disableSpacing": {
+          "description": "Si es true, las acciones no tienen margen adicional",
+          "name": "Deshabilitar espaciado"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Área de contenido principal de un cuadro de diálogo",
+      "name": "Contenido del diálogo",
+      "props": {
+        "children": {
+          "description": "El contenido de la componente",
+          "name": "Niños"
+        },
+        "dividers": {
+          "description": "Si es true, las fronteras se agregan a la parte superior y la parte inferior del cuadro de diálogo de contenido",
+          "name": "Divisores"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Contenido de texto dentro de un diálogo",
+      "name": "Cuadro de diálogo de contenido de texto",
+      "props": {
+        "children": {
+          "description": "El contenido del texto",
+          "name": "Contenido"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Un ajuste preestablecido de diálogo diseño con el título, el contenido, y los botones de acción",
+      "name": "Diseño de diálogo"
+    },
+    "MuiDialogTitle": {
+      "description": "El título de un cuadro de diálogo",
+      "name": "Título del diálogo",
+      "props": {
+        "children": {
+          "description": "El texto del título",
+          "name": "Contenido"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "Envuelve el contenido y muestra un estado de error o mensaje",
       "name": "Contenedor de errores"

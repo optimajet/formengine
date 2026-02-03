@@ -15,7 +15,8 @@ class LocalizationObservable {
   }
 
   get items() {
-    const componentsLocalization = this.localizationStore.value[this.languageFullCode]
+    const foundKey = this.localizationStore.findLocalizationKey(this.languageFullCode)
+    const componentsLocalization = foundKey ? this.localizationStore.value[foundKey] : null
     const {engine} = this.localizationStore
 
     if (componentsLocalization) {
@@ -77,8 +78,9 @@ export class LocalizationStore implements ILocalizationStore {
   getLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType) {
     const compatibleKey = this.engine.getCompatibleId(componentKey)
     const compatibleName = this.engine.getCompatibleId(propertyName)
+    const targetKey = this.findLocalizationKey(languageFullCode) ?? languageFullCode
 
-    return this.value[languageFullCode]?.[compatibleKey]?.[type]?.[compatibleName]
+    return this.value[targetKey]?.[compatibleKey]?.[type]?.[compatibleName]
   }
 
   /**
@@ -95,7 +97,7 @@ export class LocalizationStore implements ILocalizationStore {
     this.value[languageFullCode] ??= {}
     this.value[languageFullCode][compatibleId] ??= {}
     this.value[languageFullCode][compatibleId][type] ??= {}
-    this.value[languageFullCode][compatibleId][type]![compatibleName] = value
+    this.value[languageFullCode][compatibleId][type][compatibleName] = value
   }
 
   /**
@@ -135,11 +137,12 @@ export class LocalizationStore implements ILocalizationStore {
 
   /**
    * Checks that the specified language exists in the localization.
+   * Looks for exact match first, then match by language code only.
    * @param languageFullCode The full code (en-US, en-GB etc.) of the language to be checked.
    * @returns true if the specified language exists in the localization.
    */
   hasLanguage(languageFullCode: LanguageFullCode) {
-    return !!this.value[languageFullCode]
+    return this.findLocalizationKey(languageFullCode) !== null
   }
 
   /**
@@ -156,6 +159,27 @@ export class LocalizationStore implements ILocalizationStore {
     return Object.values(this.value).some(localization => {
       return localization?.[key]?.[type]?.[property]
     })
+  }
+
+  /**
+   * Finds the best matching localization key for the given language code.
+   * Looks for exact match first, then match by language code only.
+   * @param languageFullCode the requested language full code.
+   * @returns the best matching language full code or null if no match found.
+   */
+  findLocalizationKey(languageFullCode: LanguageFullCode): LanguageFullCode | null {
+    if (this.value[languageFullCode]) {
+      return languageFullCode
+    }
+
+    const [code] = languageFullCode.split('-')
+    for (const key of Object.keys(this.value)) {
+      if (key.startsWith(`${code}-`)) {
+        return key as LanguageFullCode
+      }
+    }
+
+    return null
   }
 
   /**

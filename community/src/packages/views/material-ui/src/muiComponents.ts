@@ -8,6 +8,12 @@ import {muiCard} from './components/MuiCard'
 import {muiCheckbox} from './components/MuiCheckbox'
 import {muiCircularProgress} from './components/MuiCircularProgress'
 import {muiContainer} from './components/MuiContainer'
+import {muiDialog} from './components/MuiDialog'
+import {muiDialogActions} from './components/MuiDialogActions'
+import {muiDialogContent} from './components/MuiDialogContent'
+import {muiDialogContentText} from './components/MuiDialogContentText'
+import {muiDialogLayout} from './components/MuiDialogLayout'
+import {muiDialogTitle} from './components/MuiDialogTitle'
 import {muiErrorWrapper} from './components/MuiErrorWrapper'
 import {muiFormControlLabel} from './components/MuiFormControlLabel'
 import {muiFormLabel} from './components/MuiFormLabel'
@@ -43,13 +49,19 @@ export const muiComponents: Definer<any>[] = [
   muiTooltip,
   muiList,
   muiListItem,
+  muiDialogTitle,
+  muiDialogContentText,
   // feedback
   muiCircularProgress,
   muiErrorWrapper,
   muiLinearProgress,
+  muiDialog,
   // layout
   muiBox,
   muiContainer,
+  muiDialogContent,
+  muiDialogLayout,
+  muiDialogActions,
   muiStack,
   // surfaces
   muiCard,
@@ -58,7 +70,7 @@ export const muiComponents: Definer<any>[] = [
   muiLink,
   // form
   muiFormControlLabel,
-  muiFormLabel,
+  muiFormLabel
 ]
 
 const prefix = 'Mui'

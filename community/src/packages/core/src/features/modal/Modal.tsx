@@ -1,16 +1,16 @@
 import type {ReactNode} from 'react'
 import {createElement, useCallback, useMemo} from 'react'
-import {namedObserver} from '../../utils'
 import {useComponentData} from '../../utils/contexts/ComponentDataContext'
 import {useStore} from '../../utils/contexts/StoreContext'
+import {namedObserver} from '../../utils/namedObserver'
 import {useBuilderComponent} from '../../utils/useBuilderComponent'
-import type {Model} from '../define'
+import type {Model} from '../define/utils/Model'
 import {modalBeforeHideFnName, modalStateKey} from '../event/consts/modalActions'
 import {createDataProxy} from '../event/utils/createComponentDataProxy'
-import type {FormViewerProps} from '../form-viewer'
-import {FormViewer} from '../form-viewer'
 import {useViewerProps} from '../form-viewer/components/ViewerPropsContext'
 import {NewStoreProvider} from '../form-viewer/components/ViewerStoreProvider'
+import {useEmbeddedFormViewer} from '../form-viewer/EmbeddedFormViewerContext'
+import type {FormViewerProps} from '../form-viewer/types'
 import {getTemplateName, isTemplateType} from '../ui/templateUtil'
 import {closeCurrentModalActionName} from './closeCurrentModalActionName'
 import {useModalComponentData} from './useModalComponentData'
@@ -85,6 +85,7 @@ const RawModalViewer = (props: ModalProps) => {
   const parentStore = useStore()
   const {context} = parentStore.formViewerPropsStore
   const modalModel = useModalModel()
+  const EmbeddedFormViewer = useEmbeddedFormViewer()
   const {modalTemplate} = props
 
   const {
@@ -129,7 +130,7 @@ const RawModalViewer = (props: ModalProps) => {
 
   return <ComponentModal model={modalModel} open={open} handleClose={handleClose}>
     <NewStoreProvider props={modalViewerProps}>
-      <FormViewer {...modalViewerProps} />
+      <EmbeddedFormViewer {...modalViewerProps} />
     </NewStoreProvider>
   </ComponentModal>
 }

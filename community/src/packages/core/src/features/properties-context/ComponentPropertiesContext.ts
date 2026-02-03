@@ -1,4 +1,5 @@
-import type {ActionEventHandler, EventName} from '../event'
+import type {ActionEventHandler} from '../event/ActionEventHandler'
+import type {EventName} from '../event/types'
 import type {CellInfo} from '../table/CellInfo'
 
 /**

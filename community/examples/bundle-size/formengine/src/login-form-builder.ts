@@ -1,0 +1,30 @@
+import {buildForm} from '@react-form-builder/core'
+
+export const loginForm = buildForm({errorType: 'RsErrorMessage'})
+  .component('email', 'RsInput')
+  .prop('label', 'Email')
+  .prop('placeholder', 'Enter your email')
+  .validation('required')
+  .validation('email')
+
+  .component('password', 'RsInput')
+  .prop('label', 'Password')
+  .prop('placeholder', 'Enter your password')
+  .prop('passwordMask', true)
+  .validation('required')
+  .validation('min')
+  .args({limit: 6})
+
+  .component('rememberMe', 'RsCheckbox')
+  .prop('children', 'Remember me')
+  .prop('checked', true)
+
+  .component('submit', 'RsButton')
+  .prop('children', 'Login')
+  .prop('color', 'blue')
+  .prop('appearance', 'primary')
+  .event('onClick')
+  .commonAction('validate')
+  .args({failOnError: true})
+  .customAction('onSubmit')
+  .json()

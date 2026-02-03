@@ -1,5 +1,5 @@
 import {cx} from '@emotion/css'
-import {array, boolean, define, event, object, string, stringNode} from '@react-form-builder/core'
+import {array, boolean, define, disabled, event, object, readOnly, string, stringNode} from '@react-form-builder/core'
 import {useCallback, useMemo} from 'react'
 import type {DropzoneOptions, DropzoneState} from 'react-dropzone'
 import {useDropzone} from 'react-dropzone'
@@ -66,6 +66,8 @@ export const uploader = define(Uploader, 'Uploader')
     accept: object,
     dropzone: boolean.default(true),
     multiple: boolean,
+    disabled: disabled,
+    readOnly: readOnly,
     onChange: event,
     onError: event
   })

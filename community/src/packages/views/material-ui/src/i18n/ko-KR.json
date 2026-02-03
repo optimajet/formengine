@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "오버레이에 콘텐츠를 표시하는 모달 대화 상자 구성 요소",
+      "name": "대화 상자",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "이스케이프 키를 누르면 대화 상자가 닫히지 않습니다",
+          "name": "이스케이프 키 다운 비활성화"
+        },
+        "fullScreen": {
+          "description": "참인 경우 대화 상자가 전체 화면으로 표시됩니다",
+          "name": "전체 화면"
+        },
+        "fullWidth": {
+          "description": "참인 경우 대화 상자가 최대 너비로 늘어납니다",
+          "name": "가득 차있는 폭"
+        },
+        "maxWidth": {
+          "description": "대화 상자의 최대 너비(엑스에스엠엠엠엠엠엠엠엠엠엠엠엠엠엠엠엠엠)",
+          "name": "최대 폭"
+        },
+        "onClose": {
+          "description": "대화 상자가 닫힐 때 콜백이 발생합니다",
+          "name": "온클로즈"
+        },
+        "open": {
+          "description": "참인 경우 대화 상자가 열려 있습니다",
+          "name": "오픈"
+        },
+        "scroll": {
+          "description": "대화 상자(용지 또는 본문)를 스크롤할 컨테이너를 결정합니다.",
+          "name": "2019 년"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "대화 작업 단추 용 컨테이너",
+      "name": "대화 작업",
+      "props": {
+        "children": {
+          "description": "구성 요소의 내용",
+          "name": "어린이"
+        },
+        "disableSpacing": {
+          "description": "만약 사실이라면,액션에 추가적인 여백이 없습니다.",
+          "name": "간격 비활성화"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "대화 상자의 주요 내용 영역",
+      "name": "대화 내용",
+      "props": {
+        "children": {
+          "description": "구성 요소의 내용",
+          "name": "어린이"
+        },
+        "dividers": {
+          "description": "참인 경우 대화 상자 내용의 위쪽과 아래쪽에 테두리가 추가됩니다",
+          "name": "분할기"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "대화 상자 내의 텍스트 내용",
+      "name": "대화 내용 텍스트",
+      "props": {
+        "children": {
+          "description": "텍스트 내용",
+          "name": "내용"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "제목,내용 및 작업 버튼이 있는 사전 설정 대화 상자 레이아웃",
+      "name": "대화 상자 레이아웃"
+    },
+    "MuiDialogTitle": {
+      "description": "대화 상자 제목",
+      "name": "대화 제목",
+      "props": {
+        "children": {
+          "description": "제목 텍스트",
+          "name": "내용"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "콘텐츠를 래핑하고 오류 상태 또는 메시지를 표시합니다",
       "name": "오류 래퍼"

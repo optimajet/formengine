@@ -1,5 +1,6 @@
-import type {ActionEventHandler, ActionValues} from '../event'
-import {ActionDefinition} from '../event'
+import {ActionDefinition} from '../event/ActionDefinition'
+import type {ActionEventHandler} from '../event/ActionEventHandler'
+import type {ActionValues} from '../event/ActionValues'
 
 /**
  * Custom actions for the form viewer.

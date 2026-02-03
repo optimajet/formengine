@@ -1,4 +1,5 @@
-import type {ComponentProperty, ComponentStore} from '../../stores/ComponentStore'
+import type {ComponentProperty} from '../../stores/ComponentProperty'
+import type {ComponentStore} from '../../stores/ComponentStore'
 import {isFunctionalProperty} from '../../stores/ComponentStore'
 import {CalculableResult} from '../../utils/CalculableResult'
 import type {IFormData} from '../../utils/IFormData'

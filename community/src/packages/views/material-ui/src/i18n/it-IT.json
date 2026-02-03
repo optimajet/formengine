@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "Un componente di dialogo modale che visualizza il contenuto in una sovrapposizione",
+      "name": "Dialogo",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Se true, premere il tasto esc non chiuderà la finestra di dialogo",
+          "name": "Disabilita escape key giù"
+        },
+        "fullScreen": {
+          "description": "Se vero, la finestra di dialogo sarà a schermo intero",
+          "name": "Schermo intero"
+        },
+        "fullWidth": {
+          "description": "Se true, la finestra di dialogo si estende fino a maxWidth",
+          "name": "Larghezza completa"
+        },
+        "maxWidth": {
+          "description": "Larghezza massima della finestra di dialogo (xs, sm, md, lg, xl)",
+          "name": "Larghezza massima"
+        },
+        "onClose": {
+          "description": "Callback attivato quando la finestra di dialogo si chiude",
+          "name": "onClose"
+        },
+        "open": {
+          "description": "Se è vero, la finestra di dialogo è aperta",
+          "name": "Aprire"
+        },
+        "scroll": {
+          "description": "Determina il contenitore per lo scorrimento della finestra di dialogo (carta o corpo)",
+          "name": "Scorrere"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Contenitore per i pulsanti di azione della finestra di dialogo",
+      "name": "Azioni di dialogo",
+      "props": {
+        "children": {
+          "description": "Il contenuto del componente",
+          "name": "Bambino"
+        },
+        "disableSpacing": {
+          "description": "Se vero, le azioni non hanno margine aggiuntivo",
+          "name": "Disabilita spaziatura"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Area del contenuto principale di una finestra di dialogo",
+      "name": "Contenuto della finestra di dialogo",
+      "props": {
+        "children": {
+          "description": "Il contenuto del componente",
+          "name": "Bambino"
+        },
+        "dividers": {
+          "description": "Se true, i bordi vengono aggiunti alla parte superiore e inferiore del contenuto della finestra di dialogo",
+          "name": "Divisore"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Contenuto di testo all'interno di una finestra di dialogo",
+      "name": "Testo del contenuto della finestra di dialogo",
+      "props": {
+        "children": {
+          "description": "Il contenuto del testo",
+          "name": "Contenuto"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Un layout di dialogo predefinito con i pulsanti titolo, contenuto e azione",
+      "name": "Layout finestra di dialogo"
+    },
+    "MuiDialogTitle": {
+      "description": "Titolo di una finestra di dialogo",
+      "name": "Titolo della finestra di dialogo",
+      "props": {
+        "children": {
+          "description": "Il testo del titolo",
+          "name": "Contenuto"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "Avvolge il contenuto e visualizza uno stato o un messaggio di errore",
       "name": "Wrapper errore"

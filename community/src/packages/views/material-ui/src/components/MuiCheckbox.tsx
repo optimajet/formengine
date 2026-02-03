@@ -1,11 +1,10 @@
-import type {CheckboxProps, FormControlLabelProps} from '@mui/material'
+import type {CheckboxProps} from '@mui/material'
 import {Checkbox, FormControlLabel} from '@mui/material'
 import {boolean, define, disabled, event, string} from '@react-form-builder/core'
+import type {SyntheticEvent} from 'react'
 import {useCallback, useMemo} from 'react'
 import {size} from '../commonProperties'
 import {inputsCategory} from './categories'
-
-type OnChange = NonNullable<FormControlLabelProps['onChange']>
 
 /**
  * Props for the MuiCheckbox component.
@@ -22,10 +21,10 @@ export interface MuiCheckboxProps extends Pick<CheckboxProps, 'checked' | 'color
 }
 
 const MuiCheckbox = ({checked, onChange, label, size, ...props}: MuiCheckboxProps) => {
-  const handleChange = useCallback<OnChange>((_, checked) => {
+  const handleChange = useCallback((_: SyntheticEvent, checked: boolean) => {
     onChange?.(checked)
   }, [onChange])
-  
+
   const control = useMemo(() => <Checkbox size={size}/>, [size])
 
   return <FormControlLabel checked={checked} onChange={handleChange} control={control} label={label} {...props}/>

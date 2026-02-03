@@ -2,17 +2,19 @@ import {css, cx} from '@emotion/css'
 import {makeAutoObservable} from 'mobx'
 import {calculateProperties} from '../features/calculation/propertyCalculator'
 import {silentTransformCssString} from '../features/css-style/cssTransform'
-import type {Model} from '../features/define'
 import {cfEventHandlers, cfRequiredProperties} from '../features/define/utils/integratedComponentFeatures'
-import type {ActionData, ActionEventHandler, EventName} from '../features/event'
-import {ActionEventArgs, DidMountEvent, WillUnmountEvent} from '../features/event'
+import type {Model} from '../features/define/utils/Model'
+import type {ActionEventHandler} from '../features/event/ActionEventHandler'
 import {getArgumentFunction, isFunctionArgumentValue} from '../features/event/consts/functionArgument'
+import {DidMountEvent, WillUnmountEvent} from '../features/event/eventNames'
+import type {ActionData, EventName} from '../features/event/types'
+import {ActionEventArgs} from '../features/event/utils/ActionEventArgs'
 import type {ComponentPropertiesContext} from '../features/properties-context/ComponentPropertiesContext'
 import {getDefaultPropertiesContext} from '../features/properties-context/getDefaultPropertiesContext'
 import type {CssPart} from '../features/style/types'
-import {isPromise} from '../utils'
 import type {ComputeChildren} from '../utils/ComputeChildren'
 import type {ComponentData} from '../utils/contexts/ComponentDataContext'
+import {isPromise} from '../utils/isPromise'
 import {nameObservable} from '../utils/observableNaming'
 import type {ComponentStyle} from './ComponentStore'
 import {ComponentStore} from './ComponentStore'
@@ -226,11 +228,10 @@ export class ComponentState implements IComponentState {
    * @inheritDoc
    */
   get isReadOnly() {
-    if (!this.data.model.readOnly) return false
-
+    const selfReadOnly = this.data.model.readOnly && this.selfProps[this.data.model.readOnly]
     return this.store.formViewerPropsStore.readOnly
       || this.data.parent?.componentState.isReadOnly
-      || (this.selfProps[this.data.model.readOnly] ?? false)
+      || (selfReadOnly ?? false)
   }
 
   /**
@@ -246,11 +247,10 @@ export class ComponentState implements IComponentState {
    * @inheritDoc
    */
   get isDisabled() {
-    if (!this.data.model.disabled) return false
-
+    const selfDisabled = this.data.model.disabled && this.selfProps[this.data.model.disabled]
     return this.store.formViewerPropsStore.disabled
       || this.data.parent?.componentState.isDisabled
-      || (this.selfProps[this.data.model.disabled] ?? false)
+      || (selfDisabled ?? false)
   }
 
   /**

@@ -1,11 +1,9 @@
 import type {FormControlLabelProps} from '@mui/material'
 import {Checkbox, FormControlLabel, Switch} from '@mui/material'
 import {boolean, define, disabled, event, oneOf, oneOfStrict, string} from '@react-form-builder/core'
-import type {ComponentType} from 'react'
+import type {ComponentType, SyntheticEvent} from 'react'
 import {useCallback, useMemo} from 'react'
 import {formCategory} from './categories'
-
-type OnChange = NonNullable<FormControlLabelProps['onChange']>
 
 /**
  * Props for the MuiFormControlLabel component.
@@ -41,11 +39,12 @@ const MuiFormControlLabel = (props: MuiFormControlLabelProps) => {
     return <Component/>
   }, [control])
 
-  const handleChange = useCallback<OnChange>((_, checked) => {
+  const handleChange = useCallback((_: SyntheticEvent, checked: boolean) => {
     onChange?.(checked)
   }, [onChange])
 
-  return <FormControlLabel value={value} checked={checked} onChange={handleChange} control={controlElement} {...otherProps}></FormControlLabel>
+  return <FormControlLabel value={value} checked={checked} onChange={handleChange}
+                           control={controlElement} {...otherProps}></FormControlLabel>
 }
 
 export const muiFormControlLabelType = 'MuiFormControlLabel'

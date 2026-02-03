@@ -1,0 +1,25 @@
+.form-group,
+.form-group > fieldset {
+  width: 100%;
+}
+.rjsf-row fieldset {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: flex-start;
+}
+.rjsf-row fieldset > .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+/* MUI theme styles */
+.rjsf-row .MuiGrid-container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.rjsf-row .MuiGrid-container > .MuiGrid-root {
+  flex: 1;
+  max-width: none;
+  margin-bottom: 0;
+}

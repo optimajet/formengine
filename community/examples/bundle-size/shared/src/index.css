@@ -1,0 +1,13 @@
+html,
+body {
+  background-Color: #f7f7f9;
+}
+
+html body > div:not(.MuiPopover-root) {
+  max-width: 904px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}

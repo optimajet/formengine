@@ -1,7 +1,7 @@
 import {observer} from 'mobx-react'
 import type {ComponentType} from 'react'
 import type {Css} from '../../style/types'
-import type {SchemaType} from '../../validation'
+import type {SchemaType} from '../../validation/types/SchemaType'
 import type {ActionsInitializer, ComponentKind} from '../types'
 import type {ComponentFeatures} from './ComponentFeature'
 import {getComponentFeature} from './ComponentFeature'

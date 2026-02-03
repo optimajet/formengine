@@ -1,4 +1,4 @@
-import type {RuleValidator} from '../../validation'
+import type {RuleValidator} from '../../validation/types/RuleValidator'
 
 /**
  * Returns true if the component key is unique across the entire component tree. **Internal use only.**

@@ -1,0 +1,95 @@
+.sd-question {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sd-input {
+  display: none !important;
+}
+
+.sd-question__title {
+  display: none !important;
+}
+
+.sd-row {
+  display: flex;
+  gap: 16px;
+}
+
+.sd-action-bar {
+  display: flex;
+}
+
+.sd-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  outline: 0 !important;
+  margin: 0 8px 0 0 !important;
+  border-radius: 4px !important;
+  padding: 6px 16px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  vertical-align: middle !important;
+  appearance: none !important;
+  text-decoration: none !important;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.75 !important;
+  letter-spacing: 0.02857em !important;
+  text-transform: uppercase !important;
+  min-width: 64px !important;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+  color: #1976d2 !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(25, 118, 210, 0.5) !important;
+}
+
+.sd-btn:hover:not(:disabled) {
+  background-color: rgba(25, 118, 210, 0.04) !important;
+  border-color: #1976d2 !important;
+}
+
+.sd-question button,
+.sd-tagbox-item button {
+  text-transform: none !important;
+  padding: 4px 8px !important;
+  min-width: auto !important;
+  font-size: 0.8125rem !important;
+  letter-spacing: 0.02857em !important;
+}
+
+.sv-action-bar button:last-child,
+button:not(.sd-question button):not(.sd-tagbox-item button):last-of-type {
+  color: #fff !important;
+  background-color: #1976d2 !important;
+  border: none !important;
+  box-shadow:
+    0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.sv-action-bar button:last-child:hover,
+button:not(.sd-question button):not(.sd-tagbox-item button):last-of-type:hover {
+  background-color: #1565c0 !important;
+  box-shadow:
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.sd-btn:disabled {
+  color: rgba(0, 0, 0, 0.26) !important;
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  cursor: default !important;
+  pointer-events: none !important;
+  border: none !important;
+}

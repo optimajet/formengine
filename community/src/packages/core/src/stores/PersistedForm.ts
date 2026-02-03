@@ -1,4 +1,4 @@
-import type {ActionValues} from '../features/event'
+import type {ActionValues} from '../features/event/ActionValues'
 import type {Language} from '../features/localization/language'
 import type {LocalizationValue} from '../features/localization/types'
 import type {ComponentStore} from './ComponentStore'

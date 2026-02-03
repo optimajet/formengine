@@ -1,4 +1,4 @@
-import type {SchemaType} from '../../../validation'
+import type {SchemaType} from '../../../validation/types/SchemaType'
 import {TypedBuilder} from './TypedBuilder'
 
 /**

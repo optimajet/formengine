@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "Un composant de dialogue modal qui affiche le contenu dans une superposition",
+      "name": "Dialogue",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Si la valeur est true, appuyer sur la touche échap ne fermera pas la boîte de dialogue",
+          "name": "Désactiver la touche d'échappement vers le bas"
+        },
+        "fullScreen": {
+          "description": "Si vrai, la boîte de dialogue sera en plein écran",
+          "name": "Plein écran"
+        },
+        "fullWidth": {
+          "description": "Si vrai, la boîte de dialogue s'étend à maxWidth",
+          "name": "Pleine largeur"
+        },
+        "maxWidth": {
+          "description": "Largeur maximale de la boîte de dialogue (xs, sm, md, lg, xl)",
+          "name": "Largeur maximum"
+        },
+        "onClose": {
+          "description": "Rappel déclenché à la fermeture de la boîte de dialogue",
+          "name": "Fermer"
+        },
+        "open": {
+          "description": "Si vrai, la boîte de dialogue est ouverte",
+          "name": "Ouvert"
+        },
+        "scroll": {
+          "description": "Détermine le conteneur pour faire défiler la boîte de dialogue (papier ou corps)",
+          "name": "Défiler"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Conteneur pour les boutons d'action de dialogue",
+      "name": "Actions de dialogue",
+      "props": {
+        "children": {
+          "description": "Le contenu du composant",
+          "name": "Enfants"
+        },
+        "disableSpacing": {
+          "description": "Si vrai, les actions n'ont pas de marge supplémentaire",
+          "name": "Désactiver l'espacement"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Zone de contenu principale d'une boîte de dialogue",
+      "name": "Contenu de la boîte de dialogue",
+      "props": {
+        "children": {
+          "description": "Le contenu du composant",
+          "name": "Enfants"
+        },
+        "dividers": {
+          "description": "Si la valeur est true, des bordures sont ajoutées en haut et en bas du contenu de la boîte de dialogue",
+          "name": "Séparateurs"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Contenu textuel dans une boîte de dialogue",
+      "name": "Texte du contenu de la boîte de dialogue",
+      "props": {
+        "children": {
+          "description": "Le contenu du texte",
+          "name": "Contenu"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Une disposition de dialogue prédéfinie avec des boutons de titre, de contenu et d'action",
+      "name": "Disposition de la boîte de dialogue"
+    },
+    "MuiDialogTitle": {
+      "description": "Titre d'une boîte de dialogue",
+      "name": "Titre de la boîte de dialogue",
+      "props": {
+        "children": {
+          "description": "Le texte du titre",
+          "name": "Contenu"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "Encapsule le contenu et affiche un état ou un message d'erreur",
       "name": "Wrapper d'erreur"

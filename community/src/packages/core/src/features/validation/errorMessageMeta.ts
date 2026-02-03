@@ -1,4 +1,4 @@
-import {string} from '../annotation'
+import {string} from '../annotation/stringAnnotation'
 import {toArray} from '../annotation/toArray'
 import {Meta} from '../define/utils/Meta'
 import type {ErrorWrapperProps} from './components/DefaultErrorMessage'

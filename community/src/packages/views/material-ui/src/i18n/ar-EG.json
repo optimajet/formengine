@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "مكون حوار مشروط يعرض المحتوى في تراكب",
+      "name": "الحوار",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "إذا كان هذا صحيحا ، فلن يؤدي الضغط على مفتاح الهروب إلى إغلاق مربع الحوار",
+          "name": "تعطيل مفتاح الهروب لأسفل"
+        },
+        "fullScreen": {
+          "description": "إذا كان هذا صحيحا ، فسيكون مربع الحوار في وضع ملء الشاشة",
+          "name": "ملء الشاشة"
+        },
+        "fullWidth": {
+          "description": "إذا كان هذا صحيحا ، مربع الحوار يمتد إلى ماكسويدث",
+          "name": "العرض الكامل"
+        },
+        "maxWidth": {
+          "description": "الحد الأقصى لعرض الحوار (شس ، سم ، مد ، لغ ، زل)",
+          "name": "أقصى عرض"
+        },
+        "onClose": {
+          "description": "تم إطلاق رد الاتصال عند إغلاق مربع الحوار",
+          "name": "أونكلوسي"
+        },
+        "open": {
+          "description": "إذا كان هذا صحيحا ، فإن مربع الحوار مفتوح",
+          "name": "فتح"
+        },
+        "scroll": {
+          "description": "يحدد الحاوية للتمرير في مربع الحوار (الورق أو الجسم)",
+          "name": "التمرير"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "حاوية لأزرار إجراء الحوار",
+      "name": "إجراءات الحوار",
+      "props": {
+        "children": {
+          "description": "محتوى المكون",
+          "name": "الأطفال"
+        },
+        "disableSpacing": {
+          "description": "إذا كان هذا صحيحا ، فإن الإجراءات لا تحتوي على هامش إضافي",
+          "name": "تعطيل التباعد"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "منطقة المحتوى الرئيسية لحوار",
+      "name": "محتوى الحوار",
+      "props": {
+        "children": {
+          "description": "محتوى المكون",
+          "name": "الأطفال"
+        },
+        "dividers": {
+          "description": "إذا كان هذا صحيحا ، تتم إضافة الحدود إلى أعلى وأسفل محتوى مربع الحوار",
+          "name": "فواصل"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "محتوى النص داخل مربع حوار",
+      "name": "نص محتوى الحوار",
+      "props": {
+        "children": {
+          "description": "محتوى النص",
+          "name": "المحتوى"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "تخطيط حوار محدد مسبقا مع أزرار العنوان والمحتوى والإجراءات",
+      "name": "تخطيط الحوار"
+    },
+    "MuiDialogTitle": {
+      "description": "عنوان الحوار",
+      "name": "عنوان الحوار",
+      "props": {
+        "children": {
+          "description": "نص العنوان",
+          "name": "المحتوى"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "يلف المحتوى ويعرض حالة خطأ أو رسالة",
       "name": "خطأ المجمع"

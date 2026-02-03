@@ -1,9 +1,9 @@
 import {createElement, useCallback} from 'react'
 import type {ComponentStoreLocalizer} from '../../../stores/ComponentStoreLocalizer'
 import type {WrapperProps} from '../../../types'
-import {namedObserver} from '../../../utils'
 import {useComponentData} from '../../../utils/contexts/ComponentDataContext'
 import {useStore} from '../../../utils/contexts/StoreContext'
+import {namedObserver} from '../../../utils/namedObserver'
 import {useErrorModel} from '../../../utils/useErrorModel'
 import {useWrapperState} from '../../../utils/useWrapperState'
 

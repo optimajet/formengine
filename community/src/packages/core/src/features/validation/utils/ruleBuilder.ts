@@ -1,4 +1,4 @@
-import type {PropertyKey} from '../../event'
+import type {PropertyKey} from '../../event/utils/defineAction'
 import type {SchemaType} from '../types/SchemaType'
 import type {SchemaTypeMap} from '../types/SchemaTypeMap'
 import type {ValidationRule} from '../types/ValidationRule'

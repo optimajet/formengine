@@ -1,14 +1,14 @@
 import {makeObservable, observable} from 'mobx'
 import type {ComponentType} from 'react'
-import {View} from '../features/define'
-import type {ActionValues} from '../features/event'
-import type {FormViewerProps} from '../features/form-viewer'
+import type {IView} from '../features/define/utils/IView'
+import type {ActionValues} from '../features/event/ActionValues'
 import type {ComponentLocalizer} from '../features/form-viewer/ComponentLocalizer'
 import {customActionsToActionsValues} from '../features/form-viewer/CustomActions'
 import type {FormValidators} from '../features/form-viewer/FormValidators'
+import type {FormViewerProps} from '../features/form-viewer/types'
 import type {ILocalizationEngine} from '../features/localization/ILocalizationEngine'
 import type {LanguageFullCode} from '../features/localization/language'
-import type {ErrorWrapperProps} from '../features/validation'
+import type {ErrorWrapperProps} from '../features/validation/components/DefaultErrorMessage'
 import type {Validators} from '../features/validation/types/CustomValidationRules'
 import {nameObservable} from '../utils/observableNaming'
 
@@ -19,7 +19,7 @@ export class FormViewerPropsStore {
   /**
    * The metadata of the form viewer components.
    */
-  view: View = new View()
+  view: IView
   /**
    * The initial form data.
    */
@@ -75,10 +75,9 @@ export class FormViewerPropsStore {
    * @param formViewerProps the FormViewer props.
    * @returns the FormViewerPropsStore.
    */
-  constructor(formViewerProps?: FormViewerProps) {
-    if (formViewerProps) {
-      this.applyProps(formViewerProps)
-    }
+  constructor(formViewerProps: FormViewerProps) {
+    this.applyProps(formViewerProps)
+    this.view = formViewerProps.view
 
     makeObservable(this, {
       view: observable.ref,
@@ -122,20 +121,20 @@ export class FormViewerPropsStore {
    * @returns the clone of the FormViewerPropsStore object.
    */
   clone(): FormViewerPropsStore {
-    const clone = new FormViewerPropsStore()
-    clone.view = this.view
-    clone.initialData = this.initialData
-    clone.validators = this.validators
-    clone.formValidators = this.formValidators
-    clone.localizer = this.localizer
-    clone.actions = this.actions
-    clone.propsLanguage = this.propsLanguage
-    clone.errorWrapper = this.errorWrapper
-    clone.readOnly = this.readOnly
-    clone.disabled = this.disabled
-    clone.showAllValidationErrors = this.showAllValidationErrors
-    clone.context = this.context
-    clone.localizationEngine = this.localizationEngine
-    return clone
+    return new FormViewerPropsStore({
+      view: this.view,
+      initialData: this.initialData,
+      validators: this.validators,
+      formValidators: this.formValidators,
+      localize: this.localizer,
+      actions: this.actions,
+      language: this.propsLanguage,
+      errorWrapper: this.errorWrapper,
+      readOnly: this.readOnly,
+      disabled: this.disabled,
+      showAllValidationErrors: this.showAllValidationErrors,
+      context: this.context,
+      localizationEngine: this.localizationEngine,
+    })
   }
 }

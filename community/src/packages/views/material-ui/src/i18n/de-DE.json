@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "Eine modale Dialogkomponente, die Inhalte in einem Overlay anzeigt",
+      "name": "Dialog",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Wenn true, wird der Dialog durch Drücken der Escape-Taste nicht geschlossen",
+          "name": "Escape-Taste gedrückt deaktivieren"
+        },
+        "fullScreen": {
+          "description": "Wenn wahr, wird der Dialog im Vollbildmodus angezeigt",
+          "name": "Vollbildmodus"
+        },
+        "fullWidth": {
+          "description": "Wenn true, wird der Dialog auf maxWidth erweitert",
+          "name": "Volle Breite"
+        },
+        "maxWidth": {
+          "description": "Maximale Breite des Dialogs (xs, sm, md, lg, xl)",
+          "name": "Maximale Breite"
+        },
+        "onClose": {
+          "description": "Callback wird ausgelöst, wenn der Dialog geschlossen wird",
+          "name": "Aufschließen"
+        },
+        "open": {
+          "description": "Wenn wahr, ist der Dialog geöffnet",
+          "name": "Öffnen"
+        },
+        "scroll": {
+          "description": "Bestimmt den Container zum Scrollen des Dialogs (Papier oder Text)",
+          "name": "Scrollen"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Container für Dialogaktionsschaltflächen",
+      "name": "Dialog Aktionen",
+      "props": {
+        "children": {
+          "description": "Der Inhalt der Komponente",
+          "name": "Kinder"
+        },
+        "disableSpacing": {
+          "description": "Wenn true, haben die Aktionen keinen zusätzlichen Spielraum",
+          "name": "Abstand deaktivieren"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Hauptinhaltsbereich eines Dialogs",
+      "name": "Dialog Inhalt",
+      "props": {
+        "children": {
+          "description": "Der Inhalt der Komponente",
+          "name": "Kinder"
+        },
+        "dividers": {
+          "description": "Wenn true, werden Rahmen am oberen und unteren Rand des Dialoginhalts hinzugefügt",
+          "name": "Teiler"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Textinhalt in einem Dialogfeld",
+      "name": "Dialog Inhalt Text",
+      "props": {
+        "children": {
+          "description": "Textinhalt",
+          "name": "Inhalt"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Ein voreingestelltes Dialoglayout mit Titel-, Inhalts- und Aktionsschaltflächen",
+      "name": "Dialoglayout"
+    },
+    "MuiDialogTitle": {
+      "description": "Titel eines Dialogs",
+      "name": "Titel des Dialogs",
+      "props": {
+        "children": {
+          "description": "Titeltext",
+          "name": "Inhalt"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "Umschließt Inhalte und zeigt einen Fehlerstatus oder eine Fehlermeldung an",
       "name": "Fehler-Wrapper"

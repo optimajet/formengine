@@ -1,4 +1,4 @@
-import {ComponentProperty} from '../../../../stores/ComponentStore'
+import type {ComponentProperty} from '../../../../stores/ComponentProperty'
 import type {ComponentData} from '../../../../utils/contexts/ComponentDataContext'
 import type {NodeEditorType} from '../../utils/builders/NodeEditorType'
 import {Annotation} from './Annotation'

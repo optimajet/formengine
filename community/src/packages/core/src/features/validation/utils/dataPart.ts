@@ -1,4 +1,6 @@
-import {isNumber, isRecord, isString} from '../../../utils'
+import {isRecord} from '../../../utils/isRecord'
+import {isString} from '../../../utils/isString'
+import {isNumber} from '../../../utils/tools'
 
 /**
  * Returns data (array element or object field) by key.

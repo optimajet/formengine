@@ -1,0 +1,45 @@
+{
+  "name": "@react-form-builder/bundle-size-vueform",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "main": "src/index.tsx",
+  "type": "module",
+  "description": "OptimaJet Bundle Size Application",
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:optimajet/formengine.git"
+  },
+  "bugs": {
+    "email": "support@optimajet.com"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev-login": "dotenv -v APP_INPUT=login npm run dev",
+    "dev-login-mui": "dotenv -v APP_INPUT=login-mui npm run dev",
+    "dev-booking": "dotenv -v APP_INPUT=booking npm run dev",
+    "dev-booking-mui": "dotenv -v APP_INPUT=booking-mui npm run dev",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "serve": "serve dist"
+  },
+  "dependencies": {
+    "@vueform/vueform": "^1.13.6",
+    "autosize": "^6.0.1",
+    "expr-eval": "^2.0.2",
+    "flatpickr": "^4.6.13",
+    "locutus": "^2.0.39",
+    "lodash": "^4.17.23",
+    "signature_pad": "^5.1.3",
+    "sortablejs": "^1.15.3",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3"
+  }
+}

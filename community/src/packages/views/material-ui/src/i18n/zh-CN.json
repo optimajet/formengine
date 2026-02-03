@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "在叠加中显示内容的模态对话框组件",
+      "name": "对话",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "如果为true，按escape键不会关闭对话框",
+          "name": "禁用转义键"
+        },
+        "fullScreen": {
+          "description": "如果为true，对话框将全屏",
+          "name": "全屏"
+        },
+        "fullWidth": {
+          "description": "如果为true，则对话框将延伸到maxWidth",
+          "name": "全幅"
+        },
+        "maxWidth": {
+          "description": "对话框的最大宽度（xs，sm，md，lg，xl）",
+          "name": "最大宽度"
+        },
+        "onClose": {
+          "description": "对话框关闭时触发的回调",
+          "name": "n.锁,锁"
+        },
+        "open": {
+          "description": "如果为true，则对话框处于打开状态",
+          "name": "打开"
+        },
+        "scroll": {
+          "description": "确定滚动对话框的容器（纸张或正文）",
+          "name": "滚动"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "对话框操作按钮的容器",
+      "name": "对话框操作",
+      "props": {
+        "children": {
+          "description": "组件的内容",
+          "name": "儿童"
+        },
+        "disableSpacing": {
+          "description": "如果为true，则操作没有额外的余量",
+          "name": "禁用间距"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "对话框的主要内容区域",
+      "name": "对话内容",
+      "props": {
+        "children": {
+          "description": "组件的内容",
+          "name": "儿童"
+        },
+        "dividers": {
+          "description": "如果为true，则将边框添加到对话框内容的顶部和底部",
+          "name": "分频器"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "对话框中的文本内容",
+      "name": "对话框内容文本",
+      "props": {
+        "children": {
+          "description": "文本内容",
+          "name": "内容"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "带有标题、内容和操作按钮的预设对话框布局",
+      "name": "对话框布局"
+    },
+    "MuiDialogTitle": {
+      "description": "对话框的标题",
+      "name": "对话框标题",
+      "props": {
+        "children": {
+          "description": "标题文本",
+          "name": "内容"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "包装内容并显示错误状态或消息",
       "name": "错误包装器"

@@ -3,6 +3,8 @@ import {FormControl, FormHelperText, InputLabel} from '@mui/material'
 import {useComponentData} from '@react-form-builder/core'
 import type {ChangeEvent, ComponentType} from 'react'
 import {useCallback, useMemo} from 'react'
+import type {DisabledProps} from '../DisabledProps'
+import type {ReadOnlyProps} from '../ReadOnlyProps'
 import {useLabelId} from './useLabelId'
 import {useRequired} from './useRequired'
 
@@ -19,15 +21,11 @@ export interface FormControlWrapperOptions {
 /**
  * Props for the Material-UI FormControl component.
  */
-export interface MuiFormControlProps extends FormControlProps {
+export interface MuiFormControlProps extends FormControlProps, DisabledProps, ReadOnlyProps {
   /**
    * The label for the form control.
    */
   label?: string
-  /**
-   * If true, the form control will be disabled.
-   */
-  disabled?: boolean
   /**
    * If true, the form control will be required.
    */
@@ -85,7 +83,7 @@ export const useFormControlProps = (props: any): [MuiFormControlProps, any] => {
 export const withFormControl = <T extends object>(
   Component: ComponentType<T>,
   options?: FormControlWrapperOptions) => {
-  const WrappedComponent = (props: T) => {
+  const WrappedComponent = (props: T & MuiFormControlProps) => {
     const [formControlProps, componentProps] = useFormControlProps(props)
     const {id} = useComponentData()
 

@@ -42,12 +42,12 @@ export interface IComponentState {
   onWillUnmount(): void
 
   /**
-   * @returns true if the component has a read-only property and this property is true, false otherwise.
+   * @returns true if the component is read-only, false otherwise.
    */
   get isReadOnly(): boolean
 
   /**
-   * @returns true if the component has a disabled property and this property is true, false otherwise.
+   * @returns true if the component is disabled, false otherwise.
    */
   get isDisabled(): boolean
 }

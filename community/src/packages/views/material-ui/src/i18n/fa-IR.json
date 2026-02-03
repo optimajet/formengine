@@ -275,6 +275,92 @@
         }
       }
     },
+    "MuiDialog": {
+      "description": "یک جزء دیالوگ مودال که محتوا را در یک پوشش نمایش می دهد",
+      "name": "دیالوگ",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "اگر درست باشد ، فشار دادن کلید فرار ، دیالوگ را نمی بندد",
+          "name": "کلید فرار را غیرفعال کنید"
+        },
+        "fullScreen": {
+          "description": "اگر درست باشد ، دیالوگ تمام صفحه خواهد بود",
+          "name": "صفحه نمایش کامل"
+        },
+        "fullWidth": {
+          "description": "اگر درست باشد ، دیالوگ به حداکثر می رسد",
+          "name": "عرض کامل"
+        },
+        "maxWidth": {
+          "description": "حداکثر عرض دیالوگ (xs, sm, md, lg, xl)",
+          "name": "حداکثر عرض"
+        },
+        "onClose": {
+          "description": "وقتی که دیالوگ بسته می شود ، تماس مجدد قطع می شود",
+          "name": "آنکلوز"
+        },
+        "open": {
+          "description": "اگر درست باشد ، دیالوگ باز است",
+          "name": "باز"
+        },
+        "scroll": {
+          "description": "ظرف را برای پیمایش دیالوگ (کاغذ یا بدنه)تعیین می کند",
+          "name": "اسکرول"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "کانتینر برای دکمه های عمل دیالوگ",
+      "name": "اقدامات دیالوگ",
+      "props": {
+        "children": {
+          "description": "محتوای جزء",
+          "name": "کودکان"
+        },
+        "disableSpacing": {
+          "description": "اگر درست باشد ، اقدامات حاشیه اضافی ندارند",
+          "name": "فاصله را غیرفعال کنید"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "بخش محتوای اصلی یک دیالوگ",
+      "name": "محتوای دیالوگ",
+      "props": {
+        "children": {
+          "description": "محتوای جزء",
+          "name": "کودکان"
+        },
+        "dividers": {
+          "description": "اگر درست باشد ، مرزها به بالا و پایین محتوای دیالوگ اضافه می شوند",
+          "name": "تقسیم کننده ها"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "محتوای متن در داخل یک دیالوگ",
+      "name": "متن محتوای دیالوگ",
+      "props": {
+        "children": {
+          "description": "محتوای متن",
+          "name": "محتوا"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "یک طرح دیالوگ از پیش تنظیم شده با عنوان ، محتوا و دکمه های عمل",
+      "name": "طرح دیالوگ"
+    },
+    "MuiDialogTitle": {
+      "description": "عنوان یک دیالوگ",
+      "name": "عنوان دیالوگ",
+      "props": {
+        "children": {
+          "description": "متن عنوان",
+          "name": "محتوا"
+        }
+      }
+    },
     "MuiErrorWrapper": {
       "description": "محتوای را بسته بندی می کند و یک حالت خطا یا پیام را نمایش می دهد",
       "name": "بسته بندی خطا"

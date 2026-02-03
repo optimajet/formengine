@@ -1,5 +1,5 @@
 import type {ComponentData} from '../../../utils/contexts/ComponentDataContext'
-import {ActionDefinition} from '../types'
+import {ActionDefinition} from '../ActionDefinition'
 
 const parseRowData = (data?: string) => {
   if (!data) return

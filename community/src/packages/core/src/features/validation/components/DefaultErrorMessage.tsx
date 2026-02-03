@@ -1,9 +1,9 @@
 import {css, cx} from '@emotion/css'
 import type {ReactNode} from 'react'
 import {useAriaErrorMessage} from '../../../utils/useAriaAttributesIds'
-import {Model} from '../../define'
 import {addOrUpdateFeatures} from '../../define/utils/ComponentFeature'
 import {cfComponentRole, cfHideFromComponentPalette} from '../../define/utils/integratedComponentFeatures'
+import {Model} from '../../define/utils/Model'
 
 /**
  * Properties of the React component that wraps the form view component and displays validation errors.

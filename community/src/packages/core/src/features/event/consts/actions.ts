@@ -1,5 +1,5 @@
-import type {ActionValues} from '../types'
-import {ActionDefinition} from '../types'
+import {ActionDefinition} from '../ActionDefinition'
+import type {ActionValues} from '../ActionValues'
 import {closeModal, openModal} from './modalActions'
 import {addRowAction, removeRowAction} from './repeaterActions'
 

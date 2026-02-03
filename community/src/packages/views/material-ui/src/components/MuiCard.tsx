@@ -1,14 +1,16 @@
 import type {CardProps} from '@mui/material'
 import {Card, CardActionArea as RawActionArea, CardActions, CardContent, CardHeader, CardMedia} from '@mui/material'
-import {boolean, define, event, node, oneOf, useBuilderMode} from '@react-form-builder/core'
+import {boolean, define, disabled, event, node, oneOf, readOnly, useBuilderMode} from '@react-form-builder/core'
 import type {PropsWithChildren, ReactNode} from 'react'
 import {useMemo} from 'react'
 import {surfacesCategory} from './categories'
+import type {DisabledProps} from './internal/DisabledProps'
+import type {ReadOnlyProps} from './internal/ReadOnlyProps'
 
 /**
  * Props for the MuiCard component.
  */
-export interface MuiCardProps extends CardProps {
+export interface MuiCardProps extends CardProps, DisabledProps, ReadOnlyProps {
   /**
    * Whether to show the card header.
    */
@@ -85,6 +87,8 @@ const useCardProps = (props: MuiCardProps) => {
       subHeader,
       media,
       actions,
+      disabled,
+      readOnly,
       ...card
     } = props
 
@@ -229,5 +233,7 @@ export const muiCard = define(MuiCard, 'MuiCard')
     actions: node,
     children: node,
     variant: oneOf('elevation', 'outlined'),
-    onSelect: event
+    onSelect: event,
+    disabled: disabled,
+    readOnly: readOnly
   })
