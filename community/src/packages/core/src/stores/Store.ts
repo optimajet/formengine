@@ -128,6 +128,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     this.form = new Form(componentTree, localization, {}, [], globalDefaultLanguage)
     this.form.modalType = this.getFirstComponentTypeWithRole('modal')
     this.form.tooltipType = this.getFirstComponentTypeWithRole('tooltip')
+    this.form.componentTree.state = this.formViewerPropsStore.initialState
 
     makeObservable(this, {
       form: observable,
@@ -318,7 +319,9 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       this.updateInitialData(templateKey, initial)
     }
 
-    const childStore = new Store(this.formViewerPropsStore.clone(), this.componentStateFactory, this, templateGetInitialData,
+    const childPropsStore = this.formViewerPropsStore.clone()
+    childPropsStore.initialState = {}
+    const childStore = new Store(childPropsStore, this.componentStateFactory, this, templateGetInitialData,
       templateSetInitialData)
     return new TemplateField(componentStore, childStore)
   }
@@ -398,6 +401,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     // here we initialize the fields after the form is created, since the calculated field values are depends on 'this.form'
     this.form.initFields()
     oldForm.dispose()
+    this.form.componentTree.state = this.formViewerPropsStore.initialState
   }
 
   /**

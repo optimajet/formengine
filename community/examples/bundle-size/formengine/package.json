@@ -27,9 +27,9 @@
     "serve": "serve dist"
   },
   "dependencies": {
-    "@react-form-builder/bundle-size-shared": "^7.11.0",
-    "@react-form-builder/components-material-ui": "^7.11.0",
-    "@react-form-builder/components-rsuite": "^7.11.0",
-    "@react-form-builder/core": "^7.11.0"
+    "@react-form-builder/bundle-size-shared": "^7.12.0",
+    "@react-form-builder/components-material-ui": "^7.12.0",
+    "@react-form-builder/components-rsuite": "^7.12.0",
+    "@react-form-builder/core": "^7.12.0"
   }
 }

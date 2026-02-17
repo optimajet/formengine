@@ -40,6 +40,11 @@ export interface IFormData {
   get state(): Record<string, unknown>
 
   /**
+   * Sets state object.
+   */
+  set state(state: Record<string, unknown>)
+
+  /**
    * Sets the validation error message for all form data fields.
    * @param message the validation error message.
    */

@@ -1,0 +1,181 @@
+{
+  "version": "1",
+  "tooltipType": "RsTooltip",
+  "modalType": "RsModal",
+  "form": {
+    "key": "Screen",
+    "type": "Screen",
+    "props": {},
+    "children": [
+      {
+        "key": "default",
+        "type": "Uploader",
+        "props": {
+          "action": {
+            "value": "http://localhost:3001/upload"
+          }
+        },
+        "schema": {
+          "validations": [
+            {
+              "key": "required"
+            }
+          ]
+        }
+      },
+      {
+        "key": "repeater1",
+        "type": "Repeater",
+        "props": {
+          "value": {
+            "computeType": "function",
+            "fnSource": "    const arr = form.data.default ?? []\n    return arr.map(item => item)"
+          }
+        },
+        "children": [
+          {
+            "key": "rsLabel1",
+            "type": "RsLabel",
+            "props": {
+              "className": {
+                "computeType": "function",
+                "fnSource": "    return form.data.url ? 'success' : 'error'"
+              },
+              "text": {
+                "computeType": "function",
+                "fnSource": "    const {url, error, status} = form.data\n\n    return url ?? error ?? status ?? ''",
+                "value": ""
+              }
+            },
+            "css": {
+              "any": {
+                "string": "    &.error {\n        color: red;\n    }"
+              }
+            }
+          }
+        ],
+        "css": {
+          "any": {
+            "object": {}
+          }
+        },
+        "wrapperCss": {
+          "any": {
+            "object": {
+              "gap": "2px"
+            }
+          }
+        }
+      },
+      {
+        "key": "dropzone",
+        "type": "Uploader",
+        "props": {
+          "dropzone": {
+            "value": true
+          },
+          "action": {
+            "value": "http://localhost:3001/upload"
+          }
+        }
+      },
+      {
+        "key": "customContent",
+        "type": "Uploader",
+        "props": {
+          "children": {
+            "editorType": "node"
+          },
+          "action": {
+            "value": "http://localhost:3001/upload"
+          }
+        },
+        "css": {
+          "any": {
+            "string": "    gap: 10px;\n    background-color: grey;\n    align-items: center;\n    justify-content: space-evenly;\n    padding: 10px;"
+          }
+        },
+        "children": [
+          {
+            "key": "rsHeader1",
+            "type": "RsHeader",
+            "props": {},
+            "css": {
+              "any": {
+                "object": {
+                  "textAlign": "center"
+                }
+              }
+            },
+            "wrapperCss": {
+              "any": {
+                "object": {
+                  "width": "max-content",
+                  "marginInlineEnd": "20px",
+                  "marginInlineStart": "20px"
+                }
+              }
+            }
+          },
+          {
+            "key": "rsImage1",
+            "type": "RsImage",
+            "props": {},
+            "wrapperCss": {
+              "any": {
+                "object": {
+                  "width": "50%"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "key": "customDropzone",
+        "type": "Uploader",
+        "props": {
+          "children": {
+            "editorType": "node"
+          },
+          "dropzone": {
+            "value": true
+          },
+          "action": {
+            "value": "http://localhost:3001/upload"
+          }
+        },
+        "css": {
+          "any": {
+            "string": "    gap: 10px;\n    align-items: center;\n    justify-content: space-evenly;\n    padding: 10px;"
+          }
+        },
+        "children": [
+          {
+            "key": "rsImage2",
+            "type": "RsImage",
+            "props": {},
+            "wrapperCss": {
+              "any": {
+                "object": {
+                  "width": "50%"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "localization": {},
+  "languages": [
+    {
+      "code": "en",
+      "dialect": "US",
+      "name": "English",
+      "description": "American English",
+      "bidi": "ltr"
+    }
+  ],
+  "defaultLanguage": "en-US"
+}

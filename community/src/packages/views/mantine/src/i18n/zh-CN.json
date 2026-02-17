@@ -1,0 +1,1201 @@
+{
+  "categories": {
+    "buttons": {
+      "name": "按钮"
+    },
+    "combobox": {
+      "name": "组合式,组合式"
+    },
+    "dates": {
+      "name": "日期"
+    },
+    "inputs": {
+      "name": "输入"
+    },
+    "layout": {
+      "name": "设计图"
+    },
+    "miscellaneous": {
+      "name": "杂项条文"
+    },
+    "otherExtensions": {
+      "name": "其他扩展"
+    },
+    "overlays": {
+      "name": "复盖物"
+    },
+    "typography": {
+      "name": "印刷术"
+    }
+  },
+  "commonProperties": {
+    "align": {
+      "description": "项的对齐。",
+      "name": "对齐;对齐"
+    },
+    "c": {
+      "description": "文字颜色。",
+      "name": "颜色"
+    },
+    "clearable": {
+      "description": "如果设置，则当组件具有值时显示清除按钮",
+      "name": "可清除"
+    },
+    "color": {
+      "description": "颜色",
+      "name": "颜色"
+    },
+    "columnsToScroll": {
+      "description": "导航时要滚动的列数",
+      "name": "要滚动的列"
+    },
+    "data": {
+      "description": "选项数据。",
+      "name": "数据资料"
+    },
+    "defaultVisible": {
+      "description": "内容的初始可见性状态。",
+      "name": "默认可见"
+    },
+    "description": {
+      "description": "组件描述",
+      "name": "资料描述"
+    },
+    "disabled": {
+      "description": "残疾状态",
+      "name": "残疾人士"
+    },
+    "dropdownOpened": {
+      "description": "控件下拉打开状态。",
+      "name": "下拉打开"
+    },
+    "dropdownType": {
+      "description": "下拉列表的类型",
+      "name": "下拉类型"
+    },
+    "error": {
+      "description": "错误消息或错误状态。",
+      "name": "错误"
+    },
+    "filledVariant": {
+      "description": "控制外观变体。",
+      "name": "变式"
+    },
+    "fs": {
+      "description": "字体样式。",
+      "name": "字体样式"
+    },
+    "fw": {
+      "description": "字体重量。",
+      "name": "字体重量"
+    },
+    "fz": {
+      "description": "字体大小。",
+      "name": "字体大小"
+    },
+    "grow": {
+      "description": "项目是否应该增长以填充可用空间。",
+      "name": "成长"
+    },
+    "hideOutsideDates": {
+      "description": "隐藏当月以外的日期",
+      "name": "隐藏外日期"
+    },
+    "hideWeekdays": {
+      "description": "隐藏平日行",
+      "name": "隐藏平日"
+    },
+    "highlightToday": {
+      "description": "今日精选日期",
+      "name": "今日重点介绍"
+    },
+    "justify": {
+      "description": "组内的内容进行论证。",
+      "name": "辩解"
+    },
+    "label": {
+      "description": "组件标签",
+      "name": "标签"
+    },
+    "labelPosition": {
+      "description": "标签位置",
+      "name": "标签位置"
+    },
+    "lh": {
+      "description": "行高度。",
+      "name": "线高"
+    },
+    "maxDropdownHeight": {
+      "description": "最大下拉高度（以像素为单位）。",
+      "name": "最大下拉高度"
+    },
+    "minRows": {
+      "description": "最小可见行。",
+      "name": "最小行数"
+    },
+    "nothingFoundMessage": {
+      "description": "没有选项匹配时显示的消息。",
+      "name": "没有找到消息"
+    },
+    "numberOfColumns": {
+      "description": "显示的月数",
+      "name": "列数"
+    },
+    "onBlur": {
+      "description": "当输入失去焦点时调用。",
+      "name": "昂布鲁尔"
+    },
+    "onChange": {
+      "description": "组件的值更改时调用",
+      "name": "交换/交换"
+    },
+    "onDropdownClose": {
+      "description": "在下拉列表关闭时调用。",
+      "name": "[医]脱胎换骨"
+    },
+    "onDropdownOpen": {
+      "description": "在下拉菜单打开时调用。",
+      "name": "onDropdownOpen,onDropdownOpen"
+    },
+    "onFocus": {
+      "description": "输入接收焦点时调用。",
+      "name": "焦点；焦点"
+    },
+    "onSearchChange": {
+      "description": "搜索值更改时调用。",
+      "name": "交换,交换"
+    },
+    "placeholder": {
+      "description": "占位符",
+      "name": "占位符"
+    },
+    "radius": {
+      "description": "边界半径。",
+      "name": "半径"
+    },
+    "readOnly": {
+      "description": "输入是否为只读。",
+      "name": "只读"
+    },
+    "searchValue": {
+      "description": "受控的搜索输入值。",
+      "name": "搜索值"
+    },
+    "size": {
+      "description": "控制与组件大小相关的各种属性",
+      "name": "大小"
+    },
+    "spacing": {
+      "description": "项之间的间距。",
+      "name": "间距"
+    },
+    "ta": {
+      "description": "文本对齐。",
+      "name": "文本对齐方式"
+    },
+    "td": {
+      "description": "文字装饰。",
+      "name": "文字装饰"
+    },
+    "tt": {
+      "description": "文本变换。",
+      "name": "文本转换"
+    },
+    "value": {
+      "description": "组件值",
+      "name": "价值"
+    },
+    "variant": {
+      "description": "控制组件的外观",
+      "name": "变式"
+    },
+    "withAsterisk": {
+      "description": "如果设置，则标签旁边会显示所需的星号",
+      "name": "带星号"
+    },
+    "withScrollArea": {
+      "description": "下拉列表是否使用滚动区域。",
+      "name": "带滚动区域"
+    },
+    "withSeconds": {
+      "description": "确定时间选取器中是否应包括秒",
+      "name": "用秒"
+    },
+    "withWeekNumbers": {
+      "description": "显示周数列",
+      "name": "与周数"
+    },
+    "wrap": {
+      "description": "项的换行行为。",
+      "name": "包装,包装"
+    }
+  },
+  "components": {
+    "MtAutocomplete": {
+      "description": "使用任何选项列表自动完成用户输入",
+      "name": "自动完成",
+      "props": {
+        "data": {
+          "description": "用于显示选项的数据",
+          "name": "数据资料"
+        }
+      }
+    },
+    "MtButton": {
+      "description": "按钮组件来呈现按钮或链接",
+      "name": "按钮",
+      "props": {
+        "children": {
+          "description": "按钮内容",
+          "name": "内容"
+        },
+        "fullWidth": {
+          "description": "如果设置，则按钮采用父容器的全宽",
+          "name": "全幅"
+        },
+        "onClick": {
+          "description": "单击按钮时调用",
+          "name": "昂克里克"
+        }
+      }
+    },
+    "MtCheckbox": {
+      "description": "从用户捕获布尔输入",
+      "name": "复选框",
+      "props": {
+        "checked": {
+          "description": "指定是否选中该复选框",
+          "name": "检查过"
+        }
+      }
+    },
+    "MtCheckboxGroup": {
+      "description": "复选框组",
+      "name": "复选框组",
+      "props": {
+        "items": {
+          "description": "复选框组的项",
+          "name": "项目"
+        }
+      }
+    },
+    "MtChip": {
+      "description": "使用内联控件选取值",
+      "name": "芯片",
+      "props": {
+        "checked": {
+          "description": "指定是否选择芯片",
+          "name": "检查过"
+        },
+        "children": {
+          "description": "组件标签",
+          "name": "标签"
+        }
+      }
+    },
+    "MtChipCheckboxGroup": {
+      "description": "使用内联控件选择一个或多个值",
+      "name": "芯片复选框组",
+      "props": {
+        "items": {
+          "description": "芯片选项",
+          "name": "项目"
+        }
+      }
+    },
+    "MtChipRadioGroup": {
+      "description": "使用内联控件选择一个值",
+      "name": "芯片无线电组",
+      "props": {
+        "items": {
+          "description": "芯片选项",
+          "name": "项目"
+        }
+      }
+    },
+    "MtColorInput": {
+      "description": "从用户捕获颜色",
+      "name": "颜色输入",
+      "props": {
+        "format": {
+          "description": "颜色格式",
+          "name": "格式"
+        },
+        "swatches": {
+          "description": "用于在颜色选择器下方显示色板列表的颜色列表",
+          "name": "样本"
+        }
+      }
+    },
+    "MtColorPicker": {
+      "description": "选择十六进制(a)、rgb(a)、hsl(a)和hsv(a)格式的颜色",
+      "name": "颜色选择器",
+      "props": {
+        "format": {
+          "description": "颜色格式",
+          "name": "格式"
+        },
+        "fullWidth": {
+          "description": "是否拉伸至全宽。",
+          "name": "全幅"
+        },
+        "swatches": {
+          "description": "色板。",
+          "name": "色板"
+        },
+        "swatchesPerRow": {
+          "description": "每行样本数。",
+          "name": "每行样本"
+        },
+        "withPicker": {
+          "description": "是否显示选择器输入。",
+          "name": "与picker"
+        }
+      }
+    },
+    "MtContainer": {
+      "description": "中心内容与填充和最大宽度",
+      "name": "货柜",
+      "props": {
+        "children": {
+          "description": "组件子级",
+          "name": "儿童"
+        }
+      }
+    },
+    "MtDateMultiplePicker": {
+      "description": "允许选择多个日期",
+      "name": "日期多重选择器",
+      "props": {
+        "maxDate": {
+          "description": "最大可选日期，YYYY-MM-DD格式",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最小可选日期，YYYY-MM-DD格式",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtDateMultiplePickerInput": {
+      "description": "允许选择多个日期",
+      "name": "日期多个选择器输入",
+      "props": {
+        "maxDate": {
+          "description": "最大可选日期，YYYY-MM-DD格式",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最小可选日期，YYYY-MM-DD格式",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtDatePicker": {
+      "description": "允许选择日期",
+      "name": "日期选择器",
+      "props": {
+        "allowDeselect": {
+          "description": "确定用户是否可以通过单击所选日期来取消选择日期",
+          "name": "允许取消选择"
+        },
+        "maxDate": {
+          "description": "最大可选日期，YYYY-MM-DD格式",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最小可选日期，YYYY-MM-DD格式",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtDatePickerInput": {
+      "description": "日期选择器输入",
+      "name": "日期选择器输入",
+      "props": {
+        "allowDeselect": {
+          "description": "确定用户是否可以通过单击所选日期来取消选择日期",
+          "name": "允许取消选择"
+        },
+        "maxDate": {
+          "description": "最大可选日期，YYYY-MM-DD格式",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最小可选日期，YYYY-MM-DD格式",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtDateRangePicker": {
+      "description": "允许选择日期范围",
+      "name": "日期范围选择器",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "允许选择单个日期作为范围",
+          "name": "允许范围内的单个日期"
+        },
+        "maxDate": {
+          "description": "最大可选日期，YYYY-MM-DD格式",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最小可选日期，YYYY-MM-DD格式",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtDateRangePickerInput": {
+      "description": "日期范围选择器输入",
+      "name": "日期范围选择器输入",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "允许选择单个日期作为范围",
+          "name": "允许范围内的单个日期"
+        },
+        "maxDate": {
+          "description": "最大可选日期，YYYY-MM-DD格式",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最小可选日期，YYYY-MM-DD格式",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtDateTimePicker": {
+      "description": "从用户捕获日期时间",
+      "name": "日期时间选择器",
+      "props": {
+        "valueFormat": {
+          "description": "自定义dayjs格式显示值",
+          "name": "值格式"
+        }
+      }
+    },
+    "MtDialog": {
+      "description": "在屏幕的任何一侧显示固定叠加对话框",
+      "name": "对话",
+      "props": {
+        "children": {
+          "description": "对话内容",
+          "name": "儿童"
+        },
+        "onOpenedChange": {
+          "description": "当opened属性更改时调用",
+          "name": "n.交换,交换"
+        },
+        "opened": {
+          "description": "对话框是否打开",
+          "name": "开幕"
+        },
+        "showCloseButton": {
+          "description": "是否显示关闭按钮",
+          "name": "显示关闭按钮"
+        },
+        "title": {
+          "description": "对话框标题",
+          "name": "标题"
+        }
+      }
+    },
+    "MtDivider": {
+      "description": "带可选标签或垂直分隔线的水平线",
+      "name": "分频器",
+      "props": {
+        "orientation": {
+          "description": "分隔线方向",
+          "name": "方向感"
+        }
+      }
+    },
+    "MtDropzone": {
+      "description": "通过拖放从用户捕获文件",
+      "name": "下拉区",
+      "props": {
+        "accept": {
+          "description": "接受的mime类型",
+          "name": "接受"
+        },
+        "multiple": {
+          "description": "允许多个文件",
+          "name": "多个"
+        }
+      }
+    },
+    "MtErrorWrapper": {
+      "description": "在窗体控件下方显示验证错误消息",
+      "name": "错误消息"
+    },
+    "MtFileInput": {
+      "description": "从用户捕获文件",
+      "name": "文件输入",
+      "props": {
+        "accept": {
+          "description": "接受的文件类型",
+          "name": "接受"
+        },
+        "multiple": {
+          "description": "允许多个文件",
+          "name": "多个"
+        }
+      }
+    },
+    "MtJsonInput": {
+      "description": "从用户捕获json数据",
+      "name": "JSON输入",
+      "props": {
+        "minRows": {
+          "description": "最小行数",
+          "name": "最小行数"
+        }
+      }
+    },
+    "MtLabel": {
+      "description": "显示标签",
+      "name": "标签",
+      "props": {
+        "children": {
+          "description": "标签的文本",
+          "name": "标签"
+        }
+      }
+    },
+    "MtMonthMultiplePicker": {
+      "description": "月多重选择器",
+      "name": "月多重选择器",
+      "props": {
+        "maxDate": {
+          "description": "最大可选月份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选月份",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtMonthMultiplePickerInput": {
+      "description": "月多重选择器输入",
+      "name": "月多重选择器输入",
+      "props": {
+        "maxDate": {
+          "description": "最大可选月份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选月份",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtMonthPicker": {
+      "description": "内联月份选择器",
+      "name": "月份选择器",
+      "props": {
+        "allowDeselect": {
+          "description": "确定用户是否可以通过单击所选月份来取消选择月份",
+          "name": "允许取消选择"
+        },
+        "maxDate": {
+          "description": "最大可选月份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选月份",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtMonthPickerInput": {
+      "description": "月份选择器输入",
+      "name": "月份选择器输入",
+      "props": {
+        "allowDeselect": {
+          "description": "确定用户是否可以通过单击所选月份来取消选择月份",
+          "name": "允许取消选择"
+        },
+        "maxDate": {
+          "description": "最大可选月份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选月份",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtMonthRangePicker": {
+      "description": "内联月份范围选择器",
+      "name": "月范围选择器",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "允许选择一个月作为范围",
+          "name": "允许范围内的单个日期"
+        },
+        "maxDate": {
+          "description": "最大可选月份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选月份",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtMonthRangePickerInput": {
+      "description": "月范围选择器输入",
+      "name": "月范围选择器输入",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "允许选择一个月作为范围",
+          "name": "允许范围内的单个日期"
+        },
+        "maxDate": {
+          "description": "最大可选月份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选月份",
+          "name": "最短日期"
+        }
+      }
+    },
+    "MtMultiSelect": {
+      "description": "自定义可搜索多选择",
+      "name": "多选择",
+      "props": {
+        "data": {
+          "description": "用于显示选项的数据",
+          "name": "数据资料"
+        },
+        "searchable": {
+          "description": "启用搜索",
+          "name": "可搜索"
+        }
+      }
+    },
+    "MtNativeSelect": {
+      "description": "基于输入的本机选择元素",
+      "name": "本机选择",
+      "props": {
+        "data": {
+          "description": "用于显示选项的数据",
+          "name": "数据资料"
+        }
+      }
+    },
+    "MtNumberInput": {
+      "description": "从用户获取号码",
+      "name": "数字输入",
+      "props": {
+        "allowDecimal": {
+          "description": "允许十进制值",
+          "name": "允许十进制"
+        },
+        "allowLeadingZeros": {
+          "description": "允许前导零",
+          "name": "允许前导零"
+        },
+        "allowNegative": {
+          "description": "允许负值",
+          "name": "允许否定"
+        },
+        "clampBehavior": {
+          "description": "夹紧行为",
+          "name": "钳位行为"
+        },
+        "decimalScale": {
+          "description": "限制小数点后可输入的位数",
+          "name": "十进制刻度"
+        },
+        "decimalSeparator": {
+          "description": "用作小数分隔符的字符",
+          "name": "小数分隔符"
+        },
+        "fixedDecimalScale": {
+          "description": "如果设置，则在小数点分隔符后添加0以匹配给定的小数点刻度",
+          "name": "固定小数位数"
+        },
+        "hideControls": {
+          "description": "隐藏递增和递减控件",
+          "name": "隐藏控件"
+        },
+        "max": {
+          "description": "最大值",
+          "name": "麦克斯"
+        },
+        "min": {
+          "description": "最小值",
+          "name": "敏"
+        },
+        "prefix": {
+          "description": "要在数字之前添加的字符串",
+          "name": "前缀"
+        },
+        "startValue": {
+          "description": "当单击递增/递减按钮或按下向上/向下箭头（如果输入为空）时，设置为输入的值",
+          "name": "起始值"
+        },
+        "step": {
+          "description": "步进值",
+          "name": "步骤"
+        },
+        "suffix": {
+          "description": "数字后面要添加的字符串",
+          "name": "后缀"
+        },
+        "thousandSeparator": {
+          "description": "用作千位分隔符的字符",
+          "name": "千分离器"
+        },
+        "thousandsGroupStyle": {
+          "description": "千分组式",
+          "name": "千人团体风格"
+        },
+        "trimLeadingZeroesOnBlur": {
+          "description": "如果设置，则模糊时将删除前导零。 例如，00100-&gt;100",
+          "name": "修剪模糊上的前导零"
+        }
+      }
+    },
+    "MtPasswordInput": {
+      "description": "从用户捕获密码数据",
+      "name": "密码输入"
+    },
+    "MtRadio": {
+      "description": "输入类型无线电的包装器",
+      "name": "无线电",
+      "props": {
+        "checked": {
+          "description": "指定是否检查无线电",
+          "name": "检查过"
+        }
+      }
+    },
+    "MtRadioGroup": {
+      "description": "无线电组",
+      "name": "无线电组",
+      "props": {
+        "items": {
+          "description": "无线电选项",
+          "name": "项目"
+        }
+      }
+    },
+    "MtRangeSlider": {
+      "description": "RangeSlider组件",
+      "name": "范围滑块",
+      "props": {
+        "inverted": {
+          "description": "确定是否应反转轨道值表示",
+          "name": "倒转"
+        },
+        "labelAlwaysOn": {
+          "description": "确定未拖动或悬停滑块时标签是否可见",
+          "name": "永远贴上标签"
+        },
+        "max": {
+          "description": "最大值",
+          "name": "麦克斯"
+        },
+        "maxRange": {
+          "description": "可以选择的最大范围",
+          "name": "最大射程"
+        },
+        "min": {
+          "description": "最小值",
+          "name": "敏"
+        },
+        "precision": {
+          "description": "要使用的小数位数",
+          "name": "精密度"
+        },
+        "pushOnOverlap": {
+          "description": "确定当达到minRange/maxRange时，当前拇指拖动是否应推动另一个拇指",
+          "name": "推上重叠"
+        },
+        "showLabelOnHover": {
+          "description": "确定是否应在滑块悬停时显示标签",
+          "name": "显示悬停标签"
+        },
+        "step": {
+          "description": "步进值",
+          "name": "步骤"
+        }
+      }
+    },
+    "MtRating": {
+      "description": "挑选及显示评级",
+      "name": "评级",
+      "props": {
+        "count": {
+          "description": "星数",
+          "name": "计数"
+        },
+        "fractions": {
+          "description": "分数数目",
+          "name": "分数;分数"
+        }
+      }
+    },
+    "MtSegmentedControl": {
+      "description": "两个或多个段的线性集合",
+      "name": "分段控制",
+      "props": {
+        "data": {
+          "description": "选项",
+          "name": "数据资料"
+        }
+      }
+    },
+    "MtSelect": {
+      "description": "自定义可搜索选择",
+      "name": "选择",
+      "props": {
+        "data": {
+          "description": "选项",
+          "name": "数据资料"
+        },
+        "searchable": {
+          "description": "启用搜索",
+          "name": "可搜索"
+        }
+      }
+    },
+    "MtSlider": {
+      "description": "滑块组件",
+      "name": "滑块",
+      "props": {
+        "max": {
+          "description": "最大值",
+          "name": "麦克斯"
+        },
+        "min": {
+          "description": "最小值",
+          "name": "敏"
+        },
+        "step": {
+          "description": "步进值",
+          "name": "步骤"
+        }
+      }
+    },
+    "MtSwitch": {
+      "description": "从用户捕获布尔输入",
+      "name": "开关,开关",
+      "props": {
+        "checked": {
+          "description": "指定开关是否打开",
+          "name": "检查过"
+        }
+      }
+    },
+    "MtSwitchGroup": {
+      "description": "从用户捕获布尔输入",
+      "name": "开关组",
+      "props": {
+        "items": {
+          "description": "切换选项",
+          "name": "项目"
+        }
+      }
+    },
+    "MtTagsInput": {
+      "description": "使用免费输入和建议从用户捕获值列表",
+      "name": "标签输入",
+      "props": {
+        "data": {
+          "description": "选项",
+          "name": "数据资料"
+        }
+      }
+    },
+    "MtText": {
+      "description": "显示文本",
+      "name": "文本",
+      "props": {
+        "children": {
+          "description": "文字内容",
+          "name": "内容"
+        },
+        "inherit": {
+          "description": "确定字体属性是否应从父级继承",
+          "name": "继承"
+        },
+        "inline": {
+          "description": "将line-height设置为1以进行定心",
+          "name": "内联/内联"
+        },
+        "lineClamp": {
+          "description": "文本将被截断的行数",
+          "name": "线夹/线夹"
+        },
+        "span": {
+          "description": "显示为span元素",
+          "name": "跨度"
+        },
+        "truncate": {
+          "description": "必须截断文本的一侧",
+          "name": "截断,截断"
+        }
+      }
+    },
+    "MtTextInput": {
+      "description": "从用户捕获字符串输入",
+      "name": "文本输入",
+      "props": {
+        "type": {
+          "description": "输入类型",
+          "name": "类型"
+        }
+      }
+    },
+    "MtTextarea": {
+      "description": "自动化或常规文本区域",
+      "name": "文本区域",
+      "props": {
+        "autosize": {
+          "description": "启用自动化",
+          "name": "自动化"
+        },
+        "maxRows": {
+          "description": "最大行数",
+          "name": "最大行数"
+        },
+        "minRows": {
+          "description": "最小行数",
+          "name": "最小行数"
+        }
+      }
+    },
+    "MtTimeGrid": {
+      "description": "使用一组预定义的选项从用户捕获时间值",
+      "name": "时间网格",
+      "props": {
+        "endTime": {
+          "description": "结束时间为\"HH:mm\"格式",
+          "name": "结束时间"
+        },
+        "format": {
+          "description": "时间格式",
+          "name": "格式"
+        },
+        "startTime": {
+          "description": "\"HH:mm\"格式的开始时间",
+          "name": "开始时间"
+        }
+      }
+    },
+    "MtTimeInput": {
+      "description": "从用户捕获时间",
+      "name": "时间输入"
+    },
+    "MtTimePicker": {
+      "description": "从用户捕获时间值",
+      "name": "时间选择器",
+      "props": {
+        "format": {
+          "description": "时间格式",
+          "name": "格式"
+        },
+        "max": {
+          "description": "最大可选时间，HH:mm:ss格式",
+          "name": "麦克斯"
+        },
+        "min": {
+          "description": "最小可选时间，HH:mm:ss格式",
+          "name": "敏"
+        },
+        "reverseTimeControlsList": {
+          "description": "反转时间控件（小时、分钟、秒）的顺序以匹配键盘导航",
+          "name": "反向时间控制列表"
+        }
+      }
+    },
+    "MtTiptap": {
+      "description": "基于Tiptap的富文本编辑器",
+      "name": "富文本编辑器",
+      "props": {
+        "error": {
+          "description": "输入错误消息",
+          "name": "错误"
+        },
+        "value": {
+          "description": "HTML格式编辑器的初始内容",
+          "name": "价值"
+        }
+      }
+    },
+    "MtTitle": {
+      "description": "h1-h6航向",
+      "name": "标题",
+      "props": {
+        "children": {
+          "description": "标题内容",
+          "name": "内容"
+        },
+        "order": {
+          "description": "标题级别",
+          "name": "秩序"
+        }
+      }
+    },
+    "MtTooltip": {
+      "description": "在鼠标悬停或其他事件上呈现给定元素的工具提示",
+      "name": "工具提示",
+      "props": {
+        "children": {
+          "description": "触发元件",
+          "name": "儿童"
+        },
+        "content": {
+          "description": "工具提示内容文本",
+          "name": "内容"
+        },
+        "offset": {
+          "description": "与触发器的距离",
+          "name": "偏移量"
+        }
+      }
+    },
+    "MtTypography": {
+      "description": "Html内容的样式提供程序",
+      "name": "印刷术",
+      "props": {
+        "allowHtml": {
+          "description": "允许HTML",
+          "name": "允许HTML"
+        },
+        "content": {
+          "description": "文字内容",
+          "name": "内容"
+        }
+      }
+    },
+    "MtYearMultiplePicker": {
+      "description": "内联多年选择器",
+      "name": "多年选择器",
+      "props": {
+        "maxDate": {
+          "description": "最大可选择年份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选年份",
+          "name": "最短日期"
+        },
+        "numberOfColumns": {
+          "description": "要显示的列数",
+          "name": "列数"
+        }
+      }
+    },
+    "MtYearMultiplePickerInput": {
+      "description": "多年选择器输入",
+      "name": "多年选择器输入",
+      "props": {
+        "maxDate": {
+          "description": "最大可选择年份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选年份",
+          "name": "最短日期"
+        },
+        "numberOfColumns": {
+          "description": "要显示的列数",
+          "name": "列数"
+        }
+      }
+    },
+    "MtYearPicker": {
+      "description": "内联年份选择器",
+      "name": "年选人",
+      "props": {
+        "allowDeselect": {
+          "description": "确定用户是否可以通过单击所选年份来取消选择年份",
+          "name": "允许取消选择"
+        },
+        "maxDate": {
+          "description": "最大可选择年份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选年份",
+          "name": "最短日期"
+        },
+        "numberOfColumns": {
+          "description": "要显示的列数",
+          "name": "列数"
+        }
+      }
+    },
+    "MtYearPickerInput": {
+      "description": "年份选择器输入",
+      "name": "年份选择器输入",
+      "props": {
+        "allowDeselect": {
+          "description": "确定用户是否可以通过单击所选年份来取消选择年份",
+          "name": "允许取消选择"
+        },
+        "maxDate": {
+          "description": "最大可选择年份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选年份",
+          "name": "最短日期"
+        },
+        "numberOfColumns": {
+          "description": "要显示的列数",
+          "name": "列数"
+        }
+      }
+    },
+    "MtYearRangePicker": {
+      "description": "年份范围选择器",
+      "name": "年份范围选择器",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "允许选择一年作为范围",
+          "name": "允许范围内的单个日期"
+        },
+        "maxDate": {
+          "description": "最大可选择年份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选年份",
+          "name": "最短日期"
+        },
+        "numberOfColumns": {
+          "description": "要显示的列数",
+          "name": "列数"
+        }
+      }
+    },
+    "MtYearRangePickerInput": {
+      "description": "年份范围选择器输入",
+      "name": "年份范围选择器输入",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "允许选择一年作为范围",
+          "name": "允许范围内的单个日期"
+        },
+        "maxDate": {
+          "description": "最大可选择年份",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "最低可选年份",
+          "name": "最短日期"
+        },
+        "numberOfColumns": {
+          "description": "要显示的列数",
+          "name": "列数"
+        }
+      }
+    }
+  }
+}

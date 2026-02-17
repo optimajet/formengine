@@ -5,6 +5,7 @@
     "rootDir": "./"
   },
   "exclude": [
+    "./config",
     "./vite.config.ts"
   ]
 }

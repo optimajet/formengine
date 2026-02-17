@@ -19,6 +19,11 @@ export class ActionEventArgs {
   readonly index?: number
 
   /**
+   * The user-defined context passed from the form viewer props.
+   */
+  readonly userContext?: unknown
+
+  /**
    * Creates arguments for the event handler.
    * @param type the event type.
    * @param sender the component that triggered the event.
@@ -44,6 +49,7 @@ export class ActionEventArgs {
       this.#parentComponentDataProxy = createDataProxy(parentComponentData)
     }
     this.#rootComponentDataProxy = createDataProxy(this.store.formData)
+    this.userContext = store.formViewerPropsStore.userContext
   }
 
   /**
@@ -178,5 +184,10 @@ declare class ActionEventArgs {
    * The information about the current cell.
    */
   readonly cellInfo?: CellInfo
+
+  /**
+   * The user-defined context passed from the form viewer props.
+   */
+  readonly userContext?: unknown
 }
 `

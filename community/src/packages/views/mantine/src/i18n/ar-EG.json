@@ -1,0 +1,1201 @@
+{
+  "categories": {
+    "buttons": {
+      "name": "أزرار"
+    },
+    "combobox": {
+      "name": "تحرير وسرد"
+    },
+    "dates": {
+      "name": "التواريخ"
+    },
+    "inputs": {
+      "name": "المدخلات"
+    },
+    "layout": {
+      "name": "تخطيط"
+    },
+    "miscellaneous": {
+      "name": "متفرقات"
+    },
+    "otherExtensions": {
+      "name": "ملحقات أخرى"
+    },
+    "overlays": {
+      "name": "تراكب"
+    },
+    "typography": {
+      "name": "الطباعة"
+    }
+  },
+  "commonProperties": {
+    "align": {
+      "description": "محاذاة العناصر.",
+      "name": "محاذاة"
+    },
+    "c": {
+      "description": "لون النص.",
+      "name": "اللون"
+    },
+    "clearable": {
+      "description": "في حالة التعيين ، يتم عرض زر المسح عندما يكون للمكون قيمة",
+      "name": "واضح"
+    },
+    "color": {
+      "description": "اللون",
+      "name": "اللون"
+    },
+    "columnsToScroll": {
+      "description": "عدد الأعمدة للتمرير عند التنقل",
+      "name": "أعمدة للتمرير"
+    },
+    "data": {
+      "description": "خيارات البيانات.",
+      "name": "البيانات"
+    },
+    "defaultVisible": {
+      "description": "حالة الرؤية الأولية للمحتوى.",
+      "name": "افتراضي مرئي"
+    },
+    "description": {
+      "description": "وصف المكون",
+      "name": "الوصف"
+    },
+    "disabled": {
+      "description": "حالة المعوقين",
+      "name": "معاق"
+    },
+    "dropdownOpened": {
+      "description": "ضوابط المنسدلة فتح الدولة.",
+      "name": "تم فتح القائمة المنسدلة"
+    },
+    "dropdownType": {
+      "description": "نوع القائمة المنسدلة",
+      "name": "نوع القائمة المنسدلة"
+    },
+    "error": {
+      "description": "رسالة خطأ أو حالة خطأ.",
+      "name": "خطأ"
+    },
+    "filledVariant": {
+      "description": "السيطرة على مظهر البديل.",
+      "name": "البديل"
+    },
+    "fs": {
+      "description": "نمط الخط.",
+      "name": "نمط الخط"
+    },
+    "fw": {
+      "description": "وزن الخط.",
+      "name": "وزن الخط"
+    },
+    "fz": {
+      "description": "حجم الخط.",
+      "name": "حجم الخط"
+    },
+    "grow": {
+      "description": "ما إذا كان يجب أن تنمو العناصر لملء المساحة المتاحة.",
+      "name": "تنمو"
+    },
+    "hideOutsideDates": {
+      "description": "يخفي التواريخ التي هي خارج الشهر الحالي",
+      "name": "إخفاء التواريخ الخارجية"
+    },
+    "hideWeekdays": {
+      "description": "يخفي صف أيام الأسبوع",
+      "name": "إخفاء أيام الأسبوع"
+    },
+    "highlightToday": {
+      "description": "يسلط الضوء على تاريخ اليوم",
+      "name": "تسليط الضوء اليوم"
+    },
+    "justify": {
+      "description": "تبرير المحتوى داخل المجموعة.",
+      "name": "تبرير"
+    },
+    "label": {
+      "description": "تسمية المكون",
+      "name": "التسمية"
+    },
+    "labelPosition": {
+      "description": "موقف التسمية",
+      "name": "موقف التسمية"
+    },
+    "lh": {
+      "description": "ارتفاع الخط.",
+      "name": "ارتفاع الخط"
+    },
+    "maxDropdownHeight": {
+      "description": "الحد الأقصى لارتفاع القائمة المنسدلة بالبكسل.",
+      "name": "أقصى ارتفاع القائمة المنسدلة"
+    },
+    "minRows": {
+      "description": "الحد الأدنى من الصفوف المرئية.",
+      "name": "الصفوف دقيقة"
+    },
+    "nothingFoundMessage": {
+      "description": "تظهر الرسالة عندما لا تتطابق الخيارات.",
+      "name": "لم يتم العثور على رسالة"
+    },
+    "numberOfColumns": {
+      "description": "عدد الأشهر المعروضة",
+      "name": "عدد الأعمدة"
+    },
+    "onBlur": {
+      "description": "يسمى عندما يفقد الإدخال التركيز.",
+      "name": "أونبلور"
+    },
+    "onChange": {
+      "description": "يسمى عندما يتم تغيير قيمة المكون",
+      "name": "أونشانج"
+    },
+    "onDropdownClose": {
+      "description": "دعا عند إغلاق القائمة المنسدلة.",
+      "name": "أوندروبداونكلوسي"
+    },
+    "onDropdownOpen": {
+      "description": "دعا عندما تفتح القائمة المنسدلة.",
+      "name": "أوندروبدونوبين"
+    },
+    "onFocus": {
+      "description": "يسمى عندما يتلقى الإدخال التركيز.",
+      "name": "التركيز"
+    },
+    "onSearchChange": {
+      "description": "دعا عندما تتغير قيمة البحث.",
+      "name": "تغيير البحث"
+    },
+    "placeholder": {
+      "description": "العنصر النائب",
+      "name": "نائب"
+    },
+    "radius": {
+      "description": "دائرة نصف قطرها الحدود.",
+      "name": "دائرة نصف قطرها"
+    },
+    "readOnly": {
+      "description": "ما إذا كان الإدخال للقراءة فقط.",
+      "name": "للقراءة فقط"
+    },
+    "searchValue": {
+      "description": "التحكم في قيمة إدخال البحث.",
+      "name": "قيمة البحث"
+    },
+    "size": {
+      "description": "يتحكم في الخصائص المختلفة المتعلقة بحجم المكون",
+      "name": "الحجم"
+    },
+    "spacing": {
+      "description": "التباعد بين العناصر.",
+      "name": "التباعد"
+    },
+    "ta": {
+      "description": "محاذاة النص.",
+      "name": "محاذاة النص"
+    },
+    "td": {
+      "description": "زخرفة النص.",
+      "name": "زخرفة النص"
+    },
+    "tt": {
+      "description": "تحويل النص.",
+      "name": "تحويل النص"
+    },
+    "value": {
+      "description": "قيمة المكون",
+      "name": "القيمة"
+    },
+    "variant": {
+      "description": "يتحكم في مظهر المكون",
+      "name": "البديل"
+    },
+    "withAsterisk": {
+      "description": "في حالة التعيين ، يتم عرض علامة النجمة المطلوبة بجوار الملصق",
+      "name": "مع النجمة"
+    },
+    "withScrollArea": {
+      "description": "ما إذا كانت القائمة المنسدلة تستخدم منطقة تمرير.",
+      "name": "مع منطقة التمرير"
+    },
+    "withSeconds": {
+      "description": "يحدد ما إذا كان يجب تضمين الثواني في منتقي الوقت",
+      "name": "مع ثواني"
+    },
+    "withWeekNumbers": {
+      "description": "يظهر عمود أرقام الأسبوع",
+      "name": "مع أرقام الأسبوع"
+    },
+    "wrap": {
+      "description": "التفاف السلوك للعناصر.",
+      "name": "التفاف"
+    }
+  },
+  "components": {
+    "MtAutocomplete": {
+      "description": "الإكمال التلقائي لإدخال المستخدم مع أي قائمة من الخيارات",
+      "name": "الإكمال التلقائي",
+      "props": {
+        "data": {
+          "description": "البيانات المستخدمة لعرض الخيارات",
+          "name": "البيانات"
+        }
+      }
+    },
+    "MtButton": {
+      "description": "مكون زر لتقديم زر أو رابط",
+      "name": "زر",
+      "props": {
+        "children": {
+          "description": "محتوى الزر",
+          "name": "المحتوى"
+        },
+        "fullWidth": {
+          "description": "إذا تم ضبطه ، فسيأخذ الزر العرض الكامل للحاوية الأصلية",
+          "name": "العرض الكامل"
+        },
+        "onClick": {
+          "description": "دعا عند النقر على الزر",
+          "name": "أونكليك"
+        }
+      }
+    },
+    "MtCheckbox": {
+      "description": "التقاط المدخلات المنطقية من المستخدم",
+      "name": "خانة الاختيار",
+      "props": {
+        "checked": {
+          "description": "تحديد ما إذا كان خانة الاختيار محددة",
+          "name": "فحص"
+        }
+      }
+    },
+    "MtCheckboxGroup": {
+      "description": "مجموعة خانة الاختيار",
+      "name": "مجموعة خانة الاختيار",
+      "props": {
+        "items": {
+          "description": "عناصر مجموعة مربع الاختيار",
+          "name": "البنود"
+        }
+      }
+    },
+    "MtChip": {
+      "description": "اختر القيمة باستخدام عناصر التحكم المضمنة",
+      "name": "رقاقة",
+      "props": {
+        "checked": {
+          "description": "يحدد ما إذا كان يتم تحديد رقاقة",
+          "name": "فحص"
+        },
+        "children": {
+          "description": "تسمية المكون",
+          "name": "التسمية"
+        }
+      }
+    },
+    "MtChipCheckboxGroup": {
+      "description": "اختر قيمة واحدة أو عدة قيم باستخدام عناصر تحكم مضمنة",
+      "name": "مجموعة خانة الاختيار رقاقة",
+      "props": {
+        "items": {
+          "description": "خيارات رقاقة",
+          "name": "البنود"
+        }
+      }
+    },
+    "MtChipRadioGroup": {
+      "description": "اختر قيمة واحدة باستخدام عناصر تحكم مضمنة",
+      "name": "مجموعة راديو رقاقة",
+      "props": {
+        "items": {
+          "description": "خيارات رقاقة",
+          "name": "البنود"
+        }
+      }
+    },
+    "MtColorInput": {
+      "description": "التقاط اللون من المستخدم",
+      "name": "إدخال اللون",
+      "props": {
+        "format": {
+          "description": "تنسيق اللون",
+          "name": "الشكل"
+        },
+        "swatches": {
+          "description": "قائمة الألوان المستخدمة لعرض قائمة الحوامل أسفل منتقي الألوان",
+          "name": "حوامل"
+        }
+      }
+    },
+    "MtColorPicker": {
+      "description": "اختيار الألوان في عرافة(أ) ، رغب(أ) ، هسل(أ) و هسف (أ) الأشكال",
+      "name": "منتقي الألوان",
+      "props": {
+        "format": {
+          "description": "تنسيق اللون",
+          "name": "الشكل"
+        },
+        "fullWidth": {
+          "description": "سواء لتمتد إلى العرض الكامل.",
+          "name": "العرض الكامل"
+        },
+        "swatches": {
+          "description": "حوامل اللون.",
+          "name": "حوامل"
+        },
+        "swatchesPerRow": {
+          "description": "عدد الحوامل لكل صف.",
+          "name": "حوامل لكل صف"
+        },
+        "withPicker": {
+          "description": "سواء لإظهار المدخلات منقار.",
+          "name": "مع المنتقى"
+        }
+      }
+    },
+    "MtContainer": {
+      "description": "مركز المحتوى مع الحشو وأقصى عرض",
+      "name": "حاوية",
+      "props": {
+        "children": {
+          "description": "الأطفال المكون",
+          "name": "الأطفال"
+        }
+      }
+    },
+    "MtDateMultiplePicker": {
+      "description": "يسمح بتحديد تواريخ متعددة",
+      "name": "تاريخ منتقي متعددة",
+      "props": {
+        "maxDate": {
+          "description": "الحد الأقصى للتاريخ القابل للتحديد ، تنسيق سنة-مم-د",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى للتاريخ القابل للتحديد ، تنسيق السنة-مم-د",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtDateMultiplePickerInput": {
+      "description": "يسمح بتحديد تواريخ متعددة",
+      "name": "تاريخ إدخال منتقي متعددة",
+      "props": {
+        "maxDate": {
+          "description": "الحد الأقصى للتاريخ القابل للتحديد ، تنسيق سنة-مم-د",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى للتاريخ القابل للتحديد ، تنسيق السنة-مم-د",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtDatePicker": {
+      "description": "يسمح لتحديد تاريخ",
+      "name": "منتقي التاريخ",
+      "props": {
+        "allowDeselect": {
+          "description": "يحدد ما إذا كان يمكن للمستخدم إلغاء تحديد التاريخ من خلال النقر على التاريخ المحدد",
+          "name": "السماح بإلغاء التحديد"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للتاريخ القابل للتحديد ، تنسيق سنة-مم-د",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى للتاريخ القابل للتحديد ، تنسيق السنة-مم-د",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtDatePickerInput": {
+      "description": "إدخال منتقي التاريخ",
+      "name": "إدخال منتقي التاريخ",
+      "props": {
+        "allowDeselect": {
+          "description": "يحدد ما إذا كان يمكن للمستخدم إلغاء تحديد التاريخ من خلال النقر على التاريخ المحدد",
+          "name": "السماح بإلغاء التحديد"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للتاريخ القابل للتحديد ، تنسيق سنة-مم-د",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى للتاريخ القابل للتحديد ، تنسيق السنة-مم-د",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtDateRangePicker": {
+      "description": "يسمح لتحديد نطاق التاريخ",
+      "name": "منتقي النطاق الزمني",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "يسمح بتحديد تاريخ واحد كنطاق",
+          "name": "السماح بتاريخ واحد في النطاق"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للتاريخ القابل للتحديد ، تنسيق سنة-مم-د",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى للتاريخ القابل للتحديد ، تنسيق السنة-مم-د",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtDateRangePickerInput": {
+      "description": "إدخال منتقي النطاق الزمني",
+      "name": "إدخال منتقي النطاق الزمني",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "يسمح بتحديد تاريخ واحد كنطاق",
+          "name": "السماح بتاريخ واحد في النطاق"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للتاريخ القابل للتحديد ، تنسيق سنة-مم-د",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى للتاريخ القابل للتحديد ، تنسيق السنة-مم-د",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtDateTimePicker": {
+      "description": "التقاط التاريخ والوقت من المستخدم",
+      "name": "منتقي التاريخ والوقت",
+      "props": {
+        "valueFormat": {
+          "description": "تنسيق دايجس مخصص لعرض القيمة",
+          "name": "تنسيق القيمة"
+        }
+      }
+    },
+    "MtDialog": {
+      "description": "عرض مربع حوار تراكب ثابت على أي جانب من الشاشة",
+      "name": "الحوار",
+      "props": {
+        "children": {
+          "description": "محتوى الحوار",
+          "name": "الأطفال"
+        },
+        "onOpenedChange": {
+          "description": "دعا عندما يتم تغيير الخاصية المفتوحة",
+          "name": "أونوبيندتشانج"
+        },
+        "opened": {
+          "description": "ما إذا كان الحوار مفتوحا",
+          "name": "افتتح"
+        },
+        "showCloseButton": {
+          "description": "سواء لإظهار زر إغلاق",
+          "name": "إظهار زر الإغلاق"
+        },
+        "title": {
+          "description": "عنوان الحوار",
+          "name": "العنوان"
+        }
+      }
+    },
+    "MtDivider": {
+      "description": "خط أفقي مع تسمية اختيارية أو مقسم عمودي",
+      "name": "مقسم",
+      "props": {
+        "orientation": {
+          "description": "اتجاه المقسم",
+          "name": "التوجيه"
+        }
+      }
+    },
+    "MtDropzone": {
+      "description": "التقاط الملفات من المستخدم مع السحب والإفلات",
+      "name": "دروب زون",
+      "props": {
+        "accept": {
+          "description": "أنواع التمثيل الصامت المقبولة",
+          "name": "قبول"
+        },
+        "multiple": {
+          "description": "السماح بملفات متعددة",
+          "name": "متعددة"
+        }
+      }
+    },
+    "MtErrorWrapper": {
+      "description": "يعرض رسالة خطأ التحقق من الصحة أسفل عنصر تحكم النموذج",
+      "name": "رسالة خطأ"
+    },
+    "MtFileInput": {
+      "description": "التقاط الملفات من المستخدم",
+      "name": "إدخال الملف",
+      "props": {
+        "accept": {
+          "description": "أنواع الملفات المقبولة",
+          "name": "قبول"
+        },
+        "multiple": {
+          "description": "السماح بملفات متعددة",
+          "name": "متعددة"
+        }
+      }
+    },
+    "MtJsonInput": {
+      "description": "التقاط بيانات جسون من المستخدم",
+      "name": "جسون المدخلات",
+      "props": {
+        "minRows": {
+          "description": "الحد الأدنى لعدد الصفوف",
+          "name": "الصفوف دقيقة"
+        }
+      }
+    },
+    "MtLabel": {
+      "description": "يعرض التسمية",
+      "name": "التسمية",
+      "props": {
+        "children": {
+          "description": "نص التسمية",
+          "name": "التسمية"
+        }
+      }
+    },
+    "MtMonthMultiplePicker": {
+      "description": "الشهر منتقي متعددة",
+      "name": "الشهر منتقي متعددة",
+      "props": {
+        "maxDate": {
+          "description": "أقصى شهر للاختيار",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى الشهر اختيار",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtMonthMultiplePickerInput": {
+      "description": "الشهر متعددة منقار المدخلات",
+      "name": "الشهر متعددة منقار المدخلات",
+      "props": {
+        "maxDate": {
+          "description": "أقصى شهر للاختيار",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى الشهر اختيار",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtMonthPicker": {
+      "description": "منتقي الشهر المضمن",
+      "name": "منتقي الشهر",
+      "props": {
+        "allowDeselect": {
+          "description": "يحدد ما إذا كان يمكن للمستخدم إلغاء تحديد الشهر من خلال النقر على الشهر المحدد",
+          "name": "السماح بإلغاء التحديد"
+        },
+        "maxDate": {
+          "description": "أقصى شهر للاختيار",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى الشهر اختيار",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtMonthPickerInput": {
+      "description": "إدخال منتقي الشهر",
+      "name": "إدخال منتقي الشهر",
+      "props": {
+        "allowDeselect": {
+          "description": "يحدد ما إذا كان يمكن للمستخدم إلغاء تحديد الشهر من خلال النقر على الشهر المحدد",
+          "name": "السماح بإلغاء التحديد"
+        },
+        "maxDate": {
+          "description": "أقصى شهر للاختيار",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى الشهر اختيار",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtMonthRangePicker": {
+      "description": "أشهر مضمنة مجموعة المنتقى",
+      "name": "منتقي نطاق الشهر",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "يسمح باختيار شهر واحد كنطاق",
+          "name": "السماح بتاريخ واحد في النطاق"
+        },
+        "maxDate": {
+          "description": "أقصى شهر للاختيار",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى الشهر اختيار",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtMonthRangePickerInput": {
+      "description": "إدخال منتقي نطاق الشهر",
+      "name": "إدخال منتقي نطاق الشهر",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "يسمح باختيار شهر واحد كنطاق",
+          "name": "السماح بتاريخ واحد في النطاق"
+        },
+        "maxDate": {
+          "description": "أقصى شهر للاختيار",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى الشهر اختيار",
+          "name": "دقيقة التاريخ"
+        }
+      }
+    },
+    "MtMultiSelect": {
+      "description": "مخصص للبحث متعددة حدد",
+      "name": "اختيار متعدد",
+      "props": {
+        "data": {
+          "description": "البيانات المستخدمة لعرض الخيارات",
+          "name": "البيانات"
+        },
+        "searchable": {
+          "description": "تمكين البحث",
+          "name": "قابل للبحث"
+        }
+      }
+    },
+    "MtNativeSelect": {
+      "description": "حدد العنصر الأصلي بناء على الإدخال",
+      "name": "تحديد أصلي",
+      "props": {
+        "data": {
+          "description": "البيانات المستخدمة لعرض الخيارات",
+          "name": "البيانات"
+        }
+      }
+    },
+    "MtNumberInput": {
+      "description": "التقاط رقم من المستخدم",
+      "name": "عدد المدخلات",
+      "props": {
+        "allowDecimal": {
+          "description": "السماح بالقيم العشرية",
+          "name": "السماح عشري"
+        },
+        "allowLeadingZeros": {
+          "description": "السماح بالأصفار البادئة",
+          "name": "السماح بالأصفار البادئة"
+        },
+        "allowNegative": {
+          "description": "السماح بالقيم السالبة",
+          "name": "السماح السلبية"
+        },
+        "clampBehavior": {
+          "description": "لقط السلوك",
+          "name": "سلوك المشبك"
+        },
+        "decimalScale": {
+          "description": "يحد من عدد الأرقام التي يمكن إدخالها بعد الفاصلة العشرية",
+          "name": "مقياس عشري"
+        },
+        "decimalSeparator": {
+          "description": "الحرف المستخدم كفاصل عشري",
+          "name": "فاصل عشري"
+        },
+        "fixedDecimalScale": {
+          "description": "في حالة التعيين ، تتم إضافة 0 ثانية بعد الفاصل العشري لمطابقة المقياس العشري المحدد",
+          "name": "مقياس عشري ثابت"
+        },
+        "hideControls": {
+          "description": "إخفاء عناصر التحكم في الزيادة والنقصان",
+          "name": "إخفاء عناصر التحكم"
+        },
+        "max": {
+          "description": "القيمة القصوى",
+          "name": "ماكس"
+        },
+        "min": {
+          "description": "الحد الأدنى للقيمة",
+          "name": "دقيقة"
+        },
+        "prefix": {
+          "description": "سلسلة التي يمكن ان تضاف قبل عدد",
+          "name": "بادئة"
+        },
+        "startValue": {
+          "description": "يتم تعيين القيمة على الإدخال عند النقر فوق أزرار الزيادة/النقصان أو الضغط على الأسهم لأعلى / لأسفل إذا كان الإدخال فارغا",
+          "name": "قيمة البداية"
+        },
+        "step": {
+          "description": "قيمة الخطوة",
+          "name": "خطوة"
+        },
+        "suffix": {
+          "description": "سلسلة التي يمكن ان تضاف بعد عدد",
+          "name": "لاحقة"
+        },
+        "thousandSeparator": {
+          "description": "الحرف المستخدم كألف فاصل",
+          "name": "ألف فاصل"
+        },
+        "thousandsGroupStyle": {
+          "description": "ألف أسلوب التجميع",
+          "name": "نمط مجموعة الآلاف"
+        },
+        "trimLeadingZeroesOnBlur": {
+          "description": "إذا تم ضبطه ، تتم إزالة الأصفار البادئة عند التمويه. على سبيل المثال ، 00100 - &gt; 100",
+          "name": "تقليم الأصفار الرائدة على طمس"
+        }
+      }
+    },
+    "MtPasswordInput": {
+      "description": "التقاط بيانات كلمة المرور من المستخدم",
+      "name": "إدخال كلمة المرور"
+    },
+    "MtRadio": {
+      "description": "غلاف لراديو نوع الإدخال",
+      "name": "راديو",
+      "props": {
+        "checked": {
+          "description": "يحدد ما إذا كان يتم فحص الراديو",
+          "name": "فحص"
+        }
+      }
+    },
+    "MtRadioGroup": {
+      "description": "مجموعة راديو",
+      "name": "مجموعة راديو",
+      "props": {
+        "items": {
+          "description": "خيارات الراديو",
+          "name": "البنود"
+        }
+      }
+    },
+    "MtRangeSlider": {
+      "description": "عنصر رينجسليدر",
+      "name": "نطاق المنزلق",
+      "props": {
+        "inverted": {
+          "description": "يحدد ما إذا كان ينبغي عكس تمثيل قيم المسار",
+          "name": "مقلوب"
+        },
+        "labelAlwaysOn": {
+          "description": "يحدد ما إذا كان يجب أن تكون التسمية مرئية عندما لا يتم سحب شريط التمرير أو تحريكه",
+          "name": "التسمية دائما على"
+        },
+        "max": {
+          "description": "القيمة القصوى",
+          "name": "ماكس"
+        },
+        "maxRange": {
+          "description": "أقصى مدى يمكن تحديده",
+          "name": "المدى الأقصى"
+        },
+        "min": {
+          "description": "الحد الأدنى للقيمة",
+          "name": "دقيقة"
+        },
+        "precision": {
+          "description": "عدد المنازل العشرية المراد استخدامها",
+          "name": "الدقة"
+        },
+        "pushOnOverlap": {
+          "description": "يحدد ما إذا كان يجب دفع الإبهام الآخر عن طريق سحب الإبهام الحالي عند الوصول إلى المدى القصير/المدى الأقصى",
+          "name": "دفع على التداخل"
+        },
+        "showLabelOnHover": {
+          "description": "يحدد ما إذا كان يجب عرض الملصق عند تحريك شريط التمرير",
+          "name": "إظهار التسمية على التمرير"
+        },
+        "step": {
+          "description": "قيمة الخطوة",
+          "name": "خطوة"
+        }
+      }
+    },
+    "MtRating": {
+      "description": "اختيار وعرض التقييم",
+      "name": "التقييم",
+      "props": {
+        "count": {
+          "description": "عدد النجوم",
+          "name": "العد"
+        },
+        "fractions": {
+          "description": "عدد الكسور",
+          "name": "الكسور"
+        }
+      }
+    },
+    "MtSegmentedControl": {
+      "description": "مجموعة خطية من جزأين أو أكثر",
+      "name": "التحكم المجزأ",
+      "props": {
+        "data": {
+          "description": "الخيارات",
+          "name": "البيانات"
+        }
+      }
+    },
+    "MtSelect": {
+      "description": "مخصص للبحث حدد",
+      "name": "اختر",
+      "props": {
+        "data": {
+          "description": "الخيارات",
+          "name": "البيانات"
+        },
+        "searchable": {
+          "description": "تمكين البحث",
+          "name": "قابل للبحث"
+        }
+      }
+    },
+    "MtSlider": {
+      "description": "مكون المنزلق",
+      "name": "المتزلج",
+      "props": {
+        "max": {
+          "description": "القيمة القصوى",
+          "name": "ماكس"
+        },
+        "min": {
+          "description": "الحد الأدنى للقيمة",
+          "name": "دقيقة"
+        },
+        "step": {
+          "description": "قيمة الخطوة",
+          "name": "خطوة"
+        }
+      }
+    },
+    "MtSwitch": {
+      "description": "التقاط المدخلات المنطقية من المستخدم",
+      "name": "التبديل",
+      "props": {
+        "checked": {
+          "description": "يحدد ما إذا كان التبديل على",
+          "name": "فحص"
+        }
+      }
+    },
+    "MtSwitchGroup": {
+      "description": "التقاط المدخلات المنطقية من المستخدم",
+      "name": "مجموعة سويتش",
+      "props": {
+        "items": {
+          "description": "خيارات التبديل",
+          "name": "البنود"
+        }
+      }
+    },
+    "MtTagsInput": {
+      "description": "التقاط قائمة من القيم من المستخدم مع مدخلات واقتراحات مجانية",
+      "name": "الكلمات الإدخال",
+      "props": {
+        "data": {
+          "description": "الخيارات",
+          "name": "البيانات"
+        }
+      }
+    },
+    "MtText": {
+      "description": "عرض النص",
+      "name": "النص",
+      "props": {
+        "children": {
+          "description": "محتوى النص",
+          "name": "المحتوى"
+        },
+        "inherit": {
+          "description": "يحدد ما إذا كان يجب توريث خصائص الخط من الأصل",
+          "name": "وراثة"
+        },
+        "inline": {
+          "description": "يحدد ارتفاع الخط إلى 1 للتوسيط",
+          "name": "مضمنة"
+        },
+        "lineClamp": {
+          "description": "عدد الأسطر التي سيتم بعدها اقتطاع النص",
+          "name": "خط المشبك"
+        },
+        "span": {
+          "description": "عرض كعنصر تمتد",
+          "name": "سبان"
+        },
+        "truncate": {
+          "description": "الجانب الذي يجب اقتطاع النص",
+          "name": "اقتطاع"
+        }
+      }
+    },
+    "MtTextInput": {
+      "description": "التقاط إدخال سلسلة من المستخدم",
+      "name": "إدخال النص",
+      "props": {
+        "type": {
+          "description": "نوع الإدخال",
+          "name": "النوع"
+        }
+      }
+    },
+    "MtTextarea": {
+      "description": "الحجم التلقائي أو منطقة النص العادية",
+      "name": "تكستاريا",
+      "props": {
+        "autosize": {
+          "description": "تمكين الحجم التلقائي",
+          "name": "أوتوسيزي"
+        },
+        "maxRows": {
+          "description": "الحد الأقصى لعدد الصفوف",
+          "name": "ماكس الصفوف"
+        },
+        "minRows": {
+          "description": "الحد الأدنى لعدد الصفوف",
+          "name": "الصفوف دقيقة"
+        }
+      }
+    },
+    "MtTimeGrid": {
+      "description": "يلتقط قيمة الوقت من المستخدم مع مجموعة محددة مسبقا من الخيارات",
+      "name": "شبكة الوقت",
+      "props": {
+        "endTime": {
+          "description": "وقت الانتهاء بتنسيق \"سمو: مم\"",
+          "name": "وقت الانتهاء"
+        },
+        "format": {
+          "description": "تنسيق الوقت",
+          "name": "الشكل"
+        },
+        "startTime": {
+          "description": "وقت البدء بتنسيق \"سمو: مم\"",
+          "name": "وقت البدء"
+        }
+      }
+    },
+    "MtTimeInput": {
+      "description": "التقاط الوقت من المستخدم",
+      "name": "إدخال الوقت"
+    },
+    "MtTimePicker": {
+      "description": "يلتقط قيمة الوقت من المستخدم",
+      "name": "منتقي الوقت",
+      "props": {
+        "format": {
+          "description": "تنسيق الوقت",
+          "name": "الشكل"
+        },
+        "max": {
+          "description": "أقصى وقت للاختيار ، سمو: مم: سس الشكل",
+          "name": "ماكس"
+        },
+        "min": {
+          "description": "الحد الأدنى من الوقت للاختيار ، س: مم: شكل سس",
+          "name": "دقيقة"
+        },
+        "reverseTimeControlsList": {
+          "description": "عكس ترتيب عناصر التحكم في الوقت (الساعات والدقائق والثواني) لمطابقة التنقل بلوحة المفاتيح",
+          "name": "قائمة عناصر التحكم في الوقت العكسي"
+        }
+      }
+    },
+    "MtTiptap": {
+      "description": "محرر نص منسق يستند إلى تلميح",
+      "name": "محرر نص منسق",
+      "props": {
+        "error": {
+          "description": "رسالة خطأ الإدخال",
+          "name": "خطأ"
+        },
+        "value": {
+          "description": "المحتوى الأولي للمحرر بتنسيق هتمل",
+          "name": "القيمة"
+        }
+      }
+    },
+    "MtTitle": {
+      "description": "ح1-ح6 العنوان",
+      "name": "العنوان",
+      "props": {
+        "children": {
+          "description": "محتوى العنوان",
+          "name": "المحتوى"
+        },
+        "order": {
+          "description": "مستوى الرأس",
+          "name": "النظام"
+        }
+      }
+    },
+    "MtTooltip": {
+      "description": "يجعل تلميح الأدوات في عنصر معين على الماوس فوق أو حدث آخر",
+      "name": "تلميح الأدوات",
+      "props": {
+        "children": {
+          "description": "عنصر الزناد",
+          "name": "الأطفال"
+        },
+        "content": {
+          "description": "نص محتوى تلميح الأدوات",
+          "name": "المحتوى"
+        },
+        "offset": {
+          "description": "المسافة من الزناد",
+          "name": "الإزاحة"
+        }
+      }
+    },
+    "MtTypography": {
+      "description": "موفر الأنماط لمحتوى هتمل",
+      "name": "الطباعة",
+      "props": {
+        "allowHtml": {
+          "description": "السماح أتش تي أم أل",
+          "name": "السماح أتش تي أم أل"
+        },
+        "content": {
+          "description": "محتوى النص",
+          "name": "المحتوى"
+        }
+      }
+    },
+    "MtYearMultiplePicker": {
+      "description": "مضمنة عدة سنوات منقار",
+      "name": "السنة منتقي متعددة",
+      "props": {
+        "maxDate": {
+          "description": "الحد الأقصى للاختيار العام",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى من السنة للاختيار",
+          "name": "دقيقة التاريخ"
+        },
+        "numberOfColumns": {
+          "description": "عدد الأعمدة المراد عرضها",
+          "name": "عدد الأعمدة"
+        }
+      }
+    },
+    "MtYearMultiplePickerInput": {
+      "description": "السنة متعددة منقار المدخلات",
+      "name": "السنة متعددة منقار المدخلات",
+      "props": {
+        "maxDate": {
+          "description": "الحد الأقصى للاختيار العام",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى من السنة للاختيار",
+          "name": "دقيقة التاريخ"
+        },
+        "numberOfColumns": {
+          "description": "عدد الأعمدة المراد عرضها",
+          "name": "عدد الأعمدة"
+        }
+      }
+    },
+    "MtYearPicker": {
+      "description": "منتقي السنة المضمنة",
+      "name": "منتقي السنة",
+      "props": {
+        "allowDeselect": {
+          "description": "يحدد ما إذا كان يمكن للمستخدم إلغاء تحديد السنة من خلال النقر على السنة المحددة",
+          "name": "السماح بإلغاء التحديد"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للاختيار العام",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى من السنة للاختيار",
+          "name": "دقيقة التاريخ"
+        },
+        "numberOfColumns": {
+          "description": "عدد الأعمدة المراد عرضها",
+          "name": "عدد الأعمدة"
+        }
+      }
+    },
+    "MtYearPickerInput": {
+      "description": "إدخال منتقي السنة",
+      "name": "إدخال منتقي السنة",
+      "props": {
+        "allowDeselect": {
+          "description": "يحدد ما إذا كان يمكن للمستخدم إلغاء تحديد السنة من خلال النقر على السنة المحددة",
+          "name": "السماح بإلغاء التحديد"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للاختيار العام",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى من السنة للاختيار",
+          "name": "دقيقة التاريخ"
+        },
+        "numberOfColumns": {
+          "description": "عدد الأعمدة المراد عرضها",
+          "name": "عدد الأعمدة"
+        }
+      }
+    },
+    "MtYearRangePicker": {
+      "description": "منتقي نطاق السنة",
+      "name": "منتقي نطاق السنة",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "يسمح باختيار سنة واحدة كنطاق",
+          "name": "السماح بتاريخ واحد في النطاق"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للاختيار العام",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى من السنة للاختيار",
+          "name": "دقيقة التاريخ"
+        },
+        "numberOfColumns": {
+          "description": "عدد الأعمدة المراد عرضها",
+          "name": "عدد الأعمدة"
+        }
+      }
+    },
+    "MtYearRangePickerInput": {
+      "description": "مدخلات منتقي نطاق السنة",
+      "name": "مدخلات منتقي نطاق السنة",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "يسمح باختيار سنة واحدة كنطاق",
+          "name": "السماح بتاريخ واحد في النطاق"
+        },
+        "maxDate": {
+          "description": "الحد الأقصى للاختيار العام",
+          "name": "التاريخ الأقصى"
+        },
+        "minDate": {
+          "description": "الحد الأدنى من السنة للاختيار",
+          "name": "دقيقة التاريخ"
+        },
+        "numberOfColumns": {
+          "description": "عدد الأعمدة المراد عرضها",
+          "name": "عدد الأعمدة"
+        }
+      }
+    }
+  }
+}

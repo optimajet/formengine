@@ -2,7 +2,7 @@ import type {ReactNode} from 'react'
 import type {SelectPickerProps} from 'rsuite'
 import {SelectPicker} from 'rsuite'
 import type {ItemDataType} from 'rsuite/esm/internals/types'
-import {material, rsuite} from '../images/icons'
+import {mantine, material, rsuite} from '../images/icons'
 import type {ViewType} from './ViewContext'
 import {useView} from './ViewContext'
 
@@ -11,6 +11,7 @@ type Labeled = {value: ViewType; label: string; icon?: ReactNode}
 const items: Labeled[] = [
   {value: 'rsuite', label: 'RSuite UI', icon: rsuite},
   {value: 'mui', label: 'Material UI', icon: material},
+  {value: 'mantine', label: 'Mantine UI', icon: mantine},
 ]
 
 const iconItemStyle = {
@@ -27,7 +28,7 @@ const renderItem = (_: unknown, item: ItemDataType) => (
 )
 
 /**
- * Component for selecting the view type (RSuite or Material UI).
+ * Component for selecting the builder view type (RSuite or Material UI).
  * @param props the SelectPicker props.
  * @returns the React element.
  */

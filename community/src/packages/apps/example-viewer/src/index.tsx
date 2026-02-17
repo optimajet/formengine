@@ -1,14 +1,15 @@
 import './wdyr'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+// eslint-disable-next-line import/extensions
+import {createRoot} from 'react-dom/client'
 import {ExampleViewerApp} from './ExampleViewerApp'
 
-// eslint-disable-next-line react/no-deprecated
-ReactDOM.render(
-  // @ts-ignore emotion mismatch with react types
+const container = document.getElementById('root') as HTMLElement
+const root = createRoot(container)
+
+root.render(
   <React.StrictMode>
     <ExampleViewerApp />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 )

@@ -61,9 +61,20 @@ export class FormViewerPropsStore {
    */
   showAllValidationErrors?: boolean
   /**
-   * The arbitrary user context.
+   * The arbitrary internal context.
    */
   context?: any
+
+  /**
+   * The initial user-defined state.
+   */
+  initialState: Record<string, unknown> = {}
+
+  /**
+   * The arbitrary user context passed via props.
+   * This value is not observable and is intended to be non-reactive.
+   */
+  userContext?: unknown
 
   /**
    * The localization engine provided via FormViewer props.
@@ -82,6 +93,8 @@ export class FormViewerPropsStore {
     makeObservable(this, {
       view: observable.ref,
       initialData: observable.deep,
+      initialState: observable.deep,
+      userContext: observable.deep,
       validators: observable.ref,
       formValidators: observable.ref,
       localizer: observable.ref,
@@ -103,6 +116,8 @@ export class FormViewerPropsStore {
   applyProps(formViewerProps: FormViewerProps) {
     this.view = formViewerProps.view
     this.initialData = formViewerProps.initialData ?? {}
+    this.initialState = formViewerProps.initialState ?? {}
+    this.userContext = formViewerProps.userContext
     this.validators = formViewerProps.validators
     this.formValidators = formViewerProps.formValidators
     this.localizer = formViewerProps.localize
@@ -124,6 +139,8 @@ export class FormViewerPropsStore {
     return new FormViewerPropsStore({
       view: this.view,
       initialData: this.initialData,
+      initialState: this.initialState,
+      userContext: this.userContext,
       validators: this.validators,
       formValidators: this.formValidators,
       localize: this.localizer,

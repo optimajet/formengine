@@ -1,0 +1,248 @@
+{
+  "name": "@react-form-builder/components-mantine",
+  "description": "OptimaJet Form Builder Components - Mantine",
+  "version": "7.12.0",
+  "license": "MIT",
+  "private": false,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/optimajet/formengine.git"
+  },
+  "main": "src/index.ts",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./view": {
+      "import": "./src/view.ts"
+    },
+    "./autocomplete": {
+      "import": "./src/components/MtAutocomplete.tsx"
+    },
+    "./button": {
+      "import": "./src/components/MtButton.tsx"
+    },
+    "./checkbox": {
+      "import": "./src/components/MtCheckbox.tsx"
+    },
+    "./checkboxGroup": {
+      "import": "./src/components/MtCheckboxGroup.tsx"
+    },
+    "./chip": {
+      "import": "./src/components/MtChip.tsx"
+    },
+    "./chipCheckboxGroup": {
+      "import": "./src/components/MtChipGroup.tsx"
+    },
+    "./chipRadioGroup": {
+      "import": "./src/components/MtChipGroup.tsx"
+    },
+    "./colorInput": {
+      "import": "./src/components/MtColorInput.tsx"
+    },
+    "./colorPicker": {
+      "import": "./src/components/MtColorPicker.tsx"
+    },
+    "./container": {
+      "import": "./src/components/MtContainer.tsx"
+    },
+    "./dateMultiplePicker": {
+      "import": "./src/components/MtDatePicker.tsx"
+    },
+    "./datePicker": {
+      "import": "./src/components/MtDatePicker.tsx"
+    },
+    "./dateRangePicker": {
+      "import": "./src/components/MtDatePicker.tsx"
+    },
+    "./dateMultiplePickerInput": {
+      "import": "./src/components/MtDatePickerInput.tsx"
+    },
+    "./datePickerInput": {
+      "import": "./src/components/MtDatePickerInput.tsx"
+    },
+    "./dateRangePickerInput": {
+      "import": "./src/components/MtDatePickerInput.tsx"
+    },
+    "./dateTimePicker": {
+      "import": "./src/components/MtDateTimePicker.tsx"
+    },
+    "./dialog": {
+      "import": "./src/components/MtDialog.tsx"
+    },
+    "./divider": {
+      "import": "./src/components/MtDivider.tsx"
+    },
+    "./dropzone": {
+      "import": "./src/components/MtDropzone.tsx"
+    },
+    "./errorWrapper": {
+      "import": "./src/components/MtErrorWrapper.tsx"
+    },
+    "./fileInput": {
+      "import": "./src/components/MtFileInput.tsx"
+    },
+    "./jsonInput": {
+      "import": "./src/components/MtJsonInput.tsx"
+    },
+    "./label": {
+      "import": "./src/components/MtLabel.tsx"
+    },
+    "./monthMultiplePicker": {
+      "import": "./src/components/MtMonthPicker.tsx"
+    },
+    "./monthPicker": {
+      "import": "./src/components/MtMonthPicker.tsx"
+    },
+    "./monthRangePicker": {
+      "import": "./src/components/MtMonthPicker.tsx"
+    },
+    "./monthMultiplePickerInput": {
+      "import": "./src/components/MtMonthPickerInput.tsx"
+    },
+    "./monthPickerInput": {
+      "import": "./src/components/MtMonthPickerInput.tsx"
+    },
+    "./monthRangePickerInput": {
+      "import": "./src/components/MtMonthPickerInput.tsx"
+    },
+    "./multiSelect": {
+      "import": "./src/components/MtMultiSelect.tsx"
+    },
+    "./nativeSelect": {
+      "import": "./src/components/MtNativeSelect.tsx"
+    },
+    "./numberInput": {
+      "import": "./src/components/MtNumberInput.tsx"
+    },
+    "./passwordInput": {
+      "import": "./src/components/MtPasswordInput.tsx"
+    },
+    "./radio": {
+      "import": "./src/components/MtRadio.tsx"
+    },
+    "./radioGroup": {
+      "import": "./src/components/MtRadioGroup.tsx"
+    },
+    "./rangeSlider": {
+      "import": "./src/components/MtRangeSlider.tsx"
+    },
+    "./rating": {
+      "import": "./src/components/MtRating.tsx"
+    },
+    "./segmentedControl": {
+      "import": "./src/components/MtSegmentedControl.tsx"
+    },
+    "./select": {
+      "import": "./src/components/MtSelect.tsx"
+    },
+    "./slider": {
+      "import": "./src/components/MtSlider.tsx"
+    },
+    "./switch": {
+      "import": "./src/components/MtSwitch.tsx"
+    },
+    "./switchGroup": {
+      "import": "./src/components/MtSwitchGroup.tsx"
+    },
+    "./tagsInput": {
+      "import": "./src/components/MtTagsInput.tsx"
+    },
+    "./text": {
+      "import": "./src/components/MtText.tsx"
+    },
+    "./textarea": {
+      "import": "./src/components/MtTextarea.tsx"
+    },
+    "./textInput": {
+      "import": "./src/components/MtTextInput.tsx"
+    },
+    "./timeGrid": {
+      "import": "./src/components/MtTimeGrid.tsx"
+    },
+    "./timeInput": {
+      "import": "./src/components/MtTimeInput.tsx"
+    },
+    "./timePicker": {
+      "import": "./src/components/MtTimePicker.tsx"
+    },
+    "./tiptap": {
+      "import": "./src/components/MtTiptap.tsx"
+    },
+    "./title": {
+      "import": "./src/components/MtTitle.tsx"
+    },
+    "./tooltip": {
+      "import": "./src/components/MtTooltip.tsx"
+    },
+    "./typography": {
+      "import": "./src/components/MtTypography.tsx"
+    },
+    "./yearMultiplePicker": {
+      "import": "./src/components/MtYearPicker.tsx"
+    },
+    "./yearPicker": {
+      "import": "./src/components/MtYearPicker.tsx"
+    },
+    "./yearRangePicker": {
+      "import": "./src/components/MtYearPicker.tsx"
+    },
+    "./yearMultiplePickerInput": {
+      "import": "./src/components/MtYearPickerInput.tsx"
+    },
+    "./yearPickerInput": {
+      "import": "./src/components/MtYearPickerInput.tsx"
+    },
+    "./yearRangePickerInput": {
+      "import": "./src/components/MtYearPickerInput.tsx"
+    },
+    "./viewerWrapper": {
+      "import": "./src/components/MtViewerWrapper.tsx"
+    },
+    "./package.json": "./package.json"
+  },
+  "bugs": {
+    "email": "support@optimajet.com"
+  },
+  "scripts": {
+    "build": "vite build",
+    "check:dist": "node ./config/check-pack.ts",
+    "clean": "rimraf dist temp",
+    "pack": "npm-run-all -l clean build create-archive",
+    "create-archive": "node ./config/pack.ts"
+  },
+  "peerDependencies": {
+    "@mantine/core": "^8.3.9",
+    "@mantine/dates": "^8.3.9",
+    "@mantine/dropzone": "^8.3.9",
+    "@mantine/tiptap": "^8.3.9",
+    "@react-form-builder/core": "7.12.0",
+    "@tiptap/extension-highlight": "^3.13.0",
+    "@tiptap/extension-placeholder": "^3.13.0",
+    "@tiptap/extension-subscript": "^3.13.0",
+    "@tiptap/extension-superscript": "^3.13.0",
+    "@tiptap/extension-text-align": "^3.13.0",
+    "@tiptap/react": "^3.13.0",
+    "@tiptap/starter-kit": "^3.13.0",
+    "clsx": "^2.1.1",
+    "react": "^18 || ^19"
+  },
+  "peerDependenciesMeta": {
+    "@react-form-builder/core": {
+      "optional": false
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.24",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

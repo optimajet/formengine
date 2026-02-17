@@ -1,0 +1,1201 @@
+{
+  "categories": {
+    "buttons": {
+      "name": "버튼"
+    },
+    "combobox": {
+      "name": "콤보박스"
+    },
+    "dates": {
+      "name": "날짜"
+    },
+    "inputs": {
+      "name": "입력"
+    },
+    "layout": {
+      "name": "레이아웃"
+    },
+    "miscellaneous": {
+      "name": "다양"
+    },
+    "otherExtensions": {
+      "name": "기타 확장"
+    },
+    "overlays": {
+      "name": "오버레이"
+    },
+    "typography": {
+      "name": "타이포그래피"
+    }
+  },
+  "commonProperties": {
+    "align": {
+      "description": "항목의 정렬.",
+      "name": "정렬"
+    },
+    "c": {
+      "description": "텍스트 색상.",
+      "name": "색상"
+    },
+    "clearable": {
+      "description": "설정하면 구성 요소에 값이 있을 때 지우기 단추가 표시됩니다",
+      "name": "취소 가능"
+    },
+    "color": {
+      "description": "색상",
+      "name": "색상"
+    },
+    "columnsToScroll": {
+      "description": "탐색 할 때 스크롤 할 열 수",
+      "name": "스크롤 할 열"
+    },
+    "data": {
+      "description": "옵션 데이터.",
+      "name": "데이터"
+    },
+    "defaultVisible": {
+      "description": "콘텐츠의 초기 가시성 상태.",
+      "name": "기본 표시"
+    },
+    "description": {
+      "description": "구성 요소 설명",
+      "name": "설명"
+    },
+    "disabled": {
+      "description": "비활성화 상태",
+      "name": "사용 안 함"
+    },
+    "dropdownOpened": {
+      "description": "드롭 다운 열린 상태를 제어합니다.",
+      "name": "드롭다운 열기"
+    },
+    "dropdownType": {
+      "description": "드롭다운 유형",
+      "name": "드롭다운 유형"
+    },
+    "error": {
+      "description": "오류 메시지 또는 오류 상태입니다.",
+      "name": "오류"
+    },
+    "filledVariant": {
+      "description": "제어 외관 변형.",
+      "name": "변종"
+    },
+    "fs": {
+      "description": "글꼴 스타일.",
+      "name": "글꼴 스타일"
+    },
+    "fw": {
+      "description": "글꼴 무게.",
+      "name": "글꼴 무게"
+    },
+    "fz": {
+      "description": "글꼴 크기.",
+      "name": "전화번호"
+    },
+    "grow": {
+      "description": "항목이 사용 가능한 공간을 채우기 위해 증가할지 여부.",
+      "name": "성장"
+    },
+    "hideOutsideDates": {
+      "description": "현재 월 이외의 날짜를 숨깁니다",
+      "name": "외부 날짜 숨기기"
+    },
+    "hideWeekdays": {
+      "description": "평일 행을 숨 깁니다",
+      "name": "평일 숨기기"
+    },
+    "highlightToday": {
+      "description": "하이라이트 오늘 날짜",
+      "name": "오늘 하이라이트"
+    },
+    "justify": {
+      "description": "그룹 내에서 콘텐츠를 정당화합니다.",
+      "name": "정당화"
+    },
+    "label": {
+      "description": "구성 요소 레이블",
+      "name": "라벨"
+    },
+    "labelPosition": {
+      "description": "라벨 위치",
+      "name": "라벨 위치"
+    },
+    "lh": {
+      "description": "선 높이.",
+      "name": "선 높이"
+    },
+    "maxDropdownHeight": {
+      "description": "최대 드롭다운 높이(픽셀)입니다.",
+      "name": "최대 드롭다운 높이"
+    },
+    "minRows": {
+      "description": "최소 보이는 행.",
+      "name": "최소 행"
+    },
+    "nothingFoundMessage": {
+      "description": "옵션이 일치하지 않을 때 메시지가 표시됩니다.",
+      "name": "메시지를 찾을 수 없음"
+    },
+    "numberOfColumns": {
+      "description": "표시된 개월 수",
+      "name": "열 수"
+    },
+    "onBlur": {
+      "description": "입력이 초점을 잃을 때 호출됩니다.",
+      "name": "온블러"
+    },
+    "onChange": {
+      "description": "구성 요소의 값이 변경될 때 호출됩니다",
+      "name": "변경"
+    },
+    "onDropdownClose": {
+      "description": "드롭 다운이 닫힐 때 호출됩니다.",
+      "name": "온드롭다운클로즈업"
+    },
+    "onDropdownOpen": {
+      "description": "드롭 다운이 열릴 때 호출됩니다.",
+      "name": "온드롭다운오픈"
+    },
+    "onFocus": {
+      "description": "입력이 포커스를 받을 때 호출됩니다.",
+      "name": "온포커스"
+    },
+    "onSearchChange": {
+      "description": "검색 값이 변경될 때 호출됩니다.",
+      "name": "검색 변경"
+    },
+    "placeholder": {
+      "description": "자리 표시자",
+      "name": "위치 지정자"
+    },
+    "radius": {
+      "description": "국경 반경.",
+      "name": "반지름"
+    },
+    "readOnly": {
+      "description": "입력이 읽기 전용인지 여부.",
+      "name": "읽기 전용"
+    },
+    "searchValue": {
+      "description": "제어 검색 입력 값.",
+      "name": "검색 값"
+    },
+    "size": {
+      "description": "구성 요소 크기와 관련된 다양한 속성을 제어합니다",
+      "name": "크기"
+    },
+    "spacing": {
+      "description": "항목 사이의 간격.",
+      "name": "간격"
+    },
+    "ta": {
+      "description": "텍스트 정렬.",
+      "name": "텍스트 정렬"
+    },
+    "td": {
+      "description": "텍스트 장식.",
+      "name": "텍스트 장식"
+    },
+    "tt": {
+      "description": "텍스트 변환.",
+      "name": "텍스트 변환"
+    },
+    "value": {
+      "description": "구성 요소 값",
+      "name": "값"
+    },
+    "variant": {
+      "description": "구성 요소의 모양을 제어합니다",
+      "name": "변종"
+    },
+    "withAsterisk": {
+      "description": "설정하면 레이블 옆에 필요한 별표가 표시됩니다",
+      "name": "별표 포함"
+    },
+    "withScrollArea": {
+      "description": "드롭 다운이 스크롤 영역을 사용하는지 여부.",
+      "name": "스크롤 영역"
+    },
+    "withSeconds": {
+      "description": "시간 선택기에 초를 포함할지 여부를 결정합니다",
+      "name": "초와 함께"
+    },
+    "withWeekNumbers": {
+      "description": "주 번호 열을 표시합니다",
+      "name": "주 번호"
+    },
+    "wrap": {
+      "description": "항목에 대한 래핑 동작.",
+      "name": "포장"
+    }
+  },
+  "components": {
+    "MtAutocomplete": {
+      "description": "모든 옵션 목록으로 사용자 입력 자동 완성",
+      "name": "자동 완성",
+      "props": {
+        "data": {
+          "description": "옵션을 표시하는 데 사용되는 데이터",
+          "name": "데이터"
+        }
+      }
+    },
+    "MtButton": {
+      "description": "버튼 또는 링크를 렌더링하는 버튼 구성 요소",
+      "name": "버튼",
+      "props": {
+        "children": {
+          "description": "버튼 내용",
+          "name": "내용"
+        },
+        "fullWidth": {
+          "description": "설정된 경우 단추는 부모 컨테이너의 전체 너비를 사용합니다",
+          "name": "가득 차있는 폭"
+        },
+        "onClick": {
+          "description": "버튼을 클릭 할 때 호출",
+          "name": "온클릭"
+        }
+      }
+    },
+    "MtCheckbox": {
+      "description": "사용자로부터 부울 입력 캡처",
+      "name": "체크박스",
+      "props": {
+        "checked": {
+          "description": "확인란을 선택할지 여부를 지정합니다",
+          "name": "체크"
+        }
+      }
+    },
+    "MtCheckboxGroup": {
+      "description": "체크 박스 그룹",
+      "name": "체크 박스 그룹",
+      "props": {
+        "items": {
+          "description": "확인란 그룹의 항목",
+          "name": "항목"
+        }
+      }
+    },
+    "MtChip": {
+      "description": "인라인 컨트롤로 값 선택",
+      "name": "칩",
+      "props": {
+        "checked": {
+          "description": "칩을 선택할지 여부를 지정합니다",
+          "name": "체크"
+        },
+        "children": {
+          "description": "구성 요소 레이블",
+          "name": "라벨"
+        }
+      }
+    },
+    "MtChipCheckboxGroup": {
+      "description": "인라인 컨트롤로 하나 또는 여러 값 선택",
+      "name": "칩 체크 박스 그룹",
+      "props": {
+        "items": {
+          "description": "칩 옵션",
+          "name": "항목"
+        }
+      }
+    },
+    "MtChipRadioGroup": {
+      "description": "인라인 컨트롤로 하나의 값 선택",
+      "name": "칩 라디오 그룹",
+      "props": {
+        "items": {
+          "description": "칩 옵션",
+          "name": "항목"
+        }
+      }
+    },
+    "MtColorInput": {
+      "description": "사용자로부터 색상 캡처",
+      "name": "색상 입력",
+      "props": {
+        "format": {
+          "description": "색상 형식",
+          "name": "형식"
+        },
+        "swatches": {
+          "description": "색상 선택기 아래에 견본 목록을 표시하는 데 사용되는 색상 목록",
+          "name": "견본"
+        }
+      }
+    },
+    "MtColorPicker": {
+      "description": "16 진수,16 진수,16 진수,16 진수,16 진수,16 진수,16 진수,16 진수,16 진수,16 진수,16 진수,16 진수,",
+      "name": "색상 선택기",
+      "props": {
+        "format": {
+          "description": "색상 형식",
+          "name": "형식"
+        },
+        "fullWidth": {
+          "description": "전체 너비로 늘릴 지 여부.",
+          "name": "가득 차있는 폭"
+        },
+        "swatches": {
+          "description": "색상 견본.",
+          "name": "견본"
+        },
+        "swatchesPerRow": {
+          "description": "행당 견본 수입니다.",
+          "name": "행당 견본"
+        },
+        "withPicker": {
+          "description": "선택기 입력을 표시할지 여부.",
+          "name": "피커 와 함께"
+        }
+      }
+    },
+    "MtContainer": {
+      "description": "안쪽 여백과 최대 폭을 가진 중심 내용",
+      "name": "컨테이너",
+      "props": {
+        "children": {
+          "description": "구성 요소 어린이",
+          "name": "어린이"
+        }
+      }
+    },
+    "MtDateMultiplePicker": {
+      "description": "여러 날짜를 선택할 수 있습니다",
+      "name": "날짜 다중 선택기",
+      "props": {
+        "maxDate": {
+          "description": "최대 선택 가능한 날짜,년-월-일 형식",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 날짜,연도-월-일 형식",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtDateMultiplePickerInput": {
+      "description": "여러 날짜를 선택할 수 있습니다",
+      "name": "날짜 다중 선택기 입력",
+      "props": {
+        "maxDate": {
+          "description": "최대 선택 가능한 날짜,년-월-일 형식",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 날짜,연도-월-일 형식",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtDatePicker": {
+      "description": "날짜를 선택할 수 있습니다",
+      "name": "날짜 선택기",
+      "props": {
+        "allowDeselect": {
+          "description": "선택한 날짜를 클릭하여 사용자가 날짜를 선택 취소할 수 있는지 여부를 결정합니다",
+          "name": "선택 취소 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 날짜,년-월-일 형식",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 날짜,연도-월-일 형식",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtDatePickerInput": {
+      "description": "날짜 선택기 입력",
+      "name": "날짜 선택기 입력",
+      "props": {
+        "allowDeselect": {
+          "description": "선택한 날짜를 클릭하여 사용자가 날짜를 선택 취소할 수 있는지 여부를 결정합니다",
+          "name": "선택 취소 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 날짜,년-월-일 형식",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 날짜,연도-월-일 형식",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtDateRangePicker": {
+      "description": "날짜 범위를 선택할 수 있습니다",
+      "name": "날짜 범위 선택기",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "단일 날짜를 범위로 선택할 수 있습니다",
+          "name": "범위에서 단일 날짜 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 날짜,년-월-일 형식",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 날짜,연도-월-일 형식",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtDateRangePickerInput": {
+      "description": "날짜 범위 선택기 입력",
+      "name": "날짜 범위 선택기 입력",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "단일 날짜를 범위로 선택할 수 있습니다",
+          "name": "범위에서 단일 날짜 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 날짜,년-월-일 형식",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 날짜,연도-월-일 형식",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtDateTimePicker": {
+      "description": "사용자로부터 날짜 시간 캡처",
+      "name": "날짜/시간 선택기",
+      "props": {
+        "valueFormat": {
+          "description": "값을 표시하는 사용자 정의 데이지 형식",
+          "name": "값 형식"
+        }
+      }
+    },
+    "MtDialog": {
+      "description": "화면의 어느 한쪽에 고정 오버레이 대화 상자 표시",
+      "name": "대화 상자",
+      "props": {
+        "children": {
+          "description": "대화 내용",
+          "name": "어린이"
+        },
+        "onOpenedChange": {
+          "description": "열린 속성이 변경될 때 호출됩니다",
+          "name": "오픈 변경"
+        },
+        "opened": {
+          "description": "대화 상자가 열려 있는지 여부",
+          "name": "오픈"
+        },
+        "showCloseButton": {
+          "description": "닫기 버튼 표시 여부",
+          "name": "닫기 버튼 표시"
+        },
+        "title": {
+          "description": "대화 제목",
+          "name": "제목"
+        }
+      }
+    },
+    "MtDivider": {
+      "description": "선택적인 상표 수직 분배자를 가진 수평선",
+      "name": "분할기",
+      "props": {
+        "orientation": {
+          "description": "분배기 방향",
+          "name": "방향"
+        }
+      }
+    },
+    "MtDropzone": {
+      "description": "드래그 앤 드롭으로 사용자의 파일 캡처",
+      "name": "드롭존",
+      "props": {
+        "accept": {
+          "description": "허용되는 마임 유형",
+          "name": "동의"
+        },
+        "multiple": {
+          "description": "여러 파일 허용",
+          "name": "다중"
+        }
+      }
+    },
+    "MtErrorWrapper": {
+      "description": "양식 컨트롤 아래에 유효성 검사 오류 메시지가 표시됩니다",
+      "name": "오류 메시지"
+    },
+    "MtFileInput": {
+      "description": "사용자로부터 파일 캡처",
+      "name": "파일 입력",
+      "props": {
+        "accept": {
+          "description": "허용되는 파일 형식",
+          "name": "동의"
+        },
+        "multiple": {
+          "description": "여러 파일 허용",
+          "name": "다중"
+        }
+      }
+    },
+    "MtJsonInput": {
+      "description": "사용자 데이터 캡처",
+      "name": "입력",
+      "props": {
+        "minRows": {
+          "description": "최소 행 수",
+          "name": "최소 행"
+        }
+      }
+    },
+    "MtLabel": {
+      "description": "레이블을 표시합니다",
+      "name": "라벨",
+      "props": {
+        "children": {
+          "description": "레이블 텍스트",
+          "name": "라벨"
+        }
+      }
+    },
+    "MtMonthMultiplePicker": {
+      "description": "월 다중 선택기",
+      "name": "월 다중 선택기",
+      "props": {
+        "maxDate": {
+          "description": "최대 선택 가능한 월",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 월",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtMonthMultiplePickerInput": {
+      "description": "월 다중 선택기 입력",
+      "name": "월 다중 선택기 입력",
+      "props": {
+        "maxDate": {
+          "description": "최대 선택 가능한 월",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 월",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtMonthPicker": {
+      "description": "인라인 월 선택기",
+      "name": "월 선택기",
+      "props": {
+        "allowDeselect": {
+          "description": "사용자가 선택한 월을 클릭하여 월을 선택 취소할 수 있는지 여부를 결정합니다",
+          "name": "선택 취소 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 월",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 월",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtMonthPickerInput": {
+      "description": "월 선택기 입력",
+      "name": "월 선택기 입력",
+      "props": {
+        "allowDeselect": {
+          "description": "사용자가 선택한 월을 클릭하여 월을 선택 취소할 수 있는지 여부를 결정합니다",
+          "name": "선택 취소 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 월",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 월",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtMonthRangePicker": {
+      "description": "인라인 개월 범위 선택기",
+      "name": "월 범위 선택기",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "한 달을 범위로 선택할 수 있습니다.",
+          "name": "범위에서 단일 날짜 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 월",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 월",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtMonthRangePickerInput": {
+      "description": "월 범위 선택기 입력",
+      "name": "월 범위 선택기 입력",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "한 달을 범위로 선택할 수 있습니다.",
+          "name": "범위에서 단일 날짜 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 가능한 월",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 가능한 월",
+          "name": "최소 날짜"
+        }
+      }
+    },
+    "MtMultiSelect": {
+      "description": "사용자 정의 검색 가능한 다중 선택",
+      "name": "다중 선택",
+      "props": {
+        "data": {
+          "description": "옵션을 표시하는 데 사용되는 데이터",
+          "name": "데이터"
+        },
+        "searchable": {
+          "description": "검색 사용",
+          "name": "검색 가능"
+        }
+      }
+    },
+    "MtNativeSelect": {
+      "description": "입력을 기반으로 기본 선택 요소",
+      "name": "기본 선택",
+      "props": {
+        "data": {
+          "description": "옵션을 표시하는 데 사용되는 데이터",
+          "name": "데이터"
+        }
+      }
+    },
+    "MtNumberInput": {
+      "description": "사용자로부터 캡처 번호",
+      "name": "번호 입력",
+      "props": {
+        "allowDecimal": {
+          "description": "10 진수 값 허용",
+          "name": "소수점 허용"
+        },
+        "allowLeadingZeros": {
+          "description": "선행 0 허용",
+          "name": "선행 0 허용"
+        },
+        "allowNegative": {
+          "description": "음수 값 허용",
+          "name": "부정적인 허용"
+        },
+        "clampBehavior": {
+          "description": "클램핑 동작",
+          "name": "클램프 동작"
+        },
+        "decimalScale": {
+          "description": "소수점 뒤에 입력할 수 있는 자릿수를 제한합니다",
+          "name": "십진 스케일"
+        },
+        "decimalSeparator": {
+          "description": "소수 구분 기호로 사용되는 문자",
+          "name": "소수 구분 기호"
+        },
+        "fixedDecimalScale": {
+          "description": "설정된 경우 주어진 10 진수 배율과 일치하도록 소수 구분 기호 뒤에 0 이 추가됩니다",
+          "name": "고정 소수점 스케일"
+        },
+        "hideControls": {
+          "description": "증가 및 감소 컨트롤 숨기기",
+          "name": "컨트롤 숨기기"
+        },
+        "max": {
+          "description": "최대 값",
+          "name": "최대"
+        },
+        "min": {
+          "description": "최소값",
+          "name": "최소"
+        },
+        "prefix": {
+          "description": "숫자 앞에 추가 할 문자열",
+          "name": "사전"
+        },
+        "startValue": {
+          "description": "증가/감소 버튼을 클릭하거나 입력이 비어 있는 경우 위/아래 화살표를 누를 때 입력으로 설정된 값",
+          "name": "시작 값"
+        },
+        "step": {
+          "description": "단계 값",
+          "name": "단계"
+        },
+        "suffix": {
+          "description": "숫자 뒤에 추가 할 문자열",
+          "name": "접미사"
+        },
+        "thousandSeparator": {
+          "description": "천 구분 기호로 사용되는 문자",
+          "name": "천 분리기"
+        },
+        "thousandsGroupStyle": {
+          "description": "천 그룹화 스타일",
+          "name": "수천 그룹 스타일"
+        },
+        "trimLeadingZeroesOnBlur": {
+          "description": "설정하면 흐림 처리 시 선행 0 이 제거됩니다. 예:00100-&gt;100",
+          "name": "흐림 효과에서 선행 제로 다듬기"
+        }
+      }
+    },
+    "MtPasswordInput": {
+      "description": "사용자의 암호 데이터 캡처",
+      "name": "비밀번호 입력"
+    },
+    "MtRadio": {
+      "description": "입력 유형 라디오 용 래퍼",
+      "name": "라디오",
+      "props": {
+        "checked": {
+          "description": "라디오 선택 여부를 지정합니다",
+          "name": "체크"
+        }
+      }
+    },
+    "MtRadioGroup": {
+      "description": "라디오 그룹",
+      "name": "라디오 그룹",
+      "props": {
+        "items": {
+          "description": "라디오 옵션",
+          "name": "항목"
+        }
+      }
+    },
+    "MtRangeSlider": {
+      "description": "레인지슬라이더 부품",
+      "name": "범위 슬라이더",
+      "props": {
+        "inverted": {
+          "description": "트랙 값 표현을 반전할지 여부를 결정합니다",
+          "name": "거꾸로"
+        },
+        "labelAlwaysOn": {
+          "description": "슬라이더를 끌거나 끌지 않을 때 레이블을 표시할지 여부를 결정합니다",
+          "name": "항상 레이블 켜기"
+        },
+        "max": {
+          "description": "최대 값",
+          "name": "최대"
+        },
+        "maxRange": {
+          "description": "선택할 수 있는 최대 범위",
+          "name": "최대 범위"
+        },
+        "min": {
+          "description": "최소값",
+          "name": "최소"
+        },
+        "precision": {
+          "description": "사용할 소수 자릿수",
+          "name": "정밀도"
+        },
+        "pushOnOverlap": {
+          "description": "미넌트/최대 범위에 도달할 때 현재 엄지 손가락을 끌어서 다른 엄지 손가락을 밀어야 하는지 여부를 결정합니다",
+          "name": "오버랩 푸시"
+        },
+        "showLabelOnHover": {
+          "description": "슬라이더를 이동할 때 레이블을 표시할지 여부를 결정합니다",
+          "name": "호버에 레이블 표시"
+        },
+        "step": {
+          "description": "단계 값",
+          "name": "단계"
+        }
+      }
+    },
+    "MtRating": {
+      "description": "선택 및 표시 등급",
+      "name": "등급",
+      "props": {
+        "count": {
+          "description": "별의 수",
+          "name": "카운트"
+        },
+        "fractions": {
+          "description": "분수 수",
+          "name": "분수"
+        }
+      }
+    },
+    "MtSegmentedControl": {
+      "description": "두 개 이상의 세그먼트의 선형 집합",
+      "name": "세그먼트 제어",
+      "props": {
+        "data": {
+          "description": "옵션",
+          "name": "데이터"
+        }
+      }
+    },
+    "MtSelect": {
+      "description": "사용자 정의 검색 선택",
+      "name": "선택",
+      "props": {
+        "data": {
+          "description": "옵션",
+          "name": "데이터"
+        },
+        "searchable": {
+          "description": "검색 사용",
+          "name": "검색 가능"
+        }
+      }
+    },
+    "MtSlider": {
+      "description": "슬라이더 구성 요소",
+      "name": "슬라이더",
+      "props": {
+        "max": {
+          "description": "최대 값",
+          "name": "최대"
+        },
+        "min": {
+          "description": "최소값",
+          "name": "최소"
+        },
+        "step": {
+          "description": "단계 값",
+          "name": "단계"
+        }
+      }
+    },
+    "MtSwitch": {
+      "description": "사용자로부터 부울 입력 캡처",
+      "name": "스위치",
+      "props": {
+        "checked": {
+          "description": "스위치가 켜져 있는지 여부를 지정합니다",
+          "name": "체크"
+        }
+      }
+    },
+    "MtSwitchGroup": {
+      "description": "사용자로부터 부울 입력 캡처",
+      "name": "스위치 그룹",
+      "props": {
+        "items": {
+          "description": "스위치 옵션",
+          "name": "항목"
+        }
+      }
+    },
+    "MtTagsInput": {
+      "description": "무료 입력 및 제안으로 사용자의 값 목록 캡처",
+      "name": "태그 입력",
+      "props": {
+        "data": {
+          "description": "옵션",
+          "name": "데이터"
+        }
+      }
+    },
+    "MtText": {
+      "description": "텍스트 표시",
+      "name": "본문",
+      "props": {
+        "children": {
+          "description": "텍스트 내용",
+          "name": "내용"
+        },
+        "inherit": {
+          "description": "글꼴 속성을 부모로부터 상속할지 여부를 결정합니다",
+          "name": "상속"
+        },
+        "inline": {
+          "description": "센터링을 위해 선 높이를 1 로 설정합니다",
+          "name": "선형"
+        },
+        "lineClamp": {
+          "description": "텍스트가 잘릴 줄 수",
+          "name": "라인 클램프"
+        },
+        "span": {
+          "description": "스팬 요소로 표시",
+          "name": "스팬"
+        },
+        "truncate": {
+          "description": "텍스트를 잘라야 하는 쪽",
+          "name": "단축"
+        }
+      }
+    },
+    "MtTextInput": {
+      "description": "사용자의 문자열 입력 캡처",
+      "name": "텍스트 입력",
+      "props": {
+        "type": {
+          "description": "입력 유형",
+          "name": "유형"
+        }
+      }
+    },
+    "MtTextarea": {
+      "description": "자동 크기 또는 일반 텍스트 영역",
+      "name": "텍스트 영역",
+      "props": {
+        "autosize": {
+          "description": "자동 크기 사용",
+          "name": "자동 크기"
+        },
+        "maxRows": {
+          "description": "최대 행 수",
+          "name": "최대 행"
+        },
+        "minRows": {
+          "description": "최소 행 수",
+          "name": "최소 행"
+        }
+      }
+    },
+    "MtTimeGrid": {
+      "description": "미리 정의된 옵션 세트로 사용자로부터 시간 값을 캡처합니다",
+      "name": "시간 그리드",
+      "props": {
+        "endTime": {
+          "description": "\"시간:음\"형식의 종료 시간",
+          "name": "종료 시간"
+        },
+        "format": {
+          "description": "시간 형식",
+          "name": "형식"
+        },
+        "startTime": {
+          "description": "\"시간\"형식으로 시작 시간",
+          "name": "시작 시간"
+        }
+      }
+    },
+    "MtTimeInput": {
+      "description": "사용자의 캡처 시간",
+      "name": "시간 입력"
+    },
+    "MtTimePicker": {
+      "description": "사용자로부터 시간 값을 캡처합니다",
+      "name": "시간 선택기",
+      "props": {
+        "format": {
+          "description": "시간 형식",
+          "name": "형식"
+        },
+        "max": {
+          "description": "최대 선택 가능한 시간,시간:밀리미터:초 형식",
+          "name": "최대"
+        },
+        "min": {
+          "description": "최소 선택 가능한 시간,시간:초:초 형식",
+          "name": "최소"
+        },
+        "reverseTimeControlsList": {
+          "description": "키보드 탐색과 일치하도록 시간 컨트롤 순서(시,분,초)를 반전합니다",
+          "name": "역 시간 컨트롤 목록"
+        }
+      }
+    },
+    "MtTiptap": {
+      "description": "팁 탭 기반 서식있는 텍스트 편집기",
+      "name": "서식 있는 텍스트 편집기",
+      "props": {
+        "error": {
+          "description": "입력 오류 메시지",
+          "name": "오류"
+        },
+        "value": {
+          "description": "편집기의 초기 내용",
+          "name": "값"
+        }
+      }
+    },
+    "MtTitle": {
+      "description": "헤딩",
+      "name": "제목",
+      "props": {
+        "children": {
+          "description": "제목 내용",
+          "name": "내용"
+        },
+        "order": {
+          "description": "헤더 레벨",
+          "name": "주문"
+        }
+      }
+    },
+    "MtTooltip": {
+      "description": "마우스 오버 또는 기타 이벤트에서 주어진 요소에 툴팁을 렌더링합니다",
+      "name": "툴팁",
+      "props": {
+        "children": {
+          "description": "트리거 요소",
+          "name": "어린이"
+        },
+        "content": {
+          "description": "툴팁 콘텐츠 텍스트",
+          "name": "내용"
+        },
+        "offset": {
+          "description": "방아쇠에서 거리",
+          "name": "오프셋"
+        }
+      }
+    },
+    "MtTypography": {
+      "description": "스타일 공급자",
+      "name": "타이포그래피",
+      "props": {
+        "allowHtml": {
+          "description": "사용자 정의",
+          "name": "사용자 정의"
+        },
+        "content": {
+          "description": "텍스트 내용",
+          "name": "내용"
+        }
+      }
+    },
+    "MtYearMultiplePicker": {
+      "description": "인라인 여러 년 선택기",
+      "name": "연도 다중 선택기",
+      "props": {
+        "maxDate": {
+          "description": "최대 선택 연도",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 연도",
+          "name": "최소 날짜"
+        },
+        "numberOfColumns": {
+          "description": "표시할 열 수",
+          "name": "열 수"
+        }
+      }
+    },
+    "MtYearMultiplePickerInput": {
+      "description": "연도 다중 선택기 입력",
+      "name": "연도 다중 선택기 입력",
+      "props": {
+        "maxDate": {
+          "description": "최대 선택 연도",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 연도",
+          "name": "최소 날짜"
+        },
+        "numberOfColumns": {
+          "description": "표시할 열 수",
+          "name": "열 수"
+        }
+      }
+    },
+    "MtYearPicker": {
+      "description": "인라인 연도 선택기",
+      "name": "연도 선택기",
+      "props": {
+        "allowDeselect": {
+          "description": "사용자가 선택한 연도를 클릭하여 연도를 선택 취소할 수 있는지 여부를 결정합니다",
+          "name": "선택 취소 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 연도",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 연도",
+          "name": "최소 날짜"
+        },
+        "numberOfColumns": {
+          "description": "표시할 열 수",
+          "name": "열 수"
+        }
+      }
+    },
+    "MtYearPickerInput": {
+      "description": "연도 선택기 입력",
+      "name": "연도 선택기 입력",
+      "props": {
+        "allowDeselect": {
+          "description": "사용자가 선택한 연도를 클릭하여 연도를 선택 취소할 수 있는지 여부를 결정합니다",
+          "name": "선택 취소 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 연도",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 연도",
+          "name": "최소 날짜"
+        },
+        "numberOfColumns": {
+          "description": "표시할 열 수",
+          "name": "열 수"
+        }
+      }
+    },
+    "MtYearRangePicker": {
+      "description": "연도 범위 선택기",
+      "name": "연도 범위 선택기",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "범위로 단일 연도를 선택할 수 있습니다",
+          "name": "범위에서 단일 날짜 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 연도",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 연도",
+          "name": "최소 날짜"
+        },
+        "numberOfColumns": {
+          "description": "표시할 열 수",
+          "name": "열 수"
+        }
+      }
+    },
+    "MtYearRangePickerInput": {
+      "description": "연도 범위 선택기 입력",
+      "name": "연도 범위 선택기 입력",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "범위로 단일 연도를 선택할 수 있습니다",
+          "name": "범위에서 단일 날짜 허용"
+        },
+        "maxDate": {
+          "description": "최대 선택 연도",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "최소 선택 연도",
+          "name": "최소 날짜"
+        },
+        "numberOfColumns": {
+          "description": "표시할 열 수",
+          "name": "열 수"
+        }
+      }
+    }
+  }
+}

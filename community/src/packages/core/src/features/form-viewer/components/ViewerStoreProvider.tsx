@@ -46,10 +46,11 @@ const RawNotifier = (props: Omit<ExistingStoreProviderProps, 'children'>) => {
 
   useEffect(() => {
     store.formViewerPropsStore.applyProps(viewerProps)
+    store.form.componentTree.state = store.formViewerPropsStore.initialState
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [viewerProps.initialData, viewerProps.view, viewerProps.validators, viewerProps.formValidators,
+  }, [viewerProps.initialData, viewerProps.initialState, viewerProps.view, viewerProps.validators, viewerProps.formValidators,
     viewerProps.localize, viewerProps.language, viewerProps.actions, viewerProps.errorWrapper,
-    viewerProps.readOnly, viewerProps.disabled, viewerProps.componentWrapper])
+    viewerProps.readOnly, viewerProps.disabled, viewerProps.componentWrapper, viewerProps.userContext])
 
   return null
 }

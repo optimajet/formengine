@@ -26,7 +26,7 @@ export interface PackageJson {
   name: string
   version: string
   scripts: Record<string, string>
-  exports: Record<string, PackageExport>
+  exports: Record<string, PackageExport | string>
 
   [key: string]: unknown
 }
@@ -43,21 +43,31 @@ export function readPackageJson(sourceDir: string): PackageJson {
 }
 
 export function patchExports(packageJson: PackageJson): void {
-  Object.entries(packageJson.exports).forEach(([name]) => {
+  Object.entries(packageJson.exports).forEach(([name, entry]) => {
+    // Skip string entries (like JSON schemas) as they are not TypeScript modules
+    if (typeof entry === 'string') {
+      return
+    }
+
     const fn = name === '.' ? 'index' : name
 
     const itemName = fn.replace('./', '')
-    packageJson.exports[name].import = `./dist/${itemName}.js`
-    packageJson.exports[name].types = `./dist/${itemName}.d.ts`
+    entry.import = `./dist/${itemName}.js`
+    entry.types = `./dist/${itemName}.d.ts`
 
     if (name === '.') {
-      packageJson.exports[name].require = `./dist/${itemName}.js`
+      entry.require = `./dist/${itemName}.js`
     }
   })
 }
 
 export function exportsToEntries(basePath: string, packageJson: PackageJson): Record<string, string> {
   return Object.entries(packageJson.exports).reduce((acc, [name, entry]) => {
+    // Skip string entries (like JSON schemas) as they are not TypeScript modules
+    if (typeof entry === 'string') {
+      return acc
+    }
+
     const fn = (name === '.' ? 'index' : name).replace('./', '')
 
     acc[fn] = resolve(basePath, entry.import)

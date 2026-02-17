@@ -42,13 +42,13 @@ const RawViewerLocalizationProvider = (props: ViewerLocalizationProviderProps) =
     })
   }, [language, viewerStore.formViewerPropsStore.view])
 
-  return (
-    <div dir={language.bidi} lang={language.fullCode} className={viewerClass}>
-      <CacheProvider value={selectedCache}>
-        {nestViewerWrappers(viewerStore.formViewerPropsStore.view.viewerWrappers, language, props.children)}
-      </CacheProvider>
-    </div>
-  )
+  const viewer = <div dir={language.bidi} lang={language.fullCode} className={viewerClass}>
+    <CacheProvider value={selectedCache}>
+      {props.children}
+    </CacheProvider>
+  </div>
+
+  return nestViewerWrappers(viewerStore.formViewerPropsStore.view.viewerWrappers, language, viewer)
 }
 
 export const ViewerLocalizationProvider = namedObserver('ViewerLocalizationProvider', RawViewerLocalizationProvider)

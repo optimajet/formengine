@@ -56,6 +56,12 @@ export interface FormViewerProps {
   initialData?: Record<string, unknown>
 
   /**
+   * The initial user-defined state for the form.
+   * This object is set into {@link IFormData.state} when the form is initialized, this property is reactive.
+   */
+  initialState?: Record<string, unknown>
+
+  /**
    * The form validation errors.
    */
   errors?: Record<string, unknown>
@@ -117,7 +123,13 @@ export interface FormViewerProps {
   showAllValidationErrors?: boolean
 
   /**
-   * The arbitrary user context.
+   * The arbitrary context object passed to the form viewer.
+   * It is forwarded to custom actions as the third argument of the handler.
+   */
+  userContext?: unknown
+
+  /**
+   * The arbitrary context used internally by the form viewer.
    */
   context?: any
 

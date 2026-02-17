@@ -235,6 +235,13 @@ export class ComponentData implements IFormData {
   }
 
   /**
+   * @inheritDoc
+   */
+  set state(state: Record<string, unknown>) {
+    this._state = state
+  }
+
+  /**
    * @returns the root component for the data in the component tree.
    */
   get dataRoot(): ComponentData {

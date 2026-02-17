@@ -1,0 +1,677 @@
+{
+  "version": "1",
+  "actions": {
+    "showValidationResult": {
+      "body": "    const setVisible = (key, visible) => {\n        const componentStore = e.store.form.componentTree.findByKey(key)?.store\n        if (componentStore) {\n            componentStore.renderWhen = {value: visible}\n        }\n    }\n    const hasErrors = e.store.form.componentTree.hasErrors\n    setVisible('errorMessage', hasErrors)\n    setVisible('successMessage', !hasErrors)",
+      "params": {}
+    },
+    "loadCountries": {
+      "body": "    const response = await fetch ('https://gist.githubusercontent.com/rogargon/5534902/raw/434445021e155240ca78e378f10f70391dd594ea/countries.json')\n    const countries= await response.json()\n    e.store.formData.state.countries = countries.map(value => ({value, label: value}))",
+      "params": {}
+    }
+  },
+  "tooltipType": "MtTooltip",
+  "modalType": "MtDialog",
+  "errorType": "MtErrorWrapper",
+  "form": {
+    "key": "screen 1",
+    "type": "Screen",
+    "props": {
+      "error": {
+        "value": {}
+      }
+    },
+    "events": {
+      "onDidMount": [
+        {
+          "name": "loadCountries",
+          "type": "code"
+        }
+      ]
+    },
+    "children": [
+      {
+        "key": "Header",
+        "type": "MtTitle",
+        "props": {
+          "children": {
+            "value": "Complex Master Form"
+          },
+          "order": {
+            "value": 4
+          }
+        }
+      },
+      {
+        "key": "Email hint",
+        "type": "MtText",
+        "props": {
+          "children": {
+            "value": "Use a permanent address where you can receive mail."
+          }
+        }
+      },
+      {
+        "key": "Main container",
+        "type": "MtContainer",
+        "props": {
+          "strategy": {
+            "value": "grid"
+          }
+        },
+        "css": {
+          "desktop": {
+            "string": "border: 1px solid lightgray;\nborder-radius: 6px;\npadding: 10px;"
+          }
+        },
+        "children": [
+          {
+            "key": "Name container",
+            "type": "MtContainer",
+            "props": {
+              "strategy": {
+                "value": "grid"
+              }
+            },
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "row"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "First name",
+                "type": "MtTextInput",
+                "props": {
+                  "label": {
+                    "value": "First name"
+                  }
+                },
+                "schema": {
+                  "type": "string",
+                  "validations": [
+                    {
+                      "key": "required"
+                    }
+                  ],
+                  "autoValidate": true
+                }
+              },
+              {
+                "key": "Last name",
+                "type": "MtTextInput",
+                "props": {
+                  "label": {
+                    "value": "Last name"
+                  }
+                },
+                "schema": {
+                  "type": "string",
+                  "validations": [
+                    {
+                      "key": "required"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "key": "Email",
+            "type": "MtTextInput",
+            "props": {
+              "label": {
+                "value": "Email address"
+              }
+            },
+            "schema": {
+              "type": "string",
+              "validations": [
+                {
+                  "key": "email"
+                },
+                {
+                  "key": "required"
+                }
+              ]
+            }
+          },
+          {
+            "key": "Country 1",
+            "type": "MtSelect",
+            "props": {
+              "label": {
+                "value": "Country / Region"
+              },
+              "data": {
+                "value": [],
+                "computeType": "function",
+                "fnSource": "    return form.state.countries"
+              },
+              "placeholder": {
+                "value": "Enter country name"
+              }
+            },
+            "schema": {
+              "type": "string",
+              "validations": []
+            }
+          },
+          {
+            "key": "Subheader",
+            "type": "MtTitle",
+            "props": {
+              "children": {
+                "value": "Subheader inside the form"
+              },
+              "order": {
+                "value": 5
+              }
+            }
+          },
+          {
+            "key": "Email hint 2",
+            "type": "MtText",
+            "props": {
+              "children": {
+                "value": "Use a permanent address where you can receive mail."
+              }
+            }
+          },
+          {
+            "key": "Street address",
+            "type": "MtTextInput",
+            "props": {
+              "label": {
+                "value": "Street address"
+              }
+            }
+          },
+          {
+            "key": "Adress container",
+            "type": "MtContainer",
+            "props": {
+              "strategy": {
+                "value": "grid"
+              }
+            },
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "row"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "City",
+                "type": "MtTextInput",
+                "props": {
+                  "placeholder": {
+                    "value": ""
+                  },
+                  "label": {
+                    "value": "City"
+                  }
+                }
+              },
+              {
+                "key": "State",
+                "type": "MtTextInput",
+                "props": {
+                  "placeholder": {
+                    "value": ""
+                  },
+                  "label": {
+                    "value": "State / Province"
+                  }
+                }
+              },
+              {
+                "key": "ZIP",
+                "type": "MtTextInput",
+                "props": {
+                  "placeholder": {
+                    "value": ""
+                  },
+                  "label": {
+                    "value": "ZIP / Postal"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "key": "Country container",
+            "type": "MtContainer",
+            "props": {
+              "strategy": {
+                "value": "grid"
+              }
+            },
+            "css": {
+              "any": {
+                "object": {
+                  "flexDirection": "row"
+                }
+              }
+            },
+            "children": [
+              {
+                "key": "Country 2",
+                "type": "MtSelect",
+                "props": {
+                  "label": {
+                    "value": "Country / Region"
+                  },
+                  "data": {
+                    "value": [],
+                    "computeType": "function",
+                    "fnSource": "    return form.state.countries"
+                  },
+                  "placeholder": {
+                    "value": "Enter country name"
+                  }
+                },
+                "schema": {
+                  "type": "string",
+                  "validations": []
+                }
+              },
+              {
+                "key": "Country 3",
+                "type": "MtSelect",
+                "props": {
+                  "label": {
+                    "value": "Country / Region"
+                  },
+                  "data": {
+                    "value": [],
+                    "computeType": "function",
+                    "fnSource": "    return form.state.countries"
+                  },
+                  "placeholder": {
+                    "value": "Enter country name"
+                  }
+                },
+                "schema": {
+                  "type": "string",
+                  "validations": []
+                }
+              },
+              {
+                "key": "Country 4",
+                "type": "MtSelect",
+                "props": {
+                  "label": {
+                    "value": "Country / Region"
+                  },
+                  "data": {
+                    "value": [],
+                    "computeType": "function",
+                    "fnSource": "    return form.state.countries"
+                  },
+                  "placeholder": {
+                    "value": "Enter country name"
+                  }
+                },
+                "schema": {
+                  "type": "string",
+                  "validations": []
+                }
+              }
+            ]
+          },
+          {
+            "key": "Website",
+            "type": "MtTextInput",
+            "props": {
+              "label": {
+                "value": "Website"
+              },
+              "placeholder": {
+                "value": "https://www.example.com"
+              }
+            },
+            "schema": {
+              "type": "string",
+              "validations": [
+                {
+                  "key": "url"
+                }
+              ]
+            }
+          },
+          {
+            "key": "About",
+            "type": "MtTextarea",
+            "props": {
+              "placeholder": {
+                "value": "you@example.com"
+              },
+              "label": {
+                "value": "About"
+              },
+              "rows": {
+                "value": 4
+              }
+            }
+          },
+          {
+            "key": "About hint",
+            "type": "MtText",
+            "props": {
+              "children": {
+                "value": "Brief description for your profile. URLs are hyperlinked. "
+              }
+            }
+          },
+          {
+            "key": "Photo upload",
+            "type": "MtDropzone",
+            "props": {
+              "label": {
+                "value": "Photo"
+              }
+            }
+          },
+          {
+            "key": "Notifications header",
+            "type": "MtTitle",
+            "props": {
+              "children": {
+                "value": "Notifications"
+              },
+              "order": {
+                "value": 6
+              }
+            }
+          },
+          {
+            "key": "Notifications hint",
+            "type": "MtText",
+            "props": {
+              "children": {
+                "value": "Use a permanent address where you can receive mail."
+              }
+            }
+          },
+          {
+            "key": "Email header",
+            "type": "MtText",
+            "props": {
+              "children": {
+                "value": "By Email"
+              }
+            },
+            "css": {
+              "any": {
+                "string": "font-weight: bold;"
+              }
+            }
+          },
+          {
+            "key": "Checkbox container 1",
+            "type": "MtContainer",
+            "props": {
+              "strategy": {
+                "value": "grid"
+              }
+            },
+            "css": {
+              "desktop": {
+                "string": "gap: 0;"
+              }
+            },
+            "children": [
+              {
+                "key": "Comments checkbox",
+                "type": "MtCheckbox",
+                "props": {
+                  "label": {
+                    "value": "Comments"
+                  },
+                  "checked": {
+                    "value": false
+                  }
+                }
+              },
+              {
+                "key": "Comments label",
+                "type": "MtText",
+                "props": {
+                  "children": {
+                    "value": "Get notified when someones posts a comment on a posting."
+                  }
+                },
+                "wrapperCss": {
+                  "desktop": {
+                    "string": "margin-left: 35px",
+                    "object": {
+                      "width": "auto"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "key": "Checkbox container 2",
+            "type": "MtContainer",
+            "props": {
+              "strategy": {
+                "value": "grid"
+              }
+            },
+            "css": {
+              "desktop": {
+                "string": "gap: 0;"
+              }
+            },
+            "children": [
+              {
+                "key": "Candidates checkbox",
+                "type": "MtCheckbox",
+                "props": {
+                  "checked": {
+                    "value": false
+                  },
+                  "label": {
+                    "value": "Candidates"
+                  }
+                }
+              },
+              {
+                "key": "Candidates label",
+                "type": "MtText",
+                "props": {
+                  "children": {
+                    "value": "Get notified when a candidate applies for a job."
+                  }
+                },
+                "wrapperCss": {
+                  "desktop": {
+                    "string": "margin-left: 35px;",
+                    "object": {
+                      "width": "auto"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "key": "Checkbox container 3",
+            "type": "MtContainer",
+            "props": {
+              "strategy": {
+                "value": "grid"
+              }
+            },
+            "css": {
+              "desktop": {
+                "string": "gap: 0;"
+              }
+            },
+            "children": [
+              {
+                "key": "Offers checkbox",
+                "type": "MtCheckbox",
+                "props": {
+                  "label": {
+                    "value": "Offers"
+                  },
+                  "checked": {
+                    "value": false
+                  }
+                }
+              },
+              {
+                "key": "Offers  label",
+                "type": "MtText",
+                "props": {
+                  "children": {
+                    "value": "Get notified when a candidate accepts or rejects an offer."
+                  }
+                },
+                "wrapperCss": {
+                  "desktop": {
+                    "string": "margin-left: 35px;",
+                    "object": {
+                      "width": "auto"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "key": "Push header",
+            "type": "MtText",
+            "props": {
+              "children": {
+                "value": "Push Notifications"
+              }
+            },
+            "css": {
+              "desktop": {
+                "any": "font-weight: bold;"
+              }
+            }
+          },
+          {
+            "key": "Push hint",
+            "type": "MtText",
+            "props": {
+              "children": {
+                "value": "These are delivered via SMS to your mobile phone."
+              }
+            }
+          },
+          {
+            "key": "Push select",
+            "type": "MtRadioGroup",
+            "props": {
+              "label": {
+                "value": ""
+              },
+              "items": {
+                "value": [
+                  {
+                    "value": "Everything",
+                    "label": "Everything"
+                  },
+                  {
+                    "value": "Same as email",
+                    "label": "Same as email"
+                  },
+                  {
+                    "value": "No push notifications",
+                    "label": "No push notifications"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "Save button",
+            "type": "MtButton",
+            "props": {
+              "fullWidth": {
+                "value": false
+              },
+              "variant": {
+                "value": "filled"
+              },
+              "children": {
+                "value": "Save"
+              },
+              "size": {
+                "value": "sm"
+              }
+            },
+            "events": {
+              "onClick": [
+                {
+                  "name": "validate",
+                  "type": "common"
+                },
+                {
+                  "name": "showValidationResult",
+                  "type": "code"
+                }
+              ]
+            }
+          },
+          {
+            "key": "errorMessage",
+            "type": "MtTypography",
+            "props": {
+              "content": {
+                "value": "Not all fields of the form are filled in correctly. Correct the values of the form fields and try again."
+              }
+            },
+            "css": {
+              "any": {
+                "string": "color: red;"
+              }
+            },
+            "renderWhen": {
+              "value": "false"
+            }
+          },
+          {
+            "key": "successMessage",
+            "type": "MtTypography",
+            "props": {
+              "content": {
+                "value": "The form has been sent, thank you!"
+              }
+            },
+            "css": {
+              "any": {
+                "string": "color: green;"
+              }
+            },
+            "renderWhen": {
+              "value": "false"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "localization": {},
+  "languages": [
+    {
+      "code": "en",
+      "dialect": "US",
+      "name": "English",
+      "description": "American English",
+      "bidi": "ltr"
+    }
+  ],
+  "defaultLanguage": "en-US"
+}

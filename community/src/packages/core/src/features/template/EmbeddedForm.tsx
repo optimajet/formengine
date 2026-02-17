@@ -56,7 +56,8 @@ export const EmbeddedForm = (props: EmbeddedFormProps) => {
       onFormDataChange: undefined,
       formValidators: undefined,
       disabled: props.disabled,
-      readOnly: props.readOnly
+      readOnly: props.readOnly,
+      initialState: {},
     }
     return Object.assign({}, viewerProps, overrideProps)
   }, [viewerProps, props])

@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/components-uploader",
   "description": "OptimaJet Form Builder Components - Uploader",
-  "version": "7.11.0",
+  "version": "7.12.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -13,13 +13,20 @@
   "main": "src/index.ts",
   "type": "module",
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./schemas/uploader-components.schema.json": "./public/schemas/uploader-components.schema.json"
+  },
   "bugs": {
     "email": "support@optimajet.com"
   },
   "scripts": {
     "build": "vite build",
     "clean": "rimraf dist temp",
-    "pack": "npm-run-all -l clean build create-archive",
+    "create-json-schema": "vite-node ./config/json-schema-generator.ts",
+    "pack": "npm-run-all -l clean build create-json-schema create-archive",
     "create-archive": "node ./config/pack"
   },
   "dependencies": {
@@ -27,13 +34,17 @@
   },
   "peerDependencies": {
     "@emotion/css": "^11.13.5",
-    "@react-form-builder/core": "7.11.0",
+    "@react-form-builder/core": "7.12.0",
     "react": ">=17.0.2 || ^18 || ^19"
   },
   "peerDependenciesMeta": {
     "@react-form-builder/core": {
       "optional": false
     }
+  },
+  "devDependencies": {
+    "@react-form-builder/json-schema-generator": "^7.12.0",
+    "vite-node": "^5.2.0"
   },
   "files": [
     "dist",

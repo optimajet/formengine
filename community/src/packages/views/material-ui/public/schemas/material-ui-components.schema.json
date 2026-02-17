@@ -1,0 +1,2770 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "$ref": "#/definitions/PersistedFormVersion",
+      "description": "The version of the saved form."
+    },
+    "actions": {
+      "$ref": "#/definitions/ActionValues",
+      "description": "Represents a set of action definitions."
+    },
+    "formValidator": {
+      "type": "string",
+      "description": "The form validator."
+    },
+    "errorProps": {
+      "description": "Properties of the component displaying the error."
+    },
+    "modalType": {
+      "type": "string",
+      "description": "Name of the type of component that displays the modal.",
+      "enum": [
+        "MuiDialog"
+      ]
+    },
+    "tooltipType": {
+      "type": "string",
+      "description": "Name of the type of component that displays the tooltip.",
+      "enum": [
+        "MuiTooltip"
+      ]
+    },
+    "errorType": {
+      "type": "string",
+      "description": "Name of the type of component displaying the error.",
+      "enum": [
+        "MuiErrorWrapper",
+        "DefaultErrorMessage"
+      ]
+    },
+    "form": {
+      "$ref": "#/definitions/ScreenComponentStore",
+      "description": "Settings for components that display the form."
+    },
+    "localization": {
+      "$ref": "#/definitions/LocalizationValue",
+      "description": "Localization of the form."
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Language"
+      },
+      "description": "Form languages."
+    },
+    "defaultLanguage": {
+      "type": "string",
+      "description": "The default form language."
+    }
+  },
+  "required": [
+    "form",
+    "localization",
+    "languages",
+    "defaultLanguage"
+  ],
+  "description": "The scheme describes the JSON structure and the set of components used",
+  "definitions": {
+    "PersistedFormVersion": {
+      "type": "string",
+      "const": "1",
+      "description": "The version of the saved form."
+    },
+    "ActionValues": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/PersistedActionDefinition"
+      },
+      "description": "Represents a set of action definitions."
+    },
+    "ActionParameters": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ParameterType"
+      },
+      "propertyNames": {
+        "description": "The type for the parameter name."
+      },
+      "description": "Represents a set of action parameters."
+    },
+    "ParameterType": {
+      "type": "string",
+      "enum": [
+        "string",
+        "number",
+        "boolean",
+        "function"
+      ],
+      "description": "Parameter type."
+    },
+    "ComponentProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a component property."
+        },
+        "computeType": {
+          "$ref": "#/definitions/ComponentPropertyComputeType",
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        },
+        "editorType": {
+          "type": "string",
+          "description": "The component property editor type, only used in Designer mode."
+        }
+      },
+      "description": "The value of the component property."
+    },
+    "ComponentPropertyComputeType": {
+      "type": "string",
+      "enum": [
+        "function",
+        "localization"
+      ],
+      "description": "The component property value type."
+    },
+    "Css": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for arbitrary device."
+        },
+        "mobile": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for mobile devices."
+        },
+        "tablet": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for tablet devices."
+        },
+        "desktop": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for desktop devices."
+        }
+      },
+      "description": "The type for the CSS property of a React component."
+    },
+    "DeviceStyle": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "description": "CSS styles defined in the general style settings."
+        },
+        "string": {
+          "type": "string",
+          "description": "CSS styles defined in the style code editor."
+        }
+      },
+      "description": "CSS styles for a device."
+    },
+    "ComponentStyle": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for an arbitrary device."
+        },
+        "mobile": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for mobile devices."
+        },
+        "tablet": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for tablet devices."
+        },
+        "desktop": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for desktop devices."
+        }
+      },
+      "description": "The type for the style property of a React component."
+    },
+    "ComponentDeviceStyle": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string",
+          "description": "The CSS string."
+        }
+      },
+      "description": "Styles for a device."
+    },
+    "ActionData": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The action name."
+        },
+        "type": {
+          "$ref": "#/definitions/ActionType",
+          "description": "The action type."
+        },
+        "args": {
+          "$ref": "#/definitions/Arguments",
+          "description": "The action arguments."
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "description": "Action Storage. Used for add a new action, store information about it."
+    },
+    "ActionType": {
+      "type": "string",
+      "enum": [
+        "common",
+        "code",
+        "custom"
+      ],
+      "description": "Action type."
+    },
+    "Arguments": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ArgumentValue"
+      },
+      "propertyNames": {
+        "description": "The type for the parameter name."
+      },
+      "description": "It will be transformed in arguments before passing in action."
+    },
+    "ArgumentValue": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/PrimitiveArgumentValue"
+        },
+        {
+          "$ref": "#/definitions/FunctionArgumentValue"
+        }
+      ],
+      "description": "The type of the argument value of the function."
+    },
+    "PrimitiveArgumentValue": {
+      "type": [
+        "string",
+        "number",
+        "boolean"
+      ],
+      "description": "Primitive argument value type."
+    },
+    "FunctionArgumentValue": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "fn",
+          "description": "Argument type for function type."
+        },
+        "body": {
+          "type": "string",
+          "description": "The source code of the function for use in design mode."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Function argument value type."
+    },
+    "BoundValueSchema": {
+      "type": "object",
+      "properties": {
+        "autoValidate": {
+          "type": "boolean",
+          "description": "Flag, if true then automatic validation of the value works, false otherwise."
+        },
+        "validations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidationRuleSettings"
+          },
+          "description": "The array of validation rule settings."
+        }
+      },
+      "description": "Value validation rules."
+    },
+    "ValidationRuleSettings": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The unique key of the validation rule. The key is unique within the value type."
+        },
+        "type": {
+          "$ref": "#/definitions/ValidatorType",
+          "description": "The type of validator."
+        },
+        "args": {
+          "type": "object",
+          "description": "Arguments of the validation rule."
+        },
+        "validateWhen": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "The property that determines when validation needs to be performed."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "description": "The validation rule settings."
+    },
+    "ValidatorType": {
+      "type": "string",
+      "enum": [
+        "internal",
+        "custom"
+      ],
+      "description": "The type of validator."
+    },
+    "HtmlAttribute": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "The arbitrary HTML attributes for the component."
+    },
+    "ModalComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Modal",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Modal component properties.",
+              "required": [
+                "modalTemplate"
+              ],
+              "properties": {
+                "modalTemplate": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ]
+        }
+      ]
+    },
+    "LocalizationValue": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentsLocalization"
+      },
+      "propertyNames": {
+        "description": "The full language code, e.g. 'en-US'."
+      },
+      "description": "The format in which localization is stored."
+    },
+    "ComponentsLocalization": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/TypedLocalization"
+      },
+      "propertyNames": {
+        "description": "The component key."
+      },
+      "description": "A record containing localizations grouped by component key."
+    },
+    "TypedLocalization": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        },
+        "tooltip": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        },
+        "modal": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentPropsLocalization"
+      },
+      "description": "A record containing localizations grouped by localization type."
+    },
+    "ComponentPropsLocalization": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "description": "The component property name."
+      },
+      "description": "A record containing localizations for the component properties."
+    },
+    "Language": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "the language code, for example, 'en'."
+        },
+        "dialect": {
+          "type": "string",
+          "description": "the dialect code, for example, 'US'."
+        },
+        "name": {
+          "type": "string",
+          "description": "the name of the language, for example 'English'."
+        },
+        "description": {
+          "type": "string",
+          "description": "the description of the language, for example 'American English'."
+        },
+        "bidi": {
+          "$ref": "#/definitions/BiDi",
+          "description": "the type of text layout, for example, BiDi.LTR."
+        }
+      },
+      "required": [
+        "code",
+        "dialect",
+        "name",
+        "description",
+        "bidi"
+      ],
+      "description": "The language to localize the form builder."
+    },
+    "BiDi": {
+      "type": "string",
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "description": "The enumeration of bidirectional text layout types."
+    },
+    "PersistedActionDefinition": {
+      "type": "object",
+      "description": "The definition of an action.",
+      "properties": {
+        "body": {
+          "type": "string",
+          "description": "The source code of the Action."
+        },
+        "params": {
+          "$ref": "#/definitions/ActionParameters",
+          "description": "The parameters of the Action."
+        }
+      },
+      "required": [
+        "params"
+      ]
+    },
+    "MuiButtonComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A button component used to trigger actions or events",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiButton",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiButton component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The caption"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the component"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "disableElevation": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Removes the button shadow when set to true"
+                },
+                "loading": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays a loading indicator and disables interaction"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The size of the component"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiButtonGroupComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Groups related buttons together",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiButtonGroup",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiButtonGroup component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The color of the component"
+                },
+                "orientation": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Sets the layout direction of the buttons"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiCheckboxComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Allows selecting one or more options",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiCheckbox",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiCheckbox component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "checked": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is checked"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The color of the component"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The size of the component"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiRadioGroupComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Allows selecting a single option from a set",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiRadioGroup",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiRadioGroup component properties.",
+              "properties": {
+                "name": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Name attribute used to group radio buttons"
+                },
+                "row": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays radio buttons horizontally"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The value of the component"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "required": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the input element is required"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "error": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is displayed in an error state"
+                },
+                "helperText": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The helper text content"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiRadioItemComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A single radio button used within a radio group",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiRadioItem",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiRadioItem component properties.",
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The value of the component"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The color of the component"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiSelectComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Dropdown component for selecting options",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiSelect",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiSelect component properties.",
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The value of the component"
+                },
+                "items": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The size of the component"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "required": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the input element is required"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "error": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is displayed in an error state"
+                },
+                "helperText": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The helper text content"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiSwitchComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Toggle control for switching between two states",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiSwitch",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiSwitch component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the component"
+                },
+                "checked": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is checked"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The size of the component"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiTextFieldComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Input field for text and form data",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiTextField",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiTextField component properties.",
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The value of the component"
+                },
+                "type": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "HTML input type (text, password, email, etc.)"
+                },
+                "multiline": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Renders a textarea instead of a single-line input"
+                },
+                "maxRows": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Maximum number of visible rows for multiline input"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "required": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the input element is required"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "error": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is displayed in an error state"
+                },
+                "helperText": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The helper text content"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The size of the component"
+                },
+                "margin": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Defines the margin applied to the component"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiTypographyComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Displays text with predefined typography styles",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiTypography",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiTypography component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The text content"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the component"
+                },
+                "textAlign": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Text alignment"
+                },
+                "noWrap": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the text will not wrap, but instead will truncate with a text overflow ellipsis"
+                },
+                "gutterBottom": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the text will have a bottom margin"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiTooltipComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Displays contextual information on hover, focus, or touch",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiTooltip",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiTooltip component properties.",
+              "properties": {
+                "arrow": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays an arrow pointing to the target element"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "disableFocusListener": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Prevents the tooltip from appearing on focus"
+                },
+                "disableInteractive": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Disables interaction with the tooltip content"
+                },
+                "disableHoverListener": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Prevents the tooltip from appearing on hover"
+                },
+                "disableTouchListener": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Prevents the tooltip from appearing on touch"
+                },
+                "followCursor": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Makes the tooltip follow the cursor position"
+                },
+                "enterDelay": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Delay in milliseconds before showing the tooltip"
+                },
+                "leaveDelay": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Delay in milliseconds before hiding the tooltip"
+                },
+                "placement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable"
+                },
+                "title": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Text content displayed inside the tooltip"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiListComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Displays a vertical list of items",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiList",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiList component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "dense": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, reduces vertical padding"
+                },
+                "disablePadding": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, disables the default padding"
+                },
+                "sx": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringProperty",
+                  "description": "The system prop that allows defining system overrides as well as additional CSS styles"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiListItemComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Represents a single item inside a list",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiListItem",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiListItem component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "dense": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, reduces vertical padding"
+                },
+                "disableGutters": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, disables the left and right padding"
+                },
+                "disablePadding": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, disables the default padding"
+                },
+                "divider": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays a divider below the list item"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "sx": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringProperty",
+                  "description": "The system prop that allows defining system overrides as well as additional CSS styles"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiCircularProgressComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Indicates loading or progress in a circular form",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiCircularProgress",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiCircularProgress component properties.",
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The value of the component"
+                },
+                "thickness": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Controls the stroke width of the circle"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the component"
+                },
+                "disableShrink": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Disables the shrink animation"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiLinearProgressComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Indicates loading or progress in a linear bar",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiLinearProgress",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiLinearProgress component properties.",
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The value of the component"
+                },
+                "valueBuffer": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Secondary buffer value for buffered progress mode"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the component"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiBoxComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Generic layout container with system styling support",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiBox",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiBox component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "maxWidth": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable"
+                },
+                "sx": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringProperty",
+                  "description": "The system prop that allows defining system overrides as well as additional CSS styles"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiContainerComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Centers and constrains content horizontally",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiContainer",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiContainer component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "disableGutters": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, disables the left and right padding"
+                },
+                "fixed": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Sets a fixed max width instead of a fluid one"
+                },
+                "maxWidth": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Defines the maximum width of the container"
+                },
+                "sx": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringProperty",
+                  "description": "The system prop that allows defining system overrides as well as additional CSS styles"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiDialogLayoutComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A preset dialog layout with title, content, and action buttons",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiDialogLayout",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiDialogLayout component properties.",
+              "properties": {
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiStackComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Layouts children in a one-dimensional stack",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiStack",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiStack component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "sx": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringProperty",
+                  "description": "The system prop that allows defining system overrides as well as additional CSS styles"
+                },
+                "direction": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Defines whether items are stacked in a row or column"
+                },
+                "spacing": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Spacing between stacked items"
+                },
+                "justifyContent": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Controls main-axis alignment"
+                },
+                "alignItems": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Controls cross-axis alignment"
+                },
+                "flexWrap": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Controls whether items wrap onto multiple lines"
+                },
+                "useFlexGap": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Uses CSS gap instead of margins for spacing"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiCardComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Surface component for grouping related content",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiCard",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiCard component properties.",
+              "properties": {
+                "useHeader": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Enables the card header section"
+                },
+                "useHeaderAction": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Enables an action area inside the header"
+                },
+                "useHeaderAvatar": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays an avatar inside the header"
+                },
+                "useSubheader": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays a subheader below the main header"
+                },
+                "useMedia": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Enables a media section inside the card"
+                },
+                "useActions": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays an actions section at the bottom"
+                },
+                "useCardActionArea": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Wraps content with a clickable action area"
+                },
+                "header": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Content rendered in the card header"
+                },
+                "headerAction": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Action element displayed in the header"
+                },
+                "headerAvatar": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Avatar element displayed in the header"
+                },
+                "subHeader": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Secondary text displayed below the header"
+                },
+                "media": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Media content such as an image or video"
+                },
+                "actions": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Action buttons or controls for the card"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiBreadcrumbsComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Shows the current page location within a hierarchy",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiBreadcrumbs",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiBreadcrumbs component properties.",
+              "properties": {
+                "separator": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Element used to separate breadcrumb items"
+                },
+                "items": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "Breadcrumb items to display"
+                },
+                "maxItems": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Specifies the maximum number of breadcrumbs to display"
+                },
+                "itemsAfterCollapse": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "If max items is exceeded, the number of items to show after the ellipsis"
+                },
+                "itemsBeforeCollapse": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "If max items is exceeded, the number of items to show before the ellipsis"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiLinkComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Clickable element for navigation or actions",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiLink",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiLink component properties.",
+              "properties": {
+                "href": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Destination URL"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "target": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable"
+                },
+                "variant": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The variant to use"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the component"
+                },
+                "textAlign": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Text alignment"
+                },
+                "noWrap": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the text will not wrap, but instead will truncate with a text overflow ellipsis"
+                },
+                "gutterBottom": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the text will have a bottom margin"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiFormControlLabelComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Associates a label with a form control",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiFormControlLabel",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiFormControlLabel component properties.",
+              "required": [
+                "control"
+              ],
+              "properties": {
+                "control": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Form control element (checkbox, radio, switch)"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The value of the component"
+                },
+                "checked": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is checked"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "disableTypography": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "labelPlacement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Position of the label relative to the control"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ]
+        }
+      ]
+    },
+    "MuiFormLabelComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Label for grouping or describing form fields",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiFormLabel",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiFormLabel component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content of the component"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the component"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "error": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is displayed in an error state"
+                },
+                "filled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Applies the filled state styling"
+                },
+                "required": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the input element is required"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "MuiUploaderComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Component for uploading one or more files",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiUploader",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiUploader component properties.",
+              "properties": {
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "SlotComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Slot",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Slot component properties.",
+              "properties": {
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "EmbeddedFormComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "EmbeddedForm",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The EmbeddedForm component properties.",
+              "properties": {
+                "storeDataInParentForm": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanProperty"
+                },
+                "formName": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "options": {
+                  "type": "object",
+                  "$ref": "#/definitions/objectPropertyCalculable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RepeaterComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Repeater",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Repeater component properties.",
+              "properties": {
+                "itemRenderWhen": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculable"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "ScreenComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Screen",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Screen component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "AbstractComponentStore": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The React component key"
+        },
+        "dataKey": {
+          "type": "string",
+          "description": "The component data key."
+        },
+        "css": {
+          "$ref": "#/definitions/Css",
+          "description": "The component CSS styles."
+        },
+        "wrapperCss": {
+          "$ref": "#/definitions/Css",
+          "description": "The component wrapper CSS styles."
+        },
+        "style": {
+          "$ref": "#/definitions/ComponentStyle",
+          "description": "The component styles for the `style` attribute."
+        },
+        "wrapperStyle": {
+          "$ref": "#/definitions/ComponentStyle",
+          "description": "The component wrapper styles for the `style` attribute."
+        },
+        "events": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ActionData"
+            }
+          },
+          "propertyNames": {
+            "description": "The type for the event name."
+          },
+          "description": "The set of event handlers."
+        },
+        "schema": {
+          "$ref": "#/definitions/BoundValueSchema",
+          "description": "The component value validation settings."
+        },
+        "htmlAttributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HtmlAttribute"
+          },
+          "description": "The set of arbitrary HTML attributes added to the component."
+        },
+        "tooltipProps": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ComponentProperty"
+          },
+          "description": "The tooltip settings."
+        },
+        "modal": {
+          "$ref": "#/definitions/ModalComponentStore",
+          "description": "The modal settings."
+        },
+        "slot": {
+          "type": "string",
+          "description": "The name of the occupied component property in the parent component."
+        },
+        "renderWhen": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "The expression or function to conditionally render a component."
+        },
+        "disableDataBinding": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "Disables data binding for the component."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "description": "Component settings for serialization in JSON."
+    },
+    "stringPropertyCalculableLocalizable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'string' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'children' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "localization",
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "string property type, calculable, localizable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "localization"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value",
+                "fnSource"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "enumPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a 'enum' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'color' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "enum property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "booleanPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "The simple value of a 'boolean' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'disabled' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "boolean property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "undefinedPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a 'undefined' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'children' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "undefined property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "arrayPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The simple value of a 'array' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'items' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "array property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "numberPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The simple value of a 'number' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'maxRows' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "number property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "stringProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'string' component property."
+        }
+      },
+      "description": "string property type",
+      "required": [
+        "value"
+      ]
+    },
+    "booleanProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "The simple value of a 'boolean' component property."
+        }
+      },
+      "description": "boolean property type",
+      "required": [
+        "value"
+      ]
+    },
+    "objectPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "description": "The simple value of a 'object' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'options' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "object property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "stringPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'string' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'itemRenderWhen' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "string property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "childrenProperty": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/MuiButtonComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiButtonGroupComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiCheckboxComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiRadioGroupComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiRadioItemComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiSelectComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiSwitchComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiTextFieldComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiTypographyComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiTooltipComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiListComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiListItemComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiCircularProgressComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiLinearProgressComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiBoxComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiContainerComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiDialogLayoutComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiStackComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiCardComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiBreadcrumbsComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiLinkComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiFormControlLabelComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiFormLabelComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiUploaderComponentStore"
+          },
+          {
+            "$ref": "#/definitions/SlotComponentStore"
+          },
+          {
+            "$ref": "#/definitions/EmbeddedFormComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RepeaterComponentStore"
+          },
+          {
+            "$ref": "#/definitions/ModalComponentStore"
+          }
+        ]
+      }
+    }
+  },
+  "title": "FormEngine JSON schema"
+}

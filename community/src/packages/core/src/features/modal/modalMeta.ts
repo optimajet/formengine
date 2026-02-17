@@ -1,18 +1,14 @@
 import {Store} from '../../stores/Store'
-import type {ComponentData} from '../../utils/contexts/ComponentDataContext'
 import {string} from '../annotation/stringAnnotation'
 import {toArray} from '../annotation/toArray'
 import {createAnnotation} from '../annotation/utils/createAnnotation'
 import type {ComponentMetadataEventListeners} from '../define/utils/ComponentMetadataEventListeners'
 import {Meta} from '../define/utils/Meta'
-import {isTemplateType} from '../ui/templateUtil'
 import type {ModalProps} from './Modal'
 import {modalModel} from './modalModel'
 
 const modalProperties = toArray<ModalProps>({
-  modalTemplate: string.required.setup({editor: 'componentType'}).withEditorProps({
-    filter: (componentData: ComponentData) => isTemplateType(componentData.model.type)
-  })
+  modalTemplate: string.required.setup({editor: 'templateTypePicker'})
 })
 
 const modalProps = createAnnotation('modalProps')

@@ -1,12 +1,12 @@
+import type {ViewType} from '@react-form-builder/apps-common'
+import {ThemePicker, usePersistentTheme, usePersistentView, ViewPicker, ViewProvider} from '@react-form-builder/apps-common'
 import type {BuilderTheme} from '@react-form-builder/core'
 import {BuilderThemeProvider} from '@react-form-builder/core'
-import {useEffect, useMemo, useState} from 'react'
-import type {ViewType} from './components/ViewContext'
-import {ViewProvider} from './components/ViewContext'
-import {ViewPicker} from './components/ViewPicker'
+import type {ReactNode} from 'react'
+import {useMemo} from 'react'
+import {MantineViewer} from './components/MantineViewer'
 import {MuiViewer} from './components/MuiViewer'
 import {RSuiteViewer} from './components/RSuiteViewer'
-import {ThemePicker} from './components/ThemePicker'
 import '../public/style.css'
 import logo from './images/viewer.svg?url'
 
@@ -16,33 +16,27 @@ const defaultView: ViewType = 'rsuite'
 const themeStorageKey = 'react-form-viewer-theme'
 const defaultTheme: BuilderTheme = 'light'
 
-const usePersistentView = (): [ViewType, (view: ViewType) => void] => {
-  const [view, setViewState] = useState<ViewType>(() => {
-    return (localStorage.getItem(storageKey) ?? defaultView) as ViewType
-  })
-
-  useEffect(() => localStorage.setItem(storageKey, view), [view])
-
-  return [view, setViewState]
-}
-
-const usePersistentTheme = () => {
-  const [theme, setTheme] = useState<BuilderTheme>(() => {
-    return (localStorage.getItem(themeStorageKey) ?? defaultTheme) as BuilderTheme
-  })
-
-  useEffect(() => localStorage.setItem(themeStorageKey, theme), [theme])
-
-  return [theme, setTheme] as const
+const getViewer = (view: ViewType): ReactNode => {
+  switch (view) {
+    case 'rsuite':
+      return <RSuiteViewer />
+    case 'mui':
+      return <MuiViewer />
+    case 'mantine':
+      return <MantineViewer />
+    default:
+      return `"view" not defined`
+  }
 }
 
 /**
  * @returns the App element.
  */
 export const ExampleViewerApp = () => {
-  const [view, setView] = usePersistentView()
-  const [theme, setTheme] = usePersistentTheme()
+  const [view, setView] = usePersistentView('react-form-viewer', {storageKey, defaultView})
+  const [theme, setTheme] = usePersistentTheme({storageKey: themeStorageKey, defaultTheme})
   const providerValue = useMemo(() => ({view, setView}), [view, setView])
+  const viewer = useMemo(() => getViewer(view), [view])
 
   return (
     <BuilderThemeProvider value={theme}>
@@ -54,7 +48,7 @@ export const ExampleViewerApp = () => {
           <ThemePicker theme={theme} onChange={setTheme} />
           <ViewPicker />
         </div>
-        {view === 'rsuite' ? <RSuiteViewer /> : <MuiViewer />}
+        {viewer}
       </ViewProvider>
     </BuilderThemeProvider>
   )

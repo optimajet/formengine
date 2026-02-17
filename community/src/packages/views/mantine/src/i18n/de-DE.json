@@ -1,0 +1,1201 @@
+{
+  "categories": {
+    "buttons": {
+      "name": "Taste"
+    },
+    "combobox": {
+      "name": "Kombinationsfeld"
+    },
+    "dates": {
+      "name": "Reisedaten"
+    },
+    "inputs": {
+      "name": "Eingang"
+    },
+    "layout": {
+      "name": "Layout"
+    },
+    "miscellaneous": {
+      "name": "Diverses"
+    },
+    "otherExtensions": {
+      "name": "Andere Erweiterungen"
+    },
+    "overlays": {
+      "name": "Overlay"
+    },
+    "typography": {
+      "name": "Typografie"
+    }
+  },
+  "commonProperties": {
+    "align": {
+      "description": "Ausrichtung von Elementen.",
+      "name": "Ausrichten"
+    },
+    "c": {
+      "description": "Textfarbe.",
+      "name": "Farbig"
+    },
+    "clearable": {
+      "description": "Wenn gesetzt, wird die Schaltfläche Löschen angezeigt, wenn die Komponente einen Wert hat",
+      "name": "Lösbar"
+    },
+    "color": {
+      "description": "Farbig",
+      "name": "Farbig"
+    },
+    "columnsToScroll": {
+      "description": "Anzahl der zu scrollenden Spalten beim Navigieren",
+      "name": "Zu scrollende Spalten"
+    },
+    "data": {
+      "description": "Optionen Daten.",
+      "name": "Daten"
+    },
+    "defaultVisible": {
+      "description": "Anfänglicher Sichtbarkeitsstatus des Inhalts.",
+      "name": "Standardmäßig sichtbar"
+    },
+    "description": {
+      "description": "Die Komponentenbeschreibung",
+      "name": "Beschreibung"
+    },
+    "disabled": {
+      "description": "Deaktivierter Zustand",
+      "name": "Behinderte"
+    },
+    "dropdownOpened": {
+      "description": "Steuert den geöffneten Dropdown-Status.",
+      "name": "Dropdown geöffnet"
+    },
+    "dropdownType": {
+      "description": "Typ der Dropdown-Liste",
+      "name": "Dropdown-Typ"
+    },
+    "error": {
+      "description": "Fehlermeldung oder Fehlerstatus.",
+      "name": "Fehlermeldung"
+    },
+    "filledVariant": {
+      "description": "Steuern Sie die Erscheinungsvariante.",
+      "name": "Variante"
+    },
+    "fs": {
+      "description": "Schriftschnitt.",
+      "name": "Schriftschnitt"
+    },
+    "fw": {
+      "description": "Schriftstärke.",
+      "name": "Schriftstärke"
+    },
+    "fz": {
+      "description": "Schriftgröße.",
+      "name": "Schriftgröße"
+    },
+    "grow": {
+      "description": "Gibt an, ob Elemente wachsen sollen, um den verfügbaren Platz zu füllen.",
+      "name": "Wachsen"
+    },
+    "hideOutsideDates": {
+      "description": "Blendet Daten aus, die außerhalb des aktuellen Monats liegen",
+      "name": "Außerhalb der Daten ausblenden"
+    },
+    "hideWeekdays": {
+      "description": "Blendet die Wochentagszeile aus",
+      "name": "Wochentage ausblenden"
+    },
+    "highlightToday": {
+      "description": "Highlights heute Datum",
+      "name": "Highlight heute"
+    },
+    "justify": {
+      "description": "Begründen Sie Inhalte innerhalb der Gruppe.",
+      "name": "Rechtfertigen"
+    },
+    "label": {
+      "description": "Das Komponentenlabel",
+      "name": "Etikett"
+    },
+    "labelPosition": {
+      "description": "Etikettenposition",
+      "name": "Etikettenposition"
+    },
+    "lh": {
+      "description": "Zeilenhöhe.",
+      "name": "Zeilenhöhe"
+    },
+    "maxDropdownHeight": {
+      "description": "Maximale Dropdown-Höhe in Pixel.",
+      "name": "Maximale Dropdown-Höhe"
+    },
+    "minRows": {
+      "description": "Minimale sichtbare Zeilen.",
+      "name": "Min Zeilen"
+    },
+    "nothingFoundMessage": {
+      "description": "Meldung angezeigt, wenn keine Optionen übereinstimmen.",
+      "name": "Nichts gefunden Nachricht"
+    },
+    "numberOfColumns": {
+      "description": "Anzahl der angezeigten Monate",
+      "name": "Anzahl der Spalten"
+    },
+    "onBlur": {
+      "description": "Wird aufgerufen, wenn die Eingabe den Fokus verliert.",
+      "name": "Aufblähen"
+    },
+    "onChange": {
+      "description": "Wird aufgerufen, wenn der Wert der Komponente geändert wird",
+      "name": "Bei Änderung"
+    },
+    "onDropdownClose": {
+      "description": "Wird aufgerufen, wenn das Dropdown-Menü geschlossen wird.",
+      "name": "Ondropdownschließen"
+    },
+    "onDropdownOpen": {
+      "description": "Wird aufgerufen, wenn das Dropdown-Menü geöffnet wird.",
+      "name": "Ondropdownöffnen"
+    },
+    "onFocus": {
+      "description": "Wird aufgerufen, wenn die Eingabe den Fokus erhält.",
+      "name": "onFokus"
+    },
+    "onSearchChange": {
+      "description": "Wird aufgerufen, wenn sich der Suchwert ändert.",
+      "name": "onSearchChange"
+    },
+    "placeholder": {
+      "description": "Platzhalter",
+      "name": "Platzhalter"
+    },
+    "radius": {
+      "description": "Randradius.",
+      "name": "Radius"
+    },
+    "readOnly": {
+      "description": "Gibt an, ob die Eingabe schreibgeschützt ist.",
+      "name": "Schreibgesch"
+    },
+    "searchValue": {
+      "description": "Kontrollierter Sucheingabewert.",
+      "name": "Suchwert"
+    },
+    "size": {
+      "description": "Steuert verschiedene Eigenschaften in Bezug auf die Komponentengröße",
+      "name": "Größe"
+    },
+    "spacing": {
+      "description": "Abstand zwischen Elementen.",
+      "name": "Zeilenabstand"
+    },
+    "ta": {
+      "description": "Textausrichtung.",
+      "name": "Textausrichtung"
+    },
+    "td": {
+      "description": "Textdekoration.",
+      "name": "Textdekoration"
+    },
+    "tt": {
+      "description": "Text umwandeln.",
+      "name": "Texttransformation"
+    },
+    "value": {
+      "description": "Der Komponentenwert",
+      "name": "Wert"
+    },
+    "variant": {
+      "description": "Steuert das Erscheinungsbild der Komponente",
+      "name": "Variante"
+    },
+    "withAsterisk": {
+      "description": "Wenn gesetzt, wird das erforderliche Sternchen neben dem Etikett angezeigt",
+      "name": "Mit Sternchen"
+    },
+    "withScrollArea": {
+      "description": "Ob Dropdown einen Bildlaufbereich verwendet.",
+      "name": "Mit Scrollbereich"
+    },
+    "withSeconds": {
+      "description": "Legt fest, ob Sekunden in der Zeitauswahl enthalten sein sollen",
+      "name": "Mit Sekunden"
+    },
+    "withWeekNumbers": {
+      "description": "Zeigt die Spalte mit den Wochennummern an",
+      "name": "Mit Wochennummern"
+    },
+    "wrap": {
+      "description": "Wrap-Verhalten für Elemente.",
+      "name": "Wickeln"
+    }
+  },
+  "components": {
+    "MtAutocomplete": {
+      "description": "Automatische Vervollständigung von Benutzereingaben mit einer beliebigen Liste von Optionen",
+      "name": "Automatische Vervollständigung",
+      "props": {
+        "data": {
+          "description": "Daten, die zum Anzeigen von Optionen verwendet werden",
+          "name": "Daten"
+        }
+      }
+    },
+    "MtButton": {
+      "description": "Schaltflächenkomponente zum Rendern von Schaltflächen oder Verknüpfungen",
+      "name": "Schaltfläche",
+      "props": {
+        "children": {
+          "description": "Inhalt der Schaltfläche",
+          "name": "Inhalt"
+        },
+        "fullWidth": {
+          "description": "Wenn gesetzt, nimmt die Schaltfläche die volle Breite des übergeordneten Containers ein",
+          "name": "Volle Breite"
+        },
+        "onClick": {
+          "description": "Wird aufgerufen, wenn auf die Schaltfläche geklickt wird",
+          "name": "onClick"
+        }
+      }
+    },
+    "MtCheckbox": {
+      "description": "Erfassen Sie boolesche Eingaben vom Benutzer",
+      "name": "Kontrollkästchen",
+      "props": {
+        "checked": {
+          "description": "Gibt an, ob das Kontrollkästchen aktiviert ist",
+          "name": "Ft"
+        }
+      }
+    },
+    "MtCheckboxGroup": {
+      "description": "Kontrollkästchen-Gruppe",
+      "name": "Kontrollkästchen-Gruppe",
+      "props": {
+        "items": {
+          "description": "Elemente der Kontrollkästchengruppe",
+          "name": "Gegenst"
+        }
+      }
+    },
+    "MtChip": {
+      "description": "Wert mit Inline-Steuerelementen auswählen",
+      "name": "Chip",
+      "props": {
+        "checked": {
+          "description": "Gibt an, ob der Chip ausgewählt ist",
+          "name": "Ft"
+        },
+        "children": {
+          "description": "Das Komponentenlabel",
+          "name": "Etikett"
+        }
+      }
+    },
+    "MtChipCheckboxGroup": {
+      "description": "Wählen Sie einen oder mehrere Werte mit Inline-Steuerelementen aus",
+      "name": "Chip-Kontrollkästchen-Gruppe",
+      "props": {
+        "items": {
+          "description": "Chip-Optionen",
+          "name": "Gegenst"
+        }
+      }
+    },
+    "MtChipRadioGroup": {
+      "description": "Wählen Sie einen Wert mit Inline-Steuerelementen aus",
+      "name": "Chipfunkgruppe",
+      "props": {
+        "items": {
+          "description": "Chip-Optionen",
+          "name": "Gegenst"
+        }
+      }
+    },
+    "MtColorInput": {
+      "description": "Farbe vom Benutzer erfassen",
+      "name": "Farbeingabe",
+      "props": {
+        "format": {
+          "description": "Farbformat",
+          "name": "Formatierung"
+        },
+        "swatches": {
+          "description": "Eine Liste der Farben, die zum Anzeigen der Farbfeldliste unter dem Farbwähler verwendet werden",
+          "name": "Farbfelder"
+        }
+      }
+    },
+    "MtColorPicker": {
+      "description": "Wählen Sie Farben in den Formaten Hex (a), RGB (a), hsl (a) und hsv (a) aus",
+      "name": "Farbwähler",
+      "props": {
+        "format": {
+          "description": "Farbformat",
+          "name": "Formatierung"
+        },
+        "fullWidth": {
+          "description": "Gibt an, ob auf die volle Breite gedehnt werden soll.",
+          "name": "Volle Breite"
+        },
+        "swatches": {
+          "description": "Farbfeld.",
+          "name": "Farbfelder"
+        },
+        "swatchesPerRow": {
+          "description": "Anzahl der Farbfelder pro Zeile.",
+          "name": "Farbfelder pro Zeile"
+        },
+        "withPicker": {
+          "description": "Gibt an, ob die Auswahleingabe angezeigt werden soll.",
+          "name": "Mit Picker"
+        }
+      }
+    },
+    "MtContainer": {
+      "description": "Zentrieren Sie den Inhalt mit Polsterung und maximaler Breite",
+      "name": "Container",
+      "props": {
+        "children": {
+          "description": "Komponente Kinder",
+          "name": "Kinder"
+        }
+      }
+    },
+    "MtDateMultiplePicker": {
+      "description": "Ermöglicht die Auswahl mehrerer Daten",
+      "name": "Datums-Mehrfachauswahl",
+      "props": {
+        "maxDate": {
+          "description": "Maximal wählbares Datum im Format JJJJ-MM-TT",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Datum, Format JJJJ-MM-TT",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtDateMultiplePickerInput": {
+      "description": "Ermöglicht die Auswahl mehrerer Daten",
+      "name": "Eingabe von Datums-Mehrfachauswahl",
+      "props": {
+        "maxDate": {
+          "description": "Maximal wählbares Datum im Format JJJJ-MM-TT",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Datum, Format JJJJ-MM-TT",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtDatePicker": {
+      "description": "Ermöglicht die Auswahl eines Datums",
+      "name": "Datumswahl",
+      "props": {
+        "allowDeselect": {
+          "description": "Legt fest, ob der Benutzer die Auswahl des Datums aufheben kann, indem er auf das ausgewählte Datum klickt",
+          "name": "Auswahl aufheben zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Datum im Format JJJJ-MM-TT",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Datum, Format JJJJ-MM-TT",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtDatePickerInput": {
+      "description": "Datumsauswahl-Eingabe",
+      "name": "Datumsauswahl-Eingabe",
+      "props": {
+        "allowDeselect": {
+          "description": "Legt fest, ob der Benutzer die Auswahl des Datums aufheben kann, indem er auf das ausgewählte Datum klickt",
+          "name": "Auswahl aufheben zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Datum im Format JJJJ-MM-TT",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Datum, Format JJJJ-MM-TT",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtDateRangePicker": {
+      "description": "Ermöglicht die Auswahl eines Datumsbereichs",
+      "name": "Datumsbereichsauswahl",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Ermöglicht die Auswahl eines einzelnen Datums als Bereich",
+          "name": "Einzelnes Datum im Bereich zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Datum im Format JJJJ-MM-TT",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Datum, Format JJJJ-MM-TT",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtDateRangePickerInput": {
+      "description": "Eingabe der Datumsbereichsauswahl",
+      "name": "Eingabe der Datumsbereichsauswahl",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Ermöglicht die Auswahl eines einzelnen Datums als Bereich",
+          "name": "Einzelnes Datum im Bereich zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Datum im Format JJJJ-MM-TT",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Datum, Format JJJJ-MM-TT",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtDateTimePicker": {
+      "description": "Erfassen Sie Datum und Uhrzeit vom Benutzer",
+      "name": "Datums- / Uhrzeitauswahl",
+      "props": {
+        "valueFormat": {
+          "description": "Benutzerdefiniertes Dayjs-Format zum Anzeigen des Werts",
+          "name": "Wertformat"
+        }
+      }
+    },
+    "MtDialog": {
+      "description": "Zeigen Sie einen festen Überlagerungsdialog an einer beliebigen Seite des Bildschirms an",
+      "name": "Dialog",
+      "props": {
+        "children": {
+          "description": "Dialog Inhalt",
+          "name": "Kinder"
+        },
+        "onOpenedChange": {
+          "description": "Wird aufgerufen, wenn die geöffnete Eigenschaft geändert wird",
+          "name": "Bei geöffnetem Wechsel"
+        },
+        "opened": {
+          "description": "Ob der Dialog geöffnet ist",
+          "name": "Öffnen"
+        },
+        "showCloseButton": {
+          "description": "Gibt an, ob die Schaltfläche zum Schließen angezeigt werden soll",
+          "name": "Schaltfläche zum Schließen anzeigen"
+        },
+        "title": {
+          "description": "Titel des Dialogs",
+          "name": "Titelleiste"
+        }
+      }
+    },
+    "MtDivider": {
+      "description": "Horizontale Linie mit optionalem Etikett oder vertikaler Trennwand",
+      "name": "Teiler",
+      "props": {
+        "orientation": {
+          "description": "Ausrichtung des Teilers",
+          "name": "Orientierung"
+        }
+      }
+    },
+    "MtDropzone": {
+      "description": "Erfassen Sie Dateien vom Benutzer per Drag &amp; Drop",
+      "name": "Dropzone",
+      "props": {
+        "accept": {
+          "description": "Akzeptierte MIME-Typen",
+          "name": "Akzeptieren"
+        },
+        "multiple": {
+          "description": "Mehrere Dateien zulassen",
+          "name": "Mehrere"
+        }
+      }
+    },
+    "MtErrorWrapper": {
+      "description": "Zeigt eine Validierungsfehlermeldung unter dem Formularsteuerelement an",
+      "name": "Fehlermeldung"
+    },
+    "MtFileInput": {
+      "description": "Dateien vom Benutzer erfassen",
+      "name": "Dateieingabe",
+      "props": {
+        "accept": {
+          "description": "Akzeptierte Dateitypen",
+          "name": "Akzeptieren"
+        },
+        "multiple": {
+          "description": "Mehrere Dateien zulassen",
+          "name": "Mehrere"
+        }
+      }
+    },
+    "MtJsonInput": {
+      "description": "Erfassen Sie JSON-Daten vom Benutzer",
+      "name": "JSON-Eingabe",
+      "props": {
+        "minRows": {
+          "description": "Mindestanzahl von Zeilen",
+          "name": "Min Zeilen"
+        }
+      }
+    },
+    "MtLabel": {
+      "description": "Zeigt die Beschriftung an",
+      "name": "Etikett",
+      "props": {
+        "children": {
+          "description": "Text des Etiketts",
+          "name": "Etikett"
+        }
+      }
+    },
+    "MtMonthMultiplePicker": {
+      "description": "Monatsauswahl",
+      "name": "Monatsauswahl",
+      "props": {
+        "maxDate": {
+          "description": "Maximal wählbarer Monat",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimaler wählbarer Monat",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtMonthMultiplePickerInput": {
+      "description": "Monat Mehrfachauswahl-Eingabe",
+      "name": "Monat Mehrfachauswahl-Eingabe",
+      "props": {
+        "maxDate": {
+          "description": "Maximal wählbarer Monat",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimaler wählbarer Monat",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtMonthPicker": {
+      "description": "Inline-Monatsauswahl",
+      "name": "Monatsauswahl",
+      "props": {
+        "allowDeselect": {
+          "description": "Legt fest, ob der Benutzer die Auswahl des Monats aufheben kann, indem er auf den ausgewählten Monat klickt",
+          "name": "Auswahl aufheben zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbarer Monat",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimaler wählbarer Monat",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtMonthPickerInput": {
+      "description": "Eingabe der Monatsauswahl",
+      "name": "Eingabe der Monatsauswahl",
+      "props": {
+        "allowDeselect": {
+          "description": "Legt fest, ob der Benutzer die Auswahl des Monats aufheben kann, indem er auf den ausgewählten Monat klickt",
+          "name": "Auswahl aufheben zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbarer Monat",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimaler wählbarer Monat",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtMonthRangePicker": {
+      "description": "Inline-Monatsauswahl",
+      "name": "Monatsbereichsauswahl",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Ermöglicht die Auswahl eines einzelnen Monats als Bereich",
+          "name": "Einzelnes Datum im Bereich zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbarer Monat",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimaler wählbarer Monat",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtMonthRangePickerInput": {
+      "description": "Eingabe der Monatsbereichsauswahl",
+      "name": "Eingabe der Monatsbereichsauswahl",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Ermöglicht die Auswahl eines einzelnen Monats als Bereich",
+          "name": "Einzelnes Datum im Bereich zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbarer Monat",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimaler wählbarer Monat",
+          "name": "Mindestdatum"
+        }
+      }
+    },
+    "MtMultiSelect": {
+      "description": "Benutzerdefinierte durchsuchbare Mehrfachauswahl",
+      "name": "Mehrfachauswahl",
+      "props": {
+        "data": {
+          "description": "Daten, die zum Anzeigen von Optionen verwendet werden",
+          "name": "Daten"
+        },
+        "searchable": {
+          "description": "Suche aktivieren",
+          "name": "Durchsuchbaren"
+        }
+      }
+    },
+    "MtNativeSelect": {
+      "description": "Natives Auswahlelement basierend auf Eingabe",
+      "name": "Native auswählen",
+      "props": {
+        "data": {
+          "description": "Daten, die zum Anzeigen von Optionen verwendet werden",
+          "name": "Daten"
+        }
+      }
+    },
+    "MtNumberInput": {
+      "description": "Nummer vom Benutzer erfassen",
+      "name": "Zahleneingabe",
+      "props": {
+        "allowDecimal": {
+          "description": "Dezimalwerte zulassen",
+          "name": "Dezimalzahl zulassen"
+        },
+        "allowLeadingZeros": {
+          "description": "Führende Nullen zulassen",
+          "name": "Führende Nullen zulassen"
+        },
+        "allowNegative": {
+          "description": "Negative Werte zulassen",
+          "name": "Negativ zulassen"
+        },
+        "clampBehavior": {
+          "description": "Spannverhalten",
+          "name": "Klemmverhalten"
+        },
+        "decimalScale": {
+          "description": "Begrenzt die Anzahl der Ziffern, die nach dem Dezimalzeichen eingegeben werden können",
+          "name": "Dezimalskala"
+        },
+        "decimalSeparator": {
+          "description": "Zeichen, das als Dezimaltrennzeichen verwendet wird",
+          "name": "Dezimaltrennzeichen"
+        },
+        "fixedDecimalScale": {
+          "description": "Wenn gesetzt, werden 0 nach dem Dezimaltrennzeichen hinzugefügt, um der angegebenen Dezimalskala zu entsprechen",
+          "name": "Feste Dezimalskala"
+        },
+        "hideControls": {
+          "description": "Steuerelemente zum Erhöhen und Verringern ausblenden",
+          "name": "Steuerelemente ausblenden"
+        },
+        "max": {
+          "description": "Maximalwert",
+          "name": "Max"
+        },
+        "min": {
+          "description": "Mindestwert",
+          "name": "Min"
+        },
+        "prefix": {
+          "description": "Zeichenfolge, die vor der Nummer hinzugefügt werden soll",
+          "name": "Präfix"
+        },
+        "startValue": {
+          "description": "Wert wird auf die Eingabe gesetzt, wenn auf Inkrement- / Dekrement-Schaltflächen geklickt oder Aufwärts- / Abwärtspfeile gedrückt werden, wenn die Eingabe leer ist",
+          "name": "Startwert"
+        },
+        "step": {
+          "description": "Schrittwert",
+          "name": "Schritt"
+        },
+        "suffix": {
+          "description": "Zeichenfolge, die nach der Nummer hinzugefügt werden soll",
+          "name": "Nachsilbe"
+        },
+        "thousandSeparator": {
+          "description": "Zeichen, das als Tausendertrennzeichen verwendet wird",
+          "name": "Tausendertrennzeichen"
+        },
+        "thousandsGroupStyle": {
+          "description": "Stil der Tausendergruppierung",
+          "name": "Tausende Gruppenstil"
+        },
+        "trimLeadingZeroesOnBlur": {
+          "description": "Wenn gesetzt, werden führende Nullen bei Unschärfe entfernt. Zum Beispiel 00100 -&gt; 100",
+          "name": "Führende Nullen bei Unschärfe abschneiden"
+        }
+      }
+    },
+    "MtPasswordInput": {
+      "description": "Erfassen Sie Passwortdaten vom Benutzer",
+      "name": "Passworteingabe"
+    },
+    "MtRadio": {
+      "description": "Wrapper für Eingangstyp Radio",
+      "name": "Radio",
+      "props": {
+        "checked": {
+          "description": "Gibt an, ob das Funkgerät überprüft wird",
+          "name": "Ft"
+        }
+      }
+    },
+    "MtRadioGroup": {
+      "description": "Radiogruppe",
+      "name": "Radiogruppe",
+      "props": {
+        "items": {
+          "description": "Radio-Optionen",
+          "name": "Gegenst"
+        }
+      }
+    },
+    "MtRangeSlider": {
+      "description": "RangeSlider-Komponente",
+      "name": "Bereich Schieberegler",
+      "props": {
+        "inverted": {
+          "description": "Legt fest, ob die Darstellung der Spurwerte invertiert werden soll",
+          "name": "Umgekehrten"
+        },
+        "labelAlwaysOn": {
+          "description": "Legt fest, ob die Beschriftung sichtbar sein soll, wenn der Schieberegler nicht gezogen oder bewegt wird",
+          "name": "Etikett immer an"
+        },
+        "max": {
+          "description": "Maximalwert",
+          "name": "Max"
+        },
+        "maxRange": {
+          "description": "Maximale Reichweite, die ausgewählt werden kann",
+          "name": "Maximale Reichweite"
+        },
+        "min": {
+          "description": "Mindestwert",
+          "name": "Min"
+        },
+        "precision": {
+          "description": "Anzahl der zu verwendenden Dezimalstellen",
+          "name": "Präzision"
+        },
+        "pushOnOverlap": {
+          "description": "Legt fest, ob der andere Daumen durch Ziehen des aktuellen Daumens gedrückt werden soll, wenn minRange / maxRange erreicht ist",
+          "name": "Überlappung aufdrücken"
+        },
+        "showLabelOnHover": {
+          "description": "Legt fest, ob die Beschriftung angezeigt werden soll, wenn der Schieberegler bewegt wird",
+          "name": "Beschriftung beim Hover anzeigen"
+        },
+        "step": {
+          "description": "Schrittwert",
+          "name": "Schritt"
+        }
+      }
+    },
+    "MtRating": {
+      "description": "Bewertung auswählen und anzeigen",
+      "name": "Bewertung",
+      "props": {
+        "count": {
+          "description": "Anzahl der Sterne",
+          "name": "Zählen"
+        },
+        "fractions": {
+          "description": "Anzahl der Fraktionen",
+          "name": "Bruchteil"
+        }
+      }
+    },
+    "MtSegmentedControl": {
+      "description": "Ein linearer Satz von zwei oder mehr Segmenten",
+      "name": "Segmentierte Steuerung",
+      "props": {
+        "data": {
+          "description": "Option",
+          "name": "Daten"
+        }
+      }
+    },
+    "MtSelect": {
+      "description": "Benutzerdefinierte durchsuchbare Auswahl",
+      "name": "Wählen",
+      "props": {
+        "data": {
+          "description": "Option",
+          "name": "Daten"
+        },
+        "searchable": {
+          "description": "Suche aktivieren",
+          "name": "Durchsuchbaren"
+        }
+      }
+    },
+    "MtSlider": {
+      "description": "Schieberegler-Komponente",
+      "name": "Schieberegler",
+      "props": {
+        "max": {
+          "description": "Maximalwert",
+          "name": "Max"
+        },
+        "min": {
+          "description": "Mindestwert",
+          "name": "Min"
+        },
+        "step": {
+          "description": "Schrittwert",
+          "name": "Schritt"
+        }
+      }
+    },
+    "MtSwitch": {
+      "description": "Erfassen Sie boolesche Eingaben vom Benutzer",
+      "name": "Schalter",
+      "props": {
+        "checked": {
+          "description": "Gibt an, ob der Schalter eingeschaltet ist",
+          "name": "Ft"
+        }
+      }
+    },
+    "MtSwitchGroup": {
+      "description": "Erfassen Sie boolesche Eingaben vom Benutzer",
+      "name": "Schaltergruppe",
+      "props": {
+        "items": {
+          "description": "Schalteroptionen",
+          "name": "Gegenst"
+        }
+      }
+    },
+    "MtTagsInput": {
+      "description": "Erfassen Sie eine Werteliste vom Benutzer mit kostenlosen Eingaben und Vorschlägen",
+      "name": "Tags Eingabe",
+      "props": {
+        "data": {
+          "description": "Option",
+          "name": "Daten"
+        }
+      }
+    },
+    "MtText": {
+      "description": "Anzeigetext",
+      "name": "Text",
+      "props": {
+        "children": {
+          "description": "Textinhalt",
+          "name": "Inhalt"
+        },
+        "inherit": {
+          "description": "Bestimmt, ob Schriftarteigenschaften vom übergeordneten Element geerbt werden sollen",
+          "name": "Erben"
+        },
+        "inline": {
+          "description": "Setzt die Zeilenhöhe zum Zentrieren auf 1",
+          "name": "Inline"
+        },
+        "lineClamp": {
+          "description": "Anzahl der Zeilen, nach denen der Text abgeschnitten wird",
+          "name": "Leitungsklemme"
+        },
+        "span": {
+          "description": "Anzeige als Span-Element",
+          "name": "Span"
+        },
+        "truncate": {
+          "description": "Seite, auf der Text abgeschnitten werden muss",
+          "name": "Truncate"
+        }
+      }
+    },
+    "MtTextInput": {
+      "description": "Zeichenketteneingabe vom Benutzer erfassen",
+      "name": "Texteingabe",
+      "props": {
+        "type": {
+          "description": "Eingabetyp",
+          "name": "Art"
+        }
+      }
+    },
+    "MtTextarea": {
+      "description": "Automatische Größe oder regulärer Textbereich",
+      "name": "Textbereich",
+      "props": {
+        "autosize": {
+          "description": "Automatische Größe aktivieren",
+          "name": "Automatische Größe"
+        },
+        "maxRows": {
+          "description": "Maximale Anzahl von Zeilen",
+          "name": "Maximale Reihen"
+        },
+        "minRows": {
+          "description": "Mindestanzahl von Zeilen",
+          "name": "Min Zeilen"
+        }
+      }
+    },
+    "MtTimeGrid": {
+      "description": "Erfasst den Zeitwert des Benutzers mit einem vordefinierten Satz von Optionen",
+      "name": "Zeitraster",
+      "props": {
+        "endTime": {
+          "description": "Endzeit im Format \"HH:mm\"",
+          "name": "Endzeit"
+        },
+        "format": {
+          "description": "Zeitformat",
+          "name": "Formatierung"
+        },
+        "startTime": {
+          "description": "Startzeit im Format \"HH:mm\"",
+          "name": "Startzeit"
+        }
+      }
+    },
+    "MtTimeInput": {
+      "description": "Zeit vom Benutzer erfassen",
+      "name": "Zeiteingabe"
+    },
+    "MtTimePicker": {
+      "description": "Erfasst den Zeitwert vom Benutzer",
+      "name": "Zeitauswahl",
+      "props": {
+        "format": {
+          "description": "Zeitformat",
+          "name": "Formatierung"
+        },
+        "max": {
+          "description": "Maximal wählbare Zeit, Format HH:mm:ss",
+          "name": "Max"
+        },
+        "min": {
+          "description": "Minimale wählbare Zeit, Format HH: mm: ss",
+          "name": "Min"
+        },
+        "reverseTimeControlsList": {
+          "description": "Kehrt die Reihenfolge der Zeitsteuerungen (Stunden, Minuten, Sekunden) entsprechend der Tastaturnavigation um",
+          "name": "Liste der Zeitsteuerungen umkehren"
+        }
+      }
+    },
+    "MtTiptap": {
+      "description": "Tiptap-basierter Rich-Text-Editor",
+      "name": "Rich-Text-Editor",
+      "props": {
+        "error": {
+          "description": "Eingabefehlermeldung",
+          "name": "Fehlermeldung"
+        },
+        "value": {
+          "description": "Anfänglicher Inhalt des Editors im HTML-Format",
+          "name": "Wert"
+        }
+      }
+    },
+    "MtTitle": {
+      "description": "überschrift h1-h6",
+      "name": "Titelleiste",
+      "props": {
+        "children": {
+          "description": "Titel Inhalt",
+          "name": "Inhalt"
+        },
+        "order": {
+          "description": "Kopfebene",
+          "name": "Bestellen"
+        }
+      }
+    },
+    "MtTooltip": {
+      "description": "Rendert den Tooltip bei einem bestimmten Element beim Überfahren mit der Maus oder einem anderen Ereignis",
+      "name": "QuickInfo",
+      "props": {
+        "children": {
+          "description": "Auslöseelement",
+          "name": "Kinder"
+        },
+        "content": {
+          "description": "Quickinfo-Inhaltstext",
+          "name": "Inhalt"
+        },
+        "offset": {
+          "description": "Abstand vom Auslöser",
+          "name": "Offset"
+        }
+      }
+    },
+    "MtTypography": {
+      "description": "Stilanbieter für HTML-Inhalte",
+      "name": "Typografie",
+      "props": {
+        "allowHtml": {
+          "description": "HTML zulassen",
+          "name": "HTML zulassen"
+        },
+        "content": {
+          "description": "Textinhalt",
+          "name": "Inhalt"
+        }
+      }
+    },
+    "MtYearMultiplePicker": {
+      "description": "Inline-Kommissionierer für mehrere Jahre",
+      "name": "Jahr Mehrfachauswahl",
+      "props": {
+        "maxDate": {
+          "description": "Maximal wählbares Jahr",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Jahr",
+          "name": "Mindestdatum"
+        },
+        "numberOfColumns": {
+          "description": "Anzahl der anzuzeigenden Spalten",
+          "name": "Anzahl der Spalten"
+        }
+      }
+    },
+    "MtYearMultiplePickerInput": {
+      "description": "Jahr Mehrfachauswahl-Eingabe",
+      "name": "Jahr Mehrfachauswahl-Eingabe",
+      "props": {
+        "maxDate": {
+          "description": "Maximal wählbares Jahr",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Jahr",
+          "name": "Mindestdatum"
+        },
+        "numberOfColumns": {
+          "description": "Anzahl der anzuzeigenden Spalten",
+          "name": "Anzahl der Spalten"
+        }
+      }
+    },
+    "MtYearPicker": {
+      "description": "Inline-Jahresauswahl",
+      "name": "Jahresauswahl",
+      "props": {
+        "allowDeselect": {
+          "description": "Legt fest, ob der Benutzer die Auswahl des Jahres aufheben kann, indem er auf das ausgewählte Jahr klickt",
+          "name": "Auswahl aufheben zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Jahr",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Jahr",
+          "name": "Mindestdatum"
+        },
+        "numberOfColumns": {
+          "description": "Anzahl der anzuzeigenden Spalten",
+          "name": "Anzahl der Spalten"
+        }
+      }
+    },
+    "MtYearPickerInput": {
+      "description": "Eingabe der Jahresauswahl",
+      "name": "Eingabe der Jahresauswahl",
+      "props": {
+        "allowDeselect": {
+          "description": "Legt fest, ob der Benutzer die Auswahl des Jahres aufheben kann, indem er auf das ausgewählte Jahr klickt",
+          "name": "Auswahl aufheben zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Jahr",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Jahr",
+          "name": "Mindestdatum"
+        },
+        "numberOfColumns": {
+          "description": "Anzahl der anzuzeigenden Spalten",
+          "name": "Anzahl der Spalten"
+        }
+      }
+    },
+    "MtYearRangePicker": {
+      "description": "Jahresbereichsauswahl",
+      "name": "Jahresbereichsauswahl",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Ermöglicht die Auswahl eines einzelnen Jahres als Bereich",
+          "name": "Einzelnes Datum im Bereich zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Jahr",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Jahr",
+          "name": "Mindestdatum"
+        },
+        "numberOfColumns": {
+          "description": "Anzahl der anzuzeigenden Spalten",
+          "name": "Anzahl der Spalten"
+        }
+      }
+    },
+    "MtYearRangePickerInput": {
+      "description": "Eingabe der Jahresbereichsauswahl",
+      "name": "Eingabe der Jahresbereichsauswahl",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Ermöglicht die Auswahl eines einzelnen Jahres als Bereich",
+          "name": "Einzelnes Datum im Bereich zulassen"
+        },
+        "maxDate": {
+          "description": "Maximal wählbares Jahr",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Minimales wählbares Jahr",
+          "name": "Mindestdatum"
+        },
+        "numberOfColumns": {
+          "description": "Anzahl der anzuzeigenden Spalten",
+          "name": "Anzahl der Spalten"
+        }
+      }
+    }
+  }
+}

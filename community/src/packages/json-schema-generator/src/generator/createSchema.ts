@@ -279,7 +279,6 @@ export const createSchema = (components: BuilderComponent[],
     schemas.push(componentSchema)
   })
 
-
   const result: JSONSchema = JSON.parse(JSON.stringify(baseSchema))
 
   if (isBoolean(result)) return result
@@ -307,7 +306,10 @@ export const createSchema = (components: BuilderComponent[],
     delete abstractComponentStore.properties.children
   }
 
-  delete definitions.ComponentStore
+  if (screenSchema) {
+    delete definitions.ComponentStore
+  }
+
   delete definitions['ComponentProperty<boolean>']
   definitions[abstractComponentStoreName] = abstractComponentStore
 

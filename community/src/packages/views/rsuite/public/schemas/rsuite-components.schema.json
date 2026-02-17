@@ -1,0 +1,3911 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "$ref": "#/definitions/PersistedFormVersion",
+      "description": "The version of the saved form."
+    },
+    "actions": {
+      "$ref": "#/definitions/ActionValues",
+      "description": "Represents a set of action definitions."
+    },
+    "formValidator": {
+      "type": "string",
+      "description": "The form validator."
+    },
+    "errorProps": {
+      "description": "Properties of the component displaying the error."
+    },
+    "modalType": {
+      "type": "string",
+      "description": "Name of the type of component that displays the modal.",
+      "enum": [
+        "RsModal"
+      ]
+    },
+    "tooltipType": {
+      "type": "string",
+      "description": "Name of the type of component that displays the tooltip.",
+      "enum": [
+        "RsTooltip"
+      ]
+    },
+    "errorType": {
+      "type": "string",
+      "description": "Name of the type of component displaying the error.",
+      "enum": [
+        "RsErrorMessage",
+        "DefaultErrorMessage"
+      ]
+    },
+    "form": {
+      "$ref": "#/definitions/ScreenComponentStore",
+      "description": "Settings for components that display the form."
+    },
+    "localization": {
+      "$ref": "#/definitions/LocalizationValue",
+      "description": "Localization of the form."
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Language"
+      },
+      "description": "Form languages."
+    },
+    "defaultLanguage": {
+      "type": "string",
+      "description": "The default form language."
+    }
+  },
+  "required": [
+    "form",
+    "localization",
+    "languages",
+    "defaultLanguage"
+  ],
+  "description": "The scheme describes the JSON structure and the set of components used",
+  "definitions": {
+    "PersistedFormVersion": {
+      "type": "string",
+      "const": "1",
+      "description": "The version of the saved form."
+    },
+    "ActionValues": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/PersistedActionDefinition"
+      },
+      "description": "Represents a set of action definitions."
+    },
+    "ActionParameters": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ParameterType"
+      },
+      "propertyNames": {
+        "description": "The type for the parameter name."
+      },
+      "description": "Represents a set of action parameters."
+    },
+    "ParameterType": {
+      "type": "string",
+      "enum": [
+        "string",
+        "number",
+        "boolean",
+        "function"
+      ],
+      "description": "Parameter type."
+    },
+    "ComponentProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a component property."
+        },
+        "computeType": {
+          "$ref": "#/definitions/ComponentPropertyComputeType",
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        },
+        "editorType": {
+          "type": "string",
+          "description": "The component property editor type, only used in Designer mode."
+        }
+      },
+      "description": "The value of the component property."
+    },
+    "ComponentPropertyComputeType": {
+      "type": "string",
+      "enum": [
+        "function",
+        "localization"
+      ],
+      "description": "The component property value type."
+    },
+    "Css": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for arbitrary device."
+        },
+        "mobile": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for mobile devices."
+        },
+        "tablet": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for tablet devices."
+        },
+        "desktop": {
+          "$ref": "#/definitions/DeviceStyle",
+          "description": "CSS styles for desktop devices."
+        }
+      },
+      "description": "The type for the CSS property of a React component."
+    },
+    "DeviceStyle": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "description": "CSS styles defined in the general style settings."
+        },
+        "string": {
+          "type": "string",
+          "description": "CSS styles defined in the style code editor."
+        }
+      },
+      "description": "CSS styles for a device."
+    },
+    "ComponentStyle": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for an arbitrary device."
+        },
+        "mobile": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for mobile devices."
+        },
+        "tablet": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for tablet devices."
+        },
+        "desktop": {
+          "$ref": "#/definitions/ComponentDeviceStyle",
+          "description": "Styles for desktop devices."
+        }
+      },
+      "description": "The type for the style property of a React component."
+    },
+    "ComponentDeviceStyle": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string",
+          "description": "The CSS string."
+        }
+      },
+      "description": "Styles for a device."
+    },
+    "ActionData": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The action name."
+        },
+        "type": {
+          "$ref": "#/definitions/ActionType",
+          "description": "The action type."
+        },
+        "args": {
+          "$ref": "#/definitions/Arguments",
+          "description": "The action arguments."
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "description": "Action Storage. Used for add a new action, store information about it."
+    },
+    "ActionType": {
+      "type": "string",
+      "enum": [
+        "common",
+        "code",
+        "custom"
+      ],
+      "description": "Action type."
+    },
+    "Arguments": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ArgumentValue"
+      },
+      "propertyNames": {
+        "description": "The type for the parameter name."
+      },
+      "description": "It will be transformed in arguments before passing in action."
+    },
+    "ArgumentValue": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/PrimitiveArgumentValue"
+        },
+        {
+          "$ref": "#/definitions/FunctionArgumentValue"
+        }
+      ],
+      "description": "The type of the argument value of the function."
+    },
+    "PrimitiveArgumentValue": {
+      "type": [
+        "string",
+        "number",
+        "boolean"
+      ],
+      "description": "Primitive argument value type."
+    },
+    "FunctionArgumentValue": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "fn",
+          "description": "Argument type for function type."
+        },
+        "body": {
+          "type": "string",
+          "description": "The source code of the function for use in design mode."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Function argument value type."
+    },
+    "BoundValueSchema": {
+      "type": "object",
+      "properties": {
+        "autoValidate": {
+          "type": "boolean",
+          "description": "Flag, if true then automatic validation of the value works, false otherwise."
+        },
+        "validations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidationRuleSettings"
+          },
+          "description": "The array of validation rule settings."
+        }
+      },
+      "description": "Value validation rules."
+    },
+    "ValidationRuleSettings": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The unique key of the validation rule. The key is unique within the value type."
+        },
+        "type": {
+          "$ref": "#/definitions/ValidatorType",
+          "description": "The type of validator."
+        },
+        "args": {
+          "type": "object",
+          "description": "Arguments of the validation rule."
+        },
+        "validateWhen": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "The property that determines when validation needs to be performed."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "description": "The validation rule settings."
+    },
+    "ValidatorType": {
+      "type": "string",
+      "enum": [
+        "internal",
+        "custom"
+      ],
+      "description": "The type of validator."
+    },
+    "HtmlAttribute": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "The arbitrary HTML attributes for the component."
+    },
+    "ModalComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Modal",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Modal component properties.",
+              "required": [
+                "modalTemplate"
+              ],
+              "properties": {
+                "modalTemplate": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ]
+        }
+      ]
+    },
+    "LocalizationValue": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentsLocalization"
+      },
+      "propertyNames": {
+        "description": "The full language code, e.g. 'en-US'."
+      },
+      "description": "The format in which localization is stored."
+    },
+    "ComponentsLocalization": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/TypedLocalization"
+      },
+      "propertyNames": {
+        "description": "The component key."
+      },
+      "description": "A record containing localizations grouped by component key."
+    },
+    "TypedLocalization": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        },
+        "tooltip": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        },
+        "modal": {
+          "$ref": "#/definitions/ComponentPropsLocalization"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/ComponentPropsLocalization"
+      },
+      "description": "A record containing localizations grouped by localization type."
+    },
+    "ComponentPropsLocalization": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "description": "The component property name."
+      },
+      "description": "A record containing localizations for the component properties."
+    },
+    "Language": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "the language code, for example, 'en'."
+        },
+        "dialect": {
+          "type": "string",
+          "description": "the dialect code, for example, 'US'."
+        },
+        "name": {
+          "type": "string",
+          "description": "the name of the language, for example 'English'."
+        },
+        "description": {
+          "type": "string",
+          "description": "the description of the language, for example 'American English'."
+        },
+        "bidi": {
+          "$ref": "#/definitions/BiDi",
+          "description": "the type of text layout, for example, BiDi.LTR."
+        }
+      },
+      "required": [
+        "code",
+        "dialect",
+        "name",
+        "description",
+        "bidi"
+      ],
+      "description": "The language to localize the form builder."
+    },
+    "BiDi": {
+      "type": "string",
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "description": "The enumeration of bidirectional text layout types."
+    },
+    "PersistedActionDefinition": {
+      "type": "object",
+      "description": "The definition of an action.",
+      "properties": {
+        "body": {
+          "type": "string",
+          "description": "The source code of the Action."
+        },
+        "params": {
+          "$ref": "#/definitions/ActionParameters",
+          "description": "The parameters of the Action."
+        }
+      },
+      "required": [
+        "params"
+      ]
+    },
+    "RsAutoCompleteComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Provide auto-complete functionality for input box",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsAutoComplete",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsAutoComplete component properties.",
+              "properties": {
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "data": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "The data of component"
+                },
+                "defaultValue": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The default value (uncontrolled)"
+                },
+                "filterBy": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringProperty",
+                  "description": "Custom filter rules (will only display items that value is a substring of which by default)"
+                },
+                "menuClassName": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "A CSS class to apply to the Menu DOM"
+                },
+                "selectOnEnter": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "When set to false, the Enter key selection function is invalid"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The current value (controlled)"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsCalendarComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A component that displays data by calendar",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsCalendar",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsCalendar component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "bordered": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Show border"
+                },
+                "compact": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Display a compact calendar"
+                },
+                "defaultValue": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "Default value"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "isoWeek": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "ISO 8601 standard, each calendar week begins on Monday and Sunday on the seventh day"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "The current value (controlled)"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsCheckboxComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Check boxes are usually used in groups. Allow users to select one or more values from a set",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsCheckbox",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsCheckbox component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "checked": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Specifies whether the checkbox is selected"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "indeterminate": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "When being a checkbox, setting styles after the child part is selected"
+                },
+                "inline": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Inline layout"
+                },
+                "title": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "HTML title"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsDatePickerComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "DatePicker is a highly customizable component that allows users to enter and pick dates and times in different formats",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsDatePicker",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsDatePicker component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "appearance": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Set picker appearance"
+                },
+                "calendarDefaultDate": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "Calendar panel default presentation date and time"
+                },
+                "cleanable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the selected value can be cleared"
+                },
+                "defaultOpen": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Default value of open property"
+                },
+                "defaultValue": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "Default value"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "editable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Rendered as an input, the date can be entered via the keyboard"
+                },
+                "format": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Format of the date when rendered in the input"
+                },
+                "isoWeek": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "ISO 8601 standard, each calendar week begins on Monday and Sunday on the seventh day"
+                },
+                "limitEndYear": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Set the upper limit of the available year relative to the current selection date"
+                },
+                "limitStartYear": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Set the lower limit of the available year relative to the current selection date"
+                },
+                "oneTap": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "One-click selection date"
+                },
+                "open": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether open the component"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "placement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The placement of a component"
+                },
+                "preventOverflow": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Prevent floating element overflow"
+                },
+                "showMeridiem": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Display hours in 12 format"
+                },
+                "showWeekNumbers": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to show week numbers"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "The current value (controlled)"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsTimePickerComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Time picker component with label support",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsTimePicker",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsTimePicker component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/timePropertyCalculable",
+                  "description": "The current value (controlled)"
+                },
+                "defaultValue": {
+                  "type": "object",
+                  "$ref": "#/definitions/timePropertyCalculable",
+                  "description": "Default value"
+                },
+                "format": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Format of the time when rendered in the input"
+                },
+                "editable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Rendered as an input, the time can be entered via the keyboard"
+                },
+                "cleanable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the selected value can be cleared"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "open": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether open the component"
+                },
+                "placement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The placement of a component"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsDropdownComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A drop-down menu is a navigation that uses selectpicker if you want to select a value",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsDropdown",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsDropdown component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The current value (controlled)"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "placement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The placement of a component"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "data": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "Selectable data"
+                },
+                "cleanable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the option can be emptied"
+                },
+                "creatable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Settings can create new options"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "groupBy": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Set grouping criteria 'key' in 'data'"
+                },
+                "disableVirtualized": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to disable virtualization"
+                },
+                "preload": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to preload data"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsInputComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Input let users enter and edit text",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsInput",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsInput component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "type": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "HTML input type"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The current value (controlled)"
+                },
+                "passwordMask": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Use password mask"
+                },
+                "showPasswordAriaLabel": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Value of the aria-label attribute for the show password button when the input is in password mask mode"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsNumberFormatComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A number format input component with validation and formatting",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsNumberFormat",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsNumberFormat component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The current value (controlled)"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "allowedDecimalSeparators": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "Characters which when pressed result in a decimal separator. When missing, decimal separator and '.' are used"
+                },
+                "allowLeadingZeros": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "This allows enabling or disabling leading zeros in the input field. By default, on blur of an input, leading zeros are removed"
+                },
+                "allowNegative": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If set to false, negative numbers will not be allowed"
+                },
+                "decimalScale": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "If defined, it limits the number of digits after the decimal point"
+                },
+                "decimalSeparator": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Defines the decimal character"
+                },
+                "fixedDecimalScale": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If set to true, it adds trailing 0s after decimalSeparator to match given decimalScale"
+                },
+                "prefix": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Adds the prefix character before the input value"
+                },
+                "suffix": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Adds the suffix after the input value"
+                },
+                "thousandsGroupStyle": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Thousand style (thousand) : 123,456,789, indian style (lakh) : 12,34,56,789, chinese style (wan) : 1,2345,6789"
+                },
+                "thousandSeparator": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Thousand separator"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsPatternFormatComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Pattern format input component with label support",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsPatternFormat",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsPatternFormat component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The current value (controlled)"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "format": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Format pattern using the # (or a Pattern char) character. # is the placeholder character for numbers. Example: '### ###'"
+                },
+                "mask": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Used as mask character for numeric places, until any numeric character is provided for that position"
+                },
+                "patternChar": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "This helps define the format pattern character"
+                },
+                "allowEmptyFormatting": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "By default PatternFormat component does not apply formatting when value is empty (null, undefined or ‘’)"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsRadioGroupComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Radios are used when only one choice may be selected in a series of options",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsRadioGroup",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsRadioGroup component properties.",
+              "properties": {
+                "name": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Radio group name"
+                },
+                "appearance": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A radio group can have different appearances"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "inline": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Inline layout"
+                },
+                "items": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "The items for the radio group"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The current value (controlled)"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsSearchComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Search component with label and data loading support",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsSearch",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsSearch component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The current value (controlled)"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "placement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The placement of a component"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "data": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "Selectable data"
+                },
+                "cleanable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the option can be emptied"
+                },
+                "creatable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Settings can create new options"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "groupBy": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Set grouping criteria 'key' in 'data'"
+                },
+                "disableVirtualized": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to disable virtualization"
+                },
+                "preload": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to preload data"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsTagPickerComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Tag picker component with label support",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsTagPicker",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsTagPicker component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "The current value (controlled)"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "placement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The placement of a component"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "data": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "Selectable data"
+                },
+                "cleanable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the option can be emptied"
+                },
+                "creatable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Settings can create new options"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "groupBy": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Set grouping criteria 'key' in 'data'"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsTextAreaComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A text area component for multi-line text input",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsTextArea",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsTextArea component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The current value (controlled)"
+                },
+                "placeholder": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The placeholder"
+                },
+                "rows": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The number of visible text lines"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsToggleComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Toggle switch, used for selection between two values",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsToggle",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsToggle component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "checked": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the toggle is checked"
+                },
+                "checkedChildren": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The text that is displayed in the checked state"
+                },
+                "unCheckedChildren": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The text that is displayed in the unchecked state"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The color of the toggle"
+                },
+                "loading": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the component is in loading state"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsUploaderComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Upload files by clicking or drag-and-drop, it supports previewing the uploaded image",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsUploader",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsUploader component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "action": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Uploading URL"
+                },
+                "accept": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "File types that can be accepted. See standard HTML attribute: accept"
+                },
+                "autoUpload": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Automatically upload files after selecting them"
+                },
+                "customElement": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to use a custom element for the uploader"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Primary content"
+                },
+                "disableMultipart": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If 'true', disable using a multipart form for file upload and instead stream the file. Some APIs (e.g. Amazon S3) may expect the file to be streamed rather than sent via a form"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "disabledFileItem": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Disabled file item"
+                },
+                "draggable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Enabled drag and drop to upload"
+                },
+                "fileListVisible": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "File list can be rendered"
+                },
+                "listType": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Upload list style"
+                },
+                "method": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The HTTP method of upload request"
+                },
+                "multiple": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Allow multiple file uploads"
+                },
+                "name": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Upload the parameter name of the corresponding file"
+                },
+                "removable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Removable list file"
+                },
+                "timeout": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Set upload timeout"
+                },
+                "withCredentials": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to carry cookies when uploading requests"
+                },
+                "fileList": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "List of uploaded files"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsButtonComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "The button",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsButton",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsButton component properties.",
+              "properties": {
+                "active": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "A button can show it is currently the active user selection"
+                },
+                "appearance": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A button can have different appearances"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Primary content"
+                },
+                "color": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "A button can show it is currently unable to be interacted with"
+                },
+                "href": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Providing a href will render an <a> element"
+                },
+                "loading": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "A button can show a loading indicator"
+                },
+                "size": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A component size"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsDividerComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Divider are used to group content horizontally or vertically",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsDivider",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsDivider component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Set the text on the dividing line"
+                },
+                "vertical": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Vertical dividing line"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsHeaderComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Simple HTML header",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsHeader",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsHeader component properties.",
+              "properties": {
+                "content": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Header text"
+                },
+                "headerSize": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Header level"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsImageComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Simple HTML image",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsImage",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsImage component properties.",
+              "properties": {
+                "src": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Image source"
+                },
+                "alt": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Image description"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsLabelComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Simple HTML label",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsLabel",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsLabel component properties.",
+              "properties": {
+                "text": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The label text content"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsMenuComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Provides a list of various forms of navigation menus, which can be landscape and portrait layout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsMenu",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsMenu component properties.",
+              "properties": {
+                "activeKey": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Active key, corresponding to one of items value"
+                },
+                "appearance": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A navigation can have different appearances"
+                },
+                "items": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "The items for the menu"
+                },
+                "justified": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Justified navigation"
+                },
+                "reversed": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Reverse direction of tabs/subtle"
+                },
+                "vertical": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Stacked navigation"
+                },
+                "itemsAs": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "HTML element to render menu item"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsMessageComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Used to show important tips on a page",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsMessage",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsMessage component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Component children"
+                },
+                "closable": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether it is possible to close the message box"
+                },
+                "header": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The title of the message"
+                },
+                "type": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The type of the message box"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsPlaceholderGraphComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Placeholder before loading the component in the form of a rectangle",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsPlaceholderGraph",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsPlaceholderGraph component properties.",
+              "properties": {
+                "width": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculable",
+                  "description": "The graph width"
+                },
+                "height": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The graph height"
+                },
+                "active": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the placeholder is active"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsPlaceholderGridComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Placeholder before loading the component in the form of a grid",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsPlaceholderGrid",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsPlaceholderGrid component properties.",
+              "properties": {
+                "rows": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The number of rows"
+                },
+                "columns": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The number of columns"
+                },
+                "rowHeight": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The height of the row"
+                },
+                "rowSpacing": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The spacing between rows"
+                },
+                "active": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the placeholder is active"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsPlaceholderParagraphComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Placeholder before loading the component in the form of a paragraph",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsPlaceholderParagraph",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsPlaceholderParagraph component properties.",
+              "properties": {
+                "rows": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The number of rows"
+                },
+                "rowHeight": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The height of the row"
+                },
+                "rowSpacing": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The spacing between rows"
+                },
+                "graph": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The shape of the graph"
+                },
+                "active": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether the placeholder is active"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsProgressCircleComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Displaying the current progress of an operation as a circle",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsProgressCircle",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsProgressCircle component properties.",
+              "properties": {
+                "classPrefix": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The prefix of the component CSS class"
+                },
+                "percent": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Percent of progress"
+                },
+                "showInfo": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Show text"
+                },
+                "status": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Progress status"
+                },
+                "strokeColor": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculable",
+                  "description": "Line color"
+                },
+                "strokeWidth": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Line width"
+                },
+                "gapDegree": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The gap degree of half circle, 0 ~ 360"
+                },
+                "gapPosition": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Circular progress bar Notch position"
+                },
+                "strokeLinecap": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The end of different types of open paths"
+                },
+                "trailColor": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculable",
+                  "description": "Trail color"
+                },
+                "trailWidth": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Trail width"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsProgressLineComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Displaying the current progress of an operation as a line",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsProgressLine",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsProgressLine component properties.",
+              "properties": {
+                "classPrefix": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The prefix of the component CSS class"
+                },
+                "percent": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Percent of progress"
+                },
+                "showInfo": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Show text"
+                },
+                "status": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Progress status"
+                },
+                "strokeColor": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculable",
+                  "description": "Line color"
+                },
+                "strokeWidth": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Line width"
+                },
+                "vertical": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "The progress bar is displayed vertically"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsStaticContentComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A static content component that displays text or HTML content",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsStaticContent",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsStaticContent component properties.",
+              "properties": {
+                "content": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The content to display"
+                },
+                "allowHtml": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether to allow HTML content"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsTooltipComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "A text tip for secondary, which replaces the default title property of an HTML element",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsTooltip",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsTooltip component properties.",
+              "properties": {
+                "text": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Tooltip text"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Child element of a tooltip"
+                },
+                "placement": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The placement of a component"
+                },
+                "trigger": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The tooltip trigger"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsLinkComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Simple HTML anchor",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsLink",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsLink component properties.",
+              "properties": {
+                "content": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The content type (text or custom)"
+                },
+                "text": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The link text content"
+                },
+                "href": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The URL that the hyperlink points to"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Component children"
+                },
+                "target": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Where to display the linked URL, as the name for a browsing context (a tab, window, or <iframe>)"
+                },
+                "download": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Causes the browser to treat the linked URL as a download"
+                },
+                "downloadFilename": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Defining a value suggests it as the filename. / and \\ characters are converted to underscores (_)"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsModalLayoutComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Modal layout component with header, body and footer sections",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsModalLayout",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsModalLayout component properties.",
+              "properties": {
+                "closeButton": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Display close button"
+                },
+                "headerTitle": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The title for the modal header"
+                },
+                "body": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content for the modal body"
+                },
+                "footer": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The content for the modal footer"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsBreadcrumbComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Used to display the current page path and quickly return to the history page",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsBreadcrumb",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsBreadcrumb component properties.",
+              "properties": {
+                "separator": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The separator between each breadcrumb item"
+                },
+                "maxItems": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Set the maximum number of breadcrumbs to display"
+                },
+                "items": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "Array of breadcrumb items to display"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsCardComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Card is a container component for displaying data,",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsCard",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsCard component properties.",
+              "properties": {
+                "header": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The head displays information"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Primary content"
+                },
+                "title": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The title for the panel header"
+                },
+                "headerSize": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The header size for the panel header"
+                },
+                "bodyFill": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Content area filled with containers"
+                },
+                "bordered": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Show border"
+                },
+                "shaded": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether there is a shadow"
+                },
+                "defaultExpanded": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Expand then panel by default"
+                },
+                "collapsible": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether it is a collapsible panel"
+                },
+                "eventKey": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The event key corresponding to the panel"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsContainerComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Container is a layout component that can be used to wrap other components",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsContainer",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsContainer component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Component children"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Whether a component is disabled"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Read-only flag"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsTabComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Tabs are a set of layered sections of content, known as tab panels, that display one panel of content at a time",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsTab",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsTab component properties.",
+              "properties": {
+                "activeKey": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Active key, corresponding to one of items value"
+                },
+                "appearance": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "A tab can have different appearances"
+                },
+                "items": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "Items for the tab"
+                },
+                "justified": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Justified navigation"
+                },
+                "reversed": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Reverse direction of tabs/subtle"
+                },
+                "vertical": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Stacked navigation"
+                },
+                "showNavigation": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Show or hide navigation"
+                },
+                "pane": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedProperty",
+                  "description": "A child component of the tab"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsWizardComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Wizard component with step navigation and validation",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsWizard",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsWizard component properties.",
+              "properties": {
+                "activeIndex": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "The active step index"
+                },
+                "stepsNavigation": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Determines which steps are available for navigation by clicking"
+                },
+                "steps": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "description": "The wizard steps"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "The wizard children"
+                },
+                "prevButtonLabel": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The previous button label"
+                },
+                "nextButtonLabel": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The next button label"
+                },
+                "finishButtonLabel": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The finish button label"
+                },
+                "showSteps": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the steps will be shown"
+                },
+                "showStepsLabels": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the steps labels will be shown"
+                },
+                "verticalSteps": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the steps will be displayed vertically"
+                },
+                "validateOnNext": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the step will be validated before moving to the next step"
+                },
+                "validateOnFinish": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the wizard will be validated before finishing the wizard"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RsWizardStepComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Wizard step component with flex layout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "RsWizardStep",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The RsWizardStep component properties.",
+              "properties": {
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The component label"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable",
+                  "description": "Component children"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "SlotComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Slot",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Slot component properties.",
+              "properties": {
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "EmbeddedFormComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "EmbeddedForm",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The EmbeddedForm component properties.",
+              "properties": {
+                "storeDataInParentForm": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanProperty"
+                },
+                "formName": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "options": {
+                  "type": "object",
+                  "$ref": "#/definitions/objectPropertyCalculable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "RepeaterComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Repeater",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Repeater component properties.",
+              "properties": {
+                "itemRenderWhen": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculable"
+                },
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/arrayPropertyCalculable"
+                },
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "ScreenComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Screen",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The Screen component properties.",
+              "properties": {
+                "children": {
+                  "type": "object",
+                  "$ref": "#/definitions/undefinedPropertyCalculable"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "additionalProperties": false
+              }
+            },
+            "children": {
+              "$ref": "#/definitions/childrenProperty",
+              "description": "The array of child components."
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "AbstractComponentStore": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The React component key"
+        },
+        "dataKey": {
+          "type": "string",
+          "description": "The component data key."
+        },
+        "css": {
+          "$ref": "#/definitions/Css",
+          "description": "The component CSS styles."
+        },
+        "wrapperCss": {
+          "$ref": "#/definitions/Css",
+          "description": "The component wrapper CSS styles."
+        },
+        "style": {
+          "$ref": "#/definitions/ComponentStyle",
+          "description": "The component styles for the `style` attribute."
+        },
+        "wrapperStyle": {
+          "$ref": "#/definitions/ComponentStyle",
+          "description": "The component wrapper styles for the `style` attribute."
+        },
+        "events": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ActionData"
+            }
+          },
+          "propertyNames": {
+            "description": "The type for the event name."
+          },
+          "description": "The set of event handlers."
+        },
+        "schema": {
+          "$ref": "#/definitions/BoundValueSchema",
+          "description": "The component value validation settings."
+        },
+        "htmlAttributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HtmlAttribute"
+          },
+          "description": "The set of arbitrary HTML attributes added to the component."
+        },
+        "tooltipProps": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ComponentProperty"
+          },
+          "description": "The tooltip settings."
+        },
+        "modal": {
+          "$ref": "#/definitions/ModalComponentStore",
+          "description": "The modal settings."
+        },
+        "slot": {
+          "type": "string",
+          "description": "The name of the occupied component property in the parent component."
+        },
+        "renderWhen": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "The expression or function to conditionally render a component."
+        },
+        "disableDataBinding": {
+          "$ref": "#/definitions/ComponentProperty",
+          "description": "Disables data binding for the component."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "description": "Component settings for serialization in JSON."
+    },
+    "stringPropertyCalculableLocalizable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'string' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'placeholder' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "localization",
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "string property type, calculable, localizable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "localization"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value",
+                "fnSource"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "enumPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a 'enum' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'size' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "enum property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "booleanPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "The simple value of a 'boolean' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'disabled' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "boolean property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "arrayPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The simple value of a 'array' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'data' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "array property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "stringProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'string' component property."
+        }
+      },
+      "description": "string property type",
+      "required": [
+        "value"
+      ]
+    },
+    "datePropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'date' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'defaultValue' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "date property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "numberPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The simple value of a 'number' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'limitEndYear' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "number property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "timePropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'time' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'value' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "time property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "undefinedPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a 'undefined' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'children' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "undefined property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "stringPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'string' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'width' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "string property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "undefinedProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The simple value of a 'undefined' component property."
+        }
+      },
+      "description": "undefined property type",
+      "required": [
+        "value"
+      ]
+    },
+    "booleanProperty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "The simple value of a 'boolean' component property."
+        }
+      },
+      "description": "boolean property type",
+      "required": [
+        "value"
+      ]
+    },
+    "objectPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "description": "The simple value of a 'object' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'options' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "object property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "childrenProperty": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/RsAutoCompleteComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsCalendarComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsCheckboxComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsDatePickerComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsTimePickerComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsDropdownComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsInputComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsNumberFormatComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsPatternFormatComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsRadioGroupComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsSearchComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsTagPickerComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsTextAreaComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsToggleComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsUploaderComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsButtonComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsDividerComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsHeaderComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsImageComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsLabelComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsMenuComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsMessageComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsPlaceholderGraphComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsPlaceholderGridComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsPlaceholderParagraphComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsProgressCircleComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsProgressLineComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsStaticContentComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsTooltipComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsLinkComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsModalLayoutComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsBreadcrumbComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsCardComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsContainerComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsTabComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsWizardComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RsWizardStepComponentStore"
+          },
+          {
+            "$ref": "#/definitions/SlotComponentStore"
+          },
+          {
+            "$ref": "#/definitions/EmbeddedFormComponentStore"
+          },
+          {
+            "$ref": "#/definitions/RepeaterComponentStore"
+          },
+          {
+            "$ref": "#/definitions/ModalComponentStore"
+          }
+        ]
+      }
+    }
+  },
+  "title": "FormEngine JSON schema"
+}
