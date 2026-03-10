@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/immutability */
 import Box from '@mui/material/Box'
 // import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
@@ -56,7 +57,9 @@ export const MuiCommentQuestion = ({question: q}: QuestionProps<QuestionCommentM
       minRows={3}
       placeholder={q.placeholder}
       value={(q.value as string) ?? ''}
-      onChange={e => (q.value = e.target.value)}
+      onChange={e => {
+        q.value = e.target.value
+      }}
     />
   )
 }

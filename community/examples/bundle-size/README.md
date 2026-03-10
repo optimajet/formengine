@@ -14,7 +14,7 @@ This project contains multiple applications for comparing the bundle sizes of di
 ### Test Applications
 
 For comparison, two real-world use cases are used: a **login form** and a **hotel booking wizard**. They are implemented to be as similar as
-possible, using the default UI kits and Material UI where applicable.
+possible, using the default UI kits, Material UI, and Mantine where applicable.
 
 To run a build or development server, set the `APP_INPUT` environment variable beforehand to choose which application to start or build.
 
@@ -22,8 +22,10 @@ Available `APP_INPUT` values:
 
 - **login** — login application
 - **login-mui** — login application with MUI library/styling
+- **login-mantine** — login application with Mantine library/styling (FormEngine only)
 - **booking** — booking application
 - **booking-mui** — booking application with MUI library/styling
+- **booking-mantine** — booking application with Mantine library/styling (FormEngine only)
 
 ## Setup
 
@@ -55,6 +57,12 @@ cd survey && npm run dev-login-mui
 cd vueform && npm run dev-login-mui
 ```
 
+**Login Mantine:**
+
+```bash
+cd formengine && npm run dev-login-mantine
+```
+
 **Booking:**
 
 ```bash
@@ -71,6 +79,12 @@ cd formengine && npm run dev-booking-mui
 cd rjsf && npm run dev-booking-mui
 cd survey && npm run dev-booking-mui
 cd vueform && npm run dev-booking-mui
+```
+
+**Booking Mantine:**
+
+```bash
+cd formengine && npm run dev-booking-mantine
 ```
 
 ## Building

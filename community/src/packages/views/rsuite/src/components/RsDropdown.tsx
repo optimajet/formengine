@@ -69,11 +69,11 @@ const RsDropdown = ({
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
       <InputPicker
-        ref={inputRef}
         {...props}
         {...loadProps}
         onClean={onClean}
         renderMenu={renderMenu}
+        ref={inputRef}
       />
     </Labeled>
   )

@@ -14,8 +14,8 @@ import {
   useBuilderMode,
   useComponentData
 } from '@react-form-builder/core'
-import type {CSSProperties, PropsWithChildren} from 'react'
-import {useCallback, useEffect, useMemo, useState} from 'react'
+import type {CSSProperties, ForwardedRef, PropsWithChildren, SyntheticEvent} from 'react'
+import {forwardRef, useCallback, useEffect, useMemo, useState} from 'react'
 import type {StepItemProps} from 'rsuite'
 import {Button, ButtonToolbar, Steps} from 'rsuite'
 import {useArrayMapMemo} from '../hooks'
@@ -66,11 +66,11 @@ export interface RsWizardProps extends PropsWithChildren<any> {
   /**
    * Whether to validate on next.
    */
-  validateOnNext: boolean,
+  validateOnNext?: boolean,
   /**
    * Whether to validate on finish.
    */
-  validateOnFinish: boolean,
+  validateOnFinish?: boolean,
   /**
    * Callback when step changes.
    */
@@ -78,15 +78,15 @@ export interface RsWizardProps extends PropsWithChildren<any> {
   /**
    * Callback when next button is clicked.
    */
-  onNext?: () => void
+  onNext?: (event: SyntheticEvent) => void
   /**
    * Callback when previous button is clicked.
    */
-  onPrev?: () => void
+  onPrev?: (event: SyntheticEvent) => void
   /**
    * Callback when finish button is clicked.
    */
-  onFinish?: () => void
+  onFinish?: (event: SyntheticEvent) => void
 }
 
 const toolbarStyle = {justifyContent: 'end', zIndex: 7} as const
@@ -155,24 +155,25 @@ interface WizardStepItemProps {
  * @param props.props the additional wizard props.
  * @returns the React element.
  */
-const RsWizard = ({
-                    children,
-                    activeIndex = 0,
-                    onChange,
-                    onNext,
-                    onPrev,
-                    onFinish,
-                    showSteps,
-                    showStepsLabels,
-                    verticalSteps,
-                    stepsNavigation,
-                    prevButtonLabel,
-                    nextButtonLabel,
-                    finishButtonLabel,
-                    validateOnNext,
-                    validateOnFinish,
-                    ...props
-                  }: RsWizardProps) => {
+const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: ForwardedRef<HTMLDivElement>) {
+  const {
+    children,
+    activeIndex = 0,
+    onChange,
+    onNext,
+    onPrev,
+    onFinish,
+    showSteps,
+    showStepsLabels,
+    verticalSteps,
+    stepsNavigation,
+    prevButtonLabel,
+    nextButtonLabel,
+    finishButtonLabel,
+    validateOnNext,
+    validateOnFinish,
+    ...props
+  } = wProps
   const [visited, setVisited] = useState(activeIndex)
   const isBuilderMode = useBuilderMode() === 'builder'
 
@@ -192,18 +193,18 @@ const RsWizard = ({
     onChange?.(index)
   }, [visited, onChange])
 
-  const handleFinish = useCallback(() => {
+  const handleFinish = useCallback((event: SyntheticEvent) => {
     if (validateOnFinish) {
       componentData.validate().then(() => {
         if (componentData.hasErrors) return
-        onFinish?.()
+        onFinish?.(event)
       })
       return
     }
-    onFinish?.()
+    onFinish?.(event)
   }, [componentData, onFinish, validateOnFinish])
 
-  const handleNext = useCallback(() => {
+  const handleNext = useCallback((event: SyntheticEvent) => {
     let newIndex = activeIndex ?? 0
     if (newIndex < labels.length) newIndex = newIndex + 1
 
@@ -212,19 +213,19 @@ const RsWizard = ({
       child?.validate().then(() => {
         if (child?.hasErrors) return
         openStep?.(newIndex)
-        onNext?.()
+        onNext?.(event)
       })
       return
     }
     openStep?.(newIndex)
-    onNext?.()
+    onNext?.(event)
   }, [activeIndex, componentData.children, labels.length, onNext, openStep, validateOnNext])
 
-  const handlePrev = useCallback(() => {
+  const handlePrev = useCallback((event: SyntheticEvent) => {
     let newIndex = activeIndex ?? 0
     if (newIndex > 0) newIndex = newIndex - 1
     openStep?.(newIndex)
-    onPrev?.()
+    onPrev?.(event)
   }, [activeIndex, onPrev, openStep])
 
   const isStepAvailable = useCallback((index: number) => {
@@ -283,7 +284,7 @@ const RsWizard = ({
     })
   }, [activeIndex, getStepStatus, handleStepClick, isStepAvailable, labels])
 
-  return <Container {...props}>
+  return <Container {...props} ref={ref}>
     <div style={stepsContainerStyle}>
       {showSteps && !!content &&
         <Steps current={activeIndex} vertical={verticalSteps} className={'steps'}>
@@ -302,7 +303,7 @@ const RsWizard = ({
     </div>
     {!!content && buttons}
   </Container>
-}
+})
 
 /**
  * Component type for RsWizard.

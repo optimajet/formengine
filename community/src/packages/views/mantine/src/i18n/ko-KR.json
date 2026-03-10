@@ -481,9 +481,9 @@
           "description": "대화 내용",
           "name": "어린이"
         },
-        "onOpenedChange": {
-          "description": "열린 속성이 변경될 때 호출됩니다",
-          "name": "오픈 변경"
+        "onOpen": {
+          "description": "열린 속성이 참으로 설정될 때 호출됩니다",
+          "name": "오노펜"
         },
         "opened": {
           "description": "대화 상자가 열려 있는지 여부",

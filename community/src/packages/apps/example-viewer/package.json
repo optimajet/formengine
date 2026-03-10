@@ -1,6 +1,6 @@
 {
   "name": "@react-form-builder/example-viewer",
-  "version": "7.12.0",
+  "version": "7.13.0",
   "license": "MIT",
   "private": true,
   "main": "src/index.tsx",
@@ -24,11 +24,12 @@
   "dependencies": {
     "@mantine/core": "^8.3.14",
     "@mantine/dates": "^8.3.14",
-    "@react-form-builder/apps-common": "^7.12.0",
-    "@react-form-builder/components-mantine": "^7.12.0",
-    "@react-form-builder/components-material-ui": "^7.12.0",
-    "@react-form-builder/components-rsuite": "^7.12.0",
-    "@react-form-builder/core": "^7.12.0",
+    "@react-form-builder/apps-common": "^7.13.0",
+    "@react-form-builder/components-mantine": "^7.13.0",
+    "@react-form-builder/components-material-ui": "^7.13.0",
+    "@react-form-builder/components-rsuite": "^7.13.0",
+    "@react-form-builder/core": "^7.13.0",
+    "dayjs": "^1.11.19",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rsuite": "5.83.4"

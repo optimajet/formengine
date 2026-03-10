@@ -1,11 +1,11 @@
-import type {ReactNode} from 'react'
-import {createElement, useCallback, useMemo} from 'react'
+import type {ForwardedRef, ReactNode} from 'react'
+import {createElement, useCallback, useImperativeHandle, useMemo, useRef} from 'react'
 import {useComponentData} from '../../utils/contexts/ComponentDataContext'
 import {useStore} from '../../utils/contexts/StoreContext'
 import {namedObserver} from '../../utils/namedObserver'
 import {useBuilderComponent} from '../../utils/useBuilderComponent'
 import type {Model} from '../define/utils/Model'
-import {modalBeforeHideFnName, modalStateKey} from '../event/consts/modalActions'
+import {modalBeforeHideFnName, modalOnCloseEventHandler, modalStateKey} from '../event/consts/modalActions'
 import {createDataProxy} from '../event/utils/createComponentDataProxy'
 import {useViewerProps} from '../form-viewer/components/ViewerPropsContext'
 import {NewStoreProvider} from '../form-viewer/components/ViewerStoreProvider'
@@ -55,18 +55,27 @@ const RawModalBuilder = ({modalTemplate}: ModalProps) => {
 
 const ModalBuilder = namedObserver('ModalBuilder', RawModalBuilder)
 
+type OnCloseEventHandler = () => void
+
 interface ComponentModalProps {
   open: boolean
   handleClose: (data: unknown) => void
+  onCloseRef: ForwardedRef<OnCloseEventHandler>
   model: Model
   children: ReactNode
 }
 
-const RawComponentModal = ({open, handleClose, model, children}: ComponentModalProps) => {
+const RawComponentModal = ({open, handleClose, model, children, onCloseRef}: ComponentModalProps) => {
   const wrappedComponentData = useComponentData()
 
   const modalComponentData = useModalComponentData(wrappedComponentData, model.type)
   const componentState = modalComponentData.componentState
+
+  useImperativeHandle(onCloseRef, () => {
+    return () => {
+      modalComponentData.componentState.ownProps.onClose?.()
+    }
+  }, [modalComponentData.componentState.ownProps])
 
   const props = {
     ...componentState.ownProps,
@@ -106,14 +115,21 @@ const RawModalViewer = (props: ModalProps) => {
     }
   }, [componentData, parentStore.formData])
 
+  const modalRef = useRef<OnCloseEventHandler>(null)
+
+  const modalOnClose = useCallback(() => {
+    modalRef?.current?.()
+  }, [])
+
   const contextValue = useMemo(() => ({
     ...formViewerProps.context,
     modalContext: {
       [closeCurrentModalActionName]: handleClose,
+      [modalOnCloseEventHandler]: modalOnClose,
       [modalBeforeHideFnName]: postFn,
       parentContext: context
     }
-  }), [context, formViewerProps.context, handleClose, postFn])
+  }), [context, formViewerProps.context, handleClose, modalOnClose, postFn])
 
   const modalViewerProps: FormViewerProps = useMemo(() => ({
     ...formViewerProps,
@@ -128,7 +144,7 @@ const RawModalViewer = (props: ModalProps) => {
 
   if (!modalModel || !modalTemplate) return null
 
-  return <ComponentModal model={modalModel} open={open} handleClose={handleClose}>
+  return <ComponentModal model={modalModel} open={open} handleClose={handleClose} onCloseRef={modalRef}>
     <NewStoreProvider props={modalViewerProps}>
       <EmbeddedFormViewer {...modalViewerProps} />
     </NewStoreProvider>

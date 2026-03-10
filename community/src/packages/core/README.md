@@ -9,10 +9,9 @@
 [![Release date](https://img.shields.io/github/release-date/optimajet/formengine?style=for-the-badge&logo=github&logoColor=white)](https://github.com/optimajet/formengine/releases)
 <!-- ================================================================ -->
 
-### Struggled with React Hook Form, Formik, or TanStack Form? You’re not alone. It’s time to use something better. Forms shouldn’t be this hard!
+### Lightweight React JSON Schema form builder library for MUI, Shadcn, RSuite, Mantine, Tailwind, Bootstrap
 
-That’s why we built Formengine Core — a JSON-first React Form Renderer and open-source form engine for React. Describe your form in JSON and
-render it across your apps. No hooks. No context. No boilerplate. No pain.
+Describe your form in JSON and render it across your apps. No hooks. No context. No boilerplate. No pain.
 
 ### Simple Form Example
 

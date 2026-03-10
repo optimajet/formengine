@@ -275,6 +275,140 @@
         }
       }
     },
+    "MuiDatePicker": {
+      "description": "用于选择日期的组件",
+      "name": "日期选择器",
+      "props": {
+        "autoFocus": {
+          "description": "如果为true，则在组件挂载时自动聚焦日期选取器",
+          "name": "自动对焦"
+        },
+        "closeOnSelect": {
+          "description": "选择日期后自动关闭日期选择器对话框",
+          "name": "关闭选择"
+        },
+        "desktopModeMediaQuery": {
+          "description": "确定何时切换到桌面模式布局的CSS媒体查询字符串",
+          "name": "桌面模式媒体查询"
+        },
+        "disableFuture": {
+          "description": "如果为true，则阻止选择当前日期之后的日期",
+          "name": "禁用未来"
+        },
+        "disableHighlightToday": {
+          "description": "如果为true，则禁用日历中当前日期的视觉突出显示",
+          "name": "今天禁用高亮显示"
+        },
+        "disableOpenPicker": {
+          "description": "如果为true，则阻止打开选取器对话框（对只读显示有用）",
+          "name": "禁用打开选取器"
+        },
+        "disablePast": {
+          "description": "如果为true，则阻止选择当前日期之前的日期",
+          "name": "禁用过去"
+        },
+        "displayWeekNumber": {
+          "description": "在日历视图中显示周数",
+          "name": "显示周数"
+        },
+        "fixedWeekNumber": {
+          "description": "固定显示周数（强制日历高度一致）",
+          "name": "固定周数"
+        },
+        "format": {
+          "description": "用于显示和解析的日期格式字符串（例如，'yyyy-MM-dd'，'MM/dd/yyyy'）",
+          "name": "格式"
+        },
+        "formatDensity": {
+          "description": "控制日期格式中的间距：密集（紧凑）或宽敞（更多间距）",
+          "name": "格式密度"
+        },
+        "loading": {
+          "description": "如果为true，则显示一个加载微调器，指示正在加载数据",
+          "name": "装载量"
+        },
+        "maxDate": {
+          "description": "可供选择的最新日期(包括)",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "可以选择的最早日期（包括）",
+          "name": "最短日期"
+        },
+        "monthsPerRow": {
+          "description": "在月/年视图中每行显示的月历数",
+          "name": "每行月份"
+        },
+        "name": {
+          "description": "表单字段的name属性，在提交表单时使用",
+          "name": "姓名"
+        },
+        "onAccept": {
+          "description": "接受值时触发回调",
+          "name": "接受,接受"
+        },
+        "onClose": {
+          "description": "当弹出窗口请求关闭时触发回调",
+          "name": "n.锁,锁"
+        },
+        "onError": {
+          "description": "当与当前值相关联的错误更改时触发回调",
+          "name": "n.错误,错误"
+        },
+        "onMonthChange": {
+          "description": "月改时发出回调",
+          "name": "每月交换"
+        },
+        "onOpen": {
+          "description": "当弹出窗口请求打开时触发回调",
+          "name": "奥诺彭"
+        },
+        "onSelectedSectionsChange": {
+          "description": "当所选部分更改时触发回调",
+          "name": "选择的选择"
+        },
+        "onViewChange": {
+          "description": "视图更改时触发的回调",
+          "name": "网上交换"
+        },
+        "onYearChange": {
+          "description": "年变化的回调",
+          "name": "[医]交换"
+        },
+        "open": {
+          "description": "如果为true，则日期选择器对话框处于打开状态；可用于受控状态管理",
+          "name": "打开"
+        },
+        "openTo": {
+          "description": "选择器激活时要打开的视图",
+          "name": "开放至"
+        },
+        "referenceDate": {
+          "description": "未选择值时用于生成初始日历视图的日期",
+          "name": "参考日期"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "在当前月份视图中显示前几个月和下几个月的天数",
+          "name": "本月外的展览日"
+        },
+        "view": {
+          "description": "要显示的初始视图（日、月或年历）",
+          "name": "查看"
+        },
+        "views": {
+          "description": "可用视图（日、月和年日历）",
+          "name": "意见书"
+        },
+        "yearsOrder": {
+          "description": "年的排序顺序：升序（最早的第一个）或降序（最新的第一个）",
+          "name": "年令"
+        },
+        "yearsPerRow": {
+          "description": "年视图中每行显示的年项数",
+          "name": "每行年数"
+        }
+      }
+    },
     "MuiDialog": {
       "description": "在叠加中显示内容的模态对话框组件",
       "name": "对话",

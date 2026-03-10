@@ -275,6 +275,140 @@
         }
       }
     },
+    "MuiDatePicker": {
+      "description": "Componente per la selezione di una data",
+      "name": "Selettore data",
+      "props": {
+        "autoFocus": {
+          "description": "Se true, mette a fuoco automaticamente il selettore di date quando il componente si monta",
+          "name": "Autofocus"
+        },
+        "closeOnSelect": {
+          "description": "Chiude automaticamente la finestra di dialogo selezione data dopo aver selezionato una data",
+          "name": "Chiudi su seleziona"
+        },
+        "desktopModeMediaQuery": {
+          "description": "CSS media query string che determina quando passare alla modalità desktop layout",
+          "name": "Modalità desktop media query"
+        },
+        "disableFuture": {
+          "description": "Se true, impedisce la selezione delle date dopo la data corrente",
+          "name": "Disabilita futuro"
+        },
+        "disableHighlightToday": {
+          "description": "Se true, disabilita l'evidenziazione visiva della data corrente nel calendario",
+          "name": "Disabilita evidenziazione oggi"
+        },
+        "disableOpenPicker": {
+          "description": "Se true, impedisce l'apertura della finestra di dialogo selettore (utile per la visualizzazione in sola lettura)",
+          "name": "Disabilita selettore aperto"
+        },
+        "disablePast": {
+          "description": "Se true, impedisce la selezione delle date prima della data corrente",
+          "name": "Disabilita passato"
+        },
+        "displayWeekNumber": {
+          "description": "Mostra i numeri delle settimane nella vista calendario",
+          "name": "Mostra il numero della settimana"
+        },
+        "fixedWeekNumber": {
+          "description": "Numero fisso di settimane da visualizzare (forza l'altezza del calendario coerente)",
+          "name": "Numero settimana fisso"
+        },
+        "format": {
+          "description": "Stringa di formato data utilizzata per la visualizzazione e l'analisi (ad esempio, 'aaaa-MM-gg', 'MM / gg/aaaa')",
+          "name": "Formato"
+        },
+        "formatDensity": {
+          "description": "Controlla la spaziatura nella formattazione della data: densa (compatta) o spaziosa (più spaziatura)",
+          "name": "Densità formato"
+        },
+        "loading": {
+          "description": "Se true, visualizza uno spinner di caricamento che indica che i dati vengono caricati",
+          "name": "Caricamento"
+        },
+        "maxDate": {
+          "description": "Ultima data selezionabile (inclusa)",
+          "name": "Data massima"
+        },
+        "minDate": {
+          "description": "La prima data che può essere selezionata (inclusa)",
+          "name": "Data minima"
+        },
+        "monthsPerRow": {
+          "description": "Numero di calendari mensili da visualizzare per riga nelle viste mese / anno",
+          "name": "Mesi per riga"
+        },
+        "name": {
+          "description": "L'attributo name per il campo modulo, utilizzato durante l'invio dei moduli",
+          "name": "Nome"
+        },
+        "onAccept": {
+          "description": "Callback attivato quando il valore è accettato",
+          "name": "onAccept"
+        },
+        "onClose": {
+          "description": "Callback attivato quando il popup richiede di essere chiuso",
+          "name": "onClose"
+        },
+        "onError": {
+          "description": "Callback attivato quando l'errore associato al valore corrente cambia",
+          "name": "onError"
+        },
+        "onMonthChange": {
+          "description": "Callback licenziato al cambio di mese",
+          "name": "onMonthChange"
+        },
+        "onOpen": {
+          "description": "Callback attivato quando il popup richiede di essere aperto",
+          "name": "onApri"
+        },
+        "onSelectedSectionsChange": {
+          "description": "Callback attivato quando le sezioni selezionate cambiano",
+          "name": "onSelectedSectionsCambia"
+        },
+        "onViewChange": {
+          "description": "Callback attivato alla modifica della vista",
+          "name": "onViewChange"
+        },
+        "onYearChange": {
+          "description": "Callback licenziato sul cambio di anno",
+          "name": "onYearChange"
+        },
+        "open": {
+          "description": "Se true, la finestra di dialogo selezione data è aperta; può essere utilizzata per la gestione controllata dello stato",
+          "name": "Aprire"
+        },
+        "openTo": {
+          "description": "La vista da aprire quando il selettore è attivato",
+          "name": "Aperto a"
+        },
+        "referenceDate": {
+          "description": "Data utilizzata per generare la visualizzazione calendario iniziale quando non è selezionato alcun valore",
+          "name": "Data di riferimento"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Visualizza i giorni dei mesi precedenti e successivi nella vista mensile corrente",
+          "name": "Mostra giorni al di fuori del mese corrente"
+        },
+        "view": {
+          "description": "La visualizzazione iniziale da visualizzare (calendario giorno, mese o anno)",
+          "name": "Mostra"
+        },
+        "views": {
+          "description": "Le viste disponibili (calendario giorno, mese e anno)",
+          "name": "Mostra"
+        },
+        "yearsOrder": {
+          "description": "Ordinamento degli anni: ascendente (prima il più vecchio) o discendente (prima il più nuovo)",
+          "name": "Anni ordine"
+        },
+        "yearsPerRow": {
+          "description": "Numero di elementi anno da visualizzare per riga nella vista anno",
+          "name": "Anni per riga"
+        }
+      }
+    },
     "MuiDialog": {
       "description": "Un componente di dialogo modale che visualizza il contenuto in una sovrapposizione",
       "name": "Dialogo",

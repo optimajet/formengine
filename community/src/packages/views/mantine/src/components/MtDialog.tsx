@@ -2,7 +2,7 @@ import type {ModalProps} from '@mantine/core'
 import {Modal} from '@mantine/core'
 import {boolean, define, event, node, number, string} from '@react-form-builder/core'
 import type {ReactNode} from 'react'
-import {useCallback} from 'react'
+import {useCallback, useEffect} from 'react'
 import {overlaysCategory} from './internal/categories'
 import {description} from './internal/sharedProps'
 
@@ -26,6 +26,11 @@ interface MtDialogProps extends Partial<Omit<ModalProps, 'onClose | opened'>> {
   onClose?: () => void
 
   /**
+   * Callback fired when the dialog opens.
+   */
+  onOpen?: () => void
+
+  /**
    * Controls opened state.
    */
   opened?: boolean
@@ -39,11 +44,6 @@ interface MtDialogProps extends Partial<Omit<ModalProps, 'onClose | opened'>> {
    * The main content of the dialog.
    */
   children?: ReactNode
-
-  /**
-   * Callback fired when the dialog open state changes.
-   */
-  onOpenedChange?: (open: boolean) => void
 
   /**
    * Whether to show the close button in the dialog header.
@@ -64,7 +64,7 @@ export function MtDialog(props: MtDialogProps) {
     open,
     handleClose,
     onClose,
-    onOpenedChange,
+    onOpen,
     showCloseButton = true,
     ...others
   } = props
@@ -73,6 +73,10 @@ export function MtDialog(props: MtDialogProps) {
     handleClose?.()
     onClose?.()
   }, [handleClose, onClose])
+
+  useEffect(() => {
+    if (open) onOpen?.()
+  }, [onOpen, open])
 
   return (
     <Modal
@@ -114,7 +118,8 @@ export const mtDialog = define(MtDialog, 'MtDialog')
     keepMounted: boolean.default(false),
     withinPortal: boolean.default(true),
     stackId: string,
-    onOpenedChange: event,
+    onOpen: event,
+    onClose: event,
   })
   .componentRole('modal')
   .hideFromComponentPalette()

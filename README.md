@@ -34,8 +34,11 @@
 
 <small>
 Bundle sizes are approximate and depend on build configuration, tree-shaking, and selected features.  
-We are preparing a public benchmark for comparing assembly sizes..
 </small>
+
+[Read the article comparing bundle sizes](https://formengine.io/documentation/bundle-size-comparison/).
+
+[The benchmark source code](https://github.com/optimajet/formengine/tree/master/community/examples/bundle-size).
 
 ## 📦 FormEngine Core MUI Installation
 

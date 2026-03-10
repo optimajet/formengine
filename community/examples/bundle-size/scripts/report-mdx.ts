@@ -10,10 +10,12 @@ import {
   calculateVariantMinimums,
   filterAndSortAppResults,
   filterAndSortVariantResults,
-  filterNonMuiVariants,
+  getAppNameByVariant,
+  getAppNameMantine,
   formatDiffKB,
   generateAndSavePerformanceCharts,
   generateVegaLitePieChart,
+  getBaseVariants,
   getAppNameMui,
   getAppNameNonMui,
   getLibTitle,
@@ -74,7 +76,7 @@ export function exportToMarkdown(
   // }
 
   // Summary Matrix - split into two tables
-  const nonMuiVariants = filterNonMuiVariants(variants)
+  const baseVariants = getBaseVariants(variants)
 
   // Main header
   markdownSections.push('### Summary Matrix (Total Size)\n')
@@ -82,21 +84,21 @@ export function exportToMarkdown(
   // Non-MUI table
   const nonMuiLibTitles = apps.map(app => escapeMarkdown(getAppNameNonMui(app))).join(', ')
   markdownSections.push(`#### Non-MUI (${nonMuiLibTitles})\n`)
-  const matrixHeaderNonMui = ['App', ...nonMuiVariants.map(v => `${escapeMarkdown(getVariantHeaderName(v))}<sub>(raw/gzip)</sub>`)].join(
+  const matrixHeaderNonMui = ['App', ...baseVariants.map(v => `${escapeMarkdown(getVariantHeaderName(v))}<sub>(raw/gzip)</sub>`)].join(
     ' | '
   )
   markdownSections.push(`| ${matrixHeaderNonMui} |`)
-  markdownSections.push(`| ${nonMuiVariants.map(() => '---').join(' | ')} | --- |`)
+  markdownSections.push(`| ${baseVariants.map(() => '---').join(' | ')} | --- |`)
 
   // Calculate minimum values for non-MUI table
-  const columnMinsNonMui = nonMuiVariants.map((variant: string) => calculateColumnMinimums(variant, apps, allResults, (v: string) => v))
+  const columnMinsNonMui = baseVariants.map((variant: string) => calculateColumnMinimums(variant, apps, allResults, (v: string) => v))
 
   for (let appIndex = 0; appIndex < apps.length; appIndex++) {
     const app = apps[appIndex]
     const appNameNonMui = getAppNameNonMui(app)
     const rowNonMui: string[] = [escapeMarkdown(appNameNonMui)]
-    for (let colIndex = 0; colIndex < nonMuiVariants.length; colIndex++) {
-      const variant = nonMuiVariants[colIndex]
+    for (let colIndex = 0; colIndex < baseVariants.length; colIndex++) {
+      const variant = baseVariants[colIndex]
       const info = allResults.find(r => r.app === app && r.variant === variant) ?? null
       rowNonMui.push(generateMatrixCellValue(info, colIndex, columnMinsNonMui, appIndex))
     }
@@ -109,27 +111,54 @@ export function exportToMarkdown(
   markdownSections.push(`#### MUI (${muiLibTitles})\n`)
   const matrixHeaderMui = [
     'App',
-    ...nonMuiVariants.map((v: string) => `${escapeMarkdown(getVariantHeaderName(v))}<sub>(raw/gzip)</sub>`),
+    ...baseVariants.map((v: string) => `${escapeMarkdown(getVariantHeaderName(v))}<sub>(raw/gzip)</sub>`),
   ].join(' | ')
   markdownSections.push(`| ${matrixHeaderMui} |`)
-  markdownSections.push(`| ${nonMuiVariants.map(() => '---').join(' | ')} | --- |`)
+  markdownSections.push(`| ${baseVariants.map(() => '---').join(' | ')} | --- |`)
 
   // Calculate minimum values for MUI table
-  const columnMinsMui = nonMuiVariants.map((variant: string) =>
-    calculateColumnMinimums(variant, apps, allResults, (v: string) => `${v}-mui`)
-  )
+  const columnMinsMui = baseVariants.map((variant: string) => calculateColumnMinimums(variant, apps, allResults, (v: string) => `${v}-mui`))
 
   for (let appIndex = 0; appIndex < apps.length; appIndex++) {
     const app = apps[appIndex]
     const appNameMui = getAppNameMui(app)
     const rowMui: string[] = [escapeMarkdown(appNameMui)]
-    for (let colIndex = 0; colIndex < nonMuiVariants.length; colIndex++) {
-      const variant = nonMuiVariants[colIndex]
+    for (let colIndex = 0; colIndex < baseVariants.length; colIndex++) {
+      const variant = baseVariants[colIndex]
       const muiVariant = `${variant}-mui`
       const info = allResults.find(r => r.app === app && r.variant === muiVariant) ?? null
       rowMui.push(generateMatrixCellValue(info, colIndex, columnMinsMui, appIndex))
     }
     markdownSections.push(`| ${rowMui.join(' | ')} |`)
+  }
+  markdownSections.push('> **Legend:** Bold values indicate the smallest value in each comparison. Smaller is better.\n')
+
+  // Mantine table
+  const mantineLibTitles = apps.map(app => escapeMarkdown(getAppNameMantine(app))).join(', ')
+  markdownSections.push(`#### Mantine (${mantineLibTitles})\n`)
+  const matrixHeaderMantine = [
+    'App',
+    ...baseVariants.map((v: string) => `${escapeMarkdown(getVariantHeaderName(v))}<sub>(raw/gzip)</sub>`),
+  ].join(' | ')
+  markdownSections.push(`| ${matrixHeaderMantine} |`)
+  markdownSections.push(`| ${baseVariants.map(() => '---').join(' | ')} | --- |`)
+
+  // Calculate minimum values for Mantine table
+  const columnMinsMantine = baseVariants.map((variant: string) =>
+    calculateColumnMinimums(variant, apps, allResults, (v: string) => `${v}-mantine`)
+  )
+
+  for (let appIndex = 0; appIndex < apps.length; appIndex++) {
+    const app = apps[appIndex]
+    const appNameMantine = getAppNameMantine(app)
+    const rowMantine: string[] = [escapeMarkdown(appNameMantine)]
+    for (let colIndex = 0; colIndex < baseVariants.length; colIndex++) {
+      const variant = baseVariants[colIndex]
+      const mantineVariant = `${variant}-mantine`
+      const info = allResults.find(r => r.app === app && r.variant === mantineVariant) ?? null
+      rowMantine.push(generateMatrixCellValue(info, colIndex, columnMinsMantine, appIndex))
+    }
+    markdownSections.push(`| ${rowMantine.join(' | ')} |`)
   }
   markdownSections.push('> **Legend:** Bold values indicate the smallest value in each comparison. Smaller is better.\n')
 
@@ -183,9 +212,7 @@ export function exportToMarkdown(
       const cssFormatted = formatSmallestValue(cssValue, result.breakdown.css === minCSS)
       const wastedValue = escapeMarkdown(formatSize(result.duplicates.totalDuplicateSize))
       const wastedFormatted = formatSmallestValue(wastedValue, result.duplicates.totalDuplicateSize === minWasted && minWasted > 0)
-      const appLabel = result.variant.endsWith('-mui')
-        ? getAppNameMui(result.app as AppType)
-        : getAppNameNonMui(result.app as AppType)
+      const appLabel = getAppNameByVariant(result.app as AppType, result.variant)
       if (hasMultipleTools) {
         markdownSections.push(
           generateVariantTableRowMultipleTools(
@@ -227,7 +254,6 @@ export function exportToMarkdown(
       AVERAGE_4G_SPEED_BPS
     )
     if (vegaLiteChart !== null && statsDir) {
-
       // Add Vega-Lite chart to markdown
       const chartImportName = `performance${toValidIdentifier(variant)}`
       markdownSections.push(`\n##### Performance Comparison (using gzip sizes)\n\n`)
@@ -266,13 +292,7 @@ export function exportToMarkdown(
       // Generate Vega-Lite pie chart (gzip) if available
       const vegaLitePieChartGzip =
         result.breakdownGzip && result.totalSizeGzip
-          ? generateVegaLitePieChart(
-              result.breakdownGzip,
-              result.totalSizeGzip,
-              getLibTitle(result.app as AppType),
-              result.variant,
-              'gzip'
-            )
+          ? generateVegaLitePieChart(result.breakdownGzip, result.totalSizeGzip, getLibTitle(result.app as AppType), result.variant, 'gzip')
           : null
 
       // Collect pie chart imports and components

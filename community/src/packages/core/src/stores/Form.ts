@@ -162,29 +162,40 @@ export class Form implements IForm {
     })
   }
 
+  private rebindEvents = (events: ComponentStore['events'], oldActionName: string,
+                          newAction: NamedActionDefinition) => {
+    if (!events) return
+
+    Object.keys(events).forEach(value => {
+      const bindings = events[value]
+      bindings?.filter(item => item.type === 'code' && item.name === oldActionName)
+        .forEach(item => this.rebindActionData(item, newAction))
+    })
+  }
+
   private rebindActionHandlers(componentStore: ComponentStore, oldActionName: string, newAction: NamedActionDefinition) {
-    const events = componentStore.events
-    if (events) {
-      Object.keys(events).forEach(value => {
-        const bindings = events[value]
-        bindings?.filter(item => item.type === 'code' && item.name === oldActionName)
-          .forEach(item => this.rebindActionData(item, newAction))
-      })
-    }
+    this.rebindEvents(componentStore.events, oldActionName, newAction)
+    this.rebindEvents(componentStore.modal?.events, oldActionName, newAction)
+
     componentStore.children?.forEach(item => {
       this.rebindActionHandlers(item, oldActionName, newAction)
     })
   }
 
+  private removeEvents(events: ComponentStore['events'], actionName: string) {
+    if (!events) return
+
+    Object.keys(events).forEach(value => {
+      const bindings = events[value]
+      if (!bindings.length) return
+      events[value] = bindings.filter(item => !(item.type === 'code' && item.name === actionName))
+    })
+  }
+
   private removeCodeActionBinding(actionName: string, componentStore: ComponentStore) {
-    const events = componentStore.events
-    if (events) {
-      Object.keys(events).forEach(value => {
-        const bindings = events[value]
-        if (!bindings.length) return
-        events[value] = bindings.filter(item => !(item.type === 'code' && item.name === actionName))
-      })
-    }
+    this.removeEvents(componentStore.events, actionName)
+    this.removeEvents(componentStore.modal?.events, actionName)
+
     componentStore.children?.forEach(item => this.removeCodeActionBinding(actionName, item))
   }
 

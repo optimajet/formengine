@@ -275,6 +275,140 @@
         }
       }
     },
+    "MuiDatePicker": {
+      "description": "Komponente zur Auswahl eines Datums",
+      "name": "Datumswahl",
+      "props": {
+        "autoFocus": {
+          "description": "Wenn true, fokussiert die Datumsauswahl automatisch, wenn die Komponente montiert wird",
+          "name": "Autofokus"
+        },
+        "closeOnSelect": {
+          "description": "Schließt den Datumsauswahldialog automatisch, nachdem ein Datum ausgewählt wurde",
+          "name": "Bei Auswahl schließen"
+        },
+        "desktopModeMediaQuery": {
+          "description": "CSS-Medienabfragezeichenfolge, die festlegt, wann in das Desktop-Modus-Layout gewechselt werden soll",
+          "name": "Medienabfrage im Desktop-Modus"
+        },
+        "disableFuture": {
+          "description": "Wenn true, verhindert die Auswahl von Datumsangaben nach dem aktuellen Datum",
+          "name": "Zukunft deaktivieren"
+        },
+        "disableHighlightToday": {
+          "description": "Wenn true, deaktiviert die visuelle Hervorhebung des aktuellen Datums im Kalender",
+          "name": "Highlight heute deaktivieren"
+        },
+        "disableOpenPicker": {
+          "description": "Wenn true, verhindert das Öffnen des Auswahldialogs (nützlich für schreibgeschützte Anzeige)",
+          "name": "Offene Auswahl deaktivieren"
+        },
+        "disablePast": {
+          "description": "Wenn true, verhindert die Auswahl von Datumsangaben vor dem aktuellen Datum",
+          "name": "Vergangenheit deaktivieren"
+        },
+        "displayWeekNumber": {
+          "description": "Zeigt Wochennummern in der Kalenderansicht an",
+          "name": "Wochennummer anzeigen"
+        },
+        "fixedWeekNumber": {
+          "description": "Feste Anzahl der anzuzeigenden Wochen (erzwingt konsistente Kalenderhöhe)",
+          "name": "Feste Wochennummer"
+        },
+        "format": {
+          "description": "Datumsformatzeichenfolge, die für die Anzeige und Analyse verwendet wird (z. B. 'JJJJ-MM-TT', 'MM / TT / JJJJ')",
+          "name": "Formatierung"
+        },
+        "formatDensity": {
+          "description": "Steuert den Abstand bei der Datumsformatierung: dicht (kompakt) oder geräumig (mehr Abstand)",
+          "name": "Formatdichte"
+        },
+        "loading": {
+          "description": "Wenn true, wird ein Lade-Drehfeld angezeigt, das angibt, dass Daten geladen werden",
+          "name": "Laden"
+        },
+        "maxDate": {
+          "description": "Spätestes Datum, das ausgewählt werden kann (einschließlich)",
+          "name": "Maximales Datum"
+        },
+        "minDate": {
+          "description": "Frühestes Datum, das ausgewählt werden kann (einschließlich)",
+          "name": "Mindestdatum"
+        },
+        "monthsPerRow": {
+          "description": "Anzahl der anzuzeigenden Monatskalender pro Zeile in Monats- / Jahresansichten",
+          "name": "Monate pro Zeile"
+        },
+        "name": {
+          "description": "Das Namensattribut für das Formularfeld, das beim Senden von Formularen verwendet wird",
+          "name": "Name"
+        },
+        "onAccept": {
+          "description": "Callback wird ausgelöst, wenn der Wert akzeptiert wird",
+          "name": "Einakzeptieren"
+        },
+        "onClose": {
+          "description": "Callback wird ausgelöst, wenn das Popup das Schließen anfordert",
+          "name": "Aufschließen"
+        },
+        "onError": {
+          "description": "Callback wird ausgelöst, wenn sich der mit dem aktuellen Wert verknüpfte Fehler ändert",
+          "name": "onError"
+        },
+        "onMonthChange": {
+          "description": "Rückruf bei Monatswechsel ausgelöst",
+          "name": "Im moNatswEchsel"
+        },
+        "onOpen": {
+          "description": "Callback wird ausgelöst, wenn das Popup das Öffnen anfordert",
+          "name": "Bei geöffnetem Fenster"
+        },
+        "onSelectedSectionsChange": {
+          "description": "Callback wird ausgelöst, wenn sich die ausgewählten Abschnitte ändern",
+          "name": "Anausgewähltenabschnitteändern"
+        },
+        "onViewChange": {
+          "description": "Rückruf bei Änderung der Ansicht ausgelöst",
+          "name": "onViewChange"
+        },
+        "onYearChange": {
+          "description": "Rückruf bei Jahreswechsel ausgelöst",
+          "name": "Jahreswechsel"
+        },
+        "open": {
+          "description": "Wenn true, ist der Datumsauswahl-Dialog geöffnet; kann für die kontrollierte Statusverwaltung verwendet werden",
+          "name": "Öffnen"
+        },
+        "openTo": {
+          "description": "Die Ansicht, die geöffnet werden soll, wenn die Auswahl aktiviert ist",
+          "name": "Offen für"
+        },
+        "referenceDate": {
+          "description": "Datum, das zum Generieren der anfänglichen Kalenderansicht verwendet wird, wenn kein Wert ausgewählt ist",
+          "name": "Stichtag"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Zeigt Tage aus dem vorherigen und nächsten Monat in der aktuellen Monatsansicht an",
+          "name": "Tage außerhalb des aktuellen Monats anzeigen"
+        },
+        "view": {
+          "description": "Die anzuzeigende Anfangsansicht (Tages-, Monats- oder Jahreskalender)",
+          "name": "Blick"
+        },
+        "views": {
+          "description": "Die verfügbaren Ansichten (Tages-, Monats- und Jahreskalender)",
+          "name": "Hits"
+        },
+        "yearsOrder": {
+          "description": "Sortierreihenfolge der Jahre: aufsteigend (älteste zuerst) oder absteigend (neueste zuerst)",
+          "name": "Jahre bestellen"
+        },
+        "yearsPerRow": {
+          "description": "Anzahl der anzuzeigenden Jahreselemente pro Zeile in der Jahresansicht",
+          "name": "Jahre pro Zeile"
+        }
+      }
+    },
     "MuiDialog": {
       "description": "Eine modale Dialogkomponente, die Inhalte in einem Overlay anzeigt",
       "name": "Dialog",

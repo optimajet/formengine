@@ -3,6 +3,7 @@ import {Fragment, useContext, useEffect, useMemo} from 'react'
 import {useComponentData} from '../../utils/contexts/ComponentDataContext'
 import {useStore} from '../../utils/contexts/StoreContext'
 import {namedObserver} from '../../utils/namedObserver'
+import {reactMajor} from '../../utils/reactVersion'
 import {cfDisableStyles, cfDisableWrapperStyles} from '../define/utils/integratedComponentFeatures'
 import {useViewerProps} from '../form-viewer/components/ViewerPropsContext'
 import {getCellInfoPropertiesContext} from '../properties-context/getCellInfoPropertiesContext'
@@ -40,20 +41,33 @@ const RawComponentViewer = () => {
   const Wrapper = componentWrapper ?? DefaultWrapper
   const Tooltip = data.store.tooltipProps ? TooltipWrapper : Fragment
   const ContainerComponent = componentWrapper ?? Component
-  const component = <Component key={key} {...otherProps}/>
 
   const useStyles = !data.model.isFeatureEnabled(cfDisableStyles)
   const className = useStyles ? containerClassName : undefined
 
+  const ref = reactMajor >= 19 ? componentState.setRef : undefined
+
   if (kind === 'container') {
-    return <ContainerComponent key={key} {...otherProps} className={className} {...containerStyle}/>
+    return <ContainerComponent
+      key={key}
+      ref={ref}
+      {...otherProps}
+      className={className}
+      {...containerStyle}
+    />
   }
 
   if (kind === 'repeater') {
     return <Tooltip>
       <Wrapper>
         <Erroneous>
-          <Component key={key} {...otherProps} wrapperClassName={className} {...containerStyle}/>
+          <Component
+            key={key}
+            ref={ref}
+            {...otherProps}
+            wrapperClassName={className}
+            {...containerStyle}
+          />
         </Erroneous>
       </Wrapper>
     </Tooltip>
@@ -61,7 +75,7 @@ const RawComponentViewer = () => {
 
   if (kind === 'template') {
     return <Wrapper className={className} {...containerStyle}>
-      {component}
+      <Component key={key} ref={ref} {...otherProps}/>
     </Wrapper>
   }
 
@@ -69,7 +83,9 @@ const RawComponentViewer = () => {
 
   return <Tooltip>
     <Wrapper className={wrapperClassName} {...containerStyle}>
-      <Erroneous>{component}</Erroneous>
+      <Erroneous>
+        <Component key={key} ref={ref} {...otherProps}/>
+      </Erroneous>
     </Wrapper>
   </Tooltip>
 }

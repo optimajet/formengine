@@ -275,6 +275,140 @@
         }
       }
     },
+    "MuiDatePicker": {
+      "description": "日付を選択するためのコンポーネント",
+      "name": "日付ピッカー",
+      "props": {
+        "autoFocus": {
+          "description": "Trueの場合、コンポーネントがマウントされたときに自動的に日付ピッカーに焦点を当てます",
+          "name": "オートフォーカス"
+        },
+        "closeOnSelect": {
+          "description": "日付が選択された後、日付選択ダイアログを自動的に閉じます",
+          "name": "選択時に閉じる"
+        },
+        "desktopModeMediaQuery": {
+          "description": "デスクトップモードのレイアウトに切り替えるタイミングを決定するCSSメディアクエリ文字列",
+          "name": "デスクトップモードメディアクエリ"
+        },
+        "disableFuture": {
+          "description": "Trueの場合、現在の日付の後の日付の選択を禁止します",
+          "name": "未来を無効にする"
+        },
+        "disableHighlightToday": {
+          "description": "Trueの場合、カレンダ内の現在の日付の視覚的な強調表示を無効にします",
+          "name": "今日のハイライトを無効にする"
+        },
+        "disableOpenPicker": {
+          "description": "Trueの場合、ピッカーダイアログを開かないようにします（読み取り専用表示に便利です）",
+          "name": "開いているピッカーを無効にする"
+        },
+        "disablePast": {
+          "description": "Trueの場合、現在の日付より前の日付の選択を禁止します",
+          "name": "過去を無効にする"
+        },
+        "displayWeekNumber": {
+          "description": "カレンダービューに週番号を表示します",
+          "name": "週番号の表示"
+        },
+        "fixedWeekNumber": {
+          "description": "表示する週数を固定（カレンダーの高さを強制的に一貫させる）",
+          "name": "固定週番号"
+        },
+        "format": {
+          "description": "表示と解析に使用される日付書式文字列（例：'yyyy-MM-dd'、'MM/dd/yyyy'）",
+          "name": "フォーマット"
+        },
+        "formatDensity": {
+          "description": "日付の書式設定の間隔を制御します：密（コンパクト）または広々とした（より多くの間隔）",
+          "name": "フォーマット密度"
+        },
+        "loading": {
+          "description": "Trueの場合、データがロードされていることを示すロードスピナーが表示されます",
+          "name": "積み込み"
+        },
+        "maxDate": {
+          "description": "選択できる最新の日付（含む）",
+          "name": "最大日付"
+        },
+        "minDate": {
+          "description": "選択できる最も早い日付（包括的）",
+          "name": "分日付"
+        },
+        "monthsPerRow": {
+          "description": "月/年ビューで行ごとに表示する月カレンダーの数",
+          "name": "行あたりの月"
+        },
+        "name": {
+          "description": "フォームを送信するときに使用されるフォームフィールドのname属性",
+          "name": "名前"
+        },
+        "onAccept": {
+          "description": "値が受け入れられたときに発生するコールバック",
+          "name": "onAccept"
+        },
+        "onClose": {
+          "description": "コールバックは、ポップアップが閉じられるように要求したときに発生しました",
+          "name": "onClose"
+        },
+        "onError": {
+          "description": "現在の値に関連付けられたエラーが変更されたときに発生するコールバック",
+          "name": "onError"
+        },
+        "onMonthChange": {
+          "description": "月の変更時に発生したコールバック",
+          "name": "onMonthChange"
+        },
+        "onOpen": {
+          "description": "ポップアップが開かれるように要求したときに発生するコールバック",
+          "name": "onOpen（オンオープン）"
+        },
+        "onSelectedSectionsChange": {
+          "description": "選択したセクションが変更されたときに発生するコールバック",
+          "name": "onSelectedSectionsChange"
+        },
+        "onViewChange": {
+          "description": "ビューの変更時に発生するコールバック",
+          "name": "onViewChange"
+        },
+        "onYearChange": {
+          "description": "年の変更時に発生したコールバック",
+          "name": "onYearChange"
+        },
+        "open": {
+          "description": "Trueの場合、日付選択ダイアログが開きます。",
+          "name": "オープン"
+        },
+        "openTo": {
+          "description": "ピッカーがアクティブ化されたときに開くビュー",
+          "name": "にオープン"
+        },
+        "referenceDate": {
+          "description": "値が選択されていない場合に最初のカレンダービューを生成するために使用される日付",
+          "name": "参照日"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "現在の月ビューに、前の月と次の月の日を表示します",
+          "name": "現在の月以外の日を表示する"
+        },
+        "view": {
+          "description": "表示する最初のビュー(日、月、または年のカレンダー)",
+          "name": "ビュー"
+        },
+        "views": {
+          "description": "利用可能なビュー（日、月、年のカレンダー）",
+          "name": "ビュー"
+        },
+        "yearsOrder": {
+          "description": "年の並べ替え順序:昇順(最も古い最初)または降順(最も新しい最初)",
+          "name": "年順"
+        },
+        "yearsPerRow": {
+          "description": "年ビューで行ごとに表示する年項目の数",
+          "name": "行ごとの年"
+        }
+      }
+    },
     "MuiDialog": {
       "description": "オーバーレイでコンテンツを表示するモーダルダイアログコンポーネント",
       "name": "ダイアログ",

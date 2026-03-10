@@ -132,6 +132,11 @@ const computeEvents = (componentState: ComponentState) => {
 export class ComponentState implements IComponentState {
 
   /**
+   * The ref object associated with this component in the viewer. **Internal use only.**
+   */
+  #componentRef: any
+
+  /**
    * The context for working with component properties.
    */
   readonly context: ComponentPropertiesContext
@@ -152,6 +157,7 @@ export class ComponentState implements IComponentState {
     context?: ComponentPropertiesContext,
   ) {
     this.context = context ?? getDefaultPropertiesContext(data)
+    this.#componentRef = null
     makeAutoObservable(this, undefined, {name: nameObservable('ComponentState', {key: data.key})})
   }
 
@@ -336,6 +342,20 @@ export class ComponentState implements IComponentState {
    */
   onWillUnmount() {
     this.executeLifecycleEvent(WillUnmountEvent)
+  }
+
+  /**
+   * @inheritDoc
+   */
+  setRef = (object: any) => {
+    this.#componentRef = object
+  }
+
+  /**
+   * @inheritDoc
+   */
+  getRefValue = () => {
+    return this.#componentRef
   }
 
   private executeLifecycleEvent(eventName: EventName) {

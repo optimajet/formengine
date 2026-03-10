@@ -1,6 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline'
 import {ThemeProvider} from '@mui/material/styles'
-import React, {StrictMode, useEffect, useState} from 'react'
+import React, {StrictMode, useState} from 'react'
 import {createRoot} from 'react-dom/client'
 import {Model, RendererFactory} from 'survey-core'
 import {ReactQuestionFactory, Survey} from 'survey-react-ui'
@@ -55,19 +55,13 @@ RendererFactory.Instance.registerRenderer('image', 'mui-image', 'mui-image', tru
 RendererFactory.Instance.registerRenderer('html', 'mui-html', 'mui-html', true)
 
 function SurveyComponent() {
-  const [survey, setSurvey] = useState<Model | null>(null)
-
-  useEffect(() => {
+  const [survey] = useState<Model>(() => {
     const surveyModel = new Model(json)
-
     surveyModel.onComplete.add(sender => {
       console.warn(JSON.stringify(sender.data, null, 2))
     })
-
-    setSurvey(surveyModel)
-  }, [])
-
-  if (!survey) return null
+    return surveyModel
+  })
 
   return (
     <ThemeProvider theme={theme}>

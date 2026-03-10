@@ -50,6 +50,17 @@ export interface IComponentState {
    * @returns true if the component is disabled, false otherwise.
    */
   get isDisabled(): boolean
+
+  /**
+   * Sets the object associated with this component in the viewer.
+   * @param object the object associated with this component in the viewer.
+   */
+  setRef?: (object: any) => void
+
+  /**
+   * @returns the object associated with this component in the viewer.
+   */
+  getRefValue?: () => any
 }
 
 /**

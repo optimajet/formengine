@@ -17,9 +17,9 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^7.12.0",
-    "@react-form-builder/core": "^7.12.0",
-    "@react-form-builder/designer": "^7.12.0",
+    "@react-form-builder/components-rsuite": "^7.13.0",
+    "@react-form-builder/core": "^7.13.0",
+    "@react-form-builder/designer": "^7.13.0",
     "next": "16.1.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"
@@ -28,8 +28,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^9",
-    "eslint-config-next": "15.0.1",
+    "eslint": "^10",
+    "eslint-config-next": "16.1.6",
     "typescript": "^5"
   }
 }

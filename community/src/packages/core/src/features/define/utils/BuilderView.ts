@@ -31,6 +31,11 @@ export class BuilderView extends View {
   #metaMap = new Map<string, Meta>()
 
   /**
+   * The array of metadata of form builder components.
+   */
+  builderComponents: BuilderComponent[]
+
+  /**
    * The function for filtering components on the component palette.
    */
   paletteFilter?: (builderComponent: BuilderComponent) => boolean
@@ -128,17 +133,20 @@ export class BuilderView extends View {
    * Creates metadata for form builder components.
    * @param builderComponents the array of metadata of form builder components.
    */
-  constructor(public builderComponents: BuilderComponent[]) {
+  constructor(builderComponents: BuilderComponent[]) {
     super(builderComponents.map(({model}) => model))
-    this.builderComponents.push({meta: screenMeta, model: screenModel})
-    this.builderComponents.push({meta: internalErrorMeta, model: internalErrorModel})
-    this.builderComponents.push({meta: slotMeta, model: slotModel, category: templatesCategoryName})
-    this.builderComponents.push({meta: embeddedFormMeta, model: embeddedFormModel, category: templatesCategoryName})
-    this.builderComponents.push({meta: repeaterMeta, model: repeaterModel, category: structureCategoryName})
-    this.builderComponents.push({meta: errorMessageMeta, model: errorMessageModel})
-    this.builderComponents.push({meta: modalMeta, model: modalModel, category: modalCategoryName})
+    this.builderComponents = [
+      ...builderComponents,
+      {meta: screenMeta, model: screenModel},
+      {meta: internalErrorMeta, model: internalErrorModel},
+      {meta: slotMeta, model: slotModel, category: templatesCategoryName},
+      {meta: embeddedFormMeta, model: embeddedFormModel, category: templatesCategoryName},
+      {meta: repeaterMeta, model: repeaterModel, category: structureCategoryName},
+      {meta: errorMessageMeta, model: errorMessageModel},
+      {meta: modalMeta, model: modalModel, category: modalCategoryName},
+    ]
 
-    const metas = builderComponents.map(({meta}) => meta)
+    const metas = this.builderComponents.map(({meta}) => meta)
 
     metas.forEach(meta => {
       this.#metaMap.set(meta.type, meta)

@@ -4,8 +4,12 @@ import {
   type AppType,
   displayDuplicatePackagesInfo,
   displayDuplicatePackagesSummary,
+  getAppNameByVariant,
+  getAppNameMantine,
   getAppNameMui,
+  getBaseVariants,
   getAppNameNonMui,
+  getVariantsForApp,
   getLibTitle,
   getVariantHeaderName,
   processChunks,
@@ -35,7 +39,7 @@ export function displayBundleSizes(
     console.log(`Expected stats files in .bundle-stats/ (using ${activeBuildTools.join(' and ')}):`)
     for (const tool of activeBuildTools) {
       for (const app of apps) {
-        for (const variant of variants) {
+        for (const variant of getVariantsForApp(app)) {
           console.log(`  - .bundle-stats/${app}-${variant}-${tool}.json`)
         }
       }
@@ -113,13 +117,14 @@ export function displayBundleSizes(
 
     for (const result of variantResults) {
       const chunkCount = Object.keys(result.chunks).length
+      const appLabel = getAppNameByVariant(result.app as AppType, result.variant)
       if (hasMultipleTools) {
         console.log(
-          `${result.app.padEnd(20)} ${result.buildTool.padEnd(12)} ${formatSizeWithCompression(result.totalSize, result.totalSizeGzip).padEnd(40)} ${chunkCount.toString().padEnd(10)}`
+          `${appLabel.padEnd(20)} ${result.buildTool.padEnd(12)} ${formatSizeWithCompression(result.totalSize, result.totalSizeGzip).padEnd(40)} ${chunkCount.toString().padEnd(10)}`
         )
       } else {
         console.log(
-          `${result.app.padEnd(20)} ${formatSizeWithCompression(result.totalSize, result.totalSizeGzip).padEnd(40)} ${chunkCount.toString().padEnd(10)}`
+          `${appLabel.padEnd(20)} ${formatSizeWithCompression(result.totalSize, result.totalSizeGzip).padEnd(40)} ${chunkCount.toString().padEnd(10)}`
         )
       }
     }
@@ -132,7 +137,7 @@ export function displayBundleSizes(
   if (activeBuildTools.length > 1) {
     // Show comparison matrix for each build tool
     for (const tool of activeBuildTools) {
-      const nonMuiVariants = variants.filter(v => !v.endsWith('-mui'))
+      const baseVariants = getBaseVariants(variants)
 
       // Main header
       console.log(`\n📈 Summary Matrix (Total Size) - ${tool.toUpperCase()}:\n`)
@@ -140,14 +145,14 @@ export function displayBundleSizes(
       // Non-MUI table
       console.log(`  Non-MUI:\n`)
       console.log('-'.repeat(120))
-      const matrixHeaderNonMui = `${'App'.padEnd(20)} ${nonMuiVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
+      const matrixHeaderNonMui = `${'App'.padEnd(20)} ${baseVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
       console.log(matrixHeaderNonMui)
       console.log('-'.repeat(120))
 
       for (const app of apps) {
         const appNameNonMui = getAppNameNonMui(app)
         const rowNonMui: string[] = [appNameNonMui.padEnd(20)]
-        for (const variant of nonMuiVariants) {
+        for (const variant of baseVariants) {
           const info = allResults.find(r => r.app === app && r.variant === variant && r.buildTool === tool)
           rowNonMui.push((info ? formatSize(info.totalSize) : 'N/A').padEnd(15))
         }
@@ -158,19 +163,38 @@ export function displayBundleSizes(
       // MUI table
       console.log(`\n  MUI:\n`)
       console.log('-'.repeat(120))
-      const matrixHeaderMui = `${'App'.padEnd(20)} ${nonMuiVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
+      const matrixHeaderMui = `${'App'.padEnd(20)} ${baseVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
       console.log(matrixHeaderMui)
       console.log('-'.repeat(120))
 
       for (const app of apps) {
         const appNameMui = getAppNameMui(app)
         const rowMui: string[] = [appNameMui.padEnd(20)]
-        for (const variant of nonMuiVariants) {
+        for (const variant of baseVariants) {
           const muiVariant = `${variant}-mui`
           const info = allResults.find(r => r.app === app && r.variant === muiVariant && r.buildTool === tool)
           rowMui.push((info ? formatSize(info.totalSize) : 'N/A').padEnd(15))
         }
         console.log(rowMui.join(' '))
+      }
+      console.log('-'.repeat(120))
+
+      // Mantine table
+      console.log(`\n  Mantine:\n`)
+      console.log('-'.repeat(120))
+      const matrixHeaderMantine = `${'App'.padEnd(20)} ${baseVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
+      console.log(matrixHeaderMantine)
+      console.log('-'.repeat(120))
+
+      for (const app of apps) {
+        const appNameMantine = getAppNameMantine(app)
+        const rowMantine: string[] = [appNameMantine.padEnd(20)]
+        for (const variant of baseVariants) {
+          const mantineVariant = `${variant}-mantine`
+          const info = allResults.find(r => r.app === app && r.variant === mantineVariant && r.buildTool === tool)
+          rowMantine.push((info ? formatSize(info.totalSize) : 'N/A').padEnd(15))
+        }
+        console.log(rowMantine.join(' '))
       }
       console.log('-'.repeat(120))
     }
@@ -199,7 +223,7 @@ export function displayBundleSizes(
     console.log('-'.repeat(120))
   } else {
     // Single tool matrix
-    const nonMuiVariants = variants.filter(v => !v.endsWith('-mui'))
+    const baseVariants = getBaseVariants(variants)
 
     // Main header
     console.log('\n📈 Summary Matrix (Total Size):\n')
@@ -207,14 +231,14 @@ export function displayBundleSizes(
     // Non-MUI table
     console.log('  Non-MUI:\n')
     console.log('-'.repeat(120))
-    const matrixHeaderNonMui = `${'App'.padEnd(20)} ${nonMuiVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
+    const matrixHeaderNonMui = `${'App'.padEnd(20)} ${baseVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
     console.log(matrixHeaderNonMui)
     console.log('-'.repeat(120))
 
     for (const app of apps) {
       const appNameNonMui = getAppNameNonMui(app)
       const rowNonMui: string[] = [appNameNonMui.padEnd(20)]
-      for (const variant of nonMuiVariants) {
+      for (const variant of baseVariants) {
         const info = allResults.find(r => r.app === app && r.variant === variant)
         rowNonMui.push((info ? formatSize(info.totalSize) : 'N/A').padEnd(15))
       }
@@ -225,19 +249,38 @@ export function displayBundleSizes(
     // MUI table
     console.log('\n  MUI:\n')
     console.log('-'.repeat(120))
-    const matrixHeaderMui = `${'App'.padEnd(20)} ${nonMuiVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
+    const matrixHeaderMui = `${'App'.padEnd(20)} ${baseVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
     console.log(matrixHeaderMui)
     console.log('-'.repeat(120))
 
     for (const app of apps) {
       const appNameMui = getAppNameMui(app)
       const rowMui: string[] = [appNameMui.padEnd(20)]
-      for (const variant of nonMuiVariants) {
+      for (const variant of baseVariants) {
         const muiVariant = `${variant}-mui`
         const info = allResults.find(r => r.app === app && r.variant === muiVariant)
         rowMui.push((info ? formatSize(info.totalSize) : 'N/A').padEnd(15))
       }
       console.log(rowMui.join(' '))
+    }
+    console.log('-'.repeat(120))
+
+    // Mantine table
+    console.log('\n  Mantine:\n')
+    console.log('-'.repeat(120))
+    const matrixHeaderMantine = `${'App'.padEnd(20)} ${baseVariants.map(v => getVariantHeaderName(v).padEnd(15)).join(' ')}`
+    console.log(matrixHeaderMantine)
+    console.log('-'.repeat(120))
+
+    for (const app of apps) {
+      const appNameMantine = getAppNameMantine(app)
+      const rowMantine: string[] = [appNameMantine.padEnd(20)]
+      for (const variant of baseVariants) {
+        const mantineVariant = `${variant}-mantine`
+        const info = allResults.find(r => r.app === app && r.variant === mantineVariant)
+        rowMantine.push((info ? formatSize(info.totalSize) : 'N/A').padEnd(15))
+      }
+      console.log(rowMantine.join(' '))
     }
     console.log('-'.repeat(120))
   }

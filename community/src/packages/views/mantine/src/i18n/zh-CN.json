@@ -481,9 +481,9 @@
           "description": "对话内容",
           "name": "儿童"
         },
-        "onOpenedChange": {
-          "description": "当opened属性更改时调用",
-          "name": "n.交换,交换"
+        "onOpen": {
+          "description": "当open属性设置为true时调用",
+          "name": "奥诺彭"
         },
         "opened": {
           "description": "对话框是否打开",

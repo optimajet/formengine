@@ -19,8 +19,10 @@
     "dev": "vite",
     "dev-login": "dotenv -v APP_INPUT=login npm run dev",
     "dev-login-mui": "dotenv -v APP_INPUT=login-mui npm run dev",
+    "dev-login-mantine": "dotenv -v APP_INPUT=login-mantine npm run dev",
     "dev-booking": "dotenv -v APP_INPUT=booking npm run dev",
     "dev-booking-mui": "dotenv -v APP_INPUT=booking-mui npm run dev",
+    "dev-booking-mantine": "dotenv -v APP_INPUT=booking-mantine npm run dev",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -28,10 +30,15 @@
   },
   "dependencies": {
     "@rjsf/core": "^6.1.2",
+    "@rjsf/mantine": "^6.1.2",
     "@rjsf/mui": "^6.1.2",
     "@rjsf/utils": "^6.1.2",
     "@rjsf/validator-ajv8": "^6.1.2",
+    "@mantine/core": "^8.3.9",
+    "@mantine/dates": "^8.3.9",
+    "@mantine/hooks": "^8.3.9",
     "bootstrap": "^3.4.1",
+    "dayjs": "^1.11.18",
     "@react-form-builder/bundle-size-shared": "*"
   }
 }

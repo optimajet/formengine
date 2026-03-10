@@ -491,6 +491,7 @@ export function generateHiddenVegaLiteCode(chartId: string, chartJson: string): 
  * @param matrixHeaderCells matrix header cells HTML
  * @param matrixRowsNonMui non-MUI matrix rows HTML
  * @param matrixRowsMui MUI matrix rows HTML
+ * @param matrixRowsMantine Mantine matrix rows HTML
  * @param summaryByAppSections summary by app sections HTML
  * @param summaryByVariantSections summary by variant sections HTML
  * @param detailedSections detailed sections HTML
@@ -501,11 +502,13 @@ export function generateHTMLDocument(
   matrixHeaderCells: string,
   matrixRowsNonMui: string,
   matrixRowsMui: string,
+  matrixRowsMantine: string,
   summaryByAppSections: string[],
   summaryByVariantSections: string[],
   detailedSections: string[],
   nonMuiLibTitles: string,
-  muiLibTitles: string
+  muiLibTitles: string,
+  mantineLibTitles: string
 ): string {
   const buildToolsNote =
     activeBuildTools.length > 1
@@ -652,6 +655,19 @@ export function generateHTMLDocument(
       </thead>
       <tbody>
         ${matrixRowsMui}
+      </tbody>
+    </table>
+    <div class="legend">📊 <strong>Legend:</strong> Highlighted cells indicate the smallest value in each comparison. Smaller is better.</div>
+    <h3>Mantine${mantineLibTitles ? ` (${escapeHtml(mantineLibTitles)})` : ''}</h3>
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>App</th>
+          ${matrixHeaderCells}
+        </tr>
+      </thead>
+      <tbody>
+        ${matrixRowsMantine}
       </tbody>
     </table>
     <div class="legend">📊 <strong>Legend:</strong> Highlighted cells indicate the smallest value in each comparison. Smaller is better.</div>

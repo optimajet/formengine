@@ -1,6 +1,5 @@
 import RawAgreementForm from './agreement.json'
-import RawMantineForm from './MantineForm-all.json'
-// import RawMantineForm from './MantineForm.json'
+import RawMantineForm from './MantineForm.json'
 import RawMuiForm from './MuiForm.json'
 import RawRSuiteForm from './RSuiteForm.json'
 import RawTemplateForm from './template.json'

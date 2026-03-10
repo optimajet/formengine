@@ -4,6 +4,7 @@ import {ActionDefinition} from '../ActionDefinition'
 
 export const modalBeforeShowFnName = 'beforeShow'
 export const modalBeforeHideFnName = 'beforeHide'
+export const modalOnCloseEventHandler = 'modalOnCloseEventHandler'
 export const modalStateKey = 'modalState'
 
 export const openModal = ActionDefinition.functionalAction(async (e, args) => {
@@ -53,6 +54,9 @@ export const closeModal = ActionDefinition.functionalAction(async (e, args) => {
 
   const closeCurrentModal = modalContext[closeCurrentModalActionName]
   closeCurrentModal?.(modalResult)
+
+  const onCloseEventHandler = modalContext[modalOnCloseEventHandler]
+  onCloseEventHandler?.()
 }, {
   result: 'string'
 })

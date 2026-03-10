@@ -582,6 +582,140 @@
           "description": "The title text"
         }
       }
+    },
+    "MuiDatePicker": {
+      "name": "Date picker",
+      "description": "Component for selecting a date",
+      "props": {
+        "format": {
+          "name": "Format",
+          "description": "Date format string used for display and parsing (e.g., 'yyyy-MM-dd', 'MM/dd/yyyy')"
+        },
+        "autoFocus": {
+          "name": "Auto focus",
+          "description": "If true, automatically focuses the date picker when the component mounts"
+        },
+        "closeOnSelect": {
+          "name": "Close on select",
+          "description": "Closes the date picker dialog automatically after a date is selected"
+        },
+        "desktopModeMediaQuery": {
+          "name": "Desktop mode media query",
+          "description": "CSS media query string that determines when to switch to desktop mode layout"
+        },
+        "disableFuture": {
+          "name": "Disable future",
+          "description": "If true, prevents selection of dates after the current date"
+        },
+        "disableHighlightToday": {
+          "name": "Disable highlight today",
+          "description": "If true, disables the visual highlighting of the current date in the calendar"
+        },
+        "disableOpenPicker": {
+          "name": "Disable open picker",
+          "description": "If true, prevents opening the picker dialog (useful for read-only display)"
+        },
+        "disablePast": {
+          "name": "Disable past",
+          "description": "If true, prevents selection of dates before the current date"
+        },
+        "displayWeekNumber": {
+          "name": "Display week number",
+          "description": "Shows week numbers in the calendar view"
+        },
+        "fixedWeekNumber": {
+          "name": "Fixed week number",
+          "description": "Fixed number of weeks to display (forces consistent calendar height)"
+        },
+        "formatDensity": {
+          "name": "Format density",
+          "description": "Controls spacing in date formatting: dense (compact) or spacious (more spacing)"
+        },
+        "loading": {
+          "name": "Loading",
+          "description": "If true, displays a loading spinner indicating data is being loaded"
+        },
+        "maxDate": {
+          "name": "Max date",
+          "description": "Latest date that can be selected (inclusive)"
+        },
+        "minDate": {
+          "name": "Min date",
+          "description": "Earliest date that can be selected (inclusive)"
+        },
+        "monthsPerRow": {
+          "name": "Months per row",
+          "description": "Number of month calendars to display per row in month/year views"
+        },
+        "name": {
+          "name": "Name",
+          "description": "The name attribute for the form field, used when submitting forms"
+        },
+        "onAccept": {
+          "name": "onAccept",
+          "description": "Callback fired when the value is accepted"
+        },
+        "onClose": {
+          "name": "onClose",
+          "description": "Callback fired when the popup requests to be closed"
+        },
+        "onError": {
+          "name": "onError",
+          "description": "Callback fired when the error associated with the current value changes"
+        },
+        "onMonthChange": {
+          "name": "onMonthChange",
+          "description": "Callback fired on month change"
+        },
+        "onOpen": {
+          "name": "onOpen",
+          "description": "Callback fired when the popup requests to be opened"
+        },
+        "onSelectedSectionsChange": {
+          "name": "onSelectedSectionsChange",
+          "description": "Callback fired when the selected sections change"
+        },
+        "onViewChange": {
+          "name": "onViewChange",
+          "description": "Callback fired on view change"
+        },
+        "onYearChange": {
+          "name": "onYearChange",
+          "description": "Callback fired on year change"
+        },
+        "open": {
+          "name": "Open",
+          "description": "If true, the date picker dialog is open; can be used for controlled state management"
+        },
+        "openTo": {
+          "name": "Open to",
+          "description": "The view to open when the picker is activated"
+        },
+        "referenceDate": {
+          "name": "Reference date",
+          "description": "Date used to generate the initial calendar view when no value is selected"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "name": "Show days outside current month",
+          "description": "Displays days from the previous and next months in the current month view"
+        },
+        "view": {
+          "name": "View",
+          "description": "The initial view to display (day, month, or year calendar)"
+        },
+        "views": {
+          "name": "Views",
+          "description": "The available views (day, month, and year calendar)"
+        },
+        "yearsOrder": {
+          "name": "Years order",
+          "description": "Sorting order of years: ascending (oldest first) or descending (newest first)"
+        },
+        "yearsPerRow": {
+          "name": "Years per row",
+          "description": "Number of year items to display per row in year view"
+        }
+      }
     }
   }
 }

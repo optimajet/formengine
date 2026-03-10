@@ -1,6 +1,9 @@
 import RawMuiForm from '@react-form-builder/apps-common/forms/MuiForm.json'
-import {view} from '@react-form-builder/components-material-ui'
-import {FormViewer} from '@react-form-builder/core'
+import '../utils/muiLocalizations'
+import {models, MuiLocalizationProvider, MuiViewerWrapper} from '@react-form-builder/components-material-ui'
+import {createView, FormViewer} from '@react-form-builder/core'
+
+const view = createView(models).withViewerWrapper(MuiViewerWrapper).withViewerWrapper(MuiLocalizationProvider)
 
 const getForm = () => JSON.stringify(RawMuiForm)
 

@@ -8,6 +8,7 @@ import {muiCard} from './components/MuiCard'
 import {muiCheckbox} from './components/MuiCheckbox'
 import {muiCircularProgress} from './components/MuiCircularProgress'
 import {muiContainer} from './components/MuiContainer'
+import {muiDatePicker} from './components/MuiDatePicker'
 import {muiDialog} from './components/MuiDialog'
 import {muiDialogActions} from './components/MuiDialogActions'
 import {muiDialogContent} from './components/MuiDialogContent'
@@ -44,6 +45,7 @@ export const muiComponents: Definer<any>[] = [
   muiSelect,
   muiSwitch,
   muiTextField,
+  muiDatePicker,
   // dataDisplay
   muiTypography,
   muiTooltip,

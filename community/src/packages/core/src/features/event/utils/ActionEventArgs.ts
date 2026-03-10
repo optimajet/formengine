@@ -24,6 +24,11 @@ export class ActionEventArgs {
   readonly userContext?: unknown
 
   /**
+   * The ref value, if available.
+   */
+  readonly refValue?: any
+
+  /**
    * Creates arguments for the event handler.
    * @param type the event type.
    * @param sender the component that triggered the event.
@@ -50,6 +55,7 @@ export class ActionEventArgs {
     }
     this.#rootComponentDataProxy = createDataProxy(this.store.formData)
     this.userContext = store.formViewerPropsStore.userContext
+    this.refValue = sender.componentState.getRefValue?.()
   }
 
   /**
@@ -189,5 +195,10 @@ declare class ActionEventArgs {
    * The user-defined context passed from the form viewer props.
    */
   readonly userContext?: unknown
+
+  /**
+   * The ref value, if available.
+   */
+  readonly refValue?: any
 }
 `

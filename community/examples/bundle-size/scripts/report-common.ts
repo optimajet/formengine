@@ -8,29 +8,44 @@ import {calculatePercentage} from './tool.ts'
 import {formatSize} from './utils.ts'
 
 export const apps = ['formengine', 'rjsf', 'survey', 'vueform'] as const
-export const variants = ['login', 'login-mui', 'booking', 'booking-mui'] as const
+export const variants = ['login', 'login-mui', 'login-mantine', 'booking', 'booking-mui', 'booking-mantine'] as const
 
-export type AppType = typeof apps[number]
+export type AppType = (typeof apps)[number]
+export type UiSetup = 'rsuite' | 'mui' | 'mantine'
 
-const mapLibTitleNonMui: Record<AppType, string> = {
-  'formengine': 'FormEngine Rsuite',
-  'rjsf': 'RJSF',
-  'vueform': 'VueForm',
-  'survey': 'SurveyJS'
+const appVariants: Record<AppType, readonly string[]> = {
+  formengine: variants,
+  rjsf: ['login', 'login-mui', 'login-mantine', 'booking', 'booking-mui', 'booking-mantine'],
+  survey: ['login', 'login-mui', 'login-mantine', 'booking', 'booking-mui', 'booking-mantine'],
+  vueform: ['login', 'login-mui', 'booking', 'booking-mui'],
+}
+
+const mapLibTitleRsuite: Record<AppType, string> = {
+  formengine: 'FormEngine Rsuite',
+  rjsf: 'RJSF',
+  vueform: 'VueForm',
+  survey: 'SurveyJS',
 }
 
 const mapLibTitleMui: Record<AppType, string> = {
-  'formengine': 'FormEngine MUI',
-  'rjsf': 'RJSF',
-  'vueform': 'VueForm',
-  'survey': 'SurveyJS'
+  formengine: 'FormEngine MUI',
+  rjsf: 'RJSF',
+  vueform: 'VueForm',
+  survey: 'SurveyJS',
+}
+
+const mapLibTitleMantine: Record<AppType, string> = {
+  formengine: 'FormEngine Mantine',
+  rjsf: 'RJSF',
+  vueform: 'VueForm',
+  survey: 'SurveyJS',
 }
 
 const mapLibTitle: Record<AppType, string> = {
-  'formengine': 'FormEngine Core',
-  'rjsf': 'RJSF',
-  'vueform': 'VueForm',
-  'survey': 'SurveyJS'
+  formengine: 'FormEngine Core',
+  rjsf: 'RJSF',
+  vueform: 'VueForm',
+  survey: 'SurveyJS',
 }
 
 export function getLibTitle(app: AppType): string {
@@ -440,7 +455,7 @@ export function formatDiffKB(diff: number, gzipDiff?: number): string {
  * @returns app name for non-MUI version
  */
 export function getAppNameNonMui(app: AppType): string {
-  return mapLibTitleNonMui[app]
+  return mapLibTitleRsuite[app]
 }
 
 /**
@@ -452,6 +467,23 @@ export function getAppNameMui(app: AppType): string {
   return mapLibTitleMui[app]
 }
 
+/**
+ * Gets the app name for Mantine version.
+ * @param app original app name
+ * @returns app name for Mantine version
+ */
+export function getAppNameMantine(app: AppType): string {
+  return mapLibTitleMantine[app]
+}
+
+/**
+ * Gets variants available for an app.
+ * @param app app name
+ * @returns app variant names
+ */
+export function getVariantsForApp(app: AppType): readonly string[] {
+  return appVariants[app]
+}
 
 /**
  * Gets the variant name for table headers (removes -mui suffix).
@@ -459,7 +491,52 @@ export function getAppNameMui(app: AppType): string {
  * @returns variant name for headers
  */
 export function getVariantHeaderName(variant: string): string {
-  return variant.replace(/-mui$/, '')
+  return variant.replace(/-(mui|mantine)$/, '')
+}
+
+/**
+ * Gets base variants without UI suffixes.
+ * @param variantNames list of variant names
+ * @returns list of base variant names
+ */
+export function getBaseVariants(variantNames: readonly string[]): string[] {
+  const bases = new Set<string>()
+  for (const variant of variantNames) {
+    bases.add(getVariantHeaderName(variant))
+  }
+  return Array.from(bases)
+}
+
+/**
+ * Gets UI setup type by variant suffix.
+ * @param variant variant name
+ * @returns UI setup
+ */
+export function getUiSetupByVariant(variant: string): UiSetup {
+  if (variant.endsWith('-mui')) {
+    return 'mui'
+  }
+  if (variant.endsWith('-mantine')) {
+    return 'mantine'
+  }
+  return 'rsuite'
+}
+
+/**
+ * Gets display app name by app and variant.
+ * @param app app name
+ * @param variant variant name
+ * @returns display app title
+ */
+export function getAppNameByVariant(app: AppType, variant: string): string {
+  const setup = getUiSetupByVariant(variant)
+  if (setup === 'mui') {
+    return getAppNameMui(app)
+  }
+  if (setup === 'mantine') {
+    return getAppNameMantine(app)
+  }
+  return getAppNameNonMui(app)
 }
 
 /**
@@ -690,9 +767,7 @@ export function displayDuplicatePackagesSummary(allResults: BundleInfo[], apps: 
  * @param variantResults variant results to analyze
  * @returns object with minimum values for total size, gzip size, code, CSS, and wasted size
  */
-export function calculateVariantMinimums(
-  variantResults: BundleInfo[]
-): {
+export function calculateVariantMinimums(variantResults: BundleInfo[]): {
   minTotalSize: number
   minTotalGzipSize: number
   minCode: number
@@ -744,7 +819,7 @@ export function filterAndSortAppResults(allResults: BundleInfo[], app: string): 
  * @returns list of non-MUI variant names
  */
 export function filterNonMuiVariants(variants: readonly string[]): string[] {
-  return variants.filter(v => !v.endsWith('-mui'))
+  return variants.filter(v => !v.endsWith('-mui') && !v.endsWith('-mantine'))
 }
 
 /**

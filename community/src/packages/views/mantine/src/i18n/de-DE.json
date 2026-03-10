@@ -481,9 +481,9 @@
           "description": "Dialog Inhalt",
           "name": "Kinder"
         },
-        "onOpenedChange": {
-          "description": "Wird aufgerufen, wenn die geöffnete Eigenschaft geändert wird",
-          "name": "Bei geöffnetem Wechsel"
+        "onOpen": {
+          "description": "Wird aufgerufen, wenn die Eigenschaft open auf true gesetzt ist",
+          "name": "Bei geöffnetem Fenster"
         },
         "opened": {
           "description": "Ob der Dialog geöffnet ist",

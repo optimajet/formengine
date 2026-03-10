@@ -275,6 +275,140 @@
         }
       }
     },
+    "MuiDatePicker": {
+      "description": "Componente para seleccionar una fecha",
+      "name": "Selector de fecha",
+      "props": {
+        "autoFocus": {
+          "description": "Si es true, enfoca automáticamente el selector de fecha cuando se monta el componente",
+          "name": "Enfoque automático"
+        },
+        "closeOnSelect": {
+          "description": "Cierra el cuadro de diálogo selector de fecha automáticamente después de seleccionar una fecha",
+          "name": "Cerrar al seleccionar"
+        },
+        "desktopModeMediaQuery": {
+          "description": "Cadena de consulta de medios CSS que determina cuándo cambiar al diseño del modo de escritorio",
+          "name": "Consulta de medios en modo escritorio"
+        },
+        "disableFuture": {
+          "description": "Si es verdadero, impide la selección de fechas posteriores a la fecha actual",
+          "name": "Deshabilitar futuro"
+        },
+        "disableHighlightToday": {
+          "description": "Si es verdadero, deshabilita el resaltado visual de la fecha actual en el calendario",
+          "name": "Deshabilitar resaltado hoy"
+        },
+        "disableOpenPicker": {
+          "description": "Si es verdadero, impide abrir el cuadro de diálogo del selector (útil para la visualización de solo lectura)",
+          "name": "Deshabilitar selector abierto"
+        },
+        "disablePast": {
+          "description": "Si es true, impide la selección de fechas anteriores a la fecha actual",
+          "name": "Deshabilitar pasado"
+        },
+        "displayWeekNumber": {
+          "description": "Muestra los números de la semana en la vista de calendario",
+          "name": "Mostrar número de semana"
+        },
+        "fixedWeekNumber": {
+          "description": "Número fijo de semanas para mostrar (fuerza una altura de calendario consistente)",
+          "name": "Número de semana fijo"
+        },
+        "format": {
+          "description": "Cadena de formato de fecha utilizada para mostrar y analizar (por ejemplo, 'aaaa-MM-dd', 'MM / dd / aaaa')",
+          "name": "Formato"
+        },
+        "formatDensity": {
+          "description": "Controla el espaciado en el formato de fecha: denso (compacto) o espacioso (más espaciado)",
+          "name": "Densidad de formato"
+        },
+        "loading": {
+          "description": "Si es verdadero, muestra un control giratorio de carga que indica que se están cargando datos",
+          "name": "Cargando"
+        },
+        "maxDate": {
+          "description": "Última fecha que se puede seleccionar (inclusive)",
+          "name": "Fecha máxima"
+        },
+        "minDate": {
+          "description": "Fecha más temprana que se puede seleccionar (inclusive)",
+          "name": "Fecha mínima"
+        },
+        "monthsPerRow": {
+          "description": "Número de calendarios mensuales que se mostrarán por fila en vistas de mes/año",
+          "name": "Meses por fila"
+        },
+        "name": {
+          "description": "El atributo de nombre para el campo de formulario, utilizado al enviar formularios",
+          "name": "Nombre"
+        },
+        "onAccept": {
+          "description": "Devolución de llamada activada cuando se acepta el valor",
+          "name": "onAcepto"
+        },
+        "onClose": {
+          "description": "Devolución de llamada activada cuando la ventana emergente solicita que se cierre",
+          "name": "Al cerrar"
+        },
+        "onError": {
+          "description": "Devolución de llamada activada cuando cambia el error asociado con el valor actual",
+          "name": "onError"
+        },
+        "onMonthChange": {
+          "description": "Devolución de llamada activada en el cambio de mes",
+          "name": "onMonthChange"
+        },
+        "onOpen": {
+          "description": "Devolución de llamada activada cuando la ventana emergente solicita que se abra",
+          "name": "Onabierto"
+        },
+        "onSelectedSectionsChange": {
+          "description": "Devolución de llamada activada cuando cambian las secciones seleccionadas",
+          "name": "ectionelectedsectionschange"
+        },
+        "onViewChange": {
+          "description": "Devolución de llamada activada al cambiar de vista",
+          "name": "onViewChange"
+        },
+        "onYearChange": {
+          "description": "Devolución de llamada activada por cambio de año",
+          "name": "onYearChange"
+        },
+        "open": {
+          "description": "Si es verdadero, el cuadro de diálogo selector de fechas está abierto; se puede utilizar para la gestión controlada del estado",
+          "name": "Abierto"
+        },
+        "openTo": {
+          "description": "La vista que se abrirá cuando se active el selector",
+          "name": "Abierto a"
+        },
+        "referenceDate": {
+          "description": "Fecha utilizada para generar la vista de calendario inicial cuando no se selecciona ningún valor",
+          "name": "Fecha de referencia"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Muestra los días del mes anterior y siguiente en la vista del mes actual.",
+          "name": "Mostrar días fuera del mes actual"
+        },
+        "view": {
+          "description": "La vista inicial que se mostrará (calendario de día, mes o año)",
+          "name": "Vista"
+        },
+        "views": {
+          "description": "Las vistas disponibles (calendario de día, mes y año)",
+          "name": "Vistas"
+        },
+        "yearsOrder": {
+          "description": "Orden de clasificación de los años: ascendente (primero el más antiguo) o descendente (primero el más nuevo)",
+          "name": "Pedido de años"
+        },
+        "yearsPerRow": {
+          "description": "Número de elementos del año que se mostrarán por fila en la vista año",
+          "name": "Años por fila"
+        }
+      }
+    },
     "MuiDialog": {
       "description": "Un cuadro de diálogo modal componente que se muestra el contenido en una superposición de",
       "name": "Diálogo",

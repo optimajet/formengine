@@ -481,9 +481,9 @@
           "description": "Contenuto della finestra di dialogo",
           "name": "Bambino"
         },
-        "onOpenedChange": {
-          "description": "Chiamato quando la proprietà aperta viene modificata",
-          "name": "onOpenedChange"
+        "onOpen": {
+          "description": "Chiamato quando la proprietà open è impostata su true",
+          "name": "onApri"
         },
         "opened": {
           "description": "Indica se la finestra di dialogo è aperta",

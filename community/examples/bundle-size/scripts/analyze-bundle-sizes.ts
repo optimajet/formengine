@@ -7,7 +7,7 @@ import {cpSync, existsSync, mkdirSync, readFileSync, writeFileSync} from 'fs'
 import {dirname, join} from 'path'
 import {fileURLToPath} from 'url'
 import {getAvailableBuildTools, getBuildToolPlugin} from './build-tools/index.ts'
-import {apps, variants} from './report-common.ts'
+import {apps, getVariantsForApp, variants} from './report-common.ts'
 import {displayBundleSizes} from './report-console.ts'
 import {exportToCSV} from './report-csv.ts'
 import {exportToHTML} from './report-html.ts'
@@ -162,7 +162,8 @@ async function main(): Promise<void> {
   for (const tool of activeBuildTools) {
     console.log(`\n📦 Building with ${tool.toUpperCase()}...\n`)
     for (const app of apps) {
-      for (const variant of variants) {
+      const appVariants = getVariantsForApp(app)
+      for (const variant of appVariants) {
         if (!buildApp(app, variant, tool)) {
           console.error(`Build of ${app}-${variant} using ${tool} FAILED`)
           process.exit(1)
@@ -177,7 +178,8 @@ async function main(): Promise<void> {
   const allResults: BundleInfo[] = []
   for (const tool of activeBuildTools) {
     for (const app of apps) {
-      for (const variant of variants) {
+      const appVariants = getVariantsForApp(app)
+      for (const variant of appVariants) {
         const info = await getBundleInfo(app, variant, tool, statsDir)
         if (info) {
           allResults.push(info)

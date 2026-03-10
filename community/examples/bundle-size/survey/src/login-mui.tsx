@@ -4,7 +4,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import {createTheme, ThemeProvider} from '@mui/material/styles'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import {StrictMode, useCallback, useEffect, useState} from 'react'
+import {StrictMode, useCallback, useState} from 'react'
 import {createRoot} from 'react-dom/client'
 import {Model, Question, QuestionTextModel} from 'survey-core'
 import {json} from './login-json.tsx'
@@ -59,22 +59,16 @@ const muiTheme = createTheme({
 })
 
 function SurveyComponent() {
-  const [survey, setSurvey] = useState<Model | null>(null)
   const [, forceUpdate] = useState(0)
+  const [survey] = useState<Model>(() => {
+    const surveyModel = new Model(json)
+    surveyModel.onValueChanged.add(() => forceUpdate(x => ++x))
+    return surveyModel
+  })
 
   const submit = useCallback(() => {
     console.warn('Form data', survey?.data)
   }, [survey])
-
-  useEffect(() => {
-    const survey = new Model(json)
-
-    survey.onValueChanged.add(() => forceUpdate(x => ++x))
-
-    setSurvey(survey)
-  }, [])
-
-  if (!survey) return null
 
   return (
     <ThemeProvider theme={muiTheme}>

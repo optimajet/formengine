@@ -2,7 +2,7 @@ import type {DialogProps} from '@mui/material'
 import {Dialog} from '@mui/material'
 import {boolean, define, event, oneOf} from '@react-form-builder/core'
 import type {SyntheticEvent} from 'react'
-import {useCallback} from 'react'
+import {useCallback, useEffect} from 'react'
 import {sx} from '../commonProperties'
 import {feedbackCategory} from './categories'
 
@@ -28,6 +28,11 @@ export interface MuiDialogProps extends Omit<DialogProps,
    * Custom close handler function.
    */
   handleClose?: () => void
+
+  /**
+   * Callback fired when the dialog opens.
+   */
+  onOpen?: () => void
 }
 
 /**
@@ -36,14 +41,18 @@ export interface MuiDialogProps extends Omit<DialogProps,
  * @returns the React element.
  */
 const MuiDialog = (props: MuiDialogProps) => {
-  const {children, handleClose, onClose, ...rest} = props
+  const {children, handleClose, onClose, open, onOpen, ...rest} = props
 
   const close = useCallback((e: SyntheticEvent, reason: 'backdropClick' | 'escapeKeyDown') => {
     handleClose?.()
     onClose?.(e, reason)
   }, [handleClose, onClose])
 
-  return <Dialog {...rest} onClose={close}>
+  useEffect(() => {
+    if (open) onOpen?.()
+  }, [onOpen, open])
+
+  return <Dialog {...rest} open={open} onClose={close}>
     {children}
   </Dialog>
 }
@@ -61,6 +70,7 @@ export const muiDialog = define(MuiDialog, 'MuiDialog')
     maxWidth: dialogSize,
     scroll: oneOf('paper', 'body').default('paper'),
     disableEscapeKeyDown: boolean,
+    onOpen: event,
     onClose: event,
     sx
   })

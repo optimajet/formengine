@@ -481,9 +481,9 @@
           "description": "محتوای دیالوگ",
           "name": "کودکان"
         },
-        "onOpenedChange": {
-          "description": "وقتی که ملک باز شده تغییر می کند فراخوانده می شود",
-          "name": "angeopenedchange"
+        "onOpen": {
+          "description": "وقتی که خاصیت باز به true تنظیم شده است فراخوانده می شود",
+          "name": "اوناپن"
         },
         "opened": {
           "description": "اینکه دیالوگ باز است یا نه",

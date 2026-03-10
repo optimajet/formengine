@@ -10,9 +10,11 @@ import {
   calculateVariantMinimums,
   filterAndSortAppResults,
   filterAndSortVariantResults,
-  filterNonMuiVariants,
+  getAppNameByVariant,
+  getAppNameMantine,
   formatDiffKB,
   generateAndSavePerformanceCharts,
+  getBaseVariants,
   generatePieChart,
   generateVegaLitePieChart,
   getAppNameMui,
@@ -285,9 +287,7 @@ export function exportToHTML(
         const codeSizeCell = `${codeClass}>${formatSizeWithCompressionHTML(result.breakdown.code, result.breakdownGzip?.code)}`
         const cssSizeCell = `${cssClass}>${formatSizeWithCompressionHTML(result.breakdown.css, result.breakdownGzip?.css)}`
         const wastedSizeCell = `${wastedClass}>${escapeHtml(formatSize(result.duplicates.totalDuplicateSize))}`
-        const appLabel = result.variant.endsWith('-mui')
-          ? getAppNameMui(result.app as AppType)
-          : getAppNameNonMui(result.app as AppType)
+        const appLabel = getAppNameByVariant(result.app as AppType, result.variant)
         if (hasMultipleTools) {
           return generateSummaryByVariantRowMultipleTools(
             appLabel,
@@ -340,16 +340,16 @@ export function exportToHTML(
   }
 
   // Use non-MUI variant names for headers (login, booking)
-  const nonMuiVariants = filterNonMuiVariants(variants)
-  const matrixHeaderCells = nonMuiVariants.map(v => `<th>${escapeHtml(getVariantHeaderName(v))}<sub>(raw/gzip)</sub></th>`).join('')
+  const baseVariants = getBaseVariants(variants)
+  const matrixHeaderCells = baseVariants.map(v => `<th>${escapeHtml(getVariantHeaderName(v))}<sub>(raw/gzip)</sub></th>`).join('')
 
   // Calculate minimum values for non-MUI table
-  const columnMinsNonMui = nonMuiVariants.map((variant: string) => calculateColumnMinimums(variant, apps, allResults, (v: string) => v))
+  const columnMinsNonMui = baseVariants.map((variant: string) => calculateColumnMinimums(variant, apps, allResults, (v: string) => v))
 
   // Generate non-MUI table rows
   const matrixRowsNonMui = apps
     .map((app: AppType, appIndex: number) => {
-      const cellsNonMui = nonMuiVariants
+      const cellsNonMui = baseVariants
         .map((variant: string, colIndex: number) => {
           const info = allResults.find(r => r.app === app && r.variant === variant) ?? null
           return generateMatrixCellForVariant(info, colIndex, columnMinsNonMui, appIndex)
@@ -361,14 +361,12 @@ export function exportToHTML(
     .join('')
 
   // Calculate minimum values for MUI table
-  const columnMinsMui = nonMuiVariants.map((variant: string) =>
-    calculateColumnMinimums(variant, apps, allResults, (v: string) => `${v}-mui`)
-  )
+  const columnMinsMui = baseVariants.map((variant: string) => calculateColumnMinimums(variant, apps, allResults, (v: string) => `${v}-mui`))
 
   // Generate MUI table rows
   const matrixRowsMui = apps
     .map((app: AppType, appIndex: number) => {
-      const cellsMui = nonMuiVariants
+      const cellsMui = baseVariants
         .map((variant: string, colIndex: number) => {
           const muiVariant = `${variant}-mui`
           const info = allResults.find(r => r.app === app && r.variant === muiVariant) ?? null
@@ -377,6 +375,26 @@ export function exportToHTML(
         .join('')
       const appLinkMui = generateAppLink(app, getAppNameMui)
       return generateMatrixRow(appLinkMui, cellsMui)
+    })
+    .join('')
+
+  // Calculate minimum values for Mantine table
+  const columnMinsMantine = baseVariants.map((variant: string) =>
+    calculateColumnMinimums(variant, apps, allResults, (v: string) => `${v}-mantine`)
+  )
+
+  // Generate Mantine table rows
+  const matrixRowsMantine = apps
+    .map((app: AppType, appIndex: number) => {
+      const cellsMantine = baseVariants
+        .map((variant: string, colIndex: number) => {
+          const mantineVariant = `${variant}-mantine`
+          const info = allResults.find(r => r.app === app && r.variant === mantineVariant) ?? null
+          return generateMatrixCellForVariant(info, colIndex, columnMinsMantine, appIndex)
+        })
+        .join('')
+      const appLinkMantine = generateAppLink(app, getAppNameMantine)
+      return generateMatrixRow(appLinkMantine, cellsMantine)
     })
     .join('')
 
@@ -479,17 +497,20 @@ export function exportToHTML(
 
   const nonMuiLibTitles = apps.map(app => getAppNameNonMui(app)).join(', ')
   const muiLibTitles = apps.map(app => getAppNameMui(app)).join(', ')
+  const mantineLibTitles = apps.map(app => getAppNameMantine(app)).join(', ')
 
   const html = generateHTMLDocument(
     activeBuildTools,
     matrixHeaderCells,
     matrixRowsNonMui,
     matrixRowsMui,
+    matrixRowsMantine,
     summaryByAppSections,
     summaryByVariantSections,
     detailedSections,
     nonMuiLibTitles,
-    muiLibTitles
+    muiLibTitles,
+    mantineLibTitles
   )
 
   const htmlPath = join(statsDir, 'index.html')

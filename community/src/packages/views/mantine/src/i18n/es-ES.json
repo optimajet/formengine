@@ -481,9 +481,9 @@
           "description": "Contenido del diálogo",
           "name": "Niños"
         },
-        "onOpenedChange": {
-          "description": "Se llama cuando se cambia la propiedad abierta",
-          "name": "onOpenedChange"
+        "onOpen": {
+          "description": "Se llama cuando la propiedad open se establece en true",
+          "name": "Onabierto"
         },
         "opened": {
           "description": "Si el diálogo está abierto",

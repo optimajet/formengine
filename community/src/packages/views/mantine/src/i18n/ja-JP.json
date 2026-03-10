@@ -481,9 +481,9 @@
           "description": "ダイアログコンテンツ",
           "name": "子供たち"
         },
-        "onOpenedChange": {
-          "description": "されたときに呼び出され開プロパティの変更",
-          "name": "onOpenedChange"
+        "onOpen": {
+          "description": "Openプロパティがtrueに設定されたときに呼び出されます",
+          "name": "onOpen（オンオープン）"
         },
         "opened": {
           "description": "るかどうかのダイアログが開",

@@ -1,5 +1,4 @@
 import path from 'path'
-import type {ModuleFormat} from 'rollup'
 import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
 import {fileURLToPath} from 'url'
 import {defineConfig, mergeConfig} from 'vite'
@@ -21,10 +20,24 @@ export default defineConfig((env) => mergeConfig(base(env), {
         index: path.resolve(__dirname, 'src/index.ts'),
         'index-lite': path.resolve(__dirname, 'src/index-lite.ts')
       },
-      formats: ['es'],
-      fileName: (_format: ModuleFormat, entryName: string) => `${entryName}.js`
+      formats: ['es']
     },
     rollupOptions: {
+      output: {
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        entryFileNames: ({name}: { name: string }) => {
+          // Keep entry points as before for backward compatibility
+          if (name === 'index' || name === 'index-lite') {
+            return `${name}.js`
+          }
+          // For other modules, preserve directory structure
+          return `[name].js`
+        },
+        chunkFileNames: 'chunks/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        manualChunks: undefined, // Let Rollup decide chunks
+      },
       plugins: [excludeDependenciesFromBundle({dependencies: true, peerDependencies: true})]
     }
   },

@@ -275,6 +275,140 @@
         }
       }
     },
+    "MuiDatePicker": {
+      "description": "Composant pour sélectionner une date",
+      "name": "Sélecteur de date",
+      "props": {
+        "autoFocus": {
+          "description": "Si vrai, focalise automatiquement le sélecteur de date lors du montage du composant",
+          "name": "Mise au point automatique"
+        },
+        "closeOnSelect": {
+          "description": "Ferme automatiquement la boîte de dialogue du sélecteur de date après la sélection d'une date",
+          "name": "Fermer sur sélectionner"
+        },
+        "desktopModeMediaQuery": {
+          "description": "Chaîne de requête multimédia CSS qui détermine quand passer à la disposition en mode bureau",
+          "name": "Requête multimédia en mode bureau"
+        },
+        "disableFuture": {
+          "description": "Si vrai, empêche la sélection de dates après la date actuelle",
+          "name": "Désactiver le futur"
+        },
+        "disableHighlightToday": {
+          "description": "Si vrai, désactive la mise en évidence visuelle de la date actuelle dans le calendrier",
+          "name": "Désactiver la surbrillance aujourd'hui"
+        },
+        "disableOpenPicker": {
+          "description": "Si vrai, empêche l'ouverture de la boîte de dialogue du sélecteur (utile pour l'affichage en lecture seule)",
+          "name": "Désactiver le sélecteur d'ouverture"
+        },
+        "disablePast": {
+          "description": "Si vrai, empêche la sélection des dates avant la date actuelle",
+          "name": "Désactiver le passé"
+        },
+        "displayWeekNumber": {
+          "description": "Affiche les numéros de semaine dans la vue calendrier",
+          "name": "Afficher le numéro de la semaine"
+        },
+        "fixedWeekNumber": {
+          "description": "Nombre fixe de semaines à afficher (force une hauteur de calendrier cohérente)",
+          "name": "Numéro de semaine fixe"
+        },
+        "format": {
+          "description": "Chaîne de format de date utilisée pour l'affichage et l'analyse syntaxique (par exemple, 'aaaa-MM-jj', 'MM / jj / aaaa')",
+          "name": "Format"
+        },
+        "formatDensity": {
+          "description": "Contrôle l'espacement dans le formatage de la date: dense (compact) ou spacieux (plus d'espacement)",
+          "name": "Densité de format"
+        },
+        "loading": {
+          "description": "Si vrai, affiche un spinner de chargement indiquant que les données sont en cours de chargement",
+          "name": "Chargement"
+        },
+        "maxDate": {
+          "description": "Dernière date pouvant être sélectionnée (incluse)",
+          "name": "Date maximale"
+        },
+        "minDate": {
+          "description": "Date la plus ancienne pouvant être sélectionnée (incluse)",
+          "name": "Date minimale"
+        },
+        "monthsPerRow": {
+          "description": "Nombre de calendriers mensuels à afficher par ligne dans les vues mois/année",
+          "name": "Mois par ligne"
+        },
+        "name": {
+          "description": "L'attribut name du champ de formulaire, utilisé lors de la soumission des formulaires",
+          "name": "Nom"
+        },
+        "onAccept": {
+          "description": "Rappel déclenché lorsque la valeur est acceptée",
+          "name": "ONACCEPTE"
+        },
+        "onClose": {
+          "description": "Rappel déclenché lorsque la fenêtre contextuelle demande à être fermée",
+          "name": "Fermer"
+        },
+        "onError": {
+          "description": "Rappel déclenché lorsque l'erreur associée à la valeur actuelle change",
+          "name": "Une erreur"
+        },
+        "onMonthChange": {
+          "description": "Rappel déclenché sur le changement de mois",
+          "name": "Changement de mois"
+        },
+        "onOpen": {
+          "description": "Rappel déclenché lorsque la fenêtre contextuelle demande à être ouverte",
+          "name": "ONOUVERT"
+        },
+        "onSelectedSectionsChange": {
+          "description": "Rappel déclenché lorsque les sections sélectionnées changent",
+          "name": "changementsectionsélectionnées"
+        },
+        "onViewChange": {
+          "description": "Rappel déclenché lors du changement de vue",
+          "name": "Changement de vue"
+        },
+        "onYearChange": {
+          "description": "Rappel déclenché sur le changement d'année",
+          "name": "Échange d'une année"
+        },
+        "open": {
+          "description": "Si vrai, la boîte de dialogue du sélecteur de date est ouverte; peut être utilisé pour la gestion des états contrôlés",
+          "name": "Ouvert"
+        },
+        "openTo": {
+          "description": "La vue à ouvrir lorsque le sélecteur est activé",
+          "name": "Ouvert à"
+        },
+        "referenceDate": {
+          "description": "Date utilisée pour générer la vue initiale du calendrier lorsqu'aucune valeur n'est sélectionnée",
+          "name": "Date de référence"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Affiche les jours des mois précédents et suivants dans la vue mensuelle actuelle",
+          "name": "Afficher les jours en dehors du mois en cours"
+        },
+        "view": {
+          "description": "La vue initiale à afficher (calendrier jour, mois ou année)",
+          "name": "Vue"
+        },
+        "views": {
+          "description": "Les vues disponibles (calendrier jour, mois et année)",
+          "name": "Vues"
+        },
+        "yearsOrder": {
+          "description": "Ordre de tri des années: croissant (le plus ancien en premier) ou décroissant (le plus récent en premier)",
+          "name": "Ordre des années"
+        },
+        "yearsPerRow": {
+          "description": "Nombre d'éléments de l'année à afficher par ligne dans la vue de l'année",
+          "name": "Années par ligne"
+        }
+      }
+    },
     "MuiDialog": {
       "description": "Un composant de dialogue modal qui affiche le contenu dans une superposition",
       "name": "Dialogue",

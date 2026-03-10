@@ -493,9 +493,9 @@
           "name": "Show close button",
           "description": "Whether to show close button"
         },
-        "onOpenedChange": {
-          "name": "onOpenedChange",
-          "description": "Called when the opened property is changed"
+        "onOpen": {
+          "name": "onOpen",
+          "description": "Called when the open property is set to true"
         }
       }
     },

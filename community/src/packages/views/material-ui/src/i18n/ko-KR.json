@@ -275,6 +275,140 @@
         }
       }
     },
+    "MuiDatePicker": {
+      "description": "날짜 선택을 위한 구성 요소",
+      "name": "날짜 선택기",
+      "props": {
+        "autoFocus": {
+          "description": "해당되는 경우 구성 요소가 마운트될 때 날짜 선택기에 자동으로 초점을 맞 춥니 다",
+          "name": "자동 초점"
+        },
+        "closeOnSelect": {
+          "description": "날짜를 선택한 후 날짜 선택 대화 상자를 자동으로 닫습니다",
+          "name": "선택 시 닫기"
+        },
+        "desktopModeMediaQuery": {
+          "description": "데스크톱 모드 레이아웃으로 전환할 시기를 결정하는 미디어 쿼리 문자열",
+          "name": "데스크톱 모드 미디어 쿼리"
+        },
+        "disableFuture": {
+          "description": "참인 경우 현재 날짜 이후의 날짜 선택을 방지합니다",
+          "name": "미래 비활성화"
+        },
+        "disableHighlightToday": {
+          "description": "참인 경우 달력에서 현재 날짜의 시각적 강조 표시를 비활성화합니다",
+          "name": "오늘 강조 표시 비활성화"
+        },
+        "disableOpenPicker": {
+          "description": "참인 경우 선택 대화 상자를 열 수 없습니다(읽기 전용 표시에 유용함).",
+          "name": "열기 선택기 비활성화"
+        },
+        "disablePast": {
+          "description": "참인 경우 현재 날짜 이전 날짜 선택을 방지합니다",
+          "name": "과거 비활성화"
+        },
+        "displayWeekNumber": {
+          "description": "달력 보기에 주 번호 표시",
+          "name": "표시 주 번호"
+        },
+        "fixedWeekNumber": {
+          "description": "표시 주 고정 수(강제 일관된 달력 높이)",
+          "name": "고정 주 번호"
+        },
+        "format": {
+          "description": "날짜 형식 문자열 표시 및 구문 분석에 사용(예:'년/년/년','년/년')",
+          "name": "형식"
+        },
+        "formatDensity": {
+          "description": "날짜 서식에서 간격을 제어합니다:조밀함(조밀함)또는 넓음(더 많은 간격)",
+          "name": "체재 조밀도"
+        },
+        "loading": {
+          "description": "만약 사실이라면,데이터가 로드되고 있음을 나타내는 로딩 스피너를 표시합니다.",
+          "name": "로드 중"
+        },
+        "maxDate": {
+          "description": "선택할 수 있는 최신 날짜(포함)",
+          "name": "최대 날짜"
+        },
+        "minDate": {
+          "description": "선택할 수 있는 가장 빠른 날짜(포함)",
+          "name": "최소 날짜"
+        },
+        "monthsPerRow": {
+          "description": "월/년 보기에서 행당 표시할 월 달력 수",
+          "name": "행당 월"
+        },
+        "name": {
+          "description": "양식을 제출할 때 사용되는 양식 필드의 이름 특성",
+          "name": "이름"
+        },
+        "onAccept": {
+          "description": "값이 허용되면 콜백이 실행됩니다",
+          "name": "동의"
+        },
+        "onClose": {
+          "description": "팝업 요청이 닫힐 때 콜백이 발생합니다",
+          "name": "온클로즈"
+        },
+        "onError": {
+          "description": "현재 값과 관련된 오류가 변경될 때 콜백이 발생합니다",
+          "name": "오너러"
+        },
+        "onMonthChange": {
+          "description": "월 변경 시 해고된 콜백",
+          "name": "월 변경"
+        },
+        "onOpen": {
+          "description": "팝업 요청이 열릴 때 콜백이 발생했습니다",
+          "name": "오노펜"
+        },
+        "onSelectedSectionsChange": {
+          "description": "선택한 섹션이 변경될 때 콜백이 실행됩니다",
+          "name": "선택한 섹션변경"
+        },
+        "onViewChange": {
+          "description": "뷰 변경 시 콜백 발생",
+          "name": "온뷰변경"
+        },
+        "onYearChange": {
+          "description": "연도 변경 시 해고된 콜백",
+          "name": "오니 어챈지"
+        },
+        "open": {
+          "description": "제어된 상태 관리에 사용할 수 있습니다",
+          "name": "오픈"
+        },
+        "openTo": {
+          "description": "선택기가 활성화될 때 열 뷰",
+          "name": "오픈"
+        },
+        "referenceDate": {
+          "description": "값을 선택하지 않은 경우 초기 달력 보기를 생성하는 데 사용되는 날짜",
+          "name": "참조 날짜"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "현재 월 보기에서 이전 및 다음 월의 일수를 표시합니다",
+          "name": "현재 월 이외의 일 표시"
+        },
+        "view": {
+          "description": "표시 할 초기보기(일,월 또는 연도 달력)",
+          "name": "보기"
+        },
+        "views": {
+          "description": "사용 가능한 보기(일,월 및 연도 달력)",
+          "name": "보기"
+        },
+        "yearsOrder": {
+          "description": "년 정렬 순서:오름차순(가장 오래된 첫 번째)또는 내림차순(최신 첫 번째)",
+          "name": "년 순서"
+        },
+        "yearsPerRow": {
+          "description": "연도 보기에서 행당 표시할 연도 항목 수",
+          "name": "행당 년"
+        }
+      }
+    },
     "MuiDialog": {
       "description": "오버레이에 콘텐츠를 표시하는 모달 대화 상자 구성 요소",
       "name": "대화 상자",
