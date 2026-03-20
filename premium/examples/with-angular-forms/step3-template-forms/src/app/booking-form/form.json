@@ -1,0 +1,186 @@
+{
+  "errorType": "RsErrorMessage",
+  "version": "1",
+  "form": {
+    "key": "Screen",
+    "type": "Screen",
+    "props": {},
+    "children": [
+      {
+        "key": "personsToolbar",
+        "type": "RsContainer",
+        "props": {},
+        "children": [
+          {
+            "key": "addPersonButton",
+            "type": "RsButton",
+            "props": {
+              "children": {
+                "value": "Add person"
+              },
+              "appearance": {
+                "value": "primary"
+              },
+              "color": {
+                "value": "green"
+              }
+            },
+            "events": {
+              "onClick": [
+                {
+                  "name": "addRow",
+                  "type": "common",
+                  "args": {
+                    "dataKey": "persons"
+                  }
+                }
+              ]
+            },
+            "wrapperCss": {
+              "any": {
+                "object": {
+                  "width": "min-content"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "key": "persons",
+        "type": "Repeater",
+        "props": {
+          "value": {
+            "value": [
+              {}
+            ]
+          }
+        },
+        "children": [
+          {
+            "key": "personContainer",
+            "type": "RsContainer",
+            "props": {},
+            "css": {
+              "any": {
+                "string": "  border: none;\n  padding: 10px;\n  margin-bottom: 10px;\n  background-color: #f9f9f9;\n  border-radius: 4px;"
+              }
+            },
+            "children": [
+              {
+                "key": "name",
+                "type": "RsInput",
+                "props": {
+                  "label": {
+                    "value": "Full name"
+                  }
+                },
+                "schema": {
+                  "validations": [
+                    {
+                      "key": "isFullName",
+                      "type": "custom"
+                    }
+                  ]
+                },
+                "css": {
+                  "any": {
+                    "string": "    input {\n        border: 1px solid #ccc;\n    }\n    input:focus {\n        box-shadow: none;\n        outline: none;\n        border: 1px solid #ccc;\n\n    }\n    &+p {\n        border-bottom: 1px solid red;\n    }\n    &~p {\n        height: 0;\n        overflow: hidden;\n    }"
+                  }
+                }
+              },
+              {
+                "key": "email",
+                "type": "RsInput",
+                "props": {
+                  "label": {
+                    "value": "E-mail"
+                  }
+                },
+                "schema": {
+                  "validations": [
+                    {
+                      "key": "emailAddressValid",
+                      "type": "custom"
+                    }
+                  ]
+                },
+                "css": {
+                  "any": {
+                    "string": "    input {\n        border: 1px solid #ccc;\n    }\n    input:focus {\n        box-shadow: none;\n        outline: none;\n        border: 1px solid #ccc;\n\n    }\n    &+p {\n        border-bottom: 1px solid red;\n    }\n    &~p {\n        height: 0;\n        overflow: hidden;\n    }"
+                  }
+                }
+              },
+              {
+                "key": "removePersonButton",
+                "type": "RsButton",
+                "props": {
+                  "children": {
+                    "value": "Remove person"
+                  },
+                  "appearance": {
+                    "value": "primary"
+                  },
+                  "color": {
+                    "value": "red"
+                  }
+                },
+                "wrapperCss": {
+                  "any": {
+                    "object": {
+                      "width": "min-content"
+                    }
+                  }
+                },
+                "events": {
+                  "onClick": [
+                    {
+                      "name": "removeRow",
+                      "type": "common",
+                      "args": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "checkin",
+        "type": "RsDatePicker",
+        "props": {
+          "label": {
+            "value": "Check-in"
+          },
+          "oneTap": {
+            "value": true
+          },
+          "editable": {
+            "value": false
+          }
+        },
+        "schema": {
+          "validations": [
+            {
+              "key": "required"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "localization": {},
+  "languages": [
+    {
+      "code": "en",
+      "dialect": "US",
+      "name": "English",
+      "description": "American English",
+      "bidi": "ltr"
+    }
+  ],
+  "defaultLanguage": "en-US"
+}

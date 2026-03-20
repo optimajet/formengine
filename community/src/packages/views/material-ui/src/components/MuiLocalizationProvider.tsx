@@ -1,6 +1,5 @@
 import {LocalizationProvider} from '@mui/x-date-pickers'
-// eslint-disable-next-line import/extensions
-import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs'
+import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs/index.js'
 import type {FormViewerWrapper} from '@react-form-builder/core'
 
 /**

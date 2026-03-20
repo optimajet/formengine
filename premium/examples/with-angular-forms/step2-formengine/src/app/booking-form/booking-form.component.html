@@ -1,0 +1,22 @@
+<div class="ng-app">
+  <h3>Angular APP</h3>
+  <form class="booking-form">
+    <div class="booking-form-item">
+      <h3>FromViewer</h3>
+      <react-wrapper [component]="Viewer" [props]="viewerProps" />
+    </div>
+    <button type="button" (click)="onSubmit()">Book</button>
+  </form>
+  <div class="debug-output">
+    <h6>Data</h6>
+    <pre>{{ bookingForm | json }}</pre>
+    <h6>Errors</h6>
+    <pre>{{ errors | json }}</pre>
+  </div>
+  <dialog #resultDialog>
+    <p>{{ dialogMessage }}</p>
+    <form method="dialog">
+      <button (click)="closeDialog()">OK</button>
+    </form>
+  </dialog>
+</div>

@@ -975,6 +975,191 @@
         }
       ]
     },
+    "MuiDatePickerComponentStore": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractComponentStore"
+        },
+        {
+          "description": "Component for selecting a date",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "MuiDatePicker",
+              "description": "The component type"
+            },
+            "props": {
+              "type": "object",
+              "description": "The MuiDatePicker component properties.",
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "The value of the component"
+                },
+                "format": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "Date format string used for display and parsing (e.g., 'yyyy-MM-dd', 'MM/dd/yyyy')"
+                },
+                "label": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable"
+                },
+                "required": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the input element is required"
+                },
+                "disabled": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is disabled"
+                },
+                "error": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the component is displayed in an error state"
+                },
+                "helperText": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The helper text content"
+                },
+                "readOnly": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable"
+                },
+                "autoFocus": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, automatically focuses the date picker when the component mounts"
+                },
+                "closeOnSelect": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Closes the date picker dialog automatically after a date is selected"
+                },
+                "defaultValue": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "The default value. Use when the component is not controlled"
+                },
+                "desktopModeMediaQuery": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "CSS media query string that determines when to switch to desktop mode layout"
+                },
+                "disableFuture": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, prevents selection of dates after the current date"
+                },
+                "disableHighlightToday": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, disables the visual highlighting of the current date in the calendar"
+                },
+                "disableOpenPicker": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, prevents opening the picker dialog (useful for read-only display)"
+                },
+                "disablePast": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, prevents selection of dates before the current date"
+                },
+                "displayWeekNumber": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Shows week numbers in the calendar view"
+                },
+                "fixedWeekNumber": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Fixed number of weeks to display (forces consistent calendar height)"
+                },
+                "formatDensity": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Controls spacing in date formatting: dense (compact) or spacious (more spacing)"
+                },
+                "loading": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, displays a loading spinner indicating data is being loaded"
+                },
+                "minDate": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "Earliest date that can be selected (inclusive)"
+                },
+                "maxDate": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "Latest date that can be selected (inclusive)"
+                },
+                "monthsPerRow": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Number of month calendars to display per row in month/year views"
+                },
+                "name": {
+                  "type": "object",
+                  "$ref": "#/definitions/stringPropertyCalculableLocalizable",
+                  "description": "The name attribute for the form field, used when submitting forms"
+                },
+                "open": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "If true, the date picker dialog is open; can be used for controlled state management"
+                },
+                "openTo": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The view to open when the picker is activated"
+                },
+                "referenceDate": {
+                  "type": "object",
+                  "$ref": "#/definitions/datePropertyCalculable",
+                  "description": "Date used to generate the initial calendar view when no value is selected"
+                },
+                "showDaysOutsideCurrentMonth": {
+                  "type": "object",
+                  "$ref": "#/definitions/booleanPropertyCalculable",
+                  "description": "Displays days from the previous and next months in the current month view"
+                },
+                "view": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The initial view to display (day, month, or year calendar)"
+                },
+                "views": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "The available views (day, month, and year calendar)"
+                },
+                "yearsOrder": {
+                  "type": "object",
+                  "$ref": "#/definitions/enumPropertyCalculable",
+                  "description": "Sorting order of years: ascending (oldest first) or descending (newest first)"
+                },
+                "yearsPerRow": {
+                  "type": "object",
+                  "$ref": "#/definitions/numberPropertyCalculable",
+                  "description": "Number of year items to display per row in year view"
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
     "MuiTypographyComponentStore": {
       "allOf": [
         {
@@ -2540,6 +2725,60 @@
         }
       ]
     },
+    "datePropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The simple value of a 'date' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'value' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "date property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
     "stringProperty": {
       "type": "object",
       "properties": {
@@ -2701,6 +2940,9 @@
           },
           {
             "$ref": "#/definitions/MuiTextFieldComponentStore"
+          },
+          {
+            "$ref": "#/definitions/MuiDatePickerComponentStore"
           },
           {
             "$ref": "#/definitions/MuiTypographyComponentStore"

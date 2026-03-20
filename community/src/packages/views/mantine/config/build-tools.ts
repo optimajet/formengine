@@ -60,6 +60,10 @@ export function patchExports(packageJson: PackageJson): void {
 
 export function exportsToEntries(basePath: string, packageJson: PackageJson): Record<string, string> {
   return Object.entries(packageJson.exports).reduce((acc, [name, entry]) => {
+    if (name === './package.json') {
+      return acc
+    }
+
     const fn = (name === '.' ? 'index' : name).replace('./', '')
 
     acc[fn] = resolve(basePath, typeof entry === 'string' ? entry : entry.import)

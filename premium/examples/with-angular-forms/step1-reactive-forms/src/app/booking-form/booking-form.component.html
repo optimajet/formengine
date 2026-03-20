@@ -1,0 +1,28 @@
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="booking-form">
+  <div formArrayName="guests" class="booking-form-item">
+    <div *ngFor="let guest of guests.controls; let i = index">
+      <fieldset [formGroupName]="i">
+        <label>Guest {{ i + 1 }}:</label>
+        <input placeholder="Full name" title="Full name" formControlName="name" type="text">
+        <input placeholder="E-mail" title="E-mail" formControlName="email" type="email">
+        <button type="button" (click)="removeGuest(i)">Remove</button>
+      </fieldset>
+    </div>
+  </div>
+  <button type="button" (click)="addGuest()" class="add">Add Guest</button>
+  <label>Check-in:</label>
+  <input formControlName="checkin" type="date">
+  <button type="submit">Book</button>
+</form>
+<dialog [open]="dialogOpen">
+  <p>{{dialogMessage}}</p>
+  <form method="dialog">
+    <button (click)="closeDialog()">OK</button>
+  </form>
+</dialog>
+<div class="debug-output">
+  <h6>Data</h6>
+  <pre>{{ bookingForm.value | json }}</pre>
+  <h6>Errors</h6>
+  <pre>{{ errors | json }}</pre>
+</div>

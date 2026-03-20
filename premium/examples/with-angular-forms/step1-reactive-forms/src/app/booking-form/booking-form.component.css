@@ -1,0 +1,131 @@
+.booking-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.booking-form-item {
+  margin-bottom: 20px;
+}
+fieldset {
+  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+fieldset input {
+  width: calc(100% - 20px);
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+input[type="date"] {
+  width: calc(100% - 30px);
+}
+
+input.ng-invalid {
+  border-bottom: 1px solid red;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+  border-color: #6200ea; /* Material purple */
+  outline: none;
+}
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #6200ea; /* Material purple */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: #3700b3; /* Darker purple on hover */
+}
+button[type="button"] {
+  background-color: #f44336; /* Red for remove button */
+}
+button[type="button"]:hover {
+  background-color: #c62828; /* Darker red on hover */
+}
+
+button.add {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50; /* Green for primary button */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button.add:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.debug-output {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-family: monospace;
+  font-size: 12px;
+}
+.debug-output pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+}
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+dialog p {
+  margin: 0 0 20px;
+  font-size: 16px;
+  color: #333;
+}
+dialog form {
+  display: flex;
+  justify-content: flex-end;
+}
+dialog button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50; /* Green for OK button */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+dialog button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}

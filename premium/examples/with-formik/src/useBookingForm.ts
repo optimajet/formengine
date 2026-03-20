@@ -8,8 +8,6 @@ export type BookingForm = Partial<{
   checkinDate: Date
 }>
 
-export type BookingFormErrors = Partial<Record<keyof BookingForm, string>>
-
 export const useBookingForm = (): [FormikProps<BookingForm>, BookingForm] => {
   const [formData, setFormData] = useState<BookingForm>({})
 

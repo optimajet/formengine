@@ -1,0 +1,28 @@
+<main class="app">
+  <h1>Angular App</h1>
+  <div class="section designer">
+    <react-wrapper [component]="Builder" [props]="builderProps"/>
+  </div>
+
+  <div class="section preview">
+    <h2>Synced Form App</h2>
+    <div *ngIf="previewVisible" class="preview-viewer">
+      <react-wrapper [component]="Viewer" [props]="viewerProps"/>
+    </div>
+    <button type="button" (click)="onSubmitPreview()">Book</button>
+
+    <div class="debug-output">
+      <h6>Data</h6>
+      <pre>{{ previewData | json }}</pre>
+      <h6>Errors</h6>
+      <pre>{{ previewErrors | json }}</pre>
+    </div>
+  </div>
+
+  <dialog #resultDialog>
+    <p>{{ dialogMessage }}</p>
+    <form method="dialog">
+      <button (click)="closeDialog()">OK</button>
+    </form>
+  </dialog>
+</main>

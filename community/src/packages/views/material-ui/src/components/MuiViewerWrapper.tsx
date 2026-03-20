@@ -1,21 +1,11 @@
 import {createTheme, ScopedCssBaseline, ThemeProvider} from '@mui/material'
-import type {ThemeOptions} from '@mui/material/styles/createTheme'
-import type {FormViewerWrapper, Language} from '@react-form-builder/core'
+import type {FormViewerWrapper} from '@react-form-builder/core'
 import {useBuilderTheme} from '@react-form-builder/core'
-import {useMemo} from 'react'
+import {createContext, useContext, useMemo} from 'react'
 import {getLocale} from '../i18n/localizations'
 
-type Theme = 'dark' | 'light'
-
-const createMuiTheme = (theme: Theme, language?: Language) => {
-  const options: ThemeOptions = {
-    cssVariables: true,
-    palette: {
-      mode: theme,
-    }
-  }
-  return createTheme(options, getLocale(language))
-}
+const MuiScopedContext = createContext(false)
+const useMuiScopedContext = () => useContext(MuiScopedContext)
 
 const containerStyle = {
   height: '100%',
@@ -29,7 +19,21 @@ const containerStyle = {
  */
 export const MuiViewerWrapper: FormViewerWrapper = (props) => {
   const theme = useBuilderTheme()
-  const muiTheme = useMemo(() => createMuiTheme(theme, props.language), [props.language, theme])
+  const muiTheme = useMemo(
+    () => createTheme({cssVariables: true, palette: {mode: theme}}, getLocale(props.language)),
+    [props.language, theme],
+  )
 
-  return <ThemeProvider theme={muiTheme}><ScopedCssBaseline style={containerStyle}>{props.children}</ScopedCssBaseline></ThemeProvider>
+  const alreadyScoped = useMuiScopedContext()
+  const children = <MuiScopedContext.Provider value>{props.children}</MuiScopedContext.Provider>
+
+  if (alreadyScoped) {
+    return <ThemeProvider theme={muiTheme}>{children}</ThemeProvider>
+  }
+
+  return (
+    <ThemeProvider theme={muiTheme}>
+      <ScopedCssBaseline style={containerStyle}>{children}</ScopedCssBaseline>
+    </ThemeProvider>
+  )
 }

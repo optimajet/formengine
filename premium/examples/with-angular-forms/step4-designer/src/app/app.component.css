@@ -1,0 +1,75 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background-color: #cce69c;
+}
+
+.app h1 {
+  margin: 0;
+}
+
+.section {
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.designer {
+  background: #ffe2b3;
+  max-height: 600px;
+  overflow: auto;
+}
+
+.preview {
+  background: #dcefff;
+}
+
+.preview-viewer {
+  margin-bottom: 12px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #6200ea;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+
+.debug-output {
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.debug-output pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+}
+
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+dialog p {
+  margin: 0 0 20px;
+}

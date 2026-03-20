@@ -29,11 +29,11 @@
     "serve": "serve dist"
   },
   "dependencies": {
-    "@react-form-builder/bundle-size-shared": "*",
-    "@react-form-builder/components-mantine": "^7.13.0",
-    "@react-form-builder/components-material-ui": "^7.13.0",
-    "@react-form-builder/components-rsuite": "^7.13.0",
-    "@react-form-builder/core": "^7.13.0",
+    "@react-form-builder/bundle-size-shared": "^7.14.0",
+    "@react-form-builder/components-mantine": "^7.14.0",
+    "@react-form-builder/components-material-ui": "^7.14.0",
+    "@react-form-builder/components-rsuite": "^7.14.0",
+    "@react-form-builder/core": "^7.14.0",
     "@mantine/core": "^8.3.9",
     "@mantine/dates": "^8.3.9"
   }

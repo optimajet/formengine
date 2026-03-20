@@ -1,4 +1,4 @@
-import {boolean, disabled, event, oneOfStrict, string} from '@react-form-builder/core'
+import {boolean, disabled, event, oneOfStrict, required, string} from '@react-form-builder/core'
 import {label, size} from './sharedProps'
 
 /**
@@ -10,7 +10,7 @@ export const baseInputProps = {
   description: string,
   error: string,
   readOnly: boolean.default(false),
-  withAsterisk: boolean.default(false),
+  withAsterisk: required,
   radius: string,
   variant: oneOfStrict('filled', 'default', 'unstyled')
     .default('default'),

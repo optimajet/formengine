@@ -1,0 +1,15 @@
+main.app {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+form div {
+  display: flex;
+  gap: 0.5em;
+  margin: 1em;
+}
+
+form select {
+  padding: 0.15em;
+}

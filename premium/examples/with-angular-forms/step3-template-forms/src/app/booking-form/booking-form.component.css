@@ -1,0 +1,325 @@
+.ng-app {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding: 30px 20px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #333;
+}
+
+.ng-app h3 {
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-weight: 500;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.booking-form {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  border: 1px solid #eef2f7;
+}
+
+.booking-form-item {
+  margin-bottom: 40px;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #f9fbfd;
+  border: 1px solid #e8edf3;
+  transition: all 0.3s ease;
+}
+
+.booking-form-item:hover {
+  border-color: #d0d9e6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.booking-form-item h3 {
+  margin: 0 0 25px 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #34495e;
+  display: flex;
+  align-items: center;
+}
+
+.booking-form-item h3::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  background-color: #4a6cf7;
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+fieldset:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 6px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  color: #2d3748;
+  background-color: #ffffff;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+  border-color: #4a6cf7;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+}
+
+input[type="date"] {
+  width: 100%;
+  padding-right: 16px;
+}
+
+input.ng-invalid {
+  border-color: #fc8181;
+}
+
+input.ng-invalid:focus {
+  border-color: #fc8181;
+  box-shadow: 0 0 0 3px rgba(252, 129, 129, 0.15);
+}
+
+button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a6cf7;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+button:hover {
+  background-color: #3a5ce5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 108, 247, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(74, 108, 247, 0.3);
+}
+
+button[type="button"] {
+  background-color: #718096;
+}
+
+button[type="button"]:hover {
+  background-color: #5a6c82;
+  box-shadow: 0 6px 16px rgba(113, 128, 150, 0.3);
+}
+
+button.add {
+  background-color: #38b2ac;
+  margin-top: 10px;
+}
+
+button.add:hover {
+  background-color: #2c9c96;
+  box-shadow: 0 6px 16px rgba(56, 178, 172, 0.3);
+}
+
+.booking-form > button[type="button"] {
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+  background-color: #4a6cf7;
+  font-size: 17px;
+  padding: 16px;
+}
+
+.debug-output {
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  color: #4a5568;
+  overflow: auto;
+}
+
+.debug-output h6 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.debug-output pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.debug-output pre + h6 {
+  margin-top: 25px;
+}
+
+dialog {
+  border: none;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 450px;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+dialog p {
+  margin: 0 0 30px 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #2c3e50;
+  text-align: center;
+}
+
+dialog form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+dialog button {
+  padding: 14px 32px;
+  background-color: #4a6cf7;
+  font-size: 16px;
+  min-width: 120px;
+}
+
+dialog button:hover {
+  background-color: #3a5ce5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ng-app {
+    padding: 20px 15px;
+  }
+
+  .booking-form {
+    padding: 25px;
+    border-radius: 12px;
+  }
+
+  .booking-form-item {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .booking-form-item h3 {
+    font-size: 20px;
+  }
+
+  dialog {
+    padding: 30px;
+    width: 95%;
+  }
+}
+
+/* Animation for form item appearance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.booking-form-item {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #4a6cf7;
+  outline-offset: 2px;
+}
+
+/* Loading state for button */
+button.loading {
+  position: relative;
+  color: transparent;
+}
+
+button.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
