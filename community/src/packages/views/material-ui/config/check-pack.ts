@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // @ts-nocheck TS5097 allow .ts import
 
 import {execSync} from 'node:child_process'

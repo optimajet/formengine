@@ -30,23 +30,23 @@ function copyFiles(): void {
     path.join(sourceDir, packageJson),
     path.join(tempDir, packageJson),
   )
-
-  const data = readJsonFile(packageJson)
-  const filesToCopy = data.files as string[]
-
-  filesToCopy.forEach((file) => {
-    const sourceFile = path.join(sourceDir, file)
-    if (fs.existsSync(sourceFile)) {
-      const dest = path.join(tempDir, file)
-      fs.cpSync(sourceFile, dest, {recursive: true})
-    }
-  })
+  fs.copyFileSync(
+    path.join(sourceDir, 'README.md'),
+    path.join(tempDir, 'README.md'),
+  )
+  fs.copyFileSync(
+    path.join(sourceDir, 'LICENSE'),
+    path.join(tempDir, 'LICENSE'),
+  )
+  const dirName = 'dist'
+  const srcDir = path.join(sourceDir, dirName)
+  const destDir = path.join(tempDir, dirName)
+  fs.cpSync(srcDir, destDir, {recursive: true})
 }
 
 function patchPackageJson(): void {
   const data = readJsonFile(packageJson)
   const patch = readJsonFile(path.join(__dirname, 'part.package.json'))
-
   delete data.scripts
   Object.assign(data, patch)
   const patchedData = JSON.stringify(data, undefined, '  ')
@@ -56,14 +56,9 @@ function patchPackageJson(): void {
 function pack(): void {
   execSync('npm pack', {cwd: tempDir})
   const buffer = fs.readFileSync(packageJson, 'utf8')
-  const data = JSON.parse(buffer) as { name: string; version: string }
-  const filename = `${data.name}-${data.version}.tgz`
-    .replace('@', '')
-    .replace('/', '-')
-  fs.renameSync(
-    path.join(tempDir, filename),
-    path.join(sourceDir, filename),
-  )
+  const data = JSON.parse(buffer) as {name: string; version: string}
+  const filename = `${data.name}-${data.version}.tgz`.replace('@', '').replace('/', '-')
+  fs.renameSync(path.join(tempDir, filename), path.join(sourceDir, filename))
 }
 
 copyFiles()

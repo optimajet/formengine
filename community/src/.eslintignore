@@ -4,6 +4,5 @@ types
 **/dist
 documentation
 scripts
-pack.js
 tests
 *.d.ts

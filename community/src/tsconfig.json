@@ -18,6 +18,7 @@
     "declarationMap": true,
     "outDir": "dist",
     "types": [
+      "node",
       "vite/client",
       "vitest/globals"
     ],
