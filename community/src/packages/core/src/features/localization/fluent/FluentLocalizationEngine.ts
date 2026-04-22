@@ -166,7 +166,8 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     componentStore: ComponentStore,
     type: LocalizationType = 'component'
   ) {
-    const messageIdPrefix = `${componentStore.key}_${type}_`
+    const normalizedKey = this.getCompatibleId(componentStore.key)
+    const messageIdPrefix = `${normalizedKey}_${type}_`
     const data = {} as Record<string, any>
     const requestedFullCode = language.fullCode
     const errors: Array<LocalizationError> = []
@@ -178,7 +179,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
         return
       }
 
-      const messageId = `${messageIdPrefix}${value}`
+      const messageId = `${messageIdPrefix}${this.getCompatibleId(value)}`
       const message = this.#getMessageWithFallback(messageId, formBundle, defaultBundle)
 
       if (!message) {
@@ -186,7 +187,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
         return
       }
 
-      data[value] = this.#formatMessage(message, formBundle, formData)
+      data[value] = this.#formatMessage(message, formBundle ?? defaultBundle, formData)
     })
 
     return data
@@ -210,13 +211,14 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     ruleKey: string
   ) {
     const type = getValidatorPropertyBlockType(ruleKey)
-    const messageId = `${componentStore.key}_${type}_message`
+    const normalizedKey = this.getCompatibleId(componentStore.key)
+    const messageId = `${normalizedKey}_${type}_message`
     const errors: Array<LocalizationError> = []
 
     const {defaultBundle, formBundle} = this.#setupBundles(form, language.fullCode, errors)
     const message = this.#getMessageWithFallback(messageId, formBundle, defaultBundle)
 
-    return message ? this.#formatMessage(message, formBundle, formData) : undefined
+    return message ? this.#formatMessage(message, formBundle ?? defaultBundle, formData) : undefined
   }
 
   /**
@@ -235,13 +237,13 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     }, errors, createFluentBundle(languageFullCode))
 
     const msg = testBundle.getMessage(localizationStringId)
-    if (!msg?.value) return [new LocalizationError('MessageError', 'Incorrect format')]
+    const value = msg?.value ?? ''
 
     const formatErrors: Error[] = []
     const data = getEditableFormData(formData)
     const missingProperties: string[] = []
     const fluentData = createLocalizationDataProxy(this.#getFluentData(data), missingProperties)
-    const result = restoreDots(testBundle.formatPattern(msg.value, fluentData, formatErrors))
+    const result = restoreDots(testBundle.formatPattern(value, fluentData, formatErrors))
 
     // Log missing properties only in testLocalization
     logFluentErrors(formatErrors, missingProperties, true)

@@ -27,7 +27,7 @@
 
 | Package                | Total size JS + CSS (raw/gzip) | Framework / Library      | Description                   |
 |------------------------|--------------------------------|--------------------------|-------------------------------|
-| **FormEngine Core**    | 618.80 KB / 188.54KB           | React                    | FormEngine Core + MUI         |
+| **FormEngine Core**    | 612.74 KB / 188.90KB           | React                    | FormEngine Core + MUI         |
 | survey                 | 1.47 MB / 391.72KB             | Plain JavaScript + React | survey-react + MUI            |
 | vueform                | 467.35 KB / 141.09K            | Vue3                     | Tree-shaked vueform + MUI CSS |
 | React JSON Schema Form | 721.54 KB / 231.62KB           | React                    | RJSF + MUI                    |

@@ -1,5 +1,3 @@
-import {cx} from '@emotion/css'
-import styled from '@emotion/styled'
 import type {ComponentData} from '@react-form-builder/core'
 import {
   array,
@@ -14,18 +12,20 @@ import {
   useBuilderMode,
   useComponentData
 } from '@react-form-builder/core'
-import type {CSSProperties, ForwardedRef, PropsWithChildren, SyntheticEvent} from 'react'
-import {forwardRef, useCallback, useEffect, useMemo, useState} from 'react'
+import cx from 'clsx'
+import type {ForwardedRef, PropsWithChildren, SyntheticEvent} from 'react'
+import {forwardRef, useCallback, useMemo, useState} from 'react'
 import type {StepItemProps} from 'rsuite'
 import {Button, ButtonToolbar, Steps} from 'rsuite'
 import {useArrayMapMemo} from '../hooks'
 import {structureCategory} from './categories'
-import {Rows} from './internal/Layout'
 import {createStep, editorProps} from './internal/RsWizard/editorProps'
 import {eventListeners} from './internal/RsWizard/eventListeners'
 import {SItem} from './internal/RsWizard/Item'
 import {RsWizardStepComponentType} from './internal/RsWizard/RsWizardStep'
 import {WizardIcon} from './internal/RsWizard/WizardIcon'
+
+import styles from './RsWizard.module.css'
 
 /**
  * Props for the RsWizard component.
@@ -66,11 +66,11 @@ export interface RsWizardProps extends PropsWithChildren<any> {
   /**
    * Whether to validate on next.
    */
-  validateOnNext?: boolean,
+  validateOnNext?: boolean
   /**
    * Whether to validate on finish.
    */
-  validateOnFinish?: boolean,
+  validateOnFinish?: boolean
   /**
    * Callback when step changes.
    */
@@ -89,28 +89,7 @@ export interface RsWizardProps extends PropsWithChildren<any> {
   onFinish?: (event: SyntheticEvent) => void
 }
 
-const toolbarStyle = {justifyContent: 'end', zIndex: 7} as const
-
-const Container = styled(Rows)`
-  gap: 10px;
-  padding: 10px;
-
-  .parent-type-RsWizard.Toolbar {
-    .add-button {
-      display: none;
-    }
-  }
-`
-
-const SCentered = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-`
-
-const EmptyContent = () => <SCentered>Missing content</SCentered>
+const EmptyContent = () => <div className={styles.centered}>Missing content</div>
 
 /**
  * Props for wizard step item component.
@@ -172,14 +151,15 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
     finishButtonLabel,
     validateOnNext,
     validateOnFinish,
+    className,
     ...props
   } = wProps
   const [visited, setVisited] = useState(activeIndex)
   const isBuilderMode = useBuilderMode() === 'builder'
 
-  useEffect(() => {
-    if (visited < activeIndex) setVisited(activeIndex)
-  }, [visited, activeIndex])
+  if (visited < activeIndex) {
+    setVisited(activeIndex)
+  }
 
   const componentData = useComponentData()
 
@@ -201,6 +181,7 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
       })
       return
     }
+
     onFinish?.(event)
   }, [componentData, onFinish, validateOnFinish])
 
@@ -212,19 +193,19 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
     if (validateOnNext) {
       child?.validate().then(() => {
         if (child?.hasErrors) return
-        openStep?.(newIndex)
+        openStep(newIndex)
         onNext?.(event)
       })
       return
     }
-    openStep?.(newIndex)
+    openStep(newIndex)
     onNext?.(event)
   }, [activeIndex, componentData.children, labels.length, onNext, openStep, validateOnNext])
 
   const handlePrev = useCallback((event: SyntheticEvent) => {
     let newIndex = activeIndex ?? 0
     if (newIndex > 0) newIndex = newIndex - 1
-    openStep?.(newIndex)
+    openStep(newIndex)
     onPrev?.(event)
   }, [activeIndex, onPrev, openStep])
 
@@ -245,21 +226,15 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
   const isStart = activeIndex <= 0
   const isFinish = activeIndex >= labels.length - 1
   const disableNextButton = isFinish && finishButtonLabel === nextButtonLabel
-  const stepsContainerStyle = useMemo<CSSProperties>(() => ({
-    display: 'flex',
-    flexDirection: verticalSteps ? 'row' : 'column',
-    gap: 10
-  }), [verticalSteps])
 
   const content = Array.isArray(children)
     ? children[activeIndex] ?? children[0]
     : null
 
   const buttons = useMemo(() => (
-    <ButtonToolbar style={toolbarStyle} className={'buttons'}>
+    <ButtonToolbar className={cx('buttons', styles.toolbar)}>
       {!isStart && <Button onClick={handlePrev} disabled={isStart}>{prevButtonLabel}</Button>}
-      <Button onClick={isFinish ? handleFinish : handleNext} disabled={disableNextButton}
-              appearance={'primary'}>
+      <Button onClick={isFinish ? handleFinish : handleNext} disabled={disableNextButton} appearance={'primary'}>
         {isFinish ? finishButtonLabel : nextButtonLabel}
       </Button>
     </ButtonToolbar>
@@ -267,42 +242,44 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
 
   const wizardItems: WizardStepItemProps[] = useMemo(() => {
     return labels.map(({label}, index) => {
-      const className = cx({
-        available: isStepAvailable(index),
-        active: index === activeIndex
-      })
+      const itemClassName = cx(
+        isStepAvailable(index) && 'available',
+        index === activeIndex && 'active'
+      )
 
       const onClick = () => handleStepClick(index)
       const status = getStepStatus(index)
 
       return {
         label,
-        className,
+        className: itemClassName,
         status,
-        onClick,
+        onClick
       }
     })
   }, [activeIndex, getStepStatus, handleStepClick, isStepAvailable, labels])
 
-  return <Container {...props} ref={ref}>
-    <div style={stepsContainerStyle}>
-      {showSteps && !!content &&
-        <Steps current={activeIndex} vertical={verticalSteps} className={'steps'}>
-          {wizardItems.map(({label, onClick, status, className}, index) => (
-            <SItem
-              key={index}
-              title={showStepsLabels && label}
-              onClick={onClick}
-              status={status}
-              className={className}
-            />
-          ))}
-        </Steps>
-      }
-      <div className={'content'}>{content ?? <EmptyContent/>}</div>
+  return (
+    <div {...props} ref={ref} className={cx(styles.container, className)}>
+      <div className={cx(styles.stepsContainer, verticalSteps && styles.verticalSteps)}>
+        {showSteps && !!content && (
+          <Steps current={activeIndex} vertical={verticalSteps} className={'steps'}>
+            {wizardItems.map(({label, onClick, status, className}, index) => (
+              <SItem
+                key={index}
+                title={showStepsLabels && label}
+                onClick={onClick}
+                status={status}
+                className={className}
+              />
+            ))}
+          </Steps>
+        )}
+        <div className={'content'}>{content ?? <EmptyContent/>}</div>
+      </div>
+      {!!content && buttons}
     </div>
-    {!!content && buttons}
-  </Container>
+  )
 })
 
 /**
@@ -331,7 +308,6 @@ export const rsWizard = define(RsWizard, RsWizardComponentType)
   .props({
     activeIndex: number
       .valued
-      .default(0)
       .withEditorProps({
         calculateEditorProps: ({store}: ComponentData) => {
           const length = store.children?.length || 1

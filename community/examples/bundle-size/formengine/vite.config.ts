@@ -7,7 +7,7 @@ import bundleSizeBase from '../vite.config'
 export default () =>
   mergeConfig(bundleSizeBase, {
     plugins: [
-      react({jsxImportSource: '@emotion/react'}),
+      react(),
       svgr({
         include: '**/*.svg',
       }),

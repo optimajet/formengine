@@ -13,7 +13,7 @@ const __dirname = dirname(__filename)
 const input = process.env.APP_INPUT
 
 if (!input) {
-  console.error('Input point not specified')
+  console.error('APP_INPUT point not specified')
   process.exit(1)
 }
 

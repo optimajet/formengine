@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/core",
   "description": "React JSON Schema Form Builder to create complex, validated, reusable forms with no deep React knowledge required",
-  "version": "7.15.0",
+  "version": "8.0.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -47,7 +47,8 @@
       "import": "./src/index-lite.ts"
     },
     "./package.json": "./package.json",
-    "./schemas/persisted-form.schema.json": "./public/schemas/persisted-form.schema.json"
+    "./schemas/persisted-form.schema.json": "./public/schemas/persisted-form.schema.json",
+    "./assets/styles.css": "./src/assets/styles.css"
   },
   "scripts": {
     "build": "vite build",
@@ -61,9 +62,7 @@
     "zod": "^4.0.0"
   },
   "peerDependencies": {
-    "@emotion/cache": "^11.14.0",
-    "@emotion/css": "^11.13.5",
-    "@emotion/react": "^11.14.0",
+    "clsx": "^2.1.1",
     "mobx": "^6.13.5",
     "mobx-react": "^9.2.0",
     "react": ">=17.0.2 || ^18 || ^19"

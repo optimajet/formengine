@@ -1,4 +1,3 @@
-import type {CSSObject} from '@emotion/serialize'
 import type {ComponentType, ReactNode} from 'react'
 import {ComponentStore} from '../../../stores/ComponentStore'
 import {commonStyles} from '../../annotation/commonStyles'
@@ -37,6 +36,11 @@ import {Meta} from './Meta'
 import {Model} from './Model'
 
 /**
+ * CSS rules declaration map.
+ */
+export type CSSObject = Record<string, any>
+
+/**
  * Definer class data.
  * @template T React component property type.
  */
@@ -49,6 +53,10 @@ export type DefinerData<T extends object> = {
    * The component name.
    */
   name?: string,
+  /**
+   * The component type name.
+   */
+  typeName?: string,
   /**
    * The component kind.
    */
@@ -114,14 +122,14 @@ export class Definer<T extends object> {
   /**
    * Static method to create an instance of the component's metadata builder class.
    * @param component the React component.
-   * @param displayName the display name for the anonymous component.
+   * @param typeName the type name for the anonymous component.
    * @returns the instance of the {@link Definer} class.
    */
-  static define<T extends object>(component: ComponentType<T>, displayName?: string) {
-    const name = displayName ?? component.displayName ?? component.name
+  static define<T extends object>(component: ComponentType<T>, typeName?: string) {
+    const name = typeName ?? component.displayName ?? component.name
     if (!name) throw Error('Anonymous components are not allowed!')
     const definer = new Definer<T>(component)
-    if (displayName) definer.type(displayName)
+    if (typeName) definer.type(typeName)
     return definer
   }
 
@@ -188,12 +196,12 @@ export class Definer<T extends object> {
   category = (category: string) => this.#updateWith({category})
 
   /**
-   * Sets the type of the component.
-   * @param type the component type.
+   * Sets the type name of the component.
+   * @param typeName the component type name.
    * @returns the modified Definer class instance.
    */
-  type = (type: string) => {
-    this.data.component.displayName = type
+  type = (typeName: string) => {
+    this.data.typeName = typeName
     return this
   }
 
@@ -237,7 +245,7 @@ export class Definer<T extends object> {
    * @returns the component type name.
    */
   getType(): string {
-    return this.data.component.displayName || this.data.component.name
+    return this.data.typeName || this.data.component.displayName || this.data.component.name
   }
 
   /**

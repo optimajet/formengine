@@ -1,6 +1,6 @@
 import {BiDi, createView} from '@react-form-builder/core'
 import {RsLocalizationWrapper} from './components/RsLocalizationWrapper'
-import {formEngineRsuiteCssLoader, ltrCssLoader, rtlCssLoader} from './cssLoader'
+import {ltrCssLoader, rtlCssLoader} from './cssLoader'
 import {models} from './models'
 
 /**
@@ -12,4 +12,3 @@ export const viewWithCss = createView(models)
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)

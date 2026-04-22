@@ -50,10 +50,7 @@
     }
   },
   "required": [
-    "form",
-    "localization",
-    "languages",
-    "defaultLanguage"
+    "form"
   ],
   "description": "The format for saving a form designed in Form Builder.",
   "definitions": {

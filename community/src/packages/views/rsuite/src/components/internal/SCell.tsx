@@ -1,13 +1,19 @@
-import styled from '@emotion/styled'
+import cx from 'clsx'
 import {Table} from 'rsuite'
 import type {RowDataType} from 'rsuite-table/lib'
+import type {InnerCellProps} from 'rsuite-table/lib/Cell'
+import styles from './SCell.module.css'
 
 const {Cell} = Table
 
-export const SCell = styled(Cell<RowDataType, string | number>)`
-  padding: 0;
+type SCellProps = InnerCellProps<RowDataType, string | number>
 
-  & .rs-table-cell-content {
-    padding: 9px 3px;
-  }
-`
+/**
+ * Styled table cell.
+ * @param props the component props.
+ * @param props.className the CSS class name.
+ * @returns the React element.
+ */
+export const SCell = ({className, ...props}: SCellProps) => {
+  return <Cell<RowDataType, string | number> {...props} className={cx(styles.cell, className)}/>
+}

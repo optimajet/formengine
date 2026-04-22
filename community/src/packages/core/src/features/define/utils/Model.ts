@@ -63,7 +63,6 @@ export class Model<T = any> {
       this.dataBindingType = 'twoWay'
     }
     this.component = observer(component)
-    this.component.displayName = component.displayName || component.name
     this.#name = name
   }
 

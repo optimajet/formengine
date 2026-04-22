@@ -1,6 +1,6 @@
 {
   "name": "@react-form-builder/example-viewer",
-  "version": "7.15.0",
+  "version": "8.0.0",
   "license": "MIT",
   "private": true,
   "main": "src/index.tsx",
@@ -24,20 +24,20 @@
   "dependencies": {
     "@mantine/core": "^8.3.14",
     "@mantine/dates": "^8.3.14",
-    "@react-form-builder/apps-common": "^7.15.0",
-    "@react-form-builder/components-mantine": "^7.15.0",
-    "@react-form-builder/components-material-ui": "^7.15.0",
-    "@react-form-builder/components-rsuite": "^7.15.0",
-    "@react-form-builder/core": "^7.15.0",
+    "@react-form-builder/apps-common": "^8.0.0",
+    "@react-form-builder/components-mantine": "^8.0.0",
+    "@react-form-builder/components-material-ui": "^8.0.0",
+    "@react-form-builder/components-rsuite": "^8.0.0",
+    "@react-form-builder/core": "^8.0.0",
     "dayjs": "^1.11.19",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "rsuite": "5.83.4"
   },
   "devDependencies": {
-    "@types/react": "^18.3.28",
-    "@types/react-dom": "^18.3.7",
-    "@welldone-software/why-did-you-render": "^8.0.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@welldone-software/why-did-you-render": "^10.0.1",
     "vite-bundle-visualizer": "^1.2.1"
   },
   "overrides": {

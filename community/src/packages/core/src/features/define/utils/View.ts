@@ -10,7 +10,7 @@ import {internalErrorModel} from '../../ui/internalErrorModel'
 import {screenModel} from '../../ui/screenModel'
 import {errorMessageModel} from '../../validation/components/DefaultErrorMessage'
 import type {FormViewerWrapper} from './FormViewerWrapperComponentProps'
-import type {IView} from './IView'
+import type {CssLoaderFunction, IView} from './IView'
 import type {Model} from './Model'
 
 /**
@@ -23,7 +23,7 @@ export type CssLoaderType = BiDi | 'common'
  */
 export class View implements IView {
   #modelMap = new Map<string, Model>()
-  #cssLoaders = new Map<BiDi, Array<() => Promise<void>>>
+  #cssLoaders = new Map<BiDi, Array<CssLoaderFunction>>
   #wrappers = new Array<FormViewerWrapper>()
 
   /**
@@ -109,7 +109,7 @@ export class View implements IView {
   /**
    * @inheritDoc
    */
-  withCssLoader(cssLoaderType: CssLoaderType, loader: () => Promise<void>) {
+  withCssLoader(cssLoaderType: CssLoaderType, loader: CssLoaderFunction) {
     if (cssLoaderType === 'common') {
       this.#withCssLoader(BiDi.LTR, loader)
       this.#withCssLoader(BiDi.RTL, loader)
@@ -124,7 +124,7 @@ export class View implements IView {
    * @param biDi the BiDi direction.
    * @param loader the loader function that returns a Promise.
    */
-  #withCssLoader(biDi: BiDi, loader: () => Promise<void>) {
+  #withCssLoader(biDi: BiDi, loader: CssLoaderFunction) {
     this.#cssLoaders.set(biDi, [...(this.#cssLoaders.get(biDi) ?? []), loader])
   }
 

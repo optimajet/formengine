@@ -17,14 +17,14 @@
     "start": "vite preview"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^7.15.0",
-    "@react-form-builder/core": "^7.15.0",
-    "@react-form-builder/designer": "^7.15.0",
+    "@react-form-builder/components-rsuite": "^8.0.0",
+    "@react-form-builder/core": "^8.0.0",
+    "@react-form-builder/designer": "^8.0.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "formik": "^2.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "vite": "^6.3.6",
+    "vite": "^6.4.2",
     "yup": "^1.4.0"
   },
   "devDependencies": {

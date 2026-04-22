@@ -1,7 +1,6 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "jsxImportSource": "@emotion/react",
     "emitDeclarationOnly": true,
     "declaration": true,
     "declarationDir": "dist/types",

@@ -50,8 +50,6 @@ export const MtErrorWrapper = ({error, children, className}: ErrorWrapperProps) 
   )
 }
 
-MtErrorWrapper.displayName = 'MtErrorWrapper'
-
 export const mtErrorWrapper = define(MtErrorWrapper, 'MtErrorWrapper')
   .componentRole('error-message')
   .hideFromComponentPalette()

@@ -9,7 +9,7 @@ import {
   repeaterWrapperStyleProperties
 } from './repeaterModel'
 
-export const repeaterModules: Annotation[] = [
+const repeaterModules: Annotation[] = [
   ...modules,
 ]
 

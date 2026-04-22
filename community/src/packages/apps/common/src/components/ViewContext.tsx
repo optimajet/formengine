@@ -3,20 +3,9 @@ import {createNonNullableContext} from '@react-form-builder/core'
 const name = 'BuilderViewContext'
 
 /**
- * The type of builder view.
+ * View type.
  */
-export type ViewType = 'rsuite' | 'mui' | 'mantine'
-
-const allViews: Record<ViewType, undefined> = {
-  rsuite: undefined,
-  mui: undefined,
-  mantine: undefined,
-}
-
-/**
- * All available views (component libraries).
- */
-export const availableView = Object.keys(allViews) as ViewType[]
+export type ViewType = 'rsuite-inject-css' | 'rsuite-import-css' | 'mui' | 'mantine'
 
 /**
  * The default builder view.
@@ -26,6 +15,7 @@ export const defaultView: ViewType = 'mui'
 type ViewContext = {
   view: ViewType
   setView: (viewType: ViewType) => void
+  viewStorageKey: string
 }
 
 /**

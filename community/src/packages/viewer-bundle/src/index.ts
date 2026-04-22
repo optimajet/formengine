@@ -1,7 +1,7 @@
 import * as rSuiteComponents from '@react-form-builder/components-rsuite'
-import {formEngineRsuiteCssLoader, ltrCssLoader, RsLocalizationWrapper, rtlCssLoader, view} from '@react-form-builder/components-rsuite'
+import {viewWithCss} from '@react-form-builder/components-rsuite'
 import type {FormViewerProps} from '@react-form-builder/core'
-import {BiDi, FormViewer} from '@react-form-builder/core'
+import {FormViewer} from '@react-form-builder/core'
 import {createElement} from 'react'
 // eslint-disable-next-line import/extensions
 import {createRoot} from 'react-dom/client'
@@ -15,17 +15,9 @@ import {createRoot} from 'react-dom/client'
 export function renderFormViewerTo(container: HTMLElement, props: Partial<FormViewerProps>) {
   const root = createRoot(container)
 
-  const componentsView =
-    props.view ??
-    view
-      .withViewerWrapper(RsLocalizationWrapper)
-      .withCssLoader(BiDi.LTR, ltrCssLoader)
-      .withCssLoader(BiDi.RTL, rtlCssLoader)
-      .withCssLoader('common', formEngineRsuiteCssLoader)
-
   const formViewerProps: FormViewerProps = {
     ...props,
-    view: componentsView,
+    view: props.view ?? viewWithCss,
   }
 
   root.render(createElement(FormViewer, formViewerProps, null))

@@ -11,6 +11,7 @@ import {useViewerProps} from '../form-viewer/components/ViewerPropsContext'
 import {useEmbeddedFormViewer} from '../form-viewer/EmbeddedFormViewerContext'
 import type {FormViewerProps} from '../form-viewer/types'
 import {TemplateField} from '../validation/utils/TemplateField'
+import styles from './EmbeddedForm.module.css'
 import type {EmbeddedFormProps} from './EmbeddedFormProps'
 
 interface EmbeddedFormContext {
@@ -19,7 +20,7 @@ interface EmbeddedFormContext {
   embeddedFormProps: Record<string, any>
 }
 
-export const [
+const [
   /**
    * **Internal use only.**
    */
@@ -29,13 +30,8 @@ export const [
    */
   EmbeddedFormProvider] = createNonNullableContext<EmbeddedFormContext>('EmbeddedFormContext')
 
-const embeddedFormLoadErrorStyle = {
-  fontSize: 'xx-large',
-  color: 'red'
-} as const
-
 const EmbeddedFormLoadError = ({children}: { children: ReactNode }) => {
-  return <span style={embeddedFormLoadErrorStyle}>{children}</span>
+  return <span className={styles.embeddedFormLoadError}>{children}</span>
 }
 
 /**
@@ -82,9 +78,11 @@ export const EmbeddedForm = (props: EmbeddedFormProps) => {
   return (
     <EmbeddedFormProvider value={embeddedFormProviderValue}>
       <StoreProvider value={viewerStore}>
+        {/* eslint-disable-next-line react-hooks/static-components */}
         <EmbeddedFormViewer {...embeddedFormViewerProps}/>
       </StoreProvider>
     </EmbeddedFormProvider>
   )
 }
-EmbeddedForm.displayName = 'EmbeddedForm'
+
+export {useEmbeddedForm}

@@ -13,6 +13,7 @@ const modalFeatures = addOrUpdateFeatures({},
   {name: cfDisableAdditionalProperties, value: true},
 )
 
-export const modalModel = new Model(Modal, 'Modal', undefined, undefined,
-  undefined, undefined, undefined, undefined, undefined, undefined, undefined,
+const typeName = 'Modal'
+export const modalModel = new Model(Modal, typeName, undefined, undefined,
+  undefined, undefined, undefined, undefined, typeName, undefined, undefined,
   undefined, undefined, undefined, undefined, modalFeatures)

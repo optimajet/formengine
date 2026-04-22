@@ -4,6 +4,16 @@ import type {Model} from './Model'
 import type {CssLoaderType} from './View'
 
 /**
+ * Represents a cleanup function that can be called when unmounting.
+ */
+export type CssCleanupFunction = () => Promise<void>
+
+/**
+ * Represents a CSS loading function.
+ */
+export type CssLoaderFunction = () => Promise<void | CssCleanupFunction>
+
+/**
  * Represents all the metadata of the form viewer components.
  */
 export interface IView {
@@ -56,15 +66,16 @@ export interface IView {
   /**
    * Applies the given CSS loader to the component based on the BiDi layout.
    * @param cssLoaderType the BiDi layout type, either 'common', 'ltr', or 'rtl'.
-   * @param loader the function that returns a Promise to load CSS or other required localization resources.
+   * @param loader the function that returns a Promise to load CSS or other required localization resources,
+   *               optionally returning a cleanup function to be called on unmount.
    * @returns the {@link View} instance.
    */
-  withCssLoader: (cssLoaderType: CssLoaderType, loader: () => Promise<void>) => this
+  withCssLoader: (cssLoaderType: CssLoaderType, loader: CssLoaderFunction) => this
 
   /**
    * Retrieves the CSS loaders for a given BiDi.
    * @param biDi the BiDi object for which to retrieve the CSS loaders.
    * @returns the array containing the CSS loaders for the specified BiDi.
    */
-  getCssLoaders: (biDi: BiDi) => Array<() => Promise<void>>
+  getCssLoaders: (biDi: BiDi) => Array<CssLoaderFunction>
 }

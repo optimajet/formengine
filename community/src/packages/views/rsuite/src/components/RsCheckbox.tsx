@@ -1,23 +1,13 @@
-import styled from '@emotion/styled'
 import {boolean, define, disabled, event, string} from '@react-form-builder/core'
-import {useMemo} from 'react'
+import cx from 'clsx'
 import type {CheckboxProps} from 'rsuite'
 import {Checkbox} from 'rsuite'
 import {readOnly} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {requiredStyle} from './internal/Labeled'
+import styles from './RsCheckbox.module.css'
 
-const SCheckbox = styled(Checkbox)`
-  &.required label::after {
-    ${requiredStyle};
-  }
-`
-
-const RsCheckbox = (props: CheckboxProps<any>) => {
-  const Component = useMemo(
-    () => (props.children as string)?.length ? SCheckbox : Checkbox,
-    [props.children])
-  return <Component {...props}/>
+const RsCheckbox = ({className, ...props}: CheckboxProps<any>) => {
+  return <Checkbox {...props} className={cx(styles.checkbox, className)}/>
 }
 
 export const rsCheckbox = define(RsCheckbox, 'RsCheckbox')
@@ -26,7 +16,7 @@ export const rsCheckbox = define(RsCheckbox, 'RsCheckbox')
   .props({
     children: string.default('Checkbox'),
     checked: boolean
-      .valued.default(true).uncontrolledValue(false),
+      .valued.uncontrolledValue(false),
     disabled: disabled.default(false),
     readOnly,
     indeterminate: boolean,

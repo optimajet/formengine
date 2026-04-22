@@ -15,6 +15,7 @@
       "require": "./dist/index-lite.js"
     },
     "./package.json": "./package.json",
-    "./schemas/persisted-form.schema.json": "./dist/schemas/persisted-form.schema.json"
+    "./schemas/persisted-form.schema.json": "./dist/schemas/persisted-form.schema.json",
+    "./assets/styles.css": "./dist/assets/styles.css"
   }
 }

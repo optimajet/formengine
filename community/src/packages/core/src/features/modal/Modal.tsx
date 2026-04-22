@@ -159,7 +159,5 @@ const ModalViewer = namedObserver('ModalViewer', RawModalViewer)
  * @returns the React element.
  */
 export const Modal = (props: ModalProps) => {
-  const Component = useBuilderComponent(ModalBuilder, ModalViewer)
-  return <Component {...props}/>
+  return useBuilderComponent(ModalBuilder, ModalViewer, props)
 }
-Modal.displayName = 'Modal'

@@ -6,6 +6,7 @@ import {createView, FormViewer} from '@react-form-builder/core'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 
+import '@react-form-builder/core/assets/styles.css'
 import '@react-form-builder/bundle-size-shared/index.css'
 import {loginForm} from './login-form-mui.ts'
 import {actions} from './utils.tsx'

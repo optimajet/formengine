@@ -36,12 +36,14 @@ class LocalizationObservable {
 
   #getLocalizationItems(componentsLocalization: ComponentsLocalization) {
     const localizationItems: Record<string, string> = {}
+    const {engine} = this.localizationStore
 
     Object.entries(componentsLocalization).forEach(([componentKey, allComponentsLocalizationConstants]) => {
       Object.entries(allComponentsLocalizationConstants ?? {}).forEach(([type, componentLocalizationConstants]) => {
         Object.entries(componentLocalizationConstants ?? {}).forEach(([propertyName, localizationConstant]) => {
           if (localizationConstant) {
-            localizationItems[`${componentKey}_${type}_${propertyName}`] = localizationConstant
+            const normalizedId = `${engine.getCompatibleId(componentKey)}_${type}_${engine.getCompatibleId(propertyName)}`
+            localizationItems[normalizedId] = localizationConstant
           }
         })
       })
@@ -89,15 +91,45 @@ export class LocalizationStore implements ILocalizationStore {
    * @param componentKey the component key that requires localization.
    * @param propertyName the component's property name to be localized.
    * @param type the type of localization.
-   * @param value the localization value.
+   * @param value the localization value to persist.
    */
   setLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType, value: string) {
     const compatibleId = this.engine.getCompatibleId(componentKey)
     const compatibleName = this.engine.getCompatibleId(propertyName)
+
+    if (value.trim() === '') {
+      this.#removeLocalizationProperty(languageFullCode, compatibleId, type, compatibleName)
+      return
+    }
+
     this.value[languageFullCode] ??= {}
     this.value[languageFullCode][compatibleId] ??= {}
     this.value[languageFullCode][compatibleId][type] ??= {}
     this.value[languageFullCode][compatibleId][type][compatibleName] = value
+  }
+
+  #removeLocalizationProperty(
+    languageFullCode: LanguageFullCode,
+    compatibleId: string,
+    type: LocalizationType,
+    compatibleName: string
+  ) {
+    const langBucket = this.value[languageFullCode]
+    const componentBucket = langBucket?.[compatibleId]
+    const typeBucket = componentBucket?.[type]
+    if (!typeBucket || !Object.prototype.hasOwnProperty.call(typeBucket, compatibleName)) return
+
+    delete typeBucket[compatibleName]
+
+    if (Object.keys(typeBucket).length === 0) {
+      delete componentBucket[type]
+    }
+    if (componentBucket && Object.keys(componentBucket).length === 0) {
+      delete langBucket[compatibleId]
+    }
+    if (langBucket && Object.keys(langBucket).length === 0) {
+      delete this.value[languageFullCode]
+    }
   }
 
   /**

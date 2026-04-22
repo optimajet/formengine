@@ -20,7 +20,8 @@ export default defineConfig((env) => mergeConfig(base(env), {
         index: path.resolve(__dirname, 'src/index.ts'),
         'index-lite': path.resolve(__dirname, 'src/index-lite.ts')
       },
-      formats: ['es']
+      formats: ['es'],
+      cssFileName: 'styles',
     },
     rollupOptions: {
       output: {
@@ -35,7 +36,12 @@ export default defineConfig((env) => mergeConfig(base(env), {
           return `[name].js`
         },
         chunkFileNames: 'chunks/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash][extname]',
+        assetFileNames: ({names}: { names: string[] }) => {
+          if (names.length === 1 && names[0] === 'styles.css') {
+            return 'assets/[name][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
+        },
         manualChunks: undefined, // Let Rollup decide chunks
       },
       plugins: [excludeDependenciesFromBundle({dependencies: true, peerDependencies: true})]

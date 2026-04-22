@@ -1,3 +1,4 @@
+import cx from 'clsx'
 import type {FormViewerWrapperComponentProps} from '@react-form-builder/core'
 import {BiDi, useBuilderTheme} from '@react-form-builder/core'
 import {CustomProvider} from 'rsuite'
@@ -68,7 +69,7 @@ const containerStyle = {
  */
 export const RsLocalizationWrapper = ({language, children}: FormViewerWrapperComponentProps) => {
   const theme = useBuilderTheme()
-  const className = theme === 'dark' ? 'rs-theme-dark' : 'rs-theme-light'
+  const className = cx('rsuite', theme === 'dark' ? 'rs-theme-dark' : 'rs-theme-light')
   const locale = rSuiteLocales[language.fullCode] ?? defaultComponentsLocale
   return <CustomProvider rtl={language.bidi === BiDi.RTL} locale={locale} theme={theme}>
     <div className={className} style={containerStyle}>{children}</div>

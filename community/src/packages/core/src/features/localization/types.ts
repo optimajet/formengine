@@ -41,4 +41,5 @@ export type ComponentPropertyName = string
 /**
  * Represents the type of localization. The localization can be for a component, tooltip or for validator.
  */
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type LocalizationType = 'component' | 'tooltip' | 'modal' | string

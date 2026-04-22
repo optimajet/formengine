@@ -1,15 +1,15 @@
-import styled from '@emotion/styled'
 import {boolean, define, node, oneOf} from '@react-form-builder/core'
+import cx from 'clsx'
+import type {MessageProps} from 'rsuite'
 import {Message} from 'rsuite'
 import {staticCategory} from './categories'
+import styles from './RsMessage.module.css'
 
-const SMessage = styled(Message)`
-  .rs-message-header {
-    overflow: initial;
-  }
-`
+const RsMessage = ({className, ...props}: MessageProps) => {
+  return <Message {...props} className={cx(styles.message, className)}/>
+}
 
-export const rsMessage = define(SMessage, 'RsMessage')
+export const rsMessage = define(RsMessage, 'RsMessage')
   .name('Message')
   .category(staticCategory)
   .props({

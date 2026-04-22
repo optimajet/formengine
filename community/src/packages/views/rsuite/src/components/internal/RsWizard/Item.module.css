@@ -1,0 +1,24 @@
+.item {
+  z-index: 7;
+}
+
+.item:global(.rs-steps-item-status-process):not(:global(.active)) :global(.rs-steps-item-icon-wrapper) {
+  color: var(--rs-text-secondary);
+  background-color: initial;
+}
+
+.item:global(.available) {
+  cursor: pointer;
+}
+
+.item:global(.available):hover {
+  color: var(--rs-steps-state-finish);
+}
+
+.item:global(.available):hover :global(.rs-steps-item-icon-wrapper) {
+  border: 2px solid var(--rs-steps-state-finish);
+}
+
+.item:global(.active):hover :global(.rs-steps-item-icon-wrapper) {
+  opacity: 0.8;
+}

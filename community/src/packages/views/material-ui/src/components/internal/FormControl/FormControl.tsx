@@ -11,7 +11,7 @@ import {useRequired} from './useRequired'
 /**
  * Options for FormControl wrapper.
  */
-export interface FormControlWrapperOptions {
+interface FormControlWrapperOptions {
   /**
    * The component for displaying the label.
    */

@@ -15,10 +15,10 @@ import {createView, FormViewer} from '@react-form-builder/core'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 
-import '@react-form-builder/components-rsuite/css/rsuite-no-reset.min.css'
-import '@react-form-builder/components-rsuite/css/formengine-rsuite.css'
-
+import '@react-form-builder/core/assets/styles.css'
+import '@react-form-builder/components-rsuite/assets/styles.ltr.css'
 import '@react-form-builder/bundle-size-shared/index.css'
+
 import {bookingForm} from './booking-form.ts'
 
 import {actions, formValidators} from './utils'
@@ -39,7 +39,7 @@ const components = [
   rsStaticContent,
 ].map(def => def.build().model)
 
-const viewWithCss = createView(components)
+const view = createView(components)
 
 const getForm = () => bookingForm
 
@@ -58,13 +58,13 @@ const initialData = {
 }
 
 const App = () => (
-  <FormViewer view={viewWithCss} getForm={getForm} actions={actions} formValidators={formValidators} initialData={initialData} />
+  <FormViewer view={view} getForm={getForm} actions={actions} formValidators={formValidators} initialData={initialData}/>
 )
 
 const root = createRoot(document.getElementById('root')!)
 
 root.render(
   <StrictMode>
-    <App />
+    <App/>
   </StrictMode>
 )

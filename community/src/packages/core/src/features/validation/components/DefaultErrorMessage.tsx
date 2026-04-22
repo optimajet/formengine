@@ -1,9 +1,11 @@
-import {css, cx} from '@emotion/css'
+import cx from 'clsx'
 import type {ReactNode} from 'react'
+import {useBuilderTheme} from '../../../utils/contexts/BuilderThemeContext'
 import {useAriaErrorMessage} from '../../../utils/useAriaAttributesIds'
 import {addOrUpdateFeatures} from '../../define/utils/ComponentFeature'
 import {cfComponentRole, cfHideFromComponentPalette} from '../../define/utils/integratedComponentFeatures'
 import {Model} from '../../define/utils/Model'
+import styles from './DefaultErrorMessage.module.css'
 
 /**
  * Properties of the React component that wraps the form view component and displays validation errors.
@@ -23,41 +25,20 @@ export interface ErrorWrapperProps {
   className?: string
 }
 
-const ErrorMessageStyle = css`
-  font-size: 12px;
-  color: var(--red-600);
-  margin-top: 0.25rem;
-
-  &:before {
-    content: "❌ ";
-    font-size: 10px;
-    padding: 6px;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: var(--red-300);
-  }
-`
-
-const divClass = css`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`
-
 const DefaultErrorMessage = ({children, error, className}: ErrorWrapperProps) => {
   const aria = useAriaErrorMessage()
+  const darkTheme = useBuilderTheme() === 'dark'
+
   return (
-    <div className={divClass}>
+    <div className={styles.errorContainer}>
       {children}
-      {error && <p id={aria['aria-errormessage']} className={cx(className, ErrorMessageStyle)}>
+      {error && <p id={aria['aria-errormessage']} className={cx(className, styles.errorMessage, darkTheme && styles.dark)}>
         {error}
       </p>}
     </div>
   )
 }
-DefaultErrorMessage.displayName = 'DefaultErrorMessage'
+const typeName = 'DefaultErrorMessage'
 
 const errorMessageFeatures = addOrUpdateFeatures({},
   {name: cfComponentRole, value: 'error-message'},
@@ -67,6 +48,6 @@ const errorMessageFeatures = addOrUpdateFeatures({},
 /**
  * The component metadata for error message. **Internal use only.**
  */
-export const errorMessageModel = new Model(DefaultErrorMessage, undefined, undefined, undefined,
-  undefined, undefined, undefined, undefined, undefined, undefined,
+export const errorMessageModel = new Model(DefaultErrorMessage, typeName, undefined, undefined,
+  undefined, undefined, undefined, undefined, typeName, undefined,
   undefined, undefined, undefined, undefined, undefined, errorMessageFeatures)

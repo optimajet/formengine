@@ -1,6 +1,7 @@
 /**
  * Represents a relationship attribute value used in HTML.
  */
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type Rel = 'stylesheet' | string
 
 /**

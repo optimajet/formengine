@@ -38,7 +38,7 @@ function copyFiles(): void {
     const dest = path.join(tempDir, file)
     const dirname = path.dirname(dest)
     fs.mkdirSync(dirname, {recursive: true})
-    fs.copyFileSync(path.join(sourceDir, file), dest)
+    fs.cpSync(path.join(sourceDir, file), dest, {recursive: true})
   }
 }
 

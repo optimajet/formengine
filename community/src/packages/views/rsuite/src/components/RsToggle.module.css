@@ -1,0 +1,5 @@
+.toggle:global(.required) :global(.rs-toggle-label::after) {
+  margin-inline-start: 3px;
+  content: "*";
+  color: #f44336;
+}

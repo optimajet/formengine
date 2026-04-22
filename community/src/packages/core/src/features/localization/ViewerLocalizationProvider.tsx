@@ -1,27 +1,21 @@
-import {css, cx} from '@emotion/css'
-import {CacheProvider} from '@emotion/react'
+import cx from 'clsx'
 import type {ComponentType, ReactNode} from 'react'
-import {useEffect} from 'react'
+import {useEffect, useRef} from 'react'
 import {useStore} from '../../utils/contexts/StoreContext'
 import {namedObserver} from '../../utils/namedObserver'
 import type {FormViewerWrapperComponentProps} from '../define/utils/FormViewerWrapperComponentProps'
-import {BiDi} from './bidi'
-import {emotionCache} from './emotionCache'
+import type {CssCleanupFunction} from '../define/utils/IView'
+import {AsyncQueue} from './AsyncQueue'
 import type {Language} from './language'
+import styles from './ViewerLocalizationProvider.module.css'
 
 interface ViewerLocalizationProviderProps {
   children: ReactNode
 }
 
-const localizationProviderClass = css`
-  display: flex;
-  width: 100%;
-  height: 100%;
-`
-
 const viewerClassName = 'optimajet-formviewer'
 
-const viewerClass = cx(viewerClassName, localizationProviderClass)
+const viewerClass = cx(viewerClassName, styles.localizationProvider)
 
 const nestViewerWrappers = ([Wrapper, ...more]: ComponentType<FormViewerWrapperComponentProps>[],
                             language: Language, children: ReactNode) => {
@@ -30,25 +24,43 @@ const nestViewerWrappers = ([Wrapper, ...more]: ComponentType<FormViewerWrapperC
     : children
 }
 
+const cssQueue = new AsyncQueue()
+
 const RawViewerLocalizationProvider = (props: ViewerLocalizationProviderProps) => {
   const viewerStore = useStore()
   const language = viewerStore.displayedLanguage
-  const selectedCache = language.bidi == BiDi.RTL ? emotionCache.RTL : emotionCache.LTR
+  const bidi = language.bidi
+  const cleanupRef = useRef<CssCleanupFunction[]>([])
+  const {view} = viewerStore.formViewerPropsStore
 
   useEffect(() => {
-    const loaders = viewerStore.formViewerPropsStore.view.getCssLoaders(language.bidi)
+    const loaders = view.getCssLoaders(bidi)
     loaders.forEach(loader => {
-      loader().catch(e => console.error(e))
+      cssQueue.add(async () => {
+        const result = await loader()
+        if (typeof result === 'function') {
+          cleanupRef.current.push(result)
+        }
+      }).catch(console.error)
     })
-  }, [language, viewerStore.formViewerPropsStore.view])
 
-  const viewer = <div dir={language.bidi} lang={language.fullCode} className={viewerClass}>
-    <CacheProvider value={selectedCache}>
-      {props.children}
-    </CacheProvider>
+    // Cleanup on unmount or bidi change
+    return () => {
+      const cleanupsToRun = cleanupRef.current
+      cleanupRef.current = []
+      cleanupsToRun.forEach(unloader => {
+        cssQueue.add(async () => {
+          await unloader()
+        }).catch(console.error)
+      })
+    }
+  }, [bidi, view])
+
+  const viewer = <div dir={bidi} lang={language.fullCode} className={viewerClass}>
+    {props.children}
   </div>
 
-  return nestViewerWrappers(viewerStore.formViewerPropsStore.view.viewerWrappers, language, viewer)
+  return nestViewerWrappers(view.viewerWrappers, language, viewer)
 }
 
 export const ViewerLocalizationProvider = namedObserver('ViewerLocalizationProvider', RawViewerLocalizationProvider)

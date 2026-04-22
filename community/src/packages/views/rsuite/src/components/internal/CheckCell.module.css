@@ -1,0 +1,4 @@
+.checkbox :global(.rs-checkbox-control) {
+  inset-inline-start: 4px;
+  top: 6px;
+}

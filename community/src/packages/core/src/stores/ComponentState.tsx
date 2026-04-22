@@ -1,4 +1,4 @@
-import {css, cx} from '@emotion/css'
+import cx from 'clsx'
 import {makeAutoObservable} from 'mobx'
 import {calculateProperties} from '../features/calculation/propertyCalculator'
 import {silentTransformCssString} from '../features/css-style/cssTransform'
@@ -19,6 +19,7 @@ import {nameObservable} from '../utils/observableNaming'
 import type {ComponentStyle} from './ComponentStore'
 import {ComponentStore} from './ComponentStore'
 import type {ComponentStoreLocalizer} from './ComponentStoreLocalizer'
+import {flattenNestedCSS, generateClass, reactStylesToCss} from './css'
 import type {IComponentState} from './IComponentState'
 import type {Store} from './Store'
 
@@ -126,10 +127,23 @@ const computeEvents = (componentState: ComponentState) => {
   return events
 }
 
+type ComponentCssData = {
+  className: string
+  styleSheet?: CSSStyleSheet
+}
+
 /**
  * Calculates all the properties of the form view component.
  */
 export class ComponentState implements IComponentState {
+  #styles: Record<CssPart, ComponentCssData> = {
+    css: {
+      className: generateClass(),
+    },
+    wrapperCss: {
+      className: generateClass('wc-'),
+    }
+  }
 
   /**
    * The ref object associated with this component in the viewer. **Internal use only.**
@@ -166,14 +180,14 @@ export class ComponentState implements IComponentState {
    */
   get get(): Record<string, any> {
     const propsWithoutChildren = this.propsWithoutChildren
-    return Object.assign({}, propsWithoutChildren, this.className, this.children(propsWithoutChildren))
+    return Object.assign({}, propsWithoutChildren, {className: this.className}, this.children(propsWithoutChildren))
   }
 
   /**
    * @inheritDoc
    */
   get ownProps() {
-    return {...this.propsWithoutChildren, ...this.className}
+    return {...this.propsWithoutChildren, className: this.className}
   }
 
   /**
@@ -285,19 +299,18 @@ export class ComponentState implements IComponentState {
    * @returns the Record that contains the className property for the component.
    */
   get className() {
-    const className = cx(
+    return cx(
       this.requiredClassName,
       this.propsWithoutChildren.className,
-      this.getClassNameFromCssPart('css')
+      this.#styles.css.className
     )
-    return {className}
   }
 
   /**
    * @inheritDoc
    */
   get wrapperClassName() {
-    return this.getClassNameFromCssPart('wrapperCss')
+    return this.#styles.wrapperCss.className
   }
 
   /**
@@ -340,8 +353,29 @@ export class ComponentState implements IComponentState {
   /**
    * @inheritDoc
    */
+  applyStyles(cssPart: CssPart, flatCss: string) {
+    if (flatCss) {
+      this.updateAdoptedStyleSheets(cssPart, flatCss)
+    }
+  }
+
+  /**
+   * @inheritDoc
+   */
   onWillUnmount() {
     this.executeLifecycleEvent(WillUnmountEvent)
+
+    const styleSheets: CSSStyleSheet[] = []
+    Object.values(this.#styles)
+      .forEach(item => {
+        if (item.styleSheet) styleSheets.push(item.styleSheet)
+        item.styleSheet = undefined
+      })
+
+    if (styleSheets.length) {
+      document.adoptedStyleSheets = document.adoptedStyleSheets
+        .filter(existing => !styleSheets.includes(existing))
+    }
   }
 
   /**
@@ -373,27 +407,74 @@ export class ComponentState implements IComponentState {
     if (anyCss || viewModeCss) return {style: {...anyCss, ...viewModeCss}}
   }
 
-  private getClassNameFromCssPart(cssPart: CssPart) {
+  /**
+   * @inheritDoc
+   */
+  get flatCss() {
+    return this.computeFlatCssForPart('css')
+  }
+
+  /**
+   * @inheritDoc
+   */
+  get flatWrapperCss() {
+    return this.computeFlatCssForPart('wrapperCss')
+  }
+
+  private computeFlatCssForPart(cssPart: CssPart): string {
     const {model, store} = this.data
     const {viewMode} = this.store
 
-    const cssObjectAny = Object.assign({},
+    const cssObjectAny = reactStylesToCss(Object.assign({},
       model[cssPart]?.any?.object,
       store[cssPart]?.any?.object
-    )
-    const cssObjectCurrent = Object.assign({},
+    ))
+
+    const cssObjectDevice = reactStylesToCss(Object.assign({},
       model[cssPart]?.[viewMode]?.object,
       store[cssPart]?.[viewMode]?.object
-    )
+    ))
 
-    return css`
-      && {
-        ${cssObjectAny}
-        ${cssObjectCurrent}
-        ${store[cssPart]?.any?.string}
-        ${store[cssPart]?.[viewMode]?.string}
+    const anyStyles = store[cssPart]?.any?.string
+      ? store[cssPart]?.any?.string?.replaceAll('\n', ' ')
+      : ''
+
+    const deviceStyles = store[cssPart]?.[viewMode]?.string
+      ? store[cssPart]?.[viewMode]?.string?.replaceAll('\n', ' ')
+      : ''
+
+    const cssData = [cssObjectAny, cssObjectDevice, anyStyles, deviceStyles]
+      .map(item => item?.trim())
+      .filter(Boolean)
+
+    if (!cssData.length) {
+      return ''
+    }
+
+    const className = this.#styles[cssPart].className
+    const css = `.${className}.${className} {`
+      + cssData
+        .join('\n')
+      + '}'
+
+    return flattenNestedCSS(css)
+  }
+
+  private updateAdoptedStyleSheets(cssPart: CssPart, flatCss: string) {
+    try {
+      const existing = this.#styles[cssPart].styleSheet
+      if (existing) {
+        existing.replaceSync(flatCss)
+        return
       }
-    `
+
+      const sheet = new CSSStyleSheet()
+      sheet.replaceSync(flatCss)
+      this.#styles[cssPart].styleSheet = sheet
+      document.adoptedStyleSheets.push(sheet)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   private get selfProps() {

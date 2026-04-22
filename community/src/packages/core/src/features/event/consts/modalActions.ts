@@ -2,7 +2,7 @@ import {isRecord} from '../../../utils/isRecord'
 import {closeCurrentModalActionName} from '../../modal/closeCurrentModalActionName'
 import {ActionDefinition} from '../ActionDefinition'
 
-export const modalBeforeShowFnName = 'beforeShow'
+const modalBeforeShowFnName = 'beforeShow'
 export const modalBeforeHideFnName = 'beforeHide'
 export const modalOnCloseEventHandler = 'modalOnCloseEventHandler'
 export const modalStateKey = 'modalState'

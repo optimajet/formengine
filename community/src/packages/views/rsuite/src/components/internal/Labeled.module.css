@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.label {
+  margin-inline-start: 5px;
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+:global(.required) > .label::after {
+  margin-inline-start: 3px;
+  content: "*";
+  color: #f44336;
+}

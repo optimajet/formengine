@@ -1,28 +1,34 @@
-import styled from '@emotion/styled'
 import {containerStyles, define, node, string} from '@react-form-builder/core'
+import cx from 'clsx'
+import type {PropsWithChildren} from 'react'
 import {structureCategory} from '../../categories'
+import styles from './RsWizardStep.module.css'
 import {WizardStepIcon} from './WizardStepIcon'
 
 /**
  * Props for the RsWizardStep component.
  */
-export interface RsWizardStepProps {
+export interface RsWizardStepProps extends PropsWithChildren<any> {
   /**
    * Label for the wizard step.
    */
   label?: string
+  /**
+   * className for element.
+   */
+  className?: string
 }
 
 /**
  * Wizard step component with flex layout.
  * @param props the component props.
- * @param props.label the label for the wizard step.
+ * @param props.className the CSS class name.
  * @param props.props the additional step props.
  * @returns the React element.
  */
-const RsWizardStep = styled.div<RsWizardStepProps>`
-  display: flex;
-`
+const RsWizardStep = ({className, ...props}: RsWizardStepProps) => {
+  return <div {...props} className={cx(styles.step, className)}/>
+}
 
 const {flexDirection, gap} = containerStyles
 

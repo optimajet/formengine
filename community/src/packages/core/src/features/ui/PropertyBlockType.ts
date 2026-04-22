@@ -1,6 +1,7 @@
 /**
  * Represents the type of property block.
  */
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export type PropertyBlockType = 'component' | 'tooltip' | 'modal' | string
 
 const validatorBlockPrefix = 'validator-'

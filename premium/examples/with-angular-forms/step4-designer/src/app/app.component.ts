@@ -3,7 +3,6 @@ import {Component, ElementRef, NgZone, ViewChild} from '@angular/core';
 import {AngularReactModule} from '@bubblydoo/angular-react';
 import {createElement, ForwardedRef} from 'react';
 import {
-  formEngineRsuiteCssLoader,
   ltrCssLoader,
   RsLocalizationWrapper,
   rSuiteComponents,
@@ -15,6 +14,8 @@ import type {FormBuilderProps, IFormStorage} from "@react-form-builder/designer"
 import {customValidators} from "./validators";
 import form from './form.json';
 
+import '@react-form-builder/core/assets/styles.css'
+
 const componentsMetadata = rSuiteComponents.map(definer => definer.build())
 const viewerComponents = componentsMetadata.map((componentMetadata) => componentMetadata.model)
 
@@ -22,13 +23,11 @@ const builderView = new BuilderView(componentsMetadata)
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 const viewerView = createView(viewerComponents)
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 // We're hiding the form panel because it's not fully functional in this example
 const customization = {

@@ -18,7 +18,7 @@ import {ViewerPropsProvider} from './ViewerPropsContext'
 /**
  * Properties of the React component ViewerStoreProvider.
  */
-export interface ViewerStoreProviderProps {
+interface ViewerStoreProviderProps {
 
   /**
    * Children component.
@@ -81,6 +81,7 @@ const ExistingStoreProvider = namedObserver('ExistingStoreProvider', RawExisting
  * @param data the data needed to display the component.
  * @param store the form viewer settings.
  * @param context the context for working with component properties.
+ * @knipignore
  * @returns the component property calculator.
  */
 export const defaultComponentStateFactory: ComponentStateFactory = (data: ComponentData, store: Store,

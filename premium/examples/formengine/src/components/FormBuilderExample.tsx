@@ -1,5 +1,4 @@
 import {
-  formEngineRsuiteCssLoader,
   ltrCssLoader,
   RsLocalizationWrapper,
   rSuiteComponents,
@@ -11,12 +10,13 @@ import {IndexedDbFormStorage} from '@react-form-builder/indexed-db-form-storage'
 import {useEffect, useState} from 'react'
 import * as SampleForm from './SampleForm.json'
 
+import '@react-form-builder/core/assets/styles.css'
+
 const builderComponents = rSuiteComponents.map(c => c.build())
 const builderView = new BuilderView(builderComponents)
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 const divStyle = {height: '100vh'}
 

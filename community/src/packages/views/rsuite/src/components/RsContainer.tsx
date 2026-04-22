@@ -1,12 +1,9 @@
-import styled from '@emotion/styled'
 import {containerStyles, define, disabled, forwardRef, node, readOnly} from '@react-form-builder/core'
+import cx from 'clsx'
 import type {ForwardedRef, ReactNode} from 'react'
 import {structureCategory} from './categories'
+import styles from './RsContainer.module.css'
 
-const SDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-`
 const {flexDirection, gap} = containerStyles
 
 /**
@@ -25,6 +22,10 @@ export interface RsContainerProps {
    * Children elements of the container.
    */
   children?: ReactNode
+  /**
+   * CSS class name.
+   */
+  className?: string
 }
 
 /**
@@ -33,8 +34,8 @@ export interface RsContainerProps {
  * @returns the React element.
  */
 const RsContainer = forwardRef((props: RsContainerProps, ref: ForwardedRef<any>) => {
-  const {disabled, readOnly, ...otherProps} = props
-  return <SDiv {...otherProps} ref={ref}/>
+  const {disabled, readOnly, className, ...otherProps} = props
+  return <div {...otherProps} className={cx(styles.container, className)} ref={ref}/>
 })
 
 export const rsContainer = define(RsContainer, 'RsContainer')

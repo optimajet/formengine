@@ -1,4 +1,5 @@
 import type {CSSProperties} from 'react'
+import type {CssPart} from '../features/style/types'
 
 /**
  * Calculates all the properties of the form view component.
@@ -40,6 +41,23 @@ export interface IComponentState {
    * The method that is called when the component is unmounted.
    */
   onWillUnmount(): void
+
+  /**
+   * Apply styles to the document.
+   * @param cssPart the CSS part to apply.
+   * @param flatCss the flattened CSS.
+   */
+  applyStyles(cssPart: CssPart, flatCss: string): void
+
+  /**
+   * @returns the flattened CSS for the component.
+   */
+  get flatCss(): string
+
+  /**
+   * @returns the flattened CSS for the component wrapper.
+   */
+  get flatWrapperCss(): string
 
   /**
    * @returns true if the component is read-only, false otherwise.
@@ -106,6 +124,23 @@ export const defaultComponentState: IComponentState = {
    * @inheritDoc
    */
   onWillUnmount(): void {
+  },
+  /*
+  * @inheritDoc
+  */
+  applyStyles(_cssPart: CssPart, _flatCss: string): void {
+  },
+  /**
+   * @inheritDoc
+   */
+  get flatCss() {
+    return ''
+  },
+  /**
+   * @inheritDoc
+   */
+  get flatWrapperCss() {
+    return ''
   },
   /**
    * @inheritDoc

@@ -1,0 +1,5 @@
+.checkbox:global(.required) label::after {
+  margin-inline-start: 3px;
+  content: "*";
+  color: #f44336;
+}

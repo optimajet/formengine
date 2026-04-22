@@ -25,7 +25,6 @@
     "types": [
       "vite/client"
     ],
-    "jsxImportSource": "@emotion/react",
     "noUnusedLocals": true
   },
   "include": [

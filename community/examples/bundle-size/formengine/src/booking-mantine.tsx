@@ -1,5 +1,5 @@
 import {Box, Button, Group, MantineProvider, Stepper} from '@mantine/core'
-import {today, tomorrow } from '@react-form-builder/bundle-size-shared/utils'
+import {today, tomorrow} from '@react-form-builder/bundle-size-shared/utils'
 import {mtCheckbox} from '@react-form-builder/components-mantine/checkbox'
 import {mtContainer} from '@react-form-builder/components-mantine/container'
 import {mtDatePickerInput} from '@react-form-builder/components-mantine/datePickerInput'
@@ -11,6 +11,7 @@ import {createView, define, FormViewer, type IFormData, type IFormViewer, string
 import {type ComponentProps, StrictMode, useCallback, useRef, useState} from 'react'
 import {createRoot} from 'react-dom/client'
 
+import '@react-form-builder/core/assets/styles.css'
 import '@mantine/core/styles.css'
 import '@mantine/dates/styles.css'
 import '@react-form-builder/bundle-size-shared/index.css'
@@ -140,6 +141,6 @@ const root = createRoot(document.getElementById('root')!)
 
 root.render(
   <StrictMode>
-    <App />
+    <App/>
   </StrictMode>
 )

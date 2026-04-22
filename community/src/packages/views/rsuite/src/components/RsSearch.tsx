@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
 import {boolean, define, string, useAriaAttributes, useComponentData} from '@react-form-builder/core'
 import {Search} from '@rsuite/icons'
+import cx from 'clsx'
 import type {ReactNode} from 'react'
 import {useCallback, useMemo} from 'react'
 import type {InputPickerProps} from 'rsuite'
@@ -11,26 +11,7 @@ import {useFixAriaAttributesForInputPicker, useLoadData} from '../hooks'
 import {fieldsCategory} from './categories'
 import {useTouchOnEvent} from './hooks/useTouchOnEvent'
 import {Labeled} from './internal/Labeled'
-
-const Container = styled.div`
-  display: flex;
-  flex: 1;
-
-  .search-icon {
-    margin-inline-start: -28px;
-    margin-top: 10px;
-    z-index: 10;
-  }
-
-  .rs-loader .rs-loader-spin, .rs-loader .rs-loader-spin:after, .rs-loader .rs-loader-spin:before {
-    height: 16px !important;
-    width: 16px !important;
-  }
-`
-
-const SInputPicker = styled(InputPicker)`
-  flex: 1;
-`
+import styles from './RsSearch.module.css'
 
 /**
  * Props for the RsSearch component.
@@ -77,16 +58,25 @@ const RsSearch = ({data, label, onLoadData, onSearch, value = '', className, pre
   const inputRef = useFixAriaAttributesForInputPicker()
 
   const icon = useMemo(() => {
-    return !(props.cleanable && value) ? <Icon className={'search-icon'}/> : null
+    return !(props.cleanable && value) ? <Icon className={styles.searchIcon}/> : null
   }, [Icon, props.cleanable, value])
 
   return (
     <Labeled label={label} className={className} passAriaToChildren={false}>
-      <Container>
-        <SInputPicker id={id} {...aria} {...props} {...loadProps} onClean={onClean} renderMenu={renderMenu} caretAs={CustomCaret}
-                      ref={inputRef}/>
+      <div className={styles.container}>
+        <InputPicker
+          id={id}
+          {...aria}
+          {...props}
+          {...loadProps}
+          onClean={onClean}
+          renderMenu={renderMenu}
+          caretAs={CustomCaret}
+          ref={inputRef}
+          className={cx(styles.inputPicker)}
+        />
         {icon}
-      </Container>
+      </div>
     </Labeled>
   )
 }

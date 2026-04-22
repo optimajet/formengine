@@ -10,9 +10,16 @@ const resourceIds: Record<BiDi, string> = {
  * @returns the Promise that resolves when the LTR CSS has been loaded successfully.
  */
 export const ltrCssLoader = async () => {
-  const href = (await import('../public/css/rsuite-no-reset.min.css?url')).default
+  const href = (await import('../public/css/rsuite-ltr.css?url')).default
   await loadResource(resourceIds[BiDi.LTR], href, 'stylesheet')
   unloadResource(resourceIds[BiDi.RTL])
+
+  return () => {
+    return new Promise<void>(resolve => {
+      unloadResource(resourceIds[BiDi.LTR])
+      resolve()
+    })
+  }
 }
 
 /**
@@ -20,16 +27,14 @@ export const ltrCssLoader = async () => {
  * @returns the Promise that resolves when the RTL CSS has been loaded successfully.
  */
 export const rtlCssLoader = async () => {
-  const href = (await import('../public/css/rsuite-no-reset-rtl.min.css?url')).default
+  const href = (await import('../public/css/rsuite-rtl.css?url')).default
   await loadResource(resourceIds[BiDi.RTL], href, 'stylesheet')
   unloadResource(resourceIds[BiDi.LTR])
-}
 
-/**
- * Loads FormEngine specific styles over "rsuite" library.
- * @returns the Promise that resolves when the custom styles have been loaded successfully.
- */
-export const formEngineRsuiteCssLoader = async () => {
-  const href = (await import('../public/css/formengine-rsuite.css?url')).default
-  await loadResource('form-engine-css', href, 'stylesheet')
+  return () => {
+    return new Promise<void>(resolve => {
+      unloadResource(resourceIds[BiDi.RTL])
+      resolve()
+    })
+  }
 }

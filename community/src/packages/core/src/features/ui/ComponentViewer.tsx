@@ -1,5 +1,5 @@
-import {cx} from '@emotion/css'
-import {Fragment, useContext, useEffect, useMemo} from 'react'
+import cx from 'clsx'
+import {Fragment, useContext, useEffect, useLayoutEffect, useMemo} from 'react'
 import {useComponentData} from '../../utils/contexts/ComponentDataContext'
 import {useStore} from '../../utils/contexts/StoreContext'
 import {namedObserver} from '../../utils/namedObserver'
@@ -24,6 +24,18 @@ const RawComponentViewer = () => {
     const cellInfoPropertiesContext = getCellInfoPropertiesContext(data, cellInfoContext, formViewerStore)
     return formViewerStore.componentStateFactory(data, formViewerStore, cellInfoPropertiesContext)
   }, [data, formViewerStore, cellInfoContext])
+
+  const {flatCss, flatWrapperCss}  = componentState
+
+  useLayoutEffect(() => {
+    // This keeps stylesheets to be in sync in case of component remount.
+    componentState.applyStyles('css', flatCss)
+  }, [componentState, flatCss])
+
+  useLayoutEffect(() => {
+    // This keeps stylesheets to be in sync in case of component remount.
+    componentState.applyStyles('wrapperCss', flatWrapperCss)
+  }, [componentState, flatWrapperCss])
 
   useEffect(() => {
     componentState.onDidMount()

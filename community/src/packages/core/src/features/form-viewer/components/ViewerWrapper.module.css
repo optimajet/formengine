@@ -1,0 +1,13 @@
+.viewerWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  flex-direction: column;
+  flex: 1;
+  gap: 5px;
+}
+
+.rootPadding {
+  padding: 12px;
+}

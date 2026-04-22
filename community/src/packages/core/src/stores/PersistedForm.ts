@@ -58,15 +58,15 @@ export interface PersistedForm {
   /**
    * Localization of the form.
    */
-  localization: LocalizationValue,
+  localization?: LocalizationValue,
 
   /**
    * Form languages.
    */
-  languages: Language[],
+  languages?: Language[],
 
   /**
    * The default form language.
    */
-  defaultLanguage: string
+  defaultLanguage?: string
 }

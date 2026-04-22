@@ -1,19 +1,7 @@
-import {css, cx} from '@emotion/css'
+import cx from 'clsx'
 import type {DetailedHTMLProps, HTMLAttributes} from 'react'
 import {useStore} from '../../../utils/contexts/StoreContext'
-
-const divClass = css`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  flex-direction: column;
-  flex: 1;
-  gap: 5px;
-`
-const rootPaddingClass = css`
-  padding: 12px;
-`
+import styles from './ViewerWrapper.module.css'
 
 /**
  * The React component that wraps every component in a form.
@@ -24,7 +12,7 @@ export const ViewerWrapper = (props: DetailedHTMLProps<HTMLAttributes<HTMLDivEle
   const {className, children, ...otherProps} = props
   const store = useStore()
   const root = !store.parentStore
-  const cls = cx(divClass, className, root && rootPaddingClass)
+  const cls = cx(styles.viewerWrapper, className, root && styles.rootPadding)
 
   return <div className={cls} data-testid={'viewer-wrapper'}{...otherProps}>{children}</div>
 }

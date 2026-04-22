@@ -3,9 +3,10 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    "./css/formengine-rsuite.css": "./dist/css/formengine-rsuite.css",
     "./css/rsuite-no-reset.min.css": "./dist/css/rsuite-no-reset.min.css",
     "./css/rsuite-no-reset-rtl.min.css": "./dist/css/rsuite-no-reset-rtl.min.css",
-    "./schemas/rsuite-components.schema.json": "./dist/schemas/rsuite-components.schema.json"
+    "./schemas/rsuite-components.schema.json": "./dist/schemas/rsuite-components.schema.json",
+    "./assets/styles.ltr.css": "./dist/assets/styles.ltr.css",
+    "./assets/styles.rtl.css": "./dist/assets/styles.rtl.css"
   }
 }

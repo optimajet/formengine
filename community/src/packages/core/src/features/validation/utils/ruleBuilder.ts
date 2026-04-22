@@ -8,12 +8,12 @@ import type {ValidatorFactory} from '../types/ValidatorFactory'
 /**
  * The key-value pair for a value type.
  */
-export type Pair<Key, Type extends SchemaType> = { [k in keyof Key]: SchemaTypeMap[Type] }
+type Pair<Key, Type extends SchemaType> = { [k in keyof Key]: SchemaTypeMap[Type] }
 
 /**
  * The type-safe rule builder.
  */
-export type ValidationRuleBuilder<Params> = {
+type ValidationRuleBuilder<Params> = {
   /**
    * The validation rule parameters.
    */

@@ -8,6 +8,7 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js"
     },
-    "./schemas/uploader-components.schema.json": "./dist/schemas/uploader-components.schema.json"
+    "./schemas/uploader-components.schema.json": "./dist/schemas/uploader-components.schema.json",
+    "./assets/styles.css": "./dist/assets/styles.css"
   }
 }

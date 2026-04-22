@@ -1,5 +1,4 @@
 import {
-  formEngineRsuiteCssLoader,
   ltrCssLoader,
   RsLocalizationWrapper,
   rSuiteComponents,
@@ -11,6 +10,8 @@ import {actions} from '~/common/actions.js'
 
 import form from '~/common/form.json'
 import {customValidators} from '~/common/validators.js'
+
+import '@react-form-builder/core/assets/styles.css'
 
 const components = [...rSuiteComponents]
   .map(definer => definer.build())
@@ -30,7 +31,6 @@ const view = new BuilderView(components)
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 // We're hiding the form panel because it's not fully functional in this example
 const customization = {

@@ -1,22 +1,21 @@
-import styled from '@emotion/styled'
 import {boolean, define, disabled, event, oneOf, string} from '@react-form-builder/core'
+import cx from 'clsx'
+import type {ToggleProps} from 'rsuite'
 import {Toggle} from 'rsuite'
 import {controlColor, readOnly} from '../commonProperties'
 import {fieldsCategory} from './categories'
-import {requiredStyle} from './internal/Labeled'
+import styles from './RsToggle.module.css'
 
-const SToggle = styled(Toggle)`
-  &.required .rs-toggle-label::after {
-    ${requiredStyle};
-  }
-`
+const RsToggle = ({className, ...props}: ToggleProps) => {
+  return <Toggle {...props} className={cx(styles.toggle, className)}/>
+}
 
-export const rsToggle = define(SToggle, 'RsToggle')
+export const rsToggle = define(RsToggle, 'RsToggle')
   .name('Toggle')
   .category(fieldsCategory)
   .props({
     children: string,
-    checked: boolean.valued.default(true).uncontrolledValue(false),
+    checked: boolean.valued.uncontrolledValue(false),
     checkedChildren: string,
     unCheckedChildren: string,
     disabled: disabled.default(false),

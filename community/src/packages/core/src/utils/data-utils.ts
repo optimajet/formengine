@@ -14,7 +14,7 @@ const mergeArrays = (generatedData: ValueType[], initialData: ValueType[]): Valu
   return result
 }
 
-type ValueType = Record<string, unknown> | unknown[] | unknown | undefined
+type ValueType = unknown
 
 const isMergeableObject = (value: any): value is Record<string, unknown> => {
   return !(!isRecord(value) || value instanceof Date)
@@ -53,7 +53,7 @@ export const mergeData = (generatedData: Record<string, unknown>, initialData: R
       // with data from the initial data.
       if (isUndefined(generatedData[key])) return
 
-      result[key] = mergeValues(generatedData[key] as ValueType, initialData[key] as ValueType)
+      result[key] = mergeValues(generatedData[key], initialData[key])
       return
     }
 

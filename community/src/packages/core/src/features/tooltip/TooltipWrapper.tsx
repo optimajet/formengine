@@ -12,7 +12,7 @@ import {useViewerProps} from '../form-viewer/components/ViewerPropsContext'
 /**
  * Tooltip React component wrapper properties.
  */
-export interface TooltipWrapperProps {
+interface TooltipWrapperProps {
   /**
    * The React child node.
    */

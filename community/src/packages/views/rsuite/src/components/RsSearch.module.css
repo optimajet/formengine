@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.inputPicker {
+  flex: 1;
+}
+
+.searchIcon {
+  margin-inline-start: -28px;
+  margin-top: 10px;
+  z-index: 10;
+}
+
+.container :global(.rs-loader .rs-loader-spin),
+.container :global(.rs-loader .rs-loader-spin::after),
+.container :global(.rs-loader .rs-loader-spin::before) {
+  width: 16px !important;
+  height: 16px !important;
+}

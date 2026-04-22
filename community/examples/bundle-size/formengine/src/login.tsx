@@ -7,15 +7,15 @@ import {createView, type CustomActions, FormViewer} from '@react-form-builder/co
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 
-import '@react-form-builder/components-rsuite/css/rsuite-no-reset.min.css'
-import '@react-form-builder/components-rsuite/css/formengine-rsuite.css'
-
+import '@react-form-builder/core/assets/styles.css'
+import '@react-form-builder/components-rsuite/assets/styles.ltr.css'
 import '@react-form-builder/bundle-size-shared/index.css'
+
 import {loginForm} from './login-form.ts'
 
 const components = [rsContainer, rsInput, rsButton, rsCheckbox, rsErrorMessage].map(def => def.build().model)
 
-const viewWithCss = createView(components)
+const view = createView(components)
 
 const getForm = () => loginForm
 
@@ -25,7 +25,7 @@ export const actions: CustomActions = {
   },
 }
 
-const App = () => <FormViewer view={viewWithCss} getForm={getForm} actions={actions} />
+const App = () => <FormViewer view={view} getForm={getForm} actions={actions} />
 
 const root = createRoot(document.getElementById('root')!)
 

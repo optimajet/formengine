@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.container :global(.parent-type-RsWizard.Toolbar .add-button) {
+  display: none;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+}
+
+.toolbar {
+  justify-content: end;
+  z-index: 7;
+}
+
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.verticalSteps {
+  flex-direction: row;
+}

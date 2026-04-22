@@ -13,7 +13,6 @@ import {size} from './internal/sharedProps'
 export const MtContainer = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => (
   <Container display="flex" {...props} ref={ref}/>
 ))
-MtContainer.displayName = 'MtContainer'
 
 export const mtContainer = define(MtContainer, 'MtContainer')
   .category(layoutCategory)

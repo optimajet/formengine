@@ -1,8 +1,8 @@
-import type {CSSProperties} from 'react'
 import {ComponentStore} from '../../stores/ComponentStore'
 import {addOrUpdateFeatures} from '../define/utils/ComponentFeature'
 import {cfHideFromComponentPalette} from '../define/utils/integratedComponentFeatures'
 import {Model} from '../define/utils/Model'
+import styles from './internalErrorModel.module.css'
 import {screenModel} from './screenModel'
 
 /**
@@ -15,14 +15,10 @@ export interface InternalErrorProps {
   error: any
 }
 
-const internalErrorStyle: CSSProperties = {
-  color: 'red'
-}
-
 const InternalError = ({error}: InternalErrorProps) => {
-  return <h1 style={internalErrorStyle}>{error?.message ?? JSON.stringify(error)}</h1>
+  return <h1 className={styles.internalErrorStyle}>{error?.message ?? JSON.stringify(error)}</h1>
 }
-InternalError.displayName = 'InternalError'
+const typeName = 'InternalError'
 
 const internalErrorFeatures = addOrUpdateFeatures({},
   {name: cfHideFromComponentPalette, value: true},
@@ -32,8 +28,8 @@ const internalErrorFeatures = addOrUpdateFeatures({},
  * Form viewer internal error metadata. **Internal use only.**
  * @internal
  */
-export const internalErrorModel = new Model(InternalError, undefined, undefined, undefined, undefined,
-  undefined, undefined, undefined, undefined, undefined, undefined, undefined,
+export const internalErrorModel = new Model(InternalError, typeName, undefined, undefined, undefined,
+  undefined, undefined, undefined, typeName, undefined, undefined, undefined,
   undefined, undefined, undefined, internalErrorFeatures)
 
 /**

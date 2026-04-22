@@ -2,20 +2,20 @@
 
 import {Message, MessageProvider, useMessage} from '@/app/components/message'
 import {
-  formEngineRsuiteCssLoader,
-  ltrCssLoader,
   RsLocalizationWrapper,
   rSuiteComponents,
   rsErrorMessage,
-  rtlCssLoader
 } from '@react-form-builder/components-rsuite'
-import {ActionDefinition, BiDi, createView} from '@react-form-builder/core'
+import {ActionDefinition, createView} from '@react-form-builder/core'
 import {IFormStorage} from '@react-form-builder/designer'
 
 import form from '@/app/common/form.json'
 import {customValidators} from '@/app/common/validators'
 import dynamic from 'next/dynamic'
 import React, {ReactNode, useMemo} from 'react'
+
+import '@react-form-builder/core/assets/styles.css'
+import '@react-form-builder/components-rsuite/assets/styles.ltr.css'
 
 const FormViewer = dynamic(() => import('@react-form-builder/core').then((mod) => mod.FormViewer), {
   ssr: false
@@ -37,9 +37,6 @@ const loadForm = () => formStorage.getForm('')
 
 const view = createView(viewerComponents)
   .withViewerWrapper(RsLocalizationWrapper)
-  .withCssLoader(BiDi.LTR, ltrCssLoader)
-  .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 const ViewerWrap = ({children}: { children: ReactNode }) => (
   <MessageProvider>

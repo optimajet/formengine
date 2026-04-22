@@ -26,7 +26,6 @@
       "vite/client",
       "vitest/globals"
     ],
-    "jsxImportSource": "@emotion/react",
     "noUnusedLocals": true
   },
   "include": [

@@ -24,9 +24,11 @@ const screenFeatures = addOrUpdateFeatures({},
   {name: cfDisableComponentRemove, value: true}
 )
 
+const typeName = 'Screen'
+
 /**
  * Form viewer screen metadata. **Internal use only.**
  */
-export const screenModel = new Model(DefaultWrapper, undefined, undefined,
-  undefined, undefined, undefined, defaultCss, undefined, undefined, 'container',
+export const screenModel = new Model(DefaultWrapper, typeName, undefined,
+  undefined, undefined, undefined, defaultCss, undefined, typeName, 'container',
   'readOnly', undefined, undefined, 'disabled', undefined, screenFeatures)

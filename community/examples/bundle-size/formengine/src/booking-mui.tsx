@@ -14,6 +14,7 @@ import {bookingDetailsForm, travelerInfoForm} from './booking-form-mui.ts'
 
 import {actions, formValidators} from './utils'
 
+import '@react-form-builder/core/assets/styles.css'
 import '@react-form-builder/bundle-size-shared/index.css'
 
 const MuiImage = ({alt, src, ...props}: ComponentProps<'img'>) => {

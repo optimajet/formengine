@@ -1,5 +1,4 @@
 import {
-  formEngineRsuiteCssLoader,
   ltrCssLoader,
   RsLocalizationWrapper,
   rSuiteComponents,
@@ -12,6 +11,8 @@ import {Schema} from 'yup'
 import form from './form.json'
 import {useBookingForm} from './useBookingForm'
 import * as validator from './validators'
+
+import '@react-form-builder/core/assets/styles.css'
 
 const componentsMetadata = rSuiteComponents.map(definer => definer.build())
 
@@ -30,7 +31,6 @@ const builderView = new BuilderView(componentsMetadata)
   .withViewerWrapper(RsLocalizationWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
-  .withCssLoader('common', formEngineRsuiteCssLoader)
 
 // We're hiding the form panel because it's not fully functional in this example
 const customization = {

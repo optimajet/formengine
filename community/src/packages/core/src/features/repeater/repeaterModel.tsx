@@ -38,7 +38,7 @@ const Repeater = (props: RepeaterProps) =>
       {props.children}
     </RepeaterContainer>
   </RepeaterPropsProvider>
-Repeater.displayName = 'Repeater'
+const typeName = 'Repeater'
 
 export const repeaterValuedAnnotation = array.valued
   .setup({editor: 'arrayOfObject'})
@@ -78,6 +78,6 @@ const repeaterFeatures = addOrUpdateFeatures({},
   {name: cfSkipChildrenDuringFieldCollection, value: true},
 )
 
-export const repeaterModel = new Model(Repeater, 'Repeater', undefined, 'value', 'array',
-  repeaterDefaultProps, repeaterItemCss, repeaterWrapperCss, 'Repeater', 'repeater',
+export const repeaterModel = new Model(Repeater, typeName, undefined, 'value', 'array',
+  repeaterDefaultProps, repeaterItemCss, repeaterWrapperCss, typeName, 'repeater',
   undefined, undefined, undefined, undefined, undefined, repeaterFeatures)

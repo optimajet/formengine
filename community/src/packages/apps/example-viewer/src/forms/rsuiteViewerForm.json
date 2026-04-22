@@ -1,0 +1,113 @@
+{
+  "errorType": "RsErrorMessage",
+  "form": {
+    "key": "Screen",
+    "type": "Screen",
+    "children": [
+      {
+        "key": "container",
+        "type": "RsContainer",
+        "props": {},
+        "css": {
+          "any": {
+            "object": {
+              "flexDirection": "row"
+            }
+          }
+        },
+        "children": [
+          {
+            "key": "firstName",
+            "type": "RsInput",
+            "props": {
+              "placeholder": {
+                "value": "Enter your first name"
+              },
+              "label": {
+                "value": "First Name"
+              }
+            },
+            "schema": {
+              "validations": [
+                {
+                  "key": "required"
+                }
+              ]
+            }
+          },
+          {
+            "key": "lastName",
+            "type": "RsInput",
+            "props": {
+              "placeholder": {
+                "value": "Enter your last name"
+              },
+              "label": {
+                "value": "Last Name"
+              }
+            },
+            "schema": {
+              "validations": [
+                {
+                  "key": "required"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "birthDate",
+        "type": "RsDatePicker",
+        "props": {
+          "label": {
+            "value": "Birth Date"
+          },
+          "oneTap": {
+            "value": true
+          }
+        },
+        "schema": {
+          "validations": [
+            {
+              "key": "min",
+              "args": {
+                "value": "1900-01-07T12:25:37.000Z"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "submit",
+        "type": "RsButton",
+        "props": {
+          "children": {
+            "value": "Submit"
+          },
+          "color": {
+            "value": "blue"
+          },
+          "appearance": {
+            "value": "primary"
+          }
+        },
+        "events": {
+          "onClick": [
+            {
+              "type": "common",
+              "name": "validate",
+              "args": {
+                "failOnError": true
+              }
+            },
+            {
+              "type": "custom",
+              "name": "onSubmit"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

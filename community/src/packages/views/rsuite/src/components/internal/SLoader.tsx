@@ -1,14 +1,14 @@
-import styled from '@emotion/styled'
+import cx from 'clsx'
+import type {LoaderProps} from 'rsuite'
 import {Loader} from 'rsuite'
+import styles from './SLoader.module.css'
 
-export const SLoader = styled(Loader)`
-  && {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    background: var(--rs-bg-overlay);
-    width: 100%;
-    padding-block: 10px;
-  }
-`
+/**
+ * Styled loader.
+ * @param props the component props.
+ * @param props.className the CSS class name.
+ * @returns the React element.
+ */
+export const SLoader = ({className, ...props}: LoaderProps) => {
+  return <Loader {...props} className={cx(styles.loader, className)}/>
+}

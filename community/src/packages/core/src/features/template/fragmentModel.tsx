@@ -6,10 +6,10 @@ interface FragmentProps {
 }
 
 const Fragment = ({children}: FragmentProps) => <>{children}</>
-Fragment.displayName = 'Fragment'
+const typeName = 'Fragment'
 
 /**
  * Form viewer fragment metadata. **Internal use only.**
  */
-export const fragmentModel = new Model(Fragment, 'Fragment', undefined, undefined, undefined,
-  undefined, undefined, undefined, undefined, 'container')
+export const fragmentModel = new Model(Fragment, typeName, undefined, undefined, undefined,
+  undefined, undefined, undefined, typeName, 'container')

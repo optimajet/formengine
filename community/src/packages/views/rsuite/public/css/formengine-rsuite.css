@@ -283,7 +283,7 @@
 }
 
 .rs-toast-provider,
-.optimajet-formviewer,
+.optimajet-formviewer .rsuite,
 .rs-modal,
 .rs-picker-popup,
 .rs-picker-popup-date,
@@ -308,4 +308,8 @@
 .rs-theme-dark .rs-divider-horizontal.rs-divider-with-text:after,
 .rs-theme-dark .rs-divider-horizontal.rs-divider-with-text:before {
   border-top: 1px solid var(--rs-text-secondary);
+}
+
+button.rs-tag-icon-close.rs-btn-close > svg {
+  color: var(--rs-text-secondary);
 }

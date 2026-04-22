@@ -24,6 +24,6 @@ export function getTemplateName(typeName: string) {
  * @param typeName the type name.
  * @returns true if typeName is the template type, false otherwise.
  */
-export function isTemplateType(typeName: string) {
-  return typeName.startsWith(templateTypeNamePrefix)
+export function isTemplateType(typeName?: string) {
+  return !!typeName?.startsWith(templateTypeNamePrefix)
 }

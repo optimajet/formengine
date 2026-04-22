@@ -60,10 +60,7 @@
     }
   },
   "required": [
-    "form",
-    "localization",
-    "languages",
-    "defaultLanguage"
+    "form"
   ],
   "description": "The scheme describes the JSON structure and the set of components used",
   "definitions": {

@@ -23,3 +23,4 @@ src/tests/react-18/reports
 src/tests/react-19/reports
 
 !src/documentation/website/packages/*.tgz
+.env

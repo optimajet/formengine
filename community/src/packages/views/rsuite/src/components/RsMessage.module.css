@@ -1,0 +1,3 @@
+.message :global(.rs-message-header) {
+  overflow: initial;
+}

@@ -1,0 +1,10 @@
+.tabs :global(.rs-nav-item) {
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+}
+
+:global(.builder) .tabs :global(.rs-nav-item) {
+  z-index: 7;
+}

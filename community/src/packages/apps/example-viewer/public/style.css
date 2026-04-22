@@ -6,8 +6,6 @@ body {
   min-height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
 }
 
 body::-webkit-scrollbar {
@@ -25,14 +23,19 @@ img {
   background-color: #2b2b2b;
   padding: 8px 16px;
   display: flex;
-  position: sticky;
-  top: 0;
-  height: 48px;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
+  position: sticky;
+  top: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.navbar > a {
+  flex-shrink: 0;
 }
 
 .logo-1 {
-  float: left;
   color: #333;
 }

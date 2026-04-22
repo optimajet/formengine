@@ -8,6 +8,7 @@ import {createView, FormViewer} from '@react-form-builder/core'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 
+import '@react-form-builder/core/assets/styles.css'
 import '@mantine/core/styles/baseline.css'
 import '@mantine/core/styles/default-css-variables.css'
 import '@mantine/core/styles/global.css'

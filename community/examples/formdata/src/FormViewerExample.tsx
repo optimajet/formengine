@@ -1,9 +1,12 @@
 import {faker} from '@faker-js/faker'
-import {viewWithCss} from '@react-form-builder/components-rsuite'
+import {view} from '@react-form-builder/components-rsuite'
 import type {IFormData, IFormViewer} from '@react-form-builder/core'
 import {ActionDefinition, ComponentData, FormViewer, isEqual} from '@react-form-builder/core'
 import {ReactNode, useCallback, useRef, useState} from 'react'
 import * as SampleForm from './SampleForm.json'
+
+import '@react-form-builder/core/assets/styles.css'
+import '@react-form-builder/components-rsuite/assets/styles.ltr.css'
 
 type AppState = {
   'First name': string;
@@ -25,8 +28,6 @@ function generateData(): AppState {
     'Message': message
   }
 }
-
-const view = viewWithCss
 
 const getForm = () => JSON.stringify(SampleForm)
 

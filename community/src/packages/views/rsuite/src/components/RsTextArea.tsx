@@ -42,7 +42,7 @@ export const rsTextArea = define(RsTextArea, 'RsTextArea')
   .category(fieldsCategory)
   .props({
     label: string.default('Text area'),
-    value: string.default('').valued,
+    value: string.valued,
     placeholder: string,
     rows: positiveNumber.default(5),
     size,

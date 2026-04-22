@@ -17,6 +17,7 @@ export const InputCell = ({rowData, dataKey, rowIndex, onChange, ...props}: Inpu
   const value = rowData[dataKey] ?? ''
 
   const handleChange = useCallback((newValue: any) => {
+    // eslint-disable-next-line react-hooks/immutability
     rowData[dataKey] = newValue
     onChange?.(newValue, dataKey, rowIndex)
   }, [dataKey, onChange, rowData, rowIndex])

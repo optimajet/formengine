@@ -1,27 +1,16 @@
-import styled from '@emotion/styled'
+import cx from 'clsx'
+import type {ComponentProps} from 'react'
 import {Steps} from 'rsuite'
+import styles from './Item.module.css'
 
-export const SItem = styled(Steps.Item)`
-  z-index: 7;
+type StepItemProps = ComponentProps<typeof Steps.Item>
 
-  &.rs-steps-item-status-process:not(.active) .rs-steps-item-icon-wrapper {
-    color: var(--rs-text-secondary);
-    background-color: initial;
-  }
-
-  &.available {
-    cursor: pointer;
-
-    &:hover {
-      color: var(--rs-steps-state-finish);
-
-      .rs-steps-item-icon-wrapper {
-        border: 2px solid var(--rs-steps-state-finish);
-      }
-    }
-  }
-
-  &.active:hover .rs-steps-item-icon-wrapper {
-    opacity: 0.8;
-  }
-`
+/**
+ * The steps item.
+ * @param props the component props.
+ * @param props.className the CSS class name for the component.
+ * @returns the React element.
+ */
+export const SItem = ({className, ...props}: StepItemProps) => {
+  return <Steps.Item {...props} className={cx(styles.item, className)}/>
+}

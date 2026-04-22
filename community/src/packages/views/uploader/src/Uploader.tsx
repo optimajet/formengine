@@ -1,17 +1,25 @@
-import {cx} from '@emotion/css'
 import {array, boolean, define, disabled, event, object, readOnly, string, stringNode} from '@react-form-builder/core'
+import cx from 'clsx'
 import {useCallback, useMemo} from 'react'
 import type {DropzoneOptions, DropzoneState} from 'react-dropzone'
 import {useDropzone} from 'react-dropzone'
-import {containerStyle} from './style'
 import type {FileType, UploaderProps} from './types'
+import styles from './Uploader.module.css'
 import {uploadFiles} from './utils/upload'
 
 const defaultContent = `Drop some files here, or click to select files`
 
 const getClassName = (state: Partial<DropzoneState>, dropzone?: boolean, className?: string) => {
-  const {isDragAccept, isDragReject, isDragActive} = state
-  return cx({isDragAccept, isDragReject, isDragActive, dropzone}, containerStyle, className)
+  const {isDragActive, isDragAccept, isDragReject} = state
+
+  return cx(
+    styles.uploader,
+    dropzone && styles.dropzone,
+    isDragActive && styles.isDragActive,
+    isDragAccept && styles.isDragAccept,
+    isDragReject && styles.isDragReject,
+    className
+  )
 }
 
 const Uploader = ({children, dropzone, value, className, action, onChange, onError, onDrop, onDropRejected, ...props}: UploaderProps) => {
@@ -41,6 +49,7 @@ const Uploader = ({children, dropzone, value, className, action, onChange, onErr
       onDrop: handleFileUpload,
     }
   ), [dropzone, handleFileUpload, props])
+
   const {getInputProps, getRootProps, ...state} = useDropzone(dropzoneOptions)
 
   const dropzoneProps = useMemo(() => getRootProps({

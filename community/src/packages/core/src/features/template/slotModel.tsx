@@ -1,4 +1,3 @@
-import type {CSSProperties} from 'react'
 import type {Store} from '../../stores/Store'
 import {ComponentDataProvider, useComponentData} from '../../utils/contexts/ComponentDataContext'
 import {StoreProvider, useStore} from '../../utils/contexts/StoreContext'
@@ -13,6 +12,7 @@ import {
 import {Model} from '../define/utils/Model'
 import {ViewerPropsProvider} from '../form-viewer/components/ViewerPropsContext'
 import {useEmbeddedForm} from './EmbeddedForm'
+import styles from './slotModel.module.css'
 
 const RawSlotContent = ({parentStore}: { parentStore: Store }) => {
   const {key} = useComponentData()
@@ -31,14 +31,9 @@ const RawSlotContent = ({parentStore}: { parentStore: Store }) => {
 
 const SlotContent = namedObserver('SlotContent', RawSlotContent)
 
-const slotPlaceholder: CSSProperties = {
-  backgroundColor: 'rgb(150, 150, 150, 25%)',
-  padding: 5
-}
-
 const RawSlotPlaceholder = () => {
   const {key} = useComponentData()
-  return <div style={slotPlaceholder}>{`Slot: '${key}'`}</div>
+  return <div className={styles.slotPlaceholder}>{`Slot: '${key}'`}</div>
 }
 
 const SlotPlaceholder = namedObserver('SlotPlaceholder', RawSlotPlaceholder)
@@ -49,7 +44,7 @@ const Slot = () => {
     ? <SlotContent parentStore={parentStore}/>
     : <SlotPlaceholder/>
 }
-Slot.displayName = 'Slot'
+const typeName = 'Slot'
 
 const slotFeatures = addOrUpdateFeatures({},
   {name: cfDisableMainComponentProperties, value: true},
@@ -61,6 +56,6 @@ const slotFeatures = addOrUpdateFeatures({},
 /**
  * Form viewer slot metadata. **Internal use only.**
  */
-export const slotModel = new Model(Slot, 'Slot', undefined, undefined, undefined,
-  undefined, undefined, undefined, undefined, undefined, undefined, undefined,
+export const slotModel = new Model(Slot, typeName, undefined, undefined, undefined,
+  undefined, undefined, undefined, typeName, undefined, undefined, undefined,
   undefined, undefined, undefined, slotFeatures)

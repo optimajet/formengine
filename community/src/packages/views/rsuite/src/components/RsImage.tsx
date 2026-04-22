@@ -1,20 +1,16 @@
-import styled from '@emotion/styled'
 import {define, oneOf, string, useBuilderValue} from '@react-form-builder/core'
+import cx from 'clsx'
 import type {ComponentProps} from 'react'
 import rawLogo from '../../public/images/logo.svg?raw'
 import type {AreaProps} from '../commonTypes'
 import {staticCategory} from './categories'
+import styles from './RsImage.module.css'
 
 /**
  * Props for the RsImage component.
  */
 export interface RsImageProps extends ComponentProps<'img'>, AreaProps {
 }
-
-const SImage = styled.img`
-  width: 100%;
-  height: 100%;
-`
 
 const inlineLogo = `data:image/svg+xml,${encodeURIComponent(rawLogo)}`
 
@@ -23,11 +19,13 @@ const inlineLogo = `data:image/svg+xml,${encodeURIComponent(rawLogo)}`
  * @param props the component props.
  * @param props.alt the alternative text for the image.
  * @param props.src the image source URL.
+ * @param props.className the CSS class name.
  * @returns the React element.
  */
-const RsImage = ({alt, src, ...props}: RsImageProps) => {
+const RsImage = ({alt, src, className, ...props}: RsImageProps) => {
   const source = useBuilderValue(src, inlineLogo)
-  return <SImage {...props} alt={alt} src={source}/>
+
+  return <img {...props} className={cx(styles.image, className)} alt={alt} src={source}/>
 }
 
 export const rsImage = define(RsImage, 'RsImage')

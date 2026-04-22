@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useRef, useState} from 'react'
+import {useEffect, useLayoutEffect, useMemo, useRef} from 'react'
 import type {Store} from '../../../stores/Store'
 import type {ViewMode} from '../../../types'
 import {useStore} from '../../../utils/contexts/StoreContext'
@@ -25,6 +25,7 @@ function useAutoViewMode() {
 
   useEffect(() => {
     if (props.viewMode) {
+      // eslint-disable-next-line react-hooks/immutability
       store.viewMode = props.viewMode
       return
     }
@@ -77,10 +78,12 @@ const RawViewer = () => {
   const {formLoadError} = store
   const props = useViewerProps()
   const data = useMemo(() => [store.form.componentTree], [store.form.componentTree])
+  const errorsRef = useRef(props.errors)
 
-  const [formErrors, setFormErrors] = useState(props.errors)
-  const errorsRef = useRef(formErrors)
-  errorsRef.current = formErrors
+  useLayoutEffect(() => {
+    errorsRef.current = props.errors
+    applyValidationErrors(store, props.errors)
+  }, [props.errors, store])
 
   useAutoViewMode()
 
@@ -92,14 +95,6 @@ const RawViewer = () => {
       })
       .catch(console.error)
   }, [store, props.getForm, props.formName, props.formOptions])
-
-  useEffect(() => {
-    if (formErrors !== props.errors) {
-      setFormErrors(props.errors)
-      errorsRef.current = props.errors
-      applyValidationErrors(store, props.errors)
-    }
-  }, [formErrors, props.errors, store])
 
   return formLoadError
     ? <div className={'form-error'}>{formLoadError}</div>

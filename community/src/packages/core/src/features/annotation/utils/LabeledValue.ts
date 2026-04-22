@@ -24,6 +24,6 @@ export const toLabeledValues = (items: Array<string | number | LabeledValue>, up
   items.map(item => {
     if (isObject(item)) return {value: item.value as string | number, label: item.label as string | undefined}
     const value = item as string | number
-    const label = upper ? upperFirst(String(item)) : String(item)
+    const label = upper ? upperFirst(String(value)) : String(value)
     return {value, label}
   })

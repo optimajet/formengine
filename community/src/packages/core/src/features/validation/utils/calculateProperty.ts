@@ -7,7 +7,7 @@ import type {LocalizationType} from '../../localization/types'
 /**
  * The function to localize the properties of a component.
  */
-export type LocalizeComponent = (type: LocalizationType, componentStore: ComponentStore) => Record<string, any>
+type LocalizeComponent = (type: LocalizationType, componentStore: ComponentStore) => Record<string, any>
 
 /**
  * Calculates the property of the component.

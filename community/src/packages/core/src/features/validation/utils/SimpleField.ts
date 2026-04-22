@@ -203,7 +203,7 @@ export class SimpleField implements Field, IDataReaction {
    * @inheritDoc
    */
   clear() {
-    this.innerSetValue(this.modelValue)
+    this.innerSetValue(undefined)
     this.touched = false
     this.clearError()
   }
