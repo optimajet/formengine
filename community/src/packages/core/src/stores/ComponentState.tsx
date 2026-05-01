@@ -130,6 +130,7 @@ const computeEvents = (componentState: ComponentState) => {
 type ComponentCssData = {
   className: string
   styleSheet?: CSSStyleSheet
+  flatCss?: string
 }
 
 /**
@@ -348,6 +349,15 @@ export class ComponentState implements IComponentState {
    */
   onDidMount() {
     this.executeLifecycleEvent(DidMountEvent)
+    this.applyAllStyles()
+  }
+
+  /**
+   * @inheritDoc
+   */
+  onWillUnmount() {
+    this.executeLifecycleEvent(WillUnmountEvent)
+    this.cleanStyles()
   }
 
   /**
@@ -359,17 +369,21 @@ export class ComponentState implements IComponentState {
     }
   }
 
-  /**
-   * @inheritDoc
-   */
-  onWillUnmount() {
-    this.executeLifecycleEvent(WillUnmountEvent)
+  private applyAllStyles() {
+    this.applyStyles('css', this.flatCss)
+    this.applyStyles('wrapperCss', this.flatWrapperCss)
+  }
 
+  /**
+   * Clears component styles.
+   */
+  private cleanStyles() {
     const styleSheets: CSSStyleSheet[] = []
     Object.values(this.#styles)
       .forEach(item => {
         if (item.styleSheet) styleSheets.push(item.styleSheet)
         item.styleSheet = undefined
+        item.flatCss = undefined
       })
 
     if (styleSheets.length) {
@@ -462,15 +476,20 @@ export class ComponentState implements IComponentState {
 
   private updateAdoptedStyleSheets(cssPart: CssPart, flatCss: string) {
     try {
-      const existing = this.#styles[cssPart].styleSheet
+      const cssData = this.#styles[cssPart]
+      const existing = cssData.styleSheet
       if (existing) {
-        existing.replaceSync(flatCss)
+        if (cssData.flatCss !== flatCss) {
+          existing.replaceSync(flatCss)
+          cssData.flatCss = flatCss
+        }
         return
       }
 
       const sheet = new CSSStyleSheet()
       sheet.replaceSync(flatCss)
-      this.#styles[cssPart].styleSheet = sheet
+      cssData.styleSheet = sheet
+      cssData.flatCss = flatCss
       document.adoptedStyleSheets.push(sheet)
     } catch (e) {
       console.error(e)

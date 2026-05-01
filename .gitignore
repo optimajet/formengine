@@ -1,4 +1,5 @@
 *.tgz
+scripts/.examples-local-packs/
 build/
 dist/
 coverage/

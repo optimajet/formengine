@@ -3,6 +3,7 @@ import type {ILocalizationEngine} from '../features/localization/ILocalizationEn
 import type {LanguageFullCode} from '../features/localization/language'
 import type {ComponentsLocalization, LocalizationType, LocalizationValue} from '../features/localization/types'
 import {nameObservable} from '../utils/observableNaming'
+import {isUndefined} from '../utils/tools'
 import type {ILocalizationStore} from './ILocalizationStore'
 
 const className = 'LocalizationStore'
@@ -41,7 +42,7 @@ class LocalizationObservable {
     Object.entries(componentsLocalization).forEach(([componentKey, allComponentsLocalizationConstants]) => {
       Object.entries(allComponentsLocalizationConstants ?? {}).forEach(([type, componentLocalizationConstants]) => {
         Object.entries(componentLocalizationConstants ?? {}).forEach(([propertyName, localizationConstant]) => {
-          if (localizationConstant) {
+          if (!isUndefined(localizationConstant) && localizationConstant !== null) {
             const normalizedId = `${engine.getCompatibleId(componentKey)}_${type}_${engine.getCompatibleId(propertyName)}`
             localizationItems[normalizedId] = localizationConstant
           }
@@ -97,7 +98,7 @@ export class LocalizationStore implements ILocalizationStore {
     const compatibleId = this.engine.getCompatibleId(componentKey)
     const compatibleName = this.engine.getCompatibleId(propertyName)
 
-    if (value.trim() === '') {
+    if (value === '') {
       this.#removeLocalizationProperty(languageFullCode, compatibleId, type, compatibleName)
       return
     }
@@ -174,7 +175,7 @@ export class LocalizationStore implements ILocalizationStore {
    * @returns true if the specified language exists in the localization.
    */
   hasLanguage(languageFullCode: LanguageFullCode) {
-    return this.findLocalizationKey(languageFullCode) !== null
+    return this.#findConfiguredLanguageKey(languageFullCode) !== null
   }
 
   /**
@@ -189,7 +190,7 @@ export class LocalizationStore implements ILocalizationStore {
     const property = this.engine.getCompatibleId(propertyName)
 
     return Object.values(this.value).some(localization => {
-      return localization?.[key]?.[type]?.[property]
+      return !isUndefined(localization?.[key]?.[type]?.[property])
     })
   }
 
@@ -200,18 +201,46 @@ export class LocalizationStore implements ILocalizationStore {
    * @returns the best matching language full code or null if no match found.
    */
   findLocalizationKey(languageFullCode: LanguageFullCode): LanguageFullCode | null {
-    if (this.value[languageFullCode]) {
-      return languageFullCode
-    }
+    const exactKey = this.#findExactLanguageKey(languageFullCode)
+    if (exactKey && this.#hasTranslations(exactKey)) return exactKey
 
+    const byCodeWithTranslations = this.#findLanguageByCode(languageFullCode, true)
+    if (byCodeWithTranslations) return byCodeWithTranslations
+
+    if (exactKey) return exactKey
+    const byCode = this.#findLanguageByCode(languageFullCode, false)
+    if (byCode) return byCode
+    return null
+  }
+
+  #findConfiguredLanguageKey(languageFullCode: LanguageFullCode): LanguageFullCode | null {
+    const exactKey = this.#findExactLanguageKey(languageFullCode)
+    if (exactKey) return exactKey
+
+    return this.#findLanguageByCode(languageFullCode, false)
+  }
+
+  #findExactLanguageKey(languageFullCode: LanguageFullCode): LanguageFullCode | null {
+    if (!this.value[languageFullCode]) return null
+    return languageFullCode
+  }
+
+  #findLanguageByCode(languageFullCode: LanguageFullCode, onlyWithTranslations: boolean): LanguageFullCode | null {
     const [code] = languageFullCode.split('-')
     for (const key of Object.keys(this.value)) {
-      if (key.startsWith(`${code}-`)) {
-        return key as LanguageFullCode
+      if (!key.startsWith(`${code}-`)) continue
+      const candidate = key as LanguageFullCode
+      if (!onlyWithTranslations || this.#hasTranslations(candidate)) {
+        return candidate
       }
     }
 
     return null
+  }
+
+  #hasTranslations(languageFullCode: LanguageFullCode): boolean {
+    const localization = this.value[languageFullCode]
+    return !!localization && Object.keys(localization).length > 0
   }
 
   /**

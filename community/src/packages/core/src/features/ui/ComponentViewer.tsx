@@ -25,7 +25,7 @@ const RawComponentViewer = () => {
     return formViewerStore.componentStateFactory(data, formViewerStore, cellInfoPropertiesContext)
   }, [data, formViewerStore, cellInfoContext])
 
-  const {flatCss, flatWrapperCss}  = componentState
+  const {flatCss, flatWrapperCss} = componentState
 
   useLayoutEffect(() => {
     // This keeps stylesheets to be in sync in case of component remount.

@@ -3,15 +3,26 @@
 All notable changes to FormEngine are documented here. For full, detailed release notes with screenshots and links, see the documentation:
 
 - Latest release notes: https://formengine.io/documentation/release-notes
+
+## 8.1.0 - May 1, 2026
+
+Localization fallbacks without the `[NOT LOCALIZED]` placeholder, Fluent bundle improvements, Designer language-switch customization,
+
+### Highlights
+
+- [Language switch customization](https://formengine.io/documentation/formengine-designer/features/designer-customization#language-switch-customization) for `MainMenu_Item_LanguageSwitch` and `MainMenu_Item_LanguageItem_<language-full-code>` in the Designer.
+
+[Full release notes for 8.1.0](https://formengine.io/documentation/release-notes/8.1.0)
+
 ## 8.0.0 - April 21, 2026
 
 CSP-friendly Core styling, optional localization, designer menu customization, Monaco update, and displayName breaking change
 
 ### Highlights
 
-- Core styles ship as static CSS for stricter CSP: import `@react-form-builder/core/assets/styles.css` per [Install FormEngine Core](/formengine-core/installation).
-- [FormViewerLite](/api-reference/@react-form-builder/core/variables/FormViewerLite) uses [NoopLocalizationEngine](/api-reference/@react-form-builder/core/classes/NoopLocalizationEngine) by default; [FormViewer](/api-reference/@react-form-builder/core/variables/FormViewer) takes [localizationEngine](/api-reference/@react-form-builder/core/interfaces/FormViewerProps#localizationengine) on [FormViewerProps](/api-reference/@react-form-builder/core/interfaces/FormViewerProps), so you can use [NoopLocalizationEngine](/api-reference/@react-form-builder/core/classes/NoopLocalizationEngine) or a custom [ILocalizationEngine](/api-reference/@react-form-builder/core/interfaces/ILocalizationEngine).
-- [Menu items customization](/formengine-designer/features/designer-customization#menu-items-customization) for Designer main-menu controls (`MainMenu_Item_*` keys).
+- Core styles ship as static CSS for stricter CSP: import `@react-form-builder/core/assets/styles.css` per [Install FormEngine Core](https://formengine.io/documentation/formengine-core/installation).
+- [FormViewerLite](https://formengine.io/documentation/api-reference/@react-form-builder/core/variables/FormViewerLite) uses [NoopLocalizationEngine](https://formengine.io/documentation/api-reference/@react-form-builder/core/classes/NoopLocalizationEngine) by default; [FormViewer](https://formengine.io/documentation/api-reference/@react-form-builder/core/variables/FormViewer) takes [localizationEngine](https://formengine.io/documentation/api-reference/@react-form-builder/core/interfaces/FormViewerProps#localizationengine) on [FormViewerProps](https://formengine.io/documentation/api-reference/@react-form-builder/core/interfaces/FormViewerProps), so you can use [NoopLocalizationEngine](https://formengine.io/documentation/api-reference/@react-form-builder/core/classes/NoopLocalizationEngine) or a custom [ILocalizationEngine](https://formengine.io/documentation/api-reference/@react-form-builder/core/interfaces/ILocalizationEngine).
+- [Menu items customization](https://formengine.io/documentation/formengine-designer/features/designer-customization#menu-items-customization) for Designer main-menu controls (`MainMenu_Item_*` keys).
 - Monaco editor updated to **0.55.1**.
 
 [Full release notes for 8.0.0](https://formengine.io/documentation/release-notes/8.0.0)
@@ -22,8 +33,8 @@ FormBuilder language callbacks, preset name in onFormElementAdd
 
 ### Highlights
 
-- Added [onBuilderLanguageChange](/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onbuilderlanguagechange) and [onViewerLanguageChange](/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onviewerlanguagechange) on [FormBuilderProps](/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps).
-- Added optional [presetName](/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onformelementadd) to the [onFormElementAdd](/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onformelementadd) payload (see [Tracking component add and remove events](/formengine-designer/faq/tracking-component-add-and-remove-events)).
+- Added [onBuilderLanguageChange](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onbuilderlanguagechange) and [onViewerLanguageChange](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onviewerlanguagechange) on [FormBuilderProps](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps).
+- Added optional [presetName](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onformelementadd) to the [onFormElementAdd](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#onformelementadd) payload (see [Tracking component add and remove events](https://formengine.io/documentation/formengine-designer/faq/tracking-component-add-and-remove-events)).
 - Updated the [public FormEngine example](https://github.com/optimajet/formengine) to use form storage (IndexedDB) alongside the designer.
 
 [Full release notes for 7.15.0](https://formengine.io/documentation/release-notes/7.15.0)
@@ -35,7 +46,7 @@ IndexedDB form storage, Angular integration examples and bug fixes
 ### Highlights
 
 - Published `@react-form-builder/indexed-db-form-storage` for browser-based form persistence.
-- Updated [Form storage documentation](/formengine-designer/features/form-storage#example-of-iformstorage-working-with-indexeddb) with the IndexedDB example.
+- Updated [Form storage documentation](https://formengine.io/documentation/formengine-designer/features/form-storage#example-of-iformstorage-working-with-indexeddb) with the IndexedDB example.
 
 [Full release notes for 7.14.0](https://formengine.io/documentation/release-notes/7.14.0)
 
@@ -45,10 +56,10 @@ Component ref, Designer improvements, MUI DatePicker
 
 ### Highlights
 
-- Added [MuiDatePicker](/components-library/material-ui/date-picker) support.
-- Added [component toolbar customization](/formengine-designer/features/designer-customization#customizing-the-formbuilder-interface) in the designer.
-- Added designer events for [add/remove callbacks](/formengine-designer/faq/tracking-component-add-and-remove-events).
-- Added direct component ref handling in action events via [refValue](/formengine-core/actions-and-events#accessing-the-component-dom-element-in-actions) (DOM element, imperative handle, or `null`).
+- Added [MuiDatePicker](https://formengine.io/documentation/components-library/material-ui/date-picker) support.
+- Added [component toolbar customization](https://formengine.io/documentation/formengine-designer/features/designer-customization#customizing-the-formbuilder-interface) in the designer.
+- Added designer events for [add/remove callbacks](https://formengine.io/documentation/formengine-designer/faq/tracking-component-add-and-remove-events).
+- Added direct component ref handling in action events via [refValue](https://formengine.io/documentation/formengine-core/actions-and-events#accessing-the-component-dom-element-in-actions) (DOM element, imperative handle, or `null`).
 
 [Full release notes for 7.13.0](https://formengine.io/documentation/release-notes/7.13.0)
 

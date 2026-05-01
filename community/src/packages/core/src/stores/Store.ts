@@ -9,7 +9,7 @@ import {globalDefaultLanguage} from '../features/localization/default'
 import {findLanguage} from '../features/localization/findLanguage'
 import {Language} from '../features/localization/language'
 import {NoopLocalizationEngine} from '../features/localization/NoopLocalizationEngine'
-import type {LocalizationType} from '../features/localization/types'
+import type {LocalizationType, LocalizationValue} from '../features/localization/types'
 import type {ComponentPropertiesContext} from '../features/properties-context/ComponentPropertiesContext'
 import {templateTypeName} from '../features/template/templateTypeName'
 import {buildInternalErrorModel} from '../features/ui/internalErrorModel'
@@ -52,6 +52,24 @@ import {PersistedFormVersion} from './PersistedForm'
 const propertiesToFix: Record<string, string[]> = {
   'RsDatePicker': ['calendarDefaultDate', 'defaultValue', 'value'],
   'RsCalendar': ['defaultValue', 'value'],
+}
+
+const normalizePersistedI18n = (persistedForm: PersistedForm): {
+  languages: Language[]
+  localization: LocalizationValue
+  defaultLanguage: Language
+} => {
+  const languages = persistedForm.languages?.map(Language.clone) ?? []
+  const localization = languages.reduce((acc, {fullCode}) => {
+    acc[fullCode] = {}
+    return acc
+  }, {} as LocalizationValue)
+
+  return {
+    languages,
+    localization: Object.assign({}, localization, persistedForm.localization ?? {}),
+    defaultLanguage: languages.find(l => l.fullCode === persistedForm.defaultLanguage) ?? globalDefaultLanguage
+  }
 }
 
 /**
@@ -380,10 +398,12 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       componentData.getInitialData = () => this.initialDataSlice
       componentData.setInitialData = this.updateInitialData
 
-      const localization = new LocalizationStore(Object.assign({}, persistedForm.localization), this.form.localization.engine)
-
-      const languages = persistedForm.languages?.map(Language.clone) ?? []
-      const defaultLanguage = languages.find(l => l.fullCode === persistedForm.defaultLanguage) ?? globalDefaultLanguage
+      const {
+        languages,
+        localization: normalizedLocalization,
+        defaultLanguage
+      } = normalizePersistedI18n(persistedForm)
+      const localization = new LocalizationStore(normalizedLocalization, this.form.localization.engine)
 
       const actions = createActionValuesFromObject(persistedForm.actions)
 
