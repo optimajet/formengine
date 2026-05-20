@@ -401,9 +401,7 @@
     },
     "ComponentPropsLocalization": {
       "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      },
+      "additionalProperties": {},
       "propertyNames": {
         "description": "The component property name."
       },
@@ -511,7 +509,7 @@
                 },
                 "data": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "The data of component"
                 },
                 "defaultValue": {
@@ -941,7 +939,7 @@
                 },
                 "data": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "Selectable data"
                 },
                 "cleanable": {
@@ -1294,7 +1292,7 @@
                 },
                 "items": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "The items for the radio group"
                 },
                 "value": {
@@ -1356,7 +1354,7 @@
                 },
                 "data": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "Selectable data"
                 },
                 "cleanable": {
@@ -1448,7 +1446,7 @@
                 },
                 "data": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "Selectable data"
                 },
                 "cleanable": {
@@ -1989,7 +1987,7 @@
                 },
                 "items": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "The items for the menu"
                 },
                 "justified": {
@@ -2597,7 +2595,7 @@
                 },
                 "items": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "Array of breadcrumb items to display"
                 },
                 "additionalProperties": false
@@ -2766,7 +2764,7 @@
                 },
                 "items": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "Items for the tab"
                 },
                 "justified": {
@@ -3358,7 +3356,7 @@
         }
       ]
     },
-    "arrayPropertyCalculable": {
+    "arrayPropertyCalculableLocalizable": {
       "type": "object",
       "properties": {
         "value": {
@@ -3372,12 +3370,13 @@
         "computeType": {
           "type": "string",
           "enum": [
+            "localization",
             "function"
           ],
           "description": "Type of the component's calculated property. If not specified - the value from value is used."
         }
       },
-      "description": "array property type, calculable",
+      "description": "array property type, calculable, localizable",
       "allOf": [
         {
           "if": {
@@ -3394,6 +3393,26 @@
             "required": [
               "fnSource"
             ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "localization"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value",
+                "fnSource"
+              ]
+            }
           }
         },
         {
@@ -3553,6 +3572,60 @@
         }
       },
       "description": "time property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "arrayPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The simple value of a 'array' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'allowedDecimalSeparators' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "array property type, calculable",
       "allOf": [
         {
           "if": {

@@ -70,7 +70,7 @@ export const navProps = {
   appearance: oneOf('default', 'tabs', 'subtle', 'pills')
     .default('default')
     .withEditorProps({creatable: false}),
-  items: array.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
+  items: array.localize.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
   justified: boolean.default(false),
   onSelect: event,
   reversed: boolean.default(false),
@@ -83,7 +83,7 @@ export const pickerProps = {
   placeholder: string,
   placement,
   size,
-  data: array,
+  data: array.localize,
   cleanable: boolean.default(true),
   creatable: boolean.default(false),
   disabled: disabled.default(false),

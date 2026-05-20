@@ -20,7 +20,7 @@ export interface ILocalizationEngine {
    * @param messages the messages to add.
    * @returns the array of any localization errors that occurred.
    */
-  addMessages(locale: string, messages: Record<string, string>): Array<LocalizationError>
+  addMessages(locale: string, messages: Record<string, unknown>): Array<LocalizationError>
 
   /**
    * Gets a compatible ID for localization engine.

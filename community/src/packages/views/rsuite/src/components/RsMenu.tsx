@@ -111,7 +111,7 @@ export const rsMenu = define(RsMenu, 'RsMenu')
       .labeled(...tags)
       .default('a')
       .withEditorProps({creatable: false}),
-    items: array
+    items: array.localize
       .default(makeItems(['Home', 'News', 'Products']))
       .withEditorProps({columns}),
   })

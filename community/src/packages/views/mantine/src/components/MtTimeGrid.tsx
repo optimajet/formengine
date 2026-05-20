@@ -91,7 +91,7 @@ export const mtTimeGrid = define(MtTimeGrid, 'MtTimeGrid')
     size: size,
     radius: string,
     format: oneOf('12h', '24h').default('24h'),
-    data: array,
+    data: array.localize,
     withSeconds: boolean.default(false),
     allowDeselect: boolean.default(false),
     disabled: boolean.default(false),

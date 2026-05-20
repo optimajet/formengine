@@ -401,9 +401,7 @@
     },
     "ComponentPropsLocalization": {
       "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      },
+      "additionalProperties": {},
       "propertyNames": {
         "description": "The component property name."
       },
@@ -781,7 +779,7 @@
                 },
                 "items": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable"
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable"
                 },
                 "variant": {
                   "type": "object",
@@ -1893,7 +1891,7 @@
                 },
                 "items": {
                   "type": "object",
-                  "$ref": "#/definitions/arrayPropertyCalculable",
+                  "$ref": "#/definitions/arrayPropertyCalculableLocalizable",
                   "description": "Breadcrumb items to display"
                 },
                 "maxItems": {
@@ -2614,7 +2612,7 @@
         }
       ]
     },
-    "arrayPropertyCalculable": {
+    "arrayPropertyCalculableLocalizable": {
       "type": "object",
       "properties": {
         "value": {
@@ -2628,12 +2626,13 @@
         "computeType": {
           "type": "string",
           "enum": [
+            "localization",
             "function"
           ],
           "description": "Type of the component's calculated property. If not specified - the value from value is used."
         }
       },
-      "description": "array property type, calculable",
+      "description": "array property type, calculable, localizable",
       "allOf": [
         {
           "if": {
@@ -2650,6 +2649,26 @@
             "required": [
               "fnSource"
             ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "localization"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value",
+                "fnSource"
+              ]
+            }
           }
         },
         {
@@ -2876,6 +2895,60 @@
         }
       },
       "description": "string property type, calculable",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "computeType": {
+                "const": "function"
+              }
+            },
+            "required": [
+              "computeType"
+            ]
+          },
+          "then": {
+            "required": [
+              "fnSource"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "computeType"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "arrayPropertyCalculable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The simple value of a 'array' component property."
+        },
+        "fnSource": {
+          "type": "string",
+          "description": "Source code of the function for calculating the value of a 'value' component property."
+        },
+        "computeType": {
+          "type": "string",
+          "enum": [
+            "function"
+          ],
+          "description": "Type of the component's calculated property. If not specified - the value from value is used."
+        }
+      },
+      "description": "array property type, calculable",
       "allOf": [
         {
           "if": {

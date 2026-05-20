@@ -76,5 +76,5 @@ export const rsTagPicker = define(RsTagPicker, 'RsTagPicker')
     ...tagPickerProps,
     value: array.valued.ofString,
     label: pickerProps.label.default('Select'),
-    data: array.default(toLabeledValues(['a', 'b', 'c']))
+    data: array.localize.default(toLabeledValues(['a', 'b', 'c']))
   })

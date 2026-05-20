@@ -43,7 +43,7 @@ export const muiSelect = define(MuiSelectFormControl, 'MuiSelect')
   .category(inputsCategory)
   .props({
     value: string.valued.uncontrolledValue(''),
-    items: array.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
+    items: array.localize.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
     variant: oneOfStrict('outlined', 'standard', 'filled'),
     size: oneOfStrict('small', 'medium', 'large'),
     ...formControlProperties,

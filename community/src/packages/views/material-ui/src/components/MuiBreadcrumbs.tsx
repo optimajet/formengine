@@ -100,7 +100,7 @@ export const muiBreadcrumbs = define(MuiBreadcrumbs, 'MuiBreadcrumbs')
   .category(navigationCategory)
   .props({
     separator: string,
-    items: array
+    items: array.localize
       .default(makeItems(['one', 'two', 'three']))
       .withEditorProps({columns}),
     onItemClick: event,

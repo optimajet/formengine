@@ -95,7 +95,7 @@ export const rsBreadcrumb = define(RsBreadcrumb, 'RsBreadcrumb')
   .props({
     separator: string.default('/'),
     maxItems: nonNegNumber,
-    items: array
+    items: array.localize
       .default(makeItems(['one', 'two', 'three']))
       .withEditorProps({columns}),
     onItemClick: event,

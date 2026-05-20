@@ -57,7 +57,7 @@ export const rsAutoComplete = define(RsAutoComplete, 'RsAutoComplete')
   .props({
     ...inputProps,
     label: string.default('Input'),
-    data: array.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
+    data: array.localize.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
     defaultValue: string,
     filterBy: fn(filterByFnDescriptionBegin),
     menuClassName: string,

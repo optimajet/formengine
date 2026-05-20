@@ -97,7 +97,7 @@ export const mtChipRadioGroup = define(MtChipRadioGroup, 'MtChipRadioGroup')
     description: description,
     error: string,
     value: string.valued,
-    items: array
+    items: array.localize
       .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     variant: filledVariant,
     size: size,
@@ -114,7 +114,7 @@ export const mtChipCheckboxGroup = define(MtChipCheckboxGroup, 'MtChipCheckboxGr
     description: description,
     error: string,
     value: array.valued,
-    items: array
+    items: array.localize
       .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     variant: filledVariant,
     size: size,

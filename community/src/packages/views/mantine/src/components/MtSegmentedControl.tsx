@@ -62,7 +62,7 @@ export const mtSegmentedControl = define(MtSegmentedControl, 'MtSegmentedControl
   .props({
     ...baseInputProps,
     value: string.valued,
-    data: array
+    data: array.localize
       .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     color: mantineColor,
     fullWidth: boolean.default(false),

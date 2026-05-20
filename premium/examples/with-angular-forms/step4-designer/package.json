@@ -21,9 +21,9 @@
     "@angular/platform-browser-dynamic": "^21.1.5",
     "@angular/router": "^21.1.5",
     "@bubblydoo/angular-react": "^0.4.5",
-    "@react-form-builder/components-rsuite": "^8.1.0",
-    "@react-form-builder/core": "^8.1.0",
-    "@react-form-builder/designer": "^8.1.0",
+    "@react-form-builder/components-rsuite": "^9.0.0",
+    "@react-form-builder/core": "^9.0.0",
+    "@react-form-builder/designer": "^9.0.0",
     "rxjs": "~7.8.2",
     "tslib": "^2.8.1",
     "zone.js": "~0.16.1"

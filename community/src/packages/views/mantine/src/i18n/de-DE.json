@@ -1,16 +1,16 @@
 {
   "categories": {
     "buttons": {
-      "name": "Taste"
+      "name": "Schaltflächen"
     },
     "combobox": {
       "name": "Kombinationsfeld"
     },
     "dates": {
-      "name": "Reisedaten"
+      "name": "Daten"
     },
     "inputs": {
-      "name": "Eingang"
+      "name": "Eingaben"
     },
     "layout": {
       "name": "Layout"
@@ -35,15 +35,15 @@
     },
     "c": {
       "description": "Textfarbe.",
-      "name": "Farbig"
+      "name": "Farbe"
     },
     "clearable": {
       "description": "Wenn gesetzt, wird die Schaltfläche Löschen angezeigt, wenn die Komponente einen Wert hat",
-      "name": "Lösbar"
+      "name": "Leerbar"
     },
     "color": {
       "description": "Farbig",
-      "name": "Farbig"
+      "name": "Farbe"
     },
     "columnsToScroll": {
       "description": "Anzahl der zu scrollenden Spalten beim Navigieren",
@@ -63,7 +63,7 @@
     },
     "disabled": {
       "description": "Deaktivierter Zustand",
-      "name": "Behinderte"
+      "name": "Deaktiviert"
     },
     "dropdownOpened": {
       "description": "Steuert den geöffneten Dropdown-Status.",
@@ -75,7 +75,7 @@
     },
     "error": {
       "description": "Fehlermeldung oder Fehlerstatus.",
-      "name": "Fehlermeldung"
+      "name": "Fehler"
     },
     "filledVariant": {
       "description": "Steuern Sie die Erscheinungsvariante.",
@@ -111,11 +111,11 @@
     },
     "justify": {
       "description": "Begründen Sie Inhalte innerhalb der Gruppe.",
-      "name": "Rechtfertigen"
+      "name": "Ausrichten"
     },
     "label": {
       "description": "Das Komponentenlabel",
-      "name": "Etikett"
+      "name": "Beschriftung"
     },
     "labelPosition": {
       "description": "Etikettenposition",
@@ -131,7 +131,7 @@
     },
     "minRows": {
       "description": "Minimale sichtbare Zeilen.",
-      "name": "Min Zeilen"
+      "name": "Min. Zeilen"
     },
     "nothingFoundMessage": {
       "description": "Meldung angezeigt, wenn keine Optionen übereinstimmen.",
@@ -143,7 +143,7 @@
     },
     "onBlur": {
       "description": "Wird aufgerufen, wenn die Eingabe den Fokus verliert.",
-      "name": "Aufblähen"
+      "name": "onBlur"
     },
     "onChange": {
       "description": "Wird aufgerufen, wenn der Wert der Komponente geändert wird",
@@ -151,11 +151,11 @@
     },
     "onDropdownClose": {
       "description": "Wird aufgerufen, wenn das Dropdown-Menü geschlossen wird.",
-      "name": "Ondropdownschließen"
+      "name": "onDropdownClose"
     },
     "onDropdownOpen": {
       "description": "Wird aufgerufen, wenn das Dropdown-Menü geöffnet wird.",
-      "name": "Ondropdownöffnen"
+      "name": "onDropdownOpen"
     },
     "onFocus": {
       "description": "Wird aufgerufen, wenn die Eingabe den Fokus erhält.",
@@ -174,8 +174,8 @@
       "name": "Radius"
     },
     "readOnly": {
-      "description": "Gibt an, ob die Eingabe schreibgeschützt ist.",
-      "name": "Schreibgesch"
+      "description": "Gibt an, ob die Eingabe Schreibgeschützt ist.",
+      "name": "Schreibgeschützt"
     },
     "searchValue": {
       "description": "Kontrollierter Sucheingabewert.",
@@ -227,7 +227,7 @@
     },
     "wrap": {
       "description": "Wrap-Verhalten für Elemente.",
-      "name": "Wickeln"
+      "name": "Umbruch"
     }
   },
   "components": {
@@ -264,8 +264,8 @@
       "name": "Kontrollkästchen",
       "props": {
         "checked": {
-          "description": "Gibt an, ob das Kontrollkästchen aktiviert ist",
-          "name": "Ft"
+          "description": "Ob das Kontrollkästchen aktiviert ist",
+          "name": "Aktiviert"
         }
       }
     },
@@ -275,7 +275,7 @@
       "props": {
         "items": {
           "description": "Elemente der Kontrollkästchengruppe",
-          "name": "Gegenst"
+          "name": "Elemente"
         }
       }
     },
@@ -285,11 +285,11 @@
       "props": {
         "checked": {
           "description": "Gibt an, ob der Chip ausgewählt ist",
-          "name": "Ft"
+          "name": "Aktiviert"
         },
         "children": {
           "description": "Das Komponentenlabel",
-          "name": "Etikett"
+          "name": "Beschriftung"
         }
       }
     },
@@ -299,7 +299,7 @@
       "props": {
         "items": {
           "description": "Chip-Optionen",
-          "name": "Gegenst"
+          "name": "Elemente"
         }
       }
     },
@@ -309,7 +309,7 @@
       "props": {
         "items": {
           "description": "Chip-Optionen",
-          "name": "Gegenst"
+          "name": "Elemente"
         }
       }
     },
@@ -319,7 +319,7 @@
       "props": {
         "format": {
           "description": "Farbformat",
-          "name": "Formatierung"
+          "name": "Format"
         },
         "swatches": {
           "description": "Eine Liste der Farben, die zum Anzeigen der Farbfeldliste unter dem Farbwähler verwendet werden",
@@ -333,7 +333,7 @@
       "props": {
         "format": {
           "description": "Farbformat",
-          "name": "Formatierung"
+          "name": "Format"
         },
         "fullWidth": {
           "description": "Gibt an, ob auf die volle Breite gedehnt werden soll.",
@@ -495,13 +495,13 @@
         },
         "title": {
           "description": "Titel des Dialogs",
-          "name": "Titelleiste"
+          "name": "Überschrift"
         }
       }
     },
     "MtDivider": {
       "description": "Horizontale Linie mit optionalem Etikett oder vertikaler Trennwand",
-      "name": "Teiler",
+      "name": "Trennlinie",
       "props": {
         "orientation": {
           "description": "Ausrichtung des Teilers",
@@ -510,7 +510,7 @@
       }
     },
     "MtDropzone": {
-      "description": "Erfassen Sie Dateien vom Benutzer per Drag &amp; Drop",
+      "description": "Erfassen Sie Dateien vom Benutzer per Drag & Drop",
       "name": "Dropzone",
       "props": {
         "accept": {
@@ -547,17 +547,17 @@
       "props": {
         "minRows": {
           "description": "Mindestanzahl von Zeilen",
-          "name": "Min Zeilen"
+          "name": "Min. Zeilen"
         }
       }
     },
     "MtLabel": {
       "description": "Zeigt die Beschriftung an",
-      "name": "Etikett",
+      "name": "Beschriftung",
       "props": {
         "children": {
           "description": "Text des Etiketts",
-          "name": "Etikett"
+          "name": "Beschriftung"
         }
       }
     },
@@ -671,7 +671,7 @@
         },
         "searchable": {
           "description": "Suche aktivieren",
-          "name": "Durchsuchbaren"
+          "name": "Durchsuchbar"
         }
       }
     },
@@ -743,7 +743,7 @@
         },
         "suffix": {
           "description": "Zeichenfolge, die nach der Nummer hinzugefügt werden soll",
-          "name": "Nachsilbe"
+          "name": "Suffix"
         },
         "thousandSeparator": {
           "description": "Zeichen, das als Tausendertrennzeichen verwendet wird",
@@ -754,8 +754,8 @@
           "name": "Tausende Gruppenstil"
         },
         "trimLeadingZeroesOnBlur": {
-          "description": "Wenn gesetzt, werden führende Nullen bei Unschärfe entfernt. Zum Beispiel 00100 -&gt; 100",
-          "name": "Führende Nullen bei Unschärfe abschneiden"
+          "description": "Wenn gesetzt, werden führende Nullen bei Fokusverlust entfernt. Zum Beispiel 00100 -&gt; 100",
+          "name": "Führende Nullen bei Fokusverlust abschneiden"
         }
       }
     },
@@ -768,8 +768,8 @@
       "name": "Radio",
       "props": {
         "checked": {
-          "description": "Gibt an, ob das Funkgerät überprüft wird",
-          "name": "Ft"
+          "description": "Gibt an, ob das Radio-Element überprüft wird",
+          "name": "Aktiviert"
         }
       }
     },
@@ -779,7 +779,7 @@
       "props": {
         "items": {
           "description": "Radio-Optionen",
-          "name": "Gegenst"
+          "name": "Elemente"
         }
       }
     },
@@ -789,7 +789,7 @@
       "props": {
         "inverted": {
           "description": "Legt fest, ob die Darstellung der Spurwerte invertiert werden soll",
-          "name": "Umgekehrten"
+          "name": "Invertiert"
         },
         "labelAlwaysOn": {
           "description": "Legt fest, ob die Beschriftung sichtbar sein soll, wenn der Schieberegler nicht gezogen oder bewegt wird",
@@ -831,7 +831,7 @@
       "props": {
         "count": {
           "description": "Anzahl der Sterne",
-          "name": "Zählen"
+          "name": "Anzahl"
         },
         "fractions": {
           "description": "Anzahl der Fraktionen",
@@ -851,7 +851,7 @@
     },
     "MtSelect": {
       "description": "Benutzerdefinierte durchsuchbare Auswahl",
-      "name": "Wählen",
+      "name": "Auswahl",
       "props": {
         "data": {
           "description": "Option",
@@ -859,7 +859,7 @@
         },
         "searchable": {
           "description": "Suche aktivieren",
-          "name": "Durchsuchbaren"
+          "name": "Durchsuchbar"
         }
       }
     },
@@ -887,7 +887,7 @@
       "props": {
         "checked": {
           "description": "Gibt an, ob der Schalter eingeschaltet ist",
-          "name": "Ft"
+          "name": "Aktiviert"
         }
       }
     },
@@ -897,7 +897,7 @@
       "props": {
         "items": {
           "description": "Schalteroptionen",
-          "name": "Gegenst"
+          "name": "Elemente"
         }
       }
     },
@@ -929,7 +929,7 @@
         },
         "lineClamp": {
           "description": "Anzahl der Zeilen, nach denen der Text abgeschnitten wird",
-          "name": "Leitungsklemme"
+          "name": "Zeilenbegrenzung"
         },
         "span": {
           "description": "Anzeige als Span-Element",
@@ -947,7 +947,7 @@
       "props": {
         "type": {
           "description": "Eingabetyp",
-          "name": "Art"
+          "name": "Typ"
         }
       }
     },
@@ -961,11 +961,11 @@
         },
         "maxRows": {
           "description": "Maximale Anzahl von Zeilen",
-          "name": "Maximale Reihen"
+          "name": "Max. Zeilen"
         },
         "minRows": {
           "description": "Mindestanzahl von Zeilen",
-          "name": "Min Zeilen"
+          "name": "Min. Zeilen"
         }
       }
     },
@@ -979,7 +979,7 @@
         },
         "format": {
           "description": "Zeitformat",
-          "name": "Formatierung"
+          "name": "Format"
         },
         "startTime": {
           "description": "Startzeit im Format \"HH:mm\"",
@@ -997,7 +997,7 @@
       "props": {
         "format": {
           "description": "Zeitformat",
-          "name": "Formatierung"
+          "name": "Format"
         },
         "max": {
           "description": "Maximal wählbare Zeit, Format HH:mm:ss",
@@ -1019,7 +1019,7 @@
       "props": {
         "error": {
           "description": "Eingabefehlermeldung",
-          "name": "Fehlermeldung"
+          "name": "Fehler"
         },
         "value": {
           "description": "Anfänglicher Inhalt des Editors im HTML-Format",
@@ -1028,8 +1028,8 @@
       }
     },
     "MtTitle": {
-      "description": "überschrift h1-h6",
-      "name": "Titelleiste",
+      "description": "Überschrift h1–h6",
+      "name": "Überschrift",
       "props": {
         "children": {
           "description": "Titel Inhalt",
@@ -1037,13 +1037,13 @@
         },
         "order": {
           "description": "Kopfebene",
-          "name": "Bestellen"
+          "name": "Reihenfolge"
         }
       }
     },
     "MtTooltip": {
       "description": "Rendert den Tooltip bei einem bestimmten Element beim Überfahren mit der Maus oder einem anderen Ereignis",
-      "name": "QuickInfo",
+      "name": "Tooltip",
       "props": {
         "children": {
           "description": "Auslöseelement",
@@ -1074,7 +1074,7 @@
       }
     },
     "MtYearMultiplePicker": {
-      "description": "Inline-Kommissionierer für mehrere Jahre",
+      "description": "Inline-Auswahl für mehrere Jahre",
       "name": "Jahr Mehrfachauswahl",
       "props": {
         "maxDate": {

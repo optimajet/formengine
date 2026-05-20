@@ -6,11 +6,11 @@
   },
   "components": {
     "Uploader": {
-      "description": "Datei-Upload-Komponente mit Drag &amp; Drop-Unterstützung",
+      "description": "Datei-Upload-Komponente mit Drag & Drop-Unterstützung",
       "name": "Datei-Uploader",
       "props": {
         "accept": {
-          "description": "Akzeptierte Dateitypen (z. B. image/*, .PDF, .docx)",
+          "description": "Akzeptierte Dateitypen (z. B. image/*, .pdf, .docx)",
           "name": "Akzeptieren"
         },
         "action": {
@@ -22,11 +22,11 @@
           "name": "Kinder"
         },
         "disabled": {
-          "description": "Wenn wahr, sind die Kinder im behinderten Zustand",
-          "name": "Behinderte"
+          "description": "Ob die untergeordneten Elemente deaktiviert sind",
+          "name": "Deaktiviert"
         },
         "dropzone": {
-          "description": "Wenn wahr, wird die Dropzone angezeigt",
+          "description": "Wenn aktiviert, wird die Dropzone angezeigt",
           "name": "Dropzone"
         },
         "multiple": {
@@ -42,8 +42,8 @@
           "name": "Bei Fehler"
         },
         "readOnly": {
-          "description": "Wenn wahr, sind die Kinder schreibgeschützt",
-          "name": "schreibgesch"
+          "description": "Ob die untergeordneten Elemente schreibgeschützt sind",
+          "name": "Schreibgeschützt"
         }
       }
     }

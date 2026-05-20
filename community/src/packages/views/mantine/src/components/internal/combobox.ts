@@ -17,7 +17,7 @@ export const baseComboboxProps = {
   maxDropdownHeight: number,
   withScrollArea: boolean.default(true),
   readOnly: boolean.default(false),
-  data: array.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
+  data: array.localize.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
 }
 
 /**

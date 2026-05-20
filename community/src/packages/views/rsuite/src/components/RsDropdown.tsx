@@ -86,5 +86,5 @@ export const rsDropdown = define(RsDropdown, 'RsDropdown')
     ...pickerProps,
     preload: boolean.default(false),
     label: string.default('Select'),
-    data: array.default(toLabeledValues(['a', 'b', 'c']))
+    data: array.localize.default(toLabeledValues(['a', 'b', 'c']))
   })

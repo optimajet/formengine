@@ -36,7 +36,7 @@ class LocalizationObservable {
   }
 
   #getLocalizationItems(componentsLocalization: ComponentsLocalization) {
-    const localizationItems: Record<string, string> = {}
+    const localizationItems: Record<string, unknown> = {}
     const {engine} = this.localizationStore
 
     Object.entries(componentsLocalization).forEach(([componentKey, allComponentsLocalizationConstants]) => {
@@ -78,7 +78,7 @@ export class LocalizationStore implements ILocalizationStore {
    * @param type the type of localization.
    * @returns the value of localization constant.
    */
-  getLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType) {
+  getLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType): unknown {
     const compatibleKey = this.engine.getCompatibleId(componentKey)
     const compatibleName = this.engine.getCompatibleId(propertyName)
     const targetKey = this.findLocalizationKey(languageFullCode) ?? languageFullCode
@@ -94,7 +94,7 @@ export class LocalizationStore implements ILocalizationStore {
    * @param type the type of localization.
    * @param value the localization value to persist.
    */
-  setLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType, value: string) {
+  setLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType, value: unknown) {
     const compatibleId = this.engine.getCompatibleId(componentKey)
     const compatibleName = this.engine.getCompatibleId(propertyName)
 
@@ -106,7 +106,7 @@ export class LocalizationStore implements ILocalizationStore {
     this.value[languageFullCode] ??= {}
     this.value[languageFullCode][compatibleId] ??= {}
     this.value[languageFullCode][compatibleId][type] ??= {}
-    this.value[languageFullCode][compatibleId][type][compatibleName] = value
+    this.value[languageFullCode][compatibleId][type][compatibleName] = value as any
   }
 
   #removeLocalizationProperty(

@@ -26,3 +26,27 @@ export function replaceDots(value: string): string {
   return value.replace(new RegExp(`\\${dotCharacter}`, 'g'), dotInternalValue)
 }
 
+/**
+ * Recursively applies {@link replaceDots} to every string in localization payloads (objects and arrays).
+ * Authors write regular dots in Fluent (e.g. `{$user.name}`); only the internal Fluent payload uses {@link dotInternalValue}.
+ * @param value a localization constant (string, array, object, or primitive).
+ * @returns the same structure with all string leaves passed through {@link replaceDots}.
+ */
+export function replaceDotsDeep(value: unknown): unknown {
+  if (typeof value === 'string') {
+    return replaceDots(value)
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => replaceDotsDeep(item))
+  }
+  if (value !== null && typeof value === 'object') {
+    const source = value as Record<string, unknown>
+    const out: Record<string, unknown> = {}
+    for (const [k, v] of Object.entries(source)) {
+      out[k] = replaceDotsDeep(v)
+    }
+    return out
+  }
+  return value
+}
+

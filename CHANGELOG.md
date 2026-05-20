@@ -4,6 +4,18 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 9.0.0 - May 20, 2026
+
+Localizable arrays, separate Builder UI and form-preview language props, German locale updates, and dependency bumps.
+
+### Highlights
+
+- [Localizable array properties](https://formengine.io/documentation/formengine-core/localization#localizing-array-data) via [ArrayBuilder.localize](https://formengine.io/documentation/api-reference/@react-form-builder/core/classes/ArrayBuilder#localize) for component metadata authors.
+- [Fluent interpolation in localized arrays and objects](https://formengine.io/documentation/formengine-core/localization#variables-in-localized-arrays-and-objects) at runtime.
+- Separate Builder UI and form-preview language defaults on [FormBuilder](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps): [defaultBuilderLanguage](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#defaultbuilderlanguage), [defaultViewerLanguage](https://formengine.io/documentation/api-reference/@react-form-builder/designer/interfaces/FormBuilderProps#defaultviewerlanguage).
+
+[Full release notes for 9.0.0](https://formengine.io/documentation/release-notes/9.0.0)
+
 ## 8.1.0 - May 1, 2026
 
 Localization fallbacks without the `[NOT LOCALIZED]` placeholder, Fluent bundle improvements, Designer language-switch customization,

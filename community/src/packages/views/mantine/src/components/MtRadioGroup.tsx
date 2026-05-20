@@ -53,7 +53,7 @@ export const mtRadioGroup = define(MtRadioGroup, 'MtRadioGroup')
     description: description,
     error: string,
     value: string.valued,
-    items: array
+    items: array.localize
       .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     size: size,
     labelPosition: labelPosition,

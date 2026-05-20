@@ -26,7 +26,7 @@ export type TypedLocalization = Partial<Record<LocalizationType, ComponentPropsL
 /**
  * A record containing localizations for the component properties.
  */
-export type ComponentPropsLocalization = Record<ComponentPropertyName, string>
+export type ComponentPropsLocalization = Record<ComponentPropertyName, unknown>
 
 /**
  * The component key.

@@ -94,7 +94,7 @@ export const rsTab = define(RsTab, 'RsTab')
   .category(structureCategory)
   .props({
     ...navProps,
-    items: array.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
+    items: array.localize.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
     showNavigation: boolean.default(true),
     pane: node
       .withSlotConditionBuilder(props => `return parentProps.activeKey === '${props.activeKey?.value ?? props.activeKey}'`)

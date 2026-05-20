@@ -39,7 +39,7 @@ const RsRadioGroup = ({items, label, value, className, ...props}: RsRadioGroupPr
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
       <RadioGroup {...props as any} value={value ?? ''}>
-        {items.map(({value, label}, i) => (
+        {items?.map(({value, label}, i) => (
           <Radio value={value} key={i}>{label ?? value}</Radio>
         ))
         }
@@ -60,6 +60,6 @@ export const rsRadioGroup = define(RsRadioGroup, 'RsRadioGroup')
     readOnly,
     inline: boolean.default(false),
     onChange: event,
-    items: array.default(toLabeledValues(['a', 'b', 'c'])),
+    items: array.calculable(true).localize.default(toLabeledValues(['a', 'b', 'c'])),
     value: string.valued
   })
