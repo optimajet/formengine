@@ -1,0 +1,1492 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Campos"
+    },
+    "modal": {
+      "name": "Modal"
+    },
+    "static": {
+      "name": "Estática"
+    },
+    "structure": {
+      "name": "Estructura"
+    }
+  },
+  "commonProperties": {
+    "backgroundColor": {
+      "description": "El color de fondo",
+      "name": "Antecedentes"
+    },
+    "children": {
+      "description": "Elementos secundarios del componente",
+      "name": "Niños"
+    },
+    "className": {
+      "description": "El nombre de la clase CSS",
+      "name": "clase CSS"
+    },
+    "disabled": {
+      "description": "Si un componente está desactivado",
+      "name": "Discapacitado"
+    },
+    "fontSize": {
+      "description": "Tamaño de fuente",
+      "name": "Tamaño de fuente"
+    },
+    "fontWeight": {
+      "description": "Peso de fuente",
+      "name": "Peso de fuente"
+    },
+    "label": {
+      "description": "La etiqueta del componente",
+      "name": "Etiqueta"
+    },
+    "placeholder": {
+      "description": "El marcador de posición",
+      "name": "Marcador de posición"
+    },
+    "placement": {
+      "description": "La colocación de un componente",
+      "name": "Colocación"
+    },
+    "readOnly": {
+      "description": "Indicador de solo lectura",
+      "name": "Solo lectura"
+    },
+    "size": {
+      "description": "Un tamaño de componente",
+      "name": "Tamaño"
+    },
+    "textAlign": {
+      "description": "Alineación de texto",
+      "name": "Alineación de texto"
+    },
+    "value": {
+      "description": "El valor actual (controlado)",
+      "name": "Valor"
+    }
+  },
+  "components": {
+    "RsAutoComplete": {
+      "description": "Proporcione la funcionalidad de autocompletar para el cuadro de entrada",
+      "name": "Autocompletar",
+      "props": {
+        "classPrefix": {
+          "description": "El prefijo de la clase CSS del componente",
+          "name": "Prefijo de clase"
+        },
+        "data": {
+          "description": "Los datos del componente",
+          "name": "Datos"
+        },
+        "defaultValue": {
+          "description": "El valor predeterminado (no controlado)",
+          "name": "Valor predeterminado"
+        },
+        "filterBy": {
+          "description": "Reglas de filtrado personalizadas (solo mostrarán los elementos cuyo valor sea una subcadena de los cuales de forma predeterminada)",
+          "name": "Filtrar por"
+        },
+        "menuClassName": {
+          "description": "Una clase CSS para aplicar al menú DOM",
+          "name": "Nombre de la clase de menú"
+        },
+        "onChange": {
+          "description": "Se invoca cuando se selecciona una opción o se cambia el valor de la entrada, o se cambia el valor de la entrada",
+          "name": "Sobre el cambio"
+        },
+        "onClose": {
+          "description": "La llamada se activa cuando está oculta",
+          "name": "Al cerrar"
+        },
+        "onEnter": {
+          "description": "La llamada se activa antes de que la superposición entre",
+          "name": "Al entrar"
+        },
+        "onEntered": {
+          "description": "La llamada se activa cuando la superposición termina de hacer la transición en",
+          "name": "Al entrar"
+        },
+        "onEntering": {
+          "description": "La llamada se activa cuando la superposición comienza a hacer la transición a",
+          "name": "Al entrar"
+        },
+        "onExit": {
+          "description": "La devolución de llamada se disparó justo antes de que la superposición saliera",
+          "name": "Al salir"
+        },
+        "onExited": {
+          "description": "La llamada se activa cuando la superposición termina de desaparecer",
+          "name": "Uno salió"
+        },
+        "onExiting": {
+          "description": "La llamada se activa cuando la superposición comienza a desaparecer",
+          "name": "Una salida"
+        },
+        "onSelect": {
+          "description": "Se llama cuando se selecciona una opción",
+          "name": "OnSelect"
+        },
+        "renderMenu": {
+          "description": "Personalización de la lista del menú de modelizado",
+          "name": "Menú Render"
+        },
+        "renderMenuItem": {
+          "description": "Elementos del menú de renderizado personalizados",
+          "name": "Elemento del menú Render"
+        },
+        "selectOnEnter": {
+          "description": "Cuando se establece en falso, la función de selección de la tecla Entrar no es válida",
+          "name": "Seleccione en Entrar"
+        }
+      }
+    },
+    "RsBreadcrumb": {
+      "description": "Se utiliza para mostrar la ruta de la página actual y volver rápidamente a la página del historial",
+      "name": "Pan rallado",
+      "props": {
+        "items": {
+          "description": "Conjunto de elementos de rutas de navegación para mostrar",
+          "name": "Artículos"
+        },
+        "maxItems": {
+          "description": "Establece el número máximo de migas de pan que se mostrarán",
+          "name": "Número máximo de artículos"
+        },
+        "onExpand": {
+          "description": "Función de devolución de llamada para hacer clic en los puntos suspensivos",
+          "name": "En Expandir"
+        },
+        "onItemClick": {
+          "description": "Función de devolución de llamada cuando se hace clic en un elemento de la ruta",
+          "name": "Haga clic en el elemento"
+        },
+        "separator": {
+          "description": "El separador entre cada elemento del pan rallado",
+          "name": "Separador"
+        }
+      }
+    },
+    "RsButton": {
+      "description": "El botón",
+      "name": "Botón",
+      "props": {
+        "active": {
+          "description": "Un botón puede mostrar que actualmente es la selección de usuario activa",
+          "name": "Activo"
+        },
+        "appearance": {
+          "description": "Un botón puede tener diferentes apariencias",
+          "name": "Apariencia"
+        },
+        "children": {
+          "description": "Contenido principal",
+          "name": "Contenido"
+        },
+        "disabled": {
+          "description": "Un botón puede mostrar que actualmente no se puede interactuar con él",
+          "name": "Discapacitado"
+        },
+        "href": {
+          "description": "<a>Proporcionar un href renderizará un elemento",
+          "name": "Href"
+        },
+        "loading": {
+          "description": "Un botón puede mostrar un indicador de carga",
+          "name": "Cargando"
+        },
+        "onClick": {
+          "description": "Función de devolución de llamada al hacer clic en un botón",
+          "name": "Al hacer clic"
+        }
+      }
+    },
+    "RsCalendar": {
+      "description": "Un componente que muestra los datos por calendario",
+      "name": "Calendario",
+      "props": {
+        "bordered": {
+          "description": "Mostrar borde",
+          "name": "Bordeado"
+        },
+        "compact": {
+          "description": "Mostrar un calendario compacto",
+          "name": "Compacto"
+        },
+        "defaultValue": {
+          "description": "Valor predeterminado",
+          "name": "Valor predeterminado"
+        },
+        "isoWeek": {
+          "description": "Norma ISO 8601, cada semana calendario comienza el lunes y el domingo el séptimo día",
+          "name": "Semana ISO"
+        },
+        "onChange": {
+          "description": "La llamada se disparó antes de que cambiara el valor",
+          "name": "Sobre el cambio"
+        },
+        "onSelect": {
+          "description": "La llamada se disparó antes de la fecha seleccionada",
+          "name": "OnSelect"
+        }
+      }
+    },
+    "RsCard": {
+      "description": "La tarjeta es un componente contenedor para mostrar datos,",
+      "name": "Tarjeta",
+      "props": {
+        "bodyFill": {
+          "description": "Área de contenido llena de contenedores",
+          "name": "Relleno corporal"
+        },
+        "bordered": {
+          "description": "Mostrar borde",
+          "name": "Bordeado"
+        },
+        "children": {
+          "description": "Contenido principal",
+          "name": "Contenido"
+        },
+        "collapsible": {
+          "description": "Si se trata de un panel plegable",
+          "name": "Plegable"
+        },
+        "defaultExpanded": {
+          "description": "Expandir luego el panel de forma predeterminada",
+          "name": "Expandido por defecto"
+        },
+        "eventKey": {
+          "description": "La clave de evento correspondiente al panel",
+          "name": "Clave de evento"
+        },
+        "header": {
+          "description": "La cabeza muestra información",
+          "name": "Cabecera"
+        },
+        "headerSize": {
+          "description": "El tamaño del encabezado del panel",
+          "name": "Tamaño del encabezado"
+        },
+        "onSelect": {
+          "description": "Se llama cuando se selecciona el panel",
+          "name": "OnSelect"
+        },
+        "shaded": {
+          "description": "Si hay una sombra",
+          "name": "Sombreado"
+        },
+        "title": {
+          "description": "El título del encabezado del panel",
+          "name": "Título"
+        }
+      }
+    },
+    "RsCheckbox": {
+      "description": "Las casillas de verificación se suelen utilizar en grupos. Permiten a los usuarios seleccionar uno o más valores de un conjunto",
+      "name": "Casilla de verificación",
+      "props": {
+        "checked": {
+          "description": "Especifica si la casilla de verificación está seleccionada",
+          "name": "Comprobado"
+        },
+        "children": {
+          "description": "La etiqueta del componente",
+          "name": "Etiqueta"
+        },
+        "indeterminate": {
+          "description": "Al ser una casilla de verificación, establecer estilos después de seleccionar la parte secundaria",
+          "name": "Indeterminado"
+        },
+        "inline": {
+          "description": "Diseño en línea",
+          "name": "En línea"
+        },
+        "onChange": {
+          "description": "Se llama cuando el usuario intenta cambiar el estado marcado",
+          "name": "Sobre el cambio"
+        },
+        "title": {
+          "description": "Título HTML",
+          "name": "Título"
+        }
+      }
+    },
+    "RsContainer": {
+      "description": "El contenedor es un componente de diseño que se puede usar para empaquetar otros componentes",
+      "name": "Contenedor",
+      "props": {
+        "children": {
+          "description": "Elementos secundarios del componente",
+          "name": "Niños"
+        }
+      }
+    },
+    "RsDatePicker": {
+      "description": "DatePicker es un componente altamente personalizable que permite a los usuarios ingresar y elegir fechas y horas en diferentes formatos.",
+      "name": "Selector de fechas",
+      "props": {
+        "appearance": {
+          "description": "Establecer la apariencia del selector",
+          "name": "Apariencia"
+        },
+        "calendarDefaultDate": {
+          "description": "Fecha y hora de presentación predeterminadas del panel de calendario",
+          "name": "Fecha predeterminada del calendario"
+        },
+        "cleanable": {
+          "description": "Si se puede borrar el valor seleccionado",
+          "name": "Se puede limpiar"
+        },
+        "defaultOpen": {
+          "description": "Valor predeterminado de la propiedad abierta",
+          "name": "Abierto por defecto"
+        },
+        "defaultValue": {
+          "description": "Valor predeterminado",
+          "name": "Valor predeterminado"
+        },
+        "editable": {
+          "description": "Representada como entrada, la fecha se puede introducir con el teclado",
+          "name": "Editable"
+        },
+        "format": {
+          "description": "Formato de la fecha cuando se representa en la entrada",
+          "name": "Formato"
+        },
+        "isoWeek": {
+          "description": "Norma ISO 8601, cada semana calendario comienza el lunes y el domingo el séptimo día",
+          "name": "Semana ISO"
+        },
+        "limitEndYear": {
+          "description": "Establezca el límite superior del año disponible en relación con la fecha de selección actual",
+          "name": "Límite de fin de año"
+        },
+        "limitStartYear": {
+          "description": "Establezca el límite inferior del año disponible en relación con la fecha de selección actual",
+          "name": "Año límite de inicio"
+        },
+        "onChange": {
+          "description": "La llamada se activa cuando se cambia el valor",
+          "name": "Sobre el cambio"
+        },
+        "onChangeCalendarDate": {
+          "description": "Función de devolución de llamada que cambia la fecha del calendario",
+          "name": "Al cambiar la fecha del calendario"
+        },
+        "onClean": {
+          "description": "La devolución de llamada se activa cuando el valor está limpio",
+          "name": "OnClean"
+        },
+        "onClose": {
+          "description": "La llamada se activa cuando se cierra el componente",
+          "name": "Al cerrar"
+        },
+        "onEnter": {
+          "description": "La llamada se activa antes de que la superposición entre",
+          "name": "Al entrar"
+        },
+        "onEntered": {
+          "description": "La llamada se activa cuando la superposición termina de hacer la transición en",
+          "name": "Al entrar"
+        },
+        "onEntering": {
+          "description": "La llamada se activa cuando la superposición comienza a hacer la transición a",
+          "name": "Al entrar"
+        },
+        "onExit": {
+          "description": "La devolución de llamada se disparó justo antes de que la superposición saliera",
+          "name": "Al salir"
+        },
+        "onExited": {
+          "description": "La llamada se activa cuando la superposición termina de desaparecer",
+          "name": "Uno salió"
+        },
+        "onExiting": {
+          "description": "La llamada se activa cuando la superposición comienza a desaparecer",
+          "name": "Una salida"
+        },
+        "onNextMonth": {
+          "description": "Cambie a la función de devolución de llamada para el próximo mes",
+          "name": "El mes que viene"
+        },
+        "onOk": {
+          "description": "Haga clic en la función de devolución de llamada OK",
+          "name": "En OK"
+        },
+        "onOpen": {
+          "description": "La devolución de llamada se activa cuando se abre un componente",
+          "name": "OnOpen"
+        },
+        "onPrevMonth": {
+          "description": "Cambiar a la función de devolución de llamada del mes anterior",
+          "name": "El mes anterior"
+        },
+        "onSelect": {
+          "description": "La devolución de llamada se activa cuando se selecciona la fecha o la hora",
+          "name": "OnSelect"
+        },
+        "onToggleMonthDropdown": {
+          "description": "Función de devolución de llamada que cambia a la vista mensual",
+          "name": "OnToggle Month Dropdown"
+        },
+        "onToggleTimeDropdown": {
+          "description": "Función de devolución de llamada que cambia a la vista de tiempo",
+          "name": "OnToggleTime Dropdown"
+        },
+        "oneTap": {
+          "description": "Fecha de selección con un clic",
+          "name": "Un toque"
+        },
+        "open": {
+          "description": "Si abrir el componente",
+          "name": "Abrir"
+        },
+        "preventOverflow": {
+          "description": "Evitar el desbordamiento de los elementos flotantes",
+          "name": "Prevenir el desbordamiento"
+        },
+        "showMeridiem": {
+          "description": "Mostrar horas en formato 12",
+          "name": "Mostrar meridiem"
+        },
+        "showWeekNumbers": {
+          "description": "Si se deben mostrar los números de la semana",
+          "name": "Mostrar números de la semana"
+        }
+      }
+    },
+    "RsDivider": {
+      "description": "Los divisores se utilizan para agrupar el contenido horizontal o verticalmente",
+      "name": "Separador",
+      "props": {
+        "children": {
+          "description": "Coloca el texto en la línea divisoria",
+          "name": "Contenido"
+        },
+        "vertical": {
+          "description": "Línea divisoria vertical",
+          "name": "Vertical"
+        }
+      }
+    },
+    "RsDropdown": {
+      "description": "Un menú desplegable es una navegación que usa selectpicker si desea seleccionar un valor",
+      "name": "Menú desplegable",
+      "props": {
+        "cleanable": {
+          "description": "Si la opción se puede vaciar",
+          "name": "Se puede limpiar"
+        },
+        "creatable": {
+          "description": "La configuración puede crear nuevas opciones",
+          "name": "Creable"
+        },
+        "data": {
+          "description": "Datos seleccionables",
+          "name": "Datos"
+        },
+        "disableVirtualized": {
+          "description": "Si se debe deshabilitar la virtualización",
+          "name": "Deshabilitar virtualizado"
+        },
+        "groupBy": {
+          "description": "Establezca los criterios de agrupamiento como «clave» en «datos»",
+          "name": "Agrupar por"
+        },
+        "onChange": {
+          "description": "Función de devolución de llamada cuando el valor cambia",
+          "name": "Sobre el cambio"
+        },
+        "onClean": {
+          "description": "La llamada para limpiar",
+          "name": "OnClean"
+        },
+        "onClose": {
+          "description": "La devolución de llamadas para cerrar",
+          "name": "Al cerrar"
+        },
+        "onCreate": {
+          "description": "La llamada para crear",
+          "name": "OnCreate"
+        },
+        "onLoadData": {
+          "description": "La devolución de llamada para cargar datos",
+          "name": "Cargar datos"
+        },
+        "onSearch": {
+          "description": "La devolución de llamada para la búsqueda",
+          "name": "En la búsqueda"
+        },
+        "onSelect": {
+          "description": "La devolución de llamada para seleccionar",
+          "name": "OnSelect"
+        },
+        "preload": {
+          "description": "Si se deben precargar los datos",
+          "name": "Precarga"
+        }
+      }
+    },
+    "RsErrorMessage": {
+      "description": "El componente que muestra el mensaje de validación",
+      "name": "Mensaje de error"
+    },
+    "RsHeader": {
+      "description": "Encabezado HTML simple",
+      "name": "Cabecera",
+      "props": {
+        "content": {
+          "description": "Texto del encabezado",
+          "name": "Contenido"
+        },
+        "headerSize": {
+          "description": "Nivel de cabecera",
+          "name": "Tamaño del encabezado"
+        }
+      }
+    },
+    "RsImage": {
+      "description": "Imagen HTML simple",
+      "name": "Imagen",
+      "props": {
+        "alt": {
+          "description": "Descripción de la imagen",
+          "name": "Descripción"
+        },
+        "src": {
+          "description": "Fuente de la imagen",
+          "name": "Src"
+        }
+      }
+    },
+    "RsInput": {
+      "description": "La entrada permite a los usuarios introducir y editar texto",
+      "name": "Entrada",
+      "props": {
+        "passwordMask": {
+          "description": "Usar máscara de contraseña",
+          "name": "Máscara de contraseña"
+        },
+        "showPasswordAriaLabel": {
+          "description": "Valor del atributo aria-label para el botón mostrar contraseña cuando la entrada está en modo máscara de contraseña",
+          "name": "Etiqueta ARIA para el botón de mostrar contraseña"
+        },
+        "type": {
+          "description": "Tipo de entrada HTML",
+          "name": "Tipo"
+        }
+      }
+    },
+    "RsLabel": {
+      "description": "Etiqueta HTML simple",
+      "name": "Etiqueta",
+      "props": {
+        "text": {
+          "description": "El contenido del texto de la etiqueta",
+          "name": "Texto"
+        }
+      }
+    },
+    "RsLink": {
+      "description": "Anclaje HTML simple",
+      "name": "Enlace",
+      "props": {
+        "children": {
+          "description": "Elementos secundarios del componente",
+          "name": "Niños"
+        },
+        "content": {
+          "description": "El tipo de contenido (texto o personalizado)",
+          "name": "Contenido"
+        },
+        "download": {
+          "description": "Hace que el navegador trate la URL enlazada como una descarga",
+          "name": "Descargar"
+        },
+        "downloadFilename": {
+          "description": "Al definir un valor, se sugiere que sea el nombre del archivo. Los caracteres/y\\ se convierten en guiones bajos (_)",
+          "name": "Descargar nombre de archivo"
+        },
+        "href": {
+          "description": "La URL a la que apunta el hipervínculo",
+          "name": "Href"
+        },
+        "onClick": {
+          "description": "Función de devolución de llamada cuando se hace clic en un enlace",
+          "name": "Al hacer clic"
+        },
+        "target": {
+          "description": "Dónde mostrar la URL enlazada, como nombre de un contexto de navegación (una pestaña, ventana o<iframe>)",
+          "name": "Objetivo"
+        },
+        "text": {
+          "description": "El contenido del texto del enlace",
+          "name": "Texto"
+        }
+      }
+    },
+    "RsMenu": {
+      "description": "Proporciona una lista de varias formas de menús de navegación, que pueden tener un diseño horizontal y vertical",
+      "name": "Menú",
+      "props": {
+        "activeKey": {
+          "description": "Clave activa, correspondiente al valor de uno de los artículos",
+          "name": "Clave activa"
+        },
+        "appearance": {
+          "description": "Una navegación puede tener diferentes apariencias",
+          "name": "Apariencia"
+        },
+        "items": {
+          "description": "Los elementos del menú",
+          "name": "Artículos"
+        },
+        "itemsAs": {
+          "description": "Elemento HTML para representar el elemento del menú",
+          "name": "Artículos como"
+        },
+        "justified": {
+          "description": "Navegación justificada",
+          "name": "Justificado"
+        },
+        "onSelect": {
+          "description": "Función de devolución de llamada activada después de la selección",
+          "name": "OnSelect"
+        },
+        "reversed": {
+          "description": "Invertir la dirección de las pestañas/sutil",
+          "name": "Invertido"
+        },
+        "vertical": {
+          "description": "Navegación apilada",
+          "name": "Vertical"
+        }
+      }
+    },
+    "RsMessage": {
+      "description": "Se usa para mostrar consejos importantes en una página",
+      "name": "Mensaje",
+      "props": {
+        "closable": {
+          "description": "Si es posible cerrar el cuadro de mensaje",
+          "name": "Se puede cerrar"
+        },
+        "header": {
+          "description": "El título del mensaje",
+          "name": "Cabecera"
+        },
+        "type": {
+          "description": "El tipo de cuadro de mensaje",
+          "name": "Tipo"
+        }
+      }
+    },
+    "RsModal": {
+      "description": "Un componente de cuadro de diálogo modal para las solicitudes de mensajes, los mensajes de acuse de recibo y los envíos",
+      "name": "Modal",
+      "props": {
+        "autoFocus": {
+          "description": "Cuando se establece en verdadero, el Modal se abre y se enfoca automáticamente en sí mismo, accesible para los lectores de pantalla",
+          "name": "Enfoque automático"
+        },
+        "backdrop": {
+          "description": "Cuando se establece en verdadero, el Modal mostrará el fondo cuando se abra. Al hacer clic en el fondo, se cerrará el modal",
+          "name": "Fondo"
+        },
+        "backdropClassName": {
+          "description": "Agregue un nombre de clase adicional opcional a.modal-backdrop Podría terminar pareciéndose a class=\"modal-backdrop foo-modal-backdrop in\"",
+          "name": "Nombre de clase de fondo"
+        },
+        "classPrefix": {
+          "description": "El prefijo de la clase CSS del componente",
+          "name": "Prefijo de clase CSS"
+        },
+        "dialogClassName": {
+          "description": "Clase CSS aplicada a los nodos de Dialog DOM",
+          "name": "Clase CSS para diálogo"
+        },
+        "enforceFocus": {
+          "description": "Cuando se establece en verdadero, Modal evitará que el enfoque se salga al abrirlo, lo que facilitará el acceso al lector de pantalla secundario",
+          "name": "Reforzar el enfoque"
+        },
+        "keyboard": {
+          "description": "Cierra Modal cuando se presiona la tecla Esc",
+          "name": "Cerca de Esc"
+        },
+        "onClose": {
+          "description": "Se llama cuando Modal está cerrado",
+          "name": "Al cerrar"
+        },
+        "onOpen": {
+          "description": "Se llama cuando se muestra Modal",
+          "name": "OnOpen"
+        },
+        "overflow": {
+          "description": "Establece automáticamente la altura cuando el contenido del cuerpo es demasiado largo",
+          "name": "Desbordamiento"
+        },
+        "size": {
+          "description": "Determine el ancho del modal",
+          "name": "Tamaño"
+        }
+      }
+    },
+    "RsModalLayout": {
+      "description": "Componente de diseño modal con secciones de encabezado, cuerpo y pie de página",
+      "name": "Diseño modal",
+      "props": {
+        "body": {
+          "description": "El contenido del cuerpo modal",
+          "name": "Cuerpo"
+        },
+        "closeButton": {
+          "description": "Mostrar botón de cierre",
+          "name": "Botón Cerrar"
+        },
+        "footer": {
+          "description": "El contenido del pie de página modal",
+          "name": "Pie de página"
+        },
+        "headerTitle": {
+          "description": "El título del encabezado modal",
+          "name": "Título del encabezado"
+        }
+      }
+    },
+    "RsNumberFormat": {
+      "description": "Un componente de entrada de formato numérico con validación y formato",
+      "name": "Formato numérico",
+      "props": {
+        "allowLeadingZeros": {
+          "description": "Esto permite activar o desactivar los ceros iniciales en el campo de entrada. De forma predeterminada, al desenfocar una entrada, se eliminan los ceros iniciales",
+          "name": "Permitir ceros iniciales"
+        },
+        "allowNegative": {
+          "description": "Si se establece en falso, no se permitirán números negativos",
+          "name": "Permitir negativo"
+        },
+        "allowedDecimalSeparators": {
+          "description": "Caracteres que cuando se presionan dan como resultado un separador decimal. Si faltan, se utilizan el separador decimal y «.»",
+          "name": "Separadores decimales permitidos"
+        },
+        "decimalScale": {
+          "description": "Si se define, limita el número de dígitos después de la coma decimal",
+          "name": "Escala decimal"
+        },
+        "decimalSeparator": {
+          "description": "Define el carácter decimal",
+          "name": "Separador decimal"
+        },
+        "fixedDecimalScale": {
+          "description": "Si se establece en verdadero, agrega los ceros finales después de DecimalSeparator para que coincida con la DecimalScale dada",
+          "name": "Escala decimal fija"
+        },
+        "prefix": {
+          "description": "Añade el carácter de prefijo antes del valor de entrada",
+          "name": "Prefijo"
+        },
+        "suffix": {
+          "description": "Añade el sufijo después del valor de entrada",
+          "name": "Sufijo"
+        },
+        "thousandSeparator": {
+          "description": "Separador de mil",
+          "name": "Separador de mil"
+        },
+        "thousandsGroupStyle": {
+          "description": "Mil estilos (mil): 123.456.789, estilo indio (lakh): 12.3456,789, estilo chino (wan): 1.234.6789",
+          "name": "Estilo grupal de miles"
+        }
+      }
+    },
+    "RsPatternFormat": {
+      "description": "Componente de entrada de formato de patrón con soporte para etiquetas",
+      "name": "Formato de patrón",
+      "props": {
+        "allowEmptyFormatting": {
+          "description": "De forma predeterminada, el componente PatternFormat no aplica formato cuando el valor está vacío (nulo, indefinido o '')",
+          "name": "Permitir formato vacío"
+        },
+        "format": {
+          "description": "Formatee el patrón con el carácter # (o un carácter de patrón). # es el carácter marcador de posición de los números. Ejemplo: '### ###'",
+          "name": "Formato"
+        },
+        "mask": {
+          "description": "Se usa como carácter de máscara para lugares numéricos, hasta que se proporcione algún carácter numérico para esa posición",
+          "name": "máscara"
+        },
+        "patternChar": {
+          "description": "Esto ayuda a definir el carácter del patrón de formato",
+          "name": "Gráfico de patrones"
+        }
+      }
+    },
+    "RsPlaceholderGraph": {
+      "description": "Marcador de posición antes de cargar el componente en forma de rectángulo",
+      "name": "Gráfico de marcadores de posición",
+      "props": {
+        "active": {
+          "description": "Si el marcador de posición está activo",
+          "name": "Activo"
+        },
+        "height": {
+          "description": "La altura del gráfico",
+          "name": "Altura"
+        },
+        "width": {
+          "description": "El ancho del gráfico",
+          "name": "Anchura"
+        }
+      }
+    },
+    "RsPlaceholderGrid": {
+      "description": "Marcador de posición antes de cargar el componente en forma de cuadrícula",
+      "name": "Cuadrícula de marcadores de posición",
+      "props": {
+        "active": {
+          "description": "Si el marcador de posición está activo",
+          "name": "Activo"
+        },
+        "columns": {
+          "description": "El número de columnas",
+          "name": "Columnas"
+        },
+        "rowHeight": {
+          "description": "La altura de la fila",
+          "name": "Altura de fila"
+        },
+        "rowSpacing": {
+          "description": "El espaciado entre filas",
+          "name": "Espacio entre hileras"
+        },
+        "rows": {
+          "description": "El número de filas",
+          "name": "Filas"
+        }
+      }
+    },
+    "RsPlaceholderParagraph": {
+      "description": "Marcador de posición antes de cargar el componente en forma de párrafo",
+      "name": "Párrafo marcador de posición",
+      "props": {
+        "active": {
+          "description": "Si el marcador de posición está activo",
+          "name": "Activo"
+        },
+        "graph": {
+          "description": "La forma del gráfico",
+          "name": "Gráfico"
+        },
+        "rowHeight": {
+          "description": "La altura de la fila",
+          "name": "Altura de fila"
+        },
+        "rowSpacing": {
+          "description": "El espaciado entre filas",
+          "name": "Espacio entre hileras"
+        },
+        "rows": {
+          "description": "El número de filas",
+          "name": "Filas"
+        }
+      }
+    },
+    "RsProgressCircle": {
+      "description": "Mostrar el progreso actual de una operación en forma de círculo",
+      "name": "Círculo de progreso",
+      "props": {
+        "classPrefix": {
+          "description": "El prefijo de la clase CSS del componente",
+          "name": "Prefijo de clase"
+        },
+        "gapDegree": {
+          "description": "El grado de separación del semicírculo, 0 ~ 360",
+          "name": "Grado de brecha"
+        },
+        "gapPosition": {
+          "description": "Barra de progreso circular Posición de muesca",
+          "name": "Posición de separación"
+        },
+        "percent": {
+          "description": "Porcentaje de progreso",
+          "name": "Porcentaje"
+        },
+        "showInfo": {
+          "description": "Mostrar texto",
+          "name": "Mostrar información"
+        },
+        "status": {
+          "description": "Estado de progreso",
+          "name": "Estado"
+        },
+        "strokeColor": {
+          "description": "Color de línea",
+          "name": "Color del trazo"
+        },
+        "strokeLinecap": {
+          "description": "El fin de los diferentes tipos de caminos abiertos",
+          "name": "Líneal de ictus"
+        },
+        "strokeWidth": {
+          "description": "Ancho de línea",
+          "name": "Ancho de trazo"
+        },
+        "trailColor": {
+          "description": "Color del sendero",
+          "name": "Color del sendero"
+        },
+        "trailWidth": {
+          "description": "Anchura del sendero",
+          "name": "Anchura del sendero"
+        }
+      }
+    },
+    "RsProgressLine": {
+      "description": "Mostrar el progreso actual de una operación en forma de línea",
+      "name": "Línea Progress",
+      "props": {
+        "classPrefix": {
+          "description": "El prefijo de la clase CSS del componente",
+          "name": "Prefijo de clase"
+        },
+        "percent": {
+          "description": "Porcentaje de progreso",
+          "name": "Porcentaje"
+        },
+        "showInfo": {
+          "description": "Mostrar texto",
+          "name": "Mostrar información"
+        },
+        "status": {
+          "description": "Estado de progreso",
+          "name": "Estado"
+        },
+        "strokeColor": {
+          "description": "Color de línea",
+          "name": "Color del trazo"
+        },
+        "strokeWidth": {
+          "description": "Ancho de línea",
+          "name": "Ancho de trazo"
+        },
+        "vertical": {
+          "description": "La barra de progreso se muestra verticalmente",
+          "name": "Vertical"
+        }
+      }
+    },
+    "RsRadioGroup": {
+      "description": "Las radios se utilizan cuando solo se puede seleccionar una opción en una serie de opciones",
+      "name": "Grupo de radio",
+      "props": {
+        "appearance": {
+          "description": "Un grupo de radio puede tener diferentes apariencias",
+          "name": "Apariencia"
+        },
+        "inline": {
+          "description": "Diseño en línea",
+          "name": "En línea"
+        },
+        "items": {
+          "description": "Los artículos para el grupo de radio",
+          "name": "Artículos"
+        },
+        "name": {
+          "description": "Nombre del grupo de radio",
+          "name": "Nombre"
+        },
+        "onChange": {
+          "description": "Se llama después de cambiar el valor",
+          "name": "Sobre el cambio"
+        }
+      }
+    },
+    "RsSearch": {
+      "description": "Componente de búsqueda con soporte para cargar etiquetas y datos",
+      "name": "Búsqueda",
+      "props": {
+        "cleanable": {
+          "description": "Si la opción se puede vaciar",
+          "name": "Se puede limpiar"
+        },
+        "creatable": {
+          "description": "La configuración puede crear nuevas opciones",
+          "name": "Creable"
+        },
+        "data": {
+          "description": "Datos seleccionables",
+          "name": "Datos"
+        },
+        "disableVirtualized": {
+          "description": "Si se debe deshabilitar la virtualización",
+          "name": "Deshabilitar virtualizado"
+        },
+        "groupBy": {
+          "description": "Establezca los criterios de agrupamiento como «clave» en «datos»",
+          "name": "Agrupar por"
+        },
+        "onChange": {
+          "description": "Función de devolución de llamada cuando el valor cambia",
+          "name": "Sobre el cambio"
+        },
+        "onClean": {
+          "description": "La llamada para limpiar",
+          "name": "OnClean"
+        },
+        "onClose": {
+          "description": "La devolución de llamadas para cerrar",
+          "name": "Al cerrar"
+        },
+        "onCreate": {
+          "description": "La llamada para crear",
+          "name": "OnCreate"
+        },
+        "onLoadData": {
+          "description": "La devolución de llamada para cargar datos",
+          "name": "Cargar datos"
+        },
+        "onSearch": {
+          "description": "La devolución de llamada para la búsqueda",
+          "name": "En la búsqueda"
+        },
+        "onSelect": {
+          "description": "La devolución de llamada para seleccionar",
+          "name": "OnSelect"
+        },
+        "preload": {
+          "description": "Si se deben precargar los datos",
+          "name": "Precarga"
+        }
+      }
+    },
+    "RsStaticContent": {
+      "description": "Un componente de contenido estático que muestra texto o contenido HTML",
+      "name": "Contenido estático",
+      "props": {
+        "allowHtml": {
+          "description": "Si se permite el contenido HTML",
+          "name": "Permitir HTML"
+        },
+        "content": {
+          "description": "El contenido a mostrar",
+          "name": "Contenido"
+        }
+      }
+    },
+    "RsTab": {
+      "description": "Las pestañas son un conjunto de secciones de contenido en capas, conocidas como paneles de pestañas, que muestran un panel de contenido a la vez",
+      "name": "pestaña",
+      "props": {
+        "activeKey": {
+          "description": "Clave activa, correspondiente al valor de uno de los artículos",
+          "name": "Clave activa"
+        },
+        "appearance": {
+          "description": "Una pestaña puede tener diferentes apariencias",
+          "name": "Apariencia"
+        },
+        "items": {
+          "description": "Elementos para la pestaña",
+          "name": "Artículos"
+        },
+        "justified": {
+          "description": "Navegación justificada",
+          "name": "Justificado"
+        },
+        "onSelect": {
+          "description": "Función de devolución de llamada activada después de la selección",
+          "name": "OnSelect"
+        },
+        "pane": {
+          "description": "Un componente secundario de la pestaña",
+          "name": "Panel"
+        },
+        "reversed": {
+          "description": "Invertir la dirección de las pestañas/sutil",
+          "name": "Invertido"
+        },
+        "showNavigation": {
+          "description": "Mostrar u ocultar la navegación",
+          "name": "Mostrar navegación"
+        },
+        "vertical": {
+          "description": "Navegación apilada",
+          "name": "Vertical"
+        }
+      }
+    },
+    "RsTagPicker": {
+      "description": "Componente selector de etiquetas con soporte para etiquetas",
+      "name": "Selector de etiquetas",
+      "props": {
+        "cleanable": {
+          "description": "Si la opción se puede vaciar",
+          "name": "Se puede limpiar"
+        },
+        "creatable": {
+          "description": "La configuración puede crear nuevas opciones",
+          "name": "Creable"
+        },
+        "data": {
+          "description": "Datos seleccionables",
+          "name": "Datos"
+        },
+        "groupBy": {
+          "description": "Establezca los criterios de agrupamiento como «clave» en «datos»",
+          "name": "Agrupar por"
+        },
+        "onChange": {
+          "description": "Función de devolución de llamada cuando el valor cambia",
+          "name": "Sobre el cambio"
+        },
+        "onClean": {
+          "description": "La llamada para limpiar",
+          "name": "OnClean"
+        },
+        "onClose": {
+          "description": "La devolución de llamadas para cerrar",
+          "name": "Al cerrar"
+        },
+        "onCreate": {
+          "description": "La llamada para crear",
+          "name": "OnCreate"
+        },
+        "onSearch": {
+          "description": "La devolución de llamada para la búsqueda",
+          "name": "En la búsqueda"
+        },
+        "onSelect": {
+          "description": "La devolución de llamada para seleccionar",
+          "name": "OnSelect"
+        }
+      }
+    },
+    "RsTextArea": {
+      "description": "Un componente de área de texto para la entrada de texto multilínea",
+      "name": "Área de texto",
+      "props": {
+        "onChange": {
+          "description": "La función de devolución de llamada en la que se cambia el valor",
+          "name": "Sobre el cambio"
+        },
+        "onPressEnter": {
+          "description": "Se llama al presionar enter",
+          "name": "Al presionar Entrar"
+        },
+        "rows": {
+          "description": "El número de líneas de texto visibles",
+          "name": "Filas"
+        }
+      }
+    },
+    "RsTimePicker": {
+      "description": "Componente selector de tiempo con soporte para etiquetas",
+      "name": "Selector de tiempo",
+      "props": {
+        "cleanable": {
+          "description": "Si se puede borrar el valor seleccionado",
+          "name": "Se puede limpiar"
+        },
+        "defaultValue": {
+          "description": "Valor predeterminado",
+          "name": "Valor predeterminado"
+        },
+        "editable": {
+          "description": "Representada como entrada, la hora se puede introducir mediante el teclado",
+          "name": "Editable"
+        },
+        "format": {
+          "description": "Formato de la hora cuando se representa en la entrada",
+          "name": "Formato"
+        },
+        "onChange": {
+          "description": "La llamada se activa cuando se cambia el valor",
+          "name": "Sobre el cambio"
+        },
+        "onClean": {
+          "description": "La devolución de llamada se activa cuando el valor está limpio",
+          "name": "OnClean"
+        },
+        "onClose": {
+          "description": "La llamada se activa cuando se cierra el componente",
+          "name": "Al cerrar"
+        },
+        "onEnter": {
+          "description": "La llamada se activa antes de que la superposición entre",
+          "name": "Al entrar"
+        },
+        "onEntered": {
+          "description": "La llamada se activa cuando la superposición termina de hacer la transición en",
+          "name": "Al entrar"
+        },
+        "onEntering": {
+          "description": "La llamada se activa cuando la superposición comienza a hacer la transición a",
+          "name": "Al entrar"
+        },
+        "onExit": {
+          "description": "La devolución de llamada se disparó justo antes de que la superposición saliera",
+          "name": "Al salir"
+        },
+        "onExited": {
+          "description": "La llamada se activa cuando la superposición termina de desaparecer",
+          "name": "Uno salió"
+        },
+        "onExiting": {
+          "description": "La llamada se activa cuando la superposición comienza a desaparecer",
+          "name": "Una salida"
+        },
+        "onOk": {
+          "description": "Haga clic en la función de devolución de llamada OK",
+          "name": "En OK"
+        },
+        "onOpen": {
+          "description": "La devolución de llamada se activa cuando se abre un componente",
+          "name": "OnOpen"
+        },
+        "onSelect": {
+          "description": "La devolución de llamada se activa cuando se selecciona la fecha o la hora",
+          "name": "OnSelect"
+        },
+        "open": {
+          "description": "Si abrir el componente",
+          "name": "Abrir"
+        }
+      }
+    },
+    "RsToggle": {
+      "description": "Interruptor de palanca, usado para seleccionar entre dos valores",
+      "name": "Alternar",
+      "props": {
+        "checked": {
+          "description": "Si la palanca está marcada",
+          "name": "Comprobado"
+        },
+        "checkedChildren": {
+          "description": "El texto que se muestra en el estado marcado",
+          "name": "Texto comprobado"
+        },
+        "children": {
+          "description": "La etiqueta del componente",
+          "name": "Etiqueta"
+        },
+        "color": {
+          "description": "El color de la palanca",
+          "name": "Color"
+        },
+        "loading": {
+          "description": "Si el componente está en estado de carga",
+          "name": "Cargando"
+        },
+        "onChange": {
+          "description": "Se llama cuando cambia el estado de la palanca",
+          "name": "Sobre el cambio"
+        },
+        "unCheckedChildren": {
+          "description": "El texto que se muestra en el estado desmarcado",
+          "name": "Texto sin marcar"
+        }
+      }
+    },
+    "RsTooltip": {
+      "description": "Una sugerencia de texto para secundaria, que reemplaza la propiedad title predeterminada de un elemento HTML",
+      "name": "Información sobre herramientas",
+      "props": {
+        "children": {
+          "description": "Elemento secundario de una descripción emergente",
+          "name": "Niños"
+        },
+        "text": {
+          "description": "Texto de información sobre herramientas",
+          "name": "Texto"
+        },
+        "trigger": {
+          "description": "El disparador de la información sobre herramientas",
+          "name": "Activar"
+        }
+      }
+    },
+    "RsUploader": {
+      "description": "Sube archivos haciendo clic o arrastrando y soltando, permite previsualizar la imagen cargada",
+      "name": "Cargador",
+      "props": {
+        "accept": {
+          "description": "Tipos de archivos que se pueden aceptar. Consulte el atributo HTML estándar: aceptar",
+          "name": "Aceptar"
+        },
+        "action": {
+          "description": "Subiendo URL",
+          "name": "Acción"
+        },
+        "autoUpload": {
+          "description": "Sube archivos automáticamente después de seleccionarlos",
+          "name": "Carga automática"
+        },
+        "children": {
+          "description": "Contenido principal",
+          "name": "Niños"
+        },
+        "customElement": {
+          "description": "Si se debe usar un elemento personalizado para el usuario que lo ha subido",
+          "name": "Elemento personalizado"
+        },
+        "disableMultipart": {
+          "description": "Si es «verdadero», desactive el uso de un formulario de varias partes para cargar archivos y, en su lugar, transmita el archivo por streaming. Algunas API (por ejemplo, Amazon S3) pueden esperar que el archivo se transmita por streaming en lugar de enviarse mediante un formulario",
+          "name": "Desactivar multiparte"
+        },
+        "disabledFileItem": {
+          "description": "Elemento de archivo desactivado",
+          "name": "Elemento de archivo desactivado"
+        },
+        "draggable": {
+          "description": "Habilitado arrastrar y soltar para cargar",
+          "name": "Arrastrable"
+        },
+        "fileList": {
+          "description": "Lista de archivos subidos",
+          "name": "Lista de archivos"
+        },
+        "fileListVisible": {
+          "description": "La lista de archivos se puede renderizar",
+          "name": "Lista de archivos visible"
+        },
+        "listType": {
+          "description": "Cargar estilo de lista",
+          "name": "Tipo de lista"
+        },
+        "method": {
+          "description": "El método HTTP de solicitud de carga",
+          "name": "Método"
+        },
+        "multiple": {
+          "description": "Permitir la carga de varios archivos",
+          "name": "Múltiples"
+        },
+        "name": {
+          "description": "Cargue el nombre del parámetro del archivo correspondiente",
+          "name": "Nombre"
+        },
+        "onChange": {
+          "description": "Función de devolución de llamada que indica que la cola de carga ha cambiado",
+          "name": "Sobre el cambio"
+        },
+        "onError": {
+          "description": "Cargar función de devolución de llamada con error",
+          "name": "En caso de error"
+        },
+        "onPreview": {
+          "description": "En la lista de archivos, haga clic en la función de devolución de llamada del archivo cargado",
+          "name": "En vista previa"
+        },
+        "onProgress": {
+          "description": "Funciones de devolución de llamadas que cargan cambios de progreso",
+          "name": "En progreso"
+        },
+        "onRemove": {
+          "description": "En la lista de archivos, haga clic en la función de devolución de llamada para eliminar un archivo",
+          "name": "Al eliminar"
+        },
+        "onReupload": {
+          "description": "En la lista de archivos, para cargar archivos fallidos, haga clic en la función de devolución de llamada para cargarlos",
+          "name": "Al volver a subirlo"
+        },
+        "onSuccess": {
+          "description": "Función de devolución de llamada después de una carga exitosa",
+          "name": "Sobre el éxito"
+        },
+        "onUpload": {
+          "description": "La función de devolución de llamada que inicia el archivo de carga",
+          "name": "Al subir"
+        },
+        "removable": {
+          "description": "Archivo de lista extraíble",
+          "name": "Extraíble"
+        },
+        "timeout": {
+          "description": "Establecer el tiempo de espera de carga",
+          "name": "Tiempo de espera"
+        },
+        "withCredentials": {
+          "description": "Si se deben llevar cookies al cargar las solicitudes",
+          "name": "Con credenciales"
+        }
+      }
+    },
+    "RsWizard": {
+      "description": "Componente asistente con navegación por pasos y validación",
+      "name": "Mago",
+      "props": {
+        "activeIndex": {
+          "description": "El índice de pasos activos",
+          "name": "Índice activo"
+        },
+        "children": {
+          "description": "Contenido de los pasos del asistente",
+          "name": "Niños"
+        },
+        "finishButtonLabel": {
+          "description": "La etiqueta del botón de finalización",
+          "name": "Etiqueta del botón Finalizar"
+        },
+        "nextButtonLabel": {
+          "description": "La siguiente etiqueta del botón",
+          "name": "Etiqueta del botón Siguiente"
+        },
+        "onFinish": {
+          "description": "Se devuelve la llamada cuando se hace clic en el botón de finalización",
+          "name": "Al terminar"
+        },
+        "onNext": {
+          "description": "Llamada de vuelta cuando se hace clic en el botón siguiente",
+          "name": "OnNext"
+        },
+        "onPrev": {
+          "description": "Llamada de retorno cuando se hace clic en el botón anterior",
+          "name": "En Prev"
+        },
+        "prevButtonLabel": {
+          "description": "La etiqueta del botón anterior",
+          "name": "Etiqueta de botón anterior"
+        },
+        "showSteps": {
+          "description": "Si es cierto, se mostrarán los pasos",
+          "name": "Mostrar pasos"
+        },
+        "showStepsLabels": {
+          "description": "Si es verdadero, se mostrarán las etiquetas de los pasos",
+          "name": "Mostrar etiquetas de pasos"
+        },
+        "steps": {
+          "description": "Los pasos del mago",
+          "name": "Pasos"
+        },
+        "stepsNavigation": {
+          "description": "Determina qué pasos están disponibles para la navegación haciendo clic",
+          "name": "Navegación por pasos"
+        },
+        "validateOnFinish": {
+          "description": "Si es verdadero, el asistente se validará antes de finalizarlo.",
+          "name": "Validar al finalizar"
+        },
+        "validateOnNext": {
+          "description": "Si es verdadero, el paso se validará antes de pasar al siguiente paso",
+          "name": "Validar en la próxima"
+        },
+        "verticalSteps": {
+          "description": "Si es verdadero, los pasos se mostrarán verticalmente",
+          "name": "Escalones verticales"
+        }
+      }
+    },
+    "RsWizardStep": {
+      "description": "Componente Wizard Step con diseño flexible",
+      "name": "Paso del mago",
+      "props": {
+        "children": {
+          "description": "Elementos secundarios del componente",
+          "name": "Niños"
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
-import {copyFileSync, existsSync, rmSync} from 'fs'
-import {dirname, join} from 'path'
-import {fileURLToPath} from 'url'
+import {copyFileSync, existsSync, rmSync} from 'node:fs'
+import {dirname, join} from 'node:path'
+import {fileURLToPath} from 'node:url'
 import {defineConfig, type Plugin} from 'vite'
 import {analyzer} from 'vite-bundle-analyzer'
 

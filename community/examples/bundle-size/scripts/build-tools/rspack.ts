@@ -1,5 +1,5 @@
-import {existsSync} from 'fs'
-import {join} from 'path'
+import {existsSync} from 'node:fs'
+import {join} from 'node:path'
 import type {BuildToolPlugin} from './types.ts'
 import type {BundleStats} from '../analyze-bundle-sizes.ts'
 

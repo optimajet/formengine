@@ -1,6 +1,6 @@
 import vue from '@vitejs/plugin-vue'
 import vueform from '@vueform/vueform/vite'
-import {fileURLToPath, URL} from 'url'
+import {fileURLToPath, URL} from 'node:url'
 import {mergeConfig} from 'vite'
 
 import bundleSizeBase from '../vite.config'

@@ -9,4 +9,7 @@ export default defineConfig({
       include: '**/*.svg',
     })
   ],
+  build: {
+    cssMinify: false,
+  },
 })

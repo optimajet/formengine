@@ -1,0 +1,1492 @@
+{
+  "categories": {
+    "fields": {
+      "name": "필드"
+    },
+    "modal": {
+      "name": "양식상의"
+    },
+    "static": {
+      "name": "스태틱"
+    },
+    "structure": {
+      "name": "구조"
+    }
+  },
+  "commonProperties": {
+    "backgroundColor": {
+      "description": "배경 색상입니다.",
+      "name": "백그라운드"
+    },
+    "children": {
+      "description": "구성 요소의 하위 요소",
+      "name": "어린이"
+    },
+    "className": {
+      "description": "CSS 클래스 이름",
+      "name": "CSS 클래스"
+    },
+    "disabled": {
+      "description": "구성 요소 비활성화 여부",
+      "name": "장애인"
+    },
+    "fontSize": {
+      "description": "글자 크기",
+      "name": "글자 크기"
+    },
+    "fontWeight": {
+      "description": "글꼴 두께",
+      "name": "글꼴 두께"
+    },
+    "label": {
+      "description": "컴포넌트 라벨",
+      "name": "레이블"
+    },
+    "placeholder": {
+      "description": "플레이스홀더",
+      "name": "플레이스홀더"
+    },
+    "placement": {
+      "description": "컴포넌트 배치",
+      "name": "플레이스먼트"
+    },
+    "readOnly": {
+      "description": "읽기 전용 플래그",
+      "name": "읽기 전용"
+    },
+    "size": {
+      "description": "구성 요소 크기",
+      "name": "사이즈"
+    },
+    "textAlign": {
+      "description": "텍스트 정렬",
+      "name": "텍스트 정렬"
+    },
+    "value": {
+      "description": "현재 값 (제어됨)",
+      "name": "가치"
+    }
+  },
+  "components": {
+    "RsAutoComplete": {
+      "description": "입력 상자에 자동 완성 기능 제공",
+      "name": "자동 완성",
+      "props": {
+        "classPrefix": {
+          "description": "컴포넌트 CSS 클래스의 접두사",
+          "name": "클래스 접두사"
+        },
+        "data": {
+          "description": "구성 요소의 데이터",
+          "name": "데이터"
+        },
+        "defaultValue": {
+          "description": "기본값 (제어되지 않음)",
+          "name": "디폴트 값"
+        },
+        "filterBy": {
+          "description": "사용자 지정 필터 규칙 (기본적으로 값이 하위 문자열인 항목만 표시함)",
+          "name": "필터링 기준"
+        },
+        "menuClassName": {
+          "description": "메뉴 DOM에 적용할 CSS 클래스",
+          "name": "메뉴 클래스 이름"
+        },
+        "onChange": {
+          "description": "옵션을 선택하거나 입력값이 변경되거나 입력값이 변경될 때 호출됩니다.",
+          "name": "온체인지"
+        },
+        "onClose": {
+          "description": "숨김 시 콜백 실행",
+          "name": "OnClose"
+        },
+        "onEnter": {
+          "description": "오버레이가 전환되기 전에 콜백이 실행되었습니다.",
+          "name": "온엔터"
+        },
+        "onEntered": {
+          "description": "오버레이 전환이 완료된 후 콜백이 실행됨",
+          "name": "입력됨"
+        },
+        "onEntering": {
+          "description": "오버레이가 전환되기 시작하면 콜백이 실행됨",
+          "name": "입장 시"
+        },
+        "onExit": {
+          "description": "오버레이가 전환되기 직전에 콜백이 실행되었습니다.",
+          "name": "OnExit"
+        },
+        "onExited": {
+          "description": "오버레이 전환이 완료된 후 콜백이 실행됨",
+          "name": "One-Exted"
+        },
+        "onExiting": {
+          "description": "오버레이가 전환되기 시작하면 콜백이 실행됨",
+          "name": "원 엑시팅"
+        },
+        "onSelect": {
+          "description": "옵션을 선택할 때 호출됩니다.",
+          "name": "온셀렉트"
+        },
+        "renderMenu": {
+          "description": "렌더링 메뉴 목록 사용자 지정",
+          "name": "렌더 메뉴"
+        },
+        "renderMenuItem": {
+          "description": "사용자 지정 렌더링 메뉴 항목",
+          "name": "렌더링 메뉴 항목"
+        },
+        "selectOnEnter": {
+          "description": "false로 설정하면 Enter 키 선택 기능이 유효하지 않습니다.",
+          "name": "입력 시 선택"
+        }
+      }
+    },
+    "RsBreadcrumb": {
+      "description": "현재 페이지 경로를 표시하고 기록 페이지로 빠르게 돌아가는 데 사용됩니다.",
+      "name": "빵 부스러기",
+      "props": {
+        "items": {
+          "description": "표시할 탐색경로 항목 배열",
+          "name": "아이템"
+        },
+        "maxItems": {
+          "description": "표시할 최대 탐색경로 수 설정",
+          "name": "최대 항목"
+        },
+        "onExpand": {
+          "description": "줄임표 클릭을 위한 콜백 함수",
+          "name": "온익스팬드"
+        },
+        "onItemClick": {
+          "description": "탐색경로 항목 클릭 시 콜백 함수",
+          "name": "항목 클릭 시"
+        },
+        "separator": {
+          "description": "각 탐색경로 항목 사이의 구분 기호",
+          "name": "분리기"
+        }
+      }
+    },
+    "RsButton": {
+      "description": "더 버튼",
+      "name": "버튼",
+      "props": {
+        "active": {
+          "description": "버튼은 현재 활성 사용자 선택임을 표시할 수 있습니다.",
+          "name": "액티브"
+        },
+        "appearance": {
+          "description": "버튼은 모양이 다를 수 있습니다.",
+          "name": "외관"
+        },
+        "children": {
+          "description": "주요 콘텐츠",
+          "name": "콘텐츠"
+        },
+        "disabled": {
+          "description": "버튼은 현재 상호 작용할 수 없음을 표시할 수 있습니다.",
+          "name": "장애인"
+        },
+        "href": {
+          "description": "<a>href를 제공하면 요소가 렌더링됩니다",
+          "name": "Href"
+        },
+        "loading": {
+          "description": "버튼은 로딩 표시기를 표시할 수 있습니다.",
+          "name": "불러오는 중"
+        },
+        "onClick": {
+          "description": "버튼 클릭 시 콜백 함수",
+          "name": "온클릭"
+        }
+      }
+    },
+    "RsCalendar": {
+      "description": "달력별로 데이터를 표시하는 구성 요소",
+      "name": "캘린더",
+      "props": {
+        "bordered": {
+          "description": "테두리 보기",
+          "name": "테두리"
+        },
+        "compact": {
+          "description": "컴팩트 캘린더 표시",
+          "name": "콤팩트"
+        },
+        "defaultValue": {
+          "description": "디폴트 값",
+          "name": "디폴트 값"
+        },
+        "isoWeek": {
+          "description": "ISO 8601 표준, 각 주간은 월요일과 일요일의 일곱째 날에 시작됩니다.",
+          "name": "ISO 위크"
+        },
+        "onChange": {
+          "description": "값이 변경되기 전에 콜백이 실행됨",
+          "name": "온체인지"
+        },
+        "onSelect": {
+          "description": "선택한 날짜 이전에 콜백 실행",
+          "name": "온셀렉트"
+        }
+      }
+    },
+    "RsCard": {
+      "description": "카드는 데이터를 표시하기 위한 컨테이너 구성 요소입니다.",
+      "name": "카드",
+      "props": {
+        "bodyFill": {
+          "description": "컨테이너로 채워진 콘텐츠 영역",
+          "name": "바디 필"
+        },
+        "bordered": {
+          "description": "테두리 보기",
+          "name": "테두리"
+        },
+        "children": {
+          "description": "주요 콘텐츠",
+          "name": "콘텐츠"
+        },
+        "collapsible": {
+          "description": "접을 수 있는 패널인지 여부",
+          "name": "접을 수 있는"
+        },
+        "defaultExpanded": {
+          "description": "기본적으로 패널을 확장한 다음",
+          "name": "기본 확장"
+        },
+        "eventKey": {
+          "description": "패널에 해당하는 이벤트 키",
+          "name": "이벤트 키"
+        },
+        "header": {
+          "description": "헤드는 정보를 표시합니다.",
+          "name": "머리글"
+        },
+        "headerSize": {
+          "description": "패널 헤더의 헤더 크기",
+          "name": "헤더 크기"
+        },
+        "onSelect": {
+          "description": "패널 선택 시 호출됩니다.",
+          "name": "온셀렉트"
+        },
+        "shaded": {
+          "description": "그림자가 있는지 여부",
+          "name": "음영 처리"
+        },
+        "title": {
+          "description": "패널 헤더의 제목",
+          "name": "타이틀"
+        }
+      }
+    },
+    "RsCheckbox": {
+      "description": "확인란은 일반적으로 그룹으로 사용됩니다.사용자가 집합에서 하나 이상의 값을 선택할 수 있도록 허용합니다.",
+      "name": "체크박스",
+      "props": {
+        "checked": {
+          "description": "확인란의 선택 여부를 지정합니다.",
+          "name": "확인"
+        },
+        "children": {
+          "description": "컴포넌트 라벨",
+          "name": "레이블"
+        },
+        "indeterminate": {
+          "description": "체크박스로 사용할 경우, 하위 부품 선택 후 스타일 설정",
+          "name": "미정"
+        },
+        "inline": {
+          "description": "인라인 레이아웃",
+          "name": "인라인"
+        },
+        "onChange": {
+          "description": "사용자가 확인 상태를 변경하려고 할 때 호출됩니다.",
+          "name": "온체인지"
+        },
+        "title": {
+          "description": "HTML 타이틀",
+          "name": "타이틀"
+        }
+      }
+    },
+    "RsContainer": {
+      "description": "컨테이너는 다른 구성 요소를 래핑하는 데 사용할 수 있는 레이아웃 구성 요소입니다.",
+      "name": "컨테이너",
+      "props": {
+        "children": {
+          "description": "구성 요소의 하위 요소",
+          "name": "어린이"
+        }
+      }
+    },
+    "RsDatePicker": {
+      "description": "DatePicker는 사용자가 다양한 형식으로 날짜와 시간을 입력하고 선택할 수 있는 고도로 사용자 정의 가능한 구성 요소입니다.",
+      "name": "날짜 선택기",
+      "props": {
+        "appearance": {
+          "description": "피커 모양 설정",
+          "name": "외관"
+        },
+        "calendarDefaultDate": {
+          "description": "캘린더 패널 기본 프레젠테이션 날짜 및 시간",
+          "name": "캘린더 기본 날짜"
+        },
+        "cleanable": {
+          "description": "선택한 값을 지울 수 있는지 여부",
+          "name": "청소 가능"
+        },
+        "defaultOpen": {
+          "description": "열린 속성의 기본값",
+          "name": "디폴트 오픈"
+        },
+        "defaultValue": {
+          "description": "디폴트 값",
+          "name": "디폴트 값"
+        },
+        "editable": {
+          "description": "입력으로 렌더링되며 키보드를 통해 날짜를 입력할 수 있습니다.",
+          "name": "편집 가능"
+        },
+        "format": {
+          "description": "입력에서 렌더링될 때의 날짜 형식",
+          "name": "형식"
+        },
+        "isoWeek": {
+          "description": "ISO 8601 표준, 각 주간은 월요일과 일요일의 일곱째 날에 시작됩니다.",
+          "name": "ISO 위크"
+        },
+        "limitEndYear": {
+          "description": "현재 선택 날짜를 기준으로 사용 가능한 연도의 상한을 설정합니다.",
+          "name": "한도 종료 연도"
+        },
+        "limitStartYear": {
+          "description": "현재 선택 날짜를 기준으로 사용 가능한 연도의 하한을 설정합니다.",
+          "name": "한도 시작 연도"
+        },
+        "onChange": {
+          "description": "값이 변경되면 콜백이 시작됨",
+          "name": "온체인지"
+        },
+        "onChangeCalendarDate": {
+          "description": "달력 날짜를 변경하는 콜백 함수",
+          "name": "캘린더 날짜 변경 시"
+        },
+        "onClean": {
+          "description": "값이 정리되면 콜백이 실행됩니다.",
+          "name": "온클린"
+        },
+        "onClose": {
+          "description": "컴포넌트를 닫을 때 콜백이 실행됨",
+          "name": "OnClose"
+        },
+        "onEnter": {
+          "description": "오버레이가 전환되기 전에 콜백이 실행되었습니다.",
+          "name": "온엔터"
+        },
+        "onEntered": {
+          "description": "오버레이 전환이 완료된 후 콜백이 실행됨",
+          "name": "입력됨"
+        },
+        "onEntering": {
+          "description": "오버레이가 전환되기 시작하면 콜백이 실행됨",
+          "name": "입장 시"
+        },
+        "onExit": {
+          "description": "오버레이가 전환되기 직전에 콜백이 실행되었습니다.",
+          "name": "OnExit"
+        },
+        "onExited": {
+          "description": "오버레이 전환이 완료된 후 콜백이 실행됨",
+          "name": "One-Exted"
+        },
+        "onExiting": {
+          "description": "오버레이가 전환되기 시작하면 콜백이 실행됨",
+          "name": "원 엑시팅"
+        },
+        "onNextMonth": {
+          "description": "다음 달의 콜백 함수로 전환",
+          "name": "다음 달에"
+        },
+        "onOk": {
+          "description": "OK 콜백 함수를 클릭합니다.",
+          "name": "괜찮아"
+        },
+        "onOpen": {
+          "description": "컴포넌트를 열면 콜백이 실행됩니다.",
+          "name": "OnOpen"
+        },
+        "onPrevMonth": {
+          "description": "지난 달의 콜백 함수로 전환",
+          "name": "이전 달에"
+        },
+        "onSelect": {
+          "description": "날짜 또는 시간을 선택하면 콜백이 시작됩니다.",
+          "name": "온셀렉트"
+        },
+        "onToggleMonthDropdown": {
+          "description": "월 보기로 전환하는 콜백 함수",
+          "name": "온토글 월 드롭다운"
+        },
+        "onToggleTimeDropdown": {
+          "description": "타임 뷰로 전환하는 콜백 함수",
+          "name": "온토글 타임 드롭다운"
+        },
+        "oneTap": {
+          "description": "원클릭 선택 날짜",
+          "name": "한 번 누르기"
+        },
+        "open": {
+          "description": "구성 요소 열기 여부",
+          "name": "열기"
+        },
+        "preventOverflow": {
+          "description": "플로팅 엘리먼트 오버플로 방지",
+          "name": "오버플로 방지"
+        },
+        "showMeridiem": {
+          "description": "시간을 12가지 형식으로 표시",
+          "name": "메리디엄 보기"
+        },
+        "showWeekNumbers": {
+          "description": "주 번호 표시 여부",
+          "name": "주 번호 보기"
+        }
+      }
+    },
+    "RsDivider": {
+      "description": "구분선은 콘텐츠를 가로 또는 세로로 그룹화하는 데 사용됩니다.",
+      "name": "디바이더",
+      "props": {
+        "children": {
+          "description": "구분선에 텍스트 설정",
+          "name": "콘텐츠"
+        },
+        "vertical": {
+          "description": "수직 구분선",
+          "name": "수직형"
+        }
+      }
+    },
+    "RsDropdown": {
+      "description": "드롭다운 메뉴는 값을 선택하려는 경우 선택/선택기를 사용하는 탐색입니다.",
+      "name": "드롭다운",
+      "props": {
+        "cleanable": {
+          "description": "옵션을 비울 수 있는지 여부",
+          "name": "청소 가능"
+        },
+        "creatable": {
+          "description": "설정은 새 옵션을 만들 수 있습니다.",
+          "name": "작성 가능"
+        },
+        "data": {
+          "description": "선택 가능한 데이터",
+          "name": "데이터"
+        },
+        "disableVirtualized": {
+          "description": "가상화 비활성화 여부",
+          "name": "가상화 비활성화"
+        },
+        "groupBy": {
+          "description": "'데이터'에서 그룹화 기준 '키' 설정",
+          "name": "그룹화 기준"
+        },
+        "onChange": {
+          "description": "값 변경 시 콜백 함수",
+          "name": "온체인지"
+        },
+        "onClean": {
+          "description": "클린을 위한 콜백",
+          "name": "온클린"
+        },
+        "onClose": {
+          "description": "종가를 위한 콜백",
+          "name": "OnClose"
+        },
+        "onCreate": {
+          "description": "생성을 위한 콜백",
+          "name": "OnCreate"
+        },
+        "onLoadData": {
+          "description": "데이터 로드를 위한 콜백",
+          "name": "온로드 데이터"
+        },
+        "onSearch": {
+          "description": "검색을 위한 콜백",
+          "name": "온서치"
+        },
+        "onSelect": {
+          "description": "선택을 위한 콜백",
+          "name": "온셀렉트"
+        },
+        "preload": {
+          "description": "데이터를 미리 로드할지 여부",
+          "name": "사전에 설치하다"
+        }
+      }
+    },
+    "RsErrorMessage": {
+      "description": "검증 메시지를 표시하는 구성 요소",
+      "name": "오류 메시지"
+    },
+    "RsHeader": {
+      "description": "간단한 HTML 헤더",
+      "name": "머리글",
+      "props": {
+        "content": {
+          "description": "헤더 텍스트",
+          "name": "콘텐츠"
+        },
+        "headerSize": {
+          "description": "헤더 레벨",
+          "name": "헤더 크기"
+        }
+      }
+    },
+    "RsImage": {
+      "description": "간단한 HTML 이미지",
+      "name": "이미지",
+      "props": {
+        "alt": {
+          "description": "이미지 설명",
+          "name": "설명"
+        },
+        "src": {
+          "description": "이미지 소스",
+          "name": "Src"
+        }
+      }
+    },
+    "RsInput": {
+      "description": "사용자가 텍스트를 입력하고 편집할 수 있는 입력",
+      "name": "입력",
+      "props": {
+        "passwordMask": {
+          "description": "비밀번호 마스크 사용",
+          "name": "비밀번호 마스크"
+        },
+        "showPasswordAriaLabel": {
+          "description": "입력이 암호 마스크 모드일 때 암호 표시 단추의 aria-label 속성 값",
+          "name": "암호 표시 버튼용 ARIA 레이블"
+        },
+        "type": {
+          "description": "HTML 입력 유형",
+          "name": "타입"
+        }
+      }
+    },
+    "RsLabel": {
+      "description": "간단한 HTML 라벨",
+      "name": "레이블",
+      "props": {
+        "text": {
+          "description": "레이블 텍스트 콘텐츠",
+          "name": "텍스트"
+        }
+      }
+    },
+    "RsLink": {
+      "description": "간단한 HTML 앵커",
+      "name": "링크",
+      "props": {
+        "children": {
+          "description": "구성 요소의 하위 요소",
+          "name": "어린이"
+        },
+        "content": {
+          "description": "콘텐츠 유형 (텍스트 또는 사용자 지정)",
+          "name": "콘텐츠"
+        },
+        "download": {
+          "description": "브라우저가 연결된 URL을 다운로드로 취급하도록 합니다.",
+          "name": "다운로드"
+        },
+        "downloadFilename": {
+          "description": "값을 정의하면 해당 값이 파일 이름으로 제안됩니다./및\\ 문자는 밑줄 (_) 로 변환됩니다.",
+          "name": "파일 이름 다운로드"
+        },
+        "href": {
+          "description": "하이퍼링크가 가리키는 URL",
+          "name": "Href"
+        },
+        "onClick": {
+          "description": "링크 클릭 시 콜백 함수",
+          "name": "온클릭"
+        },
+        "target": {
+          "description": "연결된 URL을 브라우징 컨텍스트의 이름으로 표시할 위치 (탭, 창 또는<iframe>)",
+          "name": "타깃"
+        },
+        "text": {
+          "description": "링크 텍스트 콘텐츠",
+          "name": "텍스트"
+        }
+      }
+    },
+    "RsMenu": {
+      "description": "가로 및 세로 레이아웃이 가능한 다양한 형태의 탐색 메뉴 목록을 제공합니다.",
+      "name": "메뉴",
+      "props": {
+        "activeKey": {
+          "description": "항목 값 중 하나에 해당하는 활성 키",
+          "name": "액티브 키"
+        },
+        "appearance": {
+          "description": "내비게이션은 다양한 모양을 가질 수 있습니다.",
+          "name": "외관"
+        },
+        "items": {
+          "description": "메뉴를 위한 항목",
+          "name": "아이템"
+        },
+        "itemsAs": {
+          "description": "메뉴 항목을 렌더링하는 HTML 요소",
+          "name": "항목은 다음과 같습니다."
+        },
+        "justified": {
+          "description": "합리적인 내비게이션",
+          "name": "정당화"
+        },
+        "onSelect": {
+          "description": "선택 후 콜백 함수 트리거",
+          "name": "온셀렉트"
+        },
+        "reversed": {
+          "description": "탭의 역방향/미묘함",
+          "name": "반전"
+        },
+        "vertical": {
+          "description": "스택형 내비게이션",
+          "name": "수직형"
+        }
+      }
+    },
+    "RsMessage": {
+      "description": "페이지에 중요한 팁을 표시하는 데 사용됩니다.",
+      "name": "메세지",
+      "props": {
+        "closable": {
+          "description": "메시지 상자를 닫을 수 있는지 여부",
+          "name": "닫을 수 있습니다"
+        },
+        "header": {
+          "description": "메시지의 제목",
+          "name": "머리글"
+        },
+        "type": {
+          "description": "메시지 상자의 유형",
+          "name": "타입"
+        }
+      }
+    },
+    "RsModal": {
+      "description": "메시지 프롬프트, 승인 메시지 및 제출을 위한 모달 대화 상자 구성 요소",
+      "name": "양식상의",
+      "props": {
+        "autoFocus": {
+          "description": "true로 설정하면 모달이 열리고 화면 판독기에서 액세스할 수 있는 모달 자체에 자동으로 초점이 맞춰집니다.",
+          "name": "오토 포커스"
+        },
+        "backdrop": {
+          "description": "true로 설정하면 모달을 열 때 배경이 표시됩니다.배경을 클릭하면 모달이 닫힙니다.",
+          "name": "백드롭"
+        },
+        "backdropClassName": {
+          "description": ".modal-backdrop에 선택적 추가 클래스 이름을 추가하면 class=\"modal-backdrop foo-modal-backdrop in\"과 같이 보일 수 있습니다.",
+          "name": "백드롭 클래스 이름"
+        },
+        "classPrefix": {
+          "description": "컴포넌트 CSS 클래스의 접두사",
+          "name": "CSS 클래스 접두사"
+        },
+        "dialogClassName": {
+          "description": "다이얼로그 DOM 노드에 적용된 CSS 클래스",
+          "name": "대화용 CSS 클래스"
+        },
+        "enforceFocus": {
+          "description": "true로 설정하면 Modal을 열었을 때 초점이 이탈하는 것을 방지하여 보조 스크린 리더가 쉽게 액세스할 수 있습니다.",
+          "name": "포커스 적용"
+        },
+        "keyboard": {
+          "description": "Esc 키를 누르면 모달 닫기",
+          "name": "닫기: Esc"
+        },
+        "onClose": {
+          "description": "모달이 닫힐 때 호출됩니다.",
+          "name": "OnClose"
+        },
+        "onOpen": {
+          "description": "모달이 표시될 때 호출됩니다.",
+          "name": "OnOpen"
+        },
+        "overflow": {
+          "description": "본문 내용이 너무 길 경우 자동으로 높이를 설정합니다.",
+          "name": "오버플로"
+        },
+        "size": {
+          "description": "모달의 너비를 결정하십시오.",
+          "name": "사이즈"
+        }
+      }
+    },
+    "RsModalLayout": {
+      "description": "머리글, 본문 및 바닥글 섹션이 있는 모달 레이아웃 구성 요소",
+      "name": "모달 레이아웃",
+      "props": {
+        "body": {
+          "description": "모달 바디의 내용",
+          "name": "바디"
+        },
+        "closeButton": {
+          "description": "디스플레이 닫기 버튼",
+          "name": "닫기 버튼"
+        },
+        "footer": {
+          "description": "모달 바닥글의 콘텐츠",
+          "name": "바닥글"
+        },
+        "headerTitle": {
+          "description": "모달 헤더의 제목",
+          "name": "헤더 제목"
+        }
+      }
+    },
+    "RsNumberFormat": {
+      "description": "유효성 검사 및 서식 지정 기능이 있는 숫자 형식 입력 구성 요소",
+      "name": "숫자 형식",
+      "props": {
+        "allowLeadingZeros": {
+          "description": "이를 통해 입력 필드에서 선행 0을 활성화하거나 비활성화할 수 있습니다.기본적으로 입력이 흐려지면 선행 0이 제거됩니다.",
+          "name": "앞에 0을 입력할 수 있습니다."
+        },
+        "allowNegative": {
+          "description": "false로 설정하면 음수는 허용되지 않습니다.",
+          "name": "네거티브 허용"
+        },
+        "allowedDecimalSeparators": {
+          "description": "누르면 소수 구분 기호가 나타나는 문자.누락된 경우 소수 구분 기호와 '.' 가 사용됩니다.",
+          "name": "허용된 소수점 구분 기호"
+        },
+        "decimalScale": {
+          "description": "정의된 경우 소수점 이하 자릿수를 제한합니다.",
+          "name": "십진수 척도"
+        },
+        "decimalSeparator": {
+          "description": "십진수 문자를 정의합니다.",
+          "name": "소수점 구분 기호"
+        },
+        "fixedDecimalScale": {
+          "description": "true로 설정하면 소수점 구분 기호 뒤에 0을 추가하여 지정된 십진수 스케일과 일치시킵니다.",
+          "name": "고정 십진 스케일"
+        },
+        "prefix": {
+          "description": "입력값 앞에 접두사 문자를 추가합니다.",
+          "name": "접두사"
+        },
+        "suffix": {
+          "description": "입력값 뒤에 접미사를 추가합니다.",
+          "name": "접미사"
+        },
+        "thousandSeparator": {
+          "description": "천 단위 구분선",
+          "name": "천 단위 구분선"
+        },
+        "thousandsGroupStyle": {
+          "description": "천 스타일 (천): 123,456,789, 인도 스타일 (라크): 12,34,56,789, 중국 스타일 (완): 1,2345,6789",
+          "name": "수천 그룹 스타일"
+        }
+      }
+    },
+    "RsPatternFormat": {
+      "description": "라벨을 지원하는 패턴 포맷 입력 컴포넌트",
+      "name": "패턴 형식",
+      "props": {
+        "allowEmptyFormatting": {
+          "description": "기본적으로 PatternFormat 구성 요소는 값이 비어 있을 때 서식을 적용하지 않습니다 (null, 정의되지 않음 또는 '').",
+          "name": "빈 서식 허용"
+        },
+        "format": {
+          "description": "# (또는 패턴 문자) 문자를 사용하여 패턴의 서식을 지정합니다. #은 숫자의 자리 표시자 문자입니다.예: '### ###'",
+          "name": "형식"
+        },
+        "mask": {
+          "description": "해당 위치에 임의의 숫자가 제공될 때까지 숫자 자리의 마스크 문자로 사용됩니다.",
+          "name": "마스크"
+        },
+        "patternChar": {
+          "description": "이는 형식 패턴 문자를 정의하는 데 도움이 됩니다.",
+          "name": "패턴 차트"
+        }
+      }
+    },
+    "RsPlaceholderGraph": {
+      "description": "컴포넌트를 사각형 형태로 로드하기 전의 자리 표시자",
+      "name": "플레이스홀더 그래프",
+      "props": {
+        "active": {
+          "description": "플레이스홀더가 활성 상태인지 여부",
+          "name": "액티브"
+        },
+        "height": {
+          "description": "그래프 높이",
+          "name": "높이"
+        },
+        "width": {
+          "description": "그래프 너비",
+          "name": "너비"
+        }
+      }
+    },
+    "RsPlaceholderGrid": {
+      "description": "컴포넌트를 그리드 형태로 로드하기 전의 플레이스홀더",
+      "name": "플레이스홀더 그리드",
+      "props": {
+        "active": {
+          "description": "플레이스홀더가 활성 상태인지 여부",
+          "name": "액티브"
+        },
+        "columns": {
+          "description": "컬럼의 개수",
+          "name": "칼럼"
+        },
+        "rowHeight": {
+          "description": "행의 높이입니다.",
+          "name": "행 높이"
+        },
+        "rowSpacing": {
+          "description": "행 사이의 간격",
+          "name": "행 간격"
+        },
+        "rows": {
+          "description": "행 개수입니다.",
+          "name": "행"
+        }
+      }
+    },
+    "RsPlaceholderParagraph": {
+      "description": "단락 형태로 구성 요소를 로드하기 전의 자리 표시자",
+      "name": "플레이스홀더 단락",
+      "props": {
+        "active": {
+          "description": "플레이스홀더가 활성 상태인지 여부",
+          "name": "액티브"
+        },
+        "graph": {
+          "description": "그래프의 모양",
+          "name": "그래프"
+        },
+        "rowHeight": {
+          "description": "행의 높이입니다.",
+          "name": "행 높이"
+        },
+        "rowSpacing": {
+          "description": "행 사이의 간격",
+          "name": "행 간격"
+        },
+        "rows": {
+          "description": "행 개수입니다.",
+          "name": "행"
+        }
+      }
+    },
+    "RsProgressCircle": {
+      "description": "작업의 현재 진행률을 원으로 표시",
+      "name": "프로그레스 서클",
+      "props": {
+        "classPrefix": {
+          "description": "컴포넌트 CSS 클래스의 접두사",
+          "name": "클래스 접두사"
+        },
+        "gapDegree": {
+          "description": "반원의 간격 각도, 0 ~ 360",
+          "name": "갭 정도"
+        },
+        "gapPosition": {
+          "description": "원형 진행률 표시줄 노치 위치",
+          "name": "갭 위치"
+        },
+        "percent": {
+          "description": "진행률 (%)",
+          "name": "퍼센트"
+        },
+        "showInfo": {
+          "description": "텍스트 보기",
+          "name": "정보 보기"
+        },
+        "status": {
+          "description": "진행 상태",
+          "name": "상태"
+        },
+        "strokeColor": {
+          "description": "선 색상",
+          "name": "스트로크 컬러"
+        },
+        "strokeLinecap": {
+          "description": "다양한 유형의 열린 길의 끝",
+          "name": "스트로크 라인캡"
+        },
+        "strokeWidth": {
+          "description": "선 너비",
+          "name": "스트로크 너비"
+        },
+        "trailColor": {
+          "description": "트레일 컬러",
+          "name": "트레일 컬러"
+        },
+        "trailWidth": {
+          "description": "트레일 너비",
+          "name": "트레일 너비"
+        }
+      }
+    },
+    "RsProgressLine": {
+      "description": "작업의 현재 진행률을 한 줄로 표시",
+      "name": "프로그레스 라인",
+      "props": {
+        "classPrefix": {
+          "description": "컴포넌트 CSS 클래스의 접두사",
+          "name": "클래스 접두사"
+        },
+        "percent": {
+          "description": "진행률 (%)",
+          "name": "퍼센트"
+        },
+        "showInfo": {
+          "description": "텍스트 보기",
+          "name": "정보 보기"
+        },
+        "status": {
+          "description": "진행 상태",
+          "name": "상태"
+        },
+        "strokeColor": {
+          "description": "선 색상",
+          "name": "스트로크 컬러"
+        },
+        "strokeWidth": {
+          "description": "선 너비",
+          "name": "스트로크 너비"
+        },
+        "vertical": {
+          "description": "진행률 표시줄이 세로로 표시됩니다.",
+          "name": "수직형"
+        }
+      }
+    },
+    "RsRadioGroup": {
+      "description": "라디오는 일련의 옵션에서 한 가지 옵션만 선택할 수 있는 경우에 사용됩니다.",
+      "name": "라디오 그룹",
+      "props": {
+        "appearance": {
+          "description": "라디오 그룹은 서로 다른 모습을 가질 수 있습니다.",
+          "name": "외관"
+        },
+        "inline": {
+          "description": "인라인 레이아웃",
+          "name": "인라인"
+        },
+        "items": {
+          "description": "라디오 그룹에 대한 항목",
+          "name": "아이템"
+        },
+        "name": {
+          "description": "라디오 그룹 이름",
+          "name": "이름"
+        },
+        "onChange": {
+          "description": "값이 변경된 후 호출됩니다.",
+          "name": "온체인지"
+        }
+      }
+    },
+    "RsSearch": {
+      "description": "레이블 및 데이터 로드를 지원하는 검색 구성 요소",
+      "name": "검색",
+      "props": {
+        "cleanable": {
+          "description": "옵션을 비울 수 있는지 여부",
+          "name": "청소 가능"
+        },
+        "creatable": {
+          "description": "설정은 새 옵션을 만들 수 있습니다.",
+          "name": "작성 가능"
+        },
+        "data": {
+          "description": "선택 가능한 데이터",
+          "name": "데이터"
+        },
+        "disableVirtualized": {
+          "description": "가상화 비활성화 여부",
+          "name": "가상화 비활성화"
+        },
+        "groupBy": {
+          "description": "'데이터'에서 그룹화 기준 '키' 설정",
+          "name": "그룹화 기준"
+        },
+        "onChange": {
+          "description": "값 변경 시 콜백 함수",
+          "name": "온체인지"
+        },
+        "onClean": {
+          "description": "클린을 위한 콜백",
+          "name": "온클린"
+        },
+        "onClose": {
+          "description": "종가를 위한 콜백",
+          "name": "OnClose"
+        },
+        "onCreate": {
+          "description": "생성을 위한 콜백",
+          "name": "OnCreate"
+        },
+        "onLoadData": {
+          "description": "데이터 로드를 위한 콜백",
+          "name": "온로드 데이터"
+        },
+        "onSearch": {
+          "description": "검색을 위한 콜백",
+          "name": "온서치"
+        },
+        "onSelect": {
+          "description": "선택을 위한 콜백",
+          "name": "온셀렉트"
+        },
+        "preload": {
+          "description": "데이터를 미리 로드할지 여부",
+          "name": "사전에 설치하다"
+        }
+      }
+    },
+    "RsStaticContent": {
+      "description": "텍스트 또는 HTML 콘텐츠를 표시하는 정적 콘텐츠 구성 요소",
+      "name": "정적 콘텐츠",
+      "props": {
+        "allowHtml": {
+          "description": "HTML 콘텐츠 허용 여부",
+          "name": "HTML 허용"
+        },
+        "content": {
+          "description": "표시할 콘텐츠",
+          "name": "콘텐츠"
+        }
+      }
+    },
+    "RsTab": {
+      "description": "탭은 탭 패널이라고 하는 콘텐츠의 계층화된 섹션 세트로, 한 번에 하나의 콘텐츠 패널을 표시합니다.",
+      "name": "탭",
+      "props": {
+        "activeKey": {
+          "description": "항목 값 중 하나에 해당하는 활성 키",
+          "name": "액티브 키"
+        },
+        "appearance": {
+          "description": "탭은 서로 다른 모양으로 표시될 수 있습니다.",
+          "name": "외관"
+        },
+        "items": {
+          "description": "탭에 사용할 항목",
+          "name": "아이템"
+        },
+        "justified": {
+          "description": "합리적인 내비게이션",
+          "name": "정당화"
+        },
+        "onSelect": {
+          "description": "선택 후 콜백 함수 트리거",
+          "name": "온셀렉트"
+        },
+        "pane": {
+          "description": "탭의 하위 구성 요소",
+          "name": "파네"
+        },
+        "reversed": {
+          "description": "탭의 역방향/미묘함",
+          "name": "반전"
+        },
+        "showNavigation": {
+          "description": "내비게이션 표시 또는 숨기기",
+          "name": "내비게이션 보기"
+        },
+        "vertical": {
+          "description": "스택형 내비게이션",
+          "name": "수직형"
+        }
+      }
+    },
+    "RsTagPicker": {
+      "description": "라벨을 지원하는 태그 피커 컴포넌트",
+      "name": "태그 피커",
+      "props": {
+        "cleanable": {
+          "description": "옵션을 비울 수 있는지 여부",
+          "name": "청소 가능"
+        },
+        "creatable": {
+          "description": "설정은 새 옵션을 만들 수 있습니다.",
+          "name": "작성 가능"
+        },
+        "data": {
+          "description": "선택 가능한 데이터",
+          "name": "데이터"
+        },
+        "groupBy": {
+          "description": "'데이터'에서 그룹화 기준 '키' 설정",
+          "name": "그룹화 기준"
+        },
+        "onChange": {
+          "description": "값 변경 시 콜백 함수",
+          "name": "온체인지"
+        },
+        "onClean": {
+          "description": "클린을 위한 콜백",
+          "name": "온클린"
+        },
+        "onClose": {
+          "description": "종가를 위한 콜백",
+          "name": "OnClose"
+        },
+        "onCreate": {
+          "description": "생성을 위한 콜백",
+          "name": "OnCreate"
+        },
+        "onSearch": {
+          "description": "검색을 위한 콜백",
+          "name": "온서치"
+        },
+        "onSelect": {
+          "description": "선택을 위한 콜백",
+          "name": "온셀렉트"
+        }
+      }
+    },
+    "RsTextArea": {
+      "description": "여러 줄 텍스트 입력을 위한 텍스트 영역 구성 요소",
+      "name": "텍스트 영역",
+      "props": {
+        "onChange": {
+          "description": "값이 변경되는 콜백 함수",
+          "name": "온체인지"
+        },
+        "onPressEnter": {
+          "description": "엔터 키를 누르면 전화가 걸렸습니다.",
+          "name": "온프레스엔터"
+        },
+        "rows": {
+          "description": "보이는 텍스트 줄 수",
+          "name": "행"
+        }
+      }
+    },
+    "RsTimePicker": {
+      "description": "라벨을 지원하는 타임 피커 컴포넌트",
+      "name": "타임 피커",
+      "props": {
+        "cleanable": {
+          "description": "선택한 값을 지울 수 있는지 여부",
+          "name": "청소 가능"
+        },
+        "defaultValue": {
+          "description": "디폴트 값",
+          "name": "디폴트 값"
+        },
+        "editable": {
+          "description": "입력으로 렌더링되며 키보드를 통해 시간을 입력할 수 있습니다.",
+          "name": "편집 가능"
+        },
+        "format": {
+          "description": "입력에서 렌더링될 때의 시간 형식",
+          "name": "형식"
+        },
+        "onChange": {
+          "description": "값이 변경되면 콜백이 시작됨",
+          "name": "온체인지"
+        },
+        "onClean": {
+          "description": "값이 정리되면 콜백이 실행됩니다.",
+          "name": "온클린"
+        },
+        "onClose": {
+          "description": "컴포넌트를 닫을 때 콜백이 실행됨",
+          "name": "OnClose"
+        },
+        "onEnter": {
+          "description": "오버레이가 전환되기 전에 콜백이 실행되었습니다.",
+          "name": "온엔터"
+        },
+        "onEntered": {
+          "description": "오버레이 전환이 완료된 후 콜백이 실행됨",
+          "name": "입력됨"
+        },
+        "onEntering": {
+          "description": "오버레이가 전환되기 시작하면 콜백이 실행됨",
+          "name": "입장 시"
+        },
+        "onExit": {
+          "description": "오버레이가 전환되기 직전에 콜백이 실행되었습니다.",
+          "name": "OnExit"
+        },
+        "onExited": {
+          "description": "오버레이 전환이 완료된 후 콜백이 실행됨",
+          "name": "One-Exted"
+        },
+        "onExiting": {
+          "description": "오버레이가 전환되기 시작하면 콜백이 실행됨",
+          "name": "원 엑시팅"
+        },
+        "onOk": {
+          "description": "OK 콜백 함수를 클릭합니다.",
+          "name": "괜찮아"
+        },
+        "onOpen": {
+          "description": "컴포넌트를 열면 콜백이 실행됩니다.",
+          "name": "OnOpen"
+        },
+        "onSelect": {
+          "description": "날짜 또는 시간을 선택하면 콜백이 시작됩니다.",
+          "name": "온셀렉트"
+        },
+        "open": {
+          "description": "구성 요소 열기 여부",
+          "name": "열기"
+        }
+      }
+    },
+    "RsToggle": {
+      "description": "토글 스위치, 두 값 사이의 선택에 사용",
+      "name": "토글",
+      "props": {
+        "checked": {
+          "description": "토글 확인 여부",
+          "name": "확인"
+        },
+        "checkedChildren": {
+          "description": "체크된 상태로 표시되는 텍스트",
+          "name": "체크된 텍스트"
+        },
+        "children": {
+          "description": "컴포넌트 라벨",
+          "name": "레이블"
+        },
+        "color": {
+          "description": "토글의 색상",
+          "name": "색상"
+        },
+        "loading": {
+          "description": "구성 요소가 로드 상태인지 여부",
+          "name": "불러오는 중"
+        },
+        "onChange": {
+          "description": "토글 상태가 변경될 때 호출됩니다.",
+          "name": "온체인지"
+        },
+        "unCheckedChildren": {
+          "description": "선택되지 않은 상태로 표시되는 텍스트",
+          "name": "확인되지 않은 텍스트"
+        }
+      }
+    },
+    "RsTooltip": {
+      "description": "HTML 요소의 기본 제목 속성을 대체하는 보조 텍스트 팁",
+      "name": "툴팁",
+      "props": {
+        "children": {
+          "description": "툴팁의 하위 요소",
+          "name": "어린이"
+        },
+        "text": {
+          "description": "툴팁 텍스트",
+          "name": "텍스트"
+        },
+        "trigger": {
+          "description": "툴팁 트리거",
+          "name": "트리거"
+        }
+      }
+    },
+    "RsUploader": {
+      "description": "클릭 또는 드래그 앤 드롭으로 파일을 업로드하면 업로드된 이미지 미리보기를 지원합니다.",
+      "name": "업로더",
+      "props": {
+        "accept": {
+          "description": "허용할 수 있는 파일 유형표준 HTML 속성 참조: 수락",
+          "name": "수락"
+        },
+        "action": {
+          "description": "URL 업로드",
+          "name": "액션"
+        },
+        "autoUpload": {
+          "description": "파일을 선택한 후 자동으로 업로드",
+          "name": "자동 업로드"
+        },
+        "children": {
+          "description": "주요 콘텐츠",
+          "name": "어린이"
+        },
+        "customElement": {
+          "description": "업로더에 맞춤 요소를 사용할지 여부",
+          "name": "사용자 지정 요소"
+        },
+        "disableMultipart": {
+          "description": "'true'인 경우 파일 업로드에 멀티파트 양식 사용을 비활성화하고 대신 파일을 스트리밍합니다.일부 API (예: Amazon S3) 에서는 파일이 양식을 통해 전송되지 않고 스트리밍될 것으로 예상할 수 있습니다.",
+          "name": "멀티파트 비활성화"
+        },
+        "disabledFileItem": {
+          "description": "비활성화된 파일 항목",
+          "name": "비활성화된 파일 항목"
+        },
+        "draggable": {
+          "description": "드래그 앤 드롭으로 업로드 가능",
+          "name": "드래그 가능"
+        },
+        "fileList": {
+          "description": "업로드한 파일 목록",
+          "name": "파일 목록"
+        },
+        "fileListVisible": {
+          "description": "파일 목록 렌더링 가능",
+          "name": "파일 목록 표시"
+        },
+        "listType": {
+          "description": "업로드 목록 스타일",
+          "name": "목록 유형"
+        },
+        "method": {
+          "description": "업로드 요청의 HTTP 메서드",
+          "name": "메서드"
+        },
+        "multiple": {
+          "description": "여러 파일 업로드 허용",
+          "name": "멀티플"
+        },
+        "name": {
+          "description": "해당 파일의 파라미터 이름을 업로드합니다.",
+          "name": "이름"
+        },
+        "onChange": {
+          "description": "업로드 대기열이 변경된 콜백 함수",
+          "name": "온체인지"
+        },
+        "onError": {
+          "description": "오류가 있는 콜백 함수 업로드",
+          "name": "OnError"
+        },
+        "onPreview": {
+          "description": "파일 목록에서 업로드한 파일의 콜백 함수를 클릭합니다.",
+          "name": "OnPreview"
+        },
+        "onProgress": {
+          "description": "진행 변경 사항을 업로드하는 콜백 함수",
+          "name": "진행 중"
+        },
+        "onRemove": {
+          "description": "파일 목록에서 콜백 함수를 클릭하여 파일을 삭제합니다.",
+          "name": "OnRemove"
+        },
+        "onReupload": {
+          "description": "파일 목록에서 업로드에 실패한 파일을 보려면 콜백 함수를 클릭하여 업로드합니다.",
+          "name": "재업로드 없음"
+        },
+        "onSuccess": {
+          "description": "업로드 성공 후 콜백 함수",
+          "name": "OnSuccess"
+        },
+        "onUpload": {
+          "description": "파일 업로드를 시작하는 콜백 함수",
+          "name": "업로드 시"
+        },
+        "removable": {
+          "description": "제거 가능한 목록 파일",
+          "name": "착탈식"
+        },
+        "timeout": {
+          "description": "업로드 제한 시간 설정",
+          "name": "타임아웃"
+        },
+        "withCredentials": {
+          "description": "요청을 업로드할 때 쿠키를 보관할지 여부",
+          "name": "자격 증명 포함"
+        }
+      }
+    },
+    "RsWizard": {
+      "description": "단계 탐색 및 검증이 포함된 마법사 구성 요소",
+      "name": "위저드",
+      "props": {
+        "activeIndex": {
+          "description": "액티브 스텝 인덱스",
+          "name": "액티브 인덱스"
+        },
+        "children": {
+          "description": "위저드 스텝 콘텐츠",
+          "name": "어린이"
+        },
+        "finishButtonLabel": {
+          "description": "완료 버튼 레이블",
+          "name": "완료 버튼 레이블"
+        },
+        "nextButtonLabel": {
+          "description": "다음 버튼 라벨",
+          "name": "다음 버튼 라벨"
+        },
+        "onFinish": {
+          "description": "마침 버튼 클릭 시 콜백",
+          "name": "완료 시"
+        },
+        "onNext": {
+          "description": "다음 버튼 클릭 시 콜백",
+          "name": "온넥스트"
+        },
+        "onPrev": {
+          "description": "이전 버튼 클릭 시 콜백",
+          "name": "OnPrev"
+        },
+        "prevButtonLabel": {
+          "description": "이전 버튼 레이블",
+          "name": "이전 버튼 라벨"
+        },
+        "showSteps": {
+          "description": "true인 경우 단계가 표시됩니다.",
+          "name": "단계 보기"
+        },
+        "showStepsLabels": {
+          "description": "true인 경우 단계 레이블이 표시됩니다.",
+          "name": "단계 라벨 보기"
+        },
+        "steps": {
+          "description": "마법사 단계",
+          "name": "단계"
+        },
+        "stepsNavigation": {
+          "description": "클릭하여 탐색에 사용할 수 있는 단계를 결정합니다.",
+          "name": "단계 탐색"
+        },
+        "validateOnFinish": {
+          "description": "true인 경우 마법사를 완료하기 전에 마법사의 유효성이 검사됩니다.",
+          "name": "완료 시 검증"
+        },
+        "validateOnNext": {
+          "description": "true인 경우 다음 단계로 이동하기 전에 단계가 검증됩니다.",
+          "name": "다음 번에 검증"
+        },
+        "verticalSteps": {
+          "description": "true인 경우 단계가 세로로 표시됩니다.",
+          "name": "수직 계단"
+        }
+      }
+    },
+    "RsWizardStep": {
+      "description": "플렉스 레이아웃의 위저드 스텝 컴포넌트",
+      "name": "위저드 스텝",
+      "props": {
+        "children": {
+          "description": "구성 요소의 하위 요소",
+          "name": "어린이"
+        }
+      }
+    }
+  }
+}

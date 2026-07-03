@@ -1,0 +1,73 @@
+{
+  "default": {
+    "Breadcrumb": {
+      "expandText": "Prikaži putanju"
+    },
+    "CloseButton": {
+      "closeLabel": "Zatvori"
+    },
+    "DateRangePicker": {
+      "last7Days": "Poslednjih 7 dana"
+    },
+    "Pagination": {
+      "first": "Prvo",
+      "last": "Poslednji",
+      "limit": "{{0}}/stranica",
+      "more": "Više",
+      "next": "Sledeće",
+      "prev": "Prethodna",
+      "skip": "Idi na {{0}}",
+      "total": "Ukupno redova: {{0}}"
+    },
+    "Plaintext": {
+      "notSelected": "Nije izabrano",
+      "notUploaded": "Nije otpremljeno",
+      "unfilled": "Neispunjen"
+    },
+    "Toggle": {
+      "off": "Zatvori",
+      "on": "Otvori"
+    },
+    "Uploader": {
+      "complete": "Završio",
+      "emptyFile": "Prazan",
+      "error": "Greška",
+      "inited": "Početni",
+      "progress": "Otpremanje",
+      "removeFile": "Ukloni datoteku",
+      "upload": "Otpremite"
+    },
+    "common": {
+      "clear": "Očisti",
+      "emptyMessage": "Podaci nisu pronađeni",
+      "loading": "Učitavanje...",
+      "remove": "Ukloni"
+    }
+  },
+  "genericCombobox": {
+    "checkAll": "Sve",
+    "noResultsText": "Nisu pronađeni rezultati",
+    "placeholder": "Izaberite",
+    "searchPlaceholder": "Pretraga"
+  },
+  "genericCreatableComboBox": {
+    "createOption": "Kreiraj opciju \"{{0}}\"",
+    "newItem": "Nova stavka"
+  },
+  "genericDateTimeFormats": {
+    "friday": "Fr",
+    "hours": "Sati",
+    "minutes": "Minuti",
+    "monday": "Mo",
+    "now": "Sada",
+    "ok": "OK",
+    "saturday": "Sa",
+    "seconds": "Sekundi",
+    "sunday": "Su",
+    "thursday": "Th",
+    "today": "Danas",
+    "tuesday": "Tu",
+    "wednesday": "Mi",
+    "yesterday": "Juče"
+  }
+}

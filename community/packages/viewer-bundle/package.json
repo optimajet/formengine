@@ -1,0 +1,70 @@
+{
+  "name": "@react-form-builder/viewer-bundle",
+  "description": "Optimajet Form Builder Develop front-end drag n drop forms with ease.",
+  "version": "10.0.0",
+  "license": "MIT",
+  "private": false,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/optimajet/formengine.git"
+  },
+  "main": "src/index.ts",
+  "type": "module",
+  "keywords": [
+    "form-builder",
+    "optimajet"
+  ],
+  "bugs": {
+    "email": "support@optimajet.com"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf dist temp",
+    "pack": "npm-run-all -l clean build create-archive",
+    "create-archive": "node ./config/pack.ts"
+  },
+  "dependencies": {
+    "@react-form-builder/components-rsuite": "^10.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@react-form-builder/core": "10.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@react-form-builder/core": {
+      "optional": false
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "files": [
+    "dist/formengine-rsuite.css",
+    "dist/index.iife.js",
+    "dist/index.umd.js",
+    "dist/rsuite-no-reset-rtl.min.css",
+    "dist/rsuite-no-reset.min.css",
+    "dist/viewer-bundle-ltr.css",
+    "dist/viewer-bundle-rtl.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@react-form-builder/cli-lib": "*",
+    "vite-inline-css-plugin": "^0.0.1"
+  }
+}

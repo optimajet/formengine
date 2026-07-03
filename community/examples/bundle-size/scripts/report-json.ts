@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-import {writeFileSync} from 'fs'
-import {join} from 'path'
+import {writeFileSync} from 'node:fs'
+import {join} from 'node:path'
 import type {BundleInfo} from './tool.ts'
 
 /**

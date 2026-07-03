@@ -40,7 +40,7 @@ including event handling, computed fields, validation, localization, and a ready
 
 ```bash
 git clone git@github.com:optimajet/formengine.git
-cd formengine/community/src
+cd formengine/community
 npm install
 npm run start
 ```

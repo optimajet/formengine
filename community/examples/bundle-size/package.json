@@ -29,6 +29,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.6",
     "@eslint/js": "^9.39.4",
+    "@react-form-builder/cli-lib": "file:../../scripts/cli-lib",
     "@types/node": "^25.3.5",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

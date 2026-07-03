@@ -1,0 +1,16 @@
+import type {FluentType, FluentVariable} from '@fluent/bundle'
+import {isString} from '../../../utils/isString'
+import {isDate, isNumber, isUndefined} from '../../../utils/tools'
+
+/**
+ * The type checker for the {@link FluentVariable} type.
+ * @param value the value to check.
+ * @returns true if the value is a {@link FluentVariable} type, false otherwise.
+ */
+export const isFluentVariable = (value: any): value is FluentVariable => {
+  if (isString(value) || isNumber(value) || isDate(value)) {
+    return true
+  }
+
+  return !isUndefined((value as FluentType<unknown>)?.value)
+}

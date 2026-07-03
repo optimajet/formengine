@@ -1,0 +1,721 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "Visualizzazione dei dati"
+    },
+    "feedback": {
+      "name": "Feedback"
+    },
+    "form": {
+      "name": "Modulo"
+    },
+    "inputs": {
+      "name": "Ingressi"
+    },
+    "layout": {
+      "name": "Layout"
+    },
+    "navigation": {
+      "name": "Navigazione"
+    },
+    "surfaces": {
+      "name": "Superfici"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "Se vero, il componente viene controllato",
+      "name": "Controllato"
+    },
+    "children": {
+      "description": "Il contenuto del componente",
+      "name": "Bambini"
+    },
+    "color": {
+      "description": "Il colore del componente",
+      "name": "Colore"
+    },
+    "defaultValue": {
+      "description": "Il valore predefinito. Da utilizzare quando il componente non è controllato",
+      "name": "Valore predefinito"
+    },
+    "dense": {
+      "description": "Se vero, riduce l'imbottitura verticale",
+      "name": "Denso"
+    },
+    "disableGutters": {
+      "description": "Se vero, disabilita il padding sinistro e destro",
+      "name": "Disabilita le grondaie"
+    },
+    "disablePadding": {
+      "description": "Se vero, disabilita il padding predefinito",
+      "name": "Disabilita il padding"
+    },
+    "disabled": {
+      "description": "Se vero, il componente è disabilitato",
+      "name": "Disabili"
+    },
+    "error": {
+      "description": "Se vero, il componente viene visualizzato in stato di errore",
+      "name": "Errore"
+    },
+    "fullWidth": {
+      "description": "Se vero, il componente occupa l'intera larghezza del suo contenitore",
+      "name": "Larghezza completa"
+    },
+    "gutterBottom": {
+      "description": "Se vero, il testo avrà un margine inferiore",
+      "name": "Fondo della grondaia"
+    },
+    "helperText": {
+      "description": "Il contenuto testuale dell'helper",
+      "name": "Testo di aiuto"
+    },
+    "margin": {
+      "description": "Definisce il margine applicato al componente",
+      "name": "Margine"
+    },
+    "noWrap": {
+      "description": "Se impostato su true, il testo non verrà avvolto, ma verrà troncato con i puntini di sospensione in eccesso",
+      "name": "Nessun involucro"
+    },
+    "onChange": {
+      "description": "Richiamata attivata quando il valore viene modificato",
+      "name": "Su Change"
+    },
+    "onClick": {
+      "description": "Richiamata attivata quando si fa clic sul componente",
+      "name": "OnClick"
+    },
+    "required": {
+      "description": "Se vero, l'elemento di input è obbligatorio",
+      "name": "Richiesto"
+    },
+    "size": {
+      "description": "La dimensione del componente",
+      "name": "Taglia"
+    },
+    "sx": {
+      "description": "Il prop di sistema che consente di definire le sostituzioni di sistema e stili CSS aggiuntivi",
+      "name": "Sx"
+    },
+    "textAlign": {
+      "description": "Allineamento del testo",
+      "name": "Allineamento"
+    },
+    "value": {
+      "description": "Il valore del componente",
+      "name": "Valore"
+    },
+    "variant": {
+      "description": "La variante da utilizzare",
+      "name": "Variante"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "Contenitore di layout generico con supporto per lo stile del sistema",
+      "name": "Scatola"
+    },
+    "MuiBreadcrumbs": {
+      "description": "Mostra la posizione corrente della pagina all'interno di una gerarchia",
+      "name": "Pangrattato",
+      "props": {
+        "items": {
+          "description": "Elementi breadcrumb da visualizzare",
+          "name": "Oggetti"
+        },
+        "itemsAfterCollapse": {
+          "description": "Se viene superato il numero massimo di elementi, il numero di elementi da mostrare dopo i puntini di sospensione",
+          "name": "Elementi dopo il collasso"
+        },
+        "itemsBeforeCollapse": {
+          "description": "Se viene superato il numero massimo di elementi, il numero di elementi da mostrare prima dei puntini di sospensione",
+          "name": "Elementi prima del collasso"
+        },
+        "maxItems": {
+          "description": "Specifica il numero massimo di breadcrumb da visualizzare",
+          "name": "Numero massimo di articoli"
+        },
+        "separator": {
+          "description": "Elemento utilizzato per separare gli elementi breadcrumb",
+          "name": "Separatore"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "Un componente pulsante utilizzato per attivare azioni o eventi",
+      "name": "Bottone",
+      "props": {
+        "children": {
+          "description": "La didascalia",
+          "name": "Contenuto"
+        },
+        "disableElevation": {
+          "description": "Rimuove l'ombra del pulsante quando è impostato su true",
+          "name": "Disattiva l'elevazione"
+        },
+        "loading": {
+          "description": "Visualizza un indicatore di caricamento e disabilita l'interazione",
+          "name": "Caricamento"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "Raggruppa i pulsanti correlati",
+      "name": "Gruppo di pulsanti",
+      "props": {
+        "fullWidth": {
+          "description": "Fa sì che il gruppo di pulsanti copra l'intera larghezza del contenitore",
+          "name": "Larghezza completa"
+        },
+        "orientation": {
+          "description": "Imposta la direzione del layout dei pulsanti",
+          "name": "Orientamento"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "Componente di superficie per il raggruppamento di contenuti correlati",
+      "name": "Carta",
+      "props": {
+        "actions": {
+          "description": "Tasti di azione o controlli per la scheda",
+          "name": "Azioni"
+        },
+        "header": {
+          "description": "Contenuto visualizzato nell'intestazione della scheda",
+          "name": "Intestazione"
+        },
+        "headerAction": {
+          "description": "Elemento di azione visualizzato nell'intestazione",
+          "name": "Azione header"
+        },
+        "headerAvatar": {
+          "description": "Elemento avatar visualizzato nell'intestazione",
+          "name": "Avatar dell'intestazione"
+        },
+        "media": {
+          "description": "Contenuti multimediali come immagini o video",
+          "name": "Media"
+        },
+        "onSelect": {
+          "description": "Richiamata attivata quando la carta viene selezionata",
+          "name": "su Seleziona"
+        },
+        "subHeader": {
+          "description": "Testo secondario visualizzato sotto l'intestazione",
+          "name": "Sottotestione"
+        },
+        "useActions": {
+          "description": "Visualizza una sezione delle azioni nella parte inferiore",
+          "name": "Usa le azioni"
+        },
+        "useCardActionArea": {
+          "description": "Confeziona il contenuto con un'area di azione cliccabile",
+          "name": "Usa l'area di azione della carta"
+        },
+        "useHeader": {
+          "description": "Abilita la sezione dell'intestazione della carta",
+          "name": "Usa l'intestazione"
+        },
+        "useHeaderAction": {
+          "description": "Abilita un'area di azione all'interno dell'intestazione",
+          "name": "Usa l'azione dell'intestazione"
+        },
+        "useHeaderAvatar": {
+          "description": "Visualizza un avatar all'interno dell'intestazione",
+          "name": "Usa l'avatar dell'intestazione"
+        },
+        "useMedia": {
+          "description": "Abilita una sezione multimediale all'interno della scheda",
+          "name": "Usa contenuti multimediali"
+        },
+        "useSubheader": {
+          "description": "Visualizza un sottotitolo sotto l'intestazione principale",
+          "name": "Usa il sottotitolo"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "Consente di selezionare una o più opzioni",
+      "name": "Casella di controllo",
+      "props": {
+        "defaultChecked": {
+          "description": "Stato iniziale controllato quando non controllato",
+          "name": "Valore predefinito selezionato"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "Indica il caricamento o l'avanzamento in forma circolare",
+      "name": "Progresso circolare",
+      "props": {
+        "disableShrink": {
+          "description": "Disattiva l'animazione di riduzione",
+          "name": "Disabilita shrink"
+        },
+        "thickness": {
+          "description": "Controlla la larghezza del tratto del cerchio",
+          "name": "Spessore"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "Centra e vincola il contenuto orizzontalmente",
+      "name": "Contenitore",
+      "props": {
+        "fixed": {
+          "description": "Imposta una larghezza massima fissa anziché fluida",
+          "name": "Fisso"
+        },
+        "maxWidth": {
+          "description": "Definisce la larghezza massima del contenitore",
+          "name": "Larghezza massima"
+        }
+      }
+    },
+    "MuiDatePicker": {
+      "description": "Componente per la selezione di una data",
+      "name": "Selettore di date",
+      "props": {
+        "autoFocus": {
+          "description": "Se è vero, focalizza automaticamente il selettore di data quando il componente viene montato",
+          "name": "Messa a fuoco automatica"
+        },
+        "closeOnSelect": {
+          "description": "Chiude automaticamente la finestra di dialogo di selezione della data dopo aver selezionato una data",
+          "name": "Chiudi su seleziona"
+        },
+        "desktopModeMediaQuery": {
+          "description": "Stringa di media query CSS che determina quando passare al layout in modalità desktop",
+          "name": "Media query in modalità desktop"
+        },
+        "disableFuture": {
+          "description": "Se vero, impedisce la selezione di date successive alla data corrente",
+          "name": "Disabilita il futuro"
+        },
+        "disableHighlightToday": {
+          "description": "Se vero, disabilita l'evidenziazione visiva della data corrente nel calendario",
+          "name": "Disattiva l'evidenziazione oggi"
+        },
+        "disableOpenPicker": {
+          "description": "Se vero, impedisce l'apertura della finestra di dialogo del selettore (utile per la visualizzazione di sola lettura)",
+          "name": "Disattiva selettore aperto"
+        },
+        "disablePast": {
+          "description": "Se vero, impedisce la selezione di date precedenti alla data corrente",
+          "name": "Disattiva passato"
+        },
+        "displayWeekNumber": {
+          "description": "Mostra i numeri delle settimane nella vista del calendario",
+          "name": "Visualizza il numero della settimana"
+        },
+        "fixedWeekNumber": {
+          "description": "Numero fisso di settimane da visualizzare (impone un'altezza costante del calendario)",
+          "name": "Numero fisso della settimana"
+        },
+        "format": {
+          "description": "Stringa di formato data utilizzata per la visualizzazione e l'analisi (ad esempio, «aaaa-MM-GG», «MM/gg/aaaa»)",
+          "name": "Formato"
+        },
+        "formatDensity": {
+          "description": "Controlla la spaziatura nella formattazione della data: densa (compatta) o spaziosa (maggiore spaziatura)",
+          "name": "Densità del formato"
+        },
+        "loading": {
+          "description": "Se vero, visualizza uno spinner di caricamento che indica che i dati sono in fase di caricamento",
+          "name": "Caricamento"
+        },
+        "maxDate": {
+          "description": "Ultima data selezionabile (inclusa)",
+          "name": "Data massima"
+        },
+        "minDate": {
+          "description": "Prima data selezionabile (inclusa)",
+          "name": "Data minima"
+        },
+        "monthsPerRow": {
+          "description": "Numero di calendari mensili da visualizzare per riga nelle visualizzazioni mese/anno",
+          "name": "Mesi per riga"
+        },
+        "name": {
+          "description": "L'attributo name per il campo del modulo, utilizzato per l'invio dei moduli",
+          "name": "Nome"
+        },
+        "onAccept": {
+          "description": "Richiamata attivata quando il valore viene accettato",
+          "name": "su Accetta"
+        },
+        "onClose": {
+          "description": "Richiamata attivata quando il popup richiede di essere chiuso",
+          "name": "In Chiusura"
+        },
+        "onError": {
+          "description": "Richiamata attivata quando l'errore associato al valore corrente cambia",
+          "name": "OnError"
+        },
+        "onMonthChange": {
+          "description": "Richiamata attivata in caso di cambio di mese",
+          "name": "In caso di cambio di mese"
+        },
+        "onOpen": {
+          "description": "Richiamata attivata quando il popup richiede di essere aperto",
+          "name": "su Aperto"
+        },
+        "onSelectedSectionsChange": {
+          "description": "Richiamata attivata quando le sezioni selezionate cambiano",
+          "name": "Nelle sezioni selezionate Cambia"
+        },
+        "onViewChange": {
+          "description": "Richiamata attivata in caso di cambio di visualizzazione",
+          "name": "OnViewChange"
+        },
+        "onYearChange": {
+          "description": "Richiamata attivata in caso di cambio d'anno",
+          "name": "Cambio di un anno"
+        },
+        "open": {
+          "description": "Se vero, la finestra di dialogo di selezione della data è aperta; può essere utilizzata per la gestione controllata dello stato",
+          "name": "Aperta"
+        },
+        "openTo": {
+          "description": "La vista da aprire quando il selettore è attivato",
+          "name": "Aperto a"
+        },
+        "referenceDate": {
+          "description": "Data utilizzata per generare la visualizzazione iniziale del calendario quando non è selezionato alcun valore",
+          "name": "Data di riferimento"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Visualizza i giorni del mese precedente e successivo nella visualizzazione del mese corrente",
+          "name": "Mostra i giorni al di fuori del mese corrente"
+        },
+        "view": {
+          "description": "La visualizzazione iniziale da visualizzare (calendario del giorno, del mese o dell'anno)",
+          "name": "Visualizza"
+        },
+        "views": {
+          "description": "Le visualizzazioni disponibili (calendario per giorno, mese e anno)",
+          "name": "Visualizzazioni"
+        },
+        "yearsOrder": {
+          "description": "Ordinamento degli anni: crescente (dal più vecchio) o decrescente (dal più recente)",
+          "name": "Ordine degli anni"
+        },
+        "yearsPerRow": {
+          "description": "Numero di elementi dell'anno da visualizzare per riga nella vista annuale",
+          "name": "Anni per riga"
+        }
+      }
+    },
+    "MuiDialog": {
+      "description": "Un componente di dialogo modale che visualizza il contenuto in una sovrapposizione",
+      "name": "Dialogo",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Se è vero, premendo il tasto Esc non si chiude la finestra di dialogo",
+          "name": "Disattiva il tasto Esc verso il basso"
+        },
+        "fullScreen": {
+          "description": "Se vero, la finestra di dialogo sarà a schermo intero",
+          "name": "Schermo intero"
+        },
+        "fullWidth": {
+          "description": "Se vero, la finestra di dialogo si estende fino a MaxWidth",
+          "name": "Larghezza completa"
+        },
+        "maxWidth": {
+          "description": "Larghezza massima della finestra di dialogo (xs, sm, md, lg, xl)",
+          "name": "Larghezza massima"
+        },
+        "onClose": {
+          "description": "Richiamata attivata alla chiusura della finestra di dialogo",
+          "name": "In Chiusura"
+        },
+        "open": {
+          "description": "Se vero, la finestra di dialogo è aperta",
+          "name": "Aperta"
+        },
+        "scroll": {
+          "description": "Determina il contenitore per lo scorrimento della finestra di dialogo (carta o corpo)",
+          "name": "Scorri"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Contenitore per pulsanti di azione di dialogo",
+      "name": "Azioni di dialogo",
+      "props": {
+        "children": {
+          "description": "Il contenuto del componente",
+          "name": "Bambini"
+        },
+        "disableSpacing": {
+          "description": "Se vero, le azioni non hanno margini aggiuntivi",
+          "name": "Disabilita spaziatura"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Area principale del contenuto di una finestra di dialogo",
+      "name": "Contenuto della finestra di dialogo",
+      "props": {
+        "children": {
+          "description": "Il contenuto del componente",
+          "name": "Bambini"
+        },
+        "dividers": {
+          "description": "Se vero, i bordi vengono aggiunti nella parte superiore e inferiore del contenuto della finestra di dialogo",
+          "name": "Divisori"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Contenuto testuale all'interno di una finestra di dialogo",
+      "name": "Testo del contenuto della finestra di dialogo",
+      "props": {
+        "children": {
+          "description": "Il contenuto del testo",
+          "name": "Contenuto"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Un layout di dialogo preimpostato con titoli, contenuti e pulsanti di azione",
+      "name": "Disposizione dei dialoghi"
+    },
+    "MuiDialogTitle": {
+      "description": "Titolo di una finestra di dialogo",
+      "name": "Titolo della finestra di dialogo",
+      "props": {
+        "children": {
+          "description": "Il testo del titolo",
+          "name": "Contenuto"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "Avvolge il contenuto e visualizza uno stato o un messaggio di errore",
+      "name": "Wrapper di errori"
+    },
+    "MuiFormControlLabel": {
+      "description": "Associa un'etichetta a un controllo del modulo",
+      "name": "Etichetta di controllo del modulo",
+      "props": {
+        "control": {
+          "description": "Elemento di controllo del modulo (casella di controllo, radio, interruttore)",
+          "name": "Controllo"
+        },
+        "labelPlacement": {
+          "description": "Posizione dell'etichetta rispetto al controllo",
+          "name": "Posizionamento dell'etichetta"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "Etichetta per raggruppare o descrivere i campi del modulo",
+      "name": "Etichetta del modulo",
+      "props": {
+        "filled": {
+          "description": "Applica lo stile dello stato pieno",
+          "name": "Ripieno"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "Indica il caricamento o l'avanzamento in una barra lineare",
+      "name": "Progresso lineare",
+      "props": {
+        "valueBuffer": {
+          "description": "Valore del buffer secondario per la modalità di avanzamento bufferizzata",
+          "name": "Buffer di valori"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "Elemento cliccabile per la navigazione o le azioni",
+      "name": "Link",
+      "props": {
+        "href": {
+          "description": "URL di destinazione",
+          "name": "Href"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "Visualizza un elenco verticale di elementi",
+      "name": "Elenco"
+    },
+    "MuiListItem": {
+      "description": "Rappresenta un singolo elemento all'interno di un elenco",
+      "name": "Elemento dell'elenco",
+      "props": {
+        "divider": {
+          "description": "Visualizza un divisore sotto la voce dell'elenco",
+          "name": "Divisore"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "Consente di selezionare una singola opzione da un set",
+      "name": "Gruppo radiofonico",
+      "props": {
+        "name": {
+          "description": "Attributo del nome utilizzato per raggruppare i pulsanti di opzione",
+          "name": "Nome"
+        },
+        "row": {
+          "description": "Visualizza i pulsanti radio in orizzontale",
+          "name": "Fila"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "Un singolo pulsante radio utilizzato all'interno di un gruppo radio",
+      "name": "Articolo radio"
+    },
+    "MuiSelect": {
+      "description": "Componente a discesa per la selezione delle opzioni",
+      "name": "Seleziona",
+      "props": {
+        "autoFocus": {
+          "description": "Focalizza automaticamente il campo sulla montatura",
+          "name": "Messa a fuoco automatica"
+        },
+        "multiple": {
+          "description": "Consente di selezionare più opzioni",
+          "name": "multiplo"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "Dispone i bambini in una pila unidimensionale",
+      "name": "pila",
+      "props": {
+        "alignItems": {
+          "description": "Controlla l'allineamento tra gli assi",
+          "name": "Allinea gli elementi"
+        },
+        "direction": {
+          "description": "Definisce se gli elementi sono impilati in una riga o in una colonna",
+          "name": "Direzione"
+        },
+        "flexWrap": {
+          "description": "Controlla se gli elementi sono disposti su più righe",
+          "name": "Involucro flessibile"
+        },
+        "justifyContent": {
+          "description": "Controlla l'allineamento dell'asse principale",
+          "name": "Giustifica i contenuti"
+        },
+        "spacing": {
+          "description": "Spaziatura tra gli elementi impilati",
+          "name": "Spaziatura"
+        },
+        "useFlexGap": {
+          "description": "Usa il gap CSS invece dei margini per la spaziatura",
+          "name": "Usa flex gap"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "Comando a levetta per passare da uno stato all'altro",
+      "name": "Interruttore",
+      "props": {
+        "defaultChecked": {
+          "description": "Stato iniziale di commutazione quando non controllato",
+          "name": "Valore predefinito selezionato"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "Campo di immissione per dati di testo e modulo",
+      "name": "Campo di testo",
+      "props": {
+        "autoFocus": {
+          "description": "Focalizza automaticamente il campo sulla montatura",
+          "name": "Messa a fuoco automatica"
+        },
+        "maxRows": {
+          "description": "Numero massimo di righe visibili per l'input multilinea",
+          "name": "Numero massimo di righe"
+        },
+        "multiline": {
+          "description": "Esegue il rendering di un'area di testo anziché di un input a riga singola",
+          "name": "Multilinea"
+        },
+        "type": {
+          "description": "Tipo di input HTML (testo, password, email, ecc.)",
+          "name": "Tipo"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "Visualizza informazioni contestuali al passaggio del mouse, alla messa a fuoco o al tocco",
+      "name": "Tooltip",
+      "props": {
+        "arrow": {
+          "description": "Visualizza una freccia che punta all'elemento di destinazione",
+          "name": "freccia"
+        },
+        "disableFocusListener": {
+          "description": "Impedisce che il tooltip appaia a fuoco",
+          "name": "Disattiva focus listener"
+        },
+        "disableHoverListener": {
+          "description": "Impedisce la visualizzazione del tooltip al passaggio del mouse",
+          "name": "Disattiva hover listener"
+        },
+        "disableInteractive": {
+          "description": "Disattiva l'interazione con il contenuto del tooltip",
+          "name": "Disattiva interattivo"
+        },
+        "disableTouchListener": {
+          "description": "Impedisce che il tooltip appaia al tocco",
+          "name": "Disattiva l'ascoltatore tattile"
+        },
+        "enterDelay": {
+          "description": "Ritardo in millisecondi prima della visualizzazione del tooltip",
+          "name": "Inserisci ritardo"
+        },
+        "followCursor": {
+          "description": "Fa sì che il tooltip segua la posizione del cursore",
+          "name": "Segui il cursore"
+        },
+        "leaveDelay": {
+          "description": "Ritardo in millisecondi prima di nascondere il tooltip",
+          "name": "Ritardo nelle ferie"
+        },
+        "title": {
+          "description": "Contenuto testuale visualizzato all'interno del tooltip",
+          "name": "Titolo"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "Visualizza il testo con stili tipografici predefiniti",
+      "name": "Tipografia",
+      "props": {
+        "children": {
+          "description": "Il contenuto del testo",
+          "name": "Contenuto"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "Componente per caricare uno o più file",
+      "name": "Uploader",
+      "props": {
+        "accept": {
+          "description": "Tipi di file consentiti (ad esempio «.jpg, .png»)",
+          "name": "Accetta"
+        },
+        "multiple": {
+          "description": "Consente di selezionare più file",
+          "name": "multiplo"
+        }
+      }
+    }
+  }
+}

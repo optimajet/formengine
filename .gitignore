@@ -16,12 +16,8 @@ Desktop.ini
 .DS_Store
 
 # Test reports
-src/tests/e2e/playwright-report
-src/tests/e2e/reports
-src/tests/module/reports
-src/tests/react-17/reports
-src/tests/react-18/reports
-src/tests/react-19/reports
+tests/e2e/playwright-report
+**/reports/
 
-!src/documentation/website/packages/*.tgz
+!documentation/website/packages/*.tgz
 .env

@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Campi"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "Componente per il caricamento di file con supporto per il drag and drop",
+      "name": "Caricatore di file",
+      "props": {
+        "accept": {
+          "description": "Tipi di file accettati (ad es. image/*, .pdf, .docx)",
+          "name": "Accetta"
+        },
+        "action": {
+          "description": "URL su cui caricare i file",
+          "name": "URL dell'azione"
+        },
+        "children": {
+          "description": "Contenuti da visualizzare all'interno dell'uploader",
+          "name": "Bambini"
+        },
+        "disabled": {
+          "description": "Se vero, l'uploader è disabilitato",
+          "name": "Disabili"
+        },
+        "dropzone": {
+          "description": "Se vero, la dropzone mostrerà",
+          "name": "Dropzone"
+        },
+        "multiple": {
+          "description": "Consenti la selezione di più file",
+          "name": "File multipli"
+        },
+        "onChange": {
+          "description": "Richiamata quando i file vengono caricati correttamente",
+          "name": "In fase di cambiamento"
+        },
+        "onError": {
+          "description": "Richiamata quando si verifica un errore durante il caricamento",
+          "name": "In caso di errore"
+        },
+        "readOnly": {
+          "description": "Se vero, l'uploader è di sola lettura",
+          "name": "Sola lettura"
+        }
+      }
+    }
+  }
+}

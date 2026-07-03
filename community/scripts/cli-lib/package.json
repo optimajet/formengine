@@ -1,0 +1,21 @@
+{
+  "name": "@react-form-builder/cli-lib",
+  "version": "10.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared Node CLI helpers for pack, check-pack, and install workflows",
+  "exports": {
+    "./check-pack-workflow": "./check-pack-workflow.ts",
+    "./concurrency": "./concurrency.ts",
+    "./fs-utils": "./fs-utils.ts",
+    "./install-local-package": "./install-local-package.ts",
+    "./json-fs": "./json-fs.ts",
+    "./npm-pack": "./npm-pack.ts",
+    "./pack-workflow": "./pack-workflow.ts",
+    "./paths": "./paths.ts",
+    "./shell-helpers": "./shell-helpers.ts",
+    "./view-pack-tools": "./view-pack-tools.ts",
+    "./workspace-package-paths": "./workspace-package-paths.ts",
+    "./workspace-packages": "./workspace-packages.ts"
+  }
+}

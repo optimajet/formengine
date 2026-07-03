@@ -4,6 +4,20 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 10.0.0 - July 3, 2026
+
+Removes deprecated APIs, updates German localization, refactors LocalizationStore, fixes Monaco constrained editing and RSuite CSS minification, and upgrades Zod.
+
+### Highlights
+
+- Removed deprecated APIs for component metadata ([Definer](https://formengine.io/documentation/api-reference/@react-form-builder/core/interfaces/Definer), [Meta](https://formengine.io/documentation/api-reference/@react-form-builder/core/classes/Meta)), number validation, and RSuite date/time pickers.
+- Retranslated German (`de-DE`) locale files via `localization.config.json`.
+- Reworked [LocalizationStore](https://formengine.io/documentation/api-reference/@react-form-builder/core/classes/LocalizationStore) and expanded [ILocalizationStore](https://formengine.io/documentation/api-reference/@react-form-builder/core/interfaces/ILocalizationStore).
+- In-house constrained Monaco editing for [computed properties](https://formengine.io/documentation/formengine-designer/features/computed-properties) and localization code fields.
+- Fixed `@font-face` placement in RSuite CSS; Lightning CSS minification enabled in production builds.
+
+[Full release notes for 10.0.0](https://formengine.io/documentation/release-notes/10.0.0)
+
 ## 9.0.0 - May 20, 2026
 
 Localizable arrays, separate Builder UI and form-preview language props, German locale updates, and dependency bumps.

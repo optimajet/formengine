@@ -1,0 +1,1201 @@
+{
+  "categories": {
+    "buttons": {
+      "name": "बटन्स"
+    },
+    "combobox": {
+      "name": "Combobox"
+    },
+    "dates": {
+      "name": "तारीखें"
+    },
+    "inputs": {
+      "name": "इनपुट्स"
+    },
+    "layout": {
+      "name": "लेआउट"
+    },
+    "miscellaneous": {
+      "name": "विविध"
+    },
+    "otherExtensions": {
+      "name": "अन्य एक्सटेंशन"
+    },
+    "overlays": {
+      "name": "ओवरले"
+    },
+    "typography": {
+      "name": "टाइपोग्राफी"
+    }
+  },
+  "commonProperties": {
+    "align": {
+      "description": "वस्तुओं का संरेखण।",
+      "name": "पंक्तिबद्ध करें"
+    },
+    "c": {
+      "description": "टेक्स्ट का रंग।",
+      "name": "रंग"
+    },
+    "clearable": {
+      "description": "क्लियर बटन दिखाना है या नहीं।",
+      "name": "साफ़ करने योग्य"
+    },
+    "color": {
+      "description": "मेंटिन थीम रंग का नाम।",
+      "name": "रंग"
+    },
+    "columnsToScroll": {
+      "description": "स्क्रॉल करने के लिए कॉलम की संख्या।",
+      "name": "स्क्रॉल करने के लिए कॉलम"
+    },
+    "data": {
+      "description": "विकल्प डेटा।",
+      "name": "डेटा"
+    },
+    "defaultVisible": {
+      "description": "कॉन्टेंट की शुरुआती विज़िबिलिटी स्थिति।",
+      "name": "डिफ़ॉल्ट रूप से दृश्यमान"
+    },
+    "description": {
+      "description": "लेबल के नीचे प्रदर्शित हेल्पर टेक्स्ट।",
+      "name": "विवरण"
+    },
+    "disabled": {
+      "description": "क्या इनपुट अक्षम है।",
+      "name": "अक्षम"
+    },
+    "dropdownOpened": {
+      "description": "ड्रॉपडाउन ओपन स्टेट को नियंत्रित करता है।",
+      "name": "ड्रॉपडाउन खोला गया"
+    },
+    "dropdownType": {
+      "description": "पिकर प्रेजेंटेशन मोड।",
+      "name": "ड्रॉपडाउन टाइप"
+    },
+    "error": {
+      "description": "त्रुटि संदेश या त्रुटि स्थिति।",
+      "name": "एरर"
+    },
+    "filledVariant": {
+      "description": "उपस्थिति संस्करण को नियंत्रित करें।",
+      "name": "वेरिएंट"
+    },
+    "fs": {
+      "description": "फ़ॉन्ट शैली।",
+      "name": "फॉन्ट स्टाइल"
+    },
+    "fw": {
+      "description": "फ़ॉन्ट का वज़न।",
+      "name": "फ़ॉन्ट का वज़न"
+    },
+    "fz": {
+      "description": "फॉन्ट का आकार।",
+      "name": "फॉन्ट का आकार"
+    },
+    "grow": {
+      "description": "क्या उपलब्ध जगह को भरने के लिए आइटम बढ़ने चाहिए।",
+      "name": "आगे बढ़ें"
+    },
+    "hideOutsideDates": {
+      "description": "बाहर की तारीखों को छिपाना है या नहीं।",
+      "name": "बाहर की तारीखें छिपाएँ"
+    },
+    "hideWeekdays": {
+      "description": "कार्यदिवस के लेबल छिपाना है या नहीं।",
+      "name": "कार्यदिवस छिपाएँ"
+    },
+    "highlightToday": {
+      "description": "आज हाइलाइट करना है या नहीं।",
+      "name": "आज हाइलाइट करें"
+    },
+    "justify": {
+      "description": "समूह के भीतर सामग्री का औचित्य साबित करें।",
+      "name": "न्यायोचित ठहराना"
+    },
+    "label": {
+      "description": "इनपुट लेबल।",
+      "name": "लेबल"
+    },
+    "labelPosition": {
+      "description": "नियंत्रण के सापेक्ष लेबल स्थिति।",
+      "name": "लेबल की स्थिति"
+    },
+    "lh": {
+      "description": "रेखा की ऊँचाई।",
+      "name": "लाइन की ऊंचाई"
+    },
+    "maxDropdownHeight": {
+      "description": "पिक्सल में अधिकतम ड्रॉपडाउन ऊंचाई।",
+      "name": "अधिकतम ड्रॉपडाउन ऊंचाई"
+    },
+    "minRows": {
+      "description": "न्यूनतम दृश्यमान पंक्तियाँ।",
+      "name": "न्यूनतम पंक्तियां"
+    },
+    "nothingFoundMessage": {
+      "description": "जब कोई विकल्प मेल नहीं खाता है तब संदेश दिखाया जाता है।",
+      "name": "संदेश कुछ नहीं मिला"
+    },
+    "numberOfColumns": {
+      "description": "कैलेंडर कॉलम की संख्या।",
+      "name": "स्तंभों की संख्या"
+    },
+    "onBlur": {
+      "description": "जब इनपुट फ़ोकस खो देता है, तब कॉल किया जाता है।",
+      "name": "कोई धुंधला नहीं"
+    },
+    "onChange": {
+      "description": "मान बदलने पर कॉल किया जाता है।",
+      "name": "ऑन चेंज"
+    },
+    "onDropdownClose": {
+      "description": "ड्रॉपडाउन बंद होने पर कॉल किया जाता है।",
+      "name": "ड्रॉपडाउन पर बंद करें"
+    },
+    "onDropdownOpen": {
+      "description": "ड्रॉपडाउन खुलने पर कॉल किया जाता है।",
+      "name": "ड्रॉपडाउन ओपन पर"
+    },
+    "onFocus": {
+      "description": "इनपुट फ़ोकस प्राप्त करने पर कॉल किया जाता है।",
+      "name": "OnFocus"
+    },
+    "onSearchChange": {
+      "description": "खोज मान में परिवर्तन होने पर कॉल किया जाता है।",
+      "name": "ऑन सर्च चेंज"
+    },
+    "placeholder": {
+      "description": "प्लेसहोल्डर",
+      "name": "प्लेसहोल्डर"
+    },
+    "radius": {
+      "description": "सीमा त्रिज्या।",
+      "name": "रेडियस"
+    },
+    "readOnly": {
+      "description": "क्या इनपुट केवल-पढ़ने के लिए है।",
+      "name": "सिर्फ पढ़ने के लिए"
+    },
+    "searchValue": {
+      "description": "नियंत्रित खोज इनपुट मान।",
+      "name": "खोज मान"
+    },
+    "size": {
+      "description": "घटक का आकार।",
+      "name": "साइज़"
+    },
+    "spacing": {
+      "description": "वस्तुओं के बीच की दूरी।",
+      "name": "स्पेसिंग"
+    },
+    "ta": {
+      "description": "पाठ संरेखण।",
+      "name": "टेक्स्ट अलाइनमेंट"
+    },
+    "td": {
+      "description": "पाठ की सजावट।",
+      "name": "पाठ की सजावट"
+    },
+    "tt": {
+      "description": "टेक्स्ट ट्रांसफ़ॉर्म।",
+      "name": "टेक्स्ट ट्रांसफ़ॉर्म"
+    },
+    "value": {
+      "description": "मौज़ूदा मान।",
+      "name": "वैल्यू"
+    },
+    "variant": {
+      "description": "इनपुट उपस्थिति संस्करण।",
+      "name": "वेरिएंट"
+    },
+    "withAsterisk": {
+      "description": "आवश्यक संकेतक प्रदर्शित करना है या नहीं।",
+      "name": "तारांकन चिह्न के साथ"
+    },
+    "withScrollArea": {
+      "description": "क्या ड्रॉपडाउन स्क्रॉल क्षेत्र का उपयोग करता है।",
+      "name": "स्क्रॉल एरिया के साथ"
+    },
+    "withSeconds": {
+      "description": "यह निर्धारित करता है कि समय पिकर में सेकंड शामिल किए जाने चाहिए या नहीं।",
+      "name": "सेकंड के साथ"
+    },
+    "withWeekNumbers": {
+      "description": "सप्ताह के नंबर दिखाना है या नहीं।",
+      "name": "सप्ताह के नंबरों के साथ"
+    },
+    "wrap": {
+      "description": "आइटम के लिए रैप बिहेवियर।",
+      "name": "रैप"
+    }
+  },
+  "components": {
+    "MtAutocomplete": {
+      "description": "विकल्पों की किसी भी सूची के साथ उपयोगकर्ता इनपुट को स्वतः पूर्ण करें",
+      "name": "स्वतः पूर्ण",
+      "props": {
+        "data": {
+          "description": "विकल्पों को प्रदर्शित करने के लिए उपयोग किया जाने वाला डेटा",
+          "name": "डेटा"
+        }
+      }
+    },
+    "MtButton": {
+      "description": "बटन या लिंक रेंडर करने के लिए बटन घटक",
+      "name": "बटन",
+      "props": {
+        "children": {
+          "description": "बटन की सामग्री",
+          "name": "कॉन्टेंट"
+        },
+        "fullWidth": {
+          "description": "यदि सेट किया जाता है, तो बटन पैरेंट कंटेनर की पूरी चौड़ाई लेता है",
+          "name": "पूरी चौड़ाई"
+        },
+        "onClick": {
+          "description": "बटन क्लिक होने पर कॉल किया जाता है",
+          "name": "ऑनक्लिक"
+        }
+      }
+    },
+    "MtCheckbox": {
+      "description": "उपयोगकर्ता से बूलियन इनपुट कैप्चर करें",
+      "name": "चेकबॉक्स",
+      "props": {
+        "checked": {
+          "description": "निर्दिष्ट करता है कि चेकबॉक्स चयनित है या नहीं",
+          "name": "चेक किया गया"
+        }
+      }
+    },
+    "MtCheckboxGroup": {
+      "description": "चेकबॉक्स समूह",
+      "name": "चेकबॉक्स समूह",
+      "props": {
+        "items": {
+          "description": "चेकबॉक्स समूह के आइटम",
+          "name": "आइटम"
+        }
+      }
+    },
+    "MtChip": {
+      "description": "इनलाइन नियंत्रण के साथ मूल्य चुनें",
+      "name": "चिप",
+      "props": {
+        "checked": {
+          "description": "निर्दिष्ट करता है कि चिप का चयन किया गया है या नहीं",
+          "name": "चेक किया गया"
+        },
+        "children": {
+          "description": "घटक लेबल",
+          "name": "लेबल"
+        }
+      }
+    },
+    "MtChipCheckboxGroup": {
+      "description": "इनलाइन नियंत्रण के साथ एक या एक से अधिक मान चुनें",
+      "name": "चिप चेकबॉक्स समूह",
+      "props": {
+        "items": {
+          "description": "चिप के विकल्प",
+          "name": "आइटम"
+        }
+      }
+    },
+    "MtChipRadioGroup": {
+      "description": "इनलाइन नियंत्रण के साथ एक मान चुनें",
+      "name": "चिप रेडियो समूह",
+      "props": {
+        "items": {
+          "description": "चिप के विकल्प",
+          "name": "आइटम"
+        }
+      }
+    },
+    "MtColorInput": {
+      "description": "उपयोगकर्ता से रंग कैप्चर करें",
+      "name": "रंग का इनपुट",
+      "props": {
+        "format": {
+          "description": "रंग का फ़ॉर्मेट",
+          "name": "फ़ॉर्मेट"
+        },
+        "swatches": {
+          "description": "कलर पिकर के नीचे स्वैच सूची प्रदर्शित करने के लिए उपयोग किए जाने वाले रंगों की सूची",
+          "name": "स्वैचेस"
+        }
+      }
+    },
+    "MtColorPicker": {
+      "description": "हेक्स (ए), आरजीबी (ए), एचएसएल (ए) और एचएसवी (ए) प्रारूपों में रंग चुनें",
+      "name": "रंग बीनने वाला",
+      "props": {
+        "format": {
+          "description": "रंग का फ़ॉर्मेट।",
+          "name": "फ़ॉर्मेट"
+        },
+        "fullWidth": {
+          "description": "क्या पूरी चौड़ाई तक फैलाना है।",
+          "name": "पूरी चौड़ाई"
+        },
+        "swatches": {
+          "description": "रंग के नमूने।",
+          "name": "स्वैचेस"
+        },
+        "swatchesPerRow": {
+          "description": "प्रति पंक्ति नमूनों की संख्या।",
+          "name": "प्रति पंक्ति स्वैच"
+        },
+        "withPicker": {
+          "description": "पिकर इनपुट दिखाना है या नहीं।",
+          "name": "पिकर के साथ"
+        }
+      }
+    },
+    "MtContainer": {
+      "description": "पैडिंग और अधिकतम-चौड़ाई के साथ केंद्र सामग्री",
+      "name": "कन्टेनर",
+      "props": {
+        "children": {
+          "description": "घटक के बाल तत्व",
+          "name": "बच्चे"
+        }
+      }
+    },
+    "MtDateMultiplePicker": {
+      "description": "कई तारीखों का चयन करने की अनुमति देता है",
+      "name": "डेट मल्टीपल पिकर",
+      "props": {
+        "maxDate": {
+          "description": "अधिकतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtDateMultiplePickerInput": {
+      "description": "कई तारीखों का चयन करने की अनुमति देता है",
+      "name": "डेट मल्टीपल पिकर इनपुट",
+      "props": {
+        "maxDate": {
+          "description": "अधिकतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtDatePicker": {
+      "description": "तिथि चुनने की अनुमति देता है",
+      "name": "खजूर बीनने वाला",
+      "props": {
+        "allowDeselect": {
+          "description": "निर्धारित करता है कि उपयोगकर्ता चयनित तिथि पर क्लिक करके तिथि का चयन रद्द कर सकता है या नहीं",
+          "name": "चयन रद्द करने की अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtDatePickerInput": {
+      "description": "डेट पिकर इनपुट",
+      "name": "डेट पिकर इनपुट",
+      "props": {
+        "allowDeselect": {
+          "description": "निर्धारित करता है कि उपयोगकर्ता चयनित तिथि पर क्लिक करके तिथि का चयन रद्द कर सकता है या नहीं",
+          "name": "चयन रद्द करने की अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtDateRangePicker": {
+      "description": "तिथि सीमा चुनने की अनुमति देता है",
+      "name": "डेट रेंज पिकर",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "एक तिथि को श्रेणी के रूप में चुनने की अनुमति देता है",
+          "name": "रेंज में एक तारीख को अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtDateRangePickerInput": {
+      "description": "डेट रेंज पिकर इनपुट",
+      "name": "डेट रेंज पिकर इनपुट",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "एक तिथि को श्रेणी के रूप में चुनने की अनुमति देता है",
+          "name": "रेंज में एक तारीख को अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन करने योग्य तिथि, YYYY-MM-DD प्रारूप",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtDateTimePicker": {
+      "description": "उपयोगकर्ता से डेटाटाइम कैप्चर करें",
+      "name": "डेटटाइम पिकर",
+      "props": {
+        "valueFormat": {
+          "description": "मूल्य प्रदर्शित करने के लिए कस्टम डेजेएस प्रारूप",
+          "name": "मान फ़ॉर्मेट"
+        }
+      }
+    },
+    "MtDialog": {
+      "description": "स्क्रीन के किसी भी तरफ एक निश्चित ओवरले संवाद प्रदर्शित करें",
+      "name": "डायलॉग",
+      "props": {
+        "children": {
+          "description": "संवाद सामग्री",
+          "name": "बच्चे"
+        },
+        "onOpen": {
+          "description": "खुली संपत्ति को सही पर सेट करने पर कॉल किया जाता है",
+          "name": "OnOpen"
+        },
+        "opened": {
+          "description": "संवाद खुला है या नहीं",
+          "name": "खुल गया"
+        },
+        "showCloseButton": {
+          "description": "बंद करें बटन दिखाना है या नहीं",
+          "name": "बंद करें बटन दिखाएं"
+        },
+        "title": {
+          "description": "संवाद का शीर्षक",
+          "name": "टाइटल"
+        }
+      }
+    },
+    "MtDivider": {
+      "description": "वैकल्पिक लेबल या लंबवत डिवाइडर के साथ क्षैतिज रेखा",
+      "name": "डिवाइडर",
+      "props": {
+        "orientation": {
+          "description": "डिवाइडर ओरिएंटेशन",
+          "name": "ओरिएंटेशन"
+        }
+      }
+    },
+    "MtDropzone": {
+      "description": "ड्रैग एंड ड्रॉप के साथ यूज़र से फ़ाइलें कैप्चर करें",
+      "name": "ड्रॉपज़ोन",
+      "props": {
+        "accept": {
+          "description": "स्वीकृत माइम क़िस्म",
+          "name": "स्वीकारें"
+        },
+        "multiple": {
+          "description": "कई फ़ाइलों को अनुमति दें",
+          "name": "मल्टीपल"
+        }
+      }
+    },
+    "MtErrorWrapper": {
+      "description": "प्रपत्र नियंत्रण के नीचे सत्यापन त्रुटि संदेश प्रदर्शित करता है",
+      "name": "त्रुटि संदेश"
+    },
+    "MtFileInput": {
+      "description": "यूज़र से फ़ाइलें कैप्चर करें",
+      "name": "फ़ाइल इनपुट",
+      "props": {
+        "accept": {
+          "description": "स्वीकृत फ़ाइल क़िस्म",
+          "name": "स्वीकारें"
+        },
+        "multiple": {
+          "description": "कई फ़ाइलों को अनुमति दें",
+          "name": "मल्टीपल"
+        }
+      }
+    },
+    "MtJsonInput": {
+      "description": "उपयोगकर्ता से json डेटा कैप्चर करें",
+      "name": "JSON इनपुट",
+      "props": {
+        "minRows": {
+          "description": "पंक्तियों की न्यूनतम संख्या",
+          "name": "न्यूनतम पंक्तियां"
+        }
+      }
+    },
+    "MtLabel": {
+      "description": "लेबल प्रदर्शित करता है",
+      "name": "लेबल",
+      "props": {
+        "children": {
+          "description": "लेबल का टेक्स्ट",
+          "name": "लेबल"
+        }
+      }
+    },
+    "MtMonthMultiplePicker": {
+      "description": "मंथ मल्टीपल पिकर",
+      "name": "मंथ मल्टीपल पिकर",
+      "props": {
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य महीना",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य महीना",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtMonthMultiplePickerInput": {
+      "description": "मंथ मल्टीपल पिकर इनपुट",
+      "name": "मंथ मल्टीपल पिकर इनपुट",
+      "props": {
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य महीना",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य महीना",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtMonthPicker": {
+      "description": "इनलाइन मंथ पिकर",
+      "name": "महीना बीनने वाला",
+      "props": {
+        "allowDeselect": {
+          "description": "निर्धारित करता है कि उपयोगकर्ता चयनित महीने पर क्लिक करके महीने का चयन रद्द कर सकता है या नहीं",
+          "name": "चयन रद्द करने की अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य महीना",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य महीना",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtMonthPickerInput": {
+      "description": "मंथ पिकर इनपुट",
+      "name": "मंथ पिकर इनपुट",
+      "props": {
+        "allowDeselect": {
+          "description": "निर्धारित करता है कि उपयोगकर्ता चयनित महीने पर क्लिक करके महीने का चयन रद्द कर सकता है या नहीं",
+          "name": "चयन रद्द करने की अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य महीना",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य महीना",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtMonthRangePicker": {
+      "description": "इनलाइन महीने रेंज पिकर",
+      "name": "मंथ रेंज पिकर",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "एक महीने को रेंज के रूप में चुनने की अनुमति देता है",
+          "name": "रेंज में एक तारीख को अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य महीना",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य महीना",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtMonthRangePickerInput": {
+      "description": "मंथ रेंज पिकर इनपुट",
+      "name": "मंथ रेंज पिकर इनपुट",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "एक महीने को रेंज के रूप में चुनने की अनुमति देता है",
+          "name": "रेंज में एक तारीख को अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य महीना",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य महीना",
+          "name": "न्यूनतम तारीख"
+        }
+      }
+    },
+    "MtMultiSelect": {
+      "description": "कस्टम खोज योग्य बहु चयन",
+      "name": "मल्टी सेलेक्ट",
+      "props": {
+        "data": {
+          "description": "विकल्पों को प्रदर्शित करने के लिए उपयोग किया जाने वाला डेटा",
+          "name": "डेटा"
+        },
+        "searchable": {
+          "description": "खोज चालू करें",
+          "name": "खोजे जाने योग्य"
+        }
+      }
+    },
+    "MtNativeSelect": {
+      "description": "इनपुट के आधार पर मूल चयन तत्व",
+      "name": "मूल निवासी का चयन करें",
+      "props": {
+        "data": {
+          "description": "विकल्पों को प्रदर्शित करने के लिए उपयोग किया जाने वाला डेटा",
+          "name": "डेटा"
+        }
+      }
+    },
+    "MtNumberInput": {
+      "description": "उपयोगकर्ता से नंबर कैप्चर करें",
+      "name": "नंबर इनपुट",
+      "props": {
+        "allowDecimal": {
+          "description": "दशमलव मानों को अनुमति दें",
+          "name": "दशमलव को अनुमति दें"
+        },
+        "allowLeadingZeros": {
+          "description": "अग्रणी शून्य को अनुमति दें",
+          "name": "अग्रणी शून्य को अनुमति दें"
+        },
+        "allowNegative": {
+          "description": "नकारात्मक मानों को अनुमति दें",
+          "name": "नकारात्मक को अनुमति दें"
+        },
+        "clampBehavior": {
+          "description": "क्लैंपिंग बिहेवियर",
+          "name": "क्लैंप बिहेवियर"
+        },
+        "decimalScale": {
+          "description": "दशमलव बिंदु के बाद दर्ज किए जा सकने वाले अंकों की संख्या को सीमित करता है",
+          "name": "दशमलव स्केल"
+        },
+        "decimalSeparator": {
+          "description": "दशमलव विभाजक के रूप में इस्तेमाल किया जाने वाला वर्ण",
+          "name": "दशमलव विभाजक"
+        },
+        "fixedDecimalScale": {
+          "description": "यदि सेट किया जाता है, तो दशमलव विभाजक के बाद दिए गए दशमलव पैमाने से मेल खाने के लिए 0s जोड़े जाते हैं",
+          "name": "निश्चित दशमलव स्केल"
+        },
+        "hideControls": {
+          "description": "इंक्रीमेंट और डिक्रीमेंट कंट्रोल छिपाएं",
+          "name": "नियंत्रण छिपाएँ"
+        },
+        "max": {
+          "description": "अधिकतम मान",
+          "name": "सर्वाधिक"
+        },
+        "min": {
+          "description": "न्यूनतम मान",
+          "name": "न्यूनतम"
+        },
+        "prefix": {
+          "description": "संख्या से पहले जोड़ी जाने वाली स्ट्रिंग",
+          "name": "प्रीफ़िक्स"
+        },
+        "startValue": {
+          "description": "इंक्रीमेंट/डिक्रीमेंट बटन क्लिक होने पर इनपुट पर सेट किया जाता है या इनपुट खाली होने पर ऊपर/नीचे तीर दबाए जाते हैं",
+          "name": "मूल्य शुरू करें"
+        },
+        "step": {
+          "description": "चरण मान",
+          "name": "चरण"
+        },
+        "suffix": {
+          "description": "संख्या के बाद जोड़ी जाने वाली स्ट्रिंग",
+          "name": "प्रत्यय"
+        },
+        "thousandSeparator": {
+          "description": "हज़ार सेपरेटर के रूप में इस्तेमाल किया जाने वाला चरित्र",
+          "name": "हजार सेपरेटर"
+        },
+        "thousandsGroupStyle": {
+          "description": "हजार समूहीकरण शैली",
+          "name": "हज़ारों समूह शैली"
+        },
+        "trimLeadingZeroesOnBlur": {
+          "description": "यदि सेट किया जाता है, तो ब्लर पर अग्रणी शून्य हटा दिए जाते हैं। उदाहरण के लिए, 00100 -> 100",
+          "name": "ब्लर पर लीडिंग जीरो ट्रिम करें"
+        }
+      }
+    },
+    "MtPasswordInput": {
+      "description": "उपयोगकर्ता से पासवर्ड डेटा कैप्चर करें",
+      "name": "पासवर्ड इनपुट"
+    },
+    "MtRadio": {
+      "description": "इनपुट टाइप रेडियो के लिए रैपर",
+      "name": "रेडियो",
+      "props": {
+        "checked": {
+          "description": "निर्दिष्ट करता है कि रेडियो चेक किया गया है या नहीं",
+          "name": "चेक किया गया"
+        }
+      }
+    },
+    "MtRadioGroup": {
+      "description": "रेडियो ग्रुप",
+      "name": "रेडियो ग्रुप",
+      "props": {
+        "items": {
+          "description": "रेडियो के विकल्प",
+          "name": "आइटम"
+        }
+      }
+    },
+    "MtRangeSlider": {
+      "description": "रेंज स्लाइडर घटक",
+      "name": "रेंज स्लाइडर",
+      "props": {
+        "inverted": {
+          "description": "निर्धारित करता है कि ट्रैक मान प्रतिनिधित्व उलटा होना चाहिए या नहीं",
+          "name": "उलटा"
+        },
+        "labelAlwaysOn": {
+          "description": "यह निर्धारित करता है कि स्लाइडर को ड्रैग या होवर नहीं किए जाने पर लेबल दिखाई देना चाहिए या नहीं",
+          "name": "लेबल हमेशा चालू"
+        },
+        "max": {
+          "description": "अधिकतम मान",
+          "name": "सर्वाधिक"
+        },
+        "maxRange": {
+          "description": "अधिकतम रेंज जिसे चुना जा सकता है",
+          "name": "मैक्स रेंज"
+        },
+        "min": {
+          "description": "न्यूनतम मान",
+          "name": "न्यूनतम"
+        },
+        "precision": {
+          "description": "उपयोग करने के लिए दशमलव स्थानों की संख्या",
+          "name": "प्रिसिजन"
+        },
+        "pushOnOverlap": {
+          "description": "यह निर्धारित करता है कि minRange/maxRange तक पहुंचने पर दूसरे अंगूठे को वर्तमान अंगूठे को खींचकर धक्का दिया जाना चाहिए या नहीं",
+          "name": "ओवरलैप पर पुश करें"
+        },
+        "showLabelOnHover": {
+          "description": "यह निर्धारित करता है कि स्लाइडर के मंडराने पर लेबल प्रदर्शित किया जाना चाहिए या नहीं",
+          "name": "होवर पर लेबल दिखाएं"
+        },
+        "step": {
+          "description": "चरण मान",
+          "name": "चरण"
+        }
+      }
+    },
+    "MtRating": {
+      "description": "रेटिंग चुनें और प्रदर्शित करें",
+      "name": "रेटिंग",
+      "props": {
+        "count": {
+          "description": "सितारों की संख्या",
+          "name": "गिनती करें"
+        },
+        "fractions": {
+          "description": "अंशों की संख्या",
+          "name": "फ्रैक्शन"
+        }
+      }
+    },
+    "MtSegmentedControl": {
+      "description": "दो या दो से अधिक खंडों का एक रेखीय सेट",
+      "name": "खंडित नियंत्रण",
+      "props": {
+        "data": {
+          "description": "ऑप्शन्स",
+          "name": "डेटा"
+        }
+      }
+    },
+    "MtSelect": {
+      "description": "कस्टम खोज योग्य चयन",
+      "name": "चुनें",
+      "props": {
+        "data": {
+          "description": "ऑप्शन्स",
+          "name": "डेटा"
+        },
+        "searchable": {
+          "description": "खोज चालू करें",
+          "name": "खोजे जाने योग्य"
+        }
+      }
+    },
+    "MtSlider": {
+      "description": "स्लाइडर घटक",
+      "name": "स्लाइडर",
+      "props": {
+        "max": {
+          "description": "अधिकतम मान",
+          "name": "सर्वाधिक"
+        },
+        "min": {
+          "description": "न्यूनतम मान",
+          "name": "न्यूनतम"
+        },
+        "step": {
+          "description": "चरण मान",
+          "name": "चरण"
+        }
+      }
+    },
+    "MtSwitch": {
+      "description": "उपयोगकर्ता से बूलियन इनपुट कैप्चर करें",
+      "name": "स्विच",
+      "props": {
+        "checked": {
+          "description": "निर्दिष्ट करता है कि स्विच चालू है या नहीं",
+          "name": "चेक किया गया"
+        }
+      }
+    },
+    "MtSwitchGroup": {
+      "description": "उपयोगकर्ता से बूलियन इनपुट कैप्चर करें",
+      "name": "समूह स्विच करें",
+      "props": {
+        "items": {
+          "description": "स्विच विकल्प",
+          "name": "आइटम"
+        }
+      }
+    },
+    "MtTagsInput": {
+      "description": "निःशुल्क इनपुट और सुझावों के साथ उपयोगकर्ता से मूल्यों की सूची कैप्चर करें",
+      "name": "टैग इनपुट",
+      "props": {
+        "data": {
+          "description": "ऑप्शन्स",
+          "name": "डेटा"
+        }
+      }
+    },
+    "MtText": {
+      "description": "टेक्स्ट प्रदर्शित करें",
+      "name": "टेक्स्ट",
+      "props": {
+        "children": {
+          "description": "टेक्स्ट कॉन्टेंट",
+          "name": "कॉन्टेंट"
+        },
+        "inherit": {
+          "description": "निर्धारित करता है कि फ़ॉन्ट गुण माता-पिता से विरासत में मिले या नहीं",
+          "name": "इनहेरिट करें"
+        },
+        "inline": {
+          "description": "सेंटरिंग के लिए लाइन-ऊंचाई को 1 पर सेट करता है",
+          "name": "इनलाइन"
+        },
+        "lineClamp": {
+          "description": "पंक्तियों की संख्या जिसके बाद टेक्स्ट को छोटा किया जाएगा",
+          "name": "लाइन क्लैंप"
+        },
+        "span": {
+          "description": "स्पैन एलिमेंट के रूप में प्रदर्शित करें",
+          "name": "स्पैन"
+        },
+        "truncate": {
+          "description": "जिस साइड पर टेक्स्ट को छोटा किया जाना चाहिए",
+          "name": "छोटा करें"
+        }
+      }
+    },
+    "MtTextInput": {
+      "description": "उपयोगकर्ता से स्ट्रिंग इनपुट कैप्चर करें",
+      "name": "टेक्स्ट इनपुट",
+      "props": {
+        "type": {
+          "description": "इनपुट क़िस्म",
+          "name": "टाइप करें"
+        }
+      }
+    },
+    "MtTextarea": {
+      "description": "ऑटोसाइज़ या नियमित टेक्स्टरेरा",
+      "name": "Textarea",
+      "props": {
+        "autosize": {
+          "description": "स्वतः आकार सक्षम करें",
+          "name": "स्वतः आकार"
+        },
+        "maxRows": {
+          "description": "पंक्तियों की अधिकतम संख्या",
+          "name": "अधिकतम पंक्तियां"
+        },
+        "minRows": {
+          "description": "पंक्तियों की न्यूनतम संख्या",
+          "name": "न्यूनतम पंक्तियां"
+        }
+      }
+    },
+    "MtTimeGrid": {
+      "description": "विकल्पों के पूर्वनिर्धारित सेट के साथ उपयोगकर्ता से समय मान कैप्चर करता है",
+      "name": "टाइम ग्रिड",
+      "props": {
+        "endTime": {
+          "description": "“HH: mm” प्रारूप में समाप्ति समय",
+          "name": "खत्म होने का समय"
+        },
+        "format": {
+          "description": "टाइम फ़ॉर्मेट",
+          "name": "फ़ॉर्मेट"
+        },
+        "startTime": {
+          "description": "“HH: mm” प्रारूप में प्रारंभ समय",
+          "name": "शुरू होने का समय"
+        }
+      }
+    },
+    "MtTimeInput": {
+      "description": "उपयोगकर्ता से समय कैप्चर करें",
+      "name": "टाइम इनपुट"
+    },
+    "MtTimePicker": {
+      "description": "उपयोगकर्ता से समय मान कैप्चर करता है",
+      "name": "टाइम पिकर",
+      "props": {
+        "format": {
+          "description": "टाइम फ़ॉर्मेट",
+          "name": "फ़ॉर्मेट"
+        },
+        "max": {
+          "description": "अधिकतम चयन करने योग्य समय, HH: MM: SS प्रारूप",
+          "name": "सर्वाधिक"
+        },
+        "min": {
+          "description": "न्यूनतम चयन योग्य समय, एचएच: एमएम: एसएस प्रारूप",
+          "name": "न्यूनतम"
+        },
+        "reverseTimeControlsList": {
+          "description": "कीबोर्ड नेविगेशन से मिलान करने के लिए समय नियंत्रण (घंटे, मिनट, सेकंड) के क्रम को उलट देता है",
+          "name": "रिवर्स टाइम कंट्रोल लिस्ट"
+        }
+      }
+    },
+    "MtTiptap": {
+      "description": "टिपटैप आधारित रिच टेक्स्ट एडिटर",
+      "name": "रिच टेक्स्ट एडिटर",
+      "props": {
+        "error": {
+          "description": "इनपुट त्रुटि संदेश",
+          "name": "एरर"
+        },
+        "value": {
+          "description": "HTML प्रारूप में संपादक की प्रारंभिक सामग्री",
+          "name": "वैल्यू"
+        }
+      }
+    },
+    "MtTitle": {
+      "description": "h1-h6 शीर्षक",
+      "name": "टाइटल",
+      "props": {
+        "children": {
+          "description": "टाइटल कॉन्टेंट",
+          "name": "कॉन्टेंट"
+        },
+        "order": {
+          "description": "शीर्षलेख स्तर",
+          "name": "आर्डर"
+        }
+      }
+    },
+    "MtTooltip": {
+      "description": "माउस ओवर या अन्य ईवेंट पर दिए गए तत्व पर टूलटिप रेंडर करता है",
+      "name": "टूलटिप",
+      "props": {
+        "children": {
+          "description": "ट्रिगर एलिमेंट",
+          "name": "बच्चे"
+        },
+        "content": {
+          "description": "टूलटिप कॉन्टेंट टेक्स्ट",
+          "name": "कॉन्टेंट"
+        },
+        "offset": {
+          "description": "ट्रिगर से दूरी",
+          "name": "ऑफ़सेट"
+        }
+      }
+    },
+    "MtTypography": {
+      "description": "HTML सामग्री के लिए स्टाइल प्रदाता",
+      "name": "टाइपोग्राफी",
+      "props": {
+        "allowHtml": {
+          "description": "HTML को अनुमति दें",
+          "name": "HTML को अनुमति दें"
+        },
+        "content": {
+          "description": "टेक्स्ट कॉन्टेंट",
+          "name": "कॉन्टेंट"
+        }
+      }
+    },
+    "MtYearMultiplePicker": {
+      "description": "इनलाइन मल्टीपल इयर्स पिकर",
+      "name": "इयर मल्टीपल पिकर",
+      "props": {
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य वर्ष",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य वर्ष",
+          "name": "न्यूनतम तारीख"
+        },
+        "numberOfColumns": {
+          "description": "प्रदर्शित करने के लिए कॉलम की संख्या",
+          "name": "स्तंभों की संख्या"
+        }
+      }
+    },
+    "MtYearMultiplePickerInput": {
+      "description": "वर्ष मल्टीपल पिकर इनपुट",
+      "name": "वर्ष मल्टीपल पिकर इनपुट",
+      "props": {
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य वर्ष",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य वर्ष",
+          "name": "न्यूनतम तारीख"
+        },
+        "numberOfColumns": {
+          "description": "प्रदर्शित करने के लिए कॉलम की संख्या",
+          "name": "स्तंभों की संख्या"
+        }
+      }
+    },
+    "MtYearPicker": {
+      "description": "इनलाइन ईयर पिकर",
+      "name": "वर्ष पिकर",
+      "props": {
+        "allowDeselect": {
+          "description": "निर्धारित करता है कि उपयोगकर्ता चयनित वर्ष पर क्लिक करके वर्ष का चयन रद्द कर सकता है या नहीं",
+          "name": "चयन रद्द करने की अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य वर्ष",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य वर्ष",
+          "name": "न्यूनतम तारीख"
+        },
+        "numberOfColumns": {
+          "description": "प्रदर्शित करने के लिए कॉलम की संख्या",
+          "name": "स्तंभों की संख्या"
+        }
+      }
+    },
+    "MtYearPickerInput": {
+      "description": "वर्ष पिकर इनपुट",
+      "name": "वर्ष पिकर इनपुट",
+      "props": {
+        "allowDeselect": {
+          "description": "निर्धारित करता है कि उपयोगकर्ता चयनित वर्ष पर क्लिक करके वर्ष का चयन रद्द कर सकता है या नहीं",
+          "name": "चयन रद्द करने की अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य वर्ष",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य वर्ष",
+          "name": "न्यूनतम तारीख"
+        },
+        "numberOfColumns": {
+          "description": "प्रदर्शित करने के लिए कॉलम की संख्या",
+          "name": "स्तंभों की संख्या"
+        }
+      }
+    },
+    "MtYearRangePicker": {
+      "description": "ईयर रेंज पिकर",
+      "name": "ईयर रेंज पिकर",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "एक वर्ष को एक श्रेणी के रूप में चुनने की अनुमति देता है",
+          "name": "रेंज में एक तारीख को अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य वर्ष",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य वर्ष",
+          "name": "न्यूनतम तारीख"
+        },
+        "numberOfColumns": {
+          "description": "प्रदर्शित करने के लिए कॉलम की संख्या",
+          "name": "स्तंभों की संख्या"
+        }
+      }
+    },
+    "MtYearRangePickerInput": {
+      "description": "ईयर रेंज पिकर इनपुट",
+      "name": "ईयर रेंज पिकर इनपुट",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "एक वर्ष को एक श्रेणी के रूप में चुनने की अनुमति देता है",
+          "name": "रेंज में एक तारीख को अनुमति दें"
+        },
+        "maxDate": {
+          "description": "अधिकतम चयन योग्य वर्ष",
+          "name": "अधिकतम तारीख"
+        },
+        "minDate": {
+          "description": "न्यूनतम चयन योग्य वर्ष",
+          "name": "न्यूनतम तारीख"
+        },
+        "numberOfColumns": {
+          "description": "प्रदर्शित करने के लिए कॉलम की संख्या",
+          "name": "स्तंभों की संख्या"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "components": {
+    "EmbeddedForm": {
+      "description": "Obrazac ugrađen u drugi oblik",
+      "name": "Ugrađeni obrazac",
+      "props": {
+        "disabled": {
+          "description": "Ako je tačno, ugrađeni obrazac je onemogućen",
+          "name": "Onemogućeno"
+        },
+        "formName": {
+          "description": "Naziv obrasca",
+          "name": "Naziv obrasca"
+        },
+        "options": {
+          "description": "Dodatne opcije za učitavanje ugrađenog obrasca",
+          "name": "Opcije"
+        },
+        "readOnly": {
+          "description": "Ako je tačno, ugrađeni obrazac je samo za čitanje",
+          "name": "Samo za čitanje"
+        },
+        "storeDataInParentForm": {
+          "description": "Ako su lažni, podaci ugniježđenog obrasca prikazuju se kao ugniježđeni objekat, tačno u suprotnom",
+          "name": "Čuvajte podatke u roditeljskom obliku"
+        }
+      }
+    },
+    "Repeater": {
+      "description": "Komponenta Repeater je posebna komponenta koja je odgovorna za prikazivanje niza ponavljajućih komponenti",
+      "name": "Repetitor",
+      "props": {
+        "itemRenderWhen": {
+          "description": "Izraz ili funkcija za uslovno prikazivanje stavke repetitora",
+          "name": "Stavka se prikazuje kada"
+        }
+      }
+    }
+  }
+}

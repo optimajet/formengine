@@ -1,0 +1,93 @@
+{
+  "name": "@react-form-builder/core",
+  "description": "React JSON Schema Form Builder to create complex, validated, reusable forms with no deep React knowledge required",
+  "version": "10.0.0",
+  "license": "MIT",
+  "private": false,
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/optimajet/formengine.git"
+  },
+  "keywords": [
+    "react",
+    "form",
+    "forms",
+    "form-validation",
+    "validation",
+    "formengine",
+    "form-library",
+    "react-component",
+    "react-dom",
+    "hooks",
+    "render props",
+    "validation",
+    "react-component",
+    "schema",
+    "form-builder",
+    "optimajet",
+    "react-hook-form",
+    "react hook form alternative",
+    "react form validation",
+    "react form library"
+  ],
+  "bugs": {
+    "email": "support@optimajet.com"
+  },
+  "main": "src/index.ts",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./lite": {
+      "import": "./src/index-lite.ts"
+    },
+    "./package.json": "./package.json",
+    "./schemas/persisted-form.schema.json": "./public/schemas/persisted-form.schema.json",
+    "./assets/styles.css": "./src/assets/styles.css"
+  },
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf dist temp",
+    "pack": "npm-run-all -l clean build create-json-schema create-archive",
+    "create-archive": "node ./config/pack.ts",
+    "create-json-schema": "vite-node scripts/json-schema/generator.ts"
+  },
+  "dependencies": {
+    "@fluent/bundle": "^0.19.1",
+    "zod": "^4.4.3"
+  },
+  "peerDependencies": {
+    "clsx": "^2.1.1",
+    "mobx": "^6.13.5",
+    "mobx-react": "^9.2.0",
+    "react": ">=17.0.2 || ^18 || ^19"
+  },
+  "devDependencies": {
+    "@react-form-builder/cli-lib": "*",
+    "ts-json-schema-generator": "^2.4.0",
+    "vite-node": "^5.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
+}

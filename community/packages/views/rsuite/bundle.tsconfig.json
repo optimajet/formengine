@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declarationDir": "./dist/types",
+    "rootDir": "./"
+  },
+  "exclude": [
+    "./config",
+    "./dist",
+    "./vite.config.ts"
+  ]
+}

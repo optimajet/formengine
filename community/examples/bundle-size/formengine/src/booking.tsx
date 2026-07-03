@@ -57,14 +57,12 @@ const initialData = {
   'first-name': '',
 }
 
-const App = () => (
-  <FormViewer view={view} getForm={getForm} actions={actions} formValidators={formValidators} initialData={initialData}/>
-)
+const App = () => <FormViewer view={view} getForm={getForm} actions={actions} formValidators={formValidators} initialData={initialData} />
 
 const root = createRoot(document.getElementById('root')!)
 
 root.render(
   <StrictMode>
-    <App/>
+    <App />
   </StrictMode>
 )

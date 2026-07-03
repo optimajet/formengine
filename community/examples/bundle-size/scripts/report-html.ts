@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-import {writeFileSync} from 'fs'
-import {join} from 'path'
+import {writeFileSync} from 'node:fs'
+import {join} from 'node:path'
 import {AVERAGE_4G_SPEED_BPS, SLOW_3G_SPEED_BPS} from './performance-constants.ts'
 import {
   type AppType,

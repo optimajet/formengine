@@ -1,0 +1,1201 @@
+{
+  "categories": {
+    "buttons": {
+      "name": "Dugmad"
+    },
+    "combobox": {
+      "name": "Combobok"
+    },
+    "dates": {
+      "name": "Datumi"
+    },
+    "inputs": {
+      "name": "Ulazi"
+    },
+    "layout": {
+      "name": "Raspored"
+    },
+    "miscellaneous": {
+      "name": "Razno"
+    },
+    "otherExtensions": {
+      "name": "Ostala proširenja"
+    },
+    "overlays": {
+      "name": "Prekrivanja"
+    },
+    "typography": {
+      "name": "Tipografija"
+    }
+  },
+  "commonProperties": {
+    "align": {
+      "description": "Poravnanje stavki.",
+      "name": "Poravnati"
+    },
+    "c": {
+      "description": "Boja teksta.",
+      "name": "Boja"
+    },
+    "clearable": {
+      "description": "Da li treba prikazati jasno dugme.",
+      "name": "Jasno"
+    },
+    "color": {
+      "description": "Naziv boje teme Mantine.",
+      "name": "Boja"
+    },
+    "columnsToScroll": {
+      "description": "Broj kolona za pomeranje.",
+      "name": "Kolone za pomeranje"
+    },
+    "data": {
+      "description": "Podaci o opcijama.",
+      "name": "Podaci"
+    },
+    "defaultVisible": {
+      "description": "Početno stanje vidljivosti sadržaja.",
+      "name": "Podrazumevano vidljivo"
+    },
+    "description": {
+      "description": "Pomoćni tekst prikazan ispod etikete.",
+      "name": "Opis"
+    },
+    "disabled": {
+      "description": "Da li je unos onemogućen.",
+      "name": "Onemogućeno"
+    },
+    "dropdownOpened": {
+      "description": "Kontrole padajućeg menija otvoreno stanje.",
+      "name": "Otvoren padajući meni"
+    },
+    "dropdownType": {
+      "description": "Režim prezentacije birača.",
+      "name": "Tip padajućeg menija"
+    },
+    "error": {
+      "description": "Poruka o grešci ili stanje greške.",
+      "name": "Greška"
+    },
+    "filledVariant": {
+      "description": "Kontrolna varijanta izgleda.",
+      "name": "Varijanta"
+    },
+    "fs": {
+      "description": "Stil fonta.",
+      "name": "Stil fonta"
+    },
+    "fw": {
+      "description": "Težina fonta.",
+      "name": "Težina fonta"
+    },
+    "fz": {
+      "description": "Veličina fonta.",
+      "name": "Veličina fonta"
+    },
+    "grow": {
+      "description": "Da li bi predmeti trebali rasti kako bi popunili raspoloživi prostor.",
+      "name": "Raste"
+    },
+    "hideOutsideDates": {
+      "description": "Da li da sakrijete vanjske datume.",
+      "name": "Sakrij spoljne datume"
+    },
+    "hideWeekdays": {
+      "description": "Da li da sakrijete etikete radnim danima.",
+      "name": "Sakrij radne dane"
+    },
+    "highlightToday": {
+      "description": "Da li da istaknem danas.",
+      "name": "Istaknite danas"
+    },
+    "justify": {
+      "description": "Opravdajte sadržaj unutar grupe.",
+      "name": "Opravdati"
+    },
+    "label": {
+      "description": "Nalepnica za unos.",
+      "name": "Oznaka"
+    },
+    "labelPosition": {
+      "description": "Položaj oznake u odnosu na kontrolu.",
+      "name": "Položaj etikete"
+    },
+    "lh": {
+      "description": "Visina linije.",
+      "name": "Visina linije"
+    },
+    "maxDropdownHeight": {
+      "description": "Maksimalna visina padajućeg menija u pikselima.",
+      "name": "Maksimalna visina padajućeg menija"
+    },
+    "minRows": {
+      "description": "Minimalni vidljivi redovi.",
+      "name": "Minimalni redovi"
+    },
+    "nothingFoundMessage": {
+      "description": "Poruka se prikazuje kada se nijedna opcija ne podudara.",
+      "name": "Ništa nije pronađeno poruku"
+    },
+    "numberOfColumns": {
+      "description": "Broj kolona kalendara.",
+      "name": "Broj kolona"
+    },
+    "onBlur": {
+      "description": "Poziva se kada ulaz izgubi fokus.",
+      "name": "OnBlur"
+    },
+    "onChange": {
+      "description": "Zove se kada se vrednost promeni.",
+      "name": "OnChange"
+    },
+    "onDropdownClose": {
+      "description": "Poziva se kada se padajući meni zatvori.",
+      "name": "OnDropdovnZatvori"
+    },
+    "onDropdownOpen": {
+      "description": "Poziva se kada se otvori padajući meni.",
+      "name": "OnDropDovnOpen"
+    },
+    "onFocus": {
+      "description": "Poziva se kada ulaz primi fokus.",
+      "name": "OnFocus"
+    },
+    "onSearchChange": {
+      "description": "Poziva se kada se vrednost pretrage promeni.",
+      "name": "OnSearchChange"
+    },
+    "placeholder": {
+      "description": "Rezervirano mesto",
+      "name": "Rezervoar mesta"
+    },
+    "radius": {
+      "description": "Radijus granice.",
+      "name": "Radijus"
+    },
+    "readOnly": {
+      "description": "Da li je ulaz samo za čitanje.",
+      "name": "Samo za čitanje"
+    },
+    "searchValue": {
+      "description": "Kontrolisana ulazna vrednost pretrage.",
+      "name": "Vrednost pretrage"
+    },
+    "size": {
+      "description": "Veličina komponente.",
+      "name": "Veličina"
+    },
+    "spacing": {
+      "description": "Razmak između stavki.",
+      "name": "Razmak"
+    },
+    "ta": {
+      "description": "Poravnanje teksta.",
+      "name": "Poravnanje teksta"
+    },
+    "td": {
+      "description": "Dekoracija teksta.",
+      "name": "Dekoracija teksta"
+    },
+    "tt": {
+      "description": "Transformacija teksta.",
+      "name": "Transformacija teksta"
+    },
+    "value": {
+      "description": "Trenutna vrednost.",
+      "name": "Vrednost"
+    },
+    "variant": {
+      "description": "Varijanta izgleda ulaza.",
+      "name": "Varijanta"
+    },
+    "withAsterisk": {
+      "description": "Da li da prikažete željeni indikator.",
+      "name": "Sa zvezdicom"
+    },
+    "withScrollArea": {
+      "description": "Da li padajući izbornik koristi područje pomeranja.",
+      "name": "Sa područjem pomicanja"
+    },
+    "withSeconds": {
+      "description": "Određuje da li sekunde treba uključiti u odabir vremena.",
+      "name": "Sa sekundama"
+    },
+    "withWeekNumbers": {
+      "description": "Da li treba prikazati brojeve nedelja.",
+      "name": "Sa brojevima nedelja"
+    },
+    "wrap": {
+      "description": "Ponašanje omotača za predmete.",
+      "name": "Omotajte"
+    }
+  },
+  "components": {
+    "MtAutocomplete": {
+      "description": "Automatsko dovršavanje korisničkog unosa sa bilo kojom listom opcija",
+      "name": "Automatsko dovršavanje",
+      "props": {
+        "data": {
+          "description": "Podaci koji se koriste za prikaz opcija",
+          "name": "Podaci"
+        }
+      }
+    },
+    "MtButton": {
+      "description": "Komponenta dugmeta za prikaz dugmeta ili veze",
+      "name": "Dugme",
+      "props": {
+        "children": {
+          "description": "Sadržaj dugmeta",
+          "name": "Sadržaj"
+        },
+        "fullWidth": {
+          "description": "Ako je postavljeno, dugme preuzima punu širinu roditeljskog kontejnera",
+          "name": "Puna širina"
+        },
+        "onClick": {
+          "description": "Poziva se kada se klikne na dugme",
+          "name": "OnClick"
+        }
+      }
+    },
+    "MtCheckbox": {
+      "description": "Snimite logički unos od korisnika",
+      "name": "Polje za potvrdu",
+      "props": {
+        "checked": {
+          "description": "Određuje da li je potvrdni okvir izabran",
+          "name": "Provereno"
+        }
+      }
+    },
+    "MtCheckboxGroup": {
+      "description": "Grupa polja za potvrdu",
+      "name": "Grupa polja za potvrdu",
+      "props": {
+        "items": {
+          "description": "Stavke grupe polja za potvrdu",
+          "name": "Predmeti"
+        }
+      }
+    },
+    "MtChip": {
+      "description": "Izaberite vrednost pomoću ugrađenih kontrola",
+      "name": "čip",
+      "props": {
+        "checked": {
+          "description": "Određuje da li je čip izabran",
+          "name": "Provereno"
+        },
+        "children": {
+          "description": "Oznaka komponente",
+          "name": "Oznaka"
+        }
+      }
+    },
+    "MtChipCheckboxGroup": {
+      "description": "Izaberite jednu ili više vrednosti pomoću ugrađenih kontrola",
+      "name": "Grupa polja za potvrdu čipa",
+      "props": {
+        "items": {
+          "description": "Opcije čipa",
+          "name": "Predmeti"
+        }
+      }
+    },
+    "MtChipRadioGroup": {
+      "description": "Izaberite jednu vrednost pomoću ugrađenih kontrola",
+      "name": "Chip radio grupa",
+      "props": {
+        "items": {
+          "description": "Opcije čipa",
+          "name": "Predmeti"
+        }
+      }
+    },
+    "MtColorInput": {
+      "description": "Snimite boju od korisnika",
+      "name": "Unos u boji",
+      "props": {
+        "format": {
+          "description": "Format boje",
+          "name": "Format"
+        },
+        "swatches": {
+          "description": "Spisak boja koje se koriste za prikazivanje liste uzoraka ispod odabira boja",
+          "name": "Uzorci"
+        }
+      }
+    },
+    "MtColorPicker": {
+      "description": "Izaberite boje u formatima hex (a), rgb (a), hsl (a) i hsv (a)",
+      "name": "Birač boja",
+      "props": {
+        "format": {
+          "description": "Format boje.",
+          "name": "Format"
+        },
+        "fullWidth": {
+          "description": "Da li se proteže do pune širine.",
+          "name": "Puna širina"
+        },
+        "swatches": {
+          "description": "Uzorci boja.",
+          "name": "Uzorci"
+        },
+        "swatchesPerRow": {
+          "description": "Broj uzoraka po redu.",
+          "name": "Uzorci po redu"
+        },
+        "withPicker": {
+          "description": "Da li treba prikazati ulaz birača.",
+          "name": "Sa beračem"
+        }
+      }
+    },
+    "MtContainer": {
+      "description": "Sadržaj u centru sa podlogom i maksimalnom širinom",
+      "name": "kontejner",
+      "props": {
+        "children": {
+          "description": "Dečiji elementi komponente",
+          "name": "Deca"
+        }
+      }
+    },
+    "MtDateMultiplePicker": {
+      "description": "Omogućava odabir više datuma",
+      "name": "Višestruki birač datuma",
+      "props": {
+        "maxDate": {
+          "description": "Maksimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtDateMultiplePickerInput": {
+      "description": "Omogućava odabir više datuma",
+      "name": "Unos višestrukog birača datuma",
+      "props": {
+        "maxDate": {
+          "description": "Maksimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtDatePicker": {
+      "description": "Omogućava odabir datuma",
+      "name": "Birač datuma",
+      "props": {
+        "allowDeselect": {
+          "description": "Određuje da li korisnik može da poništi izbor datuma klikom na izabrani datum",
+          "name": "Dozvoli poništavanje"
+        },
+        "maxDate": {
+          "description": "Maksimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtDatePickerInput": {
+      "description": "Unos birača datuma",
+      "name": "Unos birača datuma",
+      "props": {
+        "allowDeselect": {
+          "description": "Određuje da li korisnik može da poništi izbor datuma klikom na izabrani datum",
+          "name": "Dozvoli poništavanje"
+        },
+        "maxDate": {
+          "description": "Maksimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtDateRangePicker": {
+      "description": "Omogućava odabir datumskog opsega",
+      "name": "Birač raspona datuma",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Omogućava odabir jednog datuma kao opsega",
+          "name": "Dozvolite jedan datum u opsegu"
+        },
+        "maxDate": {
+          "description": "Maksimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtDateRangePickerInput": {
+      "description": "Unos birača opsega datuma",
+      "name": "Unos birača opsega datuma",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Omogućava odabir jednog datuma kao opsega",
+          "name": "Dozvolite jedan datum u opsegu"
+        },
+        "maxDate": {
+          "description": "Maksimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni datum koji se može izabrati, GGGG-MM-DD format",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtDateTimePicker": {
+      "description": "Snimite datum od korisnika",
+      "name": "Birač datuma",
+      "props": {
+        "valueFormat": {
+          "description": "Prilagođeni daijs format za prikaz vrednosti",
+          "name": "Format vrednosti"
+        }
+      }
+    },
+    "MtDialog": {
+      "description": "Prikažite fiksni dijalog prekrivanja na bilo kojoj strani ekrana",
+      "name": "Dijalog",
+      "props": {
+        "children": {
+          "description": "Sadržaj dijaloga",
+          "name": "Deca"
+        },
+        "onOpen": {
+          "description": "Poziva se kada je otvoreno svojstvo postavljeno na istinito",
+          "name": "OnOpen"
+        },
+        "opened": {
+          "description": "Da li je dijalog otvoren",
+          "name": "Otvoreno"
+        },
+        "showCloseButton": {
+          "description": "Da li treba prikazati dugme za zatvaranje",
+          "name": "Prikaži dugme za zatvaranje"
+        },
+        "title": {
+          "description": "Naslov dijaloga",
+          "name": "Naslov"
+        }
+      }
+    },
+    "MtDivider": {
+      "description": "Horizontalna linija sa opcionalnom nalepnicom ili vertikalnim razdjelnikom",
+      "name": "Razdjelnik",
+      "props": {
+        "orientation": {
+          "description": "Orijentacija razdjelnika",
+          "name": "Orijentacija"
+        }
+      }
+    },
+    "MtDropzone": {
+      "description": "Snimite datoteke od korisnika prevlačenjem i ispuštanjem",
+      "name": "Dropzone",
+      "props": {
+        "accept": {
+          "description": "Prihvaćeni tipovi mime",
+          "name": "Prihvati"
+        },
+        "multiple": {
+          "description": "Dozvolite više datoteka",
+          "name": "Višestruki"
+        }
+      }
+    },
+    "MtErrorWrapper": {
+      "description": "Prikazuje poruku o grešci validacije ispod kontrole obrasca",
+      "name": "Poruka o grešci"
+    },
+    "MtFileInput": {
+      "description": "Snimite datoteke od korisnika",
+      "name": "Unos datoteke",
+      "props": {
+        "accept": {
+          "description": "Prihvaćeni tipovi datoteka",
+          "name": "Prihvati"
+        },
+        "multiple": {
+          "description": "Dozvolite više datoteka",
+          "name": "Višestruki"
+        }
+      }
+    },
+    "MtJsonInput": {
+      "description": "Snimite json podatke od korisnika",
+      "name": "JSON ulaz",
+      "props": {
+        "minRows": {
+          "description": "Minimalni broj redova",
+          "name": "Minimalni redovi"
+        }
+      }
+    },
+    "MtLabel": {
+      "description": "Prikazuje etiketu",
+      "name": "Oznaka",
+      "props": {
+        "children": {
+          "description": "Tekst etikete",
+          "name": "Oznaka"
+        }
+      }
+    },
+    "MtMonthMultiplePicker": {
+      "description": "Mesečni višestruki birač",
+      "name": "Mesečni višestruki birač",
+      "props": {
+        "maxDate": {
+          "description": "Maksimalni mesec koji se može izabrati",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni mesec koji se može izabrati",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtMonthMultiplePickerInput": {
+      "description": "Mesečni unos višestrukog birača",
+      "name": "Mesečni unos višestrukog birača",
+      "props": {
+        "maxDate": {
+          "description": "Maksimalni mesec koji se može izabrati",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni mesec koji se može izabrati",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtMonthPicker": {
+      "description": "Ugrađeni mesečni birač",
+      "name": "Mesečni birač",
+      "props": {
+        "allowDeselect": {
+          "description": "Određuje da li korisnik može da poništi izbor meseca klikom na izabrani mesec",
+          "name": "Dozvoli poništavanje"
+        },
+        "maxDate": {
+          "description": "Maksimalni mesec koji se može izabrati",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni mesec koji se može izabrati",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtMonthPickerInput": {
+      "description": "Mesečni unos birača",
+      "name": "Mesečni unos birača",
+      "props": {
+        "allowDeselect": {
+          "description": "Određuje da li korisnik može da poništi izbor meseca klikom na izabrani mesec",
+          "name": "Dozvoli poništavanje"
+        },
+        "maxDate": {
+          "description": "Maksimalni mesec koji se može izabrati",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni mesec koji se može izabrati",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtMonthRangePicker": {
+      "description": "Ugrađeni mesečni birač dometa",
+      "name": "Mesečni birač dometa",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Omogućava odabir jednog meseca kao opsega",
+          "name": "Dozvolite jedan datum u opsegu"
+        },
+        "maxDate": {
+          "description": "Maksimalni mesec koji se može izabrati",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni mesec koji se može izabrati",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtMonthRangePickerInput": {
+      "description": "Ulaz za biranje opsega meseca",
+      "name": "Ulaz za biranje opsega meseca",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Omogućava odabir jednog meseca kao opsega",
+          "name": "Dozvolite jedan datum u opsegu"
+        },
+        "maxDate": {
+          "description": "Maksimalni mesec koji se može izabrati",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalni mesec koji se može izabrati",
+          "name": "Minimalni datum"
+        }
+      }
+    },
+    "MtMultiSelect": {
+      "description": "Prilagođeni višestruki izbor za pretraživanje",
+      "name": "Višestruki izbor",
+      "props": {
+        "data": {
+          "description": "Podaci koji se koriste za prikaz opcija",
+          "name": "Podaci"
+        },
+        "searchable": {
+          "description": "Omogući pretragu",
+          "name": "Pretraživanje"
+        }
+      }
+    },
+    "MtNativeSelect": {
+      "description": "Izvorni element odabira zasnovan na unosu",
+      "name": "Izvorni izbor",
+      "props": {
+        "data": {
+          "description": "Podaci koji se koriste za prikaz opcija",
+          "name": "Podaci"
+        }
+      }
+    },
+    "MtNumberInput": {
+      "description": "Snimite broj od korisnika",
+      "name": "Unos broja",
+      "props": {
+        "allowDecimal": {
+          "description": "Dozvolite decimalne vrednosti",
+          "name": "Dozvoli decimalnu"
+        },
+        "allowLeadingZeros": {
+          "description": "Dozvolite vodeće nule",
+          "name": "Dozvolite vodeće nule"
+        },
+        "allowNegative": {
+          "description": "Dozvolite negativne vrednosti",
+          "name": "Dozvolite negativno"
+        },
+        "clampBehavior": {
+          "description": "Ponašanje stezanja",
+          "name": "Ponašanje stezaljke"
+        },
+        "decimalScale": {
+          "description": "Ograničava broj cifara koje se mogu uneti nakon decimalne tačke",
+          "name": "Decimalna skala"
+        },
+        "decimalSeparator": {
+          "description": "Znak koji se koristi kao decimalni separator",
+          "name": "Decimalni separator"
+        },
+        "fixedDecimalScale": {
+          "description": "Ako je postavljeno, 0 se dodaju nakon decimalnog separatora kako bi odgovarali datoj decimalnoj skali",
+          "name": "Fiksna decimalna skala"
+        },
+        "hideControls": {
+          "description": "Sakrij kontrole povećanja i smanjenja",
+          "name": "Sakrij kontrole"
+        },
+        "max": {
+          "description": "Maksimalna vrednost",
+          "name": "Maks"
+        },
+        "min": {
+          "description": "Minimalna vrednost",
+          "name": "Min"
+        },
+        "prefix": {
+          "description": "Niz koji treba dodati pre broja",
+          "name": "Prefiks"
+        },
+        "startValue": {
+          "description": "Vrednost postavljena na ulaz kada se kliknu tasteri za povećanje/smanjenje ili pritisnu strelice gore/dole ako je ulaz prazan",
+          "name": "Početna vrednost"
+        },
+        "step": {
+          "description": "Vrednost koraka",
+          "name": "Korak"
+        },
+        "suffix": {
+          "description": "Niz koji treba dodati nakon broja",
+          "name": "Sufiks"
+        },
+        "thousandSeparator": {
+          "description": "Znak koji se koristi kao separator hiljada",
+          "name": "Hiljadu separatora"
+        },
+        "thousandsGroupStyle": {
+          "description": "Hiljadu stila grupisanja",
+          "name": "Hiljade grupnih stilova"
+        },
+        "trimLeadingZeroesOnBlur": {
+          "description": "Ako je podešeno, vodeće nule se uklanjaju pri zamućivanju. Na primer, 00100 -> 100",
+          "name": "Obrežite vodeće nule na zamućenju"
+        }
+      }
+    },
+    "MtPasswordInput": {
+      "description": "Snimite podatke o lozinci od korisnika",
+      "name": "Unos lozinke"
+    },
+    "MtRadio": {
+      "description": "Omotač za ulazni tip radio",
+      "name": "Radio",
+      "props": {
+        "checked": {
+          "description": "Određuje da li je radio proveren",
+          "name": "Provereno"
+        }
+      }
+    },
+    "MtRadioGroup": {
+      "description": "Radio grupa",
+      "name": "Radio grupa",
+      "props": {
+        "items": {
+          "description": "Radio opcije",
+          "name": "Predmeti"
+        }
+      }
+    },
+    "MtRangeSlider": {
+      "description": "Komponenta RangeSlider",
+      "name": "Klizač dometa",
+      "props": {
+        "inverted": {
+          "description": "Određuje da li reprezentacija vrednosti staze treba da bude obrnuta",
+          "name": "Obrnuto"
+        },
+        "labelAlwaysOn": {
+          "description": "Određuje da li nalepnica treba da bude vidljiva kada se klizač ne vuče ili ne lebdi",
+          "name": "Oznaka uvek uključena"
+        },
+        "max": {
+          "description": "Maksimalna vrednost",
+          "name": "Maks"
+        },
+        "maxRange": {
+          "description": "Maksimalni opseg koji se može odabrati",
+          "name": "Maksimalni opseg"
+        },
+        "min": {
+          "description": "Minimalna vrednost",
+          "name": "Min"
+        },
+        "precision": {
+          "description": "Broj decimalnih mesta za upotrebu",
+          "name": "Preciznost"
+        },
+        "pushOnOverlap": {
+          "description": "Određuje da li drugi palac treba pritisnuti trenutnim povlačenjem palca kada se dostigne MinRange/MakRange",
+          "name": "Pritisnite preklapanje"
+        },
+        "showLabelOnHover": {
+          "description": "Određuje da li nalepnica treba da bude prikazana kada je klizač lebdeno",
+          "name": "Prikaži oznaku na pokazivaču pokazivača"
+        },
+        "step": {
+          "description": "Vrednost koraka",
+          "name": "Korak"
+        }
+      }
+    },
+    "MtRating": {
+      "description": "Izaberite i prikažite ocenu",
+      "name": "Ocena",
+      "props": {
+        "count": {
+          "description": "Broj zvezda",
+          "name": "Broji"
+        },
+        "fractions": {
+          "description": "Broj frakcija",
+          "name": "Frakcije"
+        }
+      }
+    },
+    "MtSegmentedControl": {
+      "description": "Linearni skup od dva ili više segmenata",
+      "name": "Segmentirana kontrola",
+      "props": {
+        "data": {
+          "description": "Opcije",
+          "name": "Podaci"
+        }
+      }
+    },
+    "MtSelect": {
+      "description": "Prilagođeni izbor za pretraživanje",
+      "name": "Izaberite",
+      "props": {
+        "data": {
+          "description": "Opcije",
+          "name": "Podaci"
+        },
+        "searchable": {
+          "description": "Omogući pretragu",
+          "name": "Pretraživanje"
+        }
+      }
+    },
+    "MtSlider": {
+      "description": "Slider komponenta",
+      "name": "klizač",
+      "props": {
+        "max": {
+          "description": "Maksimalna vrednost",
+          "name": "Maks"
+        },
+        "min": {
+          "description": "Minimalna vrednost",
+          "name": "Min"
+        },
+        "step": {
+          "description": "Vrednost koraka",
+          "name": "Korak"
+        }
+      }
+    },
+    "MtSwitch": {
+      "description": "Snimite logički unos od korisnika",
+      "name": "Prekidač",
+      "props": {
+        "checked": {
+          "description": "Određuje da li je prekidač uključen",
+          "name": "Provereno"
+        }
+      }
+    },
+    "MtSwitchGroup": {
+      "description": "Snimite logičke ulaze od korisnika",
+      "name": "Prebacite grupu",
+      "props": {
+        "items": {
+          "description": "Opcije prebacivanja",
+          "name": "Predmeti"
+        }
+      }
+    },
+    "MtTagsInput": {
+      "description": "Snimite listu vrednosti od korisnika sa besplatnim unosom i sugestijama",
+      "name": "Unos oznaka",
+      "props": {
+        "data": {
+          "description": "Opcije",
+          "name": "Podaci"
+        }
+      }
+    },
+    "MtText": {
+      "description": "Prikaz teksta",
+      "name": "Tekst",
+      "props": {
+        "children": {
+          "description": "Tekstualni sadržaj",
+          "name": "Sadržaj"
+        },
+        "inherit": {
+          "description": "Određuje da li svojstva fonta treba da budu nasleđena od roditelja",
+          "name": "Nasleđujte"
+        },
+        "inline": {
+          "description": "Postavlja visinu linije na 1 za centriranje",
+          "name": "Inline"
+        },
+        "lineClamp": {
+          "description": "Broj redova nakon kojih će tekst biti skraćen",
+          "name": "Linijska stezaljka"
+        },
+        "span": {
+          "description": "Prikaz kao element raspona",
+          "name": "Raspon"
+        },
+        "truncate": {
+          "description": "Strana na kojoj tekst mora biti skraćen",
+          "name": "Skraćiti"
+        }
+      }
+    },
+    "MtTextInput": {
+      "description": "Snimite unos niza od korisnika",
+      "name": "Unos teksta",
+      "props": {
+        "type": {
+          "description": "Tip ulaza",
+          "name": "Tip"
+        }
+      }
+    },
+    "MtTextarea": {
+      "description": "Automatska veličina ili obična tekstarea",
+      "name": "Tektarea",
+      "props": {
+        "autosize": {
+          "description": "Omogućite automatsku veličinu",
+          "name": "Automatska veličina"
+        },
+        "maxRows": {
+          "description": "Maksimalni broj redova",
+          "name": "Maksimalni redovi"
+        },
+        "minRows": {
+          "description": "Minimalni broj redova",
+          "name": "Minimalni redovi"
+        }
+      }
+    },
+    "MtTimeGrid": {
+      "description": "Snima vremensku vrednost od korisnika pomoću unapred definisanog skupa opcija",
+      "name": "Vremenska mreža",
+      "props": {
+        "endTime": {
+          "description": "Vreme završetka u formatu „HH: mm“",
+          "name": "Vreme završetka"
+        },
+        "format": {
+          "description": "Format vremena",
+          "name": "Format"
+        },
+        "startTime": {
+          "description": "Vreme početka u formatu „HH: mm“",
+          "name": "Vreme početka"
+        }
+      }
+    },
+    "MtTimeInput": {
+      "description": "Snimite vreme od korisnika",
+      "name": "Unos vremena"
+    },
+    "MtTimePicker": {
+      "description": "Snima vremensku vrednost od korisnika",
+      "name": "Birač vremena",
+      "props": {
+        "format": {
+          "description": "Format vremena",
+          "name": "Format"
+        },
+        "max": {
+          "description": "Maksimalno vreme za izbor, HH: mm: SS format",
+          "name": "Maks"
+        },
+        "min": {
+          "description": "Minimalno vreme za izbor, HH: mm: SS format",
+          "name": "Min"
+        },
+        "reverseTimeControlsList": {
+          "description": "Poništava redosled kontrola vremena (sati, minuta, sekunde) kako bi odgovarao navigaciji na tastaturi",
+          "name": "Lista kontrola obrnutog vremena"
+        }
+      }
+    },
+    "MtTiptap": {
+      "description": "Uređivač bogatog teksta zasnovan na tipkama",
+      "name": "Uređivač bogatih teksta",
+      "props": {
+        "error": {
+          "description": "Poruka o grešci unosa",
+          "name": "Greška"
+        },
+        "value": {
+          "description": "Početni sadržaj uređivača u HTML formatu",
+          "name": "Vrednost"
+        }
+      }
+    },
+    "MtTitle": {
+      "description": "h1-h6 naslov",
+      "name": "Naslov",
+      "props": {
+        "children": {
+          "description": "Sadržaj naslova",
+          "name": "Sadržaj"
+        },
+        "order": {
+          "description": "Nivo zaglavlja",
+          "name": "Naručite"
+        }
+      }
+    },
+    "MtTooltip": {
+      "description": "Prikazuje alatku na datom elementu na mišem ili drugom događaju",
+      "name": "Savet za alat",
+      "props": {
+        "children": {
+          "description": "Element okidača",
+          "name": "Deca"
+        },
+        "content": {
+          "description": "Tekst sadržaja saveta alata",
+          "name": "Sadržaj"
+        },
+        "offset": {
+          "description": "Udaljenost od okidača",
+          "name": "Ofset"
+        }
+      }
+    },
+    "MtTypography": {
+      "description": "Provajder stilova za HTML sadržaj",
+      "name": "Tipografija",
+      "props": {
+        "allowHtml": {
+          "description": "Dozvoli HTML",
+          "name": "Dozvoli HTML"
+        },
+        "content": {
+          "description": "Tekstualni sadržaj",
+          "name": "Sadržaj"
+        }
+      }
+    },
+    "MtYearMultiplePicker": {
+      "description": "Ugrađeni višestruki birač",
+      "name": "Višestruki birač",
+      "props": {
+        "maxDate": {
+          "description": "Maksimalna godina za izbor",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalna godina za izbor",
+          "name": "Minimalni datum"
+        },
+        "numberOfColumns": {
+          "description": "Broj kolona za prikaz",
+          "name": "Broj kolona"
+        }
+      }
+    },
+    "MtYearMultiplePickerInput": {
+      "description": "Godišnji unos višestrukog birača",
+      "name": "Godišnji unos višestrukog birača",
+      "props": {
+        "maxDate": {
+          "description": "Maksimalna godina za izbor",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalna godina za izbor",
+          "name": "Minimalni datum"
+        },
+        "numberOfColumns": {
+          "description": "Broj kolona za prikaz",
+          "name": "Broj kolona"
+        }
+      }
+    },
+    "MtYearPicker": {
+      "description": "Ugrađeni birač godina",
+      "name": "Birač godina",
+      "props": {
+        "allowDeselect": {
+          "description": "Određuje da li korisnik može da poništi izbor godine klikom na izabranu godinu",
+          "name": "Dozvoli poništavanje"
+        },
+        "maxDate": {
+          "description": "Maksimalna godina za izbor",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalna godina za izbor",
+          "name": "Minimalni datum"
+        },
+        "numberOfColumns": {
+          "description": "Broj kolona za prikaz",
+          "name": "Broj kolona"
+        }
+      }
+    },
+    "MtYearPickerInput": {
+      "description": "Ulaz za birač godine",
+      "name": "Ulaz za birač godine",
+      "props": {
+        "allowDeselect": {
+          "description": "Određuje da li korisnik može da poništi izbor godine klikom na izabranu godinu",
+          "name": "Dozvoli poništavanje"
+        },
+        "maxDate": {
+          "description": "Maksimalna godina za izbor",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalna godina za izbor",
+          "name": "Minimalni datum"
+        },
+        "numberOfColumns": {
+          "description": "Broj kolona za prikaz",
+          "name": "Broj kolona"
+        }
+      }
+    },
+    "MtYearRangePicker": {
+      "description": "Birač godišnjeg opsega",
+      "name": "Birač godišnjeg opsega",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Omogućava odabir jedne godine kao raspona",
+          "name": "Dozvolite jedan datum u opsegu"
+        },
+        "maxDate": {
+          "description": "Maksimalna godina za izbor",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalna godina za izbor",
+          "name": "Minimalni datum"
+        },
+        "numberOfColumns": {
+          "description": "Broj kolona za prikaz",
+          "name": "Broj kolona"
+        }
+      }
+    },
+    "MtYearRangePickerInput": {
+      "description": "Ulaz za birač godišnjeg opsega",
+      "name": "Ulaz za birač godišnjeg opsega",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "Omogućava odabir jedne godine kao raspona",
+          "name": "Dozvolite jedan datum u opsegu"
+        },
+        "maxDate": {
+          "description": "Maksimalna godina za izbor",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Minimalna godina za izbor",
+          "name": "Minimalni datum"
+        },
+        "numberOfColumns": {
+          "description": "Broj kolona za prikaz",
+          "name": "Broj kolona"
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-import {existsSync, mkdirSync, writeFileSync} from 'fs'
-import {join} from 'path'
+import {existsSync, mkdirSync, writeFileSync} from 'node:fs'
+import {join} from 'node:path'
 import {BASELINE_INITIAL_RENDER_MS, CSS_PARSE_TIME_PER_KB, JS_PARSE_TIME_PER_KB} from './performance-constants.ts'
 import type {BundleBreakdown, BundleInfo} from './tool.ts'
 import {calculatePercentage} from './tool.ts'

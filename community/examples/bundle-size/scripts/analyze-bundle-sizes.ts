@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console */
-
-import {execSync} from 'child_process'
-import {cpSync, existsSync, mkdirSync, readFileSync, writeFileSync} from 'fs'
-import {dirname, join} from 'path'
-import {fileURLToPath} from 'url'
+import {execSync} from 'node:child_process'
+import {cpSync, existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs'
+import {dirname, join} from 'node:path'
+import {fileURLToPath} from 'node:url'
 import {getAvailableBuildTools, getBuildToolPlugin} from './build-tools/index.ts'
 import {apps, getVariantsForApp, variants} from './report-common.ts'
 import {displayBundleSizes} from './report-console.ts'
@@ -198,7 +196,9 @@ async function main(): Promise<void> {
   exportToMarkdown(allResults, apps, variants, activeBuildTools, statsDir)
 }
 
-main().catch(error => {
+try {
+  await main()
+} catch (error) {
   console.error('Fatal error:', error)
-  process.exit(1)
-})
+  process.exitCode = 1
+}

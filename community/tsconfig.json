@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "module": "ES2022",
+    "target": "ES2022",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@react-form-builder/cli-lib/*": [
+        "./scripts/cli-lib/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "declarationMap": true,
+    "outDir": "dist",
+    "types": [
+      "node",
+      "vite/client",
+      "vitest/globals"
+    ],
+    "noUnusedLocals": true
+  },
+  "exclude": [
+    "examples",
+    "documentation",
+    "node_modules",
+    "packages/**/dist"
+  ]
+}

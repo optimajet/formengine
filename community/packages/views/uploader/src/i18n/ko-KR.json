@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "필드"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "드래그 앤 드롭을 지원하는 파일 업로드 구성 요소",
+      "name": "파일 업로더",
+      "props": {
+        "accept": {
+          "description": "허용되는 파일 유형 (예: 이미지/*, .pdf, .docx)",
+          "name": "수락"
+        },
+        "action": {
+          "description": "파일을 업로드할 URL",
+          "name": "액션 URL"
+        },
+        "children": {
+          "description": "업로더 내에 표시할 콘텐츠",
+          "name": "어린이"
+        },
+        "disabled": {
+          "description": "true인 경우 업로더가 비활성화됩니다.",
+          "name": "장애인"
+        },
+        "dropzone": {
+          "description": "true인 경우 드롭존이 표시됩니다.",
+          "name": "드롭존"
+        },
+        "multiple": {
+          "description": "여러 파일 선택 허용",
+          "name": "여러 파일"
+        },
+        "onChange": {
+          "description": "파일 업로드 성공 시 콜백",
+          "name": "변경 시"
+        },
+        "onError": {
+          "description": "업로드 중 오류 발생 시 콜백",
+          "name": "오류 발생 시"
+        },
+        "readOnly": {
+          "description": "true인 경우 업로더는 읽기 전용입니다.",
+          "name": "읽기 전용"
+        }
+      }
+    }
+  }
+}

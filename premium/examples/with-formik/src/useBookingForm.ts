@@ -2,7 +2,7 @@ import {useFormik} from 'formik'
 import {useMemo, useState} from 'react'
 import {FormikProps} from 'formik/dist/types'
 
-export type BookingForm = Partial<{
+type BookingForm = Partial<{
   fullName: string,
   guestCount: number,
   checkinDate: Date

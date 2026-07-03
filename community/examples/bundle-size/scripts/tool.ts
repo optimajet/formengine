@@ -1,5 +1,5 @@
-import {existsSync, readFileSync} from 'fs'
-import {join} from 'path'
+import {existsSync, readFileSync} from 'node:fs'
+import {join} from 'node:path'
 import type {BundleChunk, BundleStats} from './analyze-bundle-sizes.ts'
 import {getCompressedSizes} from './utils.ts'
 

@@ -1,0 +1,59 @@
+{
+  "name": "root",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx lerna run dev --scope=@react-form-builder/example-viewer",
+    "build": "npx lerna run build",
+    "pack": "npx lerna run pack",
+    "clean": "lerna exec -- npx rimraf node_modules dist build *.tgz && rimraf node_modules",
+    "check:tsc": "tsc --noEmit --emitDeclarationOnly false",
+    "eslint": "npx eslint .",
+    "eslint-fix": "npx eslint . --fix"
+  },
+  "workspaces": [
+    "scripts/cli-lib",
+    "packages/*",
+    "packages/apps/*",
+    "packages/views/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.0.14",
+    "@types/react-dom": "^19.0.6",
+    "@typescript-eslint/eslint-plugin": "8.48.1",
+    "@typescript-eslint/parser": "8.48.1",
+    "@typescript-eslint/typescript-estree": "8.48.1",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "@vitest/browser-playwright": "^4.1.8",
+    "eslint": "^8.57.1",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsdoc": "^61.4.1",
+    "eslint-plugin-no-secrets": "^2.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "eslint-plugin-react-perf": "^3.3.3",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "lerna": "^9.0.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.0",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.24",
+    "typescript": "5.8.3",
+    "vite": "^7.2.6",
+    "vite-bundle-analyzer": "^1.2.3",
+    "vite-plugin-cp": "^6.0.3",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-svgr": "^4.5.0",
+    "vitest": "^4.1.8"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "overrides": {
+    "@types/react": "^19.0.14",
+    "@types/react-dom": "^19.0.6"
+  }
+}

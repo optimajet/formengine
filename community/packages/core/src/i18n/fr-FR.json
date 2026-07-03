@@ -1,0 +1,40 @@
+{
+  "components": {
+    "EmbeddedForm": {
+      "description": "Un formulaire intégré dans un autre formulaire",
+      "name": "Formulaire intégré",
+      "props": {
+        "disabled": {
+          "description": "Si c'est vrai, le formulaire intégré est désactivé",
+          "name": "Désactivé"
+        },
+        "formName": {
+          "description": "Le nom du formulaire",
+          "name": "Nom du formulaire"
+        },
+        "options": {
+          "description": "Les options supplémentaires pour charger le formulaire intégré",
+          "name": "Options"
+        },
+        "readOnly": {
+          "description": "Si cela est vrai, le formulaire intégré est en lecture seule",
+          "name": "Lecture seule"
+        },
+        "storeDataInParentForm": {
+          "description": "Si la valeur est fausse, les données du formulaire imbriqué s'affichent sous forme d'objet imbriqué, sinon c'est vrai",
+          "name": "Stocker les données dans le formulaire parent"
+        }
+      }
+    },
+    "Repeater": {
+      "description": "Le composant Repeater est un composant spécial chargé d'afficher un tableau de composants répétitifs.",
+      "name": "Répéteur",
+      "props": {
+        "itemRenderWhen": {
+          "description": "Expression ou fonction permettant de rendre conditionnellement un élément répéteur",
+          "name": "L'objet est rendu quand"
+        }
+      }
+    }
+  }
+}

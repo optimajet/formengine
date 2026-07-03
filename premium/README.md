@@ -51,7 +51,7 @@
 - **Community:** Formengine Core source code and examples for FormEngine Community (MIT license).
 - **Premium:** Examples for Premium On-Premise Drag-and-Drop React Form Builder (Commercial license). Premium On-Premise Drag-and-Drop React
   Form Builder
-- [Formengine Core Source Code](https://github.com/optimajet/formengine/tree/master/community/src)
+- [Formengine Core Source Code](https://github.com/optimajet/formengine/tree/master/community)
 
 ## 🧩 Compatibility
 

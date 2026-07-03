@@ -1,0 +1,721 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "数据显示"
+    },
+    "feedback": {
+      "name": "反馈"
+    },
+    "form": {
+      "name": "表格"
+    },
+    "inputs": {
+      "name": "输入"
+    },
+    "layout": {
+      "name": "布局"
+    },
+    "navigation": {
+      "name": "导航"
+    },
+    "surfaces": {
+      "name": "表面"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "如果为 true，则检查该组件",
+      "name": "已勾选"
+    },
+    "children": {
+      "description": "组件的内容",
+      "name": "孩子们"
+    },
+    "color": {
+      "description": "组件的颜色",
+      "name": "颜色"
+    },
+    "defaultValue": {
+      "description": "默认值。在组件不受控制时使用",
+      "name": "默认值"
+    },
+    "dense": {
+      "description": "如果为 true，则减少垂直边距",
+      "name": "密集"
+    },
+    "disableGutters": {
+      "description": "如果为 true，则禁用左右边距",
+      "name": "禁用排水沟"
+    },
+    "disablePadding": {
+      "description": "如果为 true，则禁用默认填充",
+      "name": "禁用填充"
+    },
+    "disabled": {
+      "description": "如果为 true，则禁用该组件",
+      "name": "已禁用"
+    },
+    "error": {
+      "description": "如果为 true，则组件显示为错误状态",
+      "name": "错误"
+    },
+    "fullWidth": {
+      "description": "如果为 true，则该组件占用其容器的全部宽度",
+      "name": "全宽"
+    },
+    "gutterBottom": {
+      "description": "如果为 true，则文本将有底部边距",
+      "name": "排水沟底部"
+    },
+    "helperText": {
+      "description": "助手文本内容",
+      "name": "帮助文本"
+    },
+    "margin": {
+      "description": "定义应用于组件的边距",
+      "name": "保证金"
+    },
+    "noWrap": {
+      "description": "如果为 true，则文本不会换行，而是使用文本溢出省略号截断",
+      "name": "不包装"
+    },
+    "onChange": {
+      "description": "值更改时触发回调",
+      "name": "onChange"
+    },
+    "onClick": {
+      "description": "点击组件时触发回调",
+      "name": "onClick"
+    },
+    "required": {
+      "description": "如果为 true，则需要输入元素",
+      "name": "必填项"
+    },
+    "size": {
+      "description": "组件的大小",
+      "name": "大小"
+    },
+    "sx": {
+      "description": "允许定义系统替代以及其他 CSS 样式的系统道具",
+      "name": "Sx"
+    },
+    "textAlign": {
+      "description": "文字对齐",
+      "name": "对齐"
+    },
+    "value": {
+      "description": "组件的价值",
+      "name": "价值"
+    },
+    "variant": {
+      "description": "要使用的变体",
+      "name": "变体"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "支持系统样式的通用布局容器",
+      "name": "盒子"
+    },
+    "MuiBreadcrumbs": {
+      "description": "显示层次结构中的当前页面位置",
+      "name": "面包屑",
+      "props": {
+        "items": {
+          "description": "要显示的面包屑项目",
+          "name": "物品"
+        },
+        "itemsAfterCollapse": {
+          "description": "如果超过最大项目数，则省略号后要显示的项目数",
+          "name": "折叠后的物品"
+        },
+        "itemsBeforeCollapse": {
+          "description": "如果超过最大项目数，则省略号之前要显示的项目数",
+          "name": "折叠前的物品"
+        },
+        "maxItems": {
+          "description": "指定要显示的最大痕迹数",
+          "name": "最大物品数"
+        },
+        "separator": {
+          "description": "用于分隔面包屑项目的元素",
+          "name": "分隔符"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "用于触发动作或事件的按钮组件",
+      "name": "按钮",
+      "props": {
+        "children": {
+          "description": "标题",
+          "name": "内容"
+        },
+        "disableElevation": {
+          "description": "设置为 true 时移除按钮阴影",
+          "name": "禁用高程"
+        },
+        "loading": {
+          "description": "显示加载指示器并禁用交互",
+          "name": "加载中"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "将相关按钮分组在一起",
+      "name": "按钮组",
+      "props": {
+        "fullWidth": {
+          "description": "使按钮组跨越整个容器宽度",
+          "name": "全宽"
+        },
+        "orientation": {
+          "description": "设置按钮的布局方向",
+          "name": "方向"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "用于对相关内容进行分组的表面组件",
+      "name": "卡片",
+      "props": {
+        "actions": {
+          "description": "卡片的操作按钮或控件",
+          "name": "行动"
+        },
+        "header": {
+          "description": "在卡片标题中呈现的内容",
+          "name": "标题"
+        },
+        "headerAction": {
+          "description": "标题中显示的操作元素",
+          "name": "标题动作"
+        },
+        "headerAvatar": {
+          "description": "标题中显示的头像元素",
+          "name": "标题头像"
+        },
+        "media": {
+          "description": "媒体内容，例如图像或视频",
+          "name": "媒体"
+        },
+        "onSelect": {
+          "description": "选择卡片时触发回调",
+          "name": "onSelect"
+        },
+        "subHeader": {
+          "description": "标题下方显示的辅助文本",
+          "name": "子标题"
+        },
+        "useActions": {
+          "description": "在底部显示操作部分",
+          "name": "使用动作"
+        },
+        "useCardActionArea": {
+          "description": "使用可点击的操作区域包装内容",
+          "name": "使用卡牌操作区域"
+        },
+        "useHeader": {
+          "description": "启用卡片标题部分",
+          "name": "使用标题"
+        },
+        "useHeaderAction": {
+          "description": "启用标题内的操作区域",
+          "name": "使用标题动作"
+        },
+        "useHeaderAvatar": {
+          "description": "在标题内显示头像",
+          "name": "使用标题头像"
+        },
+        "useMedia": {
+          "description": "在卡内启用媒体部分",
+          "name": "使用媒体"
+        },
+        "useSubheader": {
+          "description": "在主标题下方显示副标题",
+          "name": "使用副标题"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "允许选择一个或多个选项",
+      "name": "复选框",
+      "props": {
+        "defaultChecked": {
+          "description": "不受控制时的初始检查状态",
+          "name": "默认选中"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "以循环形式表示加载或进度",
+      "name": "循环进展",
+      "props": {
+        "disableShrink": {
+          "description": "禁用缩小动画",
+          "name": "禁用收缩"
+        },
+        "thickness": {
+          "description": "控制圆圈的笔触宽度",
+          "name": "厚度"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "水平居中和约束内容",
+      "name": "容器",
+      "props": {
+        "fixed": {
+          "description": "设置固定的最大宽度，而不是流体宽度",
+          "name": "已修复"
+        },
+        "maxWidth": {
+          "description": "定义容器的最大宽度",
+          "name": "最大宽度"
+        }
+      }
+    },
+    "MuiDatePicker": {
+      "description": "用于选择日期的组件",
+      "name": "日期选择器",
+      "props": {
+        "autoFocus": {
+          "description": "如果为 true，则在安装组件时自动聚焦日期选择器",
+          "name": "自动对焦"
+        },
+        "closeOnSelect": {
+          "description": "选择日期后自动关闭日期选择器对话框",
+          "name": "选择时关闭"
+        },
+        "desktopModeMediaQuery": {
+          "description": "用于确定何时切换到桌面模式布局的 CSS 媒体查询字符串",
+          "name": "桌面模式媒体查询"
+        },
+        "disableFuture": {
+          "description": "如果为 true，则禁止选择当前日期之后的日期",
+          "name": "禁用未来"
+        },
+        "disableHighlightToday": {
+          "description": "如果为 true，则禁用日历中当前日期的视觉突出显示",
+          "name": "今天禁用突出显示"
+        },
+        "disableOpenPicker": {
+          "description": "如果为 true，则禁止打开选择器对话框（对只读显示很有用）",
+          "name": "禁用打开选择器"
+        },
+        "disablePast": {
+          "description": "如果为 true，则禁止选择当前日期之前的日期",
+          "name": "禁用过去"
+        },
+        "displayWeekNumber": {
+          "description": "在日历视图中显示周数",
+          "name": "显示周数"
+        },
+        "fixedWeekNumber": {
+          "description": "固定显示周数（强制日历高度保持一致）",
+          "name": "固定的周数"
+        },
+        "format": {
+          "description": "用于显示和解析的日期格式字符串（例如，'yyyy-mm-dd'、'mm/dd/yyyy'）",
+          "name": "格式"
+        },
+        "formatDensity": {
+          "description": "控制日期格式中的间距：密集（紧凑）或宽敞（更大的间距）",
+          "name": "格式密度"
+        },
+        "loading": {
+          "description": "如果为 true，则显示一个加载微调器，指示正在加载数据",
+          "name": "加载中"
+        },
+        "maxDate": {
+          "description": "可以选择的最新日期（包括在内）",
+          "name": "最大日期"
+        },
+        "minDate": {
+          "description": "可以选择的最早日期（包括在内）",
+          "name": "最小日期"
+        },
+        "monthsPerRow": {
+          "description": "要在月/年视图中每行显示的月日历数",
+          "name": "每行月数"
+        },
+        "name": {
+          "description": "表单字段的名称属性，在提交表单时使用",
+          "name": "姓名"
+        },
+        "onAccept": {
+          "description": "接受该值时会触发回调",
+          "name": "开启接受"
+        },
+        "onClose": {
+          "description": "当弹出窗口请求关闭时触发回调",
+          "name": "onClose"
+        },
+        "onError": {
+          "description": "当与当前值相关的错误发生变化时触发回调",
+          "name": "onError"
+        },
+        "onMonthChange": {
+          "description": "月份变更时触发回调",
+          "name": "onMonthChange"
+        },
+        "onOpen": {
+          "description": "当弹出窗口请求打开时触发回调",
+          "name": "onOpen"
+        },
+        "onSelectedSectionsChange": {
+          "description": "当所选部分发生变化时会触发回调",
+          "name": "在选定部分上更改"
+        },
+        "onViewChange": {
+          "description": "视图更改时触发回调",
+          "name": "onViewChange"
+        },
+        "onYearChange": {
+          "description": "年份变更时触发回调",
+          "name": "onYearChange"
+        },
+        "open": {
+          "description": "如果为 true，则日期选择器对话框处于打开状态；可用于受控状态管理",
+          "name": "打开"
+        },
+        "openTo": {
+          "description": "选择器激活时要打开的视图",
+          "name": "向... 开放"
+        },
+        "referenceDate": {
+          "description": "未选择任何值时用于生成初始日历视图的日期",
+          "name": "参考日期"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "在当前月视图中显示上个月和下个月的天数",
+          "name": "显示当月以外的天数"
+        },
+        "view": {
+          "description": "要显示的初始视图（日、月或年日历）",
+          "name": "查看"
+        },
+        "views": {
+          "description": "可用视图（日、月和年日历）",
+          "name": "观点"
+        },
+        "yearsOrder": {
+          "description": "年份排序顺序：升序（最旧的优先）或降序（最新的优先）",
+          "name": "年度订单"
+        },
+        "yearsPerRow": {
+          "description": "年视图中每行显示的年份项目数",
+          "name": "每行年数"
+        }
+      }
+    },
+    "MuiDialog": {
+      "description": "在叠加层中显示内容的模态对话框组件",
+      "name": "对话框",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "如果为 true，则按退出键不会关闭对话框",
+          "name": "禁用向下退出键"
+        },
+        "fullScreen": {
+          "description": "如果为 true，则对话框将全屏显示",
+          "name": "全屏"
+        },
+        "fullWidth": {
+          "description": "如果为 true，则对话框将延伸到 maxWidth",
+          "name": "全宽"
+        },
+        "maxWidth": {
+          "description": "对话框的最大宽度（xs、sm、md、lg、xl）",
+          "name": "最大宽度"
+        },
+        "onClose": {
+          "description": "对话框关闭时触发回调",
+          "name": "onClose"
+        },
+        "open": {
+          "description": "如果为 true，则对话框处于打开状态",
+          "name": "打开"
+        },
+        "scroll": {
+          "description": "确定滚动对话框的容器（纸张或正文）",
+          "name": "滚动"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "对话框操作按钮的容器",
+      "name": "对话框动作",
+      "props": {
+        "children": {
+          "description": "组件的内容",
+          "name": "孩子们"
+        },
+        "disableSpacing": {
+          "description": "如果为 true，则操作没有额外的边距",
+          "name": "禁用间距"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "对话框的主要内容区域",
+      "name": "对话框内容",
+      "props": {
+        "children": {
+          "description": "组件的内容",
+          "name": "孩子们"
+        },
+        "dividers": {
+          "description": "如果为 true，则将边框添加到对话框内容的顶部和底部",
+          "name": "分隔器"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "对话框中的文本内容",
+      "name": "对话框内容文本",
+      "props": {
+        "children": {
+          "description": "文字内容",
+          "name": "内容"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "带有标题、内容和操作按钮的预设对话框布局",
+      "name": "对话框布局"
+    },
+    "MuiDialogTitle": {
+      "description": "对话框的标题",
+      "name": "对话框标题",
+      "props": {
+        "children": {
+          "description": "标题文本",
+          "name": "内容"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "包装内容并显示错误状态或消息",
+      "name": "错误包装器"
+    },
+    "MuiFormControlLabel": {
+      "description": "将标签与表单控件相关联",
+      "name": "表单控件标签",
+      "props": {
+        "control": {
+          "description": "表单控制元素（复选框、单选框、开关）",
+          "name": "控制"
+        },
+        "labelPlacement": {
+          "description": "标签相对于控件的位置",
+          "name": "标签放置"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "用于对表单字段进行分组或描述的标签",
+      "name": "表单标签",
+      "props": {
+        "filled": {
+          "description": "应用填充状态样式",
+          "name": "已填充"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "显示线性栏中的加载或进度",
+      "name": "线性进展",
+      "props": {
+        "valueBuffer": {
+          "description": "缓冲进度模式的辅助缓冲值",
+          "name": "值缓冲区"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "用于导航或操作的可点击元素",
+      "name": "链接",
+      "props": {
+        "href": {
+          "description": "目标网址",
+          "name": "Href"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "显示项目的垂直列表",
+      "name": "清单"
+    },
+    "MuiListItem": {
+      "description": "代表列表中的单个项目",
+      "name": "清单项目",
+      "props": {
+        "divider": {
+          "description": "在列表项下方显示分隔线",
+          "name": "分隔器"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "允许从集合中选择一个选项",
+      "name": "电台组",
+      "props": {
+        "name": {
+          "description": "用于对单选按钮进行分组的名称属性",
+          "name": "姓名"
+        },
+        "row": {
+          "description": "水平显示单选按钮",
+          "name": "行"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "在单选组中使用的单选按钮",
+      "name": "电台物品"
+    },
+    "MuiSelect": {
+      "description": "用于选择选项的下拉组件",
+      "name": "选择",
+      "props": {
+        "autoFocus": {
+          "description": "坐骑时自动聚焦场地",
+          "name": "自动对焦"
+        },
+        "multiple": {
+          "description": "允许选择多个选项",
+          "name": "多个"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "在一维堆栈中布局子节点",
+      "name": "堆栈",
+      "props": {
+        "alignItems": {
+          "description": "控制横轴对齐",
+          "name": "对齐项目"
+        },
+        "direction": {
+          "description": "定义项目是堆叠在行还是列中",
+          "name": "方向"
+        },
+        "flexWrap": {
+          "description": "控制项目是否换行到多行",
+          "name": "弹性包装"
+        },
+        "justifyContent": {
+          "description": "控制主轴对齐",
+          "name": "证明内容的合理性"
+        },
+        "spacing": {
+          "description": "堆叠物品之间的间距",
+          "name": "间距"
+        },
+        "useFlexGap": {
+          "description": "使用 CSS 间距代替边距作为间距",
+          "name": "使用弹性间隙"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "切换控制以在两种状态之间切换",
+      "name": "开关",
+      "props": {
+        "defaultChecked": {
+          "description": "不受控制时的初始切换状态",
+          "name": "默认选中"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "文本和表单数据的输入字段",
+      "name": "文本字段",
+      "props": {
+        "autoFocus": {
+          "description": "坐骑时自动聚焦场地",
+          "name": "自动对焦"
+        },
+        "maxRows": {
+          "description": "多行输入的最大可见行数",
+          "name": "最大行数"
+        },
+        "multiline": {
+          "description": "渲染文本区域而不是单行输入",
+          "name": "多行"
+        },
+        "type": {
+          "description": "HTML 输入类型（文本、密码、电子邮件等）",
+          "name": "类型"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "在悬停、对焦或触摸时显示上下文信息",
+      "name": "工具提示",
+      "props": {
+        "arrow": {
+          "description": "显示指向目标元素的箭头",
+          "name": "《箭》"
+        },
+        "disableFocusListener": {
+          "description": "防止工具提示出现在焦点上",
+          "name": "禁用焦点侦听器"
+        },
+        "disableHoverListener": {
+          "description": "防止工具提示在悬停时出现",
+          "name": "禁用悬停侦听器"
+        },
+        "disableInteractive": {
+          "description": "禁用与工具提示内容的交互",
+          "name": "禁用交互式"
+        },
+        "disableTouchListener": {
+          "description": "防止工具提示在触摸时出现",
+          "name": "禁用触摸监听器"
+        },
+        "enterDelay": {
+          "description": "显示工具提示之前的延迟（以毫秒为单位）",
+          "name": "输入延迟"
+        },
+        "followCursor": {
+          "description": "使工具提示跟随光标位置",
+          "name": "跟随光标"
+        },
+        "leaveDelay": {
+          "description": "隐藏工具提示之前的延迟（以毫秒为单位）",
+          "name": "延迟离开"
+        },
+        "title": {
+          "description": "工具提示内显示的文本内容",
+          "name": "标题"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "显示具有预定义排版样式的文本",
+      "name": "排版",
+      "props": {
+        "children": {
+          "description": "文字内容",
+          "name": "内容"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "用于上传一个或多个文件的组件",
+      "name": "上传者",
+      "props": {
+        "accept": {
+          "description": "允许的文件类型（例如 “.jpg、.png”）",
+          "name": "接受"
+        },
+        "multiple": {
+          "description": "允许选择多个文件",
+          "name": "多个"
+        }
+      }
+    }
+  }
+}

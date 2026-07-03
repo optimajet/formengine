@@ -1,0 +1,1201 @@
+{
+  "categories": {
+    "buttons": {
+      "name": "دکمه ها"
+    },
+    "combobox": {
+      "name": "کامبوباکس"
+    },
+    "dates": {
+      "name": "خرما"
+    },
+    "inputs": {
+      "name": "ورودی"
+    },
+    "layout": {
+      "name": "چیدمان"
+    },
+    "miscellaneous": {
+      "name": "متفرقه"
+    },
+    "otherExtensions": {
+      "name": "سایر برنامه های افزودنی"
+    },
+    "overlays": {
+      "name": "روکش ها"
+    },
+    "typography": {
+      "name": "تایپوگرافی"
+    }
+  },
+  "commonProperties": {
+    "align": {
+      "description": "تراز آیتم ها",
+      "name": "تراز کردن"
+    },
+    "c": {
+      "description": "رنگ متن.",
+      "name": "رنگ"
+    },
+    "clearable": {
+      "description": "آیا یک دکمه واضح را نشان دهید یا خیر.",
+      "name": "قابل شفاف"
+    },
+    "color": {
+      "description": "نام رنگ تم مانتین.",
+      "name": "رنگ"
+    },
+    "columnsToScroll": {
+      "description": "تعداد ستون ها برای پیمایش.",
+      "name": "ستون ها برای اسکرول"
+    },
+    "data": {
+      "description": "داده های گزینه ها",
+      "name": "دادهها"
+    },
+    "defaultVisible": {
+      "description": "وضعیت دید اولیه محتوا.",
+      "name": "پیش فرض قابل مشاهده"
+    },
+    "description": {
+      "description": "متن کمک کننده زیر برچسب نمایش داده می شود.",
+      "name": "توضیحات"
+    },
+    "disabled": {
+      "description": "آیا ورودی غیرفعال است یا خیر.",
+      "name": "معلول"
+    },
+    "dropdownOpened": {
+      "description": "کنترل حالت باز شده کشویی.",
+      "name": "فهرست کشویی باز شد"
+    },
+    "dropdownType": {
+      "description": "حالت ارائه انتخاب کننده.",
+      "name": "نوع کشویی"
+    },
+    "error": {
+      "description": "پیام خطا یا وضعیت خطا",
+      "name": "خطا"
+    },
+    "filledVariant": {
+      "description": "نوع ظاهر را کنترل کنید.",
+      "name": "واریانس"
+    },
+    "fs": {
+      "description": "سبک فونت.",
+      "name": "سبک فونت"
+    },
+    "fw": {
+      "description": "وزن فونت.",
+      "name": "وزن قلم"
+    },
+    "fz": {
+      "description": "اندازه فونت.",
+      "name": "اندازه قلم"
+    },
+    "grow": {
+      "description": "آیا اقلام باید رشد کنند تا فضای موجود را پر کنند.",
+      "name": "رشد"
+    },
+    "hideOutsideDates": {
+      "description": "آیا قرار است خارج از تاریخ ها پنهان شود.",
+      "name": "پنهان کردن تاریخ های خارج"
+    },
+    "hideWeekdays": {
+      "description": "آیا باید برچسب های روزهای هفته را پنهان کنید.",
+      "name": "پنهان کردن روزهای هفته"
+    },
+    "highlightToday": {
+      "description": "آیا امروز را برجسته کنیم.",
+      "name": "برجسته امروز"
+    },
+    "justify": {
+      "description": "محتوای درون گروه را توجیه کنید",
+      "name": "توجیه"
+    },
+    "label": {
+      "description": "برچسب ورودی",
+      "name": "برچسب"
+    },
+    "labelPosition": {
+      "description": "موقعیت برچسب نسبت به کنترل.",
+      "name": "موقعیت برچسب"
+    },
+    "lh": {
+      "description": "ارتفاع خط",
+      "name": "ارتفاع خط"
+    },
+    "maxDropdownHeight": {
+      "description": "حداکثر ارتفاع کشویی در پیکسل.",
+      "name": "حداکثر ارتفاع کشویی"
+    },
+    "minRows": {
+      "description": "حداقل ردیف های قابل مشاهده",
+      "name": "سطرهای حداقل"
+    },
+    "nothingFoundMessage": {
+      "description": "هنگامی که هیچ گزینه مطابقت نداشته باشد، پیام نشان داده می شود.",
+      "name": "هیچ پیام یافت نشد"
+    },
+    "numberOfColumns": {
+      "description": "تعداد ستون های تقویم.",
+      "name": "تعداد ستون ها"
+    },
+    "onBlur": {
+      "description": "هنگامی که ورودی تمرکز را از دست می دهد، فراخوانی می شود.",
+      "name": "روی تار"
+    },
+    "onChange": {
+      "description": "هنگامی که ارزش تغییر می کند نامیده می شود.",
+      "name": "در تغییر"
+    },
+    "onDropdownClose": {
+      "description": "هنگامی که فهرست کشویی بسته می شود تماس می گیرد.",
+      "name": "در قسمت کشویی بسته شدن"
+    },
+    "onDropdownOpen": {
+      "description": "هنگامی که فهرست کشویی باز می شود تماس می گیرد.",
+      "name": "روی دراپ داون نوپن"
+    },
+    "onFocus": {
+      "description": "هنگامی که ورودی فوکوس دریافت می کند فراخوانی می شود.",
+      "name": "روی فوکوس"
+    },
+    "onSearchChange": {
+      "description": "هنگامی که مقدار جستجو تغییر می کند فراخوانی می شود.",
+      "name": "تغییر در جستجوی"
+    },
+    "placeholder": {
+      "description": "جایگزین",
+      "name": "جایگزین"
+    },
+    "radius": {
+      "description": "شعاع مرز",
+      "name": "شعاع"
+    },
+    "readOnly": {
+      "description": "آیا ورودی فقط خواندنی است یا خیر.",
+      "name": "فقط خواندن"
+    },
+    "searchValue": {
+      "description": "مقدار ورودی جستجوی کنترل شده.",
+      "name": "مقدار جستجو"
+    },
+    "size": {
+      "description": "اندازه کامپوننت",
+      "name": "اندازه"
+    },
+    "spacing": {
+      "description": "فاصله بین موارد",
+      "name": "فاصله"
+    },
+    "ta": {
+      "description": "تراز متن",
+      "name": "تراز متن"
+    },
+    "td": {
+      "description": "دکوراسیون متن.",
+      "name": "دکوراسیون متن"
+    },
+    "tt": {
+      "description": "تبدیل متن",
+      "name": "تبدیل متن"
+    },
+    "value": {
+      "description": "مقدار فعلی.",
+      "name": "ارزش"
+    },
+    "variant": {
+      "description": "نوع ظاهر ورودی",
+      "name": "واریانس"
+    },
+    "withAsterisk": {
+      "description": "آیا نشانگر مورد نیاز را نمایش دهید یا خیر.",
+      "name": "با ستاره"
+    },
+    "withScrollArea": {
+      "description": "آیا کشویی از ناحیه اسکرول استفاده می کند یا خیر.",
+      "name": "با منطقه اسکرول"
+    },
+    "withSeconds": {
+      "description": "تعیین می کند که آیا ثانیه ها باید در انتخاب زمان گنجانده شوند یا خیر.",
+      "name": "با ثانیه"
+    },
+    "withWeekNumbers": {
+      "description": "آیا اعداد هفته را نشان دهید.",
+      "name": "با شماره هفته"
+    },
+    "wrap": {
+      "description": "رفتار بسته بندی برای اقلام.",
+      "name": "بسته بندی"
+    }
+  },
+  "components": {
+    "MtAutocomplete": {
+      "description": "تکمیل خودکار ورودی کاربر با هر لیستی از گزینه ها",
+      "name": "تکمیل خودکار",
+      "props": {
+        "data": {
+          "description": "داده های مورد استفاده برای نمایش گزینه ها",
+          "name": "دادهها"
+        }
+      }
+    },
+    "MtButton": {
+      "description": "جزء دکمه برای رندر دکمه یا لینک",
+      "name": "دکمه",
+      "props": {
+        "children": {
+          "description": "محتوای دکمه",
+          "name": "محتوا"
+        },
+        "fullWidth": {
+          "description": "اگر تنظیم شود، دکمه عرض کامل ظرف والد را می گیرد",
+          "name": "عرض کامل"
+        },
+        "onClick": {
+          "description": "هنگامی که روی دکمه کلیک می شود فراخوانی می شود",
+          "name": "روی کلیک"
+        }
+      }
+    },
+    "MtCheckbox": {
+      "description": "ضبط ورودی بولی از کاربر",
+      "name": "چک باکس",
+      "props": {
+        "checked": {
+          "description": "مشخص می کند که آیا کادر چک انتخاب شده است",
+          "name": "بررسی شده"
+        }
+      }
+    },
+    "MtCheckboxGroup": {
+      "description": "گروه چک باکس",
+      "name": "گروه چک باکس",
+      "props": {
+        "items": {
+          "description": "آیتم های گروه چک باکس",
+          "name": "اقلام"
+        }
+      }
+    },
+    "MtChip": {
+      "description": "مقدار را با کنترل های درون خطی انتخاب کنید",
+      "name": "تراشه",
+      "props": {
+        "checked": {
+          "description": "مشخص می کند که آیا تراشه انتخاب شده است",
+          "name": "بررسی شده"
+        },
+        "children": {
+          "description": "برچسب کامپوننت",
+          "name": "برچسب"
+        }
+      }
+    },
+    "MtChipCheckboxGroup": {
+      "description": "یک یا چند مقدار را با کنترل های درون خطی انتخاب کنید",
+      "name": "گروه چک باکس تراشه",
+      "props": {
+        "items": {
+          "description": "گزینه های تراشه",
+          "name": "اقلام"
+        }
+      }
+    },
+    "MtChipRadioGroup": {
+      "description": "یک مقدار را با کنترل های درون خطی انتخاب کنید",
+      "name": "گروه رادیویی تراشه",
+      "props": {
+        "items": {
+          "description": "گزینه های تراشه",
+          "name": "اقلام"
+        }
+      }
+    },
+    "MtColorInput": {
+      "description": "ضبط رنگ از کاربر",
+      "name": "ورودی رنگ",
+      "props": {
+        "format": {
+          "description": "فرمت رنگ",
+          "name": "فرمت"
+        },
+        "swatches": {
+          "description": "لیستی از رنگ های مورد استفاده برای نمایش لیست نمونه ها در زیر انتخاب کننده رنگ",
+          "name": "نمونه ها"
+        }
+      }
+    },
+    "MtColorPicker": {
+      "description": "رنگ ها را در فرمت های hex (a)، rgb (a)، HSL (a) و hsv (a) انتخاب کنید",
+      "name": "انتخاب کننده رنگ",
+      "props": {
+        "format": {
+          "description": "فرمت رنگی",
+          "name": "فرمت"
+        },
+        "fullWidth": {
+          "description": "آیا به عرض کامل کشش دهید یا خیر.",
+          "name": "عرض کامل"
+        },
+        "swatches": {
+          "description": "نمونه های رنگ.",
+          "name": "نمونه ها"
+        },
+        "swatchesPerRow": {
+          "description": "تعداد نمونه ها در هر ردیف.",
+          "name": "نمونه ها در هر ردیف"
+        },
+        "withPicker": {
+          "description": "آیا ورودی پیکر را نشان دهید یا خیر.",
+          "name": "با پیکر"
+        }
+      }
+    },
+    "MtContainer": {
+      "description": "محتوای مرکز با پدینگ و حداکثر عرض",
+      "name": "کانتینر",
+      "props": {
+        "children": {
+          "description": "عناصر فرزند مؤلفه",
+          "name": "بچه ها"
+        }
+      }
+    },
+    "MtDateMultiplePicker": {
+      "description": "اجازه می دهد تا تاریخ های متعدد را انتخاب کنید",
+      "name": "انتخاب کننده چندگانه تاریخ",
+      "props": {
+        "maxDate": {
+          "description": "حداکثر تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtDateMultiplePickerInput": {
+      "description": "اجازه می دهد تا تاریخ های متعدد را انتخاب کنید",
+      "name": "ورودی انتخاب کننده چندگانه تاریخ",
+      "props": {
+        "maxDate": {
+          "description": "حداکثر تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtDatePicker": {
+      "description": "اجازه می دهد تا تاریخ را انتخاب کنید",
+      "name": "انتخابگر تاریخ",
+      "props": {
+        "allowDeselect": {
+          "description": "تعیین می کند که آیا کاربر می تواند تاریخ را با کلیک بر روی تاریخ انتخاب شده حذف کند",
+          "name": "اجازه لغو انتخاب"
+        },
+        "maxDate": {
+          "description": "حداکثر تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtDatePickerInput": {
+      "description": "ورودی انتخاب کننده تاریخ",
+      "name": "ورودی انتخاب کننده تاریخ",
+      "props": {
+        "allowDeselect": {
+          "description": "تعیین می کند که آیا کاربر می تواند تاریخ را با کلیک بر روی تاریخ انتخاب شده حذف کند",
+          "name": "اجازه لغو انتخاب"
+        },
+        "maxDate": {
+          "description": "حداکثر تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtDateRangePicker": {
+      "description": "اجازه می دهد تا محدوده تاریخ را انتخاب کنید",
+      "name": "انتخاب کننده محدوده تاریخ",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "امکان انتخاب یک تاریخ واحد به عنوان یک محدوده را می دهد",
+          "name": "اجازه دهید تاریخ تک در محدوده"
+        },
+        "maxDate": {
+          "description": "حداکثر تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtDateRangePickerInput": {
+      "description": "ورودی انتخاب کننده محدوده تاریخ",
+      "name": "ورودی انتخاب کننده محدوده تاریخ",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "امکان انتخاب یک تاریخ واحد به عنوان یک محدوده را می دهد",
+          "name": "اجازه دهید تاریخ تک در محدوده"
+        },
+        "maxDate": {
+          "description": "حداکثر تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل تاریخ قابل انتخاب، فرمت YYYY-MM-DD",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtDateTimePicker": {
+      "description": "ضبط تاریخ زمان از کاربر",
+      "name": "انتخابگر تاریخ زمان",
+      "props": {
+        "valueFormat": {
+          "description": "فرمت سفارشی dayjs برای نمایش مقدار",
+          "name": "قالب ارزش"
+        }
+      }
+    },
+    "MtDialog": {
+      "description": "نمایش یک محاوره پوشش ثابت در هر طرف صفحه",
+      "name": "گفتگو",
+      "props": {
+        "children": {
+          "description": "محتوای گفتگو",
+          "name": "بچه ها"
+        },
+        "onOpen": {
+          "description": "هنگامی که خاصیت open روی true تنظیم شود فراخوانی می شود",
+          "name": "روی باز کردن"
+        },
+        "opened": {
+          "description": "آیا گفتگوی باز است یا خیر",
+          "name": "افتتاح شد"
+        },
+        "showCloseButton": {
+          "description": "آیا نمایش دکمه بستن",
+          "name": "نمایش دکمه بستن"
+        },
+        "title": {
+          "description": "عنوان محاوره",
+          "name": "عنوان"
+        }
+      }
+    },
+    "MtDivider": {
+      "description": "خط افقی با برچسب اختیاری یا تقسیم کننده عمودی",
+      "name": "تقسیم کننده",
+      "props": {
+        "orientation": {
+          "description": "جهت گیری تقسیم کننده",
+          "name": "جهت گیری"
+        }
+      }
+    },
+    "MtDropzone": {
+      "description": "ضبط فایل ها از کاربر با کشیدن و رها کردن",
+      "name": "دراپزون",
+      "props": {
+        "accept": {
+          "description": "انواع میمه پذیرفته شده",
+          "name": "قبول کردن"
+        },
+        "multiple": {
+          "description": "اجازه دهید چندین فایل",
+          "name": "چندگانه"
+        }
+      }
+    },
+    "MtErrorWrapper": {
+      "description": "پیام خطای اعتبار سنجی را در زیر کنترل فرم نمایش می دهد",
+      "name": "پیام خطا"
+    },
+    "MtFileInput": {
+      "description": "ضبط فایل ها از کاربر",
+      "name": "ورودی فایل",
+      "props": {
+        "accept": {
+          "description": "انواع فایل های پذیرفته شده",
+          "name": "قبول کردن"
+        },
+        "multiple": {
+          "description": "اجازه دهید چندین فایل",
+          "name": "چندگانه"
+        }
+      }
+    },
+    "MtJsonInput": {
+      "description": "ضبط داده های json از کاربر",
+      "name": "ورودی JSON",
+      "props": {
+        "minRows": {
+          "description": "حداقل تعداد ردیف",
+          "name": "سطرهای حداقل"
+        }
+      }
+    },
+    "MtLabel": {
+      "description": "برچسب را نمایش می دهد",
+      "name": "برچسب",
+      "props": {
+        "children": {
+          "description": "متن برچسب",
+          "name": "برچسب"
+        }
+      }
+    },
+    "MtMonthMultiplePicker": {
+      "description": "انتخاب کننده چندگانه ماهه",
+      "name": "انتخاب کننده چندگانه ماهه",
+      "props": {
+        "maxDate": {
+          "description": "حداکثر ماه قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل ماه قابل انتخاب",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtMonthMultiplePickerInput": {
+      "description": "ورودی چندگانه انتخاب کننده ماهانه",
+      "name": "ورودی چندگانه انتخاب کننده ماهانه",
+      "props": {
+        "maxDate": {
+          "description": "حداکثر ماه قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل ماه قابل انتخاب",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtMonthPicker": {
+      "description": "انتخابگر ماه درون خطی",
+      "name": "انتخابگر ماه",
+      "props": {
+        "allowDeselect": {
+          "description": "تعیین می کند که آیا کاربر می تواند ماه را با کلیک بر روی ماه انتخاب شده حذف کند",
+          "name": "اجازه لغو انتخاب"
+        },
+        "maxDate": {
+          "description": "حداکثر ماه قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل ماه قابل انتخاب",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtMonthPickerInput": {
+      "description": "ورودی انتخابگر ماه",
+      "name": "ورودی انتخابگر ماه",
+      "props": {
+        "allowDeselect": {
+          "description": "تعیین می کند که آیا کاربر می تواند ماه را با کلیک بر روی ماه انتخاب شده حذف کند",
+          "name": "اجازه لغو انتخاب"
+        },
+        "maxDate": {
+          "description": "حداکثر ماه قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل ماه قابل انتخاب",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtMonthRangePicker": {
+      "description": "انتخاب کننده محدوده ماه های درون خطی",
+      "name": "انتخاب کننده محدوده ماه",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "امکان انتخاب یک ماه به عنوان یک محدوده را می دهد",
+          "name": "اجازه دهید تاریخ تک در محدوده"
+        },
+        "maxDate": {
+          "description": "حداکثر ماه قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل ماه قابل انتخاب",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtMonthRangePickerInput": {
+      "description": "ورودی انتخاب کننده محدوده ماه",
+      "name": "ورودی انتخاب کننده محدوده ماه",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "امکان انتخاب یک ماه به عنوان یک محدوده را می دهد",
+          "name": "اجازه دهید تاریخ تک در محدوده"
+        },
+        "maxDate": {
+          "description": "حداکثر ماه قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل ماه قابل انتخاب",
+          "name": "حداقل تاریخ"
+        }
+      }
+    },
+    "MtMultiSelect": {
+      "description": "چند انتخاب سفارشی قابل جستجوی",
+      "name": "انتخاب چندگانه",
+      "props": {
+        "data": {
+          "description": "داده های مورد استفاده برای نمایش گزینه ها",
+          "name": "دادهها"
+        },
+        "searchable": {
+          "description": "فعال کردن جستجو",
+          "name": "قابل جستجو"
+        }
+      }
+    },
+    "MtNativeSelect": {
+      "description": "عنصر انتخاب بومی بر اساس ورودی",
+      "name": "انتخاب بومی",
+      "props": {
+        "data": {
+          "description": "داده های مورد استفاده برای نمایش گزینه ها",
+          "name": "دادهها"
+        }
+      }
+    },
+    "MtNumberInput": {
+      "description": "ضبط شماره از کاربر",
+      "name": "ورودی شماره",
+      "props": {
+        "allowDecimal": {
+          "description": "مقادیر اعشاری را اجازه دهید",
+          "name": "اعشاری را مجاز کنید"
+        },
+        "allowLeadingZeros": {
+          "description": "صفر های پیشرو را اجازه دهید",
+          "name": "صفر های پیشرو را اجازه دهید"
+        },
+        "allowNegative": {
+          "description": "اجازه دهید مقادیر منفی",
+          "name": "اجازه منفی را بدهید"
+        },
+        "clampBehavior": {
+          "description": "رفتار بستن",
+          "name": "رفتار گیره"
+        },
+        "decimalScale": {
+          "description": "تعداد رقمی را که می توان بعد از نقطه اعشاری وارد کرد را محدود می کند",
+          "name": "مقیاس اعشاری"
+        },
+        "decimalSeparator": {
+          "description": "کاراکتر مورد استفاده به عنوان جداکننده اعشاری",
+          "name": "جداکننده اعشاری"
+        },
+        "fixedDecimalScale": {
+          "description": "اگر تنظیم شود، 0s بعد از جداکننده اعشاری اضافه می شوند تا با مقیاس اعشاری داده شده مطابقت داشته باشد",
+          "name": "مقیاس اعشاری ثابت"
+        },
+        "hideControls": {
+          "description": "پنهان کردن کنترل های افزایش و کاهش",
+          "name": "پنهان کردن کنترل ها"
+        },
+        "max": {
+          "description": "حداکثر مقدار",
+          "name": "حداکثر"
+        },
+        "min": {
+          "description": "حداقل مقدار",
+          "name": "حداقل"
+        },
+        "prefix": {
+          "description": "رشته ای که باید قبل از عدد اضافه شود",
+          "name": "پیشوند"
+        },
+        "startValue": {
+          "description": "مقدار تنظیم شده برای ورودی هنگام کلیک بر روی دکمه های افزود/کاهش یا فشار دادن فلش بالا/پایین در صورت خالی بودن ورودی",
+          "name": "مقدار شروع"
+        },
+        "step": {
+          "description": "مقدار گام",
+          "name": "گام"
+        },
+        "suffix": {
+          "description": "رشته ای که بعد از عدد اضافه می شود",
+          "name": "پسوند"
+        },
+        "thousandSeparator": {
+          "description": "کاراکتر مورد استفاده به عنوان جداکننده هزار",
+          "name": "جداکننده هزار"
+        },
+        "thousandsGroupStyle": {
+          "description": "سبک گروه بندی هزار",
+          "name": "سبک گروه هزاران"
+        },
+        "trimLeadingZeroesOnBlur": {
+          "description": "اگر تنظیم شود، صفر های پیشرو در تاری حذف می شوند. به عنوان مثال، 00100 -> 100",
+          "name": "صفر های پیشرو را در حالت تاری برش دهید"
+        }
+      }
+    },
+    "MtPasswordInput": {
+      "description": "ضبط داده های رمز عبور از کاربر",
+      "name": "ورودی رمز عبور"
+    },
+    "MtRadio": {
+      "description": "بسته بندی برای رادیو نوع ورودی",
+      "name": "رادیو",
+      "props": {
+        "checked": {
+          "description": "مشخص می کند که آیا رادیو بررسی شده است",
+          "name": "بررسی شده"
+        }
+      }
+    },
+    "MtRadioGroup": {
+      "description": "گروه رادیو",
+      "name": "گروه رادیو",
+      "props": {
+        "items": {
+          "description": "گزینه های رادیو",
+          "name": "اقلام"
+        }
+      }
+    },
+    "MtRangeSlider": {
+      "description": "مولفه رنگسلیدر",
+      "name": "نوار لغزنده محدوده",
+      "props": {
+        "inverted": {
+          "description": "تعیین می کند که آیا نمایش مقادیر آهنگ باید معکوس شود",
+          "name": "معکوس"
+        },
+        "labelAlwaysOn": {
+          "description": "تعیین می کند که آیا برچسب باید قابل مشاهده باشد هنگامی که نوار لغزنده کشیده نمی شود یا خیر",
+          "name": "برچسب همیشه روشن است"
+        },
+        "max": {
+          "description": "حداکثر مقدار",
+          "name": "حداکثر"
+        },
+        "maxRange": {
+          "description": "حداکثر محدوده ای که می تواند انتخاب شود",
+          "name": "حداکثر دامنه"
+        },
+        "min": {
+          "description": "حداقل مقدار",
+          "name": "حداقل"
+        },
+        "precision": {
+          "description": "تعداد اعشاری برای استفاده",
+          "name": "دقت"
+        },
+        "pushOnOverlap": {
+          "description": "تعیین می کند که آیا هنگام رسیدن به minRange/MaxRange، انگشت شست دیگر باید با کشیدن انگشت شست فعلی فشار داده شود یا خیر",
+          "name": "روی همپوشانی فشار دهید"
+        },
+        "showLabelOnHover": {
+          "description": "تعیین می کند که آیا برچسب باید هنگام حرکت نوار لغزنده نمایش داده شود",
+          "name": "نمایش برچسب در حاشیه"
+        },
+        "step": {
+          "description": "مقدار گام",
+          "name": "گام"
+        }
+      }
+    },
+    "MtRating": {
+      "description": "رتبه بندی را انتخاب و نمایش دهید",
+      "name": "رتبه بندی",
+      "props": {
+        "count": {
+          "description": "تعداد ستاره ها",
+          "name": "شمارش"
+        },
+        "fractions": {
+          "description": "تعداد کسرها",
+          "name": "فراکسیون ها"
+        }
+      }
+    },
+    "MtSegmentedControl": {
+      "description": "یک مجموعه خطی از دو یا چند بخش",
+      "name": "کنترل تقسیم شده",
+      "props": {
+        "data": {
+          "description": "گزینهها",
+          "name": "دادهها"
+        }
+      }
+    },
+    "MtSelect": {
+      "description": "انتخاب سفارشی قابل جستجو",
+      "name": "انتخاب کنید",
+      "props": {
+        "data": {
+          "description": "گزینهها",
+          "name": "دادهها"
+        },
+        "searchable": {
+          "description": "فعال کردن جستجو",
+          "name": "قابل جستجو"
+        }
+      }
+    },
+    "MtSlider": {
+      "description": "کامپوننت کشویی",
+      "name": "اسلایدر",
+      "props": {
+        "max": {
+          "description": "حداکثر مقدار",
+          "name": "حداکثر"
+        },
+        "min": {
+          "description": "حداقل مقدار",
+          "name": "حداقل"
+        },
+        "step": {
+          "description": "مقدار گام",
+          "name": "گام"
+        }
+      }
+    },
+    "MtSwitch": {
+      "description": "ضبط ورودی بولی از کاربر",
+      "name": "سوئیچ",
+      "props": {
+        "checked": {
+          "description": "مشخص می کند که آیا سوئیچ روشن است",
+          "name": "بررسی شده"
+        }
+      }
+    },
+    "MtSwitchGroup": {
+      "description": "ضبط ورودی های بولی از کاربر",
+      "name": "گروه سوئیچ",
+      "props": {
+        "items": {
+          "description": "گزینه های سوئیچ",
+          "name": "اقلام"
+        }
+      }
+    },
+    "MtTagsInput": {
+      "description": "لیستی از مقادیر را از کاربر با ورودی رایگان و پیشنهادات ضبط کنید",
+      "name": "برچسب های ورودی",
+      "props": {
+        "data": {
+          "description": "گزینهها",
+          "name": "دادهها"
+        }
+      }
+    },
+    "MtText": {
+      "description": "نمایش متن",
+      "name": "متن",
+      "props": {
+        "children": {
+          "description": "محتوای متن",
+          "name": "محتوا"
+        },
+        "inherit": {
+          "description": "تعیین می کند که آیا خواص فونت باید از والد به ارث برده شود",
+          "name": "به ارث بردن"
+        },
+        "inline": {
+          "description": "ارتفاع خط را برای مرکزبندی روی 1 تنظیم می کند",
+          "name": "درون خطی"
+        },
+        "lineClamp": {
+          "description": "تعداد خطوط که پس از آن متن کوتاه می شود",
+          "name": "گیره خط"
+        },
+        "span": {
+          "description": "نمایش به عنوان یک عنصر دهانه",
+          "name": "دهانه"
+        },
+        "truncate": {
+          "description": "سمت که متن باید کوتاه شود",
+          "name": "قطع کردن"
+        }
+      }
+    },
+    "MtTextInput": {
+      "description": "ضبط ورودی رشته از کاربر",
+      "name": "ورودی متن",
+      "props": {
+        "type": {
+          "description": "نوع ورودی",
+          "name": "نوع"
+        }
+      }
+    },
+    "MtTextarea": {
+      "description": "اندازه خودکار یا متنی منظم",
+      "name": "متنت‌نویسی",
+      "props": {
+        "autosize": {
+          "description": "فعال کردن اندازه خودکار",
+          "name": "اندازه خودکار"
+        },
+        "maxRows": {
+          "description": "حداکثر تعداد ردیف",
+          "name": "حداکثر ردیف"
+        },
+        "minRows": {
+          "description": "حداقل تعداد ردیف",
+          "name": "سطرهای حداقل"
+        }
+      }
+    },
+    "MtTimeGrid": {
+      "description": "مقدار زمان را از کاربر با مجموعه ای از گزینه های از پیش تعریف شده ضبط می کند",
+      "name": "شبکه زمان",
+      "props": {
+        "endTime": {
+          "description": "زمان پایان در قالب «HH: mm»",
+          "name": "زمان پایان"
+        },
+        "format": {
+          "description": "فرمت زمان",
+          "name": "فرمت"
+        },
+        "startTime": {
+          "description": "زمان شروع در فرمت «HH: mm»",
+          "name": "زمان شروع"
+        }
+      }
+    },
+    "MtTimeInput": {
+      "description": "ضبط زمان از کاربر",
+      "name": "ورودی زمان"
+    },
+    "MtTimePicker": {
+      "description": "مقدار زمان را از کاربر ضبط می کند",
+      "name": "انتخاب زمان",
+      "props": {
+        "format": {
+          "description": "فرمت زمان",
+          "name": "فرمت"
+        },
+        "max": {
+          "description": "حداکثر زمان قابل انتخاب، HH: MM: فرمت SS",
+          "name": "حداکثر"
+        },
+        "min": {
+          "description": "حداقل زمان قابل انتخاب، HH: MM: فرمت SS",
+          "name": "حداقل"
+        },
+        "reverseTimeControlsList": {
+          "description": "ترتیب کنترل های زمان (ساعت، دقیقه، ثانیه) را برای مطابقت با ناوبری صفحه کلید معکوس می کند",
+          "name": "لیست کنترل زمان معکوس"
+        }
+      }
+    },
+    "MtTiptap": {
+      "description": "ویرایشگر متن غنی مبتنی بر Tiptap",
+      "name": "ویرایشگر متن غنی",
+      "props": {
+        "error": {
+          "description": "پیام خطای ورودی",
+          "name": "خطا"
+        },
+        "value": {
+          "description": "محتوای اولیه ویرایشگر در قالب HTML",
+          "name": "ارزش"
+        }
+      }
+    },
+    "MtTitle": {
+      "description": "عنوان h1-h6",
+      "name": "عنوان",
+      "props": {
+        "children": {
+          "description": "محتوای عنوان",
+          "name": "محتوا"
+        },
+        "order": {
+          "description": "سطح سربرگ",
+          "name": "سفارش"
+        }
+      }
+    },
+    "MtTooltip": {
+      "description": "نکته ابزار را در عنصر داده شده با روی ماوس یا رویداد دیگر رندر می کند",
+      "name": "نکته ابزار",
+      "props": {
+        "children": {
+          "description": "عنصر ماشه",
+          "name": "بچه ها"
+        },
+        "content": {
+          "description": "متن محتوای راهنمای ابزار",
+          "name": "محتوا"
+        },
+        "offset": {
+          "description": "فاصله از ماشه",
+          "name": "افست"
+        }
+      }
+    },
+    "MtTypography": {
+      "description": "ارائه دهنده سبک برای محتوای HTML",
+      "name": "تایپوگرافی",
+      "props": {
+        "allowHtml": {
+          "description": "اجازه دادن به HTML",
+          "name": "اجازه دادن به HTML"
+        },
+        "content": {
+          "description": "محتوای متن",
+          "name": "محتوا"
+        }
+      }
+    },
+    "MtYearMultiplePicker": {
+      "description": "انتخابگر چند ساله درون خطی",
+      "name": "انتخابگر چندگانه ساله",
+      "props": {
+        "maxDate": {
+          "description": "حداکثر سال قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل سال قابل انتخاب",
+          "name": "حداقل تاریخ"
+        },
+        "numberOfColumns": {
+          "description": "تعداد ستون ها برای نمایش",
+          "name": "تعداد ستون ها"
+        }
+      }
+    },
+    "MtYearMultiplePickerInput": {
+      "description": "ورودی انتخابگر چندگانه سال",
+      "name": "ورودی انتخابگر چندگانه سال",
+      "props": {
+        "maxDate": {
+          "description": "حداکثر سال قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل سال قابل انتخاب",
+          "name": "حداقل تاریخ"
+        },
+        "numberOfColumns": {
+          "description": "تعداد ستون ها برای نمایش",
+          "name": "تعداد ستون ها"
+        }
+      }
+    },
+    "MtYearPicker": {
+      "description": "انتخاب کننده سال درون خطی",
+      "name": "انتخابگر سال",
+      "props": {
+        "allowDeselect": {
+          "description": "تعیین می کند که آیا کاربر می تواند سال را با کلیک بر روی سال انتخاب شده حذف کند",
+          "name": "اجازه لغو انتخاب"
+        },
+        "maxDate": {
+          "description": "حداکثر سال قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل سال قابل انتخاب",
+          "name": "حداقل تاریخ"
+        },
+        "numberOfColumns": {
+          "description": "تعداد ستون ها برای نمایش",
+          "name": "تعداد ستون ها"
+        }
+      }
+    },
+    "MtYearPickerInput": {
+      "description": "ورودی انتخاب کننده سال",
+      "name": "ورودی انتخاب کننده سال",
+      "props": {
+        "allowDeselect": {
+          "description": "تعیین می کند که آیا کاربر می تواند سال را با کلیک بر روی سال انتخاب شده حذف کند",
+          "name": "اجازه لغو انتخاب"
+        },
+        "maxDate": {
+          "description": "حداکثر سال قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل سال قابل انتخاب",
+          "name": "حداقل تاریخ"
+        },
+        "numberOfColumns": {
+          "description": "تعداد ستون ها برای نمایش",
+          "name": "تعداد ستون ها"
+        }
+      }
+    },
+    "MtYearRangePicker": {
+      "description": "انتخاب محدوده سال",
+      "name": "انتخاب محدوده سال",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "امکان انتخاب یک سال به عنوان یک محدوده را می دهد",
+          "name": "اجازه دهید تاریخ تک در محدوده"
+        },
+        "maxDate": {
+          "description": "حداکثر سال قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل سال قابل انتخاب",
+          "name": "حداقل تاریخ"
+        },
+        "numberOfColumns": {
+          "description": "تعداد ستون ها برای نمایش",
+          "name": "تعداد ستون ها"
+        }
+      }
+    },
+    "MtYearRangePickerInput": {
+      "description": "ورودی انتخاب کننده محدوده سال",
+      "name": "ورودی انتخاب کننده محدوده سال",
+      "props": {
+        "allowSingleDateInRange": {
+          "description": "امکان انتخاب یک سال به عنوان یک محدوده را می دهد",
+          "name": "اجازه دهید تاریخ تک در محدوده"
+        },
+        "maxDate": {
+          "description": "حداکثر سال قابل انتخاب",
+          "name": "حداکثر تاریخ"
+        },
+        "minDate": {
+          "description": "حداقل سال قابل انتخاب",
+          "name": "حداقل تاریخ"
+        },
+        "numberOfColumns": {
+          "description": "تعداد ستون ها برای نمایش",
+          "name": "تعداد ستون ها"
+        }
+      }
+    }
+  }
+}

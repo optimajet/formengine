@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Polja"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "Komponenta za otpremanje datoteka sa podrškom za prevlačenje i ispuštanje",
+      "name": "Otpremnik datoteka",
+      "props": {
+        "accept": {
+          "description": "Prihvaćeni tipovi datoteka (npr. Image/*, .pdf, .dock)",
+          "name": "Prihvati"
+        },
+        "action": {
+          "description": "URL za otpremanje datoteka",
+          "name": "URL akcije"
+        },
+        "children": {
+          "description": "Sadržaj za prikaz unutar učitača",
+          "name": "Deca"
+        },
+        "disabled": {
+          "description": "Ako je tačno, učitavač je onemogućen",
+          "name": "Onemogućeno"
+        },
+        "dropzone": {
+          "description": "Ako je tačno, prikazaće se dropzone",
+          "name": "Dropzone"
+        },
+        "multiple": {
+          "description": "Dozvolite višestruki izbor datoteka",
+          "name": "Više datoteka"
+        },
+        "onChange": {
+          "description": "Povratni poziv kada su datoteke uspešno otpremljene",
+          "name": "O promeni"
+        },
+        "onError": {
+          "description": "Povratni poziv kada dođe do greške tokom otpremanja",
+          "name": "O grešci"
+        },
+        "readOnly": {
+          "description": "Ako je tačno, učitač je samo za čitanje",
+          "name": "Samo za čitanje"
+        }
+      }
+    }
+  }
+}

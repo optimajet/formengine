@@ -1,0 +1,721 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "データ表示"
+    },
+    "feedback": {
+      "name": "フィードバック"
+    },
+    "form": {
+      "name": "フォーム"
+    },
+    "inputs": {
+      "name": "インプット"
+    },
+    "layout": {
+      "name": "[レイアウト]"
+    },
+    "navigation": {
+      "name": "ナビゲーション"
+    },
+    "surfaces": {
+      "name": "サーフェス"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "true の場合、コンポーネントがチェックされます",
+      "name": "チェック済み"
+    },
+    "children": {
+      "description": "コンポーネントの内容",
+      "name": "子ども"
+    },
+    "color": {
+      "description": "コンポーネントの色",
+      "name": "[カラー]"
+    },
+    "defaultValue": {
+      "description": "デフォルト値。コンポーネントが制御されていない場合に使用します。",
+      "name": "デフォルト値"
+    },
+    "dense": {
+      "description": "true の場合、垂直方向のパディングが減少します",
+      "name": "高密度"
+    },
+    "disableGutters": {
+      "description": "true の場合、左右のパディングを無効にします",
+      "name": "雨どいを無効にする"
+    },
+    "disablePadding": {
+      "description": "true の場合、デフォルトのパディングを無効にします",
+      "name": "パディングを無効にする"
+    },
+    "disabled": {
+      "description": "true の場合、コンポーネントは無効になります",
+      "name": "無効"
+    },
+    "error": {
+      "description": "true の場合、コンポーネントはエラー状態で表示されます",
+      "name": "[エラー]"
+    },
+    "fullWidth": {
+      "description": "true の場合、コンポーネントはコンテナの全幅を占めます",
+      "name": "全幅"
+    },
+    "gutterBottom": {
+      "description": "true に設定すると、テキストの下部に余白が表示されます",
+      "name": "ガターボトム"
+    },
+    "helperText": {
+      "description": "ヘルパーテキストの内容",
+      "name": "ヘルパーテキスト"
+    },
+    "margin": {
+      "description": "コンポーネントに適用されるマージンを定義します",
+      "name": "マージン"
+    },
+    "noWrap": {
+      "description": "true に設定すると、テキストは折り返されず、代わりにテキストオーバーフローの省略記号で切り捨てられます",
+      "name": "ラップなし"
+    },
+    "onChange": {
+      "description": "値が変更されたときに発生するコールバック",
+      "name": "変更時"
+    },
+    "onClick": {
+      "description": "コンポーネントがクリックされたときに発生するコールバック",
+      "name": "オンクリック"
+    },
+    "required": {
+      "description": "true の場合、入力要素は必須です",
+      "name": "必須"
+    },
+    "size": {
+      "description": "コンポーネントのサイズ",
+      "name": "サイズ"
+    },
+    "sx": {
+      "description": "システムオーバーライドや追加の CSS スタイルを定義できるシステムプロップ",
+      "name": "セックス"
+    },
+    "textAlign": {
+      "description": "テキスト配置",
+      "name": "アラインメント"
+    },
+    "value": {
+      "description": "コンポーネントの値",
+      "name": "価値"
+    },
+    "variant": {
+      "description": "使用するバリエーション",
+      "name": "バリアント"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "システムスタイリングをサポートする汎用レイアウトコンテナ",
+      "name": "ボックス"
+    },
+    "MuiBreadcrumbs": {
+      "description": "階層内の現在のページ位置を表示します",
+      "name": "ブレッドクラム",
+      "props": {
+        "items": {
+          "description": "表示するブレッドクラム・アイテム",
+          "name": "アイテム"
+        },
+        "itemsAfterCollapse": {
+          "description": "最大アイテム数を超えた場合、省略記号の後に表示されるアイテムの数",
+          "name": "崩壊後のアイテム"
+        },
+        "itemsBeforeCollapse": {
+          "description": "最大アイテム数を超えた場合、省略記号の前に表示するアイテムの数",
+          "name": "崩壊前のアイテム"
+        },
+        "maxItems": {
+          "description": "表示するブレッドクラムの最大数を指定します",
+          "name": "最大アイテム数"
+        },
+        "separator": {
+          "description": "ブレッドクラム・アイテムを分離するために使用される要素",
+          "name": "セパレーター"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "アクションまたはイベントをトリガーするために使用されるボタンコンポーネント",
+      "name": "ボタン",
+      "props": {
+        "children": {
+          "description": "キャプション",
+          "name": "[コンテンツ]"
+        },
+        "disableElevation": {
+          "description": "true に設定すると、ボタンの影が削除されます",
+          "name": "昇格を無効にする"
+        },
+        "loading": {
+          "description": "ローディングインジケータを表示し、インタラクションを無効にします",
+          "name": "読み込み中"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "関連するボタンをまとめてグループ化します",
+      "name": "ボタングループ",
+      "props": {
+        "fullWidth": {
+          "description": "ボタングループをコンテナの幅いっぱいに広げます",
+          "name": "全幅"
+        },
+        "orientation": {
+          "description": "ボタンのレイアウト方向を設定します",
+          "name": "オリエンテーション"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "関連コンテンツをグループ化するためのサーフェスコンポーネント",
+      "name": "カード",
+      "props": {
+        "actions": {
+          "description": "カードのアクションボタンまたはコントロール",
+          "name": "[アクション]"
+        },
+        "header": {
+          "description": "カードヘッダーにレンダリングされたコンテンツ",
+          "name": "ヘッダー"
+        },
+        "headerAction": {
+          "description": "ヘッダーに表示されるアクション要素",
+          "name": "ヘッダーアクション"
+        },
+        "headerAvatar": {
+          "description": "ヘッダーに表示されるアバター要素",
+          "name": "ヘッダーアバター"
+        },
+        "media": {
+          "description": "画像や動画などのメディアコンテンツ",
+          "name": "メディア"
+        },
+        "onSelect": {
+          "description": "カードが選択されたときにコールバックがトリガーされます",
+          "name": "オンセレクト"
+        },
+        "subHeader": {
+          "description": "ヘッダーの下に表示されるセカンダリテキスト",
+          "name": "サブヘッダー"
+        },
+        "useActions": {
+          "description": "下部にアクションセクションを表示します",
+          "name": "アクションを使う"
+        },
+        "useCardActionArea": {
+          "description": "クリック可能なアクションエリアでコンテンツをラップします",
+          "name": "カードアクションエリアを使う"
+        },
+        "useHeader": {
+          "description": "カードヘッダーセクションを有効にします",
+          "name": "ヘッダーを使う"
+        },
+        "useHeaderAction": {
+          "description": "ヘッダー内のアクションエリアを有効にします",
+          "name": "ヘッダーアクションを使用する"
+        },
+        "useHeaderAvatar": {
+          "description": "ヘッダー内にアバターを表示します",
+          "name": "ヘッダーアバターを使う"
+        },
+        "useMedia": {
+          "description": "カード内のメディアセクションを有効にします",
+          "name": "メディアを使う"
+        },
+        "useSubheader": {
+          "description": "メインヘッダーの下にサブヘッダーを表示します",
+          "name": "サブヘッダーを使用"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "1 つまたは複数のオプションを選択できます",
+      "name": "チェックボックス",
+      "props": {
+        "defaultChecked": {
+          "description": "制御されていないときの初期チェック状態",
+          "name": "デフォルトチェック済み"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "ロードまたは進行状況を円形で示します",
+      "name": "循環プログレス",
+      "props": {
+        "disableShrink": {
+          "description": "シュリンクアニメーションを無効にします",
+          "name": "シュリンクを無効にする"
+        },
+        "thickness": {
+          "description": "円のストローク幅を制御します",
+          "name": "厚さ"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "コンテンツを水平方向に中央揃えして制限します",
+      "name": "コンテナ",
+      "props": {
+        "fixed": {
+          "description": "可変幅の代わりに固定の最大幅を設定します。",
+          "name": "修正済み"
+        },
+        "maxWidth": {
+          "description": "コンテナの最大幅を定義します",
+          "name": "最大幅"
+        }
+      }
+    },
+    "MuiDatePicker": {
+      "description": "日付を選択するためのコンポーネント",
+      "name": "日付ピッカー",
+      "props": {
+        "autoFocus": {
+          "description": "true の場合、コンポーネントがマウントされたときに自動的に日付ピッカーにフォーカスが当てられます",
+          "name": "オートフォーカス"
+        },
+        "closeOnSelect": {
+          "description": "日付を選択した後、日付ピッカーダイアログを自動的に閉じます",
+          "name": "選択時に閉じる"
+        },
+        "desktopModeMediaQuery": {
+          "description": "デスクトップモードレイアウトに切り替えるタイミングを決定する CSS メディアクエリ文字列",
+          "name": "デスクトップモードのメディアクエリ"
+        },
+        "disableFuture": {
+          "description": "true に設定すると、現在の日付より後の日付を選択できなくなります。",
+          "name": "未来を無効にする"
+        },
+        "disableHighlightToday": {
+          "description": "true の場合、カレンダー内の現在の日付の視覚的な強調表示を無効にします",
+          "name": "今すぐハイライトを無効にする"
+        },
+        "disableOpenPicker": {
+          "description": "true の場合、ピッカーダイアログを開かないようにします (読み取り専用表示に便利)",
+          "name": "オープンピッカーを無効にする"
+        },
+        "disablePast": {
+          "description": "true に設定すると、現在の日付より前の日付が選択されなくなります",
+          "name": "過去を無効にする"
+        },
+        "displayWeekNumber": {
+          "description": "カレンダービューに週番号を表示します",
+          "name": "週番号を表示"
+        },
+        "fixedWeekNumber": {
+          "description": "表示する週数を固定 (カレンダーの高さを一定にする)",
+          "name": "固定週番号"
+        },
+        "format": {
+          "description": "表示と解析に使用される日付フォーマット文字列 (例:'yyyy-MM-dd'、'MM/dd/yyyy')",
+          "name": "フォーマット"
+        },
+        "formatDensity": {
+          "description": "日付フォーマットの間隔を制御します:高密度 (コンパクト) または広く (間隔を広げる)",
+          "name": "フォーマット密度"
+        },
+        "loading": {
+          "description": "true の場合、データがロード中であることを示すロードスピナーが表示されます",
+          "name": "読み込み中"
+        },
+        "maxDate": {
+          "description": "選択できる最新の日付 (含む)",
+          "name": "最大日付"
+        },
+        "minDate": {
+          "description": "選択できる最も早い日付 (含む)",
+          "name": "最小日付"
+        },
+        "monthsPerRow": {
+          "description": "月/年ビューで行ごとに表示する月カレンダーの数",
+          "name": "1 行あたりの月数"
+        },
+        "name": {
+          "description": "フォームを送信するときに使用されるフォームフィールドの名前属性",
+          "name": "[名前]"
+        },
+        "onAccept": {
+          "description": "値が受け入れられたときにコールバックが発生します",
+          "name": "受諾時について"
+        },
+        "onClose": {
+          "description": "ポップアップのクローズが要求されたときにコールバックが発生します",
+          "name": "[閉じる]"
+        },
+        "onError": {
+          "description": "現在の値に関連するエラーが変更されたときに発生するコールバック",
+          "name": "OnError"
+        },
+        "onMonthChange": {
+          "description": "月の変更時にコールバックが発生しました",
+          "name": "月の変更時"
+        },
+        "onOpen": {
+          "description": "ポップアップを開くように要求されたときにコールバックが発生します",
+          "name": "[オープン中]"
+        },
+        "onSelectedSectionsChange": {
+          "description": "選択したセクションが変更されたときにコールバックが発生します",
+          "name": "選択したセクションの変更時"
+        },
+        "onViewChange": {
+          "description": "ビューが変更されたときにコールバックが発生しました",
+          "name": "ビュー変更時"
+        },
+        "onYearChange": {
+          "description": "年の変更時にコールバックが発生しました",
+          "name": "年替わりについて"
+        },
+        "open": {
+          "description": "true の場合、日付ピッカーダイアログが開き、制御された状態管理に使用できます",
+          "name": "[開く]"
+        },
+        "openTo": {
+          "description": "ピッカーがアクティブになったときに開くビュー",
+          "name": "に開く"
+        },
+        "referenceDate": {
+          "description": "値が選択されていない場合に最初のカレンダービューを生成するために使用される日付",
+          "name": "基準日"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "現在の月ビューに前月と翌月の日数を表示します",
+          "name": "今月の外の日を表示"
+        },
+        "view": {
+          "description": "最初に表示するビュー (日、月、または年のカレンダー)",
+          "name": "ビュー"
+        },
+        "views": {
+          "description": "使用可能なビュー (日、月、年のカレンダー)",
+          "name": "ビュー"
+        },
+        "yearsOrder": {
+          "description": "年のソート順:昇順 (古い順) または降順 (新しい順)",
+          "name": "年順序"
+        },
+        "yearsPerRow": {
+          "description": "年ビューで行ごとに表示する年項目の数",
+          "name": "1 行あたりの年数"
+        }
+      }
+    },
+    "MuiDialog": {
+      "description": "コンテンツをオーバーレイで表示するモーダルダイアログコンポーネント",
+      "name": "ダイアログ",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "true の場合、Esc キーを押してもダイアログは閉じません",
+          "name": "エスケープキーダウンを無効にする"
+        },
+        "fullScreen": {
+          "description": "true の場合、ダイアログは全画面表示になります。",
+          "name": "[フルスクリーン]"
+        },
+        "fullWidth": {
+          "description": "true に設定すると、ダイアログは maxWidth まで拡大されます。",
+          "name": "全幅"
+        },
+        "maxWidth": {
+          "description": "ダイアログの最大幅 (xs、sm、md、lg、xl)",
+          "name": "最大幅"
+        },
+        "onClose": {
+          "description": "ダイアログが閉じているときにコールバックが発生します",
+          "name": "[閉じる]"
+        },
+        "open": {
+          "description": "true の場合、ダイアログが開きます。",
+          "name": "[開く]"
+        },
+        "scroll": {
+          "description": "ダイアログをスクロールするコンテナ (用紙または本文) を決定します",
+          "name": "スクロール"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "ダイアログアクションボタンのコンテナ",
+      "name": "ダイアログアクション",
+      "props": {
+        "children": {
+          "description": "コンポーネントの内容",
+          "name": "子ども"
+        },
+        "disableSpacing": {
+          "description": "true の場合、アクションには追加のマージンはありません。",
+          "name": "間隔を無効にする"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "ダイアログのメインコンテンツ領域",
+      "name": "ダイアログコンテンツ",
+      "props": {
+        "children": {
+          "description": "コンポーネントの内容",
+          "name": "子ども"
+        },
+        "dividers": {
+          "description": "true の場合、ダイアログコンテンツの上部と下部に境界線が追加されます",
+          "name": "ディバイダー"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "ダイアログ内のテキストコンテンツ",
+      "name": "ダイアログコンテンツテキスト",
+      "props": {
+        "children": {
+          "description": "テキストコンテンツ",
+          "name": "[コンテンツ]"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "タイトル、コンテンツ、アクションボタンを含むプリセットダイアログレイアウト",
+      "name": "ダイアログレイアウト"
+    },
+    "MuiDialogTitle": {
+      "description": "ダイアログのタイトル",
+      "name": "ダイアログタイトル",
+      "props": {
+        "children": {
+          "description": "タイトルテキスト",
+          "name": "[コンテンツ]"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "コンテンツをラップし、エラー状態またはメッセージを表示する",
+      "name": "エラーラッパー"
+    },
+    "MuiFormControlLabel": {
+      "description": "ラベルをフォームコントロールに関連付けます",
+      "name": "フォームコントロールラベル",
+      "props": {
+        "control": {
+          "description": "フォームコントロール要素 (チェックボックス、ラジオ、スイッチ)",
+          "name": "コントロール"
+        },
+        "labelPlacement": {
+          "description": "コントロールに対するラベルの位置",
+          "name": "ラベル配置"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "フォームフィールドをグループ化または説明するためのラベル",
+      "name": "フォームラベル",
+      "props": {
+        "filled": {
+          "description": "塗りつぶし状態のスタイルを適用します",
+          "name": "いっぱい"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "ロード中や進行状況をリニアバーで表示",
+      "name": "直線的な進行",
+      "props": {
+        "valueBuffer": {
+          "description": "バッファードプログレスモードのセカンダリバッファ値",
+          "name": "バリューバッファ"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "ナビゲーションまたはアクション用のクリック可能な要素",
+      "name": "リンク",
+      "props": {
+        "href": {
+          "description": "デスティネーション URL",
+          "name": "Href"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "アイテムの垂直リストを表示します",
+      "name": "リスト"
+    },
+    "MuiListItem": {
+      "description": "リスト内の 1 つの項目を表します",
+      "name": "リストアイテム",
+      "props": {
+        "divider": {
+          "description": "リスト項目の下に仕切り線を表示します",
+          "name": "ディバイダー"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "セットから 1 つのオプションを選択できます",
+      "name": "ラジオグループ",
+      "props": {
+        "name": {
+          "description": "ラジオボタンをグループ化するために使用する名前属性",
+          "name": "[名前]"
+        },
+        "row": {
+          "description": "ラジオボタンを水平に表示します",
+          "name": "行"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "ラジオグループ内で使用される単一のラジオボタン",
+      "name": "ラジオアイテム"
+    },
+    "MuiSelect": {
+      "description": "オプションを選択するためのドロップダウンコンポーネント",
+      "name": "[選択]",
+      "props": {
+        "autoFocus": {
+          "description": "フィールドをマウントに自動的に焦点を合わせます",
+          "name": "オートフォーカス"
+        },
+        "multiple": {
+          "description": "複数のオプションを選択できます",
+          "name": "複数"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "子を 1 次元のスタックにレイアウトします",
+      "name": "スタック",
+      "props": {
+        "alignItems": {
+          "description": "軸間の位置合わせを制御します",
+          "name": "項目を揃える"
+        },
+        "direction": {
+          "description": "項目を行に積み重ねるか列に積み重ねるかを定義します",
+          "name": "方向"
+        },
+        "flexWrap": {
+          "description": "項目を複数行に折り返すかどうかを制御します",
+          "name": "フレックスラップ"
+        },
+        "justifyContent": {
+          "description": "主軸の位置合わせを制御します",
+          "name": "コンテンツを正当化する"
+        },
+        "spacing": {
+          "description": "積み重ねられたアイテム間の間隔",
+          "name": "間隔"
+        },
+        "useFlexGap": {
+          "description": "余白の代わりに CSS ギャップを使用して間隔を設定します",
+          "name": "フレックスギャップを使用"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "2 つの状態を切り替えるためのトグルコントロール",
+      "name": "スイッチ",
+      "props": {
+        "defaultChecked": {
+          "description": "制御されていないときの初期トグル状態",
+          "name": "デフォルトチェック済み"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "テキストとフォームデータの入力フィールド",
+      "name": "テキストフィールド",
+      "props": {
+        "autoFocus": {
+          "description": "フィールドをマウントに自動的に焦点を合わせます",
+          "name": "オートフォーカス"
+        },
+        "maxRows": {
+          "description": "複数行入力で表示される行の最大数",
+          "name": "最大行数"
+        },
+        "multiline": {
+          "description": "単一行の入力の代わりにテキストエリアをレンダリングします",
+          "name": "マルチライン"
+        },
+        "type": {
+          "description": "HTML 入力タイプ (テキスト、パスワード、電子メールなど)",
+          "name": "タイプ"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "ホバー、フォーカス、またはタッチでコンテキスト情報を表示します",
+      "name": "ツールチップ",
+      "props": {
+        "arrow": {
+          "description": "ターゲット要素を指す矢印を表示します",
+          "name": "矢印"
+        },
+        "disableFocusListener": {
+          "description": "ツールチップがフォーカスされて表示されないようにします",
+          "name": "フォーカスリスナーを無効にする"
+        },
+        "disableHoverListener": {
+          "description": "カーソルを合わせたときにツールチップが表示されないようにします",
+          "name": "ホバーリスナーを無効にする"
+        },
+        "disableInteractive": {
+          "description": "ツールチップコンテンツとの対話を無効にします",
+          "name": "インタラクティブを無効にする"
+        },
+        "disableTouchListener": {
+          "description": "タッチ時にツールチップが表示されないようにします",
+          "name": "タッチリスナーを無効にする"
+        },
+        "enterDelay": {
+          "description": "ツールチップを表示するまでの遅延 (ミリ秒単位)",
+          "name": "遅延を入力"
+        },
+        "followCursor": {
+          "description": "ツールチップをカーソル位置に合わせます",
+          "name": "フォローカーソル"
+        },
+        "leaveDelay": {
+          "description": "ツールチップを非表示にするまでの遅延 (ミリ秒単位)",
+          "name": "休暇遅延"
+        },
+        "title": {
+          "description": "ツールチップ内に表示されるテキストコンテンツ",
+          "name": "タイトル"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "定義済みのタイポグラフィスタイルでテキストを表示します",
+      "name": "タイポグラフィ",
+      "props": {
+        "children": {
+          "description": "テキストコンテンツ",
+          "name": "[コンテンツ]"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "1 つまたは複数のファイルをアップロードするためのコンポーネント",
+      "name": "アップローダー",
+      "props": {
+        "accept": {
+          "description": "許可されているファイルタイプ (例:「.jpg、.png」)",
+          "name": "承諾する"
+        },
+        "multiple": {
+          "description": "複数のファイルを選択できます",
+          "name": "複数"
+        }
+      }
+    }
+  }
+}

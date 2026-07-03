@@ -1,0 +1,721 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "Visualización de datos"
+    },
+    "feedback": {
+      "name": "Retroalimentación"
+    },
+    "form": {
+      "name": "Formulario"
+    },
+    "inputs": {
+      "name": "Insumos"
+    },
+    "layout": {
+      "name": "Disposición"
+    },
+    "navigation": {
+      "name": "Navegación"
+    },
+    "surfaces": {
+      "name": "Superficies"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "Si es verdadero, se comprueba el componente",
+      "name": "Comprobado"
+    },
+    "children": {
+      "description": "El contenido del componente",
+      "name": "Niños"
+    },
+    "color": {
+      "description": "El color del componente",
+      "name": "Color"
+    },
+    "defaultValue": {
+      "description": "El valor predeterminado. Se usa cuando el componente no está controlado",
+      "name": "Valor predeterminado"
+    },
+    "dense": {
+      "description": "Si es cierto, reduce el acolchado vertical",
+      "name": "Denso"
+    },
+    "disableGutters": {
+      "description": "Si es verdadero, desactiva el relleno izquierdo y derecho",
+      "name": "Desactivar canalones"
+    },
+    "disablePadding": {
+      "description": "Si es verdadero, desactiva el relleno predeterminado",
+      "name": "Desactivar el relleno"
+    },
+    "disabled": {
+      "description": "Si es verdadero, el componente está desactivado",
+      "name": "Discapacitado"
+    },
+    "error": {
+      "description": "Si es verdadero, el componente se muestra en estado de error",
+      "name": "Error"
+    },
+    "fullWidth": {
+      "description": "Si es verdadero, el componente ocupa todo el ancho de su contenedor",
+      "name": "Anchura total"
+    },
+    "gutterBottom": {
+      "description": "Si es verdadero, el texto tendrá un margen inferior",
+      "name": "Fondo de canalón"
+    },
+    "helperText": {
+      "description": "El contenido del texto auxiliar",
+      "name": "Texto auxiliar"
+    },
+    "margin": {
+      "description": "Define el margen aplicado al componente",
+      "name": "Margen"
+    },
+    "noWrap": {
+      "description": "Si es verdadero, el texto no se ajustará, sino que se truncará con puntos suspensivos que se desbordan",
+      "name": "Sin envoltura"
+    },
+    "onChange": {
+      "description": "La llamada se activa cuando se cambia el valor",
+      "name": "Sobre el cambio"
+    },
+    "onClick": {
+      "description": "La llamada se activa cuando se hace clic en el componente",
+      "name": "Al hacer clic"
+    },
+    "required": {
+      "description": "Si es verdadero, el elemento de entrada es obligatorio",
+      "name": "Necesario"
+    },
+    "size": {
+      "description": "El tamaño del componente",
+      "name": "Tamaño"
+    },
+    "sx": {
+      "description": "El accesorio del sistema que permite definir anulaciones del sistema, así como estilos CSS adicionales",
+      "name": "sx"
+    },
+    "textAlign": {
+      "description": "Alineación de texto",
+      "name": "Alineación"
+    },
+    "value": {
+      "description": "El valor del componente",
+      "name": "Valor"
+    },
+    "variant": {
+      "description": "La variante a utilizar",
+      "name": "Variante"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "Contenedor de diseño genérico con soporte de estilo de sistema",
+      "name": "Caja"
+    },
+    "MuiBreadcrumbs": {
+      "description": "Muestra la ubicación actual de la página dentro de una jerarquía",
+      "name": "Pan rallado",
+      "props": {
+        "items": {
+          "description": "Elementos de rutas de navegación para mostrar",
+          "name": "Artículos"
+        },
+        "itemsAfterCollapse": {
+          "description": "Si se supera el número máximo de elementos, el número de elementos que se mostrarán después de los puntos suspensivos",
+          "name": "Artículos después del colapso"
+        },
+        "itemsBeforeCollapse": {
+          "description": "Si se supera el número máximo de elementos, el número de elementos que se mostrarán antes de los puntos suspensivos",
+          "name": "Artículos antes del colapso"
+        },
+        "maxItems": {
+          "description": "Especifica el número máximo de rutas de pan que se deben mostrar",
+          "name": "Número máximo de artículos"
+        },
+        "separator": {
+          "description": "Elemento utilizado para separar los elementos del pan rallado",
+          "name": "Separador"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "Un componente de botón que se utiliza para activar acciones o eventos",
+      "name": "Botón",
+      "props": {
+        "children": {
+          "description": "El epígrafe",
+          "name": "Contenido"
+        },
+        "disableElevation": {
+          "description": "Elimina la sombra del botón cuando se establece en verdadero",
+          "name": "Desactivar la elevación"
+        },
+        "loading": {
+          "description": "Muestra un indicador de carga y desactiva la interacción",
+          "name": "Cargando"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "Agrupa los botones relacionados",
+      "name": "Grupo de botones",
+      "props": {
+        "fullWidth": {
+          "description": "Hace que el grupo de botones abarque todo el ancho del contenedor",
+          "name": "Anchura total"
+        },
+        "orientation": {
+          "description": "Establece la dirección de diseño de los botones",
+          "name": "Orientación"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "Componente de superficie para agrupar contenido relacionado",
+      "name": "Tarjeta",
+      "props": {
+        "actions": {
+          "description": "Botones o controles de acción para la tarjeta",
+          "name": "Acciones"
+        },
+        "header": {
+          "description": "Contenido representado en el encabezado de la tarjeta",
+          "name": "Cabecera"
+        },
+        "headerAction": {
+          "description": "Elemento de acción mostrado en el encabezado",
+          "name": "Acción de encabezado"
+        },
+        "headerAvatar": {
+          "description": "Elemento de avatar que se muestra en el encabezado",
+          "name": "Avatar de encabezado"
+        },
+        "media": {
+          "description": "Contenido multimedia, como una imagen o un vídeo",
+          "name": "Medios"
+        },
+        "onSelect": {
+          "description": "La devolución de llamada se activa cuando se selecciona la tarjeta",
+          "name": "OnSelect"
+        },
+        "subHeader": {
+          "description": "Texto secundario que se muestra debajo del encabezado",
+          "name": "Subencabezado"
+        },
+        "useActions": {
+          "description": "Muestra una sección de acciones en la parte inferior",
+          "name": "Usa acciones"
+        },
+        "useCardActionArea": {
+          "description": "Envuelve el contenido con un área de acción en la que se puede hacer clic",
+          "name": "Usa el área de acción de la carta"
+        },
+        "useHeader": {
+          "description": "Activa la sección de encabezado de la tarjeta",
+          "name": "Usar encabezado"
+        },
+        "useHeaderAction": {
+          "description": "Habilita un área de acción dentro del encabezado",
+          "name": "Usar la acción de encabezado"
+        },
+        "useHeaderAvatar": {
+          "description": "Muestra un avatar dentro del encabezado",
+          "name": "Usa el avatar del encabezado"
+        },
+        "useMedia": {
+          "description": "Habilita una sección multimedia dentro de la tarjeta",
+          "name": "Usa los medios"
+        },
+        "useSubheader": {
+          "description": "Muestra un subencabezado debajo del encabezado principal",
+          "name": "Usar subencabezado"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "Permite seleccionar una o más opciones",
+      "name": "Casilla de verificación",
+      "props": {
+        "defaultChecked": {
+          "description": "Estado inicial comprobado cuando no está controlado",
+          "name": "Marcado de forma predeterminada"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "Indica la carga o el progreso de forma circular",
+      "name": "Progreso circular",
+      "props": {
+        "disableShrink": {
+          "description": "Deshabilita la animación de encogimiento",
+          "name": "Desactivar encogimiento"
+        },
+        "thickness": {
+          "description": "Controla el ancho del trazo del círculo",
+          "name": "Grosor"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "Centra y restringe el contenido horizontalmente",
+      "name": "Contenedor",
+      "props": {
+        "fixed": {
+          "description": "Establece un ancho máximo fijo en lugar de uno fluido",
+          "name": "Fijo"
+        },
+        "maxWidth": {
+          "description": "Define el ancho máximo del contenedor",
+          "name": "Anchura máxima"
+        }
+      }
+    },
+    "MuiDatePicker": {
+      "description": "Componente para seleccionar una fecha",
+      "name": "Selector de fechas",
+      "props": {
+        "autoFocus": {
+          "description": "Si es verdadero, enfoca automáticamente el selector de fechas cuando se monta el componente",
+          "name": "Enfoque automático"
+        },
+        "closeOnSelect": {
+          "description": "Cierra automáticamente el cuadro de diálogo del selector de fechas después de seleccionar una fecha",
+          "name": "Cerrar al seleccionar"
+        },
+        "desktopModeMediaQuery": {
+          "description": "Cadena de consulta multimedia CSS que determina cuándo cambiar al diseño en modo escritorio",
+          "name": "Consulta multimedia en modo escritorio"
+        },
+        "disableFuture": {
+          "description": "Si es verdadero, impide la selección de fechas posteriores a la fecha actual",
+          "name": "Desactivar el futuro"
+        },
+        "disableHighlightToday": {
+          "description": "Si es verdadero, desactiva el resaltado visual de la fecha actual en el calendario",
+          "name": "Desactiva lo destacado hoy"
+        },
+        "disableOpenPicker": {
+          "description": "Si es verdadero, impide abrir el cuadro de diálogo del selector (útil para la visualización de solo lectura)",
+          "name": "Desactivar el selector de aperturas"
+        },
+        "disablePast": {
+          "description": "Si es verdadero, impide la selección de fechas anteriores a la fecha actual",
+          "name": "Desactivar el pasado"
+        },
+        "displayWeekNumber": {
+          "description": "Muestra los números de la semana en la vista de calendario",
+          "name": "Mostrar número de semana"
+        },
+        "fixedWeekNumber": {
+          "description": "Número fijo de semanas para mostrar (obliga a que la altura del calendario sea uniforme)",
+          "name": "Número de semana fijo"
+        },
+        "format": {
+          "description": "Cadena de formato de fecha utilizada para mostrar y analizar (p. ej., «aaaa-mm-dd», «mm/dd/aaaa»)",
+          "name": "Formato"
+        },
+        "formatDensity": {
+          "description": "Controla el espaciado en el formato de fecha: denso (compacto) o espacioso (más espaciado)",
+          "name": "Densidad de formato"
+        },
+        "loading": {
+          "description": "Si es verdadero, muestra un indicador giratorio de carga que indica que se están cargando los datos",
+          "name": "Cargando"
+        },
+        "maxDate": {
+          "description": "Última fecha que se puede seleccionar (incluida)",
+          "name": "Fecha máxima"
+        },
+        "minDate": {
+          "description": "Fecha más temprana que se puede seleccionar (incluida)",
+          "name": "Fecha mínima"
+        },
+        "monthsPerRow": {
+          "description": "Número de calendarios mensuales que se mostrarán por fila en las vistas de mes/año",
+          "name": "Meses por fila"
+        },
+        "name": {
+          "description": "El atributo de nombre del campo del formulario, que se utiliza al enviar los formularios",
+          "name": "Nombre"
+        },
+        "onAccept": {
+          "description": "La llamada se activa cuando se acepta el valor",
+          "name": "Al aceptar"
+        },
+        "onClose": {
+          "description": "La devolución de llamada se activa cuando la ventana emergente solicita que se cierre",
+          "name": "Al cerrar"
+        },
+        "onError": {
+          "description": "La llamada se activa cuando cambia el error asociado al valor actual",
+          "name": "En caso de error"
+        },
+        "onMonthChange": {
+          "description": "La devolución de llamada se disparó con el cambio de mes",
+          "name": "Cambio de un mes"
+        },
+        "onOpen": {
+          "description": "La devolución de llamada se activa cuando la ventana emergente solicita que se abra",
+          "name": "OnOpen"
+        },
+        "onSelectedSectionsChange": {
+          "description": "La llamada se activa cuando cambian las secciones seleccionadas",
+          "name": "Al cambiar las secciones seleccionadas"
+        },
+        "onViewChange": {
+          "description": "La llamada se activa al cambiar la vista",
+          "name": "Cambio de OnView"
+        },
+        "onYearChange": {
+          "description": "Se produce una devolución de llamada por cambio de año",
+          "name": "En cambio de año"
+        },
+        "open": {
+          "description": "Si es verdadero, el cuadro de diálogo del selector de fechas está abierto; se puede usar para la administración controlada del estado",
+          "name": "Abrir"
+        },
+        "openTo": {
+          "description": "La vista que se abrirá cuando se active el selector",
+          "name": "Abierto a"
+        },
+        "referenceDate": {
+          "description": "Fecha utilizada para generar la vista inicial del calendario cuando no se selecciona ningún valor",
+          "name": "Fecha de referencia"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Muestra los días de los meses anteriores y siguientes en la vista mensual actual",
+          "name": "Mostrar días fuera del mes actual"
+        },
+        "view": {
+          "description": "La vista inicial que se va a mostrar (calendario de días, meses o años)",
+          "name": "Ver"
+        },
+        "views": {
+          "description": "Las vistas disponibles (calendario por día, mes y año)",
+          "name": "Vistas"
+        },
+        "yearsOrder": {
+          "description": "Orden de clasificación de los años: ascendente (el más antiguo primero) o descendente (el más reciente primero)",
+          "name": "Pedido de años"
+        },
+        "yearsPerRow": {
+          "description": "Número de elementos del año que se mostrarán por fila en la vista anual",
+          "name": "Años por fila"
+        }
+      }
+    },
+    "MuiDialog": {
+      "description": "Un componente de diálogo modal que muestra el contenido en una superposición",
+      "name": "Diálogo",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Si es verdadero, al presionar la tecla Escape no se cerrará el cuadro de diálogo",
+          "name": "Desactivar la tecla de escape hacia abajo"
+        },
+        "fullScreen": {
+          "description": "Si es verdadero, el cuadro de diálogo aparecerá en pantalla completa",
+          "name": "Pantalla completa"
+        },
+        "fullWidth": {
+          "description": "Si es verdadero, el cuadro de diálogo se extiende a maxWidth",
+          "name": "Anchura total"
+        },
+        "maxWidth": {
+          "description": "Ancho máximo del cuadro de diálogo (xs, sm, md, lg, xl)",
+          "name": "Anchura máxima"
+        },
+        "onClose": {
+          "description": "La devolución de llamada se activa cuando se cierra el cuadro de diálogo",
+          "name": "Al cerrar"
+        },
+        "open": {
+          "description": "Si es verdadero, el cuadro de diálogo está abierto",
+          "name": "Abrir"
+        },
+        "scroll": {
+          "description": "Determina el contenedor para desplazar el cuadro de diálogo (papel o cuerpo)",
+          "name": "Pergamino"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Contenedor para botones de acción de diálogo",
+      "name": "Acciones de diálogo",
+      "props": {
+        "children": {
+          "description": "El contenido del componente",
+          "name": "Niños"
+        },
+        "disableSpacing": {
+          "description": "Si es cierto, las acciones no tienen margen adicional",
+          "name": "Desactivar el espaciado"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Área de contenido principal de un cuadro de diálogo",
+      "name": "Contenido del cuadro de diálogo",
+      "props": {
+        "children": {
+          "description": "El contenido del componente",
+          "name": "Niños"
+        },
+        "dividers": {
+          "description": "Si es verdadero, los bordes se agregan a la parte superior e inferior del contenido del cuadro de diálogo",
+          "name": "Separadores"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Contenido de texto dentro de un cuadro de diálogo",
+      "name": "Texto del contenido del cuadro de diálogo",
+      "props": {
+        "children": {
+          "description": "El contenido del texto",
+          "name": "Contenido"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Un diseño de diálogo preestablecido con botones de título, contenido y acción",
+      "name": "Diseño de cuadro de diálogo"
+    },
+    "MuiDialogTitle": {
+      "description": "Título de un diálogo",
+      "name": "Título del cuadro de diálogo",
+      "props": {
+        "children": {
+          "description": "El texto del título",
+          "name": "Contenido"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "Envuelve el contenido y muestra un estado o mensaje de error",
+      "name": "Envoltorio de errores"
+    },
+    "MuiFormControlLabel": {
+      "description": "Asocia una etiqueta a un control de formulario",
+      "name": "Etiqueta de control de formulario",
+      "props": {
+        "control": {
+          "description": "Elemento de control de formulario (casilla de verificación, radio, interruptor)",
+          "name": "Controlar"
+        },
+        "labelPlacement": {
+          "description": "Posición de la etiqueta en relación con el control",
+          "name": "Colocación de etiquetas"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "Etiqueta para agrupar o describir campos de formulario",
+      "name": "Etiqueta de formulario",
+      "props": {
+        "filled": {
+          "description": "Aplica el estilo de estado relleno",
+          "name": "Lleno"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "Indica la carga o el progreso en una barra lineal",
+      "name": "Progreso lineal",
+      "props": {
+        "valueBuffer": {
+          "description": "Valor de búfer secundario para el modo de progreso en búfer",
+          "name": "búfer de valores"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "Elemento en el que se puede hacer clic para navegar o realizar acciones",
+      "name": "Enlace",
+      "props": {
+        "href": {
+          "description": "URL de destino",
+          "name": "Href"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "Muestra una lista vertical de elementos",
+      "name": "Lista"
+    },
+    "MuiListItem": {
+      "description": "Representa un solo elemento dentro de una lista",
+      "name": "Elemento de la lista",
+      "props": {
+        "divider": {
+          "description": "Muestra un separador debajo del elemento de la lista",
+          "name": "Separador"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "Permite seleccionar una sola opción de un conjunto",
+      "name": "Grupo de radio",
+      "props": {
+        "name": {
+          "description": "Atributo de nombre usado para agrupar botones de radio",
+          "name": "Nombre"
+        },
+        "row": {
+          "description": "Muestra los botones de radio horizontalmente",
+          "name": "Fila"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "Un único botón de radio usado dentro de un grupo de radio",
+      "name": "Artículo de radio"
+    },
+    "MuiSelect": {
+      "description": "Componente desplegable para seleccionar opciones",
+      "name": "Seleccione",
+      "props": {
+        "autoFocus": {
+          "description": "Enfoca automáticamente el campo en la montura",
+          "name": "Enfoque automático"
+        },
+        "multiple": {
+          "description": "Permite seleccionar múltiples opciones",
+          "name": "Múltiples"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "Diseña los niños en una pila unidimensional",
+      "name": "Pila",
+      "props": {
+        "alignItems": {
+          "description": "Controla la alineación entre ejes",
+          "name": "Alinee los elementos"
+        },
+        "direction": {
+          "description": "Define si los elementos se apilan en una fila o columna",
+          "name": "Dirección"
+        },
+        "flexWrap": {
+          "description": "Controla si los artículos se envuelven en varias líneas",
+          "name": "Envoltura flexible"
+        },
+        "justifyContent": {
+          "description": "Controla la alineación del eje principal",
+          "name": "Justifica el contenido"
+        },
+        "spacing": {
+          "description": "Espaciado entre los artículos apilados",
+          "name": "Espaciado"
+        },
+        "useFlexGap": {
+          "description": "Utiliza espacios CSS en lugar de márgenes para el espaciado",
+          "name": "Utilice un espacio flexible"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "Control de conmutación para cambiar entre dos estados",
+      "name": "Interruptor",
+      "props": {
+        "defaultChecked": {
+          "description": "Estado de conmutación inicial cuando no está controlado",
+          "name": "Marcado de forma predeterminada"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "Campo de entrada para datos de texto y formulario",
+      "name": "Campo de texto",
+      "props": {
+        "autoFocus": {
+          "description": "Enfoca automáticamente el campo en la montura",
+          "name": "Enfoque automático"
+        },
+        "maxRows": {
+          "description": "Número máximo de filas visibles para la entrada multilínea",
+          "name": "Número máximo de filas"
+        },
+        "multiline": {
+          "description": "Representa un área de texto en lugar de una entrada de una sola línea",
+          "name": "Línea múltiple"
+        },
+        "type": {
+          "description": "Tipo de entrada HTML (texto, contraseña, correo electrónico, etc.)",
+          "name": "Tipo"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "Muestra información contextual al pasar el ratón, enfocar o tocar",
+      "name": "Información sobre herramientas",
+      "props": {
+        "arrow": {
+          "description": "Muestra una flecha que apunta al elemento objetivo",
+          "name": "Flecha"
+        },
+        "disableFocusListener": {
+          "description": "Impide que la descripción emergente aparezca enfocada",
+          "name": "Desactivar Focus Listener"
+        },
+        "disableHoverListener": {
+          "description": "Evita que la información sobre herramientas aparezca al pasar el ratón",
+          "name": "Deshabilitar el oyente flotante"
+        },
+        "disableInteractive": {
+          "description": "Desactiva la interacción con el contenido de la información sobre herramientas",
+          "name": "Desactivar interactivo"
+        },
+        "disableTouchListener": {
+          "description": "Impide que la información sobre herramientas aparezca al tacto",
+          "name": "Desactivar el detector táctil"
+        },
+        "enterDelay": {
+          "description": "Retraso en milisegundos antes de mostrar la información sobre herramientas",
+          "name": "Introducir retraso"
+        },
+        "followCursor": {
+          "description": "Hace que la información sobre herramientas siga la posición del cursor",
+          "name": "Cursor de seguimiento"
+        },
+        "leaveDelay": {
+          "description": "Retraso en milisegundos antes de ocultar la información sobre herramientas",
+          "name": "Retraso de salida"
+        },
+        "title": {
+          "description": "El contenido del texto se muestra dentro de la información sobre herramientas",
+          "name": "Título"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "Muestra texto con estilos tipográficos predefinidos",
+      "name": "Tipografía",
+      "props": {
+        "children": {
+          "description": "El contenido del texto",
+          "name": "Contenido"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "Componente para cargar uno o más archivos",
+      "name": "Cargador",
+      "props": {
+        "accept": {
+          "description": "Tipos de archivo permitidos (por ejemplo, «.jpg, .png»)",
+          "name": "Aceptar"
+        },
+        "multiple": {
+          "description": "Permite seleccionar varios archivos",
+          "name": "Múltiples"
+        }
+      }
+    }
+  }
+}

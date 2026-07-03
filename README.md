@@ -228,7 +228,7 @@ export const App = () => (
 - **Community:** FormEngine Core source code and examples for FormEngine Community (MIT license).
 - **Premium:** Examples for Premium On-Premise Drag-and-Drop React Form Builder (Commercial license). Premium On-Premise Drag-and-Drop React
   Form Builder
-- [Source Code](https://github.com/optimajet/formengine/tree/master/community/src)
+- [Source Code](https://github.com/optimajet/formengine/tree/master/community)
 
 ## 🧩 Compatibility 
 

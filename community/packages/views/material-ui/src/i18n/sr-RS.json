@@ -1,0 +1,721 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "Prikaz podataka"
+    },
+    "feedback": {
+      "name": "Povratne informacije"
+    },
+    "form": {
+      "name": "Obrazac"
+    },
+    "inputs": {
+      "name": "Ulazi"
+    },
+    "layout": {
+      "name": "Raspored"
+    },
+    "navigation": {
+      "name": "Navigacija"
+    },
+    "surfaces": {
+      "name": "Površine"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "Ako je tačno, komponenta se proverava",
+      "name": "Provereno"
+    },
+    "children": {
+      "description": "Sadržaj komponente",
+      "name": "Deca"
+    },
+    "color": {
+      "description": "Boja komponente",
+      "name": "Boja"
+    },
+    "defaultValue": {
+      "description": "Podrazumevana vrednost. Koristite kada komponenta nije kontrolisana",
+      "name": "Podrazumevana vrednost"
+    },
+    "dense": {
+      "description": "Ako je tačno, smanjuje vertikalnu podlogu",
+      "name": "Gusta"
+    },
+    "disableGutters": {
+      "description": "Ako je tačno, onemogućava levu i desnu podlogu",
+      "name": "Onemogućite oluke"
+    },
+    "disablePadding": {
+      "description": "Ako je tačno, onemogućava podrazumevanu podlogu",
+      "name": "Onemogućite podlogu"
+    },
+    "disabled": {
+      "description": "Ako je tačno, komponenta je onemogućena",
+      "name": "Onemogućeno"
+    },
+    "error": {
+      "description": "Ako je tačno, komponenta se prikazuje u stanju greške",
+      "name": "Greška"
+    },
+    "fullWidth": {
+      "description": "Ako je tačno, komponenta zauzima punu širinu svog kontejnera",
+      "name": "Puna širina"
+    },
+    "gutterBottom": {
+      "description": "Ako je tačno, tekst će imati donju marginu",
+      "name": "Dno oluka"
+    },
+    "helperText": {
+      "description": "Sadržaj pomoćnog teksta",
+      "name": "Pomoćni tekst"
+    },
+    "margin": {
+      "description": "Definiše maržu koja se primenjuje na komponentu",
+      "name": "Margina"
+    },
+    "noWrap": {
+      "description": "Ako je tačno, tekst se neće omotati, već će se umesto toga skratiti elipsom preljeva teksta",
+      "name": "Bez omota"
+    },
+    "onChange": {
+      "description": "Povratni poziv se otvara kada se vrednost promeni",
+      "name": "OnChange"
+    },
+    "onClick": {
+      "description": "Povratni poziv se otvara kada se klikne komponenta",
+      "name": "OnClick"
+    },
+    "required": {
+      "description": "Ako je tačno, potreban je ulazni element",
+      "name": "Obavezno"
+    },
+    "size": {
+      "description": "Veličina komponente",
+      "name": "Veličina"
+    },
+    "sx": {
+      "description": "Sistemski rekvizit koji omogućava definisanje zamenjivanja sistema kao i dodatnih CSS stilova",
+      "name": "Sks"
+    },
+    "textAlign": {
+      "description": "Poravnanje teksta",
+      "name": "Poravnanje"
+    },
+    "value": {
+      "description": "Vrednost komponente",
+      "name": "Vrednost"
+    },
+    "variant": {
+      "description": "Varijanta za upotrebu",
+      "name": "Varijanta"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "Kontejner generičkog rasporeda sa podrškom za oblikovanje sistema",
+      "name": "Kutija"
+    },
+    "MuiBreadcrumbs": {
+      "description": "Prikazuje trenutnu lokaciju stranice unutar hijerarhije",
+      "name": "Hlebne mrvice",
+      "props": {
+        "items": {
+          "description": "Predmeti krušne mrvice za prikaz",
+          "name": "Predmeti"
+        },
+        "itemsAfterCollapse": {
+          "description": "Ako je maksimalni stavki prekoračen, broj stavki koje će se prikazati nakon elipse",
+          "name": "Predmeti nakon kolapsa"
+        },
+        "itemsBeforeCollapse": {
+          "description": "Ako je maksimalni stavki prekoračen, broj stavki koje će se prikazati pre elipse",
+          "name": "Predmeti pre kolapsa"
+        },
+        "maxItems": {
+          "description": "Određuje maksimalni broj hlebnih mrvica koje će se prikazati",
+          "name": "Maksimalni predmeti"
+        },
+        "separator": {
+          "description": "Element koji se koristi za odvajanje predmeta od hlebnih mrvica",
+          "name": "Separator"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "Komponenta dugmeta koja se koristi za pokretanje akcija ili događaja",
+      "name": "Dugme",
+      "props": {
+        "children": {
+          "description": "Naslov",
+          "name": "Sadržaj"
+        },
+        "disableElevation": {
+          "description": "Uklanja senku dugmeta kada je podešena na tačno",
+          "name": "Onemogući nadmorsku visinu"
+        },
+        "loading": {
+          "description": "Prikazuje indikator učitavanja i onemogućava interakciju",
+          "name": "Učitavanje"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "Grupirajte dugmad povezane zajedno",
+      "name": "Grupa dugmadi",
+      "props": {
+        "fullWidth": {
+          "description": "Čini da grupa dugmadi obuhvati punu širinu kontejnera",
+          "name": "Puna širina"
+        },
+        "orientation": {
+          "description": "Postavlja smer rasporeda tastera",
+          "name": "Orijentacija"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "Površinska komponenta za grupisanje srodnog sadržaja",
+      "name": "Kartica",
+      "props": {
+        "actions": {
+          "description": "Akcioni tasteri ili kontrole za karticu",
+          "name": "Akcije"
+        },
+        "header": {
+          "description": "Sadržaj prikazan u zaglavlju kartice",
+          "name": "zaglavlje"
+        },
+        "headerAction": {
+          "description": "Element akcije prikazan u zaglavlju",
+          "name": "Radnja zaglavlja"
+        },
+        "headerAvatar": {
+          "description": "Element avatara prikazan u zaglavlju",
+          "name": "Avatar zaglavlja"
+        },
+        "media": {
+          "description": "Medijski sadržaj kao što su slika ili video",
+          "name": "Mediji"
+        },
+        "onSelect": {
+          "description": "Povratni poziv se aktivira kada je kartica izabrana",
+          "name": "OnSelect"
+        },
+        "subHeader": {
+          "description": "Sekundarni tekst prikazan ispod zaglavlja",
+          "name": "Podzaglavlje"
+        },
+        "useActions": {
+          "description": "Prikazuje odeljak radnji na dnu",
+          "name": "Koristite akcije"
+        },
+        "useCardActionArea": {
+          "description": "Obložava sadržaj sa područjem akcije na koju se može kliknuti",
+          "name": "Koristite područje akcije kartice"
+        },
+        "useHeader": {
+          "description": "Omogućava odeljak zaglavlja kartice",
+          "name": "Koristite zaglavlje"
+        },
+        "useHeaderAction": {
+          "description": "Omogućava područje akcije unutar zaglavlja",
+          "name": "Koristite akciju zaglavlja"
+        },
+        "useHeaderAvatar": {
+          "description": "Prikazuje avatar unutar zaglavlja",
+          "name": "Koristite avatar zaglavlja"
+        },
+        "useMedia": {
+          "description": "Omogućava medijski odeljak unutar kartice",
+          "name": "Koristite medije"
+        },
+        "useSubheader": {
+          "description": "Prikazuje podzaglavlje ispod glavnog zaglavlja",
+          "name": "Koristite podzaglavlje"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "Omogućava odabir jedne ili više opcija",
+      "name": "Polje za potvrdu",
+      "props": {
+        "defaultChecked": {
+          "description": "Početno provereno stanje kada je nekontrolisano",
+          "name": "Podrazumevano označeno"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "Označava učitavanje ili napredak u kružnom obliku",
+      "name": "Kružni napredak",
+      "props": {
+        "disableShrink": {
+          "description": "Onemogućava animaciju smanjenja",
+          "name": "Onemogući smanjivanje"
+        },
+        "thickness": {
+          "description": "Kontroliše širinu hoda kruga",
+          "name": "Debljina"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "Centrira i ograničava sadržaj horizontalno",
+      "name": "kontejner",
+      "props": {
+        "fixed": {
+          "description": "Postavlja fiksnu maksimalnu širinu umesto fluidne",
+          "name": "Fiksni"
+        },
+        "maxWidth": {
+          "description": "Definiše maksimalnu širinu kontejnera",
+          "name": "Maksimalna širina"
+        }
+      }
+    },
+    "MuiDatePicker": {
+      "description": "Komponenta za izbor datuma",
+      "name": "Birač datuma",
+      "props": {
+        "autoFocus": {
+          "description": "Ako je tačno, automatski fokusira birač datuma kada se komponenta montira",
+          "name": "Automatsko fokusiranje"
+        },
+        "closeOnSelect": {
+          "description": "Automatski zatvara dijalog za odabir datuma nakon odabira datuma",
+          "name": "Zatvori pri odabiru"
+        },
+        "desktopModeMediaQuery": {
+          "description": "CSS niz upita medija koji određuje kada treba preći na izgled radne površine",
+          "name": "Medijski upit u režimu radne površine"
+        },
+        "disableFuture": {
+          "description": "Ako je tačno, sprečava izbor datuma nakon trenutnog datuma",
+          "name": "Onemogućite budućnost"
+        },
+        "disableHighlightToday": {
+          "description": "Ako je tačno, onemogućava vizuelno isticanje trenutnog datuma u kalendaru",
+          "name": "Onemogućite označavanje danas"
+        },
+        "disableOpenPicker": {
+          "description": "Ako je tačno, sprečava otvaranje dijaloga birača (korisno za prikaz samo za čitanje)",
+          "name": "Onemogućite otvoreni birač"
+        },
+        "disablePast": {
+          "description": "Ako je tačno, sprečava izbor datuma pre trenutnog datuma",
+          "name": "Onemogućite prošlost"
+        },
+        "displayWeekNumber": {
+          "description": "Prikazuje brojeve nedelja u prikazu kalendara",
+          "name": "Prikažite broj nedelje"
+        },
+        "fixedWeekNumber": {
+          "description": "Fiksni broj nedelja za prikaz (prisiljava doslednu visinu kalendara)",
+          "name": "Fiksni broj nedelje"
+        },
+        "format": {
+          "description": "Niz formata datuma koji se koristi za prikaz i raščlanjivanje (npr. „GGGGG-MM-DD“, „MM/DD/GGGG“)",
+          "name": "Format"
+        },
+        "formatDensity": {
+          "description": "Kontrolira razmak u formatiranju datuma: gust (kompaktan) ili prostran (veći razmak)",
+          "name": "Gustina formata"
+        },
+        "loading": {
+          "description": "Ako je tačno, prikazuje okretač za učitavanje koji pokazuje da se podaci učitavaju",
+          "name": "Učitavanje"
+        },
+        "maxDate": {
+          "description": "Poslednji datum koji se može izabrati (uključujući)",
+          "name": "Maksimalni datum"
+        },
+        "minDate": {
+          "description": "Najraniji datum koji se može izabrati (uključujući)",
+          "name": "Minimalni datum"
+        },
+        "monthsPerRow": {
+          "description": "Broj mesečnih kalendara za prikaz po redu u prikazima meseca/godine",
+          "name": "Meseci po redu"
+        },
+        "name": {
+          "description": "Atribut imena polja obrasca, koji se koristi prilikom slanja obrazaca",
+          "name": "Naziv"
+        },
+        "onAccept": {
+          "description": "Povratni poziv otpušten kada je vrednost prihvaćena",
+          "name": "OnPrihvati"
+        },
+        "onClose": {
+          "description": "Povratni poziv se otvara kada skočni prozor zahteva zatvaranje",
+          "name": "OnClose"
+        },
+        "onError": {
+          "description": "Povratni poziv se otvara kada se greška povezana sa trenutnom vrednošću promeni",
+          "name": "OnError"
+        },
+        "onMonthChange": {
+          "description": "Povratni poziv otpušten zbog promene meseca",
+          "name": "Jednomesečna promena"
+        },
+        "onOpen": {
+          "description": "Povratni poziv se otvara kada iskačući prozor zahteva otvaranje",
+          "name": "OnOpen"
+        },
+        "onSelectedSectionsChange": {
+          "description": "Povratni poziv se otvara kada se izabrani odeljci promene",
+          "name": "OnIzabrani odeljcijePromena"
+        },
+        "onViewChange": {
+          "description": "Povratni poziv je pokrenut pri promeni prikaza",
+          "name": "OnVievChange"
+        },
+        "onYearChange": {
+          "description": "Povratni poziv otpušten zbog promene godine",
+          "name": "Jednogodišnja promena"
+        },
+        "open": {
+          "description": "Ako je tačno, dijalog za odabir datuma je otvoren; može se koristiti za kontrolisano upravljanje državama",
+          "name": "Otvori"
+        },
+        "openTo": {
+          "description": "Prikaz koji će se otvoriti kada je birač aktiviran",
+          "name": "Otvoreno za"
+        },
+        "referenceDate": {
+          "description": "Datum koji se koristi za generisanje početnog prikaza kalendara kada nije izabrana vrednost",
+          "name": "Referentni datum"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Prikazuje dane iz prethodnih i sledećih meseci u prikazu tekućeg meseca",
+          "name": "Prikaži dane van tekućeg meseca"
+        },
+        "view": {
+          "description": "Početni prikaz za prikaz (kalendar dana, meseca ili godine)",
+          "name": "Pogledaj"
+        },
+        "views": {
+          "description": "Dostupni prikazi (kalendar dana, meseca i godine)",
+          "name": "Pregledi"
+        },
+        "yearsOrder": {
+          "description": "Sortiranje godina: uzlazno (najstarije prvo) ili silazno (prvo najnovije)",
+          "name": "Godišnji redosled"
+        },
+        "yearsPerRow": {
+          "description": "Broj stavki iz godine koje treba prikazati po redu u prikazu godine",
+          "name": "Godine po redu"
+        }
+      }
+    },
+    "MuiDialog": {
+      "description": "Komponenta modalnog dijaloga koja prikazuje sadržaj u sloju",
+      "name": "Dijalog",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Ako je tačno, pritiskom na taster za bekstvo neće se zatvoriti dijalog",
+          "name": "Onemogućite taster za bekstvo"
+        },
+        "fullScreen": {
+          "description": "Ako je tačno, dijalog će biti preko celog ekrana",
+          "name": "Ceo ekran"
+        },
+        "fullWidth": {
+          "description": "Ako je tačno, dijalog se proteže na MakVidth",
+          "name": "Puna širina"
+        },
+        "maxWidth": {
+          "description": "Maksimalna širina dijaloga (xs, sm, md, lg, xl)",
+          "name": "Maksimalna širina"
+        },
+        "onClose": {
+          "description": "Povratni poziv se otvara kada se dijalog zatvara",
+          "name": "OnClose"
+        },
+        "open": {
+          "description": "Ako je tačno, dijalog je otvoren",
+          "name": "Otvori"
+        },
+        "scroll": {
+          "description": "Određuje kontejner za pomicanje dijaloga (papir ili telo)",
+          "name": "Pomerite se"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Kontejner za dugmad za akciju dijaloga",
+      "name": "Dijaloške akcije",
+      "props": {
+        "children": {
+          "description": "Sadržaj komponente",
+          "name": "Deca"
+        },
+        "disableSpacing": {
+          "description": "Ako je tačno, akcije nemaju dodatnu maržu",
+          "name": "Onemogućite razmak"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Glavno područje sadržaja dijaloga",
+      "name": "Sadržaj dijaloga",
+      "props": {
+        "children": {
+          "description": "Sadržaj komponente",
+          "name": "Deca"
+        },
+        "dividers": {
+          "description": "Ako je tačno, granice se dodaju na vrh i dno sadržaja dijaloga",
+          "name": "Razdjelnici"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Tekstualni sadržaj unutar dijaloga",
+      "name": "Tekst sadržaja dijaloga",
+      "props": {
+        "children": {
+          "description": "Sadržaj teksta",
+          "name": "Sadržaj"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Unapred podešeni raspored dijaloga sa dugmadima za naslov, sadržaj i radnju",
+      "name": "Izgled dijaloga"
+    },
+    "MuiDialogTitle": {
+      "description": "Naslov dijaloga",
+      "name": "Naslov dijaloga",
+      "props": {
+        "children": {
+          "description": "Tekst naslova",
+          "name": "Sadržaj"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "Omotava sadržaj i prikazuje stanje greške ili poruku",
+      "name": "Greška omotača"
+    },
+    "MuiFormControlLabel": {
+      "description": "Povezuje oznaku sa kontrolom obrasca",
+      "name": "Oznaka za kontrolu obrasca",
+      "props": {
+        "control": {
+          "description": "Kontrolni element obrasca (polje za potvrdu, radio, prekidač)",
+          "name": "Kontrola"
+        },
+        "labelPlacement": {
+          "description": "Položaj etikete u odnosu na kontrolu",
+          "name": "Postavljanje etiketa"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "Oznaka za grupisanje ili opisivanje polja obrasca",
+      "name": "Oznaka obrasca",
+      "props": {
+        "filled": {
+          "description": "Primenjuje stiling ispunjenog stanja",
+          "name": "Popunjen"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "Označava učitavanje ili napredak u linearnoj traci",
+      "name": "Linearni napredak",
+      "props": {
+        "valueBuffer": {
+          "description": "Sekundarna vrednost bafera za puferski režim napretka",
+          "name": "Bafer vrednosti"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "Element na koji se može kliknuti za navigaciju ili radnje",
+      "name": "Link",
+      "props": {
+        "href": {
+          "description": "URL odredišta",
+          "name": "Href"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "Prikazuje vertikalnu listu stavki",
+      "name": "Spisak"
+    },
+    "MuiListItem": {
+      "description": "Predstavlja jednu stavku unutar liste",
+      "name": "Spisak stavke",
+      "props": {
+        "divider": {
+          "description": "Prikazuje razdjelnik ispod stavke liste",
+          "name": "Razdjelnik"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "Omogućava odabir jedne opcije iz skupa",
+      "name": "Radio grupa",
+      "props": {
+        "name": {
+          "description": "Atribut imena koji se koristi za grupisanje radio tastera",
+          "name": "Naziv"
+        },
+        "row": {
+          "description": "Prikazuje radio tastere horizontalno",
+          "name": "Red"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "Jedno radio dugme koje se koristi u radio grupi",
+      "name": "Radio predmet"
+    },
+    "MuiSelect": {
+      "description": "Padajuća komponenta za izbor opcija",
+      "name": "Izaberite",
+      "props": {
+        "autoFocus": {
+          "description": "Automatski fokusira polje na nosač",
+          "name": "Automatsko fokusiranje"
+        },
+        "multiple": {
+          "description": "Omogućava izbor više opcija",
+          "name": "Višestruki"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "Raspored dece u jednodimenzionalnom hrpu",
+      "name": "Skup",
+      "props": {
+        "alignItems": {
+          "description": "Kontroliše poravnanje poprečne ose",
+          "name": "Poravnajte stavke"
+        },
+        "direction": {
+          "description": "Definiše da li su stavke složene u red ili kolonu",
+          "name": "Pravac"
+        },
+        "flexWrap": {
+          "description": "Kontroliše da li se stavke umotavaju na više linija",
+          "name": "Flek omotač"
+        },
+        "justifyContent": {
+          "description": "Kontrolira poravnanje glavne ose",
+          "name": "Opravdajte sadržaj"
+        },
+        "spacing": {
+          "description": "Razmak između naslaganih predmeta",
+          "name": "Razmak"
+        },
+        "useFlexGap": {
+          "description": "Koristi CSS jaz umesto margina za razmak",
+          "name": "Koristite fleksibilan razmak"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "Prebacivanje kontrole za prebacivanje između dva stanja",
+      "name": "Prekidač",
+      "props": {
+        "defaultChecked": {
+          "description": "Početno stanje prebacivanja kada je nekontrolisano",
+          "name": "Podrazumevano označeno"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "Polje za unos za tekst i podatke obrasca",
+      "name": "Tekstualno polje",
+      "props": {
+        "autoFocus": {
+          "description": "Automatski fokusira polje na nosač",
+          "name": "Automatsko fokusiranje"
+        },
+        "maxRows": {
+          "description": "Maksimalni broj vidljivih redova za višelinijski unos",
+          "name": "Maksimalni redovi"
+        },
+        "multiline": {
+          "description": "Prikazuje tekstureju umesto jednorednog ulaza",
+          "name": "Multiline"
+        },
+        "type": {
+          "description": "HTML tip unosa (tekst, lozinka, e-pošta itd.)",
+          "name": "Tip"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "Prikazuje kontekstualne informacije o leđenju, fokusu ili dodiru",
+      "name": "Savet za alat",
+      "props": {
+        "arrow": {
+          "description": "Prikazuje strelicu koja pokazuje na ciljni element",
+          "name": "Strelica"
+        },
+        "disableFocusListener": {
+          "description": "Sprečava pojavljivanje saveta alata u fokusu",
+          "name": "Onemogućite slušatelj fokusa"
+        },
+        "disableHoverListener": {
+          "description": "Sprečava pojavljivanje saveta alata na pokazivanju pokazivača",
+          "name": "Onemogućite slušalicu pokazivača"
+        },
+        "disableInteractive": {
+          "description": "Onemogućava interakciju sa sadržajem alata",
+          "name": "Onemogućite interaktivno"
+        },
+        "disableTouchListener": {
+          "description": "Sprečava pojavljivanje saveta alata na dodir",
+          "name": "Onemogućite slušatelj dodira"
+        },
+        "enterDelay": {
+          "description": "Kašnjenje u milisekundama pre prikazivanja alata",
+          "name": "Unesite kašnjenje"
+        },
+        "followCursor": {
+          "description": "Omogućava da tip alata prati položaj kursora",
+          "name": "Pratite kursor"
+        },
+        "leaveDelay": {
+          "description": "Kašnjenje u milisekundama pre sakrivanja alatke",
+          "name": "Ostavite kašnjenje"
+        },
+        "title": {
+          "description": "Tekstualni sadržaj prikazan unutar alatke",
+          "name": "Naslov"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "Prikazuje tekst sa unapred definisanim tipografijskim stilovima",
+      "name": "Tipografija",
+      "props": {
+        "children": {
+          "description": "Sadržaj teksta",
+          "name": "Sadržaj"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "Komponenta za otpremanje jedne ili više datoteka",
+      "name": "Otpremnik",
+      "props": {
+        "accept": {
+          "description": "Dozvoljeni tipovi datoteka (npr. „.jpg, .png“)",
+          "name": "Prihvati"
+        },
+        "multiple": {
+          "description": "Omogućava izbor više datoteka",
+          "name": "Višestruki"
+        }
+      }
+    }
+  }
+}

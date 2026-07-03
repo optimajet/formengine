@@ -1,0 +1,17 @@
+{
+  "name": "@react-form-builder/apps-common",
+  "version": "10.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Optimajet",
+  "homepage": "https://formengine.io/",
+  "main": "index.ts",
+  "module": "index.ts",
+  "type": "module",
+  "dependencies": {
+    "@react-form-builder/core": "^10.0.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  }
+}

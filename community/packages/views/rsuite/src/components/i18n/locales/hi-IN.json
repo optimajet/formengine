@@ -1,0 +1,73 @@
+{
+  "default": {
+    "Breadcrumb": {
+      "expandText": "पथ दिखाओ"
+    },
+    "CloseButton": {
+      "closeLabel": "बंद करें"
+    },
+    "DateRangePicker": {
+      "last7Days": "पिछले 7 दिन"
+    },
+    "Pagination": {
+      "first": "सबसे पहले",
+      "last": "आखरी",
+      "limit": "{{0}}/पेज",
+      "more": "ज़्यादा",
+      "next": "अगला",
+      "prev": "पिछला",
+      "skip": "{{0}} पर जाएं",
+      "total": "कुल पंक्तियां: {{0}}"
+    },
+    "Plaintext": {
+      "notSelected": "नहीं चुना गया",
+      "notUploaded": "अपलोड नहीं किया गया",
+      "unfilled": "अनफिल्ड"
+    },
+    "Toggle": {
+      "off": "बंद करें",
+      "on": "खोलें"
+    },
+    "Uploader": {
+      "complete": "ख़त्म",
+      "emptyFile": "खाली",
+      "error": "एरर",
+      "inited": "आरंभिक",
+      "progress": "अपलोड किया जा रहा है",
+      "removeFile": "फ़ाइल मिटाएँ",
+      "upload": "अपलोड करें"
+    },
+    "common": {
+      "clear": "क्लियर",
+      "emptyMessage": "कोई डेटा नहीं मिला",
+      "loading": "लोड हो रहा है...",
+      "remove": "हटाएँ"
+    }
+  },
+  "genericCombobox": {
+    "checkAll": "सभी",
+    "noResultsText": "कोई परिणाम नहीं मिला",
+    "placeholder": "चुनें",
+    "searchPlaceholder": "सर्च करें"
+  },
+  "genericCreatableComboBox": {
+    "createOption": "\"{{0}}\" विकल्प बनाएं",
+    "newItem": "नया आइटम"
+  },
+  "genericDateTimeFormats": {
+    "friday": "फादर",
+    "hours": "घंटे",
+    "minutes": "मिनट्स",
+    "monday": "मो",
+    "now": "अभी",
+    "ok": "ठीक है",
+    "saturday": "सा",
+    "seconds": "सेकंड्स",
+    "sunday": "उसकी",
+    "thursday": "थ",
+    "today": "टुडे",
+    "tuesday": "थूलियम",
+    "wednesday": "हम",
+    "yesterday": "कल"
+  }
+}

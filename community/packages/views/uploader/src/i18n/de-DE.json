@@ -1,0 +1,51 @@
+{
+  "categories": {
+    "fields": {
+      "name": "Felder"
+    }
+  },
+  "components": {
+    "Uploader": {
+      "description": "Datei-Upload-Komponente mit Drag-and-Drop-Unterstützung",
+      "name": "Datei-Uploader",
+      "props": {
+        "accept": {
+          "description": "Zulässige Dateitypen (z. B. image/*, .pdf, .docx)",
+          "name": "Akzeptieren"
+        },
+        "action": {
+          "description": "URL zum Hochladen von Dateien",
+          "name": "Aktions-URL"
+        },
+        "children": {
+          "description": "Inhalt, der im Uploader angezeigt werden soll",
+          "name": "Kinder"
+        },
+        "disabled": {
+          "description": "Falls wahr, ist der Uploader deaktiviert",
+          "name": "Deaktiviert"
+        },
+        "dropzone": {
+          "description": "Wenn das stimmt, wird die Dropzone angezeigt",
+          "name": "Dropzone"
+        },
+        "multiple": {
+          "description": "Auswahl mehrerer Dateien zulassen",
+          "name": "Mehrere Dateien"
+        },
+        "onChange": {
+          "description": "Rückruf, wenn Dateien erfolgreich hochgeladen wurden",
+          "name": "Bei Veränderung"
+        },
+        "onError": {
+          "description": "Rückruf, wenn beim Upload ein Fehler auftritt",
+          "name": "Bei einem Fehler"
+        },
+        "readOnly": {
+          "description": "Falls wahr, ist der Uploader schreibgeschützt",
+          "name": "Nur lesen"
+        }
+      }
+    }
+  }
+}

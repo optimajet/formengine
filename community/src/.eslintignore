@@ -1,8 +1,0 @@
-vite.config.ts
-vite.ssl.config.ts
-types
-**/dist
-documentation
-scripts
-tests
-*.d.ts

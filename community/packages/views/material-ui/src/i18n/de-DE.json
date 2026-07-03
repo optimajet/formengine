@@ -1,0 +1,721 @@
+{
+  "categories": {
+    "dataDisplay": {
+      "name": "Anzeige der Daten"
+    },
+    "feedback": {
+      "name": "Rückmeldung"
+    },
+    "form": {
+      "name": "Formular"
+    },
+    "inputs": {
+      "name": "Eingaben"
+    },
+    "layout": {
+      "name": "Raumaufteilung"
+    },
+    "navigation": {
+      "name": "Navigation"
+    },
+    "surfaces": {
+      "name": "Oberflächen"
+    }
+  },
+  "commonProperties": {
+    "checked": {
+      "description": "Falls wahr, wird die Komponente überprüft",
+      "name": "Überprüft"
+    },
+    "children": {
+      "description": "Der Inhalt der Komponente",
+      "name": "Kinder"
+    },
+    "color": {
+      "description": "Die Farbe der Komponente",
+      "name": "Farbe"
+    },
+    "defaultValue": {
+      "description": "Der Vorgabewert. Wird verwendet, wenn die Komponente nicht gesteuert wird",
+      "name": "Vorgabewert"
+    },
+    "dense": {
+      "description": "Wenn ja, wird die vertikale Polsterung reduziert",
+      "name": "Dicht"
+    },
+    "disableGutters": {
+      "description": "Wenn wahr, deaktiviert das linke und rechte Padding",
+      "name": "Dachrinnen deaktivieren"
+    },
+    "disablePadding": {
+      "description": "Wenn wahr, deaktiviert das Standard-Padding",
+      "name": "Polsterung deaktivieren"
+    },
+    "disabled": {
+      "description": "Falls wahr, ist die Komponente deaktiviert",
+      "name": "Deaktiviert"
+    },
+    "error": {
+      "description": "Wenn wahr, wird die Komponente in einem Fehlerzustand angezeigt",
+      "name": "Fehler"
+    },
+    "fullWidth": {
+      "description": "Wenn wahr, nimmt die Komponente die gesamte Breite ihres Containers ein",
+      "name": "Volle Breite"
+    },
+    "gutterBottom": {
+      "description": "Wenn wahr, hat der Text einen unteren Rand",
+      "name": "Dachrinnenboden"
+    },
+    "helperText": {
+      "description": "Der Inhalt des Hilfstextes",
+      "name": "Hilfstext"
+    },
+    "margin": {
+      "description": "Definiert den Rand, der auf die Komponente angewendet wird",
+      "name": "Marge"
+    },
+    "noWrap": {
+      "description": "Wenn der Wert true ist, wird der Text nicht umgebrochen, sondern stattdessen mit einer Textüberlauf-Ellipse abgeschnitten",
+      "name": "Kein Wickel"
+    },
+    "onChange": {
+      "description": "Callback wird ausgelöst, wenn der Wert geändert wird",
+      "name": "Bei Änderung"
+    },
+    "onClick": {
+      "description": "Callback wird ausgelöst, wenn auf die Komponente geklickt wird",
+      "name": "OnClick"
+    },
+    "required": {
+      "description": "Wenn wahr, ist das Eingabeelement erforderlich",
+      "name": "Erforderlich"
+    },
+    "size": {
+      "description": "Die Größe der Komponente",
+      "name": "Größe"
+    },
+    "sx": {
+      "description": "Die System-Requisite, mit der Systemüberschreibungen sowie zusätzliche CSS-Stile definiert werden können",
+      "name": "Sx"
+    },
+    "textAlign": {
+      "description": "Textausrichtung",
+      "name": "Ausrichtung"
+    },
+    "value": {
+      "description": "Der Wert der Komponente",
+      "name": "Wert"
+    },
+    "variant": {
+      "description": "Die zu verwendende Variante",
+      "name": "Variante"
+    }
+  },
+  "components": {
+    "MuiBox": {
+      "description": "Generischer Layout-Container mit Unterstützung für System-Styling",
+      "name": "Kiste"
+    },
+    "MuiBreadcrumbs": {
+      "description": "Zeigt die aktuelle Seitenposition innerhalb einer Hierarchie an",
+      "name": "Semmelbrösel",
+      "props": {
+        "items": {
+          "description": "Anzuzeigende Breadcrumb-Elemente",
+          "name": "Artikel"
+        },
+        "itemsAfterCollapse": {
+          "description": "Wenn die maximale Anzahl von Elementen überschritten wird, die Anzahl der Elemente, die nach den Auslassungspunkten angezeigt werden sollen",
+          "name": "Gegenstände nach dem Zusammenbruch"
+        },
+        "itemsBeforeCollapse": {
+          "description": "Wenn die maximale Anzahl der Elemente überschritten wird, die Anzahl der Elemente, die vor den Auslassungspunkten angezeigt werden sollen",
+          "name": "Gegenstände vor dem Zusammenbruch"
+        },
+        "maxItems": {
+          "description": "Gibt die maximale Anzahl der anzuzeigenden Breadcrumbs an",
+          "name": "Max. Anzahl Artikel"
+        },
+        "separator": {
+          "description": "Element, das zum Trennen von Breadcrumb-Elementen verwendet wird",
+          "name": "Trennzeichen"
+        }
+      }
+    },
+    "MuiButton": {
+      "description": "Eine Schaltflächenkomponente, die zum Auslösen von Aktionen oder Ereignissen verwendet wird",
+      "name": "Taste",
+      "props": {
+        "children": {
+          "description": "Die Bildunterschrift",
+          "name": "Inhalt"
+        },
+        "disableElevation": {
+          "description": "Entfernt den Schatten der Schaltfläche, wenn sie auf „true“ gesetzt ist",
+          "name": "Elevation deaktivieren"
+        },
+        "loading": {
+          "description": "Zeigt eine Ladeanzeige an und deaktiviert die Interaktion",
+          "name": "Wird geladen"
+        }
+      }
+    },
+    "MuiButtonGroup": {
+      "description": "Gruppiert verwandte Schaltflächen",
+      "name": "Schaltflächengruppe",
+      "props": {
+        "fullWidth": {
+          "description": "Sorgt dafür, dass sich die Schaltflächengruppe über die gesamte Containerbreite erstreckt",
+          "name": "Volle Breite"
+        },
+        "orientation": {
+          "description": "Legt die Layoutrichtung der Schaltflächen fest",
+          "name": "Orientierung"
+        }
+      }
+    },
+    "MuiCard": {
+      "description": "Oberflächenkomponente zum Gruppieren verwandter Inhalte",
+      "name": "Karte",
+      "props": {
+        "actions": {
+          "description": "Aktionstasten oder Steuerelemente für die Karte",
+          "name": "Aktionen"
+        },
+        "header": {
+          "description": "Inhalt, der in der Kartenüberschrift gerendert wird",
+          "name": "Kopfzeile"
+        },
+        "headerAction": {
+          "description": "Aktionselement, das in der Kopfzeile angezeigt wird",
+          "name": "Header-Aktion"
+        },
+        "headerAvatar": {
+          "description": "Avatar-Element, das in der Kopfzeile angezeigt wird",
+          "name": "Header-Avatar"
+        },
+        "media": {
+          "description": "Medieninhalte wie ein Bild oder Video",
+          "name": "Medien"
+        },
+        "onSelect": {
+          "description": "Callback wird ausgelöst, wenn die Karte ausgewählt wird",
+          "name": "Auf Select"
+        },
+        "subHeader": {
+          "description": "Sekundärer Text, der unter der Kopfzeile angezeigt wird",
+          "name": "Unterüberschrift"
+        },
+        "useActions": {
+          "description": "Zeigt unten einen Aktionsbereich an",
+          "name": "Aktionen verwenden"
+        },
+        "useCardActionArea": {
+          "description": "Umschließt den Inhalt mit einem anklickbaren Aktionsbereich",
+          "name": "Benutze den Aktionsbereich der Karte"
+        },
+        "useHeader": {
+          "description": "Aktiviert den Kartenkopfbereich",
+          "name": "Kopfzeile verwenden"
+        },
+        "useHeaderAction": {
+          "description": "Aktiviert einen Aktionsbereich innerhalb der Kopfzeile",
+          "name": "Header-Aktion verwenden"
+        },
+        "useHeaderAvatar": {
+          "description": "Zeigt einen Avatar in der Kopfzeile an",
+          "name": "Header-Avatar verwenden"
+        },
+        "useMedia": {
+          "description": "Aktiviert einen Medienbereich auf der Karte",
+          "name": "Medien verwenden"
+        },
+        "useSubheader": {
+          "description": "Zeigt eine Unterüberschrift unter der Hauptüberschrift an",
+          "name": "Subheader verwenden"
+        }
+      }
+    },
+    "MuiCheckbox": {
+      "description": "Ermöglicht die Auswahl einer oder mehrerer Optionen",
+      "name": "Ankreuzfeld",
+      "props": {
+        "defaultChecked": {
+          "description": "Anfänglicher geprüfter Zustand bei unkontrolliertem Zustand",
+          "name": "Standardmäßig aktiviert"
+        }
+      }
+    },
+    "MuiCircularProgress": {
+      "description": "Zeigt den Ladevorgang oder den Fortschritt in kreisförmiger Form an",
+      "name": "Zirkulärer Fortschritt",
+      "props": {
+        "disableShrink": {
+          "description": "Deaktiviert die Verkleinerungsanimation",
+          "name": "Verkleinern deaktivieren"
+        },
+        "thickness": {
+          "description": "Steuert die Strichstärke des Kreises",
+          "name": "Dicke"
+        }
+      }
+    },
+    "MuiContainer": {
+      "description": "Zentriert und schränkt den Inhalt horizontal ein",
+      "name": "Behälter",
+      "props": {
+        "fixed": {
+          "description": "Legt eine feste maximale Breite statt einer fließenden Breite fest",
+          "name": "Behoben"
+        },
+        "maxWidth": {
+          "description": "Definiert die maximale Breite des Containers",
+          "name": "Max. Breite"
+        }
+      }
+    },
+    "MuiDatePicker": {
+      "description": "Komponente zur Auswahl eines Datums",
+      "name": "Datumswähler",
+      "props": {
+        "autoFocus": {
+          "description": "Wenn wahr, fokussiert die Datumsauswahl automatisch, wenn die Komponente gemountet wird",
+          "name": "Autofokus"
+        },
+        "closeOnSelect": {
+          "description": "Schließt den Datumsauswahldialog automatisch, nachdem ein Datum ausgewählt wurde",
+          "name": "Bei Auswahl schließen"
+        },
+        "desktopModeMediaQuery": {
+          "description": "CSS-Medienabfragezeichenfolge, die bestimmt, wann in das Layout im Desktop-Modus gewechselt werden soll",
+          "name": "Medienabfrage im Desktop-Modus"
+        },
+        "disableFuture": {
+          "description": "Wenn der Wert wahr ist, wird die Auswahl von Daten nach dem aktuellen Datum verhindert",
+          "name": "Zukunft deaktivieren"
+        },
+        "disableHighlightToday": {
+          "description": "Wenn wahr, deaktiviert die visuelle Hervorhebung des aktuellen Datums im Kalender",
+          "name": "Markierung heute deaktivieren"
+        },
+        "disableOpenPicker": {
+          "description": "Wenn wahr, wird das Öffnen des Auswahldialogs verhindert (nützlich für schreibgeschützte Anzeige)",
+          "name": "Open Picker deaktivieren"
+        },
+        "disablePast": {
+          "description": "Wenn der Wert wahr ist, wird die Auswahl von Daten vor dem aktuellen Datum verhindert",
+          "name": "Vergangenheit deaktivieren"
+        },
+        "displayWeekNumber": {
+          "description": "Zeigt Wochennummern in der Kalenderansicht an",
+          "name": "Wochennummer anzeigen"
+        },
+        "fixedWeekNumber": {
+          "description": "Feste Anzahl der anzuzeigenden Wochen (erzwingt eine konsistente Kalenderhöhe)",
+          "name": "Feste Wochennummer"
+        },
+        "format": {
+          "description": "Zeichenfolge im Datumsformat, die für die Anzeige und Analyse verwendet wird (z. B. 'yyyy-MM-DD', 'MM/dd/yyyy')",
+          "name": "Formatieren"
+        },
+        "formatDensity": {
+          "description": "Steuert den Abstand bei der Datumsformatierung: dicht (kompakt) oder geräumig (mehr Abstand)",
+          "name": "Formatdichte"
+        },
+        "loading": {
+          "description": "Wenn der Wert true ist, wird ein Zahlenauswahlfeld angezeigt, das angibt, dass Daten geladen werden.",
+          "name": "Wird geladen"
+        },
+        "maxDate": {
+          "description": "Spätestes Datum, das ausgewählt werden kann (einschließlich)",
+          "name": "Max. Datum"
+        },
+        "minDate": {
+          "description": "Frühestes Datum, das ausgewählt werden kann (einschließlich)",
+          "name": "Min. Datum"
+        },
+        "monthsPerRow": {
+          "description": "Anzahl der Monatskalender, die pro Zeile in Monats-/Jahresansichten angezeigt werden",
+          "name": "Monate pro Reihe"
+        },
+        "name": {
+          "description": "Das Namensattribut für das Formularfeld, das beim Absenden von Formularen verwendet wird",
+          "name": "Name"
+        },
+        "onAccept": {
+          "description": "Callback wird ausgelöst, wenn der Wert akzeptiert wird",
+          "name": "Auf Akzeptieren"
+        },
+        "onClose": {
+          "description": "Callback wird ausgelöst, wenn das Popup das Schließen anfordert",
+          "name": "Beim Schließen"
+        },
+        "onError": {
+          "description": "Callback wird ausgelöst, wenn sich der mit dem aktuellen Wert verbundene Fehler ändert",
+          "name": "Bei Fehler"
+        },
+        "onMonthChange": {
+          "description": "Bei Monatswechsel wird ein Rückruf ausgelöst",
+          "name": "Bei Monatswechsel"
+        },
+        "onOpen": {
+          "description": "Callback wird ausgelöst, wenn das Popup das Öffnen anfordert",
+          "name": "Ein/Öffnen"
+        },
+        "onSelectedSectionsChange": {
+          "description": "Callback wird ausgelöst, wenn sich die ausgewählten Abschnitte ändern",
+          "name": "Bei ausgewählten Abschnitten ändern"
+        },
+        "onViewChange": {
+          "description": "Rückruf wird bei Änderung der Ansicht ausgelöst",
+          "name": "Auf AnsichtChange"
+        },
+        "onYearChange": {
+          "description": "Beim Jahreswechsel wird ein Rückruf ausgelöst",
+          "name": "Zum Jahreswechsel"
+        },
+        "open": {
+          "description": "Wenn wahr, ist der Datumsauswahldialog geöffnet; kann für die kontrollierte Zustandsverwaltung verwendet werden",
+          "name": "Offen"
+        },
+        "openTo": {
+          "description": "Die Ansicht, die geöffnet werden soll, wenn der Picker aktiviert ist",
+          "name": "Offen für"
+        },
+        "referenceDate": {
+          "description": "Datum, das verwendet wird, um die anfängliche Kalenderansicht zu generieren, wenn kein Wert ausgewählt ist",
+          "name": "Referenzdatum"
+        },
+        "showDaysOutsideCurrentMonth": {
+          "description": "Zeigt Tage aus dem vorherigen und dem nächsten Monat in der aktuellen Monatsansicht an",
+          "name": "Tage außerhalb des aktuellen Monats anzeigen"
+        },
+        "view": {
+          "description": "Die erste anzuzeigende Ansicht (Tages-, Monats- oder Jahreskalender)",
+          "name": "Ansicht"
+        },
+        "views": {
+          "description": "Die verfügbaren Ansichten (Tages-, Monats- und Jahreskalender)",
+          "name": "Ansichten"
+        },
+        "yearsOrder": {
+          "description": "Sortierreihenfolge der Jahre: aufsteigend (älteste zuerst) oder absteigend (neueste zuerst)",
+          "name": "Reihenfolge der Jahre"
+        },
+        "yearsPerRow": {
+          "description": "Anzahl der Jahreselemente, die pro Zeile in der Jahresansicht angezeigt werden",
+          "name": "Jahre pro Reihe"
+        }
+      }
+    },
+    "MuiDialog": {
+      "description": "Eine modale Dialogkomponente, die Inhalte in einem Overlay anzeigt",
+      "name": "Dialog",
+      "props": {
+        "disableEscapeKeyDown": {
+          "description": "Falls wahr, wird das Dialogfeld durch Drücken der Escape-Taste nicht geschlossen",
+          "name": "Deaktivieren Sie die Escape-Taste gedrückt"
+        },
+        "fullScreen": {
+          "description": "Wenn dies zutrifft, wird der Dialog im Vollbildmodus angezeigt",
+          "name": "Vollbild"
+        },
+        "fullWidth": {
+          "description": "Wenn wahr, wird das Dialogfeld auf maxWidth ausgedehnt",
+          "name": "Volle Breite"
+        },
+        "maxWidth": {
+          "description": "Maximale Breite des Dialogs (xs, sm, md, lg, xl)",
+          "name": "Max. Breite"
+        },
+        "onClose": {
+          "description": "Callback wird ausgelöst, wenn der Dialog geschlossen wird",
+          "name": "Beim Schließen"
+        },
+        "open": {
+          "description": "Wenn wahr, ist der Dialog geöffnet",
+          "name": "Offen"
+        },
+        "scroll": {
+          "description": "Legt den Container für das Scrollen des Dialogs fest (Papier oder Text)",
+          "name": "Scrollen"
+        }
+      }
+    },
+    "MuiDialogActions": {
+      "description": "Container für Dialog-Aktionsschaltflächen",
+      "name": "Aktionen im Dialog",
+      "props": {
+        "children": {
+          "description": "Der Inhalt der Komponente",
+          "name": "Kinder"
+        },
+        "disableSpacing": {
+          "description": "Falls wahr, haben die Aktionen keinen zusätzlichen Spielraum",
+          "name": "Abstand deaktivieren"
+        }
+      }
+    },
+    "MuiDialogContent": {
+      "description": "Hauptinhaltsbereich eines Dialogs",
+      "name": "Inhalt des Dialogs",
+      "props": {
+        "children": {
+          "description": "Der Inhalt der Komponente",
+          "name": "Kinder"
+        },
+        "dividers": {
+          "description": "Wenn wahr, werden am oberen und unteren Rand des Dialoginhalts Rahmen hinzugefügt",
+          "name": "Teiler"
+        }
+      }
+    },
+    "MuiDialogContentText": {
+      "description": "Textinhalt in einem Dialog",
+      "name": "Text zum Inhalt des Dialogs",
+      "props": {
+        "children": {
+          "description": "Der Textinhalt",
+          "name": "Inhalt"
+        }
+      }
+    },
+    "MuiDialogLayout": {
+      "description": "Ein voreingestelltes Dialog-Layout mit Titel-, Inhalts- und Aktionsschaltflächen",
+      "name": "Aufbau des Dialogs"
+    },
+    "MuiDialogTitle": {
+      "description": "Titel eines Dialogs",
+      "name": "Titel des Dialogs",
+      "props": {
+        "children": {
+          "description": "Der Titeltext",
+          "name": "Inhalt"
+        }
+      }
+    },
+    "MuiErrorWrapper": {
+      "description": "Umschließt den Inhalt und zeigt einen Fehlerstatus oder eine Fehlermeldung an",
+      "name": "Fehler-Wrapper"
+    },
+    "MuiFormControlLabel": {
+      "description": "Ordnet ein Label einem Formularsteuerelement zu",
+      "name": "Bezeichnung für Formularsteuerelemente",
+      "props": {
+        "control": {
+          "description": "Formularsteuerelement (Checkbox, Radio, Schalter)",
+          "name": "Steuerung"
+        },
+        "labelPlacement": {
+          "description": "Position des Labels relativ zum Steuerelement",
+          "name": "Platzierung des Etiketts"
+        }
+      }
+    },
+    "MuiFormLabel": {
+      "description": "Bezeichnung zum Gruppieren oder Beschreiben von Formularfeldern",
+      "name": "Bezeichnung des Formulars",
+      "props": {
+        "filled": {
+          "description": "Wendet das Styling für den gefüllten Zustand an",
+          "name": "Gefüllt"
+        }
+      }
+    },
+    "MuiLinearProgress": {
+      "description": "Zeigt den Ladevorgang oder Fortschritt in einer linearen Leiste an",
+      "name": "Linearer Fortschritt",
+      "props": {
+        "valueBuffer": {
+          "description": "Sekundärer Pufferwert für den gepufferten Fortschrittsmodus",
+          "name": "Wertepuffer"
+        }
+      }
+    },
+    "MuiLink": {
+      "description": "Anklickbares Element für Navigation oder Aktionen",
+      "name": "Verknüpfung",
+      "props": {
+        "href": {
+          "description": "Ziel-URL",
+          "name": "Href"
+        }
+      }
+    },
+    "MuiList": {
+      "description": "Zeigt eine vertikale Liste von Elementen an",
+      "name": "Liste"
+    },
+    "MuiListItem": {
+      "description": "Stellt ein einzelnes Element in einer Liste dar.",
+      "name": "Artikel auflisten",
+      "props": {
+        "divider": {
+          "description": "Zeigt eine Trennlinie unter dem Listenelement an",
+          "name": "Teiler"
+        }
+      }
+    },
+    "MuiRadioGroup": {
+      "description": "Ermöglicht die Auswahl einer einzelnen Option aus einem Set",
+      "name": "Radiogruppe",
+      "props": {
+        "name": {
+          "description": "Namensattribut, das zum Gruppieren von Optionsfeldern verwendet wird",
+          "name": "Name"
+        },
+        "row": {
+          "description": "Zeigt Optionsfelder horizontal an",
+          "name": "Reihe"
+        }
+      }
+    },
+    "MuiRadioItem": {
+      "description": "Ein einzelnes Optionsfeld, das innerhalb einer Optionsgruppe verwendet wird",
+      "name": "Radioartikel"
+    },
+    "MuiSelect": {
+      "description": "Drop-down-Komponente zur Auswahl von Optionen",
+      "name": "Wählen",
+      "props": {
+        "autoFocus": {
+          "description": "Fokussiert das Feld automatisch auf die Halterung",
+          "name": "Autofokus"
+        },
+        "multiple": {
+          "description": "Ermöglicht die Auswahl mehrerer Optionen",
+          "name": "Mehrfach"
+        }
+      }
+    },
+    "MuiStack": {
+      "description": "Layoutet Kinder in einem eindimensionalen Stapel",
+      "name": "Stapel",
+      "props": {
+        "alignItems": {
+          "description": "Steuert die achsenübergreifende Ausrichtung",
+          "name": "Elemente ausrichten"
+        },
+        "direction": {
+          "description": "Definiert, ob Elemente in einer Zeile oder Spalte gestapelt werden",
+          "name": "Richtung"
+        },
+        "flexWrap": {
+          "description": "Steuert, ob Elemente in mehrere Zeilen umgebrochen werden",
+          "name": "Flex-Wrap"
+        },
+        "justifyContent": {
+          "description": "Steuert die Ausrichtung der Hauptachse",
+          "name": "Inhalt begründen"
+        },
+        "spacing": {
+          "description": "Abstand zwischen gestapelten Objekten",
+          "name": "Abstand"
+        },
+        "useFlexGap": {
+          "description": "Verwendet CSS-Lücke anstelle von Rändern für Abstände",
+          "name": "Flex Gap verwenden"
+        }
+      }
+    },
+    "MuiSwitch": {
+      "description": "Kippsteuerung zum Umschalten zwischen zwei Zuständen",
+      "name": "Schalter",
+      "props": {
+        "defaultChecked": {
+          "description": "Anfänglicher Umschaltzustand bei unkontrolliertem Zustand",
+          "name": "Standardmäßig aktiviert"
+        }
+      }
+    },
+    "MuiTextField": {
+      "description": "Eingabefeld für Text- und Formulardaten",
+      "name": "Textfeld",
+      "props": {
+        "autoFocus": {
+          "description": "Fokussiert das Feld automatisch auf die Halterung",
+          "name": "Autofokus"
+        },
+        "maxRows": {
+          "description": "Maximale Anzahl sichtbarer Zeilen für mehrzeilige Eingaben",
+          "name": "Max. Anzahl Zeilen"
+        },
+        "multiline": {
+          "description": "Rendert einen Textbereich anstelle einer einzeiligen Eingabe",
+          "name": "Mehrzeilig"
+        },
+        "type": {
+          "description": "HTML-Eingabetyp (Text, Passwort, E-Mail usw.)",
+          "name": "Typ"
+        }
+      }
+    },
+    "MuiTooltip": {
+      "description": "Zeigt Kontextinformationen beim Schweben, Fokussieren oder Berühren an",
+      "name": "Tooltip",
+      "props": {
+        "arrow": {
+          "description": "Zeigt einen Pfeil an, der auf das Zielelement zeigt",
+          "name": "Pfeil"
+        },
+        "disableFocusListener": {
+          "description": "Verhindert, dass der Tooltip im Fokus erscheint",
+          "name": "Fokuslistener deaktivieren"
+        },
+        "disableHoverListener": {
+          "description": "Verhindert, dass der Tooltip beim Hover angezeigt wird",
+          "name": "Hover-Listener deaktivieren"
+        },
+        "disableInteractive": {
+          "description": "Deaktiviert die Interaktion mit dem Tooltip-Inhalt",
+          "name": "Interaktiv deaktivieren"
+        },
+        "disableTouchListener": {
+          "description": "Verhindert, dass der Tooltip bei Berührung erscheint",
+          "name": "Touch-Listener deaktivieren"
+        },
+        "enterDelay": {
+          "description": "Verzögerung in Millisekunden, bevor der Tooltip angezeigt wird",
+          "name": "Verzögerung eingeben"
+        },
+        "followCursor": {
+          "description": "Lässt den Tooltip der Cursorposition folgen",
+          "name": "Dem Cursor folgen"
+        },
+        "leaveDelay": {
+          "description": "Verzögerung in Millisekunden, bevor der Tooltip ausgeblendet wird",
+          "name": "Verzögerung bei Abreise"
+        },
+        "title": {
+          "description": "Textinhalt, der im Tooltip angezeigt wird",
+          "name": "Titel"
+        }
+      }
+    },
+    "MuiTypography": {
+      "description": "Zeigt Text mit vordefinierten Typografiestilen an",
+      "name": "Typografie",
+      "props": {
+        "children": {
+          "description": "Der Textinhalt",
+          "name": "Inhalt"
+        }
+      }
+    },
+    "MuiUploader": {
+      "description": "Komponente zum Hochladen einer oder mehrerer Dateien",
+      "name": "Uploader",
+      "props": {
+        "accept": {
+          "description": "Erlaubte Dateitypen (z. B. „.jpg, .png“)",
+          "name": "Akzeptieren"
+        },
+        "multiple": {
+          "description": "Ermöglicht die Auswahl mehrerer Dateien",
+          "name": "Mehrfach"
+        }
+      }
+    }
+  }
+}

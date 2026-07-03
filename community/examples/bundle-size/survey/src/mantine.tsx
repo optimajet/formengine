@@ -1,16 +1,4 @@
-import {
-  Badge,
-  Box,
-  Card,
-  Checkbox,
-  Group,
-  Image,
-  MantineProvider,
-  Select,
-  TextInput,
-  Textarea,
-  createTheme,
-} from '@mantine/core'
+import {Badge, Box, Card, Checkbox, Group, Image, MantineProvider, Select, TextInput, Textarea, createTheme} from '@mantine/core'
 import type {ReactNode} from 'react'
 import type {
   QuestionCheckboxModel,
@@ -40,6 +28,7 @@ export const MantineTextQuestion = ({question: q}: QuestionProps<QuestionTextMod
       value={(q.value as string) ?? ''}
       error={q.hasErrors() ? q.errors?.[0]?.text : null}
       onChange={event => {
+        // eslint-disable-next-line react-hooks/immutability
         q.value = event.currentTarget.value
       }}
     />
@@ -60,6 +49,7 @@ export const MantineCommentQuestion = ({question: q}: QuestionProps<QuestionComm
       placeholder={q.placeholder}
       value={(q.value as string) ?? ''}
       onChange={event => {
+        // eslint-disable-next-line react-hooks/immutability
         q.value = event.currentTarget.value
       }}
     />
@@ -83,6 +73,7 @@ export const MantineDropdownQuestion = ({question: q}: QuestionProps<QuestionDro
         label: String(choice.text),
       }))}
       onChange={value => {
+        // eslint-disable-next-line react-hooks/immutability
         q.value = value ?? undefined
       }}
     />

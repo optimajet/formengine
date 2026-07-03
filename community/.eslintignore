@@ -1,0 +1,9 @@
+vite.config.ts
+vite.ssl.config.ts
+types
+**/dist
+documentation
+scripts
+examples
+tests
+*.d.ts
