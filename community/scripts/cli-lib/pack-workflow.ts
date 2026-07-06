@@ -7,6 +7,8 @@ import {moveTarballToPackageRoot, runNpmPack} from './npm-pack.ts'
 import type {PackageJson} from './view-pack-tools.ts'
 import {packageJsonFileName, patchExports, readJsonFile, readPackageJson} from './view-pack-tools.ts'
 
+const CLI_LIB_PACKAGE_NAME = '@react-form-builder/cli-lib'
+
 /** Reads name/version from the workspace package.json (absolute path). */
 function readPackageIdentityAt(sourceDir: string): {name: string; version: string} {
   return readJson<{name: string; version: string}>(join(sourceDir, packageJsonFileName))
@@ -122,6 +124,7 @@ export function runPackViewExportsPatch(configDir: string): void {
     const {exports: exportsPatch, ...patchRest} = patchRaw
 
     Reflect.deleteProperty(packageJson, 'scripts')
+    stripPublicationDevDependencies(packageJson)
     patchExports(packageJson)
     Object.assign(packageJson, patchRest)
     if (exportsPatch && typeof exportsPatch === 'object') {
@@ -145,5 +148,27 @@ function applyPartPackageJson(sourceDir: string, configDir: string, tempDir: str
   const patch = readJson<Record<string, unknown>>(join(configDir, 'part.package.json'))
   Reflect.deleteProperty(data, 'scripts')
   Object.assign(data, patch)
+  stripPublicationDevDependencies(data)
   writeJson(join(tempDir, packageJsonFileName), data, 2)
+}
+
+/**
+ * Removes monorepo-only devDependencies from a staged package.json before npm pack.
+ * @param packageJson staged manifest to mutate
+ */
+function stripPublicationDevDependencies(packageJson: Record<string, unknown>): void {
+  const devDependencies = packageJson.devDependencies
+  if (!devDependencies || typeof devDependencies !== 'object') {
+    return
+  }
+
+  const next = {...(devDependencies as Record<string, string>)}
+  Reflect.deleteProperty(next, CLI_LIB_PACKAGE_NAME)
+
+  if (Object.keys(next).length === 0) {
+    Reflect.deleteProperty(packageJson, 'devDependencies')
+    return
+  }
+
+  packageJson.devDependencies = next
 }

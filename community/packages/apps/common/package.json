@@ -1,6 +1,6 @@
 {
   "name": "@react-form-builder/apps-common",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "private": true,
   "license": "MIT",
   "author": "Optimajet",
@@ -9,7 +9,7 @@
   "module": "index.ts",
   "type": "module",
   "dependencies": {
-    "@react-form-builder/core": "^10.0.0"
+    "@react-form-builder/core": "^10.0.1"
   },
   "peerDependencies": {
     "react": "^19.0.0"

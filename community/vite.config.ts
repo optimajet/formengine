@@ -6,6 +6,7 @@ import {defineConfig, PluginOption} from 'vite'
 import {analyzer} from 'vite-bundle-analyzer'
 import svgr from 'vite-plugin-svgr'
 import {configDefaults} from 'vitest/config'
+import {appVersionMetaPlugin} from './vite-plugin-app-version.ts'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -16,7 +17,8 @@ const plugins: PluginOption = [
   react(),
   svgr({
     include: '**/*.svg',
-  })
+  }),
+  appVersionMetaPlugin(__dirname),
 ]
 
 if (process.env.VITE_BUNDLE_ANALYZER === 'true') {

@@ -4,6 +4,12 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 10.0.1 - July 6, 2026
+
+Fixes npm publication packages and bumps example dependencies.
+
+[Full release notes for 10.0.1](https://formengine.io/documentation/release-notes/10.0.1)
+
 ## 10.0.0 - July 3, 2026
 
 Removes deprecated APIs, updates German localization, refactors LocalizationStore, fixes Monaco constrained editing and RSuite CSS minification, and upgrades Zod.
