@@ -1,6 +1,6 @@
 import {
   ltrCssLoader,
-  RsLocalizationWrapper,
+  RsViewWrapper,
   rSuiteComponents,
   rtlCssLoader
 } from '@react-form-builder/components-rsuite'
@@ -14,7 +14,7 @@ import '@react-form-builder/core/assets/styles.css'
 
 const builderComponents = rSuiteComponents.map(c => c.build())
 const builderView = new BuilderView(builderComponents)
-  .withViewerWrapper(RsLocalizationWrapper)
+  .withViewerWrapper(RsViewWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
 

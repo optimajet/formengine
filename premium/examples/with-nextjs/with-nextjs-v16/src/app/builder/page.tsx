@@ -5,7 +5,7 @@ import form from '@/app/common/form.json'
 import {customValidators} from '@/app/common/validators'
 import {
   ltrCssLoader,
-  RsLocalizationWrapper,
+  RsViewWrapper,
   rSuiteComponents,
   rtlCssLoader
 } from '@react-form-builder/components-rsuite'
@@ -34,7 +34,7 @@ const formStorage: IFormStorage = {
 const loadForm = () => formStorage.getForm('')
 
 const view = new BuilderView(components)
-  .withViewerWrapper(RsLocalizationWrapper)
+  .withViewerWrapper(RsViewWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
 

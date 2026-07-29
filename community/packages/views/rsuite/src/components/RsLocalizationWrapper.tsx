@@ -1,7 +1,8 @@
-import type {FormViewerWrapperComponentProps} from '@react-form-builder/core'
-import {BiDi, useBuilderTheme} from '@react-form-builder/core'
-import cx from 'clsx'
+import type {FormViewerWrapper} from '@react-form-builder/core'
+import {BiDi} from '@react-form-builder/core'
+import {useContext} from 'react'
 import {CustomProvider} from 'rsuite'
+import {CustomContext} from 'rsuite/CustomProvider'
 import {
   arEG,
   daDK,
@@ -54,24 +55,20 @@ const rSuiteLocales: Record<string, any> = {
 
 export const defaultComponentsLocale = enUS
 
-const containerStyle = {
-  height: '100%',
-  width: '100%',
-  backgroundColor: 'var(--rs-bg-card)'
-}
-
 /**
- * Wrapper component for RSuite components localization.
- * @param props the component props.
- * @param props.language the language object containing the language information.
- * @param props.children the children components to be wrapped.
+ * Wrapper component for RSuite components localization and text direction.
+ * Use this for FormViewer when you only need locale and RTL support.
+ * For FormBuilder, or FormViewer with light/dark theming, use {@link RsViewWrapper} instead.
+ * @param props the FormViewerWrapper props.
  * @returns the wrapped components with localization settings applied.
  */
-export const RsLocalizationWrapper = ({language, children}: FormViewerWrapperComponentProps) => {
-  const theme = useBuilderTheme()
-  const className = cx('rsuite', theme === 'dark' ? 'rs-theme-dark' : 'rs-theme-light')
+export const RsLocalizationWrapper: FormViewerWrapper = (props) => {
+  const {language, children} = props
+  const parent = useContext(CustomContext)
   const locale = rSuiteLocales[language.fullCode] ?? defaultComponentsLocale
-  return <CustomProvider rtl={language.bidi === BiDi.RTL} locale={locale} theme={theme}>
-    <div className={className} style={containerStyle}>{children}</div>
-  </CustomProvider>
+  return (
+    <CustomProvider {...parent} rtl={language.bidi === BiDi.RTL} locale={locale}>
+      {children}
+    </CustomProvider>
+  )
 }

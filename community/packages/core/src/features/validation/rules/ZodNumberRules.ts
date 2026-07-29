@@ -1,35 +1,33 @@
-import {z} from 'zod'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
-import {errorForUndefined} from './consts'
-import {zodTypeToValidator} from './zodTypeToValidator'
-
-const scheme = z.number({error: errorForUndefined})
+import {errorForUndefined, zodErrorParams} from './consts'
+import {z} from './zodMini'
+import {numberScheme, toRuleValidator} from './zodRuleBuilders'
 
 export const ZodNumberRules: ValidationRuleSet = {
   required: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(scheme)),
+    .withValidatorFactory(() => toRuleValidator(numberScheme)),
 
   min: ruleBuilder()
     .withParameter('limit', 'number', true)
-    .withValidatorFactory(({limit, message}) => zodTypeToValidator(scheme.min(limit, message))),
+    .withValidatorFactory(({limit, message}) => toRuleValidator(numberScheme, z.gte(limit, zodErrorParams(message)))),
 
   max: ruleBuilder()
     .withParameter('limit', 'number', true)
-    .withValidatorFactory(({limit, message}) => zodTypeToValidator(scheme.max(limit, message))),
+    .withValidatorFactory(({limit, message}) => toRuleValidator(numberScheme, z.lte(limit, zodErrorParams(message)))),
 
   lessThan: ruleBuilder()
     .withParameter('value', 'number', true)
-    .withValidatorFactory(({value, message}) => zodTypeToValidator(scheme.lt(value, message))),
+    .withValidatorFactory(({value, message}) => toRuleValidator(numberScheme, z.lt(value, zodErrorParams(message)))),
 
   moreThan: ruleBuilder()
     .withParameter('value', 'number', true)
-    .withValidatorFactory(({message, value}) => zodTypeToValidator(scheme.gt(value, message))),
+    .withValidatorFactory(({message, value}) => toRuleValidator(numberScheme, z.gt(value, zodErrorParams(message)))),
 
   integer: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(z.int({error: errorForUndefined}))),
+    .withValidatorFactory(() => toRuleValidator(z.int({error: errorForUndefined}))),
 
   multipleOf: ruleBuilder()
     .withParameter('value', 'number', true)
-    .withValidatorFactory(({message, value}) => zodTypeToValidator(scheme.multipleOf(value, message))),
+    .withValidatorFactory(({message, value}) => toRuleValidator(numberScheme, z.multipleOf(value, zodErrorParams(message)))),
 }

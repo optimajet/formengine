@@ -3,7 +3,7 @@ import { CommonModule, JsonPipe } from "@angular/common";
 import { AngularReactModule } from "@bubblydoo/angular-react";
 import { createElement, ForwardedRef } from "react";
 import {
-  RsLocalizationWrapper,
+  RsViewWrapper,
   rSuiteComponents,
 } from "@react-form-builder/components-rsuite";
 import {
@@ -26,7 +26,7 @@ const Viewer = (props: FormViewerProps) => createElement(FormViewer, props);
 const viewerComponents = rSuiteComponents.map((c) => c.build().model);
 
 const viewerView = createView(viewerComponents)
-  .withViewerWrapper(RsLocalizationWrapper)
+  .withViewerWrapper(RsViewWrapper)
 
 interface PersonInfo {
   email: string;

@@ -1,5 +1,5 @@
 import {BiDi, BuilderView} from '@react-form-builder/core'
-import {RsLocalizationWrapper} from './components/RsLocalizationWrapper'
+import {RsViewWrapper} from './components/RsViewWrapper'
 import {ltrCssLoader, rtlCssLoader} from './cssLoader'
 import {components} from './definitions'
 import {rSuiteComponentsDescriptions} from './i18n/rSuiteComponentsDescriptions'
@@ -9,7 +9,7 @@ import {rSuiteComponentsDescriptions} from './i18n/rSuiteComponentsDescriptions'
  * This view contains CSS loaders.
  */
 export const builderViewWithCss = new BuilderView(components)
-  .withViewerWrapper(RsLocalizationWrapper)
+  .withViewerWrapper(RsViewWrapper)
   .withCssLoader(BiDi.LTR, ltrCssLoader)
   .withCssLoader(BiDi.RTL, rtlCssLoader)
   .withComponentLibraryDescription(rSuiteComponentsDescriptions)

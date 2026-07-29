@@ -1,10 +1,10 @@
-import {z} from 'zod'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
-import {errorForUndefined} from './consts'
-import {zodTypeToValidator} from './zodTypeToValidator'
+import {requiredMessage} from './consts'
+import {z} from './zodMini'
+import {stringScheme, toRuleValidator} from './zodRuleBuilders'
 
 export const ZodTimeRules: ValidationRuleSet = {
   required: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(z.string({error: errorForUndefined}).nonempty()))
+    .withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1, {error: requiredMessage}))),
 }

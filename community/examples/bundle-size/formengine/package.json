@@ -32,10 +32,10 @@
     "@mantine/core": "^8.3.9",
     "@mantine/dates": "^8.3.9",
     "@react-form-builder/bundle-size-shared": "*",
-    "@react-form-builder/components-mantine": "^10.0.1",
-    "@react-form-builder/components-material-ui": "^10.0.1",
-    "@react-form-builder/components-rsuite": "^10.0.1",
-    "@react-form-builder/components-uploader": "^10.0.1",
-    "@react-form-builder/core": "^10.0.1"
+    "@react-form-builder/components-mantine": "^10.1.0",
+    "@react-form-builder/components-material-ui": "^10.1.0",
+    "@react-form-builder/components-rsuite": "^10.1.0",
+    "@react-form-builder/components-uploader": "^10.1.0",
+    "@react-form-builder/core": "^10.1.0"
   }
 }

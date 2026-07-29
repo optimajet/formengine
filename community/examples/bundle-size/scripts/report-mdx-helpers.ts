@@ -63,10 +63,9 @@ export function generateMatrixCellValue(
   const diffHint = ` (${formatDiffKB(diffToMin, diffGzipToMin)})`
   const escapedValue = escapeMarkdown(value)
   const escapedDiffHint = escapeMarkdown(diffHint)
-  // Use HTML span with green background for smallest values in Summary Matrix tables
-  // Note: Can't nest markdown bold (**) inside HTML, so using <strong> tag instead
+  // Highlight smallest matrix values; styles live in docs/guides/bundle-size.module.css
   return isSmallest
-    ? `<span style={{backgroundColor: '#e8f5e9', padding: '2px 4px', borderRadius: '3px'}}><strong>${escapedValue}${escapedDiffHint}</strong></span>`
+    ? `<span className="bundle-size-smallest"><strong>${escapedValue}${escapedDiffHint}</strong></span>`
     : `${escapedValue}${escapedDiffHint}`
 }
 

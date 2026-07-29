@@ -579,7 +579,10 @@ export function generateHTMLDocument(
     }
     .hidden-vega-lite-code { display: none; }
     .muted { color: #666; font-size: 12px; }
-    .smallest { background-color: #e8f5e9; font-weight: 600; }
+    .smallest { background-color: #e8f5e9; color: #1b5e20; font-weight: 600; padding: 2px 4px; border-radius: 3px; }
+    @media (prefers-color-scheme: dark) {
+      .smallest { background-color: #1b4332; color: #b7f0c8; }
+    }
     .legend { margin: 16px 0; padding: 12px; background-color: #f5f5f5; border-left: 4px solid #4CAF50; font-size: 13px; }
     .breakdown-container { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; margin: 16px 0; align-items: flex-start; }
     .pie-charts-row { display: flex; flex-wrap: wrap; gap: 24px; width: 100%; }

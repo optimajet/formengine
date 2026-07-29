@@ -1,18 +1,20 @@
-import {z} from 'zod'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
-import {errorForUndefined, requiredMessage} from './consts'
-import {zodTypeToValidator} from './zodTypeToValidator'
+import {requiredMessage, zodErrorParams} from './consts'
+import {z} from './zodMini'
+import {booleanScheme, toRuleValidator} from './zodRuleBuilders'
 
-const scheme = z.boolean({error: errorForUndefined})
-
+/**
+ * Boolean "required" means the value must be true, not merely present.
+ * Both undefined/null and false fail validation.
+ */
 export const ZodBooleanRules: ValidationRuleSet = {
   required: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(scheme.refine(val => val, requiredMessage))),
+    .withValidatorFactory(() => toRuleValidator(booleanScheme, z.refine(val => val, {error: requiredMessage}))),
 
   truthy: ruleBuilder()
-    .withValidatorFactory(({message}) => zodTypeToValidator(scheme.refine(arg => arg, message))),
+    .withValidatorFactory(({message}) => toRuleValidator(booleanScheme, z.refine(arg => arg, zodErrorParams(message)))),
 
   falsy: ruleBuilder()
-    .withValidatorFactory(({message}) => zodTypeToValidator(scheme.refine(arg => !arg, message)))
+    .withValidatorFactory(({message}) => toRuleValidator(booleanScheme, z.refine(arg => !arg, zodErrorParams(message)))),
 }

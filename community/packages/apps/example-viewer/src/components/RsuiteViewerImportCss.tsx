@@ -1,4 +1,4 @@
-import {RsLocalizationWrapper, view} from '@react-form-builder/components-rsuite'
+import {RsViewWrapper, view} from '@react-form-builder/components-rsuite'
 import {FormViewer} from '@react-form-builder/core'
 
 import '@react-form-builder/core/assets/styles.css'
@@ -8,8 +8,7 @@ import form from '../forms/rsuiteViewerForm.json?raw'
 
 const getForm = () => form
 
-// FIXME FE-1977
-const viewWithThemes = view.withViewerWrapper(RsLocalizationWrapper)
+const viewWithThemes = view.withViewerWrapper(RsViewWrapper)
 
 /**
  * Form viewer with RSuite components and a static sample form JSON (inputs and validate button).

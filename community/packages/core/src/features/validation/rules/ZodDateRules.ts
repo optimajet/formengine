@@ -1,10 +1,16 @@
-import {z} from 'zod'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
-import {errorForUndefined} from './consts'
-import {zodTypeToValidator} from './zodTypeToValidator'
+import {errorForUndefined, zodErrorParams} from './consts'
+import {z} from './zodMini'
+import {toRuleValidator} from './zodRuleBuilders'
 
-const legacyDateError: z.core.$ZodErrorMap = (issue) => {
+/**
+ * Preserves historical date bound messages (Date#toString boundaries).
+ * Check-level issues do not inherit the schema error map, so min/max pass this as a fallback.
+ * @param issue zod error.
+ * @returns string message.
+ */
+const dateBoundError: z.core.$ZodErrorMap = (issue) => {
   const undefinedResult = errorForUndefined(issue)
   if (undefinedResult) return undefinedResult
 
@@ -15,32 +21,26 @@ const legacyDateError: z.core.$ZodErrorMap = (issue) => {
     const value = new Date(boundary as number).toString()
 
     if (code === 'too_small') {
-      return {
-        message: `Too small: expected date to be >=${value}`
-      }
+      return `Too small: expected date to be >=${value}`
     }
 
-    return {
-      message: `Too big: expected date to be <=${value}`
-    }
+    return `Too big: expected date to be <=${value}`
   }
 }
 
-const scheme = z.date({error: legacyDateError})
+const scheme = z.date({error: dateBoundError})
 
 export const ZodDateRules: ValidationRuleSet = {
   required: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(scheme.refine(val => val))),
+    .withValidatorFactory(() => toRuleValidator(scheme, z.refine(val => val))),
 
   min: ruleBuilder()
     .withParameter('value', 'date', true)
-    .withValidatorFactory(({value, message}) => {
-      return zodTypeToValidator(scheme.min(new Date(value), {error: legacyDateError}))
-    }),
+    .withValidatorFactory(({value, message}) =>
+      toRuleValidator(scheme, z.gte(new Date(value), zodErrorParams(message, dateBoundError)))),
 
   max: ruleBuilder()
     .withParameter('value', 'date', true)
-    .withValidatorFactory(({value, message}) => {
-      return zodTypeToValidator(scheme.max(new Date(value), {error: legacyDateError}))
-    })
+    .withValidatorFactory(({value, message}) =>
+      toRuleValidator(scheme, z.lte(new Date(value), zodErrorParams(message, dateBoundError)))),
 }

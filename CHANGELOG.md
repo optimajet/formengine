@@ -4,6 +4,17 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 10.1.0 - July 29, 2026
+
+Switches built-in validation to Zod Mini (~40 KB raw / 10 KB gzip smaller Core), splits RSuite theme and localization wrappers, and ships dependency and documentation updates.
+
+### Highlights
+
+- Built-in Zod validation rules now compile against `zod/mini` instead of the full Zod package, reducing Core bundle size by about 40 KB raw and 10 KB gzip.
+- Added [RsThemeWrapper](https://formengine.io/documentation/api-reference/@react-form-builder/components-rsuite/variables/RsThemeWrapper) and [RsViewWrapper](https://formengine.io/documentation/api-reference/@react-form-builder/components-rsuite/variables/RsViewWrapper) so you can pick theme-only or combined theme and localization wrappers.
+
+[Full release notes for 10.1.0](https://formengine.io/documentation/release-notes/10.1.0)
+
 ## 10.0.1 - July 6, 2026
 
 Fixes npm publication packages and bumps example dependencies.

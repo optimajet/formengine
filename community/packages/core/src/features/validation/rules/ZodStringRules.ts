@@ -1,63 +1,68 @@
-import {z} from 'zod'
 import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from '../utils/ruleBuilder'
-import {errorForUndefined, requiredMessage} from './consts'
-import {zodTypeToValidator} from './zodTypeToValidator'
+import {requiredMessage, zodErrorParams} from './consts'
+import {z} from './zodMini'
+import {pipeStringScheme, stringScheme, toRuleValidator} from './zodRuleBuilders'
 
-const scheme = z.string({error: errorForUndefined})
-const withScheme = (secondScheme: z.ZodSchema) => z.intersection(scheme, secondScheme)
 const invalidIpMessage = 'Invalid ip'
 
 export const ZodStringRules: ValidationRuleSet = {
   required: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(scheme.nonempty(requiredMessage))),
+    .withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1, {error: requiredMessage}))),
 
   nonEmpty: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(scheme.nonempty())),
+    .withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1))),
 
   length: ruleBuilder()
     .withParameter('length', 'number', true)
-    .withValidatorFactory(({length, message}) => zodTypeToValidator(scheme.length(length, message))),
+    .withValidatorFactory(({length, message}) => toRuleValidator(stringScheme, z.length(length, zodErrorParams(message)))),
 
   min: ruleBuilder()
     .withParameter('limit', 'number', true)
-    .withValidatorFactory(({limit, message}) => zodTypeToValidator(scheme.min(limit, message))),
+    .withValidatorFactory(({limit, message}) => toRuleValidator(stringScheme, z.minLength(limit, zodErrorParams(message)))),
 
   max: ruleBuilder()
     .withParameter('limit', 'number', true)
-    .withValidatorFactory(({limit, message}) => zodTypeToValidator(scheme.max(limit, message))),
+    .withValidatorFactory(({limit, message}) => toRuleValidator(stringScheme, z.maxLength(limit, zodErrorParams(message)))),
 
   regex: ruleBuilder()
     .withParameter('regex', 'string', true)
-    .withValidatorFactory(({message, regex}) => zodTypeToValidator(scheme.regex(new RegExp(regex), message))),
+    .withValidatorFactory(({message, regex}) => toRuleValidator(stringScheme, z.regex(new RegExp(regex), zodErrorParams(message)))),
 
   email: ruleBuilder()
-    .withValidatorFactory(({message}) => zodTypeToValidator(withScheme(z.email(message)))),
+    .withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.email(zodErrorParams(message))))),
 
   url: ruleBuilder()
-    .withValidatorFactory(({message}) => zodTypeToValidator(withScheme(z.url(message)))),
+    .withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.url(zodErrorParams(message))))),
 
   uuid: ruleBuilder()
-    .withValidatorFactory(({message}) => zodTypeToValidator(withScheme(z.uuid(message)))),
+    .withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.uuid(zodErrorParams(message))))),
 
   ip: ruleBuilder()
-    .withValidatorFactory(() => zodTypeToValidator(withScheme(z.union([z.ipv4(), z.ipv6()], invalidIpMessage)))),
+    .withValidatorFactory(() => toRuleValidator(pipeStringScheme(z.union([z.ipv4(), z.ipv6()], {error: invalidIpMessage})))),
 
   datetime: ruleBuilder()
     .withParameter('precision', 'number')
     .withParameter('offset', 'boolean')
-    .withValidatorFactory(({message, offset, precision}) => zodTypeToValidator(withScheme(z.iso.datetime({message, offset, precision})))),
+    .withValidatorFactory(({message, offset, precision}) => toRuleValidator(pipeStringScheme(z.iso.datetime({
+      offset,
+      precision,
+      ...zodErrorParams(message),
+    })))),
 
   includes: ruleBuilder()
     .withParameter('value', 'string', true)
     .withParameter('position', 'number')
-    .withValidatorFactory(({message, value, position}) => zodTypeToValidator(scheme.includes(value, {message, position}))),
+    .withValidatorFactory(({message, value, position}) => toRuleValidator(stringScheme, z.includes(value, {
+      position,
+      ...zodErrorParams(message),
+    }))),
 
   startsWith: ruleBuilder()
     .withParameter('value', 'string', true)
-    .withValidatorFactory(({message, value}) => zodTypeToValidator(scheme.startsWith(value, message))),
+    .withValidatorFactory(({message, value}) => toRuleValidator(stringScheme, z.startsWith(value, zodErrorParams(message)))),
 
   endsWith: ruleBuilder()
     .withParameter('value', 'string', true)
-    .withValidatorFactory(({message, value}) => zodTypeToValidator(scheme.endsWith(value, message)))
+    .withValidatorFactory(({message, value}) => toRuleValidator(stringScheme, z.endsWith(value, zodErrorParams(message)))),
 }
