@@ -13,6 +13,7 @@ import {useEmbeddedFormViewer} from '../form-viewer/EmbeddedFormViewerContext'
 import type {FormViewerProps} from '../form-viewer/types'
 import {getTemplateName, isTemplateType} from '../ui/templateUtil'
 import {closeCurrentModalActionName} from './closeCurrentModalActionName'
+import styles from './Modal.module.css'
 import {useModalComponentData} from './useModalComponentData'
 import {useModalType} from './useModalType'
 
@@ -23,6 +24,20 @@ const useModalModel = () => {
   return formViewerProps.view.get(modalType)
 }
 
+const ModalTypeNotSpecified = () => {
+  return <div className={styles.warn} data-testid="modal-type-not-specified">
+    Modal: <em>specify the component to display the modal window to use</em>
+  </div>
+}
+
+const ModalTemplateNotSpecified = () => {
+  // eslint-disable-next-line no-console
+  console.info('Modal: template not specified')
+  return <div className={styles.warn} data-testid="modal-template-not-specified">
+    Modal: <em>template not specified</em>
+  </div>
+}
+
 /**
  * The properties of the modal component.
  */
@@ -30,7 +45,7 @@ export interface ModalProps {
   /**
    * The modal form name.
    */
-  modalTemplate: string
+  modalTemplate?: string
 }
 
 const RawModalBuilder = ({modalTemplate}: ModalProps) => {
@@ -42,13 +57,8 @@ const RawModalBuilder = ({modalTemplate}: ModalProps) => {
       : modalTemplate
   }, [modalTemplate])
 
-  if (!modalModel) {
-    return <div>Modal: specify the component to display the modal window to use</div>
-  }
-
-  if (!modalTemplate) {
-    return <div>Modal: template not specified</div>
-  }
+  if (!modalModel) return <ModalTypeNotSpecified/>
+  if (!modalTemplate) return <ModalTemplateNotSpecified/>
 
   return <div>{`Modal: '${modalTemplateName}'`}</div>
 }
@@ -131,18 +141,26 @@ const RawModalViewer = (props: ModalProps) => {
     }
   }), [context, formViewerProps.context, handleClose, modalOnClose, postFn])
 
-  const modalViewerProps: FormViewerProps = useMemo(() => ({
-    ...formViewerProps,
-    formName: getTemplateName(modalTemplate),
-    initialData: initialData,
-    errors: undefined,
-    onFormDataChange: undefined,
-    readOnly: undefined,
-    disabled: undefined,
-    context: contextValue
-  }), [formViewerProps, modalTemplate, initialData, contextValue])
+  const formName = modalTemplate && isTemplateType(modalTemplate)
+    ? getTemplateName(modalTemplate)
+    : modalTemplate
 
-  if (!modalModel || !modalTemplate) return null
+  const modalViewerProps: FormViewerProps | undefined = useMemo(() => {
+    if (!formName) return undefined
+    return {
+      ...formViewerProps,
+      formName,
+      initialData: initialData,
+      errors: undefined,
+      onFormDataChange: undefined,
+      readOnly: undefined,
+      disabled: undefined,
+      context: contextValue
+    }
+  }, [formViewerProps, formName, initialData, contextValue])
+
+  if (!modalModel) return <ModalTypeNotSpecified/>
+  if (!formName || !modalViewerProps) return <ModalTemplateNotSpecified/>
 
   return <ComponentModal model={modalModel} open={open} handleClose={handleClose} onCloseRef={modalRef}>
     <NewStoreProvider props={modalViewerProps}>

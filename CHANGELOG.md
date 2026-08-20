@@ -4,6 +4,12 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 10.2.0 - August 19, 2026
+
+Fixes a crash when a Modal has no template, and bumps example and build dependencies.
+
+[Full release notes for 10.2.0](https://formengine.io/documentation/release-notes/10.2.0)
+
 ## 10.1.0 - July 29, 2026
 
 Switches built-in validation to Zod Mini (~40 KB raw / 10 KB gzip smaller Core), splits RSuite theme and localization wrappers, and ships dependency and documentation updates.

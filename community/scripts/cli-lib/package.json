@@ -1,6 +1,6 @@
 {
   "name": "@react-form-builder/cli-lib",
-  "version": "10.1.0",
+  "version": "10.2.0",
   "private": true,
   "type": "module",
   "description": "Shared Node CLI helpers for pack, check-pack, and install workflows",

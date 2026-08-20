@@ -4,6 +4,11 @@ import {defaultView} from '../components/ViewContext'
 
 type UsePersistentViewOptions = {
   storageKey?: string
+  /**
+   * When set to a valid view, used instead of localStorage on the first read
+   * (for example a `?view=` query param).
+   */
+  initialView?: ViewType
 }
 
 const allViewTypes: Record<ViewType, undefined> = {
@@ -37,6 +42,10 @@ export const usePersistentView = (appName = 'form-builder', options?: UsePersist
   const storageKey = getViewStorageKey(appName, options)
 
   const [view, setViewState] = useState<ViewType>(() => {
+    const fromUrl = options?.initialView?.trim()
+    if (fromUrl && allViews.indexOf(fromUrl) !== -1) {
+      return fromUrl as ViewType
+    }
     const raw = localStorage.getItem(storageKey)
     const value = raw?.trim()
     if (!value || allViews.indexOf(value) === -1) {

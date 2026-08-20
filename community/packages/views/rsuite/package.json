@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/components-rsuite",
   "description": "OptimaJet Form Builder Components - RSuite",
-  "version": "10.1.0",
+  "version": "10.2.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -171,7 +171,7 @@
     "create-json-schema": "vite-node ./config/json-schema-generator.ts"
   },
   "peerDependencies": {
-    "@react-form-builder/core": "10.1.0",
+    "@react-form-builder/core": "10.2.0",
     "@rsuite/icons": "1.3.2",
     "clsx": "^2.1.1",
     "date-fns": "^2.30.0",
@@ -191,8 +191,8 @@
   ],
   "devDependencies": {
     "@react-form-builder/cli-lib": "*",
-    "@react-form-builder/json-schema-generator": "^10.1.0",
-    "postcss": "^8.5.12",
+    "@react-form-builder/json-schema-generator": "^10.2.0",
+    "postcss": "^8.5.23",
     "vite-inline-css-plugin": "^0.0.1",
     "vite-node": "^5.2.0"
   }

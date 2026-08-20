@@ -17,10 +17,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^10.1.0",
-    "@react-form-builder/core": "^10.1.0",
-    "@react-form-builder/designer": "^10.1.0",
-    "next": "16.2.11",
+    "@react-form-builder/components-rsuite": "^10.2.0",
+    "@react-form-builder/core": "^10.2.0",
+    "@react-form-builder/designer": "^10.2.0",
+    "next": "16.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

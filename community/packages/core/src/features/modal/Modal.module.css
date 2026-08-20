@@ -1,0 +1,9 @@
+.warn em {
+  color: var(--rs-red-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  .warn em {
+    color: var(--rs-red-300);
+  }
+}
