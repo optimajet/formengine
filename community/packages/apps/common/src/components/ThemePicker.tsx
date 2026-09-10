@@ -42,7 +42,7 @@ const ThemePickerSegment = ({item, checked, onSelect}: ThemePickerSegmentProps) 
 }
 
 /**
- * Theme toggle as a segmented control (no native select — consistent across browsers).
+ * Theme toggle as a segmented control (no native select - consistent across browsers).
  * Uses lightweight native elements and scoped CSS only.
  * @param props the ThemePicker props.
  * @param props.theme the active builder theme.

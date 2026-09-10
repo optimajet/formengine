@@ -8,7 +8,6 @@ import {onBlur} from './internal/onBlurEventHandler'
 
 export const mtFileInput = define(FileInput, 'MtFileInput')
   .category(inputsCategory)
-  // TODO FE-1803 add support for valueComponent.
   .props({
     ...baseInputProps,
     ...inputSectionProps,

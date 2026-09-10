@@ -1,6 +1,7 @@
 import {isString} from '../../../utils/isString'
 import {isBoolean, isDate, isNull, isNumber, isObject, isUndefined} from '../../../utils/tools'
 import type {SchemaType} from '../types/SchemaType'
+import {parseDate} from './parseDate'
 
 const same = (from: any) => from
 
@@ -34,7 +35,7 @@ const toNumber = (from: any) => {
   return result
 }
 
-const toDate = (from: any) => new Date(from)
+const toDate = (from: any) => parseDate(from) ?? error(from)
 
 const formatTimePart = (part: number) => part > 9 ? `${part}` : `0${part}`
 

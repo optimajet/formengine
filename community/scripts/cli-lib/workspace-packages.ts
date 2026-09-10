@@ -18,7 +18,7 @@ export interface WorkspacePackageInfo {
  * @param repoRoot absolute path to the folder that contains the root package.json
  * @param pattern workspace entry from package.json (may contain *)
  */
-export function expandWorkspacePatternToDirs(repoRoot: string, pattern: string): string[] {
+function expandWorkspacePatternToDirs(repoRoot: string, pattern: string): string[] {
   const absolutePattern = join(repoRoot, pattern)
 
   if (!pattern.includes('*')) {

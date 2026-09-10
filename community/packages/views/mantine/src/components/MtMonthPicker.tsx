@@ -89,7 +89,6 @@ const monthPickerBaseProps = {
 
 export const mtMonthPicker = define(MtMonthPicker, 'MtMonthPicker')
   .category(datesCategory)
-  // TODO FE-1803 add support for level, onLevelChange, onMonthSelect, ariaLabels, onDateChange, and getMonthControlProps.
   .props({
     ...monthPickerBaseProps,
     allowDeselect: boolean

@@ -258,11 +258,18 @@ export class ComponentStore {
 
   /**
    * Correctly creates the {@link ComponentStore} from deserialized data.
+   * Recursively materializes the tree so constructor defaults (for example `props`) apply to every node.
+   * JSON form children are often `{key, type}` without `props`; wrapping only the root would leave those as plain objects.
    * @param value the deserialized data.
    * @returns the component Store.
    */
   static createFromObject(value: any) {
-    const result = Object.assign(new ComponentStore(value.key, value.type), value)
+    const create = (node: any): ComponentStore => {
+      const result = Object.assign(new ComponentStore(node.key, node.type), node)
+      result.children = result.children?.map(create)
+      return result
+    }
+    const result = create(value)
     initActionDataKeys(result)
     return result
   }

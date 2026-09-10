@@ -154,7 +154,6 @@ export function MtTiptap(props: MtTiptapProps) {
 
 export const mtTiptap = define(MtTiptap, 'MtTiptap')
   .category(otherExtensionsCategory)
-  // TODO FE-1803 add support for labels.
   .props({
     value: string.valued,
     onChange: onChange,

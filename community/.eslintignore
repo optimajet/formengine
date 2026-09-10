@@ -3,6 +3,7 @@ vite.ssl.config.ts
 types
 **/dist
 documentation
+designer-guide
 scripts
 examples
 tests

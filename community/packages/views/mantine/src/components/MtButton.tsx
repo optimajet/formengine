@@ -10,7 +10,6 @@ export const mtButton = define(
   'MtButton'
 )
   .category(buttonsCategory)
-  // TODO FE-1803 add support for loaderProps, and gradient.
   .props({
     children: string.required.default('Button').dataBound,
     variant: oneOfStrict('filled', 'default', 'outline', 'light', 'gradient', 'subtle', 'transparent', 'white')
@@ -32,7 +31,6 @@ export const mtButton = define(
     fullWidth: boolean
       .default(false),
     loading: boolean.default(false),
-    // TODO FIXME FE-1804 node picker renders as button which can not be inside button
     // leftSection: node,
     // rightSection: node,
     radius: string,

@@ -6,10 +6,10 @@ This project contains multiple applications for comparing the bundle sizes of di
 
 ### Engines
 
-- **formengine** — FormEngine Core
-- **rjsf** — React JSON Schema Form
-- **survey** — SurveyJS
-- **vueform** — VueForm
+- **formengine** - FormEngine Core
+- **rjsf** - React JSON Schema Form
+- **survey** - SurveyJS
+- **vueform** - VueForm
 
 ### Test Applications
 
@@ -20,12 +20,12 @@ To run a build or development server, set the `APP_INPUT` environment variable b
 
 Available `APP_INPUT` values:
 
-- **login** — login application
-- **login-mui** — login application with MUI library/styling
-- **login-mantine** — login application with Mantine library/styling (FormEngine only)
-- **booking** — booking application
-- **booking-mui** — booking application with MUI library/styling
-- **booking-mantine** — booking application with Mantine library/styling (FormEngine only)
+- **login** - login application
+- **login-mui** - login application with MUI library/styling
+- **login-mantine** - login application with Mantine library/styling (FormEngine only)
+- **booking** - booking application
+- **booking-mui** - booking application with MUI library/styling
+- **booking-mantine** - booking application with Mantine library/styling (FormEngine only)
 
 ## Setup
 
@@ -98,7 +98,7 @@ APP_INPUT=login npm run build
 ## Bundle Size Analysis
 
 To generate an overall report, run the following command.  
-The `APP_INPUT` variable is not required here—it will be set automatically for all variants.  
+The `APP_INPUT` variable is not required here-it will be set automatically for all variants.  
 All builds will be executed before generating the report.
 
 ```bash

@@ -6,8 +6,9 @@
     "packages/apps/*",
     "packages/views/*",
     "documentation/website",
+    "designer-guide",
     "scripts/cli-lib",
     "tests/*"
   ],
-  "version": "10.2.0"
+  "version": "10.3.0"
 }

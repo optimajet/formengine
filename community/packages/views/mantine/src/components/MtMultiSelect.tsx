@@ -21,7 +21,6 @@ const MtMultiSelect = (props: MultiSelectProps & BaseComboboxProps) => {
 
 export const mtMultiSelect = define(MtMultiSelect, 'MtMultiSelect')
   .category(comboboxCategory)
-  // TODO FE-1803 add support for comboboxProps, renderOption, and filter.
   .props({
     ...baseComboboxProps,
     value: array.valued.uncontrolledValue([]),

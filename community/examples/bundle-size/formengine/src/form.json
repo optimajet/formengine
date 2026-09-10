@@ -428,7 +428,7 @@
         "type": "RsTextArea",
         "props": {
           "placeholder": {
-            "value": "Please give more information about the damage you've marked above — if any."
+            "value": "Please give more information about the damage you've marked above - if any."
           },
           "label": {
             "value": ""

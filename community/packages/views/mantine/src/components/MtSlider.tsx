@@ -58,7 +58,6 @@ export function MtSliderComponent(props: MtSliderProps) {
 
 export const mtSlider = define(MtSliderComponent, 'MtSlider')
   .category(inputsCategory)
-  // TODO FE-1803 add support for marks, label, labelTransitionProps, thumbChildren, thumbLabel, scale, hiddenInputProps, and thumbProps.
   .props({
     ...baseInputProps,
     value: number.valued.uncontrolledValue(50),

@@ -21,7 +21,6 @@ const MtSelect = (props: SelectProps & BaseComboboxProps) => {
 
 export const mtSelect = define(MtSelect, 'MtSelect')
   .category(comboboxCategory)
-  // TODO FE-1803 add support for comboboxProps, renderOption, and filter.
   .props({
     ...baseComboboxProps,
     placeholder: string.default('Pick one'),

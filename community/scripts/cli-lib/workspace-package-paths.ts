@@ -8,7 +8,7 @@ import {findAllPackageJsonDirectoriesUnderRelativeDirs} from './workspace-packag
  * Mirrors workspace layout: packages/*, packages/apps/*, packages/views/*.
  * @param repoRoot repository root
  */
-export function collectPackagePaths(repoRoot: string): string[] {
+function collectPackagePaths(repoRoot: string): string[] {
   const packagesRoot = join(repoRoot, 'packages')
   const out: string[] = []
 
@@ -60,7 +60,7 @@ const EXAMPLES_VERSION_ROOTS = ['examples/community', 'examples/premium'] as con
  * (including nested apps such as bundle-size/formengine).
  * @param repoRoot repository root
  */
-export function collectExamplesVersionTargetPaths(repoRoot: string): string[] {
+function collectExamplesVersionTargetPaths(repoRoot: string): string[] {
   const absDirs = findAllPackageJsonDirectoriesUnderRelativeDirs(repoRoot, [...EXAMPLES_VERSION_ROOTS])
   const relativePaths = absDirs.map(abs => relative(repoRoot, abs).replace(/\\/g, '/'))
   return [...new Set(relativePaths)].sort()

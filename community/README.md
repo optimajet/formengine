@@ -4,7 +4,7 @@
 
 **FormEngine Community**
 A free,
-open-source solution for building forms in React with code that is straightforward—even for developers who are not front-end specialists.
+open-source solution for building forms in React with code that is straightforward-even for developers who are not front-end specialists.
 Similar to React Hook Form, it lowers the entry barrier for creating complex React forms while offering more features out of the box,
 including event handling, computed fields, validation, localization, and a ready-to-use component library.
 

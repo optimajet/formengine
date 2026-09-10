@@ -81,7 +81,7 @@ export default defineConfig({
 
       // bundleStats
       // output: {
-      // experimentalMinChunkSize: 50_000, // TODO check if really works
+      // experimentalMinChunkSize: 50_000,
       //   assetFileNames: 'assets/[name].[hash][extname]',
       //   chunkFileNames: 'assets/[name].[hash].js',
       //   entryFileNames: 'assets/[name].[hash].js',

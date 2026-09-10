@@ -81,7 +81,6 @@ export function MtTimeGrid(props: MtTimeGridProps) {
 
 export const mtTimeGrid = define(MtTimeGrid, 'MtTimeGrid')
   .category(datesCategory)
-  // TODO FE-1803 add support for simpleGridProps.
   .props({
     label: label,
     description: description,

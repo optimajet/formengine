@@ -6,7 +6,6 @@ import {inputFocusProps, inputSectionProps} from './internal/inputSectionProps'
 
 export const mtTimePicker = define(TimePicker, 'MtTimePicker')
   .category(datesCategory)
-  // TODO FE-1803 add support for popoverProps, presets, maxDropdownContentHeight, scrollAreaProps, hoursStep, minutesStep, secondsStep, hoursInputLabel, minutesInputLabel, secondsInputLabel, amPmInputLabel, amPmLabels, clearButtonProps, hoursInputProps, minutesInputProps, secondsInputProps, amPmSelectProps, pasteSplit, hoursRef, minutesRef, secondsRef, amPmRef, hoursPlaceholder, minutesPlaceholder, secondsPlaceholder, name, form, and hiddenInputProps.
   .props({
     ...baseInputProps,
     ...inputSectionProps,

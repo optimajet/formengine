@@ -41,7 +41,6 @@ const yearPickerInputBaseProps = {
 
 export const mtYearPickerInput = define(YearPickerInput, 'MtYearPickerInput')
   .category(datesCategory)
-  // TODO FE-1803 add support for valueFormatter, labelSeparator, closeOnChange, sortDates, level, onLevelChange, onYearSelect, ariaLabels, onDateChange, and getYearControlProps.
   .props({
     ...yearPickerInputBaseProps,
     allowDeselect: boolean.default(false),

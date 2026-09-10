@@ -7,7 +7,9 @@ import type {RuleValidator} from '../types/RuleValidator'
 import type {ValidationResult} from '../types/ValidationResult'
 import type {ValidationRuleParameter} from '../types/ValidationRuleParameter'
 import type {ValidationRuleSettings} from '../types/ValidationRuleSettings'
+import {coerceIfDate} from './coerceIfDate'
 import type {ResolvedValidator} from './DataValidator'
+import {getValidationRuleDefinition} from './getValidationRuleDefinition'
 
 type ValidatorWithSettings = {
   settings: ValidationRuleSettings,
@@ -30,21 +32,30 @@ function parse(validationRules: FormViewerValidationRules, schema?: BoundValueSc
 
   const rules = [...schema.validations].sort(byPriority)
   const toValidator = (rule: ValidationRuleSettings) => {
-    if (!rule.type || rule.type === 'internal') {
-      const definition = validationRules.internal[rule.key]
-      if (!definition) {
+    const resolved = getValidationRuleDefinition(validationRules, rule)
+
+    if (!resolved) {
+      if (!rule.type || rule.type === 'internal') {
         console.warn(`Cannot find 'internal' rule, key: '${rule.key}'`)
-        return {settings: rule, validator: noOpValidator}
+      } else {
+        console.warn(`Cannot find rule, key: '${rule.key}', type: '${rule.type}'`)
       }
-      const validator = definition.validatorFactory(rule.args ?? {})
-      return {settings: rule, validator, params: definition.params}
+      return {settings: rule, validator: noOpValidator}
     }
-    if (rule.type === 'custom') {
-      const definition = validationRules.custom?.[rule.key]
-      if (definition) return {settings: rule, validator: definition.validate, params: definition.params}
+
+    if (resolved.type === 'internal') {
+      return {
+        settings: rule,
+        validator: resolved.definition.validatorFactory(rule.args ?? {}),
+        params: resolved.definition.params
+      }
     }
-    console.warn(`Cannot find rule, key: '${rule.key}', type: '${rule.type}'`)
-    return {settings: rule, validator: noOpValidator}
+
+    return {
+      settings: rule,
+      validator: resolved.definition.validate,
+      params: resolved.definition.params
+    }
   }
 
   return rules.map(toValidator)
@@ -68,7 +79,9 @@ function validatorsResolver(validationRules: FormViewerValidationRules, schema?:
       if (!needValidate(settings.validateWhen, getFormData?.())) continue
 
       params?.filter(param => !isUndefined(param.default))
-        .map(param => args[param.key] = param.default)
+        .forEach(param => {
+          args[param.key] = coerceIfDate(param.type, param.default)
+        })
       Object.assign(args, settings.args)
       const result = validator(value, store, args, getFormData?.())
       const ruleResult = isPromise(result) ? await result : result

@@ -13,7 +13,7 @@ interface PackageIdentity {
  * Reads name and version from a package directory.
  * @param packagePath path to the workspace package root
  */
-export function readPackageIdentity(packagePath: string): PackageIdentity {
+function readPackageIdentity(packagePath: string): PackageIdentity {
   const packageJsonPath = join(packagePath, 'package.json')
   if (!existsSync(packageJsonPath)) {
     throw new Error(`File '${packageJsonPath}' not found`)
@@ -27,7 +27,7 @@ export function readPackageIdentity(packagePath: string): PackageIdentity {
  * Removes a path if it exists.
  * @param path path to remove
  */
-export function removeIfExists(path: string): void {
+function removeIfExists(path: string): void {
   if (existsSync(path)) {
     rmSync(path, {recursive: true, force: true})
   }
@@ -78,7 +78,7 @@ const installedWorkspaceRoots = new Set<string>()
  * Runs once per workspace root per process. Skips when node_modules already exists.
  * @param workspaceRoot path to the repository workspace root
  */
-export function ensureWorkspaceDependenciesInstalled(workspaceRoot: string): void {
+function ensureWorkspaceDependenciesInstalled(workspaceRoot: string): void {
   const absoluteRoot = resolve(workspaceRoot)
   if (installedWorkspaceRoots.has(absoluteRoot)) {
     return
@@ -97,7 +97,7 @@ export function ensureWorkspaceDependenciesInstalled(workspaceRoot: string): voi
  * Installs npm dependencies for an app directory when node_modules is missing.
  * @param appDir directory containing package.json
  */
-export function ensureAppDependenciesInstalled(appDir: string): void {
+function ensureAppDependenciesInstalled(appDir: string): void {
   if (existsSync(join(appDir, 'node_modules'))) {
     return
   }

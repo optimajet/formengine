@@ -12,7 +12,6 @@ export const minRows = number.default(3)
 
 export const onChange = event
 
-// TODO FE-1803 split size declarations for different components
 export const size = oneOf('xs', 'sm', 'md', 'lg', 'xl').default('sm')
 
 export const filledVariant = oneOfStrict('filled', 'outline').default('filled')

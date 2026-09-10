@@ -15,7 +15,7 @@
 - [**React Suite**](https://formengine.io/react-form-components-library?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=rsuite#free)
 - [**Mantine UI**](https://formengine.io/react-form-components-library/mantine/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=mantine)
 
-## Supported Themes — coming soon (click link to check status)
+## Supported Themes - coming soon (click link to check status)
 
 - [**Tailwind**](https://formengine.io/react-form-components-library/tailwind/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=tailwind)
 - [**Ant Design**](https://formengine.io/react-form-components-library/ant-design/?utm_source=github&utm_medium=article&utm_campaign=readme&utm_term=ant-design)
@@ -203,16 +203,16 @@ export const App = () => (
 - **Open Source & Free Forever** – no vendor lock-in, no nonsense.
 - **Less Code, Fewer Bugs** – logic and UI stay separate.
 - **JSON-First Architecture** – define, render, and validate without touching React internals.
-- **UI-Agnostic Components** — Works seamlessly with any UI library (MUI, Ant Design, shadcn/ui, and others).
-- **Framework-Agnostic** — Can also be used without any framework via CDN.
-- **Multi-Database Support** — Compatible with MySQL, PostgreSQL, MongoDB, SQLite, and more.
-- **Built-in Validation with Zod** — Pre-configured validation powered by Zod.
-- **Extensible Validation Support** — Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries.
+- **UI-Agnostic Components** - Works seamlessly with any UI library (MUI, Ant Design, shadcn/ui, and others).
+- **Framework-Agnostic** - Can also be used without any framework via CDN.
+- **Multi-Database Support** - Compatible with MySQL, PostgreSQL, MongoDB, SQLite, and more.
+- **Built-in Validation with Zod** - Pre-configured validation powered by Zod.
+- **Extensible Validation Support** - Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries.
 - **Localization** - Powerful capabilities for localizing forms using [Fluent.js](https://projectfluent.org).
-- **Responsive Layouts** — Build forms that automatically adapt to all screen sizes.
-- **Custom Actions** — Enhance forms with interactive logic through custom JavaScript.
-- **Dynamic Properties** — Enable real-time component updates with MobX-powered reactivity.
-- **Pre-Built RSuite Integration** — Includes a ready-to-use component library: `@react-form-builder/components-rsuite`.
+- **Responsive Layouts** - Build forms that automatically adapt to all screen sizes.
+- **Custom Actions** - Enhance forms with interactive logic through custom JavaScript.
+- **Dynamic Properties** - Enable real-time component updates with MobX-powered reactivity.
+- **Pre-Built RSuite Integration** - Includes a ready-to-use component library: `@react-form-builder/components-rsuite`.
 - **Flexible Storage Options**
   - Store complete form definitions as JSON.
   - Programmatically generate forms via code.
@@ -237,8 +237,8 @@ export const App = () => (
 
 ## ✅ Validation
 
-- **Built-in Validation with Zod** — [Pre-configured validation powered by Zod](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme)
-- **Extensible Validation Support** — [Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme#External)
+- **Built-in Validation with Zod** - [Pre-configured validation powered by Zod](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme)
+- **Extensible Validation Support** - [Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme#External)
 
 ## Ready to use Pre-Built RSuite Form UI Components
 
@@ -295,7 +295,7 @@ export const matButton = define(Button, 'MatButton')
   and errors you encounter using FormEngine.
 - [Email Support](mailto:support@optimajet.com) – Best for: issues with FormEngine libraries or environment.
 
-## A premium on-premise React Form Builder with drag-and-drop, built for SaaS and enterprise teams — backed by Optimajet Premium Support
+## A premium on-premise React Form Builder with drag-and-drop, built for SaaS and enterprise teams - backed by Optimajet Premium Support
 
 ### React Form Builder - That Developers Can Customize and Teams Can Use
 
@@ -319,7 +319,7 @@ A powerful commercial drag-and-drop form builder for React, built on top of the 
 npm install @react-form-builder/core @react-form-builder/components-rsuite  
 ```
 
-## 🫶 We hope this project has saved you hours — ⭐ **star this repo** to support development. Your support keeps FormEngine Core open and free
+## 🫶 We hope this project has saved you hours - ⭐ **star this repo** to support development. Your support keeps FormEngine Core open and free
 
 [![FormEngine](https://formengine.io/repository-images/star-click.gif)](https://formengine.io/documentation/?utm_source=github&utm_medium=banner-top&utm_campaign=readme#quick-start)
 [![Documentation](https://img.shields.io/badge/Documentation-Install-4286F4?style=for-the-badge&logo=read-the-docs&logoColor=white)](https://formengine.io/documentation/#quick-start?utm_source=github&utm_medium=article-badge&utm_campaign=readme#quick-start)

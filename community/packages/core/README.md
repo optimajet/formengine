@@ -208,16 +208,16 @@ export const App = () => (
 - **Open Source & Free Forever** – No vendor lock-in, no nonsense.
 - **Less Code, Fewer Bugs** – Logic and UI stay separate.
 - **JSON-First Architecture** – Define, render, and validate without touching React internals.
-- **UI-Agnostic Components** — Works seamlessly with any UI library (MUI, Ant Design, shadcn/ui, and others).
-- **Framework-Agnostic** — Can also be used without any framework via CDN.
-- **Multi-Database Support** — Compatible with MySQL, PostgreSQL, MongoDB, SQLite, and more.
-- **Built-in Validation with Zod** — Pre-configured validation powered by Zod.
-- **Extensible Validation Support** — Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries.
+- **UI-Agnostic Components** - Works seamlessly with any UI library (MUI, Ant Design, shadcn/ui, and others).
+- **Framework-Agnostic** - Can also be used without any framework via CDN.
+- **Multi-Database Support** - Compatible with MySQL, PostgreSQL, MongoDB, SQLite, and more.
+- **Built-in Validation with Zod** - Pre-configured validation powered by Zod.
+- **Extensible Validation Support** - Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries.
 - **Localization** - Powerful capabilities for localizing forms using [Fluent.js](https://projectfluent.org).
-- **Responsive Layouts** — Build forms that automatically adapt to all screen sizes.
-- **Custom Actions** — Enhance forms with interactive logic through custom JavaScript.
-- **Dynamic Properties** — Enable real-time component updates with MobX-powered reactivity.
-- **Pre-Built RSuite Integration** — Includes a ready-to-use component library: `@react-form-builder/components-rsuite`.
+- **Responsive Layouts** - Build forms that automatically adapt to all screen sizes.
+- **Custom Actions** - Enhance forms with interactive logic through custom JavaScript.
+- **Dynamic Properties** - Enable real-time component updates with MobX-powered reactivity.
+- **Pre-Built RSuite Integration** - Includes a ready-to-use component library: `@react-form-builder/components-rsuite`.
 - **Flexible Storage Options**
   - Store complete form definitions as JSON.
   - Programmatically generate forms via code.
@@ -242,8 +242,8 @@ export const App = () => (
 
 ## ✅ Validation
 
-- **Built-in Validation with Zod** — [Pre-configured validation powered by Zod](https://formengine.io/documentation/validation?utm_source=nmpjs&utm_medium=article&utm_campaign=readme)
-- **Extensible Validation Support** — [Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries](https://formengine.io/documentation/validation?utm_source=nmpjs&utm_medium=article&utm_campaign=readme#External)
+- **Built-in Validation with Zod** - [Pre-configured validation powered by Zod](https://formengine.io/documentation/validation?utm_source=nmpjs&utm_medium=article&utm_campaign=readme)
+- **Extensible Validation Support** - [Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries](https://formengine.io/documentation/validation?utm_source=nmpjs&utm_medium=article&utm_campaign=readme#External)
 
 ## Ready to use Pre-Built RSuite Form UI Components
 
@@ -301,7 +301,7 @@ export const matButton = define(Button, 'MatButton')
 - [Email Support](mailto:support@optimajet.com) – Best for: issues with Formengine
   libraries or environment.
 
-## A premium on-premise React Form Builder with drag-and-drop, built for SaaS and enterprise teams — backed by Optimajet Premium Support
+## A premium on-premise React Form Builder with drag-and-drop, built for SaaS and enterprise teams - backed by Optimajet Premium Support
 
 #### React Form Builder - That Developers Can Customize and Teams Can Use
 
@@ -326,9 +326,9 @@ controls, export, and integrations.
  npm install @react-form-builder/core @react-form-builder/components-rsuite  
  ``` 
 
-## 🫶 We hope this project has saved you hours — ⭐ star this repo to support development. Your support keeps Formengine Core open and free.
+## 🫶 We hope this project has saved you hours - ⭐ star this repo to support development. Your support keeps Formengine Core open and free.
 
-#### Formengine Core — You’re not alone. Forms shouldn’t be this hard!
+#### Formengine Core - You’re not alone. Forms shouldn’t be this hard!
 
 [![Documentation](https://img.shields.io/badge/Documentation-Install-4286F4?style=for-the-badge&logo=read-the-docs&logoColor=white)](https://formengine.io/documentation/#quick-start?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme#quick-start)
 [![LLMs.txt](https://img.shields.io/badge/_LLMs.txt-FF69B4?style=for-the-badge)](https://formengine.io/llms?utm_source=npmjs&utm_medium=article-badge&utm_campaign=readme)

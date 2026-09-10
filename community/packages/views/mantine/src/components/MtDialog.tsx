@@ -94,7 +94,6 @@ export function MtDialog(props: MtDialogProps) {
 
 export const mtDialog = define(MtDialog, 'MtDialog')
   .category(overlaysCategory)
-  // TODO FE-1803 add support for overlayProps, transitionProps, closeButtonProps, scrollAreaComponent, and removeScrollProps.
   .props({
     title: string.default('Dialog Title'),
     description,

@@ -1,8 +1,8 @@
 import type {FormViewerWrapper} from '@react-form-builder/core'
 import {useBuilderTheme} from '@react-form-builder/core'
 import {useContext} from 'react'
-import {CustomProvider} from 'rsuite'
-import {CustomContext} from 'rsuite/CustomProvider'
+import {CustomContext} from 'rsuite/esm/CustomProvider/CustomContext.js'
+import CustomProvider from 'rsuite/esm/CustomProvider/CustomProvider.js'
 
 const rsViewerContainerStyle = {
   height: '100%',

@@ -173,10 +173,6 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
       this.initialData = value
       return
     }
-    // todo implement, autoValidate is not working correctly
-    // if (this.componentStore.schema?.autoValidate !== false) {
-    //   this.dataValidator?.sendValidationEvent?.(this.value)
-    // }
   }
 
   /**

@@ -58,7 +58,6 @@ export function MtSegmentedControl(props: MtSegmentedControlProps) {
 
 export const mtSegmentedControl = define(MtSegmentedControl, 'MtSegmentedControl')
   .category(inputsCategory)
-  // TODO FE-1803 add support for data item disabled/label ReactNode.
   .props({
     ...baseInputProps,
     value: string.valued,

@@ -1,7 +1,7 @@
 {
   "name": "@react-form-builder/components-material-ui",
   "description": "OptimaJet Form Builder Components - Material UI",
-  "version": "10.2.0",
+  "version": "10.3.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
@@ -28,8 +28,8 @@
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.3.2",
     "@mui/x-date-pickers": "^7.29.4",
-    "@react-form-builder/components-uploader": "^10.2.0",
-    "@react-form-builder/core": "10.2.0",
+    "@react-form-builder/components-uploader": "^10.3.0",
+    "@react-form-builder/core": "10.3.0",
     "dayjs": "^1.11.19",
     "react": ">=17.0.2 || ^18 || ^19.0.0",
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@react-form-builder/cli-lib": "*",
-    "@react-form-builder/json-schema-generator": "^10.2.0",
+    "@react-form-builder/json-schema-generator": "^10.3.0",
     "vite-node": "^5.2.0"
   },
   "files": [

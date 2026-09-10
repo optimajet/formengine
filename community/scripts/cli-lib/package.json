@@ -1,9 +1,12 @@
 {
   "name": "@react-form-builder/cli-lib",
-  "version": "10.2.0",
+  "version": "10.3.0",
   "private": true,
   "type": "module",
   "description": "Shared Node CLI helpers for pack, check-pack, and install workflows",
+  "dependencies": {
+    "enhanced-resolve": "^5.20.1"
+  },
   "exports": {
     "./check-pack-workflow": "./check-pack-workflow.ts",
     "./concurrency": "./concurrency.ts",

@@ -93,7 +93,6 @@ const datePickerBaseProps = {
 
 export const mtDatePicker = define(MtDatePicker, 'MtDatePicker')
   .category(datesCategory)
-  // TODO FE-1803 add support for presets, level, onLevelChange, ariaLabels, onDateChange, renderDay, excludeDate, getDayProps, getMonthControlProps, getYearControlProps, and headerControlsOrder.
   .props({
     ...datePickerBaseProps,
     allowDeselect: boolean.default(false),

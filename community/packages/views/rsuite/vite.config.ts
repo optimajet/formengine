@@ -1,13 +1,13 @@
-import {exportsToEntries, getDirname, getFilesByMask, readPackageJson} from '@react-form-builder/cli-lib/view-pack-tools'
 import {copyFile, mkdir, readdir, readFile, writeFile} from 'node:fs/promises'
 import {join, normalize, resolve} from 'node:path'
+import {exportsToEntries, getDirname, getFilesByMask, readPackageJson} from '@react-form-builder/cli-lib/view-pack-tools'
 import postcss from 'postcss'
 import type {ModuleFormat} from 'rollup'
 import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
 import {defineConfig, mergeConfig, Plugin, ResolvedConfig} from 'vite'
 import {inlineCssPlugin} from 'vite-inline-css-plugin'
-import dts from 'vite-plugin-dts'
 import base from '../../../vite.config'
+import {libDts} from '../../../vite-plugin-api-extractor.ts'
 
 const __dirname = getDirname(import.meta.url)
 
@@ -144,7 +144,7 @@ const composeRsuiteCssPlugin = (): Plugin => {
 
 export default defineConfig(env =>
   mergeConfig(base(env), {
-    plugins: [dts({rollupTypes: true, tsconfigPath: './bundle.tsconfig.json'}), inlineCssPlugin(), composeRsuiteCssPlugin()],
+    plugins: [libDts(), inlineCssPlugin(), composeRsuiteCssPlugin()],
     build: {
       sourcemap: true,
       assetsInlineLimit: 0, // don't inline

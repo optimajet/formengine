@@ -11,6 +11,19 @@ import {appVersionMetaPlugin} from './vite-plugin-app-version.ts'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+/**
+ * Absolute paths to the shared component test setup files.
+ */
+export const componentTestSetupFiles = [
+  path.resolve(__dirname, 'tests/component/config/setup-act-environment.ts'),
+  path.resolve(__dirname, 'tests/component/config/setup.ts'),
+]
+
+/**
+ * Glob for component tests, relative to a tests/react-* package.
+ */
+export const componentTestGlob = '../component/tests/**/*.{test,spec}.?(c|m)[jt]s?(x)'
+
 const isCI = !!(process.env.CI || process.env.GITHUB_ACTIONS || process.env.EARTHLY_CI)
 
 const plugins: PluginOption = [
@@ -47,6 +60,10 @@ export default defineConfig(() => ({
   test: {
     globals: true,
     environment: 'jsdom',
+    setupFiles: componentTestSetupFiles,
+    coverage: {
+      reporter: ['text', 'html'],
+    },
     alias: [
       {
         find: /^monaco-editor$/,

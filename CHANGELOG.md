@@ -4,6 +4,18 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 10.3.0 - September 10, 2026
+
+Fixes RSuite ESM imports for webpack, restores date validation args after JSON load, and adds CSS clear in Designer.
+
+### Highlights
+
+- [RsThemeWrapper](https://formengine.io/documentation/api-reference/@react-form-builder/components-rsuite/variables/RsThemeWrapper) and [RsLocalizationWrapper](https://formengine.io/documentation/api-reference/@react-form-builder/components-rsuite/variables/RsLocalizationWrapper) import RSuite through fully specified ESM file paths, so webpack 5, Create React App, and Node ESM resolve the package.
+- The Designer [Style tab](https://formengine.io/documentation/formengine-designer/features/component-styling) CSS editors include a clear control that resets component and wrapper CSS for the selected device.
+- After a form is loaded from JSON, date-typed [validation rule arguments](https://formengine.io/documentation/api-reference/@react-form-builder/core/type-aliases/ValidationRuleSettings#args) are restored to `Date` instances so Designer editors and [form validation](https://formengine.io/documentation/formengine-core/validation) stay in sync.
+
+[Full release notes for 10.3.0](https://formengine.io/documentation/release-notes/10.3.0)
+
 ## 10.2.0 - August 19, 2026
 
 Fixes a crash when a Modal has no template, and bumps example and build dependencies.

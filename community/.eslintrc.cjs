@@ -28,7 +28,7 @@ module.exports = {
     }],
     'no-secrets/no-secrets': 'error',
     'no-console': ['error', {allow: ['warn', 'error']}],
-    'no-warning-comments': ['warn', {
+    'no-warning-comments': ['error', {
       'terms': ['todo', 'fixme', 'wtf'],
       'location': 'anywhere'
     }],

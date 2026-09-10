@@ -13,7 +13,7 @@
 - [FAQ](https://formengine.io/documentation/category/faq?utm_source=github&utm_medium=article&utm_campaign=readme)
 - [Guides](https://formengine.io/documentation/category/guides?utm_source=github&utm_medium=article&utm_campaign=readme)
 
-### 📦 Formengine Core Installation — MIT Licensed
+### 📦 Formengine Core Installation - MIT Licensed
 
 **Install the core package and RSuite free form components:**
 
@@ -21,7 +21,7 @@
  npm install @react-form-builder/core @react-form-builder/components-rsuite
  ```
 
-### 📦 Formengine Drag-and-Drop Form Builder Installation — Commercial License
+### 📦 Formengine Drag-and-Drop Form Builder Installation - Commercial License
 
 **Install drag-and-drop Form Builder, built on top of the free, MIT-licensed FormEngine Core.**
 
@@ -60,8 +60,8 @@
 
 ## ✅ Validation
 
-- **Built-in Validation with Zod** — [Pre-configured validation powered by Zod](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme)
-- **Extensible Validation Support** — [Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme#External)
+- **Built-in Validation with Zod** - [Pre-configured validation powered by Zod](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme)
+- **Extensible Validation Support** - [Works with Yup, AJV, Zod, Superstruct, Joi, and other libraries](https://formengine.io/documentation/validation?utm_source=github&utm_medium=article&utm_campaign=readme#External)
 
 ## Ready to use Pre-Built RSuite Form UI Components
 
@@ -105,9 +105,9 @@ export const matButton = define(Button, 'MatButton')
   })
  ```
 
-## 🫶 We hope this project has saved you hours — ⭐ star this repo to support development. Your support keeps Formengine Core open and free
+## 🫶 We hope this project has saved you hours - ⭐ star this repo to support development. Your support keeps Formengine Core open and free
 
-#### Formengine — You’re not alone. Forms shouldn’t be this hard!
+#### Formengine - You’re not alone. Forms shouldn’t be this hard!
 
 [![Documentation](https://img.shields.io/badge/Documentation-Install-4286F4?style=for-the-badge&logo=read-the-docs&logoColor=white)](https://formengine.io/documentation/#quick-start?utm_source=github&utm_medium=article-badge&utm_campaign=readme#quick-start)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://hk.linkedin.com/company/optimajet?utm_source=github&utm_medium=article-badge&utm_campaign=readme)

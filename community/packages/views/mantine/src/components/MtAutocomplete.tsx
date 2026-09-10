@@ -20,7 +20,6 @@ const MtAutocomplete = (props: AutocompleteProps & BaseComboboxProps) => {
 
 export const mtAutocomplete = define(MtAutocomplete, 'MtAutocomplete')
   .category(comboboxCategory)
-  // TODO FE-1803 add support for comboboxProps, renderOption, and filter.
   .props({
     ...baseComboboxProps,
     placeholder: string.default('Search'),

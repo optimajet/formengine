@@ -394,6 +394,10 @@ export class Definer<T extends object> {
       features[cfRequiredProperties] = requiredProps
     }
 
+    const dateProperties = propAns
+      .filter(annotation => annotation.type === 'date')
+      .map(annotation => annotation.key)
+
     const model = new Model(
       this.data.component,
       this.data.name || this.getType(),
@@ -411,7 +415,7 @@ export class Definer<T extends object> {
       disabledAn?.key,
       valuedAn?.dataBindingType,
       features,
-    )
+    ).withDateProperties(dateProperties)
 
     const meta = new Meta(
       this.getType(),

@@ -16,7 +16,6 @@ const MtText = (props: MtTextProps) => {
 
 export const mtText = define(MtText, 'MtText')
   .category(typographyCategory)
-  // TODO FE-1803 add support for gradient.
   .props({
     children: string.default('Text').dataBound,
     ...textStyleProps,

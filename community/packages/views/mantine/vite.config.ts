@@ -3,7 +3,7 @@ import {normalize, resolve} from 'node:path'
 import type {ModuleFormat} from 'rollup'
 import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
 import {defineConfig, mergeConfig} from 'vite'
-import dts from 'vite-plugin-dts'
+import {libDts} from '../../../vite-plugin-api-extractor.ts'
 
 import base from '../../../vite.config'
 
@@ -37,7 +37,7 @@ if (missingInEntry.length > 0) {
 
 export default defineConfig(env =>
   mergeConfig(base(env), {
-    plugins: [dts({rollupTypes: true, tsconfigPath: './bundle.tsconfig.json'})],
+    plugins: [libDts()],
     build: {
       sourcemap: true,
       lib: {

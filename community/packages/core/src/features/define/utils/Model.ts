@@ -16,6 +16,7 @@ import {cfComponentRole} from './integratedComponentFeatures'
  */
 export class Model<T = any> {
   readonly #name?: string
+  #datePropertyKeys: readonly string[] = []
   /**
    * The React component.
    */
@@ -78,6 +79,26 @@ export class Model<T = any> {
    */
   get type(): string {
     return this.typeName || this.component.displayName || this.component.name
+  }
+
+  /**
+   * @returns the names of the component properties that store Date values.
+   */
+  get dateProperties(): readonly string[] {
+    if (this.valueType !== 'date' || !this.valued || this.#datePropertyKeys.includes(this.valued)) {
+      return this.#datePropertyKeys
+    }
+    return [...this.#datePropertyKeys, this.valued]
+  }
+
+  /**
+   * Sets the names of the date-typed component properties. **Internal use only.**
+   * @param keys the property keys that store Date values.
+   * @returns the model.
+   */
+  withDateProperties(keys: readonly string[]): this {
+    this.#datePropertyKeys = [...new Set(keys)]
+    return this
   }
 
   /**

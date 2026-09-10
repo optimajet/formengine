@@ -6,7 +6,6 @@ import {dropdownType} from './internal/sharedProps'
 
 export const mtDateTimePicker = define(DateTimePicker, 'MtDateTimePicker')
   .category(datesCategory)
-  // TODO FE-1803 add support for presets, timePickerProps, submitButtonProps, defaultTimeValue, level, onLevelChange, ariaLabels, onDateChange, renderDay, excludeDate, getDayProps, getMonthControlProps, and getYearControlProps.
   .props({
     ...baseInputProps,
     placeholder: string,

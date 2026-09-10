@@ -1,6 +1,7 @@
 import {copyFileSync, cpSync, existsSync, mkdirSync, renameSync, writeFileSync} from 'node:fs'
 import {dirname, join} from 'node:path'
 
+import {checkWebpackFullySpecifiedImports} from './check-webpack-imports.ts'
 import {removePath} from './fs-utils.ts'
 import {readJson, writeJson} from './json-fs.ts'
 import {moveTarballToPackageRoot, runNpmPack} from './npm-pack.ts'
@@ -30,6 +31,7 @@ export type ManifestCopyMode = 'cp-if-exists' | 'copy-file' | 'cp'
 export function runPackManifestFiles(configDir: string, mode: ManifestCopyMode): void {
   const sourceDir = join(configDir, '..')
   const tempDir = join(configDir, 'package')
+  checkWebpackFullySpecifiedImports(sourceDir)
 
   try {
     removePath(tempDir)
@@ -77,6 +79,7 @@ export function runPackReadmeDist(configDir: string, options?: ReadmeDistOptions
   const sourceDir = join(configDir, '..')
   const tempDir = join(configDir, 'package')
   const rootFiles = ['README.md', ...(options?.extraRootFiles ?? [])]
+  checkWebpackFullySpecifiedImports(sourceDir)
 
   try {
     removePath(tempDir)
@@ -107,6 +110,7 @@ export function runPackReadmeDist(configDir: string, options?: ReadmeDistOptions
 export function runPackViewExportsPatch(configDir: string): void {
   const sourceDir = join(configDir, '..')
   const tempDir = join(configDir, 'package')
+  checkWebpackFullySpecifiedImports(sourceDir)
 
   try {
     removePath(tempDir)

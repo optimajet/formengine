@@ -61,7 +61,6 @@ interface UseLoadDataProps extends Pick<InputPickerProps,
  * @returns the object with prepared properties for the picker.
  */
 export const useLoadData = ({data: initialData, onLoadData, value, preload, disableVirtualized, ...props}: UseLoadDataProps) => {
-  // TODO lint ignored, will be fixed after merger with #FE-619
   const [searchValue, setSearchValue] = useState('')
   const [data, setData] = useState<ItemDataType[]>(initialData ?? [])
   const [loading, setLoading] = useState(false)

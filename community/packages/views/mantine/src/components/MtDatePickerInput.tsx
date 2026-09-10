@@ -48,7 +48,6 @@ const datePickerInputBaseProps = {
 
 export const mtDatePickerInput = define(DatePickerInput, 'MtDatePickerInput')
   .category(datesCategory)
-  // TODO FE-1803 add support for presets, valueFormatter, labelSeparator, closeOnChange, sortDates, level, onLevelChange, ariaLabels, onDateChange, renderDay, excludeDate, getDayProps, getMonthControlProps, getYearControlProps, and headerControlsOrder.
   .props({
     ...datePickerInputBaseProps,
     allowDeselect: boolean.default(false),

@@ -5,7 +5,6 @@ import {inputsCategory} from './internal/categories'
 
 export const mtColorInput = define(ColorInput, 'MtColorInput')
   .category(inputsCategory)
-  // TODO FE-1803 add support for eyeDropperIcon.
   .props({
     ...baseInputProps,
     placeholder: string,

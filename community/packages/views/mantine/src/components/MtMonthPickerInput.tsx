@@ -45,7 +45,6 @@ const monthPickerInputBaseProps = {
 
 export const mtMonthPickerInput = define(MonthPickerInput, 'MtMonthPickerInput')
   .category(datesCategory)
-  // TODO FE-1803 add support for valueFormatter, labelSeparator, closeOnChange, sortDates, level, onLevelChange, onMonthSelect, ariaLabels, onDateChange, and getMonthControlProps.
   .props({
     ...monthPickerInputBaseProps,
     allowDeselect: boolean

@@ -20,7 +20,6 @@ const MtTagsInput = (props: TagsInputProps & BaseComboboxProps) => {
 
 export const mtTagsInput = define(MtTagsInput, 'MtTagsInput')
   .category(comboboxCategory)
-  // TODO FE-1803 add support for comboboxProps, renderOption, filter, isDuplicate, and clearButtonProps.
   .props({
     ...baseComboboxProps,
     placeholder: string.default('Add tags'),

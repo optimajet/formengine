@@ -87,7 +87,6 @@ const yearPickerBaseProps = {
 
 export const mtYearPicker = define(MtYearPicker, 'MtYearPicker')
   .category(datesCategory)
-  // TODO FE-1803 add support for level, onLevelChange, onYearSelect, ariaLabels, onDateChange, and getYearControlProps.
   .props({
     ...yearPickerBaseProps,
     allowDeselect: boolean.default(false),

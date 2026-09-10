@@ -6,7 +6,6 @@ import {onChange, size} from './internal/sharedProps'
 
 export const mtChip = define(Chip, 'MtChip')
   .category(inputsCategory)
-  // TODO FE-1803 add support for icon, and wrapperProps.
   .props({
     children: string.default('Chip'),
     checked: boolean.valued.uncontrolledValue(false),

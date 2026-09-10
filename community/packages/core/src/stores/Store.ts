@@ -36,23 +36,18 @@ import type {Setter, ViewMode} from '../types'
 import {ComponentData} from '../utils/contexts/ComponentDataContext'
 import type {IFormData} from '../utils/IFormData'
 import {isRecord} from '../utils/isRecord'
-import {isString} from '../utils/isString'
 import {nameObservable} from '../utils/observableNaming'
-import {isNumber, isUndefined} from '../utils/tools'
+import {isUndefined} from '../utils/tools'
 import {ComponentStore, dataKey} from './ComponentStore'
 import {Form} from './Form'
 import type {FormViewerPropsStore} from './FormViewerPropsStore'
 import type {FormViewerValidationRules} from './FormViewerValidationRules'
+import {hydrateDateValues} from './hydrateDateValues'
 import type {IComponentState} from './IComponentState'
 import type {IStore} from './IStore'
 import {LocalizationStore} from './LocalizationStore'
 import type {PersistedForm} from './PersistedForm'
 import {PersistedFormVersion} from './PersistedForm'
-
-const propertiesToFix: Record<string, string[]> = {
-  'RsDatePicker': ['calendarDefaultDate', 'defaultValue', 'value'],
-  'RsCalendar': ['defaultValue', 'value'],
-}
 
 const normalizePersistedI18n = (persistedForm: PersistedForm): {
   languages: Language[]
@@ -269,6 +264,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    */
   createComponentData(componentStore: ComponentStore, deferFieldCalculation = false): ComponentData {
     const model = this.getModel(componentStore.type)
+    hydrateDateValues(componentStore, model, model.valueType ? this.getValidationRules(model.valueType) : undefined)
     const factory = (cs: ComponentStore) => this.createComponentData(cs, deferFieldCalculation)
     const componentData = new ComponentData(componentStore, model, factory, this.getFormValidatorsResult.bind(this))
     componentData.field = this.createField(componentData, deferFieldCalculation)
@@ -351,30 +347,11 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
   applyStringForm(text: string) {
     try {
       const persistedForm = JSON.parse(text) as PersistedForm
-      this.fixPropertyTypes(persistedForm.form)
       this.applyPersistedForm(persistedForm)
       this.formLoadError = undefined
     } catch (e) {
       this.formLoadError = (e as Error)?.message ?? e
       console.error(e)
-    }
-  }
-
-  private fixPropertyTypes(componentStore: ComponentStore) {
-    if (!componentStore.props) {
-      componentStore.props = {}
-    }
-
-    // workaround, we need to restore the ComponentStore along with metadata information
-    const properties = propertiesToFix[componentStore.type]
-    properties?.forEach(property => this.fixDateProperty(componentStore, property))
-    componentStore.children?.forEach(child => this.fixPropertyTypes(child))
-  }
-
-  private fixDateProperty(componentStore: ComponentStore, property: string) {
-    const value = componentStore.props[property]?.value
-    if (isString(value) || isNumber(value)) {
-      componentStore.props[property].value = new Date(value)
     }
   }
 

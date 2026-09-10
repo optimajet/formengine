@@ -70,7 +70,6 @@ export function MtRangeSliderComponent(props: MtRangeSliderProps) {
 
 export const mtRangeSlider = define(MtRangeSliderComponent, 'MtRangeSlider')
   .category(inputsCategory)
-  // TODO FE-1803 add support for marks, label, labelTransitionProps, thumbChildren, thumbFromLabel, thumbToLabel, scale, hiddenInputProps, and thumbProps.
   .props({
     ...baseInputProps,
     value: array.valued.uncontrolledValue([20, 40]),

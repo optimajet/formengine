@@ -42,7 +42,6 @@ export function MtTooltip(props: MtTooltipProps) {
 
 export const mtTooltip = define(MtTooltip, 'MtTooltip')
   .category(overlaysCategory)
-  // TODO FE-1803 add support for transitionProps, events, target, refProp, floatingStrategy, middlewares, positionDependencies, onPositionChange, and offset object.
   .props({
     content: string.default('Tooltip content'),
     children: node,
