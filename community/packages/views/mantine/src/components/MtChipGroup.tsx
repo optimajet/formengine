@@ -1,6 +1,6 @@
 import type {ChipGroupProps, ChipVariant, InputWrapperProps} from '@mantine/core'
 import {Chip, Group, Input} from '@mantine/core'
-import {array, define, disabled, required, string, toLabeledValues,} from '@react-form-builder/core'
+import {array, define, disabled, required, string, toLabeledValues} from '@react-form-builder/core'
 import {inputsCategory} from './internal/categories'
 import type {GroupLayoutProps} from './internal/groupLayoutProps'
 import {groupLayoutProps} from './internal/groupLayoutProps'
@@ -36,32 +36,13 @@ export interface MtChipGroupProps<Multiple extends boolean = false>
  * @returns chip group component.
  */
 export function MtChipGroup<Multiple extends boolean>(props: MtChipGroupProps<Multiple>) {
-  const {
-    items,
-    variant,
-    disabled,
-    value,
-    defaultValue,
-    onChange,
-    multiple,
-    gap,
-    align,
-    justify,
-    wrap,
-    grow,
-    ...others
-  } = props
+  const {items, variant, disabled, value, defaultValue, onChange, multiple, gap, align, justify, wrap, grow, ...others} = props
 
   return (
     <Input.Wrapper {...others}>
       <Group pt={5} gap={gap} align={align} justify={justify} wrap={wrap} grow={grow}>
-        <Chip.Group
-          value={value}
-          defaultValue={defaultValue}
-          onChange={onChange}
-          multiple={multiple}
-        >
-          {items.map((item) => (
+        <Chip.Group value={value} defaultValue={defaultValue} onChange={onChange} multiple={multiple}>
+          {items.map(item => (
             <Chip key={item.value} value={item.value} variant={variant} disabled={disabled}>
               {item.label}
             </Chip>
@@ -78,7 +59,7 @@ export function MtChipGroup<Multiple extends boolean>(props: MtChipGroupProps<Mu
  * @returns chip radio group component.
  */
 export function MtChipRadioGroup(props: Omit<MtChipGroupProps, 'multiple'>) {
-  return <MtChipGroup {...props} multiple={false}/>
+  return <MtChipGroup {...props} multiple={false} />
 }
 
 /**
@@ -87,7 +68,7 @@ export function MtChipRadioGroup(props: Omit<MtChipGroupProps, 'multiple'>) {
  * @returns chip checkbox group component.
  */
 export function MtChipCheckboxGroup(props: Omit<MtChipGroupProps<true>, 'multiple'>) {
-  return <MtChipGroup {...props} multiple/>
+  return <MtChipGroup {...props} multiple />
 }
 
 export const mtChipRadioGroup = define(MtChipRadioGroup, 'MtChipRadioGroup')
@@ -97,8 +78,7 @@ export const mtChipRadioGroup = define(MtChipRadioGroup, 'MtChipRadioGroup')
     description: description,
     error: string,
     value: string.valued,
-    items: array.localize
-      .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
+    items: array.localize.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     variant: filledVariant,
     size: size,
     ...groupLayoutProps,
@@ -114,8 +94,7 @@ export const mtChipCheckboxGroup = define(MtChipCheckboxGroup, 'MtChipCheckboxGr
     description: description,
     error: string,
     value: array.valued,
-    items: array.localize
-      .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
+    items: array.localize.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     variant: filledVariant,
     size: size,
     ...groupLayoutProps,

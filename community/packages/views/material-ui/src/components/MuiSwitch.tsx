@@ -20,12 +20,15 @@ export interface MuiSwitchProps extends Pick<SwitchProps, 'checked' | 'color' | 
 }
 
 const MuiSwitch = ({checked, onChange, label, size, ...props}: MuiSwitchProps) => {
-  const handleChange = useCallback((_: SyntheticEvent, checked: boolean) => {
-    onChange?.(checked)
-  }, [onChange])
-  const control = useMemo(() => <Switch size={size}/>, [size])
+  const handleChange = useCallback(
+    (_: SyntheticEvent, checked: boolean) => {
+      onChange?.(checked)
+    },
+    [onChange]
+  )
+  const control = useMemo(() => <Switch size={size} />, [size])
 
-  return <FormControlLabel checked={checked} onChange={handleChange} control={control} label={label} {...props}/>
+  return <FormControlLabel checked={checked} onChange={handleChange} control={control} label={label} {...props} />
 }
 
 export const muiSwitch = define(MuiSwitch, 'MuiSwitch')
@@ -37,5 +40,5 @@ export const muiSwitch = define(MuiSwitch, 'MuiSwitch')
     color: oneOf('primary', 'secondary', 'error', 'info', 'success', 'warning', 'default'),
     checked: boolean.valued.uncontrolledValue(false),
     size: oneOf('small', 'medium'),
-    onChange: event
+    onChange: event,
   })

@@ -9,5 +9,5 @@ export const [
   /**
    * The BuilderMode context provider.
    */
-  BuilderModeProvider
+  BuilderModeProvider,
 ] = createNonNullableContext<BuilderMode>('BuilderModeContext', 'viewer')

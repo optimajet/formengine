@@ -19,5 +19,5 @@ export const muiLink = define(MuiLink, 'MuiLink')
     children: stringNode.setup({default: defaultContent}).dataBound,
     target: oneOfStrict('_self', '_blank', '_parent', '_top', '_unfencedTop').default('_blank'),
     onClick: event,
-    ...typography
+    ...typography,
   })

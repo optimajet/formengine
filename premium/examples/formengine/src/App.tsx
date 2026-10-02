@@ -10,8 +10,9 @@ import {Main} from './components/Main'
 export default function App() {
   return (
     <Switch>
-      <Route path="/" component={Main}/>
-      <Route path="/form-builder" component={FormBuilderExample}/>
-      <Route path="/form-viewer" component={FormViewerExample}/>
-    </Switch>)
+      <Route path="/" component={Main} />
+      <Route path="/form-builder" component={FormBuilderExample} />
+      <Route path="/form-viewer" component={FormViewerExample} />
+    </Switch>
+  )
 }

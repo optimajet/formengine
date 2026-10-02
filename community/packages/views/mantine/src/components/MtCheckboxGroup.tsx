@@ -1,6 +1,6 @@
 import type {CheckboxGroupProps} from '@mantine/core'
 import {Checkbox, Group} from '@mantine/core'
-import {array, define, disabled, required, string, toLabeledValues,} from '@react-form-builder/core'
+import {array, define, disabled, required, string, toLabeledValues} from '@react-form-builder/core'
 import {inputsCategory} from './internal/categories'
 import type {GroupLayoutProps} from './internal/groupLayoutProps'
 import {groupLayoutProps} from './internal/groupLayoutProps'
@@ -28,29 +28,13 @@ export interface MtCheckboxGroupProps extends Omit<CheckboxGroupProps, 'children
  * @returns checkbox group component.
  */
 export function MtCheckboxGroup(props: MtCheckboxGroupProps) {
-  const {
-    items,
-    variant,
-    labelPosition,
-    gap,
-    align,
-    justify,
-    wrap,
-    grow,
-    ...others
-  } = props
+  const {items, variant, labelPosition, gap, align, justify, wrap, grow, ...others} = props
 
   return (
     <Checkbox.Group {...others}>
       <Group pt={5} gap={gap} align={align} justify={justify} wrap={wrap} grow={grow}>
-        {items.map((item) => (
-          <Checkbox
-            key={item.value}
-            value={item.value}
-            label={item.label}
-            variant={variant}
-            labelPosition={labelPosition}
-          />
+        {items.map(item => (
+          <Checkbox key={item.value} value={item.value} label={item.label} variant={variant} labelPosition={labelPosition} />
         ))}
       </Group>
     </Checkbox.Group>
@@ -64,8 +48,7 @@ export const mtCheckboxGroup = define(MtCheckboxGroup, 'MtCheckboxGroup')
     description: description,
     error: string,
     value: array.valued,
-    items: array.localize
-      .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
+    items: array.localize.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     variant: filledVariant,
     size: size,
     labelPosition: labelPosition,

@@ -11,11 +11,7 @@ import type {FormViewerValidationRules} from './FormViewerValidationRules'
  * @param model the component metadata for the form viewer.
  * @param validationRules the validators for the component value type, if the component has a value type.
  */
-export function hydrateDateValues(
-  componentStore: ComponentStore,
-  model: Model,
-  validationRules?: FormViewerValidationRules
-): void {
+export function hydrateDateValues(componentStore: ComponentStore, model: Model, validationRules?: FormViewerValidationRules): void {
   model.dateProperties.forEach(property => {
     const componentProperty = componentStore.props?.[property]
     if (!componentProperty) return

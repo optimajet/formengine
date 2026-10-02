@@ -68,7 +68,7 @@ const RsDatePicker = ({label, value, className, format, defaultValue, ...props}:
 
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
-      <DatePicker {...props} value={parsedValue ?? defaultValue ?? null} format={safeFormat} onClean={onClean}/>
+      <DatePicker {...props} value={parsedValue ?? defaultValue ?? null} format={safeFormat} onClean={onClean} />
     </Labeled>
   )
 }
@@ -86,10 +86,12 @@ export const rsDatePicker = define(RsDatePicker, 'RsDatePicker')
     disabled: disabled.default(false),
     readOnly,
     editable: boolean.default(true),
-    format: string.validated(formatValidator, {
-      code: 'INVALID_DATE_FORMAT',
-      message: 'The provided date format is invalid'
-    }).withEditorProps({placeholder: 'yyyy-MM-dd'}),
+    format: string
+      .validated(formatValidator, {
+        code: 'INVALID_DATE_FORMAT',
+        message: 'The provided date format is invalid',
+      })
+      .withEditorProps({placeholder: 'yyyy-MM-dd'}),
     isoWeek: boolean.default(false),
     limitEndYear: number,
     limitStartYear: number,
@@ -118,5 +120,5 @@ export const rsDatePicker = define(RsDatePicker, 'RsDatePicker')
     showMeridiem: boolean.default(false),
     showWeekNumbers: boolean.default(false),
     size: size,
-    value: date.valued
+    value: date.valued,
   })

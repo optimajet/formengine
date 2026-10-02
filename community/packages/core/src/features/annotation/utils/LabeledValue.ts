@@ -7,11 +7,11 @@ export interface LabeledValue {
   /**
    * The value.
    */
-  value: string | number;
+  value: string | number
   /**
    * The label.
    */
-  label?: string;
+  label?: string
 }
 
 /**

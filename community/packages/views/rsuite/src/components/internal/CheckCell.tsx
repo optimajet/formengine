@@ -15,20 +15,18 @@ import {SCell} from './SCell'
  * @returns the React element.
  */
 export const CheckCell = ({rowData, dataKey, rowIndex, onChange, ...props}: InputCellProps) => {
-  const handleChange = useCallback((_: unknown, checked: boolean) => {
-    // eslint-disable-next-line react-hooks/immutability
-    rowData[dataKey] = checked
-    onChange?.(checked, dataKey, rowIndex)
-  }, [dataKey, onChange, rowData, rowIndex])
+  const handleChange = useCallback(
+    (_: unknown, checked: boolean) => {
+      // eslint-disable-next-line react-hooks/immutability
+      rowData[dataKey] = checked
+      onChange?.(checked, dataKey, rowIndex)
+    },
+    [dataKey, onChange, rowData, rowIndex]
+  )
 
   return (
     <SCell {...props}>
-      <Checkbox
-        inline
-        checked={rowData[dataKey] ?? false}
-        onChange={handleChange}
-        className={styles.checkbox}
-      />
+      <Checkbox inline checked={rowData[dataKey] ?? false} onChange={handleChange} className={styles.checkbox} />
     </SCell>
   )
 }

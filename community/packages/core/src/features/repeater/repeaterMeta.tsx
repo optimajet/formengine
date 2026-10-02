@@ -6,12 +6,16 @@ import {
   repeaterModel,
   repeaterProps,
   repeaterValuedAnnotation,
-  repeaterWrapperStyleProperties
+  repeaterWrapperStyleProperties,
 } from './repeaterModel'
 
-const repeaterModules: Annotation[] = [
-  ...modules,
-]
+const repeaterModules: Annotation[] = [...modules]
 
-export const repeaterMeta = new Meta(repeaterModel.type, repeaterProps, repeaterItemStyleProperties, repeaterWrapperStyleProperties,
-  repeaterModules, repeaterValuedAnnotation.build('value'))
+export const repeaterMeta = new Meta(
+  repeaterModel.type,
+  repeaterProps,
+  repeaterItemStyleProperties,
+  repeaterWrapperStyleProperties,
+  repeaterModules,
+  repeaterValuedAnnotation.build('value')
+)

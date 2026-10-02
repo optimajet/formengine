@@ -39,7 +39,7 @@ export function replaceDotsDeep(value: unknown): unknown {
     return replaceDots(value)
   }
   if (Array.isArray(value)) {
-    return value.map((item) => replaceDotsDeep(item))
+    return value.map(item => replaceDotsDeep(item))
   }
   if (value !== null && typeof value === 'object') {
     const source = value as Record<string, unknown>
@@ -51,4 +51,3 @@ export function replaceDotsDeep(value: unknown): unknown {
   }
   return value
 }
-

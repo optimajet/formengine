@@ -19,7 +19,6 @@ import {ViewerPropsProvider} from './ViewerPropsContext'
  * Properties of the React component ViewerStoreProvider.
  */
 interface ViewerStoreProviderProps {
-
   /**
    * Children component.
    */
@@ -48,28 +47,34 @@ const RawNotifier = (props: Omit<ExistingStoreProviderProps, 'children'>) => {
     store.formViewerPropsStore.applyProps(viewerProps)
     store.form.componentTree.state = store.formViewerPropsStore.initialState
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [viewerProps.initialData, viewerProps.initialState, viewerProps.view, viewerProps.validators, viewerProps.formValidators,
-    viewerProps.localize, viewerProps.language, viewerProps.actions, viewerProps.errorWrapper,
-    viewerProps.readOnly, viewerProps.disabled, viewerProps.componentWrapper, viewerProps.userContext])
+  }, [
+    viewerProps.initialData,
+    viewerProps.initialState,
+    viewerProps.view,
+    viewerProps.validators,
+    viewerProps.formValidators,
+    viewerProps.localize,
+    viewerProps.language,
+    viewerProps.actions,
+    viewerProps.errorWrapper,
+    viewerProps.readOnly,
+    viewerProps.disabled,
+    viewerProps.componentWrapper,
+    viewerProps.userContext,
+  ])
 
   return null
 }
 
 const Notifier = namedObserver('Notifier', RawNotifier)
 
-const RawExistingStoreProvider = ({
-                                    children,
-                                    props: {viewerRef, ...props},
-                                    store
-                                  }: ExistingStoreProviderProps) => {
+const RawExistingStoreProvider = ({children, props: {viewerRef, ...props}, store}: ExistingStoreProviderProps) => {
   useImperativeHandle(viewerRef, () => store, [store])
 
   return (
     <ViewerPropsProvider value={props}>
-      <Notifier store={store} props={props}/>
-      <StoreProvider value={store}>
-        {children}
-      </StoreProvider>
+      <Notifier store={store} props={props} />
+      <StoreProvider value={store}>{children}</StoreProvider>
     </ViewerPropsProvider>
   )
 }
@@ -84,8 +89,11 @@ const ExistingStoreProvider = namedObserver('ExistingStoreProvider', RawExisting
  * @knipignore
  * @returns the component property calculator.
  */
-export const defaultComponentStateFactory: ComponentStateFactory = (data: ComponentData, store: Store,
-                                                                    context?: ComponentPropertiesContext) => {
+export const defaultComponentStateFactory: ComponentStateFactory = (
+  data: ComponentData,
+  store: Store,
+  context?: ComponentPropertiesContext
+) => {
   function defaultComponentLocalizer(componentStore: ComponentStore) {
     return store.localizeComponent('component', data.dataRoot, componentStore)
   }
@@ -103,9 +111,11 @@ const RawNewStoreProvider = ({children, props}: ViewerStoreProviderProps) => {
 
   if (!store) return null
 
-  return <ExistingStoreProvider props={props} store={store}>
-    {children}
-  </ExistingStoreProvider>
+  return (
+    <ExistingStoreProvider props={props} store={store}>
+      {children}
+    </ExistingStoreProvider>
+  )
 }
 
 export const NewStoreProvider = namedObserver('NewStoreProvider', RawNewStoreProvider)
@@ -118,9 +128,13 @@ export const NewStoreProvider = namedObserver('NewStoreProvider', RawNewStorePro
 const RawViewerStoreProvider = (props: ViewerStoreProviderProps) => {
   const storeFromContext = useContext(StoreContext)
 
-  return storeFromContext
-    ? <ExistingStoreProvider props={props.props} store={storeFromContext}>{props.children}</ExistingStoreProvider>
-    : <NewStoreProvider props={props.props}>{props.children}</NewStoreProvider>
+  return storeFromContext ? (
+    <ExistingStoreProvider props={props.props} store={storeFromContext}>
+      {props.children}
+    </ExistingStoreProvider>
+  ) : (
+    <NewStoreProvider props={props.props}>{props.children}</NewStoreProvider>
+  )
 }
 
 export const ViewerStoreProvider = namedObserver('ViewerStoreProvider', RawViewerStoreProvider)

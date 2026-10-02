@@ -10,7 +10,6 @@ export const mtNativeSelect = define(NativeSelect, 'MtNativeSelect')
   .props({
     ...baseInputProps,
     ...inputSectionProps,
-    data: array.localize
-      .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
+    data: array.localize.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
   })
   .overrideEventHandlers(valueEventHandlers)

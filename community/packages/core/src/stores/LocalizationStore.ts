@@ -12,8 +12,7 @@ class LocalizationRepository {
   constructor(
     private readonly getValue: () => LocalizationValue,
     private readonly getCompatibleId: (rawId: string) => string
-  ) {
-  }
+  ) {}
 
   initializeLanguageState(configuredLanguageCodes: Set<LanguageFullCode>) {
     const value = this.getValue()
@@ -134,12 +133,7 @@ class LocalizationRepository {
     }
   }
 
-  #removeLocalizationProperty(
-    languageFullCode: LanguageFullCode,
-    compatibleId: string,
-    type: LocalizationType,
-    compatibleName: string
-  ) {
+  #removeLocalizationProperty(languageFullCode: LanguageFullCode, compatibleId: string, type: LocalizationType, compatibleName: string) {
     const localization = this.getValue()
     const langBucket = localization[languageFullCode]
     const componentBucket = langBucket?.[compatibleId]
@@ -169,17 +163,12 @@ class LocalizationLanguageResolver {
   constructor(
     private readonly configuredLanguageCodes: Set<LanguageFullCode>,
     private readonly hasTranslations: (language: LanguageFullCode) => boolean,
-    private readonly withTranslationsLanguageKeys: () => LanguageFullCode[],
-  ) {
-  }
+    private readonly withTranslationsLanguageKeys: () => LanguageFullCode[]
+  ) {}
 
   findLocalizationKey(languageFullCode: LanguageFullCode): LanguageFullCode | null {
-    const {
-      exactConfigured,
-      exactWithTranslations,
-      sameCodeConfigured,
-      sameCodeWithTranslations
-    } = this.#resolveLanguageMatch(languageFullCode)
+    const {exactConfigured, exactWithTranslations, sameCodeConfigured, sameCodeWithTranslations} =
+      this.#resolveLanguageMatch(languageFullCode)
 
     if (exactWithTranslations) return exactWithTranslations
     if (sameCodeWithTranslations) return sameCodeWithTranslations
@@ -223,8 +212,7 @@ class LocalizationLanguageResolver {
   #resolveLanguageMatch(languageFullCode: LanguageFullCode) {
     const exactConfigured = this.#findExactConfiguredLanguageKey(languageFullCode)
 
-    const sameCodeConfigured = this.#findLanguageByCode(languageFullCode, false)
-      ?? this.#findConfiguredLanguageByCode(languageFullCode)
+    const sameCodeConfigured = this.#findLanguageByCode(languageFullCode, false) ?? this.#findConfiguredLanguageByCode(languageFullCode)
 
     const exactWithTranslations = this.#findExactLanguageWithTranslationsKey(languageFullCode)
     const sameCodeWithTranslations = this.#findLanguageByCode(languageFullCode, true)
@@ -247,9 +235,10 @@ class LocalizationLanguageResolver {
 }
 
 class LocalizationObservable {
-
-  constructor(readonly languageFullCode: LanguageFullCode,
-              readonly localizationStore: LocalizationStore) {
+  constructor(
+    readonly languageFullCode: LanguageFullCode,
+    readonly localizationStore: LocalizationStore
+  ) {
     makeAutoObservable(this, undefined, {name: nameObservable('LocalizationObservable')})
   }
 
@@ -296,7 +285,6 @@ class LocalizationObservable {
  * Observable storage of localization. **Internal use only.**
  */
 export class LocalizationStore implements ILocalizationStore {
-
   private localizationCache = new Map<string, LocalizationObservable>()
   private configuredLanguageCodes = new Set<LanguageFullCode>()
   private repository: LocalizationRepository
@@ -307,12 +295,15 @@ export class LocalizationStore implements ILocalizationStore {
    * @param value the initial localization value.
    * @param engine the localization engine to use.
    */
-  constructor(readonly value: LocalizationValue = {}, readonly engine: ILocalizationEngine) {
+  constructor(
+    readonly value: LocalizationValue = {},
+    readonly engine: ILocalizationEngine
+  ) {
     this.repository = new LocalizationRepository(() => this.value, this.engine.getCompatibleId.bind(this.engine))
     this.resolver = new LocalizationLanguageResolver(
       this.configuredLanguageCodes,
       this.#hasTranslations.bind(this),
-      () => Object.keys(this.value) as LanguageFullCode[],
+      () => Object.keys(this.value) as LanguageFullCode[]
     )
     this.#initializeLanguageState()
     makeAutoObservable(this, undefined, {name: nameObservable(className)})
@@ -463,9 +454,6 @@ export class LocalizationStore implements ILocalizationStore {
    * @returns the available language codes.
    */
   get langCodes() {
-    return [...new Set([
-      ...Object.keys(this.value),
-      ...this.configuredLanguageCodes,
-    ])] as Array<LanguageFullCode>
+    return [...new Set([...Object.keys(this.value), ...this.configuredLanguageCodes])] as Array<LanguageFullCode>
   }
 }

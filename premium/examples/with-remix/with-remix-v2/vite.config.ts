@@ -4,7 +4,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 declare module '@remix-run/node' {
   interface Future {
-    v3_singleFetch: true;
+    v3_singleFetch: true
   }
 }
 
@@ -27,7 +27,7 @@ export default defineConfig({
       'monaco-editor/react',
       '@react-form-builder/designer',
       '@react-form-builder/core',
-      '@react-form-builder/components-rsuite'
+      '@react-form-builder/components-rsuite',
     ],
-  }
+  },
 })

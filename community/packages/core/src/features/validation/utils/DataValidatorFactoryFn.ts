@@ -10,6 +10,8 @@ import type {DataValidator} from './DataValidator'
  * @param onError the callback function called when the validation error text is set.
  * @returns the data validator.
  */
-export type DataValidatorFactoryFn = (componentData: ComponentData,
-                                      valueType: SchemaType,
-                                      onError: Setter<string | undefined>) => DataValidator
+export type DataValidatorFactoryFn = (
+  componentData: ComponentData,
+  valueType: SchemaType,
+  onError: Setter<string | undefined>
+) => DataValidator

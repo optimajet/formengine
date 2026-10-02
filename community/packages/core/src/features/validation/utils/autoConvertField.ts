@@ -26,7 +26,7 @@ const stringify = (from: any) => JSON.stringify(from)
 const toString = (from: any) => from.toString()
 
 const ifInstanceThenSame = (constructor: any) => {
-  return (from: any) => from instanceof constructor ? from : error(from)
+  return (from: any) => (from instanceof constructor ? from : error(from))
 }
 const toNumber = (from: any) => {
   if (from === '') return undefined
@@ -37,7 +37,7 @@ const toNumber = (from: any) => {
 
 const toDate = (from: any) => parseDate(from) ?? error(from)
 
-const formatTimePart = (part: number) => part > 9 ? `${part}` : `0${part}`
+const formatTimePart = (part: number) => (part > 9 ? `${part}` : `0${part}`)
 
 const toTime = (from: Date) => {
   const hours = formatTimePart(from.getHours())
@@ -47,85 +47,85 @@ const toTime = (from: Date) => {
 }
 
 const converters: Record<SchemaType, Record<SchemaType, (from: any) => any>> = {
-  'string': {
-    'string': same,
-    'number': toNumber,
-    'boolean': (from: string) => from === 'true',
-    'object': parseOrSource,
-    'array': parse,
-    'enum': same,
-    'date': toDate,
-    'time': same
+  string: {
+    string: same,
+    number: toNumber,
+    boolean: (from: string) => from === 'true',
+    object: parseOrSource,
+    array: parse,
+    enum: same,
+    date: toDate,
+    time: same,
   },
-  'number': {
-    'string': toString,
-    'number': same,
-    'boolean': (from: number) => from === 1,
-    'object': parseOrSource,
-    'array': error,
-    'enum': same,
-    'date': toDate,
-    'time': toString
+  number: {
+    string: toString,
+    number: same,
+    boolean: (from: number) => from === 1,
+    object: parseOrSource,
+    array: error,
+    enum: same,
+    date: toDate,
+    time: toString,
   },
-  'boolean': {
-    'string': toString,
-    'number': (from: boolean) => from ? 1 : 0,
-    'boolean': same,
-    'object': error,
-    'array': error,
-    'enum': same,
-    'date': error,
-    'time': error
+  boolean: {
+    string: toString,
+    number: (from: boolean) => (from ? 1 : 0),
+    boolean: same,
+    object: error,
+    array: error,
+    enum: same,
+    date: error,
+    time: error,
   },
-  'object': {
-    'string': stringify,
-    'number': error,
-    'boolean': error,
-    'object': same,
-    'array': error,
-    'enum': same,
-    'date': error,
-    'time': error
+  object: {
+    string: stringify,
+    number: error,
+    boolean: error,
+    object: same,
+    array: error,
+    enum: same,
+    date: error,
+    time: error,
   },
-  'array': {
-    'string': stringify,
-    'number': error,
-    'boolean': error,
-    'object': error,
-    'array': same,
-    'enum': same,
-    'date': error,
-    'time': error
+  array: {
+    string: stringify,
+    number: error,
+    boolean: error,
+    object: error,
+    array: same,
+    enum: same,
+    date: error,
+    time: error,
   },
-  'enum': {
-    'string': stringify,
-    'number': ifInstanceThenSame(Number),
-    'boolean': ifInstanceThenSame(Boolean),
-    'object': ifInstanceThenSame(Object),
-    'array': ifInstanceThenSame(Array),
-    'enum': same,
-    'date': ifInstanceThenSame(Date),
-    'time': stringify,
+  enum: {
+    string: stringify,
+    number: ifInstanceThenSame(Number),
+    boolean: ifInstanceThenSame(Boolean),
+    object: ifInstanceThenSame(Object),
+    array: ifInstanceThenSame(Array),
+    enum: same,
+    date: ifInstanceThenSame(Date),
+    time: stringify,
   },
-  'date': {
-    'string': toString,
-    'number': (from: Date) => from.getTime(),
-    'boolean': error,
-    'object': error,
-    'array': error,
-    'enum': same,
-    'date': same,
-    'time': toTime
+  date: {
+    string: toString,
+    number: (from: Date) => from.getTime(),
+    boolean: error,
+    object: error,
+    array: error,
+    enum: same,
+    date: same,
+    time: toTime,
   },
-  'time': {
-    'string': same,
-    'number': error,
-    'boolean': error,
-    'object': error,
-    'array': error,
-    'enum': same,
-    'date': error,
-    'time': same
+  time: {
+    string: same,
+    number: error,
+    boolean: error,
+    object: error,
+    array: error,
+    enum: same,
+    date: error,
+    time: same,
   },
 }
 

@@ -1,6 +1,6 @@
-import {Directive} from "@angular/core";
-import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from "@angular/forms";
-import {validateFullName} from "./validators";
+import {Directive} from '@angular/core'
+import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from '@angular/forms'
+import {validateFullName} from './validators'
 
 @Directive({
   selector: '[fullName]',

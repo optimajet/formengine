@@ -1,5 +1,5 @@
-import Form from '@rjsf/mantine'
 import {MantineProvider} from '@mantine/core'
+import Form from '@rjsf/mantine'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import {App} from './login-form.tsx'

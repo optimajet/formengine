@@ -10,9 +10,9 @@ import {createFluentBundle} from './createFluentBundle'
  */
 export interface ResolvedMessage {
   /** The message text. */
-  message: string;
+  message: string
   /** The fluent bundle the message was resolved from. */
-  bundle: FluentBundle;
+  bundle: FluentBundle
 }
 
 /**
@@ -30,14 +30,8 @@ const isWhitespaceOnlyNonEmptyString = (value: unknown): value is string => {
  * @param messageId fluent message id.
  * @returns true when the entry exists and is the empty string.
  */
-const hasExplicitEmptyLocalization = (
-  items: Record<string, unknown> | undefined,
-  messageId: string,
-): boolean => {
-  return !!items
-    && Object.prototype.hasOwnProperty.call(items, messageId)
-    && isString(items[messageId])
-    && items[messageId] === ''
+const hasExplicitEmptyLocalization = (items: Record<string, unknown> | undefined, messageId: string): boolean => {
+  return !!items && Object.prototype.hasOwnProperty.call(items, messageId) && isString(items[messageId]) && items[messageId] === ''
 }
 
 /**
@@ -46,10 +40,7 @@ const hasExplicitEmptyLocalization = (
  * @param fallbackLocale locale used when no bundle is provided.
  * @returns empty message with bundle for downstream formatting.
  */
-const resolvedEmptyMessage = (
-  preferredBundle?: FluentBundle,
-  fallbackLocale?: LanguageFullCode,
-): ResolvedMessage => {
+const resolvedEmptyMessage = (preferredBundle?: FluentBundle, fallbackLocale?: LanguageFullCode): ResolvedMessage => {
   return {
     message: '',
     bundle: preferredBundle ?? createFluentBundle(fallbackLocale ?? globalDefaultLanguage.fullCode),
@@ -84,7 +75,7 @@ export const getMessageWithFallback = (
   formBundle?: FluentBundle,
   defaultBundle?: FluentBundle,
   formItems?: Record<string, unknown>,
-  defaultItems?: Record<string, unknown>,
+  defaultItems?: Record<string, unknown>
 ): ResolvedMessage | undefined => {
   if (hasExplicitEmptyLocalization(formItems, messageId)) {
     return resolvedEmptyMessage(formBundle)
@@ -121,7 +112,7 @@ export const getMessageWithFallback = (
 export const resolveLocalizedMessageValue = (
   localizedMessage: ResolvedMessage | undefined,
   format: (message: ResolvedMessage['message'], bundle: FluentBundle) => string | undefined,
-  continueFallback: () => string | undefined,
+  continueFallback: () => string | undefined
 ): string | undefined => {
   if (localizedMessage) {
     const {message, bundle} = localizedMessage

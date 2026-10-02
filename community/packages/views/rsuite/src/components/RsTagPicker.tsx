@@ -26,7 +26,7 @@ export interface RsTagPickerProps extends TagPickerProps {
 
 const fixEmptyItem = ({value, label}: LabeledValue) => ({
   value: value ?? '',
-  label: label ?? ''
+  label: label ?? '',
 })
 
 const EMPTY_LIST = [] as const
@@ -56,13 +56,7 @@ const RsTagPicker = ({data, label, value, className, ...props}: RsTagPickerProps
 
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
-      <TagPicker
-        value={value ?? EMPTY_LIST}
-        data={transformedData}
-        onClean={onClean}
-        {...props}
-        ref={inputRef}
-      />
+      <TagPicker value={value ?? EMPTY_LIST} data={transformedData} onClean={onClean} {...props} ref={inputRef} />
     </Labeled>
   )
 }
@@ -76,5 +70,5 @@ export const rsTagPicker = define(RsTagPicker, 'RsTagPicker')
     ...tagPickerProps,
     value: array.valued.ofString,
     label: pickerProps.label.default('Select'),
-    data: array.localize.default(toLabeledValues(['a', 'b', 'c']))
+    data: array.localize.default(toLabeledValues(['a', 'b', 'c'])),
   })

@@ -9,6 +9,6 @@ export const muiDialogContentText = define(DialogContentText, 'MuiDialogContentT
   .props({
     children: string.default('Dialog content text'),
     sx,
-    ...typography
+    ...typography,
   })
   .hideFromComponentPalette()

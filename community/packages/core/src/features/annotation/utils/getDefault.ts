@@ -6,8 +6,11 @@ import type {Annotation} from '../types/annotations/Annotation'
  * @returns the object containing component properties default values.
  */
 export function getDefault(annotations: Annotation[]): Readonly<Record<string, any>> {
-  return annotations.reduce((props, an) => {
-    props[an.key] = an.default
-    return props
-  }, {} as Record<string, any>)
+  return annotations.reduce(
+    (props, an) => {
+      props[an.key] = an.default
+      return props
+    },
+    {} as Record<string, any>
+  )
 }

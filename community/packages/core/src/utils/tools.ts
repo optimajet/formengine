@@ -115,9 +115,7 @@ function tokenizeWordsUnicode(input: string): string[] {
   } catch {
     // ignore
   }
-  return pre
-    .split(/[^\p{L}\p{N}]+/u)
-    .filter(Boolean)
+  return pre.split(/[^\p{L}\p{N}]+/u).filter(Boolean)
 }
 
 /**
@@ -191,7 +189,7 @@ export function merge<T extends object>(target: T, ...sources: any[]): T {
       if (isObject(sVal) && isObject(tVal)) {
         merge(tVal, sVal)
       } else {
-        (target as any)[key] = sVal
+        ;(target as any)[key] = sVal
       }
     }
   }
@@ -258,11 +256,7 @@ export function isEqual<T>(a: T, b: T): boolean {
  * @param customizer the optional comparator callback.
  * @returns the equality result.
  */
-export function isEqualWith(
-  a: unknown,
-  b: unknown,
-  customizer?: (a: any, b: any, key?: any) => boolean | undefined
-): boolean {
+export function isEqualWith(a: unknown, b: unknown, customizer?: (a: any, b: any, key?: any) => boolean | undefined): boolean {
   if (customizer) {
     if (Array.isArray(a) && Array.isArray(b)) {
       if (a.length !== b.length) return false
@@ -308,8 +302,8 @@ export function cloneDeep<T>(value: T, weakMap = new WeakMap()): T {
   }
 
   // Handle circular references
-  if (weakMap.has(value as object)) {
-    return weakMap.get(value as object)
+  if (weakMap.has(value)) {
+    return weakMap.get(value)
   }
 
   // Handle Date

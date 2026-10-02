@@ -10,12 +10,11 @@ import type {ReadOnlyProps} from './internal/ReadOnlyProps'
 /**
  * The MuiStack component properties.
  */
-export interface MuiStackProps extends StackProps, DisabledProps, ReadOnlyProps {
-}
+export interface MuiStackProps extends StackProps, DisabledProps, ReadOnlyProps {}
 
 const MuiStack = forwardRef((props: MuiStackProps, ref: ForwardedRef<any>) => {
   const {disabled, readOnly, ...otherProps} = props
-  return <Stack {...otherProps} ref={ref}/>
+  return <Stack {...otherProps} ref={ref} />
 })
 
 export const muiStack = define(MuiStack, 'MuiStack')
@@ -29,21 +28,8 @@ export const muiStack = define(MuiStack, 'MuiStack')
     sx,
     direction: oneOf('row', 'row-reverse', 'column', 'column-reverse'),
     spacing: string,
-    justifyContent: oneOfStrict(
-      'flex-start',
-      'center',
-      'flex-end',
-      'space-between',
-      'space-around',
-      'space-evenly',
-    ),
-    alignItems: oneOfStrict(
-      'flex-start',
-      'center',
-      'flex-end',
-      'stretch',
-      'baseline',
-    ),
+    justifyContent: oneOfStrict('flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'),
+    alignItems: oneOfStrict('flex-start', 'center', 'flex-end', 'stretch', 'baseline'),
     flexWrap: oneOfStrict('nowrap', 'wrap', 'wrap-reverse'),
     useFlexGap: boolean.default(true),
   })

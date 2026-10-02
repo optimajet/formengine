@@ -7,7 +7,7 @@ import CustomProvider from 'rsuite/esm/CustomProvider/CustomProvider.js'
 const rsViewerContainerStyle = {
   height: '100%',
   width: '100%',
-  backgroundColor: 'var(--rs-bg-card)'
+  backgroundColor: 'var(--rs-bg-card)',
 }
 
 /**
@@ -17,12 +17,14 @@ const rsViewerContainerStyle = {
  * @param props the FormViewerWrapper props.
  * @returns the wrapped components with the RSuite theme applied.
  */
-export const RsThemeWrapper: FormViewerWrapper = (props) => {
+export const RsThemeWrapper: FormViewerWrapper = props => {
   const theme = useBuilderTheme()
   const parent = useContext(CustomContext)
   return (
     <CustomProvider {...parent} theme={theme}>
-      <div className="rsuite" style={rsViewerContainerStyle}>{props.children}</div>
+      <div className="rsuite" style={rsViewerContainerStyle}>
+        {props.children}
+      </div>
     </CustomProvider>
   )
 }

@@ -19,7 +19,7 @@ export interface IComponentState {
   /**
    * @returns the Record that contains the style property for the wrapper of component.
    */
-  get wrapperStyle(): { style: CSSProperties } | undefined
+  get wrapperStyle(): {style: CSSProperties} | undefined
 
   /**
    * @returns combined component properties in order of priority, excluding child components, the className property
@@ -118,18 +118,15 @@ export const defaultComponentState: IComponentState = {
   /**
    * @inheritDoc
    */
-  onDidMount(): void {
-  },
+  onDidMount(): void {},
   /**
    * @inheritDoc
    */
-  onWillUnmount(): void {
-  },
+  onWillUnmount(): void {},
   /*
-  * @inheritDoc
-  */
-  applyStyles(_cssPart: CssPart, _flatCss: string): void {
-  },
+   * @inheritDoc
+   */
+  applyStyles(_cssPart: CssPart, _flatCss: string): void {},
   /**
    * @inheritDoc
    */
@@ -153,5 +150,5 @@ export const defaultComponentState: IComponentState = {
    */
   get isDisabled() {
     return false
-  }
+  },
 }

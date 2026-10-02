@@ -11,7 +11,6 @@ import {isStoreDataInParentForm} from './util'
  * The field with the form data, contains the value of the nested form. **Internal use only.**
  */
 export class TemplateField implements Field {
-
   /**
    * @inheritDoc
    */
@@ -29,10 +28,9 @@ export class TemplateField implements Field {
    */
   constructor(
     readonly componentStore: ComponentStore,
-    readonly viewerStore: IStore,
+    readonly viewerStore: IStore
   ) {
-    makeAutoObservable(this, undefined,
-      {name: nameObservable('FormField', {key: componentStore.key}), autoBind: true})
+    makeAutoObservable(this, undefined, {name: nameObservable('FormField', {key: componentStore.key}), autoBind: true})
   }
 
   /**

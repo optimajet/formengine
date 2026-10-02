@@ -7,7 +7,10 @@ import type {FormViewerWrapper} from '@react-form-builder/core'
  * @param props the FormViewerWrapper props.
  * @returns the React context provider.
  */
-export const MuiLocalizationProvider: FormViewerWrapper = (props) => {
-  return <LocalizationProvider dateAdapter={AdapterDayjs}
-                               adapterLocale={props.language.code ?? 'en'}>{props.children}</LocalizationProvider>
+export const MuiLocalizationProvider: FormViewerWrapper = props => {
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={props.language.code ?? 'en'}>
+      {props.children}
+    </LocalizationProvider>
+  )
 }

@@ -78,6 +78,11 @@ export type ActionData = {
 }
 
 /**
- * The type of arbitrary function that returns void or Promise&lt;void&gt;.
+ * The result of an action. Return `false` to stop the remaining actions without throwing.
  */
-export type Func = (...arg: any[]) => void | Promise<void>
+export type ActionResult = void | false
+
+/**
+ * The type of arbitrary function that returns void, `false`, or a Promise of either.
+ */
+export type Func = (...arg: any[]) => ActionResult | Promise<ActionResult>

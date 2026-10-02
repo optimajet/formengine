@@ -9,11 +9,11 @@ import '@react-form-builder/core/assets/styles.css'
 import '@react-form-builder/components-rsuite/assets/styles.ltr.css'
 
 type AppState = {
-  'First name': string;
-  'Last name': string;
-  'Email': string;
-  'Message': string;
-};
+  'First name': string
+  'Last name': string
+  Email: string
+  Message: string
+}
 
 function generateData(): AppState {
   const firstName = faker.person.firstName()
@@ -24,8 +24,8 @@ function generateData(): AppState {
   return {
     'First name': firstName,
     'Last name': lastName,
-    'Email': email,
-    'Message': message
+    Email: email,
+    Message: message,
   }
 }
 
@@ -34,7 +34,7 @@ const getForm = () => JSON.stringify(SampleForm)
 let mockBackendStore = generateData()
 
 type BackendResponse = {
-  generated: number,
+  generated: number
   data: AppState
 }
 
@@ -42,8 +42,8 @@ const mockBackendGet = async (): Promise<BackendResponse> => {
   await new Promise(r => setTimeout(r, 300))
 
   return {
-    generated: +new Date,
-    data: mockBackendStore
+    generated: +new Date(),
+    data: mockBackendStore,
   }
 }
 
@@ -54,7 +54,7 @@ const mockBackendPost = async (data: any) => {
 
   return {
     status: 'success',
-    data: mockBackendStore
+    data: mockBackendStore,
   }
 }
 
@@ -65,7 +65,7 @@ const getMessage = async () => {
 }
 
 const customActions = {
-  submitForm: ActionDefinition.functionalAction(async (e) => {
+  submitForm: ActionDefinition.functionalAction(async e => {
     try {
       await e.store.formData.validate()
     } catch (e) {
@@ -77,7 +77,7 @@ const customActions = {
       console.error(e.store.formData.errors)
     }
   }),
-  suggestMessage: ActionDefinition.functionalAction(async (e) => {
+  suggestMessage: ActionDefinition.functionalAction(async e => {
     const message = await getMessage()
 
     e.data['Message'] = message
@@ -86,48 +86,51 @@ const customActions = {
 
 const EMPTY = {}
 
-const Buttons = ({title, children}: { title: string, children: ReactNode }) =>
-  (
-    <div className={'fieldset'}>
-      <span className={'legend'}>{title}</span>
-      {children}
+const Buttons = ({title, children}: {title: string; children: ReactNode}) => (
+  <div className={'fieldset'}>
+    <span className={'legend'}>{title}</span>
+    {children}
+  </div>
+)
+
+const State = ({state}: {state: AppState}) => (
+  <div className={'fieldset'}>
+    <span className={'legend'}>App state</span>
+
+    <div className={'field'}>
+      <span className={'label'}>First name</span>
+      <span className={'value'}>{state['First name']}</span>
     </div>
-  )
 
-const State = ({state}: { state: AppState }) =>
-  (
-    <div className={'fieldset'}>
-      <span className={'legend'}>App state</span>
-
-      <div className={'field'}>
-        <span className={'label'}>First name</span>
-        <span className={'value'}>{state['First name']}</span>
-      </div>
-
-      <div className={'field'}>
-        <span className={'label'}>Last name</span>
-        <span className={'value'}>{state['Last name']}</span>
-      </div>
-
-      <div className={'field'}>
-        <span className={'label'}>e-mail</span>
-        <span className={'value'}>{state['Email']}</span>
-      </div>
-
-      <div className={'field'}>
-        <span className={'label'}>Message</span>
-        <span className={'value'}>{state['Message']}</span>
-      </div>
+    <div className={'field'}>
+      <span className={'label'}>Last name</span>
+      <span className={'value'}>{state['Last name']}</span>
     </div>
-  )
 
-const ObjectDump = ({obj, color, title}: { obj: any, color: string, title: string }) => (
+    <div className={'field'}>
+      <span className={'label'}>e-mail</span>
+      <span className={'value'}>{state['Email']}</span>
+    </div>
+
+    <div className={'field'}>
+      <span className={'label'}>Message</span>
+      <span className={'value'}>{state['Message']}</span>
+    </div>
+  </div>
+)
+
+const ObjectDump = ({obj, color, title}: {obj: any; color: string; title: string}) => (
   <div>
     <h3>{title}:</h3>
     <div style={{color}}>
-      {obj && Object.entries(obj).map(([k, v]) => {
-        return <p key={k}>{k} - {Array.isArray(v) ? v.join(', ') : v}</p>
-      })}
+      {obj &&
+        Object.entries(obj).map(([k, v]) => {
+          return (
+            <p key={k}>
+              {k} - {Array.isArray(v) ? v.join(', ') : v}
+            </p>
+          )
+        })}
     </div>
   </div>
 )
@@ -168,10 +171,10 @@ export const FormViewerExample = () => {
     const {data, errors} = formData
     console.log('onFormDataChanged:\n', data, '\n', errors)
 
-    setAppLevelState((prev) => {
+    setAppLevelState(prev => {
       let next = {
         ...prev,
-        ...data
+        ...data,
       }
 
       return isEqual(next, prev) ? prev : next
@@ -217,36 +220,55 @@ export const FormViewerExample = () => {
     setAppLevelState((prevState: AppState) => {
       return {
         ...prevState,
-        Message
+        Message,
       }
     })
   }, [])
 
-  return <>
-    <Buttons title={'Emulate backend'}>
-      <button className={'button'} onClick={loadData}>Load</button>
-      <button className={'button'} onClick={sendData} disabled={!havePendingChanges}>Send</button>
-    </Buttons>
+  return (
+    <>
+      <Buttons title={'Emulate backend'}>
+        <button className={'button'} onClick={loadData}>
+          Load
+        </button>
+        <button className={'button'} onClick={sendData} disabled={!havePendingChanges}>
+          Send
+        </button>
+      </Buttons>
 
-    <Buttons title={'Change initialData'}>
-      <button className={'button'} onClick={renewAppData}>Recreate</button>
-      <button className={'button'} onClick={suggestMessage}>Generate message</button>
-    </Buttons>
+      <Buttons title={'Change initialData'}>
+        <button className={'button'} onClick={renewAppData}>
+          Recreate
+        </button>
+        <button className={'button'} onClick={suggestMessage}>
+          Generate message
+        </button>
+      </Buttons>
 
-    <State state={appLevelState}/>
+      <State state={appLevelState} />
 
-    <div className={'fieldset'}>
-      <span className={'legend'}>FormViewer</span>
-      <FormViewer view={view} formName="SampleForm" getForm={getForm} onFormDataChange={onFormDataChanged} viewerRef={viewerRef}
-                  initialData={appLevelState} actions={customActions}/>
-    </div>
+      <div className={'fieldset'}>
+        <span className={'legend'}>FormViewer</span>
+        <FormViewer
+          view={view}
+          formName="SampleForm"
+          getForm={getForm}
+          onFormDataChange={onFormDataChanged}
+          viewerRef={viewerRef}
+          initialData={appLevelState}
+          actions={customActions}
+        />
+      </div>
 
-    <Buttons title={'Process form'}>
-      <button className={'button'} onClick={processFormData}>Handle form data</button>
-    </Buttons>
+      <Buttons title={'Process form'}>
+        <button className={'button'} onClick={processFormData}>
+          Handle form data
+        </button>
+      </Buttons>
 
-    <ObjectDump title={'Errors'} color={'red'} obj={appLevelErrors}/>
+      <ObjectDump title={'Errors'} color={'red'} obj={appLevelErrors} />
 
-    <ObjectDump title={'Data'} color={'green'} obj={appLevelState}/>
-  </>
+      <ObjectDump title={'Data'} color={'green'} obj={appLevelState} />
+    </>
+  )
 }

@@ -17,20 +17,25 @@ import type {FormViewerProps} from './types'
  */
 const RawInternalFormViewer = (props: FormViewerProps) => {
   const localizationEngine = useMemo(() => props.localizationEngine ?? new FluentLocalizationEngine(), [props.localizationEngine])
-  const finalProps = useMemo(() => ({
-    ...props,
-    localizationEngine
-  }), [localizationEngine, props])
+  const finalProps = useMemo(
+    () => ({
+      ...props,
+      localizationEngine,
+    }),
+    [localizationEngine, props]
+  )
 
-  return <SuppressResizeObserverErrors>
-    <ViewerStoreProvider props={finalProps}>
-      <ViewerLocalizationProvider>
-        <ViewerWrapper>
-          <Viewer/>
-        </ViewerWrapper>
-      </ViewerLocalizationProvider>
-    </ViewerStoreProvider>
-  </SuppressResizeObserverErrors>
+  return (
+    <SuppressResizeObserverErrors>
+      <ViewerStoreProvider props={finalProps}>
+        <ViewerLocalizationProvider>
+          <ViewerWrapper>
+            <Viewer />
+          </ViewerWrapper>
+        </ViewerLocalizationProvider>
+      </ViewerStoreProvider>
+    </SuppressResizeObserverErrors>
+  )
 }
 
 const InternalFormViewer = namedObserver('InternalFormViewer', RawInternalFormViewer)
@@ -43,9 +48,11 @@ const InternalFormViewer = namedObserver('InternalFormViewer', RawInternalFormVi
 const RawFormViewer = (props: FormViewerProps) => {
   useMobxConfig()
 
-  return <EmbeddedFormViewerProvider value={InternalFormViewer}>
-    <InternalFormViewer {...props} />
-  </EmbeddedFormViewerProvider>
+  return (
+    <EmbeddedFormViewerProvider value={InternalFormViewer}>
+      <InternalFormViewer {...props} />
+    </EmbeddedFormViewerProvider>
+  )
 }
 
 export const FormViewer = namedObserver('FormViewer', RawFormViewer)

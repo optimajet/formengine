@@ -17,8 +17,11 @@ export const useTouchOnEvent = <T>(props: T, propertyName: keyof T): GenericVoid
   const {field} = useComponentData()
   const eventCallback = props[propertyName] as GenericVoidFunction | undefined
 
-  return useCallback((e) => {
-    field?.setTouched()
-    eventCallback?.(e)
-  }, [field, eventCallback])
+  return useCallback(
+    e => {
+      field?.setTouched()
+      eventCallback?.(e)
+    },
+    [field, eventCallback]
+  )
 }

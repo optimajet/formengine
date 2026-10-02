@@ -9,5 +9,5 @@ export default function Builder_index() {
     setMounted(true)
   }, [])
 
-  return mounted ? <BuilderClient/> : null
+  return mounted ? <BuilderClient /> : null
 }

@@ -1,7 +1,7 @@
 import {ActionDefinition} from '@react-form-builder/core'
 
 export const actions = {
-  submitForm: ActionDefinition.functionalAction(async (e) => {
+  submitForm: ActionDefinition.functionalAction(async e => {
     try {
       await e.store.formData.validate()
     } catch (e) {
@@ -12,6 +12,5 @@ export const actions = {
     } else {
       console.error(e.store.formData.errors)
     }
-  })
+  }),
 }
-

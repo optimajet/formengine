@@ -11,8 +11,7 @@ const parseRowData = (data?: string) => {
   }
 }
 
-const addRow = (data: Record<string, any>, repeaterKey: string, maxItems?: number,
-                rowValue?: string, rowIndex?: number) => {
+const addRow = (data: Record<string, any>, repeaterKey: string, maxItems?: number, rowValue?: string, rowIndex?: number) => {
   const repeaterData = data[repeaterKey] ?? []
   if (isNumber(maxItems) && repeaterData.length >= maxItems) return
 
@@ -26,8 +25,7 @@ const addRow = (data: Record<string, any>, repeaterKey: string, maxItems?: numbe
   data[repeaterKey] = modifiedData
 }
 
-const removeRow = (data: Record<string, any>, repeaterKey: string, index: number,
-                   minItems?: number) => {
+const removeRow = (data: Record<string, any>, repeaterKey: string, index: number, minItems?: number) => {
   const repeaterData = data[repeaterKey]
   if (!Array.isArray(repeaterData)) return
   if (isNumber(minItems) && repeaterData.length <= minItems) return
@@ -44,38 +42,44 @@ const getParentRepeaterDataKey = (componentData: ComponentData) => {
   }
 }
 
-export const addRowAction = ActionDefinition.functionalAction(((e, args) => {
-  if (args.dataKey) {
-    addRow(e.data, args.dataKey, args.max, args.rowData, args.index)
-    return
-  }
+export const addRowAction = ActionDefinition.functionalAction(
+  (e, args) => {
+    if (args.dataKey) {
+      addRow(e.data, args.dataKey, args.max, args.rowData, args.index)
+      return
+    }
 
-  const repeaterDataKey = getParentRepeaterDataKey(e.sender)
-  if (repeaterDataKey && e.parentData) {
-    addRow(e.parentData, repeaterDataKey, args.max, args.rowData, args.index)
+    const repeaterDataKey = getParentRepeaterDataKey(e.sender)
+    if (repeaterDataKey && e.parentData) {
+      addRow(e.parentData, repeaterDataKey, args.max, args.rowData, args.index)
+    }
+  },
+  {
+    dataKey: 'string',
+    rowData: 'string',
+    index: 'number',
+    max: 'number',
   }
-}), {
-  dataKey: 'string',
-  rowData: 'string',
-  index: 'number',
-  max: 'number',
-})
+)
 
-export const removeRowAction = ActionDefinition.functionalAction(((e, args) => {
-  // delete the last row by default
-  const index = args.index ?? e.index ?? -1
+export const removeRowAction = ActionDefinition.functionalAction(
+  (e, args) => {
+    // delete the last row by default
+    const index = args.index ?? e.index ?? -1
 
-  if (args.dataKey) {
-    removeRow(e.data, args.dataKey, index, args.min)
-    return
+    if (args.dataKey) {
+      removeRow(e.data, args.dataKey, index, args.min)
+      return
+    }
+
+    const repeaterDataKey = getParentRepeaterDataKey(e.sender)
+    if (repeaterDataKey && e.parentData) {
+      removeRow(e.parentData, repeaterDataKey, index, args.min)
+    }
+  },
+  {
+    dataKey: 'string',
+    index: 'number',
+    min: 'number',
   }
-
-  const repeaterDataKey = getParentRepeaterDataKey(e.sender)
-  if (repeaterDataKey && e.parentData) {
-    removeRow(e.parentData, repeaterDataKey, index, args.min)
-  }
-}), {
-  dataKey: 'string',
-  index: 'number',
-  min: 'number',
-})
+)

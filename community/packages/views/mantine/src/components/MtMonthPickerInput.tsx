@@ -6,11 +6,11 @@ import {datesCategory} from './internal/categories'
 import {description, dropdownType, label, size} from './internal/sharedProps'
 
 function MonthRangePickerInput(props: MonthPickerInputProps<'range'>) {
-  return <MonthPickerInput {...props} type="range"/>
+  return <MonthPickerInput {...props} type="range" />
 }
 
 function MonthMultiplePickerInput(props: MonthPickerInputProps<'multiple'>) {
-  return <MonthPickerInput {...props} type="multiple"/>
+  return <MonthPickerInput {...props} type="multiple" />
 }
 
 const monthPickerInputBaseProps = {
@@ -37,8 +37,7 @@ const monthPickerInputBaseProps = {
   minDate: string,
   maxDate: string,
   dropdownType: dropdownType,
-  clearable: boolean
-    .default(false),
+  clearable: boolean.default(false),
   valueFormat: string,
   withAsterisk: required,
 }
@@ -47,8 +46,7 @@ export const mtMonthPickerInput = define(MonthPickerInput, 'MtMonthPickerInput')
   .category(datesCategory)
   .props({
     ...monthPickerInputBaseProps,
-    allowDeselect: boolean
-      .default(false),
+    allowDeselect: boolean.default(false),
     value: date.valued,
   })
 
@@ -56,8 +54,7 @@ export const mtMonthRangePickerInput = define(MonthRangePickerInput, 'MtMonthRan
   .category(datesCategory)
   .props({
     ...monthPickerInputBaseProps,
-    allowSingleDateInRange: boolean
-      .default(false),
+    allowSingleDateInRange: boolean.default(false),
     value: array.valued,
   })
 

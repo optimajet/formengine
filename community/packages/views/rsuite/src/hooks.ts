@@ -16,12 +16,7 @@ export type LoadCallback = (newData: ItemDataType[]) => void
  * @param loadCallback the callback function called to set the data in the component.
  * @param currentDataLength the length of the data already loaded.
  */
-export type LoadDataHandler = (
-  searchKeyword: string,
-  loadCallback: LoadCallback,
-  currentDataLength: number
-) => void
-
+export type LoadDataHandler = (searchKeyword: string, loadCallback: LoadCallback, currentDataLength: number) => void
 
 /**
  * Interface for load data props.
@@ -44,9 +39,7 @@ export interface LoadDataProps {
 /**
  * Props for the useLoadData hook combining InputPickerProps and LoadDataProps.
  */
-interface UseLoadDataProps extends Pick<InputPickerProps,
-  'data' | 'value' | 'onSearch' | 'onOpen' | 'onCreate'>, LoadDataProps {
-}
+interface UseLoadDataProps extends Pick<InputPickerProps, 'data' | 'value' | 'onSearch' | 'onOpen' | 'onCreate'>, LoadDataProps {}
 
 /**
  * Implements data loading and infinite loader logic for RSuite picker components.
@@ -66,16 +59,19 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
   const [loading, setLoading] = useState(false)
   const hasValue = useCallback((item: ItemDataType) => item.value === value, [value])
 
-  const loadCallback: LoadCallback = useCallback((newData) => {
-    let filteredData = data
+  const loadCallback: LoadCallback = useCallback(
+    newData => {
+      let filteredData = data
 
-    if (value && newData.some(hasValue)) {
-      filteredData = data.filter(item => !hasValue(item))
-    }
+      if (value && newData.some(hasValue)) {
+        filteredData = data.filter(item => !hasValue(item))
+      }
 
-    setData([...filteredData, ...newData])
-    setLoading(false)
-  }, [data, hasValue, value])
+      setData([...filteredData, ...newData])
+      setLoading(false)
+    },
+    [data, hasValue, value]
+  )
 
   useEffect(() => {
     if (preload) onLoadData?.('', loadCallback, 0)
@@ -84,10 +80,7 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
 
   useEffect(() => {
     const valueItem = value && !initialData?.some(hasValue) ? [{value, label: value}] : []
-    setData([
-      ...valueItem,
-      ...(initialData ?? [])
-    ])
+    setData([...valueItem, ...(initialData ?? [])])
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData])
 
@@ -100,28 +93,34 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
 
   const listProps: Partial<ListProps> = {
     onItemsRendered: ({visibleStopIndex}) => {
-      if (onLoadData && (visibleStopIndex >= data.length - 1)) {
+      if (onLoadData && visibleStopIndex >= data.length - 1) {
         setLoading(true)
         onLoadData(searchValue, loadCallback, data.length)
       }
-    }
+    },
   }
 
-  const onSearch = useCallback((value: string) => {
-    if (onLoadData) setData([])
-    setSearchValue(value)
-    props.onSearch?.(value)
-  }, [onLoadData, props])
+  const onSearch = useCallback(
+    (value: string) => {
+      if (onLoadData) setData([])
+      setSearchValue(value)
+      props.onSearch?.(value)
+    },
+    [onLoadData, props]
+  )
 
   const onOpen = useCallback(() => {
     props.onOpen?.()
     if (!value && !preload) onLoadData?.('', loadCallback, 0)
   }, [props, value, preload, onLoadData, loadCallback])
 
-  const onCreate: InputPickerProps['onCreate'] = useCallback((_: ValueType, item: ItemDataType) => {
-    setData([item, ...data])
-    setSearchValue('')
-  }, [data])
+  const onCreate: InputPickerProps['onCreate'] = useCallback(
+    (_: ValueType, item: ItemDataType) => {
+      setData([item, ...data])
+      setSearchValue('')
+    },
+    [data]
+  )
 
   const virtualized = !!onLoadData && disableVirtualized !== true
 
@@ -157,8 +156,7 @@ export const useFixAriaAttributesForInputPicker = () => {
  * @param mapFn the conversion function.
  * @returns the memoized conversion value over an array.
  */
-export const useArrayMapMemo = <T, R>(array: T[] | undefined,
-                                      mapFn: (item: T, index: number) => R) => {
+export const useArrayMapMemo = <T, R>(array: T[] | undefined, mapFn: (item: T, index: number) => R) => {
   const length = array?.length
   return useMemo(() => {
     if (!length) return []

@@ -54,18 +54,19 @@ const RsUploader = ({customElement, children, disabled, multiple, fileList, clas
 
   const disabledButton = useMemo(() => disabled || !canUpload, [disabled, canUpload])
 
-  return <Labeled label={label} className={className} passAriaToChildren={true}>
-    <Uploader {...props} disabled={disabledButton} multiple={multiple}
-              fileList={fileList} onRemove={onRemove} ref={uploaderRef}>
-      {customElement ? <div>{children}</div> : undefined}
-    </Uploader>
-  </Labeled>
+  return (
+    <Labeled label={label} className={className} passAriaToChildren={true}>
+      <Uploader {...props} disabled={disabledButton} multiple={multiple} fileList={fileList} onRemove={onRemove} ref={uploaderRef}>
+        {customElement ? <div>{children}</div> : undefined}
+      </Uploader>
+    </Labeled>
+  )
 }
 
 const columns = [
   {name: 'name', input: InputCell},
   {name: 'fileKey', input: InputCell},
-  {name: 'url', input: InputCell}
+  {name: 'url', input: InputCell},
 ]
 
 export const rsUploader = define(RsUploader, 'RsUploader')
@@ -84,8 +85,7 @@ export const rsUploader = define(RsUploader, 'RsUploader')
     disabledFileItem: boolean.default(false),
     draggable: boolean.default(false),
     fileListVisible: boolean.default(true),
-    listType: oneOf('text', 'picture-text', 'picture')
-      .withEditorProps({creatable: false}),
+    listType: oneOf('text', 'picture-text', 'picture').withEditorProps({creatable: false}),
     method: string,
     multiple: boolean.default(false),
     name: string,
@@ -100,7 +100,5 @@ export const rsUploader = define(RsUploader, 'RsUploader')
     removable: boolean.default(false),
     timeout: nonNegNumber,
     withCredentials: boolean.default(false),
-    fileList: array
-      .withEditorProps({columns})
-      .valued
+    fileList: array.withEditorProps({columns}).valued,
   })

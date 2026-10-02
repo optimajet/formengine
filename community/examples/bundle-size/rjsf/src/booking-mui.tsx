@@ -1,6 +1,6 @@
-import Form from '@rjsf/mui'
-import MuiButton from '@mui/material/Button'
 import type {ButtonProps as MuiButtonProps} from '@mui/material/Button'
+import MuiButton from '@mui/material/Button'
+import Form from '@rjsf/mui'
 import {type ButtonHTMLAttributes, StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import {App} from './booking-form.tsx'

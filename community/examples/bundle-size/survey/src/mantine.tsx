@@ -1,4 +1,4 @@
-import {Badge, Box, Card, Checkbox, Group, Image, MantineProvider, Select, TextInput, Textarea, createTheme} from '@mantine/core'
+import {Badge, Box, Card, Checkbox, createTheme, Group, Image, MantineProvider, Select, Textarea, TextInput} from '@mantine/core'
 import type {ReactNode} from 'react'
 import type {
   QuestionCheckboxModel,

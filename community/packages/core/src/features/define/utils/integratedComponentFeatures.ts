@@ -64,6 +64,12 @@ export const cfDisableComponentRemove = 'disable-component-remove'
 registerBooleanComponentFeature(cfDisableComponentRemove)
 
 /**
+ * Enabling this component feature will hide the add button on the designer component toolbar.
+ */
+export const cfDisableToolbarAdd = 'disable-toolbar-add'
+registerBooleanComponentFeature(cfDisableToolbarAdd)
+
+/**
  * Enabling this component feature will disable the styling of the component.
  */
 export const cfDisableStyles = 'disable-component-styling'
@@ -97,10 +103,32 @@ export const cfDisableActionEditors = 'disable-action-editors'
 registerBooleanComponentFeature(cfDisableActionEditors)
 
 /**
+ * Enabling this component feature keeps the designer drag overlay off the component overflow scrollbar.
+ * Sets `--fe-uncover-inset` (default 16px) on the editable host; views should match padding to that variable.
+ */
+export const cfUncoverOverflowScrollbar = 'uncover-overflow-scrollbar'
+registerBooleanComponentFeature(cfUncoverOverflowScrollbar)
+
+/**
  * Adding this feature allows you to specify some component properties as "required".
  */
 export const cfRequiredProperties = 'required-properties'
 registerComponentFeature({
   name: cfRequiredProperties,
-  allowMultiple: true
+  allowMultiple: true,
 })
+
+/**
+ * Enabling this component feature allows at most one instance of the component type on a form.
+ * The designer disables the palette item once an instance is present.
+ */
+export const cfSingleton = 'singleton'
+registerBooleanComponentFeature(cfSingleton)
+
+/**
+ * Enabling this component feature marks the component as non-visual.
+ * Non-visual instances live under the form root, stay off the canvas layout, and appear in the designer non-visual bar.
+ * The designer also hides the Additional properties block for these components.
+ */
+export const cfNonVisual = 'non-visual'
+registerBooleanComponentFeature(cfNonVisual)

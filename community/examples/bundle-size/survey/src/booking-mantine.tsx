@@ -19,7 +19,6 @@ import {
 } from './mantine.tsx'
 import './mantine.css'
 
-import {json} from './booking-json.tsx'
 import type {
   QuestionCheckboxModel,
   QuestionCommentModel,
@@ -29,6 +28,7 @@ import type {
   QuestionTagboxModel,
   QuestionTextModel,
 } from 'survey-core'
+import {json} from './booking-json.tsx'
 
 // Type assertion needed due to incorrect Survey.js TypeScript definitions
 ReactQuestionFactory.Instance.registerQuestion('mantine-text', ((props: {question: QuestionTextModel}) =>

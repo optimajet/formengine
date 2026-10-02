@@ -17,20 +17,25 @@ import type {FormViewerProps} from './types'
 const RawFormViewerLite = (props: FormViewerProps) => {
   useMobxConfig()
 
-  const finalProps: FormViewerProps = useMemo(() => ({
-    ...props,
-    localizationEngine: props.localizationEngine ?? new NoopLocalizationEngine(),
-  }), [props])
+  const finalProps: FormViewerProps = useMemo(
+    () => ({
+      ...props,
+      localizationEngine: props.localizationEngine ?? new NoopLocalizationEngine(),
+    }),
+    [props]
+  )
 
-  return <SuppressResizeObserverErrors>
-    <ViewerStoreProvider props={finalProps}>
-      <ViewerLocalizationProvider>
-        <ViewerWrapper>
-          <Viewer/>
-        </ViewerWrapper>
-      </ViewerLocalizationProvider>
-    </ViewerStoreProvider>
-  </SuppressResizeObserverErrors>
+  return (
+    <SuppressResizeObserverErrors>
+      <ViewerStoreProvider props={finalProps}>
+        <ViewerLocalizationProvider>
+          <ViewerWrapper>
+            <Viewer />
+          </ViewerWrapper>
+        </ViewerLocalizationProvider>
+      </ViewerStoreProvider>
+    </SuppressResizeObserverErrors>
+  )
 }
 
 export const FormViewerLite = namedObserver('FormViewerLite', RawFormViewerLite)

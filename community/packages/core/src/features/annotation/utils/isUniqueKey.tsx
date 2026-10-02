@@ -7,4 +7,4 @@ import type {RuleValidator} from '../../validation/types/RuleValidator'
  * @returns true if the component key is unique across the entire component tree.
  */
 export const isUniqueKey: RuleValidator<string> = (value, store) =>
-  1 === store.reduceScreen((acc, cd) => cd.key === value ? acc + 1 : acc, 0)
+  1 === store.reduceScreen((acc, cd) => (cd.key === value ? acc + 1 : acc), 0)

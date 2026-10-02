@@ -7,11 +7,9 @@ import {pipeStringScheme, stringScheme, toRuleValidator} from './zodRuleBuilders
 const invalidIpMessage = 'Invalid ip'
 
 export const ZodStringRules: ValidationRuleSet = {
-  required: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1, {error: requiredMessage}))),
+  required: ruleBuilder().withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1, {error: requiredMessage}))),
 
-  nonEmpty: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1))),
+  nonEmpty: ruleBuilder().withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1))),
 
   length: ruleBuilder()
     .withParameter('length', 'number', true)
@@ -29,34 +27,41 @@ export const ZodStringRules: ValidationRuleSet = {
     .withParameter('regex', 'string', true)
     .withValidatorFactory(({message, regex}) => toRuleValidator(stringScheme, z.regex(new RegExp(regex), zodErrorParams(message)))),
 
-  email: ruleBuilder()
-    .withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.email(zodErrorParams(message))))),
+  email: ruleBuilder().withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.email(zodErrorParams(message))))),
 
-  url: ruleBuilder()
-    .withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.url(zodErrorParams(message))))),
+  url: ruleBuilder().withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.url(zodErrorParams(message))))),
 
-  uuid: ruleBuilder()
-    .withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.uuid(zodErrorParams(message))))),
+  uuid: ruleBuilder().withValidatorFactory(({message}) => toRuleValidator(pipeStringScheme(z.uuid(zodErrorParams(message))))),
 
-  ip: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(pipeStringScheme(z.union([z.ipv4(), z.ipv6()], {error: invalidIpMessage})))),
+  ip: ruleBuilder().withValidatorFactory(() => toRuleValidator(pipeStringScheme(z.union([z.ipv4(), z.ipv6()], {error: invalidIpMessage})))),
 
   datetime: ruleBuilder()
     .withParameter('precision', 'number')
     .withParameter('offset', 'boolean')
-    .withValidatorFactory(({message, offset, precision}) => toRuleValidator(pipeStringScheme(z.iso.datetime({
-      offset,
-      precision,
-      ...zodErrorParams(message),
-    })))),
+    .withValidatorFactory(({message, offset, precision}) =>
+      toRuleValidator(
+        pipeStringScheme(
+          z.iso.datetime({
+            offset,
+            precision,
+            ...zodErrorParams(message),
+          })
+        )
+      )
+    ),
 
   includes: ruleBuilder()
     .withParameter('value', 'string', true)
     .withParameter('position', 'number')
-    .withValidatorFactory(({message, value, position}) => toRuleValidator(stringScheme, z.includes(value, {
-      position,
-      ...zodErrorParams(message),
-    }))),
+    .withValidatorFactory(({message, value, position}) =>
+      toRuleValidator(
+        stringScheme,
+        z.includes(value, {
+          position,
+          ...zodErrorParams(message),
+        })
+      )
+    ),
 
   startsWith: ruleBuilder()
     .withParameter('value', 'string', true)

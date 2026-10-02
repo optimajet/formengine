@@ -21,13 +21,16 @@ export interface MuiCheckboxProps extends Pick<CheckboxProps, 'checked' | 'color
 }
 
 const MuiCheckbox = ({checked, onChange, label, size, ...props}: MuiCheckboxProps) => {
-  const handleChange = useCallback((_: SyntheticEvent, checked: boolean) => {
-    onChange?.(checked)
-  }, [onChange])
+  const handleChange = useCallback(
+    (_: SyntheticEvent, checked: boolean) => {
+      onChange?.(checked)
+    },
+    [onChange]
+  )
 
-  const control = useMemo(() => <Checkbox size={size}/>, [size])
+  const control = useMemo(() => <Checkbox size={size} />, [size])
 
-  return <FormControlLabel checked={checked} onChange={handleChange} control={control} label={label} {...props}/>
+  return <FormControlLabel checked={checked} onChange={handleChange} control={control} label={label} {...props} />
 }
 
 /**

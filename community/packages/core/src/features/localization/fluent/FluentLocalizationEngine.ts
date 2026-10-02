@@ -13,8 +13,8 @@ import {isBoolean, isNull, isUndefined} from '../../../utils/tools'
 import {getValidatorPropertyBlockType} from '../../ui/PropertyBlockType'
 import {globalDefaultLanguage} from '../default'
 import type {ILocalizationEngine} from '../ILocalizationEngine'
-import type {Language, LanguageFullCode} from '../language'
 import {LocalizationError} from '../LocalizationError'
+import type {Language, LanguageFullCode} from '../language'
 import type {LocalizationType} from '../types'
 import type {ComponentLocalizationContext, LocalizationBundleSetup} from './componentLocalizationContext'
 import {createFluentBundle} from './createFluentBundle'
@@ -78,14 +78,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     const data = {} as Record<string, unknown>
     const errors: Array<LocalizationError> = []
     const bundleSetup = setupLocalizationBundles(form, language.fullCode, errors)
-    const context = this.#createComponentLocalizationContext(
-      form,
-      formData,
-      componentStore,
-      type,
-      language.fullCode,
-      bundleSetup
-    )
+    const context = this.#createComponentLocalizationContext(form, formData, componentStore, type, language.fullCode, bundleSetup)
 
     Object.entries(componentStore.props).forEach(([propertyKey, componentProperty]) => {
       if (!isLocalizedProperty(componentProperty)) {
@@ -108,13 +101,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
   /**
    * @inheritDoc
    */
-  localizeErrorMessage(
-    form: IForm,
-    formData: ComponentData,
-    language: Language,
-    componentStore: ComponentStore,
-    ruleKey: string
-  ) {
+  localizeErrorMessage(form: IForm, formData: ComponentData, language: Language, componentStore: ComponentStore, ruleKey: string) {
     const type = getValidatorPropertyBlockType(ruleKey)
     const normalizedKey = this.getCompatibleId(componentStore.key)
     const messageId = `${normalizedKey}_${type}_message`
@@ -123,28 +110,17 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     const {defaultBundle, defaultItems, formBundle, formItems} = setupLocalizationBundles(form, language.fullCode, errors)
     const localizedMessage = getMessageWithFallback(messageId, formBundle, defaultBundle, formItems, defaultItems)
 
-    return localizedMessage
-      ? this.#formatPattern(localizedMessage.message, localizedMessage.bundle, formData)
-      : undefined
+    return localizedMessage ? this.#formatPattern(localizedMessage.message, localizedMessage.bundle, formData) : undefined
   }
 
   /**
    * @inheritDoc
    */
-  testLocalization(
-    localization: string,
-    localizationStringId: string,
-    language: Language,
-    formData: IFormData
-  ) {
+  testLocalization(localization: string, localizationStringId: string, language: Language, formData: IFormData) {
     const errors: Array<LocalizationError> = []
     const languageFullCode = language.fullCode
 
-    const testBundle = populateFluentBundle(
-      {[localizationStringId]: localization},
-      errors,
-      createFluentBundle(languageFullCode),
-    )
+    const testBundle = populateFluentBundle({[localizationStringId]: localization}, errors, createFluentBundle(languageFullCode))
 
     const msg = testBundle.getMessage(localizationStringId)
     const value = msg?.value ?? ''
@@ -155,9 +131,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
 
     logFluentErrors(formatErrors, missingProperties, true)
 
-    return formatErrors.length > 0
-      ? formatErrors.map((err) => new LocalizationError('MessageFormatError', err.message))
-      : result
+    return formatErrors.length > 0 ? formatErrors.map(err => new LocalizationError('MessageFormatError', err.message)) : result
   }
 
   /**
@@ -173,7 +147,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     message: Pattern | string,
     bundle: FluentBundle | undefined,
     formData: IFormData,
-    options?: { logMissing?: boolean },
+    options?: {logMissing?: boolean}
   ): string | undefined {
     const formatErrors: Error[] = []
     const {fluentData, missingProperties} = this.#buildFluentDataProxy(formData)
@@ -190,15 +164,12 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
    * @returns fluent data proxy and missing property collector.
    */
   #buildFluentDataProxy(formData: IFormData): {
-    fluentData: Record<string, FluentVariable>;
-    missingProperties: string[];
+    fluentData: Record<string, FluentVariable>
+    missingProperties: string[]
   } {
     const data = getEditableFormData(formData)
     const missingProperties: string[] = []
-    const fluentData = createLocalizationDataProxy(
-      this.#getFluentData(data),
-      missingProperties,
-    ) as Record<string, FluentVariable>
+    const fluentData = createLocalizationDataProxy(this.#getFluentData(data), missingProperties) as Record<string, FluentVariable>
     return {fluentData, missingProperties}
   }
 
@@ -232,7 +203,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     componentStore: ComponentStore,
     type: LocalizationType,
     requestedFullCode: LanguageFullCode,
-    bundleSetup: LocalizationBundleSetup,
+    bundleSetup: LocalizationBundleSetup
   ): ComponentLocalizationContext {
     const normalizedKey = this.getCompatibleId(componentStore.key)
     return {
@@ -277,12 +248,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
       getFluentData,
     } = context
 
-    const rawConstant = form.localization.getLocalization(
-      requestedFullCode,
-      componentStore.key,
-      propertyKey,
-      type,
-    )
+    const rawConstant = form.localization.getLocalization(requestedFullCode, componentStore.key, propertyKey, type)
 
     if (!isUndefined(rawConstant) && !isString(rawConstant)) {
       return this.#interpolateData(rawConstant, this.#formattingBundle(context), getFluentData())
@@ -312,7 +278,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     propertyKey: string,
     form: IForm,
     componentStore: ComponentStore,
-    formData: IFormData,
+    formData: IFormData
   ): string | undefined {
     return resolveLocalizedMessageValue(
       localizedMessage,
@@ -321,24 +287,17 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
         const propValue = componentStore.props[propertyKey]?.value
         if (!isUndefined(propValue)) return propValue as string | undefined
 
-        const defaultPropertyValue = (form as Form).componentTree
-          ?.findByKey(componentStore.key)
-          ?.model
-          ?.defaultProps?.[propertyKey]
+        const defaultPropertyValue = (form as Form).componentTree?.findByKey(componentStore.key)?.model?.defaultProps?.[propertyKey]
         if (!isUndefined(defaultPropertyValue)) {
           return defaultPropertyValue as string | undefined
         }
 
         return componentStore.type
-      },
+      }
     )
   }
 
-  #tryParseJsonLocalization(
-    messageId: string,
-    formItems?: Record<string, unknown>,
-    defaultItems?: Record<string, unknown>,
-  ): unknown {
+  #tryParseJsonLocalization(messageId: string, formItems?: Record<string, unknown>, defaultItems?: Record<string, unknown>): unknown {
     const fromRequested = formItems?.[messageId]
     const requestedParsed = this.#tryParseJsonUnknown(fromRequested)
     if (!isUndefined(requestedParsed)) return requestedParsed
@@ -395,7 +354,7 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     }
 
     if (Array.isArray(data)) {
-      return data.map((item) => this.#interpolateData(item, bundle, fluentData))
+      return data.map(item => this.#interpolateData(item, bundle, fluentData))
     }
 
     if (typeof data === 'object' && !isNull(data)) {
@@ -433,5 +392,4 @@ export class FluentLocalizationEngine implements ILocalizationEngine {
     }
     return fluentData
   }
-
 }

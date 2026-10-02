@@ -34,7 +34,13 @@ export interface ILocalizationStore {
    * @param type the localization type.
    * @param value the localization value.
    */
-  setLocalization(languageFullCode: LanguageFullCode, componentKey: string, propertyName: string, type: LocalizationType, value: unknown): void
+  setLocalization(
+    languageFullCode: LanguageFullCode,
+    componentKey: string,
+    propertyName: string,
+    type: LocalizationType,
+    value: unknown
+  ): void
 
   /**
    * Removes localization for a component.

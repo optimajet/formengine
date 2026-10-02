@@ -10,7 +10,6 @@ import type {NodeEditorType} from './NodeEditorType'
  * @template T the property type.
  */
 export class NodeAnnotationBuilder<T> extends AnnotationBuilder<T> {
-
   /**
    * The function that checks whether a child component can be inserted into a parent component.
    */

@@ -11,5 +11,15 @@ const typeName = 'Fragment'
 /**
  * Form viewer fragment metadata. **Internal use only.**
  */
-export const fragmentModel = new Model(Fragment, typeName, undefined, undefined, undefined,
-  undefined, undefined, undefined, typeName, 'container')
+export const fragmentModel = new Model(
+  Fragment,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  typeName,
+  'container'
+)

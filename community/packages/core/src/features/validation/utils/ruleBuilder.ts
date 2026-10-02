@@ -8,7 +8,7 @@ import type {ValidatorFactory} from '../types/ValidatorFactory'
 /**
  * The key-value pair for a value type.
  */
-type Pair<Key, Type extends SchemaType> = { [k in keyof Key]: SchemaTypeMap[Type] }
+type Pair<Key, Type extends SchemaType> = {[k in keyof Key]: SchemaTypeMap[Type]}
 
 /**
  * The type-safe rule builder.
@@ -17,15 +17,17 @@ type ValidationRuleBuilder<Params> = {
   /**
    * The validation rule parameters.
    */
-  params: ValidationRuleParameter[],
+  params: ValidationRuleParameter[]
   /**
    * Adds a parameter to the validation rule.
    */
-  withParameter: <T extends SchemaType = 'string', Key = any>(key: PropertyKey<Key>,
-                                                              type?: T,
-                                                              required?: boolean,
-                                                              defaultValue?: SchemaTypeMap[T],
-                                                              editorType?: string) => ValidationRuleBuilder<Params & Pair<Key, T>>
+  withParameter: <T extends SchemaType = 'string', Key = any>(
+    key: PropertyKey<Key>,
+    type?: T,
+    required?: boolean,
+    defaultValue?: SchemaTypeMap[T],
+    editorType?: string
+  ) => ValidationRuleBuilder<Params & Pair<Key, T>>
   /**
    * Sets the validation rule factory.
    */
@@ -38,14 +40,13 @@ type ValidationRuleBuilder<Params> = {
 export function ruleBuilder() {
   const builder = {
     params: [],
-    withParameter(key, type?, required = false,
-                  defaultValue?, editorType?): ValidationRuleBuilder<any> {
+    withParameter(key, type?, required = false, defaultValue?, editorType?): ValidationRuleBuilder<any> {
       this.params.push({key, type: type ?? 'string', required, default: defaultValue, editorType})
       return this
     },
     withValidatorFactory(validatorFactory) {
       return {...this, validatorFactory}
-    }
+    },
   } as ValidationRuleBuilder<Record<string, never>>
   return builder.withParameter('message')
 }

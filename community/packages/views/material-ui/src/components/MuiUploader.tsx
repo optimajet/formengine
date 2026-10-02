@@ -116,6 +116,4 @@ const componentStores = rawComponents.map(component => {
   return JSON.parse(JSON.stringify(component))
 })
 
-export const muiUploader = definePreset('MuiUploader', componentStores)
-  .icon('Uploader')
-  .category(inputsCategory)
+export const muiUploader = definePreset('MuiUploader', componentStores).icon('Uploader').category(inputsCategory)

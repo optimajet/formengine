@@ -9,7 +9,6 @@ export type LanguageFullCode = `${string}-${string}`
  * The language to localize the form builder.
  */
 export class Language {
-
   /**
    * Creates a localization language for the form builder.
    * @param code the language code, for example, 'en'.
@@ -23,9 +22,8 @@ export class Language {
     readonly dialect: string,
     readonly name: string,
     readonly description: string,
-    readonly bidi: BiDi = BiDi.LTR,
-  ) {
-  }
+    readonly bidi: BiDi = BiDi.LTR
+  ) {}
 
   /**
    * @returns the full code of the Language i.e. en-US, en-GB etc.

@@ -35,48 +35,36 @@ export interface MtDropzoneProps
  * @returns dropzone component.
  */
 export function MtDropzone(props: MtDropzoneProps) {
-  const {
-    label,
-    description,
-    error,
-    id,
-    required,
-    withAsterisk,
-    value,
-    onChange,
-    children,
-    ...others
-  } = props
+  const {label, description, error, id, required, withAsterisk, value, onChange, children, ...others} = props
 
-  const handleDrop = useCallback((files: FileWithPath[]) => {
-    onChange?.(files)
-  }, [onChange])
+  const handleDrop = useCallback(
+    (files: FileWithPath[]) => {
+      onChange?.(files)
+    },
+    [onChange]
+  )
 
-  const handleCloseClick = useCallback((index: number) => {
-    return () => {
-      onChange?.(value?.filter((_, i) => i !== index) || [])
-    }
-  }, [onChange, value])
+  const handleCloseClick = useCallback(
+    (index: number) => {
+      return () => {
+        onChange?.(value?.filter((_, i) => i !== index) || [])
+      }
+    },
+    [onChange, value]
+  )
 
   const pickedFiles = (value || []).map((file, index) => (
     <List.Item key={`${file.name}-${index}`}>
       <Group>
         <span>{file.name}</span>
 
-        <CloseButton onClick={handleCloseClick(index)}/>
+        <CloseButton onClick={handleCloseClick(index)} />
       </Group>
     </List.Item>
   ))
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      id={id}
-      required={required}
-      withAsterisk={withAsterisk}
-    >
+    <Input.Wrapper label={label} description={description} error={error} id={id} required={required} withAsterisk={withAsterisk}>
       <Dropzone onDrop={handleDrop} {...others}>
         {children || (
           <Center h={120}>

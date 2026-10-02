@@ -40,10 +40,10 @@ export const rsHeader = define(RsHeader, 'RsHeader')
   .category(staticCategory)
   .props({
     content: string.required.default(defaultContent).dataBound,
-    headerSize
+    headerSize,
   })
   .css({
     backgroundColor,
     textAlign,
-    color
+    color,
   })

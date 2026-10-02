@@ -58,7 +58,7 @@ export class Model<T = any> {
     readonly uncontrolledValue?: unknown,
     readonly disabled?: string,
     readonly dataBindingType: DataBindingType = 'none',
-    readonly features: ComponentFeatures = {},
+    readonly features: ComponentFeatures = {}
   ) {
     if (this.valued && this.dataBindingType === 'none') {
       this.dataBindingType = 'twoWay'

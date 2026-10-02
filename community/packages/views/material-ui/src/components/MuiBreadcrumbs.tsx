@@ -51,7 +51,7 @@ export interface MuiBreadcrumbsProps extends BreadcrumbsProps {
  * Styles for active breadcrumb item.
  */
 const activeItemSx: SxProps = {
-  color: 'text.primary'
+  color: 'text.primary',
 }
 
 /**
@@ -64,9 +64,11 @@ const BreadcrumbsItem = ({onClick, ...item}: MuiBreadcrumbsItemProps) => {
   const {href, title} = item
   const handleClick = useCallback(() => onClick?.(item), [item, onClick])
 
-  return <Link color="inherit" href={href} onClick={handleClick}>
-    {title}
-  </Link>
+  return (
+    <Link color="inherit" href={href} onClick={handleClick}>
+      {title}
+    </Link>
+  )
 }
 
 /**
@@ -77,34 +79,36 @@ const BreadcrumbsItem = ({onClick, ...item}: MuiBreadcrumbsItemProps) => {
  * @returns the React element.
  */
 const MuiBreadcrumbs = ({items = [], onItemClick, ...props}: MuiBreadcrumbsProps) => {
-  const renderedItems = useMemo(() => items.map((item, i) => {
-    if (item.active) {
-      return <Typography sx={activeItemSx} key={i}>{item.title}</Typography>
-    }
-    return <BreadcrumbsItem onClick={onItemClick} {...item} key={i}/>
-  }), [items, onItemClick])
+  const renderedItems = useMemo(
+    () =>
+      items.map((item, i) => {
+        if (item.active) {
+          return (
+            <Typography sx={activeItemSx} key={i}>
+              {item.title}
+            </Typography>
+          )
+        }
+        return <BreadcrumbsItem onClick={onItemClick} {...item} key={i} />
+      }),
+    [items, onItemClick]
+  )
 
   return <Breadcrumbs {...props}>{renderedItems}</Breadcrumbs>
 }
 
 const makeItems = (data: string[]) => data.map(title => ({title, href: `/${title}`}))
 
-const columns = [
-  {name: 'title'},
-  {name: 'href', title: 'Url'},
-  {name: 'active', inputName: 'CheckCell'}
-] as const
+const columns = [{name: 'title'}, {name: 'href', title: 'Url'}, {name: 'active', inputName: 'CheckCell'}] as const
 
 export const muiBreadcrumbs = define(MuiBreadcrumbs, 'MuiBreadcrumbs')
   .icon('Breadcrumb')
   .category(navigationCategory)
   .props({
     separator: string,
-    items: array.localize
-      .default(makeItems(['one', 'two', 'three']))
-      .withEditorProps({columns}),
+    items: array.localize.default(makeItems(['one', 'two', 'three'])).withEditorProps({columns}),
     onItemClick: event,
     maxItems: nonNegNumber,
     itemsAfterCollapse: number,
-    itemsBeforeCollapse: number
+    itemsBeforeCollapse: number,
   })

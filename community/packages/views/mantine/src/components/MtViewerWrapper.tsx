@@ -13,7 +13,5 @@ export const MtViewerWrapper = ({children}: FormViewerWrapperComponentProps) => 
   const builderTheme = useBuilderTheme()
   const context = useContext(MantineContext)
 
-  return context
-    ? <>{children}</>
-    : <MantineProvider forceColorScheme={builderTheme}>{children}</MantineProvider>
+  return context ? <>{children}</> : <MantineProvider forceColorScheme={builderTheme}>{children}</MantineProvider>
 }

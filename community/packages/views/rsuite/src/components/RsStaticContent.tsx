@@ -29,7 +29,7 @@ const RsStaticContent = (props: RsStaticContentProps) => {
   const html = useMemo(() => ({__html: data}), [data])
 
   if (allowHtml) {
-    return <span {...otherProps} dangerouslySetInnerHTML={html}/>
+    return <span {...otherProps} dangerouslySetInnerHTML={html} />
   }
 
   return <span {...otherProps}>{data}</span>

@@ -6,5 +6,6 @@ import './App.css'
  */
 export default () => (
   <div className={'app'}>
-    <FormViewerExample/>
-  </div>)
+    <FormViewerExample />
+  </div>
+)

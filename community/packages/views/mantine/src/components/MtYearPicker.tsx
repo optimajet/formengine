@@ -11,8 +11,7 @@ import {description, label, onChange, size} from './internal/sharedProps'
  */
 export interface MtYearPickerProps<Type extends DatePickerType = 'default'>
   extends YearPickerProps<Type>,
-    Omit<InputWrapperProps, 'children' | keyof YearPickerProps<Type>> {
-}
+    Omit<InputWrapperProps, 'children' | keyof YearPickerProps<Type>> {}
 
 /**
  * Mantine year picker component for React Form Builder.
@@ -20,25 +19,10 @@ export interface MtYearPickerProps<Type extends DatePickerType = 'default'>
  * @returns year picker component.
  */
 export function MtYearPicker<Type extends DatePickerType = 'default'>(props: MtYearPickerProps<Type>) {
-  const {
-    label,
-    description,
-    error,
-    id,
-    required,
-    withAsterisk,
-    ...others
-  } = props
+  const {label, description, error, id, required, withAsterisk, ...others} = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      id={id}
-      required={required}
-      withAsterisk={withAsterisk}
-    >
+    <Input.Wrapper label={label} description={description} error={error} id={id} required={required} withAsterisk={withAsterisk}>
       <YearPicker {...others} />
     </Input.Wrapper>
   )
@@ -50,7 +34,7 @@ export function MtYearPicker<Type extends DatePickerType = 'default'>(props: MtY
  * @returns year range picker component
  */
 export function MtYearRangePicker(props: MtYearPickerProps<'range'>) {
-  return <MtYearPicker {...props} type="range"/>
+  return <MtYearPicker {...props} type="range" />
 }
 
 /**
@@ -59,7 +43,7 @@ export function MtYearRangePicker(props: MtYearPickerProps<'range'>) {
  * @returns year multiple picker component
  */
 export function MtYearMultiplePicker(props: MtYearPickerProps<'multiple'>) {
-  return <MtYearPicker {...props} type="multiple"/>
+  return <MtYearPicker {...props} type="multiple" />
 }
 
 const yearPickerBaseProps = {

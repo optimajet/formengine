@@ -23,44 +23,50 @@ const getClassName = (state: Partial<DropzoneState>, dropzone?: boolean, classNa
 }
 
 const Uploader = ({children, dropzone, value, className, action, onChange, onError, onDrop, onDropRejected, ...props}: UploaderProps) => {
-  const handleFileUpload = useCallback((acceptedFiles: File[]) => {
-    if (!action) return
+  const handleFileUpload = useCallback(
+    (acceptedFiles: File[]) => {
+      if (!action) return
 
-    const handleChange = (files?: FileType[]) => {
-      if (files?.length) {
-        onChange?.([
-          ...(value ?? []),
-          ...files
-        ])
+      const handleChange = (files?: FileType[]) => {
+        if (files?.length) {
+          onChange?.([...(value ?? []), ...files])
+        }
       }
-    }
 
-    const handleError = (error: unknown, files?: FileType[]) => {
-      handleChange(files)
-      onError?.(error)
-    }
+      const handleError = (error: unknown, files?: FileType[]) => {
+        handleChange(files)
+        onError?.(error)
+      }
 
-    uploadFiles(acceptedFiles, action, handleChange, handleError).catch()
-  }, [action, onChange, onError, value])
+      uploadFiles(acceptedFiles, action, handleChange, handleError).catch()
+    },
+    [action, onChange, onError, value]
+  )
 
-  const dropzoneOptions = useMemo<DropzoneOptions>(() => ({
+  const dropzoneOptions = useMemo<DropzoneOptions>(
+    () => ({
       ...props,
       noDrag: !dropzone,
       onDrop: handleFileUpload,
-    }
-  ), [dropzone, handleFileUpload, props])
+    }),
+    [dropzone, handleFileUpload, props]
+  )
 
   const {getInputProps, getRootProps, ...state} = useDropzone(dropzoneOptions)
 
-  const dropzoneProps = useMemo(() => getRootProps({
-    className: getClassName(state, dropzone, className)
-  }), [className, dropzone, state, getRootProps])
+  const dropzoneProps = useMemo(
+    () =>
+      getRootProps({
+        className: getClassName(state, dropzone, className),
+      }),
+    [className, dropzone, state, getRootProps]
+  )
 
   const inputProps = useMemo(() => getInputProps(), [getInputProps])
 
   return (
     <div {...dropzoneProps}>
-      <input {...inputProps}/>
+      <input {...inputProps} />
       {children}
     </div>
   )
@@ -78,5 +84,5 @@ export const uploader = define(Uploader, 'Uploader')
     disabled: disabled,
     readOnly: readOnly,
     onChange: event,
-    onError: event
+    onError: event,
   })

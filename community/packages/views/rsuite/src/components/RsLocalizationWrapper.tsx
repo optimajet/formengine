@@ -23,7 +23,7 @@ import {
   svSE,
   trTR,
   zhCN,
-  zhTW
+  zhTW,
 } from 'rsuite/esm/locales/index.js'
 import {hiIN} from './i18n/hi-IN'
 import {srRS} from './i18n/sr-RS'
@@ -62,7 +62,7 @@ export const defaultComponentsLocale = enUS
  * @param props the FormViewerWrapper props.
  * @returns the wrapped components with localization settings applied.
  */
-export const RsLocalizationWrapper: FormViewerWrapper = (props) => {
+export const RsLocalizationWrapper: FormViewerWrapper = props => {
   const {language, children} = props
   const parent = useContext(CustomContext)
   const locale = rSuiteLocales[language.fullCode] ?? defaultComponentsLocale

@@ -5,6 +5,5 @@ import {z} from './zodMini'
 import {stringScheme, toRuleValidator} from './zodRuleBuilders'
 
 export const ZodTimeRules: ValidationRuleSet = {
-  required: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1, {error: requiredMessage}))),
+  required: ruleBuilder().withValidatorFactory(() => toRuleValidator(stringScheme, z.minLength(1, {error: requiredMessage}))),
 }

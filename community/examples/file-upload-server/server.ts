@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import cors from 'cors'
-import express, {type Request, type Response} from 'express'
-import multer from 'multer'
 import fs from 'node:fs'
 import path, {dirname} from 'node:path'
 import {fileURLToPath} from 'node:url'
+import cors from 'cors'
+import express, {type Request, type Response} from 'express'
+import multer from 'multer'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)

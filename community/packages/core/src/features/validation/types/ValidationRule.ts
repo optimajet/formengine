@@ -5,7 +5,6 @@ import type {ValidatorFactory} from './ValidatorFactory'
  * Validation rule metadata required to create a validation function.
  */
 export type ValidationRule = {
-
   /**
    * Metadata of validation rule parameters.
    */

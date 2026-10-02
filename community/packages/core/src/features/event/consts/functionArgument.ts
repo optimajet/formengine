@@ -14,9 +14,14 @@ export function getArgumentFunction(source: string): ArgumentExecutor {
   const fn = fnArgumentFunctionCache.get(source)
   if (fn) return fn
 
-  const result = new Function('e', 'args', '...userArgs', `return (async function(){
+  const result = new Function(
+    'e',
+    'args',
+    '...userArgs',
+    `return (async function(){
 ${source}
-  })()`) as ArgumentExecutor
+  })()`
+  ) as ArgumentExecutor
   fnArgumentFunctionCache.set(source, result)
   return result
 }
@@ -27,8 +32,5 @@ ${source}
  * @returns boolean true, if the value of the argument is a functional type, false otherwise.
  */
 export const isFunctionArgumentValue = (value: ArgumentValue): value is FunctionArgumentValue => {
-  return typeof value === 'object'
-    && !isNull(value)
-    && 'type' in value
-    && value.type === 'fn'
+  return typeof value === 'object' && !isNull(value) && 'type' in value && value.type === 'fn'
 }

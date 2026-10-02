@@ -10,8 +10,7 @@ import {mantineColor} from './internal/mantineColor'
  */
 export interface MtRangeSliderProps
   extends Omit<RangeSliderProps, 'size' | 'label'>,
-    Omit<InputWrapperProps, 'children' | Exclude<keyof RangeSliderProps, 'size' | 'label'>> {
-}
+    Omit<InputWrapperProps, 'children' | Exclude<keyof RangeSliderProps, 'size' | 'label'>> {}
 
 /**
  * Mantine range slider component for React Form Builder.
@@ -41,14 +40,7 @@ export function MtRangeSliderComponent(props: MtRangeSliderProps) {
   } = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      required={required}
-      withAsterisk={withAsterisk}
-      size={size}
-    >
+    <Input.Wrapper label={label} description={description} error={error} required={required} withAsterisk={withAsterisk} size={size}>
       <RangeSlider
         value={value}
         disabled={disabled}

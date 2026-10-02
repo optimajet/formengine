@@ -60,46 +60,40 @@ const RawComponentViewer = () => {
   const ref = reactMajor >= 19 ? componentState.setRef : undefined
 
   if (kind === 'container') {
-    return <ContainerComponent
-      key={key}
-      ref={ref}
-      {...otherProps}
-      className={className}
-      {...containerStyle}
-    />
+    return <ContainerComponent key={key} ref={ref} {...otherProps} className={className} {...containerStyle} />
   }
 
   if (kind === 'repeater') {
-    return <Tooltip>
-      <Wrapper>
-        <Erroneous>
-          <Component
-            key={key}
-            ref={ref}
-            {...otherProps}
-            wrapperClassName={className}
-            {...containerStyle}
-          />
-        </Erroneous>
-      </Wrapper>
-    </Tooltip>
+    return (
+      <Tooltip>
+        <Wrapper>
+          <Erroneous>
+            <Component key={key} ref={ref} {...otherProps} wrapperClassName={className} {...containerStyle} />
+          </Erroneous>
+        </Wrapper>
+      </Tooltip>
+    )
   }
 
   if (kind === 'template') {
-    return <Wrapper className={className} {...containerStyle}>
-      <Component key={key} ref={ref} {...otherProps}/>
-    </Wrapper>
+    return (
+      <Wrapper className={className} {...containerStyle}>
+        <Component key={key} ref={ref} {...otherProps} />
+      </Wrapper>
+    )
   }
 
   const wrapperClassName = useWrapperStyles ? componentState.wrapperClassName : undefined
 
-  return <Tooltip>
-    <Wrapper className={wrapperClassName} {...containerStyle}>
-      <Erroneous>
-        <Component key={key} ref={ref} {...otherProps}/>
-      </Erroneous>
-    </Wrapper>
-  </Tooltip>
+  return (
+    <Tooltip>
+      <Wrapper className={wrapperClassName} {...containerStyle}>
+        <Erroneous>
+          <Component key={key} ref={ref} {...otherProps} />
+        </Erroneous>
+      </Wrapper>
+    </Tooltip>
+  )
 }
 
 export const ComponentViewer = namedObserver('ComponentViewer', RawComponentViewer)

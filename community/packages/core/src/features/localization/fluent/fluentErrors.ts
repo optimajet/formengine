@@ -7,8 +7,7 @@ const FLUENT_OVERRIDE_WARNING = 'Attempt to override'
  * @param error fluent error.
  * @returns localization error.
  */
-export const convertFluentError = (error: Error): LocalizationError =>
-  new LocalizationError(error.message, error.name)
+export const convertFluentError = (error: Error): LocalizationError => new LocalizationError(error.message, error.name)
 
 /**
  * Logs fluent formatting errors and optionally missing property names.
@@ -16,19 +15,15 @@ export const convertFluentError = (error: Error): LocalizationError =>
  * @param missing missing property names.
  * @param logMissing when true, logs missing property names.
  */
-export const logFluentErrors = (
-  errors: Array<LocalizationError | Error>,
-  missing?: string[],
-  logMissing = false,
-): void => {
-  errors.forEach((e) => {
+export const logFluentErrors = (errors: Array<LocalizationError | Error>, missing?: string[], logMissing = false): void => {
+  errors.forEach(e => {
     if (e.name.includes(FLUENT_OVERRIDE_WARNING)) return
     console.warn(e)
   })
 
   if (logMissing && Array.isArray(missing) && missing.length > 0) {
     const missingProperties: Record<string, null> = {}
-    missing.forEach(item => missingProperties[item] = null)
+    missing.forEach(item => (missingProperties[item] = null))
     console.warn('Missing properties:', Object.keys(missingProperties))
   }
 }

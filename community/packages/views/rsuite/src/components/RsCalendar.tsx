@@ -29,13 +29,11 @@ export interface RsCalendarProps extends CalendarProps {
  * @returns the React element.
  */
 const RsCalendar = ({label, style, className, ...props}: RsCalendarProps) => {
-  return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
-    {
-      props.readOnly
-        ? <Calendar {...props} onChange={undefined}/>
-        : <Calendar {...props}/>
-    }
-  </Labeled>
+  return (
+    <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
+      {props.readOnly ? <Calendar {...props} onChange={undefined} /> : <Calendar {...props} />}
+    </Labeled>
+  )
 }
 
 export const rsCalendar = define(RsCalendar, 'RsCalendar')

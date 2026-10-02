@@ -10,12 +10,7 @@ import {deduplicateData} from './internal/deduplicateData'
 const MtTagsInput = (props: TagsInputProps & BaseComboboxProps) => {
   const {data, ...others} = props
   const deduplicatedData = useMemo(() => deduplicateData(data || []), [data])
-  return (
-    <TagsInput
-      {...others}
-      data={deduplicatedData}
-    />
-  )
+  return <TagsInput {...others} data={deduplicatedData} />
 }
 
 export const mtTagsInput = define(MtTagsInput, 'MtTagsInput')

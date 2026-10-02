@@ -7,8 +7,7 @@ import {useMemo} from 'react'
 export const useRequired = () => {
   const {store} = useComponentData()
 
-  const item = store.schema?.validations
-    ?.find(v => v.key === 'required')
+  const item = store.schema?.validations?.find(v => v.key === 'required')
 
   return useMemo(() => !!item, [item])
 }

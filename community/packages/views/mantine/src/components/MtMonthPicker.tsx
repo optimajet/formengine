@@ -11,8 +11,7 @@ import {description, label, onChange, size} from './internal/sharedProps'
  */
 export interface MtMonthPickerProps<Type extends DatePickerType = 'default'>
   extends MonthPickerProps<Type>,
-    Omit<InputWrapperProps, 'children' | keyof MonthPickerProps<Type>> {
-}
+    Omit<InputWrapperProps, 'children' | keyof MonthPickerProps<Type>> {}
 
 /**
  * Mantine month picker component for React Form Builder.
@@ -20,25 +19,10 @@ export interface MtMonthPickerProps<Type extends DatePickerType = 'default'>
  * @returns month picker component.
  */
 export function MtMonthPicker<Type extends DatePickerType = 'default'>(props: MtMonthPickerProps<Type>) {
-  const {
-    label,
-    description,
-    error,
-    id,
-    required,
-    withAsterisk,
-    ...others
-  } = props
+  const {label, description, error, id, required, withAsterisk, ...others} = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      id={id}
-      required={required}
-      withAsterisk={withAsterisk}
-    >
+    <Input.Wrapper label={label} description={description} error={error} id={id} required={required} withAsterisk={withAsterisk}>
       <MonthPicker {...others} />
     </Input.Wrapper>
   )
@@ -50,7 +34,7 @@ export function MtMonthPicker<Type extends DatePickerType = 'default'>(props: Mt
  * @returns month range picker component.
  */
 export function MtMonthRangePicker(props: MtMonthPickerProps<'range'>) {
-  return <MtMonthPicker {...props} type="range"/>
+  return <MtMonthPicker {...props} type="range" />
 }
 
 /**
@@ -59,7 +43,7 @@ export function MtMonthRangePicker(props: MtMonthPickerProps<'range'>) {
  * @returns month multiple picker component.
  */
 export function MtMonthMultiplePicker(props: MtMonthPickerProps<'multiple'>) {
-  return <MtMonthPicker {...props} type="multiple"/>
+  return <MtMonthPicker {...props} type="multiple" />
 }
 
 const monthPickerBaseProps = {
@@ -91,8 +75,7 @@ export const mtMonthPicker = define(MtMonthPicker, 'MtMonthPicker')
   .category(datesCategory)
   .props({
     ...monthPickerBaseProps,
-    allowDeselect: boolean
-      .default(false),
+    allowDeselect: boolean.default(false),
     value: string.valued,
   })
 
@@ -101,8 +84,7 @@ export const mtMonthRangePicker = define(MtMonthRangePicker, 'MtMonthRangePicker
   .props({
     ...monthPickerBaseProps,
     value: array.valued,
-    allowSingleDateInRange: boolean
-      .default(false),
+    allowSingleDateInRange: boolean.default(false),
   })
 
 export const mtMonthMultiplePicker = define(MtMonthMultiplePicker, 'MtMonthMultiplePicker')

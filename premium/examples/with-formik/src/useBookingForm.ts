@@ -1,21 +1,24 @@
 import {useFormik} from 'formik'
-import {useMemo, useState} from 'react'
 import {FormikProps} from 'formik/dist/types'
+import {useMemo, useState} from 'react'
 
 type BookingForm = Partial<{
-  fullName: string,
-  guestCount: number,
+  fullName: string
+  guestCount: number
   checkinDate: Date
 }>
 
 export const useBookingForm = (): [FormikProps<BookingForm>, BookingForm] => {
   const [formData, setFormData] = useState<BookingForm>({})
 
-  const initialValues = useMemo<BookingForm>(() => ({
-    fullName: '',
-    guestCount: 1,
-    checkinDate: new Date()
-  }), [])
+  const initialValues = useMemo<BookingForm>(
+    () => ({
+      fullName: '',
+      guestCount: 1,
+      checkinDate: new Date(),
+    }),
+    []
+  )
 
   const formik = useFormik<BookingForm>({
     initialValues,
@@ -38,10 +41,10 @@ export const useBookingForm = (): [FormikProps<BookingForm>, BookingForm] => {
     //
     // return errors;
     // },
-    onSubmit: (data) => {
+    onSubmit: data => {
       setFormData(data)
       console.log(data)
-    }
+    },
   })
 
   return [formik, formData]

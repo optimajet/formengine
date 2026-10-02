@@ -14,12 +14,13 @@ export const screenStyleProperties = toStyleProperties({
   ...commonStyles,
   height: height.setup({default: '100%'}),
   flexDirection: flexDirection.default('column'),
-  gap: gap.default('10px')
+  gap: gap.default('10px'),
 })
 
 const defaultCss = getDefaultCss(screenStyleProperties)
 
-const screenFeatures = addOrUpdateFeatures({},
+const screenFeatures = addOrUpdateFeatures(
+  {},
   {name: cfHideFromComponentPalette, value: true},
   {name: cfDisableComponentRemove, value: true}
 )
@@ -29,6 +30,21 @@ const typeName = 'Screen'
 /**
  * Form viewer screen metadata. **Internal use only.**
  */
-export const screenModel = new Model(DefaultWrapper, typeName, undefined,
-  undefined, undefined, undefined, defaultCss, undefined, typeName, 'container',
-  'readOnly', undefined, undefined, 'disabled', undefined, screenFeatures)
+export const screenModel = new Model(
+  DefaultWrapper,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  defaultCss,
+  undefined,
+  typeName,
+  'container',
+  'readOnly',
+  undefined,
+  undefined,
+  'disabled',
+  undefined,
+  screenFeatures
+)

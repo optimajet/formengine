@@ -32,22 +32,40 @@ const DefaultErrorMessage = ({children, error, className}: ErrorWrapperProps) =>
   return (
     <div className={styles.errorContainer}>
       {children}
-      {error && <p id={aria['aria-errormessage']} className={cx(className, styles.errorMessage, darkTheme && styles.dark)}>
-        {error}
-      </p>}
+      {error && (
+        <p id={aria['aria-errormessage']} className={cx(className, styles.errorMessage, darkTheme && styles.dark)}>
+          {error}
+        </p>
+      )}
     </div>
   )
 }
 const typeName = 'DefaultErrorMessage'
 
-const errorMessageFeatures = addOrUpdateFeatures({},
+const errorMessageFeatures = addOrUpdateFeatures(
+  {},
   {name: cfComponentRole, value: 'error-message'},
-  {name: cfHideFromComponentPalette, value: true},
+  {name: cfHideFromComponentPalette, value: true}
 )
 
 /**
  * The component metadata for error message. **Internal use only.**
  */
-export const errorMessageModel = new Model(DefaultErrorMessage, typeName, undefined, undefined,
-  undefined, undefined, undefined, undefined, typeName, undefined,
-  undefined, undefined, undefined, undefined, undefined, errorMessageFeatures)
+export const errorMessageModel = new Model(
+  DefaultErrorMessage,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  errorMessageFeatures
+)

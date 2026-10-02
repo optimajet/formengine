@@ -19,7 +19,7 @@ const getFieldEventHandlers = (field: Field): Record<EventName, ActionEventHandl
     },
     onBlur: () => {
       field.setTouched()
-    }
+    },
   }
 }
 
@@ -28,7 +28,7 @@ const getValueProperty = (propertyName: string, field: Field, model: Model): Rea
     propertyName,
     get propertyValue() {
       return field.value ?? model.uncontrolledValue
-    }
+    },
   }
 }
 
@@ -39,19 +39,16 @@ const getValueProperty = (propertyName: string, field: Field, model: Model): Rea
  * @param cellInfo the information about the cell.
  * @returns a default field's property context.
  */
-export const getFieldPropertiesContext = (field: Field, model: Model,
-                                          cellInfo?: CellInfo): ComponentPropertiesContext => {
+export const getFieldPropertiesContext = (field: Field, model: Model, cellInfo?: CellInfo): ComponentPropertiesContext => {
   if (!field || !model.valued) return emptyPropertiesContext
 
   const eventHandlers = getFieldEventHandlers(field)
 
-  const valueProperty = model.kind !== 'template'
-    ? getValueProperty(model.valued, field, model)
-    : undefined
+  const valueProperty = model.kind !== 'template' ? getValueProperty(model.valued, field, model) : undefined
 
   return {
     eventHandlers,
     valueProperty,
-    cellInfo
+    cellInfo,
   }
 }

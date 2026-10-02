@@ -1,8 +1,5 @@
 import en from '@vueform/vueform/locales/en'
 import {defineConfig, email, min, regex, required} from '@vueform/vueform/src/core.js'
-
-import {main} from './booking-form.ts'
-
 import {
   CheckboxElement,
   classes,
@@ -13,7 +10,6 @@ import {
   ElementAddonOptions,
   ElementDescription,
   ElementError,
-  StaticElement,
   ElementInfo,
   ElementLabel,
   ElementLabelFloating,
@@ -32,10 +28,12 @@ import {
   FormStepsControls,
   MultiselectElement,
   SelectElement,
+  StaticElement,
   TextareaElement,
   TextElement,
   Vueform,
 } from '@vueform/vueform/themes/material'
+import {main} from './booking-form.ts'
 
 import '@vueform/vueform/themes/material/css/index.min.css'
 

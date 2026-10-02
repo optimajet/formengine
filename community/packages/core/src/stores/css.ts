@@ -11,10 +11,7 @@ export const generateClass = (prefix = 'st-'): string => prefix + Math.random().
  * @param selector - optional CSS selector to wrap the rules.
  * @returns CSS string.
  */
-export function reactStylesToCss(
-  styles: Record<string, string | number>,
-  selector?: string
-): string {
+export function reactStylesToCss(styles: Record<string, string | number>, selector?: string): string {
   const cssLines = Object.entries(styles)
     .filter(([_, value]) => typeof value !== 'undefined')
     .map(([key, value]) => {
@@ -28,10 +25,10 @@ export function reactStylesToCss(
 }
 
 type CSSRule = {
-  selectors: string[];
-  declarations: string;
-  media: string | null;
-};
+  selectors: string[]
+  declarations: string
+  media: string | null
+}
 
 const IMPLICIT_ROOT = ':root'
 
@@ -56,7 +53,7 @@ function findNonStringChar(text: string, target: string, start = 0): number {
       if (c === inString && text[i - 1] !== '\\') inString = null
       continue
     }
-    if (c === '"' || c === '\'') {
+    if (c === '"' || c === "'") {
       inString = c
       continue
     }
@@ -75,7 +72,7 @@ function findMatchingBrace(text: string, openIndex: number): number {
     if (inString) {
       if (c === inString && text[i - 1] !== '\\') inString = null
     } else {
-      if (c === '"' || c === '\'') {
+      if (c === '"' || c === "'") {
         inString = c
       } else if (c === '{') {
         depth++
@@ -87,7 +84,7 @@ function findMatchingBrace(text: string, openIndex: number): number {
   return i
 }
 
-function splitDeclarationsAndNestedBlocks(content: string): { declarationText: string; nestedBlocks: string[] } {
+function splitDeclarationsAndNestedBlocks(content: string): {declarationText: string; nestedBlocks: string[]} {
   const nestedBlocks: string[] = []
   let declarationText = ''
   let i = 0
@@ -110,7 +107,7 @@ function splitDeclarationsAndNestedBlocks(content: string): { declarationText: s
         i++
         continue
       }
-      if (c === '"' || c === '\'') {
+      if (c === '"' || c === "'") {
         inString = c
         i++
         continue
@@ -167,18 +164,14 @@ export function flattenNestedCSS(css: string): string {
   }
 
   // Parse block safely with string awareness
-  function processBlock(
-    block: string,
-    parentSelectors: string[] = [],
-    media: string | null = null
-  ): void {
+  function processBlock(block: string, parentSelectors: string[] = [], media: string | null = null): void {
     if (findNonStringChar(block, '{') === -1) {
       const declarations = buildDeclarations(block)
       if (declarations) {
         rules.push({
           selectors: parentSelectors.length ? parentSelectors : [IMPLICIT_ROOT],
           declarations,
-          media
+          media,
         })
       }
       return
@@ -231,9 +224,7 @@ export function flattenNestedCSS(css: string): string {
         if (!parentSelectors.length) return [sel]
         return parentSelectors.map(parent => {
           if (sel.includes('&')) {
-            return sel
-              .replace(/&&/g, `${parent}${parent}`)
-              .replace(/&/g, parent)
+            return sel.replace(/&&/g, `${parent}${parent}`).replace(/&/g, parent)
           }
           return `${parent} ${sel}`
         })
@@ -248,7 +239,7 @@ export function flattenNestedCSS(css: string): string {
         rules.push({
           selectors: resolvedSelectors,
           declarations,
-          media
+          media,
         })
       }
 

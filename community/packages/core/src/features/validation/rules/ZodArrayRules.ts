@@ -5,11 +5,9 @@ import {z} from './zodMini'
 import {arrayScheme, toRuleValidator} from './zodRuleBuilders'
 
 export const ZodArrayRules: ValidationRuleSet = {
-  required: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(arrayScheme, z.minLength(1, {error: requiredMessage}))),
+  required: ruleBuilder().withValidatorFactory(() => toRuleValidator(arrayScheme, z.minLength(1, {error: requiredMessage}))),
 
-  nonEmpty: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(arrayScheme, z.minLength(1))),
+  nonEmpty: ruleBuilder().withValidatorFactory(() => toRuleValidator(arrayScheme, z.minLength(1))),
 
   length: ruleBuilder()
     .withParameter('length', 'number', true)

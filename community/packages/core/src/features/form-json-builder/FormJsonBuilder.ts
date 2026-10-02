@@ -42,7 +42,7 @@ type Component = {
   key: string
   type: string
   props?: Props
-  schema?: { validations: Validation[] }
+  schema?: {validations: Validation[]}
   events?: Record<string, Event[]>
   css?: Css
   children?: Component[]
@@ -71,7 +71,7 @@ interface INeedFinalize {
 }
 
 function isComputedProp(value: any): value is ComputedPropValue {
-  return !!(value?.['fnSource'])
+  return !!value?.['fnSource']
 }
 
 function isLocalizedProp(value: any): value is LocalizedPropValue {
@@ -86,8 +86,10 @@ class EventHandlerBuilder implements IEventHandlerBuilder, INeedFinalize {
   private buffer: Event[] = []
   private current: Event | null = null
 
-  constructor(private parent: ComponentBuilder, private eventName: string) {
-  }
+  constructor(
+    private parent: ComponentBuilder,
+    private eventName: string
+  ) {}
 
   /**
    * @inheritDoc
@@ -161,7 +163,8 @@ class EventHandlerBuilder implements IEventHandlerBuilder, INeedFinalize {
   /**
    * @inheritDoc
    */
-  children = (childrenBuilder: (builder: IFormJsonBuilder) => IFormJsonBuilder): IComponentBuilder => this.finalize().children(childrenBuilder)
+  children = (childrenBuilder: (builder: IFormJsonBuilder) => IFormJsonBuilder): IComponentBuilder =>
+    this.finalize().children(childrenBuilder)
 
   finalize(): IComponentBuilder {
     this.commit()
@@ -181,8 +184,10 @@ class EventHandlerBuilder implements IEventHandlerBuilder, INeedFinalize {
 }
 
 class ValidationBuilder implements IValidationBuilder, INeedFinalize {
-  constructor(private parent: ComponentBuilder, private key: string) {
-  }
+  constructor(
+    private parent: ComponentBuilder,
+    private key: string
+  ) {}
 
   /**
    * @inheritDoc
@@ -237,7 +242,8 @@ class ValidationBuilder implements IValidationBuilder, INeedFinalize {
   /**
    * @inheritDoc
    */
-  children = (childrenBuilder: (builder: IFormJsonBuilder) => IFormJsonBuilder): IComponentBuilder => this.finalize().children(childrenBuilder)
+  children = (childrenBuilder: (builder: IFormJsonBuilder) => IFormJsonBuilder): IComponentBuilder =>
+    this.finalize().children(childrenBuilder)
 
   finalize(val?: any): IComponentBuilder {
     this.parent.addValidation(this.key, val)
@@ -252,8 +258,11 @@ class ComponentBuilder implements IComponentBuilder {
   css: Css = {}
   childComponents: Component[] = []
 
-  constructor(public parent: FormJsonBuilder | ComponentBuilder, public key: string, public type: string) {
-  }
+  constructor(
+    public parent: FormJsonBuilder | ComponentBuilder,
+    public key: string,
+    public type: string
+  ) {}
 
   /**
    * @inheritDoc
@@ -302,7 +311,7 @@ class ComponentBuilder implements IComponentBuilder {
     const result: Component = {
       key: this.key,
       type: this.type,
-      props: this.props
+      props: this.props,
     }
     if (this.validations.length) result.schema = {validations: this.validations}
     if (Object.keys(this.events).length) result.events = this.events
@@ -343,10 +352,7 @@ class ComponentBuilder implements IComponentBuilder {
     if (isNeedFinalize(builderResult)) {
       builderResult.finalize()
     }
-    this.childComponents = [
-      ...this.childComponents,
-      ...builder.build().form.children ?? []
-    ]
+    this.childComponents = [...this.childComponents, ...(builder.build().form.children ?? [])]
     return this
   }
 
@@ -365,8 +371,7 @@ class FormJsonBuilder implements IFormJsonBuilder {
   private components: Component[] = []
   private current: ComponentBuilder | null = null
 
-  constructor(private options?: FormOptions) {
-  }
+  constructor(private options?: FormOptions) {}
 
   /**
    * @inheritDoc
@@ -406,8 +411,8 @@ class FormJsonBuilder implements IFormJsonBuilder {
       ...this.options,
       form: {
         key: 'Screen',
-        type: 'Screen'
-      }
+        type: 'Screen',
+      },
     }
     if (this.components.length) {
       form.form.children = this.components
@@ -420,12 +425,12 @@ class FormJsonBuilder implements IFormJsonBuilder {
       const [code, dialect] = langCode.split('-')
       return {
         code,
-        dialect: dialect ?? code
+        dialect: dialect ?? code,
       }
     })
   }
 
-  private toComponentProperties(form: Form & { props?: Props }, localization: LocalizationValue) {
+  private toComponentProperties(form: Form & {props?: Props}, localization: LocalizationValue) {
     const props: Record<string, PropValue | ComponentProperty> = form.props ?? {}
 
     Object.entries(props).forEach(([key, value]) => {
@@ -461,4 +466,3 @@ class FormJsonBuilder implements IFormJsonBuilder {
 export function buildForm(options?: FormOptions): IFormJsonBuilder {
   return new FormJsonBuilder(options)
 }
-

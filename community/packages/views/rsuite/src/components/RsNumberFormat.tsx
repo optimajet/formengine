@@ -34,7 +34,7 @@ export interface RsNumberFormatProps extends NumericFormatProps<InputProps> {
  * @param props.decimalSeparator the decimal separator.
  * @returns the validated separators.
  */
-function getSeparators(props: { thousandSeparator?: boolean | string, decimalSeparator?: string }) {
+function getSeparators(props: {thousandSeparator?: boolean | string; decimalSeparator?: string}) {
   let {decimalSeparator = '.'} = props
   let {thousandSeparator} = props
   if (thousandSeparator === true) thousandSeparator = ','
@@ -87,14 +87,18 @@ const RsNumberFormat = ({style, className, label, onChange, value, ...props}: Rs
 
   const onValueChange = useCallback((values: NumberFormatValues) => onChange?.(values.value), [onChange])
 
-  return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
-    <NumericFormat<InputProps> customInput={WrappedInput}
-                               {...props}
-                               decimalSeparator={decimalSeparator}
-                               thousandSeparator={thousandSeparator}
-                               onValueChange={onValueChange}
-                               value={value}/>
-  </Labeled>
+  return (
+    <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
+      <NumericFormat<InputProps>
+        customInput={WrappedInput}
+        {...props}
+        decimalSeparator={decimalSeparator}
+        thousandSeparator={thousandSeparator}
+        onValueChange={onValueChange}
+        value={value}
+      />
+    </Labeled>
+  )
 }
 
 export const rsNumberFormat = define(RsNumberFormat, 'RsNumberFormat')

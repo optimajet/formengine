@@ -7,7 +7,6 @@ import type {InsertRestrictionFn} from './InsertRestrictionFn'
  * Component metadata for the form builder.
  */
 export class Meta {
-
   /**
    * Creates the component metadata for the form builder.
    * @param type the component type name.
@@ -31,7 +30,6 @@ export class Meta {
     readonly initialJson?: string,
     readonly eventListeners?: ComponentMetadataEventListeners,
     readonly icon?: ComponentType | string,
-    readonly insertRestriction?: InsertRestrictionFn,
-  ) {
-  }
+    readonly insertRestriction?: InsertRestrictionFn
+  ) {}
 }

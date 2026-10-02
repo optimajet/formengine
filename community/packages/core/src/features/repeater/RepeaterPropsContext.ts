@@ -9,4 +9,5 @@ export const [
   /**
    * **Internal use only.**
    */
-  RepeaterPropsProvider] = createNonNullableContext<RepeaterProps>('RepeaterPropsContext')
+  RepeaterPropsProvider,
+] = createNonNullableContext<RepeaterProps>('RepeaterPropsContext')

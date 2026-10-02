@@ -28,6 +28,7 @@ module.exports = {
     }],
     'no-secrets/no-secrets': 'error',
     'no-console': ['error', {allow: ['warn', 'error']}],
+    'no-extra-semi': 'off',
     'no-warning-comments': ['error', {
       'terms': ['todo', 'fixme', 'wtf'],
       'location': 'anywhere'
@@ -115,9 +116,7 @@ module.exports = {
         'contexts': ['TSInterfaceDeclaration', 'TSTypeAliasDeclaration', 'TSEnumDeclaration', 'TSPropertySignature'],
       },
     ],
-    'jsdoc/no-multi-asterisks': ['error', {
-      'allowWhitespace': true
-    }],
+    'jsdoc/no-multi-asterisks': 'off',
     // Keep `typed: true` from `plugin:jsdoc/recommended-typescript-error`; add tool-specific tags.
     'jsdoc/check-tag-names': ['error', {
       typed: true,

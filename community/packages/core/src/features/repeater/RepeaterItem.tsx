@@ -23,5 +23,14 @@ export const RepeaterItem = (props: RepeaterItemProps) => {
 }
 const typeName = 'RepeaterItem'
 
-export const repeaterItemModel = new Model(RepeaterItem, typeName, undefined, undefined,
-  undefined, undefined, undefined, undefined, typeName)
+export const repeaterItemModel = new Model(
+  RepeaterItem,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  typeName
+)

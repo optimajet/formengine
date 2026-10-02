@@ -4,7 +4,6 @@ import type {ValidationRuleSettings} from './ValidationRuleSettings'
  * The result of the validation.
  */
 export type ValidationResult = {
-
   /**
    * The validation rule settings.
    */

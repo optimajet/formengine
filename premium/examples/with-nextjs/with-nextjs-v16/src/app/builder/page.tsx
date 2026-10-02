@@ -1,26 +1,20 @@
 'use client'
 
-import {actions} from '@/app/common/actions'
-import form from '@/app/common/form.json'
-import {customValidators} from '@/app/common/validators'
-import {
-  ltrCssLoader,
-  RsViewWrapper,
-  rSuiteComponents,
-  rtlCssLoader
-} from '@react-form-builder/components-rsuite'
+import {ltrCssLoader, RsViewWrapper, rSuiteComponents, rtlCssLoader} from '@react-form-builder/components-rsuite'
 import {BiDi, BuilderView} from '@react-form-builder/core'
 import {IFormStorage} from '@react-form-builder/designer'
 import dynamic from 'next/dynamic'
+import {actions} from '@/app/common/actions'
+import form from '@/app/common/form.json'
+import {customValidators} from '@/app/common/validators'
 
 import '@react-form-builder/core/assets/styles.css'
 
-const FormBuilder = dynamic(() => import('@react-form-builder/designer').then((mod) => mod.FormBuilder), {
-  ssr: false
+const FormBuilder = dynamic(() => import('@react-form-builder/designer').then(mod => mod.FormBuilder), {
+  ssr: false,
 })
 
-const components = [...rSuiteComponents]
-  .map(definer => definer.build())
+const components = [...rSuiteComponents].map(definer => definer.build())
 
 const formName = 'nextForm'
 
@@ -28,7 +22,7 @@ const formStorage: IFormStorage = {
   getForm: async () => localStorage.getItem(formName) || JSON.stringify(form),
   saveForm: async (_, form) => localStorage.setItem(formName, form),
   getFormNames: () => Promise.resolve([formName]),
-  removeForm: () => Promise.resolve()
+  removeForm: () => Promise.resolve(),
 }
 
 const loadForm = () => formStorage.getForm('')
@@ -41,8 +35,8 @@ const view = new BuilderView(components)
 // We're hiding the form panel because it's not fully functional in this example
 const customization = {
   Forms_Tab: {
-    hidden: true
-  }
+    hidden: true,
+  },
 }
 
 export default function Builder() {

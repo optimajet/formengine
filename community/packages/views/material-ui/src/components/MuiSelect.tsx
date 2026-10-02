@@ -47,5 +47,5 @@ export const muiSelect = define(MuiSelectFormControl, 'MuiSelect')
     variant: oneOfStrict('outlined', 'standard', 'filled'),
     size: oneOfStrict('small', 'medium', 'large'),
     ...formControlProperties,
-    readOnly: readOnly
+    readOnly: readOnly,
   })

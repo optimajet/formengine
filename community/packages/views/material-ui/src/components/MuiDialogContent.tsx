@@ -9,6 +9,6 @@ export const muiDialogContent = define(DialogContent, 'MuiDialogContent')
   .props({
     children: node,
     dividers: boolean,
-    sx
+    sx,
   })
   .hideFromComponentPalette()

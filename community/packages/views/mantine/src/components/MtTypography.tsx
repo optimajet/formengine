@@ -29,7 +29,7 @@ export function MtTypography(props: MtTypographyProps) {
   const html = useMemo(() => ({__html: data}), [data])
 
   if (allowHtml) {
-    return <Typography {...otherProps} dangerouslySetInnerHTML={html}/>
+    return <Typography {...otherProps} dangerouslySetInnerHTML={html} />
   }
 
   return <Text {...otherProps}>{data}</Text>

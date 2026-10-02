@@ -33,16 +33,19 @@ export const MtErrorWrapper = ({error, children, className}: ErrorWrapperProps) 
   const child = children != null ? Children.only(children) : null
   const childWithError =
     child != null && error && isValidElement(child) && declaresError
-      ? cloneElement(child as ReactElement<{ error?: string }>, {error})
+      ? cloneElement(child as ReactElement<{error?: string}>, {error})
       : child
 
   return (
     <Stack className={cls} gap={4}>
       {childWithError}
       {error && showMessage && (
-        <Text id={aria['aria-errormessage']} role="alert"
-              size="var(--input-error-size, calc(var(--mantine-font-size-sm) - calc(0.125rem * var(--mantine-scale))))"
-              c="var(--mantine-color-error)">
+        <Text
+          id={aria['aria-errormessage']}
+          role="alert"
+          size="var(--input-error-size, calc(var(--mantine-font-size-sm) - calc(0.125rem * var(--mantine-scale))))"
+          c="var(--mantine-color-error)"
+        >
           {error}
         </Text>
       )}
@@ -50,6 +53,4 @@ export const MtErrorWrapper = ({error, children, className}: ErrorWrapperProps) 
   )
 }
 
-export const mtErrorWrapper = define(MtErrorWrapper, 'MtErrorWrapper')
-  .componentRole('error-message')
-  .hideFromComponentPalette()
+export const mtErrorWrapper = define(MtErrorWrapper, 'MtErrorWrapper').componentRole('error-message').hideFromComponentPalette()

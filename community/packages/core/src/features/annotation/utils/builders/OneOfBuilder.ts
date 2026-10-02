@@ -6,7 +6,6 @@ import {QuantifierBuilder} from './QuantifierBuilder'
  * @template T the property type.
  */
 export class OneOfBuilder<T> extends QuantifierBuilder<T> {
-
   /**
    * Sets the radio buttons as the component's property editor.
    * @returns the modified instance of the builder.

@@ -46,12 +46,11 @@ export const rsLink = define(RsLink, 'RsLink')
     text: string.default('Link'),
     href: string,
     children: node,
-    target: oneOf('_self', '_blank', '_parent', '_top', '_unfencedTop').default('_blank')
-      .withEditorProps({creatable: false}),
+    target: oneOf('_self', '_blank', '_parent', '_top', '_unfencedTop').default('_blank').withEditorProps({creatable: false}),
     download: boolean.default(false),
     downloadFilename: string,
     onClick: event,
   })
   .css({
-    ...textStyles
+    ...textStyles,
   })

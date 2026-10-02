@@ -6,11 +6,11 @@ import {datesCategory} from './internal/categories'
 import {description, dropdownType, label, size} from './internal/sharedProps'
 
 function YearRangePickerInput(props: YearPickerInputProps<'range'>) {
-  return <YearPickerInput {...props} type="range"/>
+  return <YearPickerInput {...props} type="range" />
 }
 
 function YearMultiplePickerInput(props: YearPickerInputProps<'multiple'>) {
-  return <YearPickerInput {...props} type="multiple"/>
+  return <YearPickerInput {...props} type="multiple" />
 }
 
 const yearPickerInputBaseProps = {

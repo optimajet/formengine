@@ -1,5 +1,5 @@
 import type {Annotation, BuilderComponent, ComponentLibraryDescription, I18nItem} from '@react-form-builder/core'
-import {cfHideFromComponentPalette, ContainerAnnotation, EventAnnotation, isBoolean} from '@react-form-builder/core'
+import {ContainerAnnotation, cfHideFromComponentPalette, EventAnnotation, isBoolean} from '@react-form-builder/core'
 import baseSchema from '@react-form-builder/core/schemas/persisted-form.schema.json'
 import type {JSONSchema} from 'json-schema-typed/draft_07'
 
@@ -7,35 +7,35 @@ const functionIf = {
   if: {
     properties: {
       computeType: {
-        const: 'function'
-      }
+        const: 'function',
+      },
     },
-    required: ['computeType']
+    required: ['computeType'],
   },
   then: {
-    required: ['fnSource']
-  }
+    required: ['fnSource'],
+  },
 } as const
 
 const localizationIf = {
   if: {
     properties: {
       computeType: {
-        const: 'localization'
-      }
+        const: 'localization',
+      },
     },
-    required: ['computeType']
+    required: ['computeType'],
   },
   then: {
-    not: {required: ['value', 'fnSource']}
-  }
+    not: {required: ['value', 'fnSource']},
+  },
 } as const
 
 const valueIf = {
   if: {
-    not: {required: ['computeType']}
+    not: {required: ['computeType']},
   },
-  then: {required: ['value']}
+  then: {required: ['value']},
 } as const
 
 /**
@@ -61,8 +61,7 @@ const getDefinitionRef = (definition: string) => {
   return `#/definitions/${definition}`
 }
 
-const getOrCreatePropertySchema = (annotation: Annotation,
-                                   propertySchemas: Map<string, JSONSchema>) => {
+const getOrCreatePropertySchema = (annotation: Annotation, propertySchemas: Map<string, JSONSchema>) => {
   const type = supportedTypes[annotation.type ?? 'unknown']
 
   let schemaName = `${annotation.type}Property`
@@ -81,14 +80,14 @@ const getOrCreatePropertySchema = (annotation: Annotation,
   const properties: Record<string, JSONSchema> = {
     value: {
       type,
-      description: `The simple value of a '${annotation.type}' component property.`
+      description: `The simple value of a '${annotation.type}' component property.`,
     },
   }
 
   if (annotation.calculable) {
     properties.fnSource = {
       type: 'string',
-      description: `Source code of the function for calculating the value of a '${annotation.key}' component property.`
+      description: `Source code of the function for calculating the value of a '${annotation.key}' component property.`,
     }
   }
 
@@ -99,7 +98,7 @@ const getOrCreatePropertySchema = (annotation: Annotation,
     properties.computeType = {
       type: 'string',
       enum: enumValues,
-      description: 'Type of the component\'s calculated property. If not specified - the value from value is used.'
+      description: "Type of the component's calculated property. If not specified - the value from value is used.",
     }
   }
 
@@ -117,32 +116,24 @@ const getOrCreatePropertySchema = (annotation: Annotation,
   }
 
   if (annotation.localizable && annotation.calculable) {
-    result.allOf = [
-      functionIf,
-      localizationIf,
-      valueIf,
-    ]
+    result.allOf = [functionIf, localizationIf, valueIf]
     return schemaName
   }
 
   if (annotation.localizable) {
-    result.allOf = [
-      localizationIf,
-      valueIf,
-    ]
+    result.allOf = [localizationIf, valueIf]
     return schemaName
   }
 
-  result.allOf = [
-    functionIf,
-    valueIf,
-  ]
+  result.allOf = [functionIf, valueIf]
   return schemaName
 }
 
-const generateComponentPropertySchema = (annotation: Annotation,
-                                         propertySchemas: Map<string, JSONSchema>,
-                                         propertyDescription?: I18nItem): JSONSchema | undefined => {
+const generateComponentPropertySchema = (
+  annotation: Annotation,
+  propertySchemas: Map<string, JSONSchema>,
+  propertyDescription?: I18nItem
+): JSONSchema | undefined => {
   const schemaName = getOrCreatePropertySchema(annotation, propertySchemas)
   if (!schemaName) return
 
@@ -153,9 +144,11 @@ const generateComponentPropertySchema = (annotation: Annotation,
   }
 }
 
-const generateComponentSchema = (component: BuilderComponent,
-                                 propertySchemas: Map<string, JSONSchema>,
-                                 descriptions?: ComponentLibraryDescription[]) => {
+const generateComponentSchema = (
+  component: BuilderComponent,
+  propertySchemas: Map<string, JSONSchema>,
+  descriptions?: ComponentLibraryDescription[]
+) => {
   const {meta, model} = component
   const libraryDescription = descriptions?.find(d => d.components?.[model.type])
   const componentDescription = libraryDescription?.components?.[model.type]
@@ -177,7 +170,7 @@ const generateComponentSchema = (component: BuilderComponent,
     type: 'object',
     description: `The ${meta.type} component properties.`,
     required: requiredProps,
-    properties: {}
+    properties: {},
   }
 
   const props = properties.props
@@ -187,8 +180,7 @@ const generateComponentSchema = (component: BuilderComponent,
     if (annotation instanceof EventAnnotation) return
 
     if (annotation instanceof ContainerAnnotation) hasNodes = true
-    const propertyDescription = componentDescription?.props?.[annotation.key]
-      ?? libraryDescription?.commonProperties?.[annotation.key]
+    const propertyDescription = componentDescription?.props?.[annotation.key] ?? libraryDescription?.commonProperties?.[annotation.key]
 
     props.properties ??= {}
     const property = generateComponentPropertySchema(annotation, propertySchemas, propertyDescription)
@@ -204,7 +196,7 @@ const generateComponentSchema = (component: BuilderComponent,
   if (model.kind === 'container' || hasNodes) {
     properties.children = {
       $ref: getDefinitionRef(childrenPropertySchemaName),
-      description: 'The array of child components.'
+      description: 'The array of child components.',
     }
   }
 
@@ -220,7 +212,7 @@ const generateComponentSchema = (component: BuilderComponent,
         $ref: getDefinitionRef(abstractComponentStoreName),
       },
       schema,
-    ]
+    ],
   }
 }
 
@@ -230,18 +222,22 @@ const addComponentTypeRestrictions = (schemaProperty: JSONSchema, enumValues: st
   }
 }
 
-const createComponentSchema = (builderComponent: BuilderComponent,
-                               propertySchemas: Map<string, JSONSchema>,
-                               descriptions?: ComponentLibraryDescription[]) => {
+const createComponentSchema = (
+  builderComponent: BuilderComponent,
+  propertySchemas: Map<string, JSONSchema>,
+  descriptions?: ComponentLibraryDescription[]
+) => {
   const {model} = builderComponent
-  const name = `${(model.type)}${componentSchemaPostfix}`
+  const name = `${model.type}${componentSchemaPostfix}`
   const schema = generateComponentSchema(builderComponent, propertySchemas, descriptions)
   return {name, schema} as const
 }
 
-const createScreenSchema = (allComponents: BuilderComponent[],
-                            propertySchemas: Map<string, JSONSchema>,
-                            descriptions?: ComponentLibraryDescription[]) => {
+const createScreenSchema = (
+  allComponents: BuilderComponent[],
+  propertySchemas: Map<string, JSONSchema>,
+  descriptions?: ComponentLibraryDescription[]
+) => {
   const screenComponent = allComponents.find(({model}) => model.type === screenType)
   if (screenComponent) return createComponentSchema(screenComponent, propertySchemas, descriptions)
 }
@@ -252,11 +248,10 @@ const createScreenSchema = (allComponents: BuilderComponent[],
  * @param descriptions the component descriptions to include in the schema.
  * @returns the generated JSON Schema with definitions for each builder component.
  */
-export const createSchema = (components: BuilderComponent[],
-                             descriptions?: ComponentLibraryDescription[]) => {
-  const errorTypes: string [] = []
-  const tooltipTypes: string [] = []
-  const modalTypes: string [] = []
+export const createSchema = (components: BuilderComponent[], descriptions?: ComponentLibraryDescription[]) => {
+  const errorTypes: string[] = []
+  const tooltipTypes: string[] = []
+  const modalTypes: string[] = []
 
   const allComponents = [...components]
   const schemas: any[] = []
@@ -312,8 +307,8 @@ export const createSchema = (components: BuilderComponent[],
   const childrenPropertySchema = {
     type: 'array',
     items: {
-      anyOf: refs
-    }
+      anyOf: refs,
+    },
   } as const
   propertySchemas.set(childrenPropertySchemaName, childrenPropertySchema)
   propertySchemas.forEach((schema, name) => {

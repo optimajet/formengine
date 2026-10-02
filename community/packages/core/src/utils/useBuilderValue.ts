@@ -12,7 +12,7 @@ const isEmptyString = (value: string) => {
  * @param builderValue the value to be used if the value is not defined is an empty string or a string containing only spaces.
  * @returns the value to use in the builder mode.
  */
-export const useBuilderValue = <T, >(value: T, builderValue: T): T => {
+export const useBuilderValue = <T>(value: T, builderValue: T): T => {
   const mode = useBuilderMode()
 
   return useMemo(() => {

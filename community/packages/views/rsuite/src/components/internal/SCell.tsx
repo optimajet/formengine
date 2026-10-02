@@ -15,5 +15,5 @@ type SCellProps = InnerCellProps<RowDataType, string | number>
  * @returns the React element.
  */
 export const SCell = ({className, ...props}: SCellProps) => {
-  return <Cell<RowDataType, string | number> {...props} className={cx(styles.cell, className)}/>
+  return <Cell<RowDataType, string | number> {...props} className={cx(styles.cell, className)} />
 }

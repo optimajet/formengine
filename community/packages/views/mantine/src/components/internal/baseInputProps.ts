@@ -12,8 +12,7 @@ export const baseInputProps = {
   readOnly: boolean.default(false),
   withAsterisk: required,
   radius: string,
-  variant: oneOfStrict('filled', 'default', 'unstyled')
-    .default('default'),
+  variant: oneOfStrict('filled', 'default', 'unstyled').default('default'),
   disabled: disabled.default(false),
   value: string.valued.uncontrolledValue(''),
   onChange: event,

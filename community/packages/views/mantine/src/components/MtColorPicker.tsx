@@ -7,10 +7,7 @@ import {inputsCategory} from './internal/categories'
 /**
  * Props for the MtColorPicker component.
  */
-export interface MtColorPickerProps
-  extends ColorPickerProps,
-    Omit<InputWrapperProps, 'children' | keyof ColorPickerProps> {
-}
+export interface MtColorPickerProps extends ColorPickerProps, Omit<InputWrapperProps, 'children' | keyof ColorPickerProps> {}
 
 /**
  * Mantine color picker component for React Form Builder.
@@ -18,25 +15,10 @@ export interface MtColorPickerProps
  * @returns color picker component.
  */
 export function MtColorPicker(props: MtColorPickerProps) {
-  const {
-    label,
-    description,
-    error,
-    id,
-    required,
-    withAsterisk,
-    ...others
-  } = props
+  const {label, description, error, id, required, withAsterisk, ...others} = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      id={id}
-      required={required}
-      withAsterisk={withAsterisk}
-    >
+    <Input.Wrapper label={label} description={description} error={error} id={id} required={required} withAsterisk={withAsterisk}>
       <ColorPicker {...others} />
     </Input.Wrapper>
   )

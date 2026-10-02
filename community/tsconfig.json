@@ -7,6 +7,9 @@
     "paths": {
       "@react-form-builder/cli-lib/*": [
         "./scripts/cli-lib/*"
+      ],
+      "monaco-editor": [
+        "./node_modules/monaco-editor/esm/vs/index"
       ]
     },
     "jsx": "react-jsx",

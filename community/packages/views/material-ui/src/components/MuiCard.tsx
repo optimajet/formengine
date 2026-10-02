@@ -1,5 +1,5 @@
 import type {CardProps} from '@mui/material'
-import {Card, CardActionArea as RawActionArea, CardActions, CardContent, CardHeader, CardMedia} from '@mui/material'
+import {Card, CardActions, CardContent, CardHeader, CardMedia, CardActionArea as RawActionArea} from '@mui/material'
 import {boolean, define, disabled, event, node, oneOf, readOnly, useBuilderMode} from '@react-form-builder/core'
 import type {PropsWithChildren, ReactNode} from 'react'
 import {useMemo} from 'react'
@@ -95,7 +95,7 @@ const useCardProps = (props: MuiCardProps) => {
     return {
       actions: {
         useActions,
-        actions
+        actions,
       },
       header: {
         useHeader,
@@ -105,15 +105,15 @@ const useCardProps = (props: MuiCardProps) => {
         header,
         headerAction,
         headerAvatar,
-        subHeader
+        subHeader,
       },
       media: {
         useMedia,
-        media
+        media,
       },
       children,
       useCardActionArea,
-      card
+      card,
     }
   }, [props])
 }
@@ -125,9 +125,7 @@ type FilteredProps = ReturnType<typeof useCardProps>
 
 const CardActionArea = ({children}: PropsWithChildren) => {
   const builderMode = useBuilderMode()
-  return builderMode === 'builder'
-    ? <div>{children}</div>
-    : <RawActionArea>{children}</RawActionArea>
+  return builderMode === 'builder' ? <div>{children}</div> : <RawActionArea>{children}</RawActionArea>
 }
 
 /**
@@ -155,21 +153,26 @@ const renderContent = (useCardActionArea: boolean, children: ReactNode) => {
  * @returns rendered header or null.
  */
 const renderHeader = ({
-                        useHeader,
-                        useHeaderAction,
-                        useHeaderAvatar,
-                        useSubheader,
-                        header,
-                        headerAction,
-                        headerAvatar,
-                        subHeader
-                      }: FilteredProps['header']) => {
-  return useHeader && !!header && <CardHeader
-    title={header}
-    action={useHeaderAction && headerAction}
-    avatar={useHeaderAvatar && headerAvatar}
-    subheader={useSubheader && subHeader}
-  />
+  useHeader,
+  useHeaderAction,
+  useHeaderAvatar,
+  useSubheader,
+  header,
+  headerAction,
+  headerAvatar,
+  subHeader,
+}: FilteredProps['header']) => {
+  return (
+    useHeader &&
+    !!header && (
+      <CardHeader
+        title={header}
+        action={useHeaderAction && headerAction}
+        avatar={useHeaderAvatar && headerAvatar}
+        subheader={useSubheader && subHeader}
+      />
+    )
+  )
 }
 
 /**
@@ -179,9 +182,7 @@ const renderHeader = ({
  * @param mediaProps.media media content.
  * @returns rendered media or null.
  */
-const renderMedia = ({useMedia, media}: FilteredProps['media']) => (
-  useMedia && !!media && <CardMedia>{media}</CardMedia>
-)
+const renderMedia = ({useMedia, media}: FilteredProps['media']) => useMedia && !!media && <CardMedia>{media}</CardMedia>
 
 /**
  * Renders the card actions section.
@@ -190,9 +191,7 @@ const renderMedia = ({useMedia, media}: FilteredProps['media']) => (
  * @param actionsProps.actions actions content.
  * @returns rendered actions or null.
  */
-const renderActions = ({useActions, actions}: FilteredProps['actions']) => (
-  useActions && !!actions && <CardActions>{actions}</CardActions>
-)
+const renderActions = ({useActions, actions}: FilteredProps['actions']) => useActions && !!actions && <CardActions>{actions}</CardActions>
 
 /**
  * Material-UI Card component for form builder.
@@ -204,12 +203,15 @@ const MuiCard = (props: MuiCardProps) => {
 
   return (
     <Card {...card}>
-      {renderContent(!!useCardActionArea, <>
-        {renderHeader(header)}
-        {renderMedia(media)}
-        <CardContent>{children}</CardContent>
-        {renderActions(actions)}
-      </>)}
+      {renderContent(
+        !!useCardActionArea,
+        <>
+          {renderHeader(header)}
+          {renderMedia(media)}
+          <CardContent>{children}</CardContent>
+          {renderActions(actions)}
+        </>
+      )}
     </Card>
   )
 }
@@ -235,5 +237,5 @@ export const muiCard = define(MuiCard, 'MuiCard')
     variant: oneOf('elevation', 'outlined'),
     onSelect: event,
     disabled: disabled,
-    readOnly: readOnly
+    readOnly: readOnly,
   })

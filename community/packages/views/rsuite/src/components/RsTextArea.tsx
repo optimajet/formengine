@@ -33,7 +33,7 @@ export interface RsTextAreaProps extends InputProps {
  */
 const RsTextArea = ({style, className, label, ...props}: RsTextAreaProps) => (
   <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
-    <Input as="textarea" {...props}/>
+    <Input as="textarea" {...props} />
   </Labeled>
 )
 
@@ -49,5 +49,5 @@ export const rsTextArea = define(RsTextArea, 'RsTextArea')
     disabled: disabled.default(false),
     readOnly,
     onChange: event,
-    onPressEnter: event
+    onPressEnter: event,
   })

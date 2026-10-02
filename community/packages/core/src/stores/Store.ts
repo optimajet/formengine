@@ -17,13 +17,13 @@ import {screenModel} from '../features/ui/screenModel'
 import {isTemplateType} from '../features/ui/templateUtil'
 import type {SchemaType} from '../features/validation/types/SchemaType'
 import type {ValidationResult} from '../features/validation/types/ValidationResult'
-import {calculateProperty} from '../features/validation/utils/calculateProperty'
 import type {CalculatePropertyFn} from '../features/validation/utils/CalculatePropertyFn'
+import {calculateProperty} from '../features/validation/utils/calculateProperty'
 import {codeValidationRule, ZodValidationRules} from '../features/validation/utils/consts'
-import {dataPart} from '../features/validation/utils/dataPart'
 import type {ErrorMessageLocalizer} from '../features/validation/utils/DataValidator'
 import {DataValidator, getDefaultErrorMessage} from '../features/validation/utils/DataValidator'
 import type {DataValidatorFactoryFn} from '../features/validation/utils/DataValidatorFactoryFn'
+import {dataPart} from '../features/validation/utils/dataPart'
 import type {GetInitialDataFn} from '../features/validation/utils/GetInitialDataFn'
 import type {IComponentDataFactory} from '../features/validation/utils/IComponentDataFactory'
 import {RepeaterField} from '../features/validation/utils/RepeaterField'
@@ -35,6 +35,7 @@ import {typedValidatorsResolver} from '../features/validation/utils/validatorsRe
 import type {Setter, ViewMode} from '../types'
 import {ComponentData} from '../utils/contexts/ComponentDataContext'
 import type {IFormData} from '../utils/IFormData'
+import {warnMisplacedNonVisualComponents} from '../utils/isNonVisual'
 import {isRecord} from '../utils/isRecord'
 import {nameObservable} from '../utils/observableNaming'
 import {isUndefined} from '../utils/tools'
@@ -49,7 +50,9 @@ import {LocalizationStore} from './LocalizationStore'
 import type {PersistedForm} from './PersistedForm'
 import {PersistedFormVersion} from './PersistedForm'
 
-const normalizePersistedI18n = (persistedForm: PersistedForm): {
+const normalizePersistedI18n = (
+  persistedForm: PersistedForm
+): {
   languages: Language[]
   localization: LocalizationValue
   defaultLanguage: Language
@@ -63,7 +66,7 @@ const normalizePersistedI18n = (persistedForm: PersistedForm): {
   return {
     languages,
     localization: Object.assign({}, localization, persistedForm.localization ?? {}),
-    defaultLanguage: languages.find(l => l.fullCode === persistedForm.defaultLanguage) ?? globalDefaultLanguage
+    defaultLanguage: languages.find(l => l.fullCode === persistedForm.defaultLanguage) ?? globalDefaultLanguage,
   }
 }
 
@@ -75,11 +78,14 @@ type ReduceCallback<U, T> = (accumulator: T, current: U) => T
 /**
  * Type for a tree object.
  */
-type Tree<T, U extends keyof T> = T & { [K in U]: Tree<T, K>[] | undefined }
+type Tree<T, U extends keyof T> = T & {[K in U]: Tree<T, K>[] | undefined}
 
-function reduceTree<U extends object, T, K extends keyof U>(tree: Tree<U, K>,
-                                                            callback: ReduceCallback<Tree<U, K>, T>,
-                                                            initialValue: T, childKey: K) {
+function reduceTree<U extends object, T, K extends keyof U>(
+  tree: Tree<U, K>,
+  callback: ReduceCallback<Tree<U, K>, T>,
+  initialValue: T,
+  childKey: K
+) {
   let accumulator = callback(initialValue, tree)
   tree[childKey]?.forEach((child: Tree<U, K>) => {
     accumulator = reduceTree(child, callback, accumulator, childKey)
@@ -100,7 +106,6 @@ export type ComponentStateFactory = (data: ComponentData, store: Store, context?
  * The form viewer settings. **Internal use only.**
  */
 export class Store implements IStore, IFormViewer, IComponentDataFactory {
-
   /**
    * The currently selected language.
    */
@@ -129,11 +134,12 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    * @param getInitialData the function to get initial data for the Store.
    * @param setInitialData the function for updating initial data.
    */
-  constructor(public formViewerPropsStore: FormViewerPropsStore,
-              public readonly componentStateFactory: ComponentStateFactory,
-              public readonly parentStore?: Store,
-              public readonly getInitialData?: GetInitialDataFn,
-              public readonly setInitialData?: SetInitialDataFn
+  constructor(
+    public formViewerPropsStore: FormViewerPropsStore,
+    public readonly componentStateFactory: ComponentStateFactory,
+    public readonly parentStore?: Store,
+    public readonly getInitialData?: GetInitialDataFn,
+    public readonly setInitialData?: SetInitialDataFn
   ) {
     const componentTree = this.createDataRoot()
     const locEngine = formViewerPropsStore.localizationEngine ?? new NoopLocalizationEngine()
@@ -143,15 +149,19 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
     this.form.tooltipType = this.getFirstComponentTypeWithRole('tooltip')
     this.form.componentTree.state = this.formViewerPropsStore.initialState
 
-    makeObservable(this, {
-      form: observable,
-      viewMode: true,
-      selectedLanguage: true,
-      clear: true,
-      parentStore: observable.ref,
-      initialDataSlice: true,
-      formLoadError: true
-    }, {name: nameObservable(`ViewerStore`)})
+    makeObservable(
+      this,
+      {
+        form: observable,
+        viewMode: true,
+        selectedLanguage: true,
+        clear: true,
+        parentStore: observable.ref,
+        initialDataSlice: true,
+        formLoadError: true,
+      },
+      {name: nameObservable(`ViewerStore`)}
+    )
   }
 
   /**
@@ -282,8 +292,8 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       custom: this.formViewerPropsStore.validators?.[type],
       internal: {
         ...ZodValidationRules[type],
-        code: codeValidationRule
-      }
+        code: codeValidationRule,
+      },
     }
   }
 
@@ -295,9 +305,11 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       return this.calculateProperty(componentData, component, key)
     }
 
-    const createDataValidator: DataValidatorFactoryFn = (componentData: ComponentData,
-                                                         valueType: SchemaType,
-                                                         onError: Setter<string | undefined>) => {
+    const createDataValidator: DataValidatorFactoryFn = (
+      componentData: ComponentData,
+      valueType: SchemaType,
+      onError: Setter<string | undefined>
+    ) => {
       return this.createDataValidator(componentData, valueType, onError)
     }
 
@@ -311,8 +323,15 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
         componentData.dataRoot.updateInitialData(repeaterKey, value)
       }
 
-      return new RepeaterField(componentData, calculateValue, createDataValidator, getInitialData, repeaterSetInitialData,
-        this, deferFieldCalculation)
+      return new RepeaterField(
+        componentData,
+        calculateValue,
+        createDataValidator,
+        getInitialData,
+        repeaterSetInitialData,
+        this,
+        deferFieldCalculation
+      )
     }
 
     if (model.kind !== 'template') {
@@ -335,8 +354,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
 
     const childPropsStore = this.formViewerPropsStore.clone()
     childPropsStore.initialState = {}
-    const childStore = new Store(childPropsStore, this.componentStateFactory, this, templateGetInitialData,
-      templateSetInitialData)
+    const childStore = new Store(childPropsStore, this.componentStateFactory, this, templateGetInitialData, templateSetInitialData)
     return new TemplateField(componentStore, childStore)
   }
 
@@ -364,8 +382,10 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
 
     const version = persistedForm.version
     if (!isUndefined(version) && version !== PersistedFormVersion.version1) {
-      console.warn(`An unsupported version of form '${version}' has been detected. An attempt will be made to upload` +
-        ` the form as version '${PersistedFormVersion.version1}'.`)
+      console.warn(
+        `An unsupported version of form '${version}' has been detected. An attempt will be made to upload` +
+          ` the form as version '${PersistedFormVersion.version1}'.`
+      )
     }
 
     runInAction(() => {
@@ -375,11 +395,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
       componentData.getInitialData = () => this.initialDataSlice
       componentData.setInitialData = this.updateInitialData
 
-      const {
-        languages,
-        localization: normalizedLocalization,
-        defaultLanguage
-      } = normalizePersistedI18n(persistedForm)
+      const {languages, localization: normalizedLocalization, defaultLanguage} = normalizePersistedI18n(persistedForm)
       const localization = new LocalizationStore(normalizedLocalization, this.form.localization.engine)
 
       const actions = createActionValuesFromObject(persistedForm.actions)
@@ -395,6 +411,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
 
     // here we need to make the keys unique, because no reactions will be triggered during the action
     this.form.componentTree.unifyTree()
+    warnMisplacedNonVisualComponents(this.form.componentTree)
     // here we initialize the fields after the form is created, since the calculated field values are depends on 'this.form'
     this.form.initFields()
     oldForm.dispose()
@@ -439,12 +456,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
 
   private calculateProperty(componentData: ComponentData, component: ComponentStore, key: string) {
     const dataRoot = componentData.dataRoot
-    return calculateProperty(
-      component,
-      key,
-      dataRoot,
-      (type, componentStore) => this.localizeComponent(type, dataRoot, componentStore)
-    )
+    return calculateProperty(component, key, dataRoot, (type, componentStore) => this.localizeComponent(type, dataRoot, componentStore))
   }
 
   /**
@@ -454,10 +466,9 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    * @param onError the callback function called when the validation error text is set.
    * @returns the data validator.
    */
-  private createDataValidator(componentData: ComponentData, valueType: SchemaType,
-                              onError: Setter<string | undefined>) {
+  private createDataValidator(componentData: ComponentData, valueType: SchemaType, onError: Setter<string | undefined>) {
     const validationRules = this.getValidationRules(valueType)
-    const localizer: ErrorMessageLocalizer = (validationResults) => {
+    const localizer: ErrorMessageLocalizer = validationResults => {
       return this.localizeErrorMessages(componentData.dataRoot, componentData.store, validationResults)
     }
     return DataValidator.create(
@@ -508,9 +519,7 @@ export class Store implements IStore, IFormViewer, IComponentDataFactory {
    * @returns the first type of component with the specified role.
    */
   getFirstComponentTypeWithRole(componentRole: ComponentRole) {
-    const components = this.formViewerPropsStore.view
-      .filterModels(model => model.hasComponentRole(componentRole))
-      .map(model => model.type)
+    const components = this.formViewerPropsStore.view.filterModels(model => model.hasComponentRole(componentRole)).map(model => model.type)
     return components.length ? components[0] : undefined
   }
 

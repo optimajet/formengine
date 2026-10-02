@@ -43,7 +43,7 @@ export class ActionEventArgs {
     readonly store: Store,
     readonly args: any[],
     readonly renderedProps: Record<string, any>,
-    readonly cellInfo?: CellInfo,
+    readonly cellInfo?: CellInfo
   ) {
     this.index = sender.nearestIndex
     const indexExists = isNumber(this.index)

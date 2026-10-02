@@ -28,8 +28,8 @@ const calculateValue = (fnSource: string, formViewerData: IFormData) => {
       e as Error,
       {
         name: 'Function source',
-        message: fnSource
-      }
+        message: fnSource,
+      },
     ])
   }
 }

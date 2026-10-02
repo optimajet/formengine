@@ -11,12 +11,7 @@ import {onChange} from './internal/sharedProps'
 const MtMultiSelect = (props: MultiSelectProps & BaseComboboxProps) => {
   const {data, ...others} = props
   const deduplicatedData = useMemo(() => deduplicateData(data || []), [data])
-  return (
-    <MultiSelect
-      {...others}
-      data={deduplicatedData}
-    />
-  )
+  return <MultiSelect {...others} data={deduplicatedData} />
 }
 
 export const mtMultiSelect = define(MtMultiSelect, 'MtMultiSelect')

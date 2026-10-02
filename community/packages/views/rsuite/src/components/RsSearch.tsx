@@ -47,9 +47,12 @@ const CustomCaret = () => null
 const RsSearch = ({data, label, onLoadData, onSearch, value = '', className, preload, disableVirtualized, ...props}: RsSearchProps) => {
   const {loading, onOpen, ...loadProps} = useLoadData({data, onLoadData, onSearch, value, preload, disableVirtualized})
 
-  const renderMenu = useCallback((menu: ReactNode) => {
-    return loadProps.data?.length ? menu : null
-  }, [loadProps.data?.length])
+  const renderMenu = useCallback(
+    (menu: ReactNode) => {
+      return loadProps.data?.length ? menu : null
+    },
+    [loadProps.data?.length]
+  )
 
   const onClean = useTouchOnEvent(props, 'onClean')
   const Icon = loading ? Loader : Search
@@ -58,7 +61,7 @@ const RsSearch = ({data, label, onLoadData, onSearch, value = '', className, pre
   const inputRef = useFixAriaAttributesForInputPicker()
 
   const icon = useMemo(() => {
-    return !(props.cleanable && value) ? <Icon className={styles.searchIcon}/> : null
+    return !(props.cleanable && value) ? <Icon className={styles.searchIcon} /> : null
   }, [Icon, props.cleanable, value])
 
   return (
@@ -88,5 +91,5 @@ export const rsSearch = define(RsSearch, 'RsSearch')
     ...pickerProps,
     preload: boolean.default(false),
     label: string.default('Search'),
-    placeholder: string.default('Search')
+    placeholder: string.default('Search'),
   })

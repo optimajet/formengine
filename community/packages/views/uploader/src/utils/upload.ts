@@ -18,7 +18,7 @@ const createItem = (file: File, result: UploadResult): FileType => {
     fileKey: Date.now() + Math.random(),
     blobFile: file,
     status,
-    error
+    error,
   }
 
   if (!isFailed(result)) {
@@ -46,7 +46,7 @@ const uploadFile = async (file: File, action: string): Promise<FileType> => {
 
     return createItem(file, {
       status: 'error',
-      error: message
+      error: message,
     })
   }
 }

@@ -48,13 +48,13 @@ export const iconsList = [
   'Toggle',
   'Tooltip',
   'TreePicker',
-  'Uploader'
+  'Uploader',
 ] as const
 
 /**
  * The name of the icon for a form builder component.
  */
-export type FormBuilderComponentIconName = typeof iconsList[number]
+export type FormBuilderComponentIconName = (typeof iconsList)[number]
 
 /**
  * The type of function that initializes an actions on a component. **Internal use only.**
@@ -62,7 +62,10 @@ export type FormBuilderComponentIconName = typeof iconsList[number]
  * @param def the helper to create an action event handler.
  * @returns the Record with action event handlers.
  */
-export type ActionsInitializer = (props: ComponentStore['props'], def: DefineActionHelper) => Record<EventName, ActionEventHandler | ActionDefinition>
+export type ActionsInitializer = (
+  props: ComponentStore['props'],
+  def: DefineActionHelper
+) => Record<EventName, ActionEventHandler | ActionDefinition>
 
 /**
  * The component kind type.

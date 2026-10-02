@@ -6,11 +6,11 @@ import {datesCategory} from './internal/categories'
 import {description, dropdownType, label, size} from './internal/sharedProps'
 
 function DateRangePicker(props: DatePickerInputProps<'range'>) {
-  return <DatePickerInput {...props} type="range"/>
+  return <DatePickerInput {...props} type="range" />
 }
 
 function DateMultiplePicker(props: DatePickerInputProps<'multiple'>) {
-  return <DatePickerInput {...props} type="multiple"/>
+  return <DatePickerInput {...props} type="multiple" />
 }
 
 const datePickerInputBaseProps = {

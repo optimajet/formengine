@@ -10,7 +10,7 @@ const genericDateTimeFormats = {
   formattedDayPattern: 'MMM dd, yyyy',
   shortDateFormat: 'MM/dd/yyyy',
   shortTimeFormat: 'hh:mm aa',
-  dateLocale: dfSR
+  dateLocale: dfSR,
 }
 
 const genericCreatableComboBox = {
@@ -31,7 +31,7 @@ export const srRS = patchPlaceholders({
     ...locale.default.DateRangePicker,
   },
   Combobox: {
-    ...locale.genericCombobox
+    ...locale.genericCombobox,
   },
   InputPicker: genericCreatableComboBox,
   TagPicker: genericCreatableComboBox,

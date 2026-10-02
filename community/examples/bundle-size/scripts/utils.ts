@@ -1,6 +1,6 @@
-import {createGzip} from 'zlib'
 import {existsSync, readFileSync, statSync, writeFileSync} from 'node:fs'
 import {join} from 'node:path'
+import {createGzip} from 'zlib'
 
 export function formatSize(bytes: number): string {
   if (bytes === 0) return '0 B'

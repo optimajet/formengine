@@ -13,7 +13,7 @@ const generateJsonSchema = (outputPath: string) => {
     path: join(__dirname, '..', '..', 'src', 'index.ts'),
     tsconfig: join(__dirname, 'tsconfig-json-schema-generator.json'),
     type: 'PersistedForm',
-    jsDoc: 'extended'
+    jsDoc: 'extended',
   } as CompletedConfig
 
   const formatter = createFormatter(config)

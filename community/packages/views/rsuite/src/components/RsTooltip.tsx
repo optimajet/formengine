@@ -31,9 +31,13 @@ const RsTooltip = ({text, placement, trigger, children, ...props}: RsTooltipProp
 
   if (!children) return null
 
-  return <Whisper placement={placement} trigger={trigger} speaker={tooltip}>
-    <div {...props} style={wrapperStyle}>{children}</div>
-  </Whisper>
+  return (
+    <Whisper placement={placement} trigger={trigger} speaker={tooltip}>
+      <div {...props} style={wrapperStyle}>
+        {children}
+      </div>
+    </Whisper>
+  )
 }
 
 /**
@@ -45,12 +49,28 @@ export const rsTooltip = define(RsTooltip, 'RsTooltip')
   .props({
     text: string.required.default('Tooltip message...').dataBound,
     children: node,
-    placement: oneOf('top', 'bottom', 'right', 'left', 'bottomStart', 'bottomEnd',
-      'topStart', 'topEnd', 'leftStart', 'rightStart', 'leftEnd', 'rightEnd', 'auto',
-      'autoVertical', 'autoVerticalStart', 'autoVerticalEnd', 'autoHorizontal', 'autoHorizontalStart')
+    placement: oneOf(
+      'top',
+      'bottom',
+      'right',
+      'left',
+      'bottomStart',
+      'bottomEnd',
+      'topStart',
+      'topEnd',
+      'leftStart',
+      'rightStart',
+      'leftEnd',
+      'rightEnd',
+      'auto',
+      'autoVertical',
+      'autoVerticalStart',
+      'autoVerticalEnd',
+      'autoHorizontal',
+      'autoHorizontalStart'
+    )
       .required.default('bottom')
       .withEditorProps({creatable: false}),
-    trigger: someOf('click', 'hover', 'focus', 'active', 'contextMenu')
-      .required.default(['hover'])
+    trigger: someOf('click', 'hover', 'focus', 'active', 'contextMenu').required.default(['hover']),
   })
   .componentRole('tooltip')

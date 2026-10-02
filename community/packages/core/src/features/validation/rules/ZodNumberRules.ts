@@ -5,8 +5,7 @@ import {z} from './zodMini'
 import {numberScheme, toRuleValidator} from './zodRuleBuilders'
 
 export const ZodNumberRules: ValidationRuleSet = {
-  required: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(numberScheme)),
+  required: ruleBuilder().withValidatorFactory(() => toRuleValidator(numberScheme)),
 
   min: ruleBuilder()
     .withParameter('limit', 'number', true)
@@ -24,8 +23,7 @@ export const ZodNumberRules: ValidationRuleSet = {
     .withParameter('value', 'number', true)
     .withValidatorFactory(({message, value}) => toRuleValidator(numberScheme, z.gt(value, zodErrorParams(message)))),
 
-  integer: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(z.int({error: errorForUndefined}))),
+  integer: ruleBuilder().withValidatorFactory(() => toRuleValidator(z.int({error: errorForUndefined}))),
 
   multipleOf: ruleBuilder()
     .withParameter('value', 'number', true)

@@ -90,23 +90,27 @@ export class FormViewerPropsStore {
     this.applyProps(formViewerProps)
     this.view = formViewerProps.view
 
-    makeObservable(this, {
-      view: observable.ref,
-      initialData: observable.deep,
-      initialState: observable.deep,
-      userContext: observable.deep,
-      validators: observable.ref,
-      formValidators: observable.ref,
-      localizer: observable.ref,
-      actions: observable.ref,
-      propsLanguage: observable.ref,
-      errorWrapper: observable.ref,
-      disabled: observable.ref,
-      readOnly: observable.ref,
-      showAllValidationErrors: observable.ref,
-      context: observable.ref,
-      localizationEngine: observable.ref,
-    }, {name: nameObservable(`FormViewerPropsStore`)})
+    makeObservable(
+      this,
+      {
+        view: observable.ref,
+        initialData: observable.deep,
+        initialState: observable.deep,
+        userContext: observable.deep,
+        validators: observable.ref,
+        formValidators: observable.ref,
+        localizer: observable.ref,
+        actions: observable.ref,
+        propsLanguage: observable.ref,
+        errorWrapper: observable.ref,
+        disabled: observable.ref,
+        readOnly: observable.ref,
+        showAllValidationErrors: observable.ref,
+        context: observable.ref,
+        localizationEngine: observable.ref,
+      },
+      {name: nameObservable(`FormViewerPropsStore`)}
+    )
   }
 
   /**

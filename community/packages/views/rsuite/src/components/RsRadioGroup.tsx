@@ -38,11 +38,12 @@ export interface RsRadioGroupProps extends RadioGroupProps<string> {
 const RsRadioGroup = ({items, label, value, className, ...props}: RsRadioGroupProps) => {
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
-      <RadioGroup {...props as any} value={value ?? ''}>
+      <RadioGroup {...(props as any)} value={value ?? ''}>
         {items?.map(({value, label}, i) => (
-          <Radio value={value} key={i}>{label ?? value}</Radio>
-        ))
-        }
+          <Radio value={value} key={i}>
+            {label ?? value}
+          </Radio>
+        ))}
       </RadioGroup>
     </Labeled>
   )
@@ -53,13 +54,12 @@ export const rsRadioGroup = define(RsRadioGroup, 'RsRadioGroup')
   .category(fieldsCategory)
   .props({
     name: string.default('RadioGroup'),
-    appearance: oneOf('default', 'picker').labeled('Default', 'Picker').default('default')
-      .withEditorProps({creatable: false}),
+    appearance: oneOf('default', 'picker').labeled('Default', 'Picker').default('default').withEditorProps({creatable: false}),
     label: string.default('Radio'),
     disabled: disabled.default(false),
     readOnly,
     inline: boolean.default(false),
     onChange: event,
     items: array.calculable(true).localize.default(toLabeledValues(['a', 'b', 'c'])),
-    value: string.valued
+    value: string.valued,
   })

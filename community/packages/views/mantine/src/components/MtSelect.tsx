@@ -11,12 +11,7 @@ import {deduplicateData} from './internal/deduplicateData'
 const MtSelect = (props: SelectProps & BaseComboboxProps) => {
   const {data, ...others} = props
   const deduplicatedData = useMemo(() => deduplicateData(data || []), [data])
-  return (
-    <Select
-      {...others}
-      data={deduplicatedData}
-    />
-  )
+  return <Select {...others} data={deduplicatedData} />
 }
 
 export const mtSelect = define(MtSelect, 'MtSelect')

@@ -10,8 +10,7 @@ import type {ReadOnlyProps} from './internal/ReadOnlyProps'
 /**
  * The MuiBox component properties.
  */
-export interface MuiBoxProps extends BoxProps, DisabledProps, ReadOnlyProps {
-}
+export interface MuiBoxProps extends BoxProps, DisabledProps, ReadOnlyProps {}
 
 /**
  * Box component with flex layout.
@@ -20,7 +19,7 @@ export interface MuiBoxProps extends BoxProps, DisabledProps, ReadOnlyProps {
  */
 const MuiBox = forwardRef((props: MuiBoxProps, ref: ForwardedRef<any>) => {
   const {disabled, readOnly, ...otherProps} = props
-  return <Box {...otherProps} ref={ref}/>
+  return <Box {...otherProps} ref={ref} />
 })
 
 export const muiBox = define(MuiBox, 'MuiBox')
@@ -32,8 +31,8 @@ export const muiBox = define(MuiBox, 'MuiBox')
     readOnly: readOnly,
     disabled: disabled,
     maxWidth: oneOf('xs', 'sm', 'md', 'lg', 'xl'),
-    sx
+    sx,
   })
   .css({
-    gap: size.default('10px')
+    gap: size.default('10px'),
   })

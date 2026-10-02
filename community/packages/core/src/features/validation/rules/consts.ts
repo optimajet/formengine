@@ -11,8 +11,8 @@ export const requiredMessage = 'Required'
  */
 export const zodErrorParams = (
   message?: string,
-  fallback?: string | z.core.$ZodErrorMap,
-): { error: string | z.core.$ZodErrorMap } | undefined => {
+  fallback?: string | z.core.$ZodErrorMap
+): {error: string | z.core.$ZodErrorMap} | undefined => {
   if (message) return {error: message}
   if (fallback !== undefined) return {error: fallback}
 }
@@ -22,7 +22,7 @@ export const zodErrorParams = (
  * @param issue zod issue.
  * @returns the error message or undefined.
  */
-export const errorForUndefined: z.core.$ZodErrorMap = (issue) => {
+export const errorForUndefined: z.core.$ZodErrorMap = issue => {
   const {input} = issue
 
   if (isUndefined(input) || isNull(input)) return requiredMessage

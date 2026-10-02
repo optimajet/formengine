@@ -11,7 +11,7 @@ export type ValidationRuleParameter = {
   /**
    * The type of value.
    */
-  type: SchemaType,
+  type: SchemaType
   /**
    * Flag whether the setting value must be filled in.
    */

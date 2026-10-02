@@ -9,6 +9,6 @@ export const muiDialogTitle = define(DialogTitle, 'MuiDialogTitle')
   .props({
     children: stringNode.setup({default: 'Dialog title'}),
     ...typography,
-    sx
+    sx,
   })
   .hideFromComponentPalette()

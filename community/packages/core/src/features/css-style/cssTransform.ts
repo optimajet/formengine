@@ -22,9 +22,9 @@ function transformRules(rules: any, result: any) {
     const obj: any = {}
     if (rule.type === 'media') {
       const name = mediaNameGenerator(rule.media)
-      const media = result[name] = result[name] || {
-        '__expression__': rule.media
-      }
+      const media = (result[name] = result[name] || {
+        __expression__: rule.media,
+      })
       transformRules(rule.rules, media)
     } else if (rule.type === 'rule') {
       rule.declarations.forEach((declaration: any) => {

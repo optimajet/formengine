@@ -23,7 +23,6 @@ import type {IDataReaction} from './IDataReaction'
  * Field with repeater data. **Internal use only.**
  */
 export class RepeaterField implements Field, IDataReaction, IComponentDataProvider {
-
   #oldComponentDatas: ComponentData[] = []
 
   /**
@@ -69,7 +68,7 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
     readonly getInitialData: GetInitialDataFn,
     readonly setInitialData: (value: unknown) => void,
     readonly componentDataFactory: IComponentDataFactory,
-    public deferFieldCalculation: boolean,
+    public deferFieldCalculation: boolean
   ) {
     const {model, store: componentStore} = repeaterComponentData
     this.model = model
@@ -82,10 +81,14 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
 
     const className = 'RepeaterField'
 
-    makeAutoObservable(this, {
-      model: false,
-      dataValidator: observable.ref
-    }, {name: nameObservable(className, {key: componentStore.key}), autoBind: true})
+    makeAutoObservable(
+      this,
+      {
+        model: false,
+        dataValidator: observable.ref,
+      },
+      {name: nameObservable(className, {key: componentStore.key}), autoBind: true}
+    )
 
     // first, we initialize the value
     this.initialData = this.isComputed ? this.computedValue : this.initialDataValue
@@ -93,13 +96,10 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
     this.#disposers = [
       autorun(
         () => {
-          this.dataValidator = this.createDataValidator(
-            repeaterComponentData,
-            this.valueType,
-            error => this.error = error
-          )
-        }
-        , {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}),
+          this.dataValidator = this.createDataValidator(repeaterComponentData, this.valueType, error => (this.error = error))
+        },
+        {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}
+      ),
     ]
 
     // then, sign up for data changes, this could be:
@@ -330,7 +330,7 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
         contextData.dataRootProvider = {
           get dataRoot() {
             return contextData
-          }
+          },
         }
 
         contextData.getInitialData = () => {
@@ -424,12 +424,16 @@ export class RepeaterField implements Field, IDataReaction, IComponentDataProvid
   }
 
   private createDataChangeReaction() {
-    return reaction(() => ({
-      isComputed: this.isComputed,
-      computedValue: this.computedValue,
-      initialDataValue: this.initialDataValue
-    }), (data) => {
-      this.initialData = data.isComputed ? data.computedValue : data.initialDataValue
-    }, {name: nameObservable('RepeaterField', {key: this.componentStore.key})})
+    return reaction(
+      () => ({
+        isComputed: this.isComputed,
+        computedValue: this.computedValue,
+        initialDataValue: this.initialDataValue,
+      }),
+      data => {
+        this.initialData = data.isComputed ? data.computedValue : data.initialDataValue
+      },
+      {name: nameObservable('RepeaterField', {key: this.componentStore.key})}
+    )
   }
 }

@@ -22,7 +22,6 @@ import type {IDataReaction} from './IDataReaction'
  * Field with form data, contains only one value. **Internal use only.**
  */
 export class SimpleField implements Field, IDataReaction {
-
   /**
    * @inheritDoc
    */
@@ -65,7 +64,7 @@ export class SimpleField implements Field, IDataReaction {
     readonly calculateValue: CalculatePropertyFn,
     readonly createDataValidator: DataValidatorFactoryFn,
     readonly getInitialData: GetInitialDataFn,
-    public deferFieldCalculation: boolean,
+    public deferFieldCalculation: boolean
   ) {
     const {model, store: componentStore} = componentData
     this.componentStore = componentStore
@@ -78,10 +77,14 @@ export class SimpleField implements Field, IDataReaction {
 
     const className = 'SimpleField'
 
-    makeAutoObservable(this, {
-      model: false,
-      dataValidator: observable.ref,
-    }, {name: nameObservable(className, {key: componentStore.key}), autoBind: true})
+    makeAutoObservable(
+      this,
+      {
+        model: false,
+        dataValidator: observable.ref,
+      },
+      {name: nameObservable(className, {key: componentStore.key}), autoBind: true}
+    )
 
     // first, we initialize the value
     this.value = this.isComputed ? this.computedValue : this.initialDataValue
@@ -89,13 +92,10 @@ export class SimpleField implements Field, IDataReaction {
     this.#disposers = [
       autorun(
         () => {
-          this.dataValidator = this.createDataValidator(
-            componentData,
-            this.valueType,
-            error => this.error = error
-          )
-        }
-        , {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}),
+          this.dataValidator = this.createDataValidator(componentData, this.valueType, error => (this.error = error))
+        },
+        {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}
+      ),
     ]
 
     // then, sign up for data changes, this could be:
@@ -286,13 +286,17 @@ export class SimpleField implements Field, IDataReaction {
   }
 
   private createDataChangeReaction() {
-    return reaction(() => ({
-      isComputed: this.isComputed,
-      computedValue: this.computedValue,
-      initialDataValue: this.initialDataValue
-    }), (data) => {
-      this.value = data.isComputed ? data.computedValue : data.initialDataValue
-    }, {name: nameObservable('SimpleField', {key: this.componentStore.key})})
+    return reaction(
+      () => ({
+        isComputed: this.isComputed,
+        computedValue: this.computedValue,
+        initialDataValue: this.initialDataValue,
+      }),
+      data => {
+        this.value = data.isComputed ? data.computedValue : data.initialDataValue
+      },
+      {name: nameObservable('SimpleField', {key: this.componentStore.key})}
+    )
   }
 
   private updateSiblings(value: unknown) {

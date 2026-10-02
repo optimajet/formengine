@@ -15,14 +15,14 @@ const addPersistedActionDefinition = (definitions: Schema['definitions']) => {
     properties: {
       body: {
         type: 'string',
-        description: 'The source code of the Action.'
+        description: 'The source code of the Action.',
       },
       params: {
         $ref: '#/definitions/ActionParameters',
-        description: 'The parameters of the Action.'
-      }
+        description: 'The parameters of the Action.',
+      },
     },
-    required: ['params']
+    required: ['params'],
   }
 }
 
@@ -84,7 +84,7 @@ const addMissingDescription = (definitions: Schema['definitions']) => {
  * @param schema the JSON schema to post-process.
  */
 export const postProcessSchema = (schema: Schema) => {
-  schema.title = 'FormEngine\'s Form Schema'
+  schema.title = "FormEngine's Form Schema"
   replaceActionDefinitionReferences(schema)
 
   const definitions = schema.definitions

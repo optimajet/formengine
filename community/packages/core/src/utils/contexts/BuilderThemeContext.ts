@@ -9,5 +9,5 @@ export const [
   /**
    * Context provider for the {@link useBuilderTheme} hook.
    */
-  BuilderThemeProvider
+  BuilderThemeProvider,
 ] = createNonNullableContext<BuilderTheme>('BuilderThemeContext', 'light')

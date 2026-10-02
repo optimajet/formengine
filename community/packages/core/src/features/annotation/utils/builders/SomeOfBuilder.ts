@@ -6,7 +6,6 @@ import {QuantifierBuilder} from './QuantifierBuilder'
  * @template T the property type.
  */
 export class SomeOfBuilder<T> extends QuantifierBuilder<T> {
-
   /**
    * Sets the default value for the component property.
    * @param value the default value.

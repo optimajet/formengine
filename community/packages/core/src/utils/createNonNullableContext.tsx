@@ -1,7 +1,7 @@
 import type {Context, Provider} from 'react'
 import {createContext, useContext} from 'react'
 
-function createContextHook<T, >(context: Context<T>) {
+function createContextHook<T>(context: Context<T>) {
   return () => {
     const value = useContext(context)
 
@@ -11,7 +11,7 @@ function createContextHook<T, >(context: Context<T>) {
   }
 }
 
-function createProvider<T, >(context: Context<T | null>) {
+function createProvider<T>(context: Context<T | null>) {
   const value = context as Context<T>
   return value.Provider
 }

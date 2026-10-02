@@ -25,17 +25,21 @@ const useModalModel = () => {
 }
 
 const ModalTypeNotSpecified = () => {
-  return <div className={styles.warn} data-testid="modal-type-not-specified">
-    Modal: <em>specify the component to display the modal window to use</em>
-  </div>
+  return (
+    <div className={styles.warn} data-testid="modal-type-not-specified">
+      Modal: <em>specify the component to display the modal window to use</em>
+    </div>
+  )
 }
 
 const ModalTemplateNotSpecified = () => {
   // eslint-disable-next-line no-console
   console.info('Modal: template not specified')
-  return <div className={styles.warn} data-testid="modal-template-not-specified">
-    Modal: <em>template not specified</em>
-  </div>
+  return (
+    <div className={styles.warn} data-testid="modal-template-not-specified">
+      Modal: <em>template not specified</em>
+    </div>
+  )
 }
 
 /**
@@ -52,13 +56,11 @@ const RawModalBuilder = ({modalTemplate}: ModalProps) => {
   const modalModel = useModalModel()
 
   const modalTemplateName = useMemo(() => {
-    return modalTemplate && isTemplateType(modalTemplate)
-      ? getTemplateName(modalTemplate)
-      : modalTemplate
+    return modalTemplate && isTemplateType(modalTemplate) ? getTemplateName(modalTemplate) : modalTemplate
   }, [modalTemplate])
 
-  if (!modalModel) return <ModalTypeNotSpecified/>
-  if (!modalTemplate) return <ModalTemplateNotSpecified/>
+  if (!modalModel) return <ModalTypeNotSpecified />
+  if (!modalTemplate) return <ModalTemplateNotSpecified />
 
   return <div>{`Modal: '${modalTemplateName}'`}</div>
 }
@@ -90,7 +92,7 @@ const RawComponentModal = ({open, handleClose, model, children, onCloseRef}: Com
   const props = {
     ...componentState.ownProps,
     open,
-    handleClose
+    handleClose,
   }
 
   return createElement(model.component, props, children)
@@ -107,23 +109,22 @@ const RawModalViewer = (props: ModalProps) => {
   const EmbeddedFormViewer = useEmbeddedFormViewer()
   const {modalTemplate} = props
 
-  const {
-    open = false,
-    initialData,
-    [modalBeforeHideFnName]: postFn,
-  } = componentData?.userDefinedProps?.[modalStateKey] || {}
+  const {open = false, initialData, [modalBeforeHideFnName]: postFn} = componentData?.userDefinedProps?.[modalStateKey] || {}
 
-  const handleClose = useCallback((data: any) => {
-    componentData.userDefinedProps ??= {}
-    componentData.userDefinedProps[modalStateKey].open = false
+  const handleClose = useCallback(
+    (data: any) => {
+      componentData.userDefinedProps ??= {}
+      componentData.userDefinedProps[modalStateKey].open = false
 
-    if (data) {
-      const dataProxy = createDataProxy(parentStore.formData)
-      Object.entries(data).forEach(([key, value]) => {
-        dataProxy[key] = value
-      })
-    }
-  }, [componentData, parentStore.formData])
+      if (data) {
+        const dataProxy = createDataProxy(parentStore.formData)
+        Object.entries(data).forEach(([key, value]) => {
+          dataProxy[key] = value
+        })
+      }
+    },
+    [componentData, parentStore.formData]
+  )
 
   const modalRef = useRef<OnCloseEventHandler>(null)
 
@@ -131,19 +132,20 @@ const RawModalViewer = (props: ModalProps) => {
     modalRef?.current?.()
   }, [])
 
-  const contextValue = useMemo(() => ({
-    ...formViewerProps.context,
-    modalContext: {
-      [closeCurrentModalActionName]: handleClose,
-      [modalOnCloseEventHandler]: modalOnClose,
-      [modalBeforeHideFnName]: postFn,
-      parentContext: context
-    }
-  }), [context, formViewerProps.context, handleClose, modalOnClose, postFn])
+  const contextValue = useMemo(
+    () => ({
+      ...formViewerProps.context,
+      modalContext: {
+        [closeCurrentModalActionName]: handleClose,
+        [modalOnCloseEventHandler]: modalOnClose,
+        [modalBeforeHideFnName]: postFn,
+        parentContext: context,
+      },
+    }),
+    [context, formViewerProps.context, handleClose, modalOnClose, postFn]
+  )
 
-  const formName = modalTemplate && isTemplateType(modalTemplate)
-    ? getTemplateName(modalTemplate)
-    : modalTemplate
+  const formName = modalTemplate && isTemplateType(modalTemplate) ? getTemplateName(modalTemplate) : modalTemplate
 
   const modalViewerProps: FormViewerProps | undefined = useMemo(() => {
     if (!formName) return undefined
@@ -155,18 +157,20 @@ const RawModalViewer = (props: ModalProps) => {
       onFormDataChange: undefined,
       readOnly: undefined,
       disabled: undefined,
-      context: contextValue
+      context: contextValue,
     }
   }, [formViewerProps, formName, initialData, contextValue])
 
-  if (!modalModel) return <ModalTypeNotSpecified/>
-  if (!formName || !modalViewerProps) return <ModalTemplateNotSpecified/>
+  if (!modalModel) return <ModalTypeNotSpecified />
+  if (!formName || !modalViewerProps) return <ModalTemplateNotSpecified />
 
-  return <ComponentModal model={modalModel} open={open} handleClose={handleClose} onCloseRef={modalRef}>
-    <NewStoreProvider props={modalViewerProps}>
-      <EmbeddedFormViewer {...modalViewerProps} />
-    </NewStoreProvider>
-  </ComponentModal>
+  return (
+    <ComponentModal model={modalModel} open={open} handleClose={handleClose} onCloseRef={modalRef}>
+      <NewStoreProvider props={modalViewerProps}>
+        <EmbeddedFormViewer {...modalViewerProps} />
+      </NewStoreProvider>
+    </ComponentModal>
+  )
 }
 
 const ModalViewer = namedObserver('ModalViewer', RawModalViewer)

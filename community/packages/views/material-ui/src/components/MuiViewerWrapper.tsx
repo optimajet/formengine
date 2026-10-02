@@ -9,7 +9,7 @@ const useMuiScopedContext = () => useContext(MuiScopedContext)
 
 const containerStyle = {
   height: '100%',
-  width: '100%'
+  width: '100%',
 }
 
 /**
@@ -17,11 +17,11 @@ const containerStyle = {
  * @param props the FormViewerWrapper props.
  * @returns the React context provider.
  */
-export const MuiViewerWrapper: FormViewerWrapper = (props) => {
+export const MuiViewerWrapper: FormViewerWrapper = props => {
   const theme = useBuilderTheme()
   const muiTheme = useMemo(
     () => createTheme({cssVariables: true, palette: {mode: theme}}, getLocale(props.language)),
-    [props.language, theme],
+    [props.language, theme]
   )
 
   const alreadyScoped = useMuiScopedContext()

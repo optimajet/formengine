@@ -19,7 +19,6 @@ import {
 } from './mui.tsx'
 import './mui.css'
 
-import {json} from './booking-json.tsx'
 import type {
   QuestionCheckboxModel,
   QuestionCommentModel,
@@ -29,6 +28,7 @@ import type {
   QuestionTagboxModel,
   QuestionTextModel,
 } from 'survey-core'
+import {json} from './booking-json.tsx'
 
 // Type assertion needed due to incorrect Survey.js TypeScript definitions
 ReactQuestionFactory.Instance.registerQuestion('mui-text', ((props: {question: QuestionTextModel}) =>

@@ -13,4 +13,5 @@ export const [
   /**
    * **Internal use only.**
    */
-  StoreContext] = createNonNullableContext<Store>('StoreContext')
+  StoreContext,
+] = createNonNullableContext<Store>('StoreContext')

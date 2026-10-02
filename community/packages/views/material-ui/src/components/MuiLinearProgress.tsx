@@ -10,5 +10,5 @@ export const muiLinearProgress = define(LinearProgress, 'MuiLinearProgress')
     value: number,
     valueBuffer: number,
     variant: oneOfStrict('buffer', 'determinate', 'indeterminate', 'query'),
-    color
+    color,
   })

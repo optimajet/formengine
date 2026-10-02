@@ -10,12 +10,7 @@ import {deduplicateData} from './internal/deduplicateData'
 const MtAutocomplete = (props: AutocompleteProps & BaseComboboxProps) => {
   const {data, ...others} = props
   const deduplicatedData = useMemo(() => deduplicateData(data || []), [data])
-  return (
-    <Autocomplete
-      {...others}
-      data={deduplicatedData}
-    />
-  )
+  return <Autocomplete {...others} data={deduplicatedData} />
 }
 
 export const mtAutocomplete = define(MtAutocomplete, 'MtAutocomplete')

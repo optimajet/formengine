@@ -3,6 +3,7 @@ import type {ComponentTreeProps} from '../ComponentTreeProps'
 import type {ComponentStore} from '../stores/ComponentStore'
 import type {ComponentData, IComponentDataProvider} from './contexts/ComponentDataContext'
 import {groupBy} from './groupBy'
+import {getVisualChildren} from './isNonVisual'
 import {needRender} from './needRender'
 
 type SlotConditionFn = (parentProps: Record<string, unknown>) => boolean
@@ -51,9 +52,8 @@ export function getChildren(
   componentTreeItem: ComponentType<ComponentTreeProps>,
   componentProps: Record<string, any>
 ) {
-  const containers = data.field?.fieldType === 'repeater'
-    ? (data.field as unknown as IComponentDataProvider).componentData
-    : data.children
+  const containers =
+    data.field?.fieldType === 'repeater' ? (data.field as unknown as IComponentDataProvider).componentData : getVisualChildren(data)
   const ComponentTree = componentTreeItem
   const currentProps: Record<string, any> = {}
 
@@ -62,15 +62,15 @@ export function getChildren(
   const isNeedRender = (child: ComponentData) => needRender(child.store, data.dataRoot)
 
   for (const [key, children] of Object.entries(groups)) {
-    const filteredChildren = children
-      .filter(isSlotConditionSatisfied)
-      .filter(isNeedRender)
+    const filteredChildren = children.filter(isSlotConditionSatisfied).filter(isNeedRender)
 
     if (filteredChildren.length) {
-      currentProps[key] = data.model.propsBindingTypes[key] === 'array'
-        ? filteredChildren.map(item => [item])
-          .map((data, index) => <ComponentTree key={index} data={data}/>)
-        : <ComponentTree data={filteredChildren}/>
+      currentProps[key] =
+        data.model.propsBindingTypes[key] === 'array' ? (
+          filteredChildren.map(item => [item]).map((data, index) => <ComponentTree key={index} data={data} />)
+        ) : (
+          <ComponentTree data={filteredChildren} />
+        )
     }
   }
 

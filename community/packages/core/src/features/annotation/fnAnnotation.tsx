@@ -21,11 +21,8 @@ import {createProperty} from './utils/createProperty'
  * that describes a filter function taking a string and an item, returning a boolean.
  */
 export const fn = (fnDescriptionBegin: string, fnDescriptionEnd = '}') => {
-  return createProperty('function')
-    .typed('string')
-    .calculable(false)
-    .withEditorProps({
-      beginContextLine: fnDescriptionBegin,
-      endContextLine: fnDescriptionEnd,
-    })
+  return createProperty('function').typed('string').calculable(false).withEditorProps({
+    beginContextLine: fnDescriptionBegin,
+    endContextLine: fnDescriptionEnd,
+  })
 }

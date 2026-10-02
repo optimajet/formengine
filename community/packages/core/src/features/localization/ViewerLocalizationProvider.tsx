@@ -17,11 +17,12 @@ const viewerClassName = 'optimajet-formviewer'
 
 const viewerClass = cx(viewerClassName, styles.localizationProvider)
 
-const nestViewerWrappers = ([Wrapper, ...more]: ComponentType<FormViewerWrapperComponentProps>[],
-                            language: Language, children: ReactNode) => {
-  return Wrapper
-    ? <Wrapper language={language}>{nestViewerWrappers(more, language, children)}</Wrapper>
-    : children
+const nestViewerWrappers = (
+  [Wrapper, ...more]: ComponentType<FormViewerWrapperComponentProps>[],
+  language: Language,
+  children: ReactNode
+) => {
+  return Wrapper ? <Wrapper language={language}>{nestViewerWrappers(more, language, children)}</Wrapper> : children
 }
 
 const cssQueue = new AsyncQueue()
@@ -36,12 +37,14 @@ const RawViewerLocalizationProvider = (props: ViewerLocalizationProviderProps) =
   useEffect(() => {
     const loaders = view.getCssLoaders(bidi)
     loaders.forEach(loader => {
-      cssQueue.add(async () => {
-        const result = await loader()
-        if (typeof result === 'function') {
-          cleanupRef.current.push(result)
-        }
-      }).catch(console.error)
+      cssQueue
+        .add(async () => {
+          const result = await loader()
+          if (typeof result === 'function') {
+            cleanupRef.current.push(result)
+          }
+        })
+        .catch(console.error)
     })
 
     // Cleanup on unmount or bidi change
@@ -49,16 +52,20 @@ const RawViewerLocalizationProvider = (props: ViewerLocalizationProviderProps) =
       const cleanupsToRun = cleanupRef.current
       cleanupRef.current = []
       cleanupsToRun.forEach(unloader => {
-        cssQueue.add(async () => {
-          await unloader()
-        }).catch(console.error)
+        cssQueue
+          .add(async () => {
+            await unloader()
+          })
+          .catch(console.error)
       })
     }
   }, [bidi, view])
 
-  const viewer = <div dir={bidi} lang={language.fullCode} className={viewerClass}>
-    {props.children}
-  </div>
+  const viewer = (
+    <div dir={bidi} lang={language.fullCode} className={viewerClass}>
+      {props.children}
+    </div>
+  )
 
   return nestViewerWrappers(view.viewerWrappers, language, viewer)
 }

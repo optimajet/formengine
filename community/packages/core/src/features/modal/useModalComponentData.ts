@@ -18,7 +18,7 @@ const useModalComponentStore = (type: string, parentComponentStore: ComponentSto
     return ComponentStore.createFromObject({
       key,
       type,
-      ...modalStore
+      ...modalStore,
     })
   }, [key, type, modalStore])
 }
@@ -33,16 +33,19 @@ export const useModalComponentData = (parentComponentData: ComponentData, modalT
   const viewerStore = useStore()
   const componentStore = useModalComponentStore(modalType, parentComponentData.store)
 
-  const localizer = useCallback((componentStore: ComponentStore) => {
-    return viewerStore.localizeComponent('modal', parentComponentData.dataRoot, componentStore)
-  }, [viewerStore, parentComponentData])
+  const localizer = useCallback(
+    (componentStore: ComponentStore) => {
+      return viewerStore.localizeComponent('modal', parentComponentData.dataRoot, componentStore)
+    },
+    [viewerStore, parentComponentData]
+  )
 
   return useMemo(() => {
     const componentData = viewerStore.createComponentData(componentStore, false)
     componentData.dataRootProvider = {
       get dataRoot() {
         return parentComponentData.dataRoot
-      }
+      },
     }
     componentData.componentState = new ComponentState(componentData, viewerStore, localizer, () => ({}))
     return componentData

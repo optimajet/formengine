@@ -16,15 +16,18 @@ import {SCell} from './SCell'
 export const InputCell = ({rowData, dataKey, rowIndex, onChange, ...props}: InputCellProps) => {
   const value = rowData[dataKey] ?? ''
 
-  const handleChange = useCallback((newValue: any) => {
-    // eslint-disable-next-line react-hooks/immutability
-    rowData[dataKey] = newValue
-    onChange?.(newValue, dataKey, rowIndex)
-  }, [dataKey, onChange, rowData, rowIndex])
+  const handleChange = useCallback(
+    (newValue: any) => {
+      // eslint-disable-next-line react-hooks/immutability
+      rowData[dataKey] = newValue
+      onChange?.(newValue, dataKey, rowIndex)
+    },
+    [dataKey, onChange, rowData, rowIndex]
+  )
 
   return (
     <SCell {...props}>
-      <Input value={value} onChange={handleChange} size="sm"/>
+      <Input value={value} onChange={handleChange} size="sm" />
     </SCell>
   )
 }

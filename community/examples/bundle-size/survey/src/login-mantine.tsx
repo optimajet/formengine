@@ -1,4 +1,4 @@
-import {Button, Checkbox, Stack, TextInput, Title, MantineProvider} from '@mantine/core'
+import {Button, Checkbox, MantineProvider, Stack, TextInput, Title} from '@mantine/core'
 import {StrictMode, useCallback, useState} from 'react'
 import {createRoot} from 'react-dom/client'
 import {Model, Question, QuestionTextModel} from 'survey-core'

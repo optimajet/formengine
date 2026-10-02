@@ -7,7 +7,7 @@ import {fieldsCategory} from './categories'
 import styles from './RsCheckbox.module.css'
 
 const RsCheckbox = ({className, ...props}: CheckboxProps<any>) => {
-  return <Checkbox {...props} className={cx(styles.checkbox, className)}/>
+  return <Checkbox {...props} className={cx(styles.checkbox, className)} />
 }
 
 export const rsCheckbox = define(RsCheckbox, 'RsCheckbox')
@@ -15,8 +15,7 @@ export const rsCheckbox = define(RsCheckbox, 'RsCheckbox')
   .category(fieldsCategory)
   .props({
     children: string.default('Checkbox'),
-    checked: boolean
-      .valued.uncontrolledValue(false),
+    checked: boolean.valued.uncontrolledValue(false),
     disabled: disabled.default(false),
     readOnly,
     indeterminate: boolean,

@@ -10,7 +10,7 @@ import {toRuleValidator} from './zodRuleBuilders'
  * @param issue zod error.
  * @returns string message.
  */
-const dateBoundError: z.core.$ZodErrorMap = (issue) => {
+const dateBoundError: z.core.$ZodErrorMap = issue => {
   const undefinedResult = errorForUndefined(issue)
   if (undefinedResult) return undefinedResult
 
@@ -31,16 +31,18 @@ const dateBoundError: z.core.$ZodErrorMap = (issue) => {
 const scheme = z.date({error: dateBoundError})
 
 export const ZodDateRules: ValidationRuleSet = {
-  required: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(scheme, z.refine(val => val))),
+  required: ruleBuilder().withValidatorFactory(() =>
+    toRuleValidator(
+      scheme,
+      z.refine(val => val)
+    )
+  ),
 
   min: ruleBuilder()
     .withParameter('value', 'date', true)
-    .withValidatorFactory(({value, message}) =>
-      toRuleValidator(scheme, z.gte(new Date(value), zodErrorParams(message, dateBoundError)))),
+    .withValidatorFactory(({value, message}) => toRuleValidator(scheme, z.gte(new Date(value), zodErrorParams(message, dateBoundError)))),
 
   max: ruleBuilder()
     .withParameter('value', 'date', true)
-    .withValidatorFactory(({value, message}) =>
-      toRuleValidator(scheme, z.lte(new Date(value), zodErrorParams(message, dateBoundError)))),
+    .withValidatorFactory(({value, message}) => toRuleValidator(scheme, z.lte(new Date(value), zodErrorParams(message, dateBoundError)))),
 }

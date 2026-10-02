@@ -35,7 +35,7 @@ export interface RsContainerProps {
  */
 const RsContainer = forwardRef((props: RsContainerProps, ref: ForwardedRef<any>) => {
   const {disabled, readOnly, className, ...otherProps} = props
-  return <div {...otherProps} className={cx(styles.container, className)} ref={ref}/>
+  return <div {...otherProps} className={cx(styles.container, className)} ref={ref} />
 })
 
 export const rsContainer = define(RsContainer, 'RsContainer')
@@ -50,5 +50,5 @@ export const rsContainer = define(RsContainer, 'RsContainer')
   .css({
     ...containerStyles,
     flexDirection: flexDirection.default('column'),
-    gap: gap.default('10px')
+    gap: gap.default('10px'),
   })

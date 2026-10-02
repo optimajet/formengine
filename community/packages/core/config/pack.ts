@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import {runPackManifestFiles} from '@react-form-builder/cli-lib/pack-workflow'
 import {dirname} from 'node:path'
 import {fileURLToPath} from 'node:url'
+import {runPackManifestFiles} from '@react-form-builder/cli-lib/pack-workflow'
 
 async function main(): Promise<void> {
   const configDir = dirname(fileURLToPath(import.meta.url))

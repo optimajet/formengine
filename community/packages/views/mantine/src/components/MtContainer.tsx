@@ -10,9 +10,7 @@ import {size} from './internal/sharedProps'
  * @param props component properties.
  * @returns container component.
  */
-export const MtContainer = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => (
-  <Container display="flex" {...props} ref={ref}/>
-))
+export const MtContainer = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => <Container display="flex" {...props} ref={ref} />)
 
 export const mtContainer = define(MtContainer, 'MtContainer')
   .category(layoutCategory)

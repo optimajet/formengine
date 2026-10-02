@@ -15,10 +15,10 @@ const locales = {
   jaJP,
   koKR,
   srRS,
-  zhCN
+  zhCN,
 }
 
-type MuiLocale = keyof (typeof locales)
+type MuiLocale = keyof typeof locales
 const getFullCode = ({code, dialect} = globalDefaultLanguage) => `${code}-${dialect}`
 
 /**

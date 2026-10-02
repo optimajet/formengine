@@ -12,9 +12,7 @@ export const getOneWayPropertiesContext = (componentData: ComponentData): Compon
     get valueProperty() {
       const {model, store} = componentData
       // the data is bound only if the dataKey is present
-      if (store.disableDataBinding?.value === true
-        || !model.valued
-        || !store.dataKey) {
+      if (store.disableDataBinding?.value === true || !model.valued || !store.dataKey) {
         return undefined
       }
 
@@ -23,8 +21,8 @@ export const getOneWayPropertiesContext = (componentData: ComponentData): Compon
         get propertyValue() {
           const key = dataKey(store)
           return componentData.dataRoot.data[key]
-        }
+        },
       }
-    }
+    },
   }
 }

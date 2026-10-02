@@ -10,8 +10,7 @@ import {mantineColor} from './internal/mantineColor'
  */
 export interface MtSliderProps
   extends Omit<SliderProps, 'size' | 'label'>,
-    Omit<InputWrapperProps, 'children' | Exclude<keyof SliderProps, 'size' | 'label'>> {
-}
+    Omit<InputWrapperProps, 'children' | Exclude<keyof SliderProps, 'size' | 'label'>> {}
 
 /**
  * Mantine slider component for React Form Builder.
@@ -19,39 +18,11 @@ export interface MtSliderProps
  * @returns slider component.
  */
 export function MtSliderComponent(props: MtSliderProps) {
-  const {
-    label,
-    description,
-    error,
-    required,
-    withAsterisk,
-    value,
-    disabled,
-    min,
-    max,
-    step,
-    size,
-    ...others
-  } = props
+  const {label, description, error, required, withAsterisk, value, disabled, min, max, step, size, ...others} = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      required={required}
-      withAsterisk={withAsterisk}
-      size={size}
-    >
-      <Slider
-        value={value}
-        disabled={disabled}
-        min={min}
-        max={max}
-        step={step}
-        size={size}
-        {...others}
-      />
+    <Input.Wrapper label={label} description={description} error={error} required={required} withAsterisk={withAsterisk} size={size}>
+      <Slider value={value} disabled={disabled} min={min} max={max} step={step} size={size} {...others} />
     </Input.Wrapper>
   )
 }

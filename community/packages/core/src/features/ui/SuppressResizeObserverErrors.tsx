@@ -23,7 +23,7 @@ const getEventText = (event: unknown): string => {
     return event
   }
   if (event && isObject(event) && 'message' in event) {
-    const message = (event as { message?: unknown }).message
+    const message = (event as {message?: unknown}).message
     if (isString(message)) {
       return message
     }
@@ -41,15 +41,11 @@ export const SuppressResizeObserverErrors = ({children}: SuppressResizeObserverE
   const [defaultOnErrorFn] = useState(globalThis.onerror)
 
   useEffect(() => {
-    globalThis.onerror = (event) => {
+    globalThis.onerror = event => {
       const eventText = getEventText(event)
       if (eventText.includes('ResizeObserver')) {
-        const resizeObserverErrDiv = document.getElementById(
-          'webpack-dev-server-client-overlay-div'
-        )
-        const resizeObserverErr = document.getElementById(
-          'webpack-dev-server-client-overlay'
-        )
+        const resizeObserverErrDiv = document.getElementById('webpack-dev-server-client-overlay-div')
+        const resizeObserverErr = document.getElementById('webpack-dev-server-client-overlay')
         if (resizeObserverErr) {
           resizeObserverErr.setAttribute('style', 'display: none')
         }

@@ -16,9 +16,7 @@ export const rsButton = define(RsButton, 'RsButton')
   .category(staticCategory)
   .props({
     active: boolean.default(false),
-    appearance: oneOf('default', 'primary', 'link', 'subtle', 'ghost')
-      .default('default')
-      .withEditorProps({creatable: false}),
+    appearance: oneOf('default', 'primary', 'link', 'subtle', 'ghost').default('default').withEditorProps({creatable: false}),
     children: string.required.default(defaultContent).dataBound,
     color: controlColor,
     disabled: disabled.default(false),

@@ -78,8 +78,14 @@ export class DataValidator {
    * @template T the validation function factory arguments.
    * @returns the DataValidator instance.
    */
-  static create = <T>(store: IStore, getFormData: () => IFormData, resolver: SchemaResolver<T>, args: T,
-                      setter: Setter<string | undefined>, localizer?: ErrorMessageLocalizer) => {
+  static create = <T>(
+    store: IStore,
+    getFormData: () => IFormData,
+    resolver: SchemaResolver<T>,
+    args: T,
+    setter: Setter<string | undefined>,
+    localizer?: ErrorMessageLocalizer
+  ) => {
     return new DataValidator(store, getFormData, resolver(args), setter, localizer)
   }
 

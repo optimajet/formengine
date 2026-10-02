@@ -7,23 +7,21 @@ import {
   cfDisableAdditionalProperties,
   cfDisableMainComponentProperties,
   cfDisableStyleProperties,
-  cfDisableTooltipProperties
+  cfDisableTooltipProperties,
 } from '../define/utils/integratedComponentFeatures'
 import {Model} from '../define/utils/Model'
 import {ViewerPropsProvider} from '../form-viewer/components/ViewerPropsContext'
 import {useEmbeddedForm} from './EmbeddedForm'
 import styles from './slotModel.module.css'
 
-const RawSlotContent = ({parentStore}: { parentStore: Store }) => {
+const RawSlotContent = ({parentStore}: {parentStore: Store}) => {
   const {key} = useComponentData()
   const {viewerProps, data, embeddedFormProps} = useEmbeddedForm()
 
   return (
     <StoreProvider value={parentStore}>
       <ViewerPropsProvider value={viewerProps}>
-        <ComponentDataProvider value={data}>
-          {embeddedFormProps[key]}
-        </ComponentDataProvider>
+        <ComponentDataProvider value={data}>{embeddedFormProps[key]}</ComponentDataProvider>
       </ViewerPropsProvider>
     </StoreProvider>
   )
@@ -40,22 +38,36 @@ const SlotPlaceholder = namedObserver('SlotPlaceholder', RawSlotPlaceholder)
 
 const Slot = () => {
   const {parentStore} = useStore()
-  return parentStore
-    ? <SlotContent parentStore={parentStore}/>
-    : <SlotPlaceholder/>
+  return parentStore ? <SlotContent parentStore={parentStore} /> : <SlotPlaceholder />
 }
 const typeName = 'Slot'
 
-const slotFeatures = addOrUpdateFeatures({},
+const slotFeatures = addOrUpdateFeatures(
+  {},
   {name: cfDisableMainComponentProperties, value: true},
   {name: cfDisableTooltipProperties, value: true},
   {name: cfDisableStyleProperties, value: true},
-  {name: cfDisableAdditionalProperties, value: true},
+  {name: cfDisableAdditionalProperties, value: true}
 )
 
 /**
  * Form viewer slot metadata. **Internal use only.**
  */
-export const slotModel = new Model(Slot, typeName, undefined, undefined, undefined,
-  undefined, undefined, undefined, typeName, undefined, undefined, undefined,
-  undefined, undefined, undefined, slotFeatures)
+export const slotModel = new Model(
+  Slot,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  slotFeatures
+)

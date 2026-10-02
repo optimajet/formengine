@@ -57,17 +57,7 @@ interface MtDialogProps extends Partial<Omit<ModalProps, 'onClose | opened'>> {
  * @returns dialog component.
  */
 export function MtDialog(props: MtDialogProps) {
-  const {
-    title,
-    description,
-    children,
-    open,
-    handleClose,
-    onClose,
-    onOpen,
-    showCloseButton = true,
-    ...others
-  } = props
+  const {title, description, children, open, handleClose, onClose, onOpen, showCloseButton = true, ...others} = props
 
   const handleOnClose = useCallback(() => {
     handleClose?.()
@@ -79,13 +69,7 @@ export function MtDialog(props: MtDialogProps) {
   }, [onOpen, open])
 
   return (
-    <Modal
-      {...others}
-      opened={open ?? false}
-      onClose={handleOnClose}
-      title={title}
-      withCloseButton={showCloseButton}
-    >
+    <Modal {...others} opened={open ?? false} onClose={handleOnClose} title={title} withCloseButton={showCloseButton}>
       {description && <p>{description}</p>}
       {children}
     </Modal>

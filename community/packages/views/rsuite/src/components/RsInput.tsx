@@ -1,5 +1,5 @@
 import {boolean, define, oneOf, string, useAriaAttributes, useComponentData} from '@react-form-builder/core'
-import {EyeClose as EyeSlashIcon, Visible as EyeIcon} from '@rsuite/icons'
+import {Visible as EyeIcon, EyeClose as EyeSlashIcon} from '@rsuite/icons'
 import {useCallback, useState} from 'react'
 import type {InputProps} from 'rsuite'
 import {Input, InputGroup} from 'rsuite'
@@ -18,11 +18,11 @@ export interface RsInputProps extends InputProps {
   /**
    * Whether to show password mask.
    */
-  passwordMask?: boolean,
+  passwordMask?: boolean
   /**
    * The aria label for the show password button.
    */
-  showPasswordAriaLabel: string,
+  showPasswordAriaLabel: string
   /**
    * The type of the input.
    */
@@ -53,18 +53,22 @@ const RsInput = ({style, className, label, passwordMask, showPasswordAriaLabel, 
 
   const toggleVisible = useCallback(() => setVisible(v => !v), [])
 
-  const input = passwordMask
-    ? <InputGroup inside>
-      <Input id={id} {...aria} type={visible ? 'text' : 'password'} value={value ?? ''} {...props}/>
+  const input = passwordMask ? (
+    <InputGroup inside>
+      <Input id={id} {...aria} type={visible ? 'text' : 'password'} value={value ?? ''} {...props} />
       <InputGroup.Button aria-label={showPasswordAriaLabel} aria-pressed={visible} onClick={toggleVisible}>
-        {visible ? <EyeIcon/> : <EyeSlashIcon/>}
+        {visible ? <EyeIcon /> : <EyeSlashIcon />}
       </InputGroup.Button>
     </InputGroup>
-    : <Input id={id} {...aria} type={type} value={value ?? ''} {...props}/>
+  ) : (
+    <Input id={id} {...aria} type={type} value={value ?? ''} {...props} />
+  )
 
-  return <Labeled label={label} style={style} className={className} passAriaToChildren={false}>
-    {input}
-  </Labeled>
+  return (
+    <Labeled label={label} style={style} className={className} passAriaToChildren={false}>
+      {input}
+    </Labeled>
+  )
 }
 
 export const rsInput = define(RsInput, 'RsInput')
@@ -76,5 +80,5 @@ export const rsInput = define(RsInput, 'RsInput')
     type: oneOf('text', 'password', 'email', 'number', 'search', 'tel', 'url', 'time').default('text'),
     value: string.valued.uncontrolledValue(''),
     passwordMask: boolean.default(false),
-    showPasswordAriaLabel: string.default('Show password')
+    showPasswordAriaLabel: string.default('Show password'),
   })

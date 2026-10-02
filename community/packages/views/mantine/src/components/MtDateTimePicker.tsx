@@ -9,10 +9,8 @@ export const mtDateTimePicker = define(DateTimePicker, 'MtDateTimePicker')
   .props({
     ...baseInputProps,
     placeholder: string,
-    withSeconds: boolean
-      .default(false),
-    clearable: boolean
-      .default(false),
+    withSeconds: boolean.default(false),
+    clearable: boolean.default(false),
     valueFormat: string,
     dropdownType: dropdownType,
     defaultDate: string,

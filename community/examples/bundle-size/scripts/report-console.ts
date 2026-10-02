@@ -7,11 +7,11 @@ import {
   getAppNameByVariant,
   getAppNameMantine,
   getAppNameMui,
-  getBaseVariants,
   getAppNameNonMui,
-  getVariantsForApp,
+  getBaseVariants,
   getLibTitle,
   getVariantHeaderName,
+  getVariantsForApp,
   processChunks,
 } from './report-common.ts'
 import type {BundleInfo} from './tool.ts'

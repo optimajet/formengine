@@ -5,7 +5,6 @@ import type {FieldType} from './FieldType'
  * Field with the form data.
  */
 export interface Field {
-
   /**
    * The field type.
    */

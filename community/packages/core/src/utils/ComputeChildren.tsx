@@ -6,5 +6,4 @@ import type {ComponentData} from './contexts/ComponentDataContext'
  * @param componentProps the calculated properties of the component.
  * @returns the Record with calculated child properties.
  */
-export type ComputeChildren = (componentData: ComponentData,
-                               componentProps: Record<string, any>) => Record<string, any>
+export type ComputeChildren = (componentData: ComponentData, componentProps: Record<string, any>) => Record<string, any>

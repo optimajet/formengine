@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     svgr({
       include: '**/*.svg',
-    })
+    }),
   ],
   build: {
     cssMinify: false,

@@ -8,9 +8,7 @@ import {feedbackCategory} from './categories'
  * @param props.children the child elements to be rendered inside the error wrapper.
  * @returns the React fragment containing the child elements.
  */
-export const MuiErrorWrapper = (props: ErrorWrapperProps) => <>
-  {props.children}
-</>
+export const MuiErrorWrapper = (props: ErrorWrapperProps) => <>{props.children}</>
 
 export const muiErrorWrapper = define(MuiErrorWrapper, 'MuiErrorWrapper')
   .icon('ErrorMessage')

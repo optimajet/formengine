@@ -36,7 +36,7 @@ export interface MuiFormControlProps extends FormControlProps, DisabledProps, Re
   helperText?: string
 }
 
-const ErrorMessage = ({errorMessage}: { errorMessage?: string }) => {
+const ErrorMessage = ({errorMessage}: {errorMessage?: string}) => {
   if (!errorMessage) return null
   return <FormHelperText>{errorMessage}</FormHelperText>
 }
@@ -45,11 +45,13 @@ const FormControlWrapper = (props: MuiFormControlProps & FormControlWrapperOptio
   const {children, label, labelComponent, helperText, ...otherProps} = props
   const labelId = useLabelId()
   const Label = useMemo(() => labelComponent ?? InputLabel, [labelComponent])
-  return <FormControl {...otherProps}>
-    {!!label && <Label id={labelId}>{label}</Label>}
-    {children}
-    <ErrorMessage errorMessage={helperText}/>
-  </FormControl>
+  return (
+    <FormControl {...otherProps}>
+      {!!label && <Label id={labelId}>{label}</Label>}
+      {children}
+      <ErrorMessage errorMessage={helperText} />
+    </FormControl>
+  )
 }
 
 /**
@@ -64,13 +66,16 @@ export const useFormControlProps = (props: any): [MuiFormControlProps, any] => {
   const helperText = field?.error ?? helperTextProp
   const error = field?.error !== undefined || errorProp
   const required = useRequired()
-  const handleChange = useCallback((event: ChangeEvent<any>) => {
-    onChange?.(event.target.value)
-  }, [onChange])
+  const handleChange = useCallback(
+    (event: ChangeEvent<any>) => {
+      onChange?.(event.target.value)
+    },
+    [onChange]
+  )
 
   return [
     {label, error, helperText, required},
-    {onChange: handleChange, label, ...otherProps}
+    {onChange: handleChange, label, ...otherProps},
   ]
 }
 
@@ -80,16 +85,16 @@ export const useFormControlProps = (props: any): [MuiFormControlProps, any] => {
  * @param options the options for FormControl wrapper.
  * @returns the wrapped component.
  */
-export const withFormControl = <T extends object>(
-  Component: ComponentType<T>,
-  options?: FormControlWrapperOptions) => {
+export const withFormControl = <T extends object>(Component: ComponentType<T>, options?: FormControlWrapperOptions) => {
   const WrappedComponent = (props: T & MuiFormControlProps) => {
     const [formControlProps, componentProps] = useFormControlProps(props)
     const {id} = useComponentData()
 
-    return <FormControlWrapper {...formControlProps} {...options}>
-      <Component {...componentProps} id={id}/>
-    </FormControlWrapper>
+    return (
+      <FormControlWrapper {...formControlProps} {...options}>
+        <Component {...componentProps} id={id} />
+      </FormControlWrapper>
+    )
   }
 
   WrappedComponent.displayName = `withFormControl(${Component.displayName || Component.name})`

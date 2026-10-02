@@ -8,5 +8,5 @@ export const muiTypography = define(Typography, 'MuiTypography')
   .category(dataDisplayCategory)
   .props({
     children: string.default('Typography').dataBound,
-    ...typography
+    ...typography,
   })

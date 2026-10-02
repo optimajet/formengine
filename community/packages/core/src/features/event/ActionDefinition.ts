@@ -5,7 +5,6 @@ import type {ActionParameters, Func} from './types'
  * Represents the definition of an action.
  */
 export class ActionDefinition {
-
   /**
    * Creates a new instance of the ActionDefinition class.
    * @param func the function of an action.
@@ -15,9 +14,8 @@ export class ActionDefinition {
   constructor(
     public readonly func: Func,
     public readonly body?: string,
-    public readonly params: ActionParameters = {},
-  ) {
-  }
+    public readonly params: ActionParameters = {}
+  ) {}
 
   /**
    * Creates an action from the function.

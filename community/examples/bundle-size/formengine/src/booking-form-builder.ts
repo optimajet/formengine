@@ -1,5 +1,5 @@
-import {buildForm} from '@react-form-builder/core'
 import {todayDate, todayIso, tomorrowIso} from '@react-form-builder/bundle-size-shared/utils'
+import {buildForm} from '@react-form-builder/core'
 
 export const bookingForm = buildForm({errorType: 'RsErrorMessage'})
   .component('wizard', 'RsWizard')

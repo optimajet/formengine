@@ -1,8 +1,8 @@
-import {BuilderView} from '@react-form-builder/core'
-import {createSchema} from '@react-form-builder/json-schema-generator'
 import {writeFileSync} from 'node:fs'
 import {dirname, join} from 'node:path'
 import {fileURLToPath} from 'node:url'
+import {BuilderView} from '@react-form-builder/core'
+import {createSchema} from '@react-form-builder/json-schema-generator'
 import {uploaderComponent, uploaderComponentsDescriptions} from '../src'
 
 const __filename = fileURLToPath(import.meta.url)

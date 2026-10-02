@@ -2,7 +2,6 @@
  * Calculable result.
  */
 export class CalculableResult {
-
   /**
    * Constructor.
    * @param error the error.
@@ -10,8 +9,12 @@ export class CalculableResult {
    * @param exceptions the exceptions.
    * @param warning the warning.
    */
-  constructor(readonly error = false, readonly result?: any, readonly exceptions?: Error[], readonly warning?: boolean) {
-  }
+  constructor(
+    readonly error = false,
+    readonly result?: any,
+    readonly exceptions?: Error[],
+    readonly warning?: boolean
+  ) {}
 
   /**
    * Creates a new instance of the CalculableResult class with a successful result.

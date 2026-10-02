@@ -8,7 +8,6 @@ import {BaseBuilder} from './BaseBuilder'
  * @template T the property type.
  */
 export class TypedBuilder<T> extends BaseBuilder<T> {
-
   /**
    * Marks the component property as required.
    * @returns the modified instance of the builder.

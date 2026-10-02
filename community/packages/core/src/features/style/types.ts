@@ -2,7 +2,6 @@
  * CSS styles for a device.
  */
 export type DeviceStyle = {
-
   /**
    * CSS styles defined in the general style settings.
    */
@@ -18,7 +17,6 @@ export type DeviceStyle = {
  * The type for the CSS property of a React component.
  */
 export type Css = {
-
   /**
    * CSS styles for arbitrary device.
    */

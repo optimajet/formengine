@@ -1,24 +1,19 @@
 'use client'
 
-import {Message, MessageProvider, useMessage} from '@/app/components/message'
-import {
-  RsLocalizationWrapper,
-  rSuiteComponents,
-  rsErrorMessage,
-} from '@react-form-builder/components-rsuite'
+import {RsLocalizationWrapper, rSuiteComponents, rsErrorMessage} from '@react-form-builder/components-rsuite'
 import {ActionDefinition, createView} from '@react-form-builder/core'
 import {IFormStorage} from '@react-form-builder/designer'
-
-import form from '@/app/common/form.json'
-import {customValidators} from '@/app/common/validators'
 import dynamic from 'next/dynamic'
 import React, {ReactNode, useMemo} from 'react'
+import form from '@/app/common/form.json'
+import {customValidators} from '@/app/common/validators'
+import {Message, MessageProvider, useMessage} from '@/app/components/message'
 
 import '@react-form-builder/core/assets/styles.css'
 import '@react-form-builder/components-rsuite/assets/styles.ltr.css'
 
-const FormViewer = dynamic(() => import('@react-form-builder/core').then((mod) => mod.FormViewer), {
-  ssr: false
+const FormViewer = dynamic(() => import('@react-form-builder/core').then(mod => mod.FormViewer), {
+  ssr: false,
 })
 
 const viewerComponents = rSuiteComponents.map(c => c.build().model)
@@ -30,58 +25,58 @@ const formStorage: IFormStorage = {
   getForm: async () => localStorage.getItem(formName) || JSON.stringify(form),
   saveForm: async (_, form) => localStorage.setItem(formName, form),
   getFormNames: () => Promise.resolve([formName]),
-  removeForm: () => Promise.resolve()
+  removeForm: () => Promise.resolve(),
 }
 
 const loadForm = () => formStorage.getForm('')
 
-const view = createView(viewerComponents)
-  .withViewerWrapper(RsLocalizationWrapper)
+const view = createView(viewerComponents).withViewerWrapper(RsLocalizationWrapper)
 
-const ViewerWrap = ({children}: { children: ReactNode }) => (
+const ViewerWrap = ({children}: {children: ReactNode}) => (
   <MessageProvider>
     {children}
-    <Message/>
+    <Message />
   </MessageProvider>
 )
 
 const Viewer = () => {
   const {open, setOpen} = useMessage()
 
-  const actions = useMemo(() => ({
-    submitForm: ActionDefinition.functionalAction(async (e) => {
-      const formData = e.store.formData
+  const actions = useMemo(
+    () => ({
+      submitForm: ActionDefinition.functionalAction(async e => {
+        const formData = e.store.formData
 
-      setOpen(false)
+        setOpen(false)
 
-      try {
-        await formData.validate()
-      } catch (e) {
-        open(String(e))
-      }
-      if (Object.keys(formData.errors).length < 1) {
-        open('Thank you!')
-      } else {
-        const message = Object.entries<string>(formData.errors).reduce<Array<string>>((acc, [k, v]) => {
-          acc.push([k, v].join(' - '))
-          return acc
-        }, []).join('<br/>')
-        open(message)
-      }
-    })
-  }), [open, setOpen])
-
-  return (
-    <FormViewer
-      view={view}
-      actions={actions}
-      formName={formName}
-      getForm={loadForm}
-      validators={customValidators}
-    />
+        try {
+          await formData.validate()
+        } catch (e) {
+          open(String(e))
+        }
+        if (Object.keys(formData.errors).length < 1) {
+          open('Thank you!')
+        } else {
+          const message = Object.entries<string>(formData.errors)
+            .reduce<Array<string>>((acc, [k, v]) => {
+              acc.push([k, v].join(' - '))
+              return acc
+            }, [])
+            .join('<br/>')
+          open(message)
+        }
+      }),
+    }),
+    [open, setOpen]
   )
+
+  return <FormViewer view={view} actions={actions} formName={formName} getForm={loadForm} validators={customValidators} />
 }
 
 export default function ViewerClient() {
-  return <ViewerWrap><Viewer/></ViewerWrap>
+  return (
+    <ViewerWrap>
+      <Viewer />
+    </ViewerWrap>
+  )
 }

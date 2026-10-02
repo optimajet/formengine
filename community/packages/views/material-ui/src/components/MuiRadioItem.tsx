@@ -3,7 +3,7 @@ import {FormControlLabel, Radio} from '@mui/material'
 import {define, disabled, string} from '@react-form-builder/core'
 import {inputsCategory} from './categories'
 
-const control = <Radio/>
+const control = <Radio />
 
 /**
  * Props for the MuiRadioItem component.
@@ -16,7 +16,7 @@ export interface MuiRadioItemProps extends Pick<RadioProps, 'value' | 'color' | 
 }
 
 const MuiRadioItem = ({value, label, ...props}: MuiRadioItemProps) => {
-  return <FormControlLabel value={value} control={control} label={label} {...props}/>
+  return <FormControlLabel value={value} control={control} label={label} {...props} />
 }
 
 /**
@@ -29,8 +29,8 @@ export const muiRadioItem = define(MuiRadioItem, 'MuiRadioItem')
     value: string,
     label: string.default('Radio item'),
     color: string,
-    disabled: disabled
+    disabled: disabled,
   })
   .wrapperCss({
-    width: undefined
+    width: undefined,
   })

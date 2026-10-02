@@ -11,9 +11,7 @@ import {reactMajor} from './reactVersion'
  * @param render the forward ref render function.
  * @returns the React component.
  */
-export const forwardRef = <T, P = Record<string, unknown>>(
-  render: ForwardRefRenderFunction<T, P & { ref: Ref<T> }>,
-) => {
+export const forwardRef = <T, P = Record<string, unknown>>(render: ForwardRefRenderFunction<T, P & {ref: Ref<T>}>) => {
   if (reactMajor >= 19) {
     const Component = (props: any) => render(props, props.ref ?? null)
     return Component as React.ForwardRefExoticComponent<P>

@@ -14,8 +14,12 @@ export class ArrayBuilder<T> extends TypedBuilder<T> {
    * @returns the modified instance of the builder.
    */
   get ofString() {
-    const builder = new ArrayBuilder<string[] | undefined>()
-      .setup({...this.options, ...this.annotation, type: 'array', editor: 'arrayOfString'})
+    const builder = new ArrayBuilder<string[] | undefined>().setup({
+      ...this.options,
+      ...this.annotation,
+      type: 'array',
+      editor: 'arrayOfString',
+    })
     builder.subType = 'string'
     return builder
   }
@@ -25,8 +29,7 @@ export class ArrayBuilder<T> extends TypedBuilder<T> {
    * @returns the modified instance of the builder.
    */
   get ofObject() {
-    const builder = new ArrayBuilder<object[] | undefined>()
-      .setup({...this.options, ...this.annotation, type: 'array'})
+    const builder = new ArrayBuilder<object[] | undefined>().setup({...this.options, ...this.annotation, type: 'array'})
     builder.subType = 'object'
     return builder
   }

@@ -46,7 +46,7 @@ const suitableReactElementTypes = new Set([
   'section',
   'article',
   'nav',
-  'pre'
+  'pre',
 ])
 
 /**
@@ -56,7 +56,7 @@ export interface RsMenuProps extends NavProps {
   /**
    * The items for the menu.
    */
-  items?: MenuItem[],
+  items?: MenuItem[]
   /**
    * The element type for menu items.
    */
@@ -75,26 +75,31 @@ export interface RsMenuProps extends NavProps {
 const RsMenu = ({onSelect, items, itemsAs, ...props}: RsMenuProps) => {
   const componentData = useComponentData()
 
-  const onNavSelect: NavProps['onSelect'] = useCallback((eventKey: any, event: SyntheticEvent) => {
-    componentData.userDefinedProps ??= {}
-    componentData.userDefinedProps.activeKey = eventKey
-    onSelect?.(eventKey, event)
-  }, [componentData, onSelect])
+  const onNavSelect: NavProps['onSelect'] = useCallback(
+    (eventKey: any, event: SyntheticEvent) => {
+      componentData.userDefinedProps ??= {}
+      componentData.userDefinedProps.activeKey = eventKey
+      onSelect?.(eventKey, event)
+    },
+    [componentData, onSelect]
+  )
 
   if (!items?.length) return null
 
-  return <Nav onSelect={onNavSelect} {...props}>
-    {items.map(({title, href}, index) =>
-      <Nav.Item key={index} href={href} as={itemsAs} eventKey={title} active={title === props.activeKey}>
-        {title}
-      </Nav.Item>)
-    }
-  </Nav>
+  return (
+    <Nav onSelect={onNavSelect} {...props}>
+      {items.map(({title, href}, index) => (
+        <Nav.Item key={index} href={href} as={itemsAs} eventKey={title} active={title === props.activeKey}>
+          {title}
+        </Nav.Item>
+      ))}
+    </Nav>
+  )
 }
 
 const columns = [
   {name: 'title', input: InputCell},
-  {name: 'href', title: 'Url', input: InputCell}
+  {name: 'href', title: 'Url', input: InputCell},
 ] as const
 
 const {activeKey, ...props} = navProps
@@ -111,7 +116,5 @@ export const rsMenu = define(RsMenu, 'RsMenu')
       .labeled(...tags)
       .default('a')
       .withEditorProps({creatable: false}),
-    items: array.localize
-      .default(makeItems(['Home', 'News', 'Products']))
-      .withEditorProps({columns}),
+    items: array.localize.default(makeItems(['Home', 'News', 'Products'])).withEditorProps({columns}),
   })

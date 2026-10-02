@@ -6,7 +6,6 @@ import type {Model} from './Model'
  * Contains metadata for the form builder and metadata for the form viewer.
  */
 export interface BuilderComponent {
-
   /**
    * The component metadata for the form builder.
    */

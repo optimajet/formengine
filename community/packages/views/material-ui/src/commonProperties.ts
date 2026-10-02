@@ -24,14 +24,10 @@ export const placement = oneOfStrict<Placement>(
   'right',
   'top-end',
   'top-start',
-  'top',
+  'top'
 )
 
-export const size = oneOfStrict(
-  'small',
-  'medium',
-  'large'
-).default('medium')
+export const size = oneOfStrict('small', 'medium', 'large').default('medium')
 
 export const color = oneOfStrict(
   'primary',
@@ -46,21 +42,7 @@ export const color = oneOfStrict(
 )
 
 export const typography: Partial<Record<keyof TypographyProps, any>> = {
-  variant: oneOfStrict(
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-    'subtitle1',
-    'subtitle2',
-    'body1',
-    'body2',
-    'caption',
-    'button',
-    'overline'
-  ),
+  variant: oneOfStrict('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'caption', 'button', 'overline'),
   color: color,
   textAlign: oneOfStrict('left', 'center', 'right', 'justify'),
   noWrap: boolean,

@@ -11,8 +11,7 @@ import {description, label, onChange, size} from './internal/sharedProps'
  */
 export interface MtDatePickerProps<Type extends DatePickerType = 'default'>
   extends DatePickerProps<Type>,
-    Omit<InputWrapperProps, 'children' | keyof DatePickerProps<Type>> {
-}
+    Omit<InputWrapperProps, 'children' | keyof DatePickerProps<Type>> {}
 
 /**
  * Mantine date picker component for React Form Builder.
@@ -20,25 +19,10 @@ export interface MtDatePickerProps<Type extends DatePickerType = 'default'>
  * @returns date picker component.
  */
 export function MtDatePicker<Type extends DatePickerType = 'default'>(props: MtDatePickerProps<Type>) {
-  const {
-    label,
-    description,
-    error,
-    id,
-    required,
-    withAsterisk,
-    ...others
-  } = props
+  const {label, description, error, id, required, withAsterisk, ...others} = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      id={id}
-      required={required}
-      withAsterisk={withAsterisk}
-    >
+    <Input.Wrapper label={label} description={description} error={error} id={id} required={required} withAsterisk={withAsterisk}>
       <DatePicker {...others} />
     </Input.Wrapper>
   )
@@ -50,7 +34,7 @@ export function MtDatePicker<Type extends DatePickerType = 'default'>(props: MtD
  * @returns date range picker component.
  */
 export function MtDateRangePicker(props: MtDatePickerProps<'range'>) {
-  return <MtDatePicker {...props} type="range"/>
+  return <MtDatePicker {...props} type="range" />
 }
 
 /**
@@ -59,7 +43,7 @@ export function MtDateRangePicker(props: MtDatePickerProps<'range'>) {
  * @returns date multiple picker component.
  */
 export function MtDateMultiplePicker(props: MtDatePickerProps<'multiple'>) {
-  return <MtDatePicker {...props} type="multiple"/>
+  return <MtDatePicker {...props} type="multiple" />
 }
 
 const datePickerBaseProps = {
@@ -104,8 +88,7 @@ export const mtDateRangePicker = define(MtDateRangePicker, 'MtDateRangePicker')
   .props({
     ...datePickerBaseProps,
     value: array.valued,
-    allowSingleDateInRange: boolean
-      .default(false),
+    allowSingleDateInRange: boolean.default(false),
   })
 
 export const mtDateMultiplePicker = define(MtDateMultiplePicker, 'MtDateMultiplePicker')

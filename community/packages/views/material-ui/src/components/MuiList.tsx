@@ -10,22 +10,18 @@ import type {ReadOnlyProps} from './internal/ReadOnlyProps'
 /**
  * The MuiList component properties.
  */
-export interface MuiListProps extends ListProps, DisabledProps, ReadOnlyProps {
-}
+export interface MuiListProps extends ListProps, DisabledProps, ReadOnlyProps {}
 
 const MuiList = forwardRef((props: MuiListProps, ref: ForwardedRef<any>) => {
   const {disabled, readOnly, ...otherProps} = props
-  return <List {...otherProps} ref={ref}/>
+  return <List {...otherProps} ref={ref} />
 })
 
-export const muiList = define(MuiList, 'MuiList')
-  .category(dataDisplayCategory)
-  .kind('container')
-  .props({
-    children: node,
-    dense: boolean,
-    disablePadding: boolean,
-    sx,
-    disabled: disabled,
-    readOnly: readOnly
-  })
+export const muiList = define(MuiList, 'MuiList').category(dataDisplayCategory).kind('container').props({
+  children: node,
+  dense: boolean,
+  disablePadding: boolean,
+  sx,
+  disabled: disabled,
+  readOnly: readOnly,
+})

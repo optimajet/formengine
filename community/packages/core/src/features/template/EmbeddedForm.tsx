@@ -28,9 +28,10 @@ const [
   /**
    * **Internal use only.**
    */
-  EmbeddedFormProvider] = createNonNullableContext<EmbeddedFormContext>('EmbeddedFormContext')
+  EmbeddedFormProvider,
+] = createNonNullableContext<EmbeddedFormContext>('EmbeddedFormContext')
 
-const EmbeddedFormLoadError = ({children}: { children: ReactNode }) => {
+const EmbeddedFormLoadError = ({children}: {children: ReactNode}) => {
   return <span className={styles.embeddedFormLoadError}>{children}</span>
 }
 
@@ -59,17 +60,21 @@ export const EmbeddedForm = (props: EmbeddedFormProps) => {
   }, [viewerProps, props])
 
   const embeddedFormProviderValue = useMemo(() => {
-    return ({embeddedFormProps: props, viewerProps, data})
+    return {embeddedFormProps: props, viewerProps, data}
   }, [props, viewerProps, data])
 
   if (!embeddedFormViewerProps.getForm) {
-    return <EmbeddedFormLoadError>Please define the <code>getForm</code> property!</EmbeddedFormLoadError>
+    return (
+      <EmbeddedFormLoadError>
+        Please define the <code>getForm</code> property!
+      </EmbeddedFormLoadError>
+    )
   }
 
   if (isUndefined(props.formName) && isUndefined(props.options)) {
-    return builderMode === 'builder'
-      ? <span>The name of the form and options are not specified, set at least one value to display the form</span>
-      : null
+    return builderMode === 'builder' ? (
+      <span>The name of the form and options are not specified, set at least one value to display the form</span>
+    ) : null
   }
 
   if (!(data.field instanceof TemplateField)) return null
@@ -79,7 +84,7 @@ export const EmbeddedForm = (props: EmbeddedFormProps) => {
     <EmbeddedFormProvider value={embeddedFormProviderValue}>
       <StoreProvider value={viewerStore}>
         {/* eslint-disable-next-line react-hooks/static-components */}
-        <EmbeddedFormViewer {...embeddedFormViewerProps}/>
+        <EmbeddedFormViewer {...embeddedFormViewerProps} />
       </StoreProvider>
     </EmbeddedFormProvider>
   )

@@ -7,14 +7,13 @@ import type {ComponentStore} from './ComponentStore'
  * The version of the saved form.
  */
 export enum PersistedFormVersion {
-  version1 = '1'
+  version1 = '1',
 }
 
 /**
  * The format for saving a form designed in Form Builder.
  */
 export interface PersistedForm {
-
   /**
    * The version of the saved form.
    */
@@ -23,7 +22,7 @@ export interface PersistedForm {
   /**
    * Represents a set of action definitions.
    */
-  actions?: ActionValues,
+  actions?: ActionValues
 
   /**
    * The form validator.
@@ -33,37 +32,37 @@ export interface PersistedForm {
   /**
    * Properties of the component displaying the error.
    */
-  errorProps?: any,
+  errorProps?: any
 
   /**
    * Name of the type of component that displays the modal.
    */
-  modalType?: string,
+  modalType?: string
 
   /**
    * Name of the type of component that displays the tooltip.
    */
-  tooltipType?: string,
+  tooltipType?: string
 
   /**
    * Name of the type of component displaying the error.
    */
-  errorType?: string,
+  errorType?: string
 
   /**
    * Settings for components that display the form.
    */
-  form: ComponentStore,
+  form: ComponentStore
 
   /**
    * Localization of the form.
    */
-  localization?: LocalizationValue,
+  localization?: LocalizationValue
 
   /**
    * Form languages.
    */
-  languages?: Language[],
+  languages?: Language[]
 
   /**
    * The default form language.

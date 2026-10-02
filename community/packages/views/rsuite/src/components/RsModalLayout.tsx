@@ -12,19 +12,19 @@ export interface RsModalLayoutProps {
   /**
    * Whether to show the close button.
    */
-  closeButton: boolean,
+  closeButton: boolean
   /**
    * The title for the modal header.
    */
-  headerTitle: ReactNode,
+  headerTitle: ReactNode
   /**
    * The content for the modal body.
    */
-  body: ReactNode,
+  body: ReactNode
   /**
    * The content for the modal footer.
    */
-  footer: ReactNode,
+  footer: ReactNode
 }
 
 /**
@@ -34,19 +34,15 @@ export interface RsModalLayoutProps {
  */
 const RsModalLayout = (props: RsModalLayoutProps) => {
   const {closeButton, headerTitle, body, footer, ...rest} = props
-  return <div {...rest}>
-    <Header closeButton={closeButton}>
-      <Title>
-        {headerTitle}
-      </Title>
-    </Header>
-    <Body>
-      {body}
-    </Body>
-    <Footer>
-      {footer}
-    </Footer>
-  </div>
+  return (
+    <div {...rest}>
+      <Header closeButton={closeButton}>
+        <Title>{headerTitle}</Title>
+      </Header>
+      <Body>{body}</Body>
+      <Footer>{footer}</Footer>
+    </div>
+  )
 }
 
 export const rsModalLayout = define(RsModalLayout, 'RsModalLayout')

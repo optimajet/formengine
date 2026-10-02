@@ -12,8 +12,8 @@ import type {MuiControlProps} from './internal/FormControl/types'
 const viewAnnotation = oneOf().withEditorProps({
   creatable: false,
   calculateEditorProps: (props: Record<string, any>) => ({
-    data: toLabeledValues(props.views as string[] ?? [])
-  })
+    data: toLabeledValues((props.views as string[]) ?? []),
+  }),
 })
 
 /**
@@ -44,16 +44,16 @@ function convertFormat(userFormat = 'yyyy-MM-dd'): string {
 /**
  * Props for the MuiDatePicker component.
  */
-export interface MuiDatePickerProps extends Omit<DatePickerProps<any, any>, 'reduceAnimations'>,
-  Pick<MuiControlProps, 'error' | 'helperText' | 'readOnly' | 'required'> {
-}
+export interface MuiDatePickerProps
+  extends Omit<DatePickerProps<any, any>, 'reduceAnimations'>,
+    Pick<MuiControlProps, 'error' | 'helperText' | 'readOnly' | 'required'> {}
 
 type ChangeHandler = NonNullable<MuiDatePickerProps['onChange']>
 
-const renderLoading = () => <CircularProgress/>
+const renderLoading = () => <CircularProgress />
 
 const useDayJsDate = (value: any) => {
-  return useMemo(() => value ? dayjs(value) : value, [value])
+  return useMemo(() => (value ? dayjs(value) : value), [value])
 }
 
 const RawDatePicker = ({onChange, value, defaultValue, ...props}: MuiDatePickerProps) => {
@@ -67,9 +67,12 @@ const RawDatePicker = ({onChange, value, defaultValue, ...props}: MuiDatePickerP
   const convertedMinDate = useDayJsDate(minDate)
   const convertedMaxDate = useDayJsDate(maxDate)
   const convertedFormat = useMemo(() => convertFormat(format), [format])
-  const handleChange = useCallback<ChangeHandler>((newValue, ...args) => {
-    onChange?.(newValue?.toDate(), ...args)
-  }, [onChange])
+  const handleChange = useCallback<ChangeHandler>(
+    (newValue, ...args) => {
+      onChange?.(newValue?.toDate(), ...args)
+    },
+    [onChange]
+  )
 
   return (
     <DatePicker
@@ -94,9 +97,11 @@ const MuiDatePicker = ({open, openTo, view, ...props}: MuiDatePickerProps) => {
     return rawView && props.views?.includes(rawView) ? rawView : undefined
   }, [open, openTo, props.views, view])
 
-  return open
-    ? <RawDatePicker key={`${activeView}-expanded-date-picker`} {...props} open={open} openTo={activeView}/>
-    : <RawDatePicker key={`${activeView}-collapsed-date-picker`} {...props} view={activeView} openTo={undefined}/>
+  return open ? (
+    <RawDatePicker key={`${activeView}-expanded-date-picker`} {...props} open={open} openTo={activeView} />
+  ) : (
+    <RawDatePicker key={`${activeView}-collapsed-date-picker`} {...props} view={activeView} openTo={undefined} />
+  )
 }
 
 export const muiDatePicker = define(MuiDatePicker, 'MuiDatePicker')

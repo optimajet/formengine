@@ -9,6 +9,6 @@ export const muiDialogActions = define(DialogActions, 'MuiDialogActions')
   .props({
     children: node,
     disableSpacing: boolean,
-    sx
+    sx,
   })
   .hideFromComponentPalette()

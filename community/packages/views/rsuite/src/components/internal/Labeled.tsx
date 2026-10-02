@@ -27,7 +27,11 @@ const RawLabeled = ({label, children, passAriaToChildren, className, ...props}: 
 
   return (
     <div {...props} role="group" className={cx(styles.container, className)}>
-      {label && <label id={aria['aria-labelledby']} htmlFor={id} className={styles.label}>{label}</label>}
+      {label && (
+        <label id={aria['aria-labelledby']} htmlFor={id} className={styles.label}>
+          {label}
+        </label>
+      )}
       {passAriaToChildren ? cloneElement(children, {id, ...aria}) : children}
     </div>
   )

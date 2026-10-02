@@ -66,23 +66,33 @@ const RsTimePicker = ({open, label, value, className, format, defaultValue, onCh
   const onClean = useTouchOnEvent(props, 'onClean')
   const parsedValue = useMemo(() => parseTimeValue(value, timeFormat), [value])
   const parsedDefaultValue = useMemo(() => parseTimeValue(defaultValue, timeFormat), [defaultValue])
-  const pickerOpen = useMemo(() => open === true ? true : undefined, [open])
+  const pickerOpen = useMemo(() => (open === true ? true : undefined), [open])
 
-  const handleChange = useCallback((value: Date | null, e: SyntheticEvent) => {
-    if (isNull(value)) {
-      onChange?.(null, e)
-      return
-    }
-    if (isValidDate(value)) {
-      const formatted = formatDate(value, timeFormat)
-      onChange?.(formatted, e)
-    }
-  }, [onChange])
+  const handleChange = useCallback(
+    (value: Date | null, e: SyntheticEvent) => {
+      if (isNull(value)) {
+        onChange?.(null, e)
+        return
+      }
+      if (isValidDate(value)) {
+        const formatted = formatDate(value, timeFormat)
+        onChange?.(formatted, e)
+      }
+    },
+    [onChange]
+  )
 
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
-      <DatePicker {...props} onChange={handleChange} value={parsedValue ?? parsedDefaultValue ?? null}
-                  open={pickerOpen} format={safeFormat ?? timeFormat} onClean={onClean} preventOverflow/>
+      <DatePicker
+        {...props}
+        onChange={handleChange}
+        value={parsedValue ?? parsedDefaultValue ?? null}
+        open={pickerOpen}
+        format={safeFormat ?? timeFormat}
+        onClean={onClean}
+        preventOverflow
+      />
     </Labeled>
   )
 }
@@ -98,7 +108,7 @@ export const rsTimePicker = define(RsTimePicker, 'RsTimePicker')
     format: string
       .validated(formatValidator, {
         code: 'INVALID_TIME_FORMAT',
-        message: 'The provided time format is invalid'
+        message: 'The provided time format is invalid',
       })
       .withEditorProps({placeholder: 'HH:mm'})
       .default('HH:mm'),
@@ -120,5 +130,5 @@ export const rsTimePicker = define(RsTimePicker, 'RsTimePicker')
     onExiting: event,
     onOk: event,
     onOpen: event,
-    onSelect: event
+    onSelect: event,
   })

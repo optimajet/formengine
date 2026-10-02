@@ -10,5 +10,5 @@ export const muiButtonGroup = define(ButtonGroup, 'MuiButtonGroup')
     color: string,
     orientation: oneOfStrict('vertical', 'horizontal'),
     disabled: disabled,
-    variant: oneOfStrict('outlined', 'standard', 'filled')
+    variant: oneOfStrict('outlined', 'standard', 'filled'),
   })

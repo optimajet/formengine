@@ -40,8 +40,10 @@ export class ComponentKeyChangedEventArgs {
    * @param oldKey the old key.
    * @param newKey the new key.
    */
-  constructor(readonly oldKey: string, readonly newKey: string) {
-  }
+  constructor(
+    readonly oldKey: string,
+    readonly newKey: string
+  ) {}
 }
 
 /**
@@ -177,9 +179,12 @@ export class ComponentData implements IFormData {
    * @param childFactory the factory function that creates {@link ComponentData} instance.
    * @param getFormValidationResult the function that returns a form validation results.
    */
-  constructor(componentStore: ComponentStore, model: Model,
-              childFactory: (componentStore: ComponentStore) => ComponentData,
-              getFormValidationResult?: () => Promise<Record<string, string>[]>) {
+  constructor(
+    componentStore: ComponentStore,
+    model: Model,
+    childFactory: (componentStore: ComponentStore) => ComponentData,
+    getFormValidationResult?: () => Promise<Record<string, string>[]>
+  ) {
     this.store = componentStore
     this.model = model
     this.id = uniqueId(`${this.model.type}_`)
@@ -193,9 +198,12 @@ export class ComponentData implements IFormData {
     makeAutoObservable(this, undefined, {name: nameObservable('ComponentData', {key: componentStore.key})})
 
     const createKeyChangedReaction = () => {
-      return reaction(() => this.key, (key, oldKey) => {
-        this.invokeOnAfterKeyChanged(this, new ComponentKeyChangedEventArgs(oldKey, key))
-      })
+      return reaction(
+        () => this.key,
+        (key, oldKey) => {
+          this.invokeOnAfterKeyChanged(this, new ComponentKeyChangedEventArgs(oldKey, key))
+        }
+      )
     }
 
     this.#disposers = [createKeyChangedReaction()]
@@ -361,7 +369,7 @@ export class ComponentData implements IFormData {
     map.forEach((field, componentData) => {
       result.push({
         dataKey: dataKey(componentData.store),
-        field
+        field,
       })
     })
     return result
@@ -411,7 +419,7 @@ export class ComponentData implements IFormData {
     for (const {dataKey, field} of this.allComponentFields) {
       if (field.storeDataInParentForm) {
         const fieldValue: Record<string, any> = field.value || {}
-        Object.keys(fieldValue).forEach(i => result[i] = fieldValue[i])
+        Object.keys(fieldValue).forEach(i => (result[i] = fieldValue[i]))
       } else {
         result[dataKey] = field.value
       }
@@ -445,7 +453,7 @@ export class ComponentData implements IFormData {
       const errors = field.errors
       if (errors) {
         if (!Array.isArray(errors)) {
-          if (field.storeDataInParentForm) Object.keys(errors).forEach(i => result[i] = errors[i])
+          if (field.storeDataInParentForm) Object.keys(errors).forEach(i => (result[i] = errors[i]))
           if (!field.storeDataInParentForm && Object.keys(errors).length > 0) result[dataKey] = errors
         } else {
           result[dataKey] = errors
@@ -476,7 +484,7 @@ export class ComponentData implements IFormData {
    * @inheritDoc
    */
   setAllErrors(message?: string) {
-    this.allFields.forEach(f => f.error = message)
+    this.allFields.forEach(f => (f.error = message))
   }
 
   /**
@@ -731,7 +739,7 @@ const [
   /**
    * Context provider for the useComponentData hook. **Internal use only.**
    */
-  ComponentDataProvider
+  ComponentDataProvider,
 ] = createNonNullableContext<ComponentData>('ComponentDataContext')
 
 export {useComponentData, ComponentDataProvider}

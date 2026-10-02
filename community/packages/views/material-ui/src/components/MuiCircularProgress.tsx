@@ -11,5 +11,5 @@ export const muiCircularProgress = define(CircularProgress, 'MuiCircularProgress
     thickness: number,
     variant: oneOfStrict('determinate', 'indeterminate'),
     color,
-    disableShrink: boolean
+    disableShrink: boolean,
   })

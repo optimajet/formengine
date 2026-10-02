@@ -33,13 +33,8 @@ export function MtRadioGroup(props: MtRadioGroupProps) {
   return (
     <Radio.Group {...others}>
       <Group pt={5} gap={gap} align={align} justify={justify} wrap={wrap} grow={grow}>
-        {items.map((item) => (
-          <Radio
-            key={item.value}
-            value={item.value}
-            label={item.label}
-            labelPosition={labelPosition}
-          />
+        {items.map(item => (
+          <Radio key={item.value} value={item.value} label={item.label} labelPosition={labelPosition} />
         ))}
       </Group>
     </Radio.Group>
@@ -53,8 +48,7 @@ export const mtRadioGroup = define(MtRadioGroup, 'MtRadioGroup')
     description: description,
     error: string,
     value: string.valued,
-    items: array.localize
-      .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
+    items: array.localize.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     size: size,
     labelPosition: labelPosition,
     ...groupLayoutProps,

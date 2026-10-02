@@ -15,7 +15,9 @@ export type RuleValidatorResult = string | boolean
  * @param formData the form data.
  * @template T the value type.
  */
-export type RuleValidator<T = any> = (value: T,
-                                      store: IStore,
-                                      args?: Record<string, unknown>,
-                                      formData?: IFormData) => RuleValidatorResult | Promise<RuleValidatorResult>
+export type RuleValidator<T = any> = (
+  value: T,
+  store: IStore,
+  args?: Record<string, unknown>,
+  formData?: IFormData
+) => RuleValidatorResult | Promise<RuleValidatorResult>

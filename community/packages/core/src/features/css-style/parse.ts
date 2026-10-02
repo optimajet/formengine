@@ -32,7 +32,7 @@ function addParent(obj: any, parent?: any) {
       configurable: true,
       writable: true,
       enumerable: false,
-      value: parent || null
+      value: parent || null,
     })
   }
 
@@ -118,8 +118,8 @@ export function parse(css: string, options?: any) {
       stylesheet: {
         source: options.source,
         rules: rulesList,
-        parsingErrors: errorsList
-      }
+        parsingErrors: errorsList,
+      },
     }
   }
 
@@ -185,7 +185,7 @@ export function parse(css: string, options?: any) {
   function comments(rules?: any) {
     let c: any = undefined
     rules = rules || []
-    while (c = comment()) {
+    while ((c = comment())) {
       if (c !== false) {
         rules.push(c)
       }
@@ -217,7 +217,7 @@ export function parse(css: string, options?: any) {
 
     return pos({
       type: 'comment',
-      comment: str
+      comment: str,
     })
   }
 
@@ -254,7 +254,7 @@ export function parse(css: string, options?: any) {
     prop = trim(prop[0])
 
     // :
-    if (!match(/^:\s*/)) return error('property missing \':\'')
+    if (!match(/^:\s*/)) return error("property missing ':'")
 
     // val
     const val = match(/^((?:'(?:\\'|.)*?'|"(?:\\"|.)*?"|\([^\)]*?\)|[^};])+)/)
@@ -262,7 +262,7 @@ export function parse(css: string, options?: any) {
     const ret = pos({
       type: 'declaration',
       property: prop.replace(commentRe, ''),
-      value: val ? trim(val[0]).replace(commentRe, '') : ''
+      value: val ? trim(val[0]).replace(commentRe, '') : '',
     })
 
     // ;
@@ -278,19 +278,19 @@ export function parse(css: string, options?: any) {
   function declarations() {
     const decls: any[] = []
 
-    if (!open()) return error('missing \'{\'')
+    if (!open()) return error("missing '{'")
     comments(decls)
 
     // declarations
     let decl: any = undefined
-    while (decl = declaration()) {
+    while ((decl = declaration())) {
       if (decl !== false) {
         decls.push(decl)
         comments(decls)
       }
     }
 
-    if (!close()) return error('missing \'}\'')
+    if (!close()) return error("missing '}'")
     return decls
   }
 
@@ -303,7 +303,7 @@ export function parse(css: string, options?: any) {
     const vals = []
     const pos = position()
 
-    while (m = match(/^((\d+\.\d+|\.\d+|\d+)%?|[a-z]+)\s*/)) {
+    while ((m = match(/^((\d+\.\d+|\.\d+|\d+)%?|[a-z]+)\s*/))) {
       vals.push(m[1])
       match(/^,\s*/)
     }
@@ -313,7 +313,7 @@ export function parse(css: string, options?: any) {
     return pos({
       type: 'keyframe',
       values: vals,
-      declarations: declarations()
+      declarations: declarations(),
     })
   }
 
@@ -333,22 +333,22 @@ export function parse(css: string, options?: any) {
     if (!m) return error('@keyframes missing name')
     const name = m[1]
 
-    if (!open()) return error('@keyframes missing \'{\'')
+    if (!open()) return error("@keyframes missing '{'")
 
     let frame: any = undefined
     let frames = comments()
-    while (frame = keyframe()) {
+    while ((frame = keyframe())) {
       frames.push(frame)
       frames = frames.concat(comments())
     }
 
-    if (!close()) return error('@keyframes missing \'}\'')
+    if (!close()) return error("@keyframes missing '}'")
 
     return pos({
       type: 'keyframes',
       name: name,
       vendor: vendor,
-      keyframes: frames
+      keyframes: frames,
     })
   }
 
@@ -363,16 +363,16 @@ export function parse(css: string, options?: any) {
     if (!m) return
     const supports = trim(m[1])
 
-    if (!open()) return error('@supports missing \'{\'')
+    if (!open()) return error("@supports missing '{'")
 
     const style = comments().concat(rules())
 
-    if (!close()) return error('@supports missing \'}\'')
+    if (!close()) return error("@supports missing '}'")
 
     return pos({
       type: 'supports',
       supports: supports,
-      rules: style
+      rules: style,
     })
   }
 
@@ -386,15 +386,15 @@ export function parse(css: string, options?: any) {
 
     if (!m) return
 
-    if (!open()) return error('@host missing \'{\'')
+    if (!open()) return error("@host missing '{'")
 
     const style = comments().concat(rules())
 
-    if (!close()) return error('@host missing \'}\'')
+    if (!close()) return error("@host missing '}'")
 
     return pos({
       type: 'host',
-      rules: style
+      rules: style,
     })
   }
 
@@ -409,19 +409,18 @@ export function parse(css: string, options?: any) {
     if (!m) return
     const media = trim(m[1])
 
-    if (!open()) return error('@media missing \'{\'')
+    if (!open()) return error("@media missing '{'")
 
     const style = comments().concat(rules())
 
-    if (!close()) return error('@media missing \'}\'')
+    if (!close()) return error("@media missing '}'")
 
     return pos({
       type: 'media',
       media: media,
-      rules: style
+      rules: style,
     })
   }
-
 
   /**
    * Parse custom-media.
@@ -435,7 +434,7 @@ export function parse(css: string, options?: any) {
     return pos({
       type: 'custom-media',
       name: trim(m[1]),
-      media: trim(m[2])
+      media: trim(m[2]),
     })
   }
 
@@ -450,22 +449,22 @@ export function parse(css: string, options?: any) {
 
     const sel = selector() || []
 
-    if (!open()) return error('@page missing \'{\'')
+    if (!open()) return error("@page missing '{'")
     let decls = comments()
 
     // declarations
     let decl: any = undefined
-    while (decl = declaration()) {
+    while ((decl = declaration())) {
       decls.push(decl)
       decls = decls.concat(comments())
     }
 
-    if (!close()) return error('@page missing \'}\'')
+    if (!close()) return error("@page missing '}'")
 
     return pos({
       type: 'page',
       selectors: sel,
-      declarations: decls
+      declarations: decls,
     })
   }
 
@@ -481,17 +480,17 @@ export function parse(css: string, options?: any) {
     const vendor = trim(m[1])
     const doc = trim(m[2])
 
-    if (!open()) return error('@document missing \'{\'')
+    if (!open()) return error("@document missing '{'")
 
     const style = comments().concat(rules())
 
-    if (!close()) return error('@document missing \'}\'')
+    if (!close()) return error("@document missing '}'")
 
     return pos({
       type: 'document',
       document: doc,
       vendor: vendor,
-      rules: style
+      rules: style,
     })
   }
 
@@ -504,21 +503,21 @@ export function parse(css: string, options?: any) {
     const m = match(/^@font-face\s*/)
     if (!m) return
 
-    if (!open()) return error('@font-face missing \'{\'')
+    if (!open()) return error("@font-face missing '{'")
     let decls = comments()
 
     // declarations
     let decl: any = undefined
-    while (decl = declaration()) {
+    while ((decl = declaration())) {
       decls.push(decl)
       decls = decls.concat(comments())
     }
 
-    if (!close()) return error('@font-face missing \'}\'')
+    if (!close()) return error("@font-face missing '}'")
 
     return pos({
       type: 'font-face',
-      declarations: decls
+      declarations: decls,
     })
   }
 
@@ -560,17 +559,19 @@ export function parse(css: string, options?: any) {
   function atrule() {
     if (css[0] != '@') return
 
-    return atkeyframes()
-      || atmedia()
-      || atcustommedia()
-      || atsupports()
-      || atimport()
-      || atcharset()
-      || atnamespace()
-      || atdocument()
-      || atpage()
-      || athost()
-      || atfontface()
+    return (
+      atkeyframes() ||
+      atmedia() ||
+      atcustommedia() ||
+      atsupports() ||
+      atimport() ||
+      atcharset() ||
+      atnamespace() ||
+      atdocument() ||
+      atpage() ||
+      athost() ||
+      atfontface()
+    )
   }
 
   /**
@@ -587,7 +588,7 @@ export function parse(css: string, options?: any) {
     return pos({
       type: 'rule',
       selectors: sel,
-      declarations: declarations()
+      declarations: declarations(),
     })
   }
 

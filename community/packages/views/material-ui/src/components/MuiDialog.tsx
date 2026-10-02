@@ -9,21 +9,23 @@ import {feedbackCategory} from './categories'
 /**
  * Props for the MuiDialog component.
  */
-export interface MuiDialogProps extends Omit<DialogProps,
-  'aria-dropeffect'
-  | 'aria-grabbed'
-  | 'components'
-  | 'componentsProps'
-  | 'onKeyPress'
-  | 'onKeyPressCapture'
-  | 'Backdrop'
-  | 'BackdropComponent'
-  | 'BackdropProps'
-  | 'PaperProps'
-  | 'Root'
-  | 'TransitionComponent'
-  | 'TransitionProps'
-> {
+export interface MuiDialogProps
+  extends Omit<
+    DialogProps,
+    | 'aria-dropeffect'
+    | 'aria-grabbed'
+    | 'components'
+    | 'componentsProps'
+    | 'onKeyPress'
+    | 'onKeyPressCapture'
+    | 'Backdrop'
+    | 'BackdropComponent'
+    | 'BackdropProps'
+    | 'PaperProps'
+    | 'Root'
+    | 'TransitionComponent'
+    | 'TransitionProps'
+  > {
   /**
    * Custom close handler function.
    */
@@ -43,23 +45,26 @@ export interface MuiDialogProps extends Omit<DialogProps,
 const MuiDialog = (props: MuiDialogProps) => {
   const {children, handleClose, onClose, open, onOpen, ...rest} = props
 
-  const close = useCallback((e: SyntheticEvent, reason: 'backdropClick' | 'escapeKeyDown') => {
-    handleClose?.()
-    onClose?.(e, reason)
-  }, [handleClose, onClose])
+  const close = useCallback(
+    (e: SyntheticEvent, reason: 'backdropClick' | 'escapeKeyDown') => {
+      handleClose?.()
+      onClose?.(e, reason)
+    },
+    [handleClose, onClose]
+  )
 
   useEffect(() => {
     if (open) onOpen?.()
   }, [onOpen, open])
 
-  return <Dialog {...rest} open={open} onClose={close}>
-    {children}
-  </Dialog>
+  return (
+    <Dialog {...rest} open={open} onClose={close}>
+      {children}
+    </Dialog>
+  )
 }
 
-const dialogSize = oneOf('xs', 'sm', 'md', 'lg', 'xl')
-  .labeled('Extra small', 'Small', 'Medium', 'Large', 'Extra large')
-  .default('md')
+const dialogSize = oneOf('xs', 'sm', 'md', 'lg', 'xl').labeled('Extra small', 'Small', 'Medium', 'Large', 'Extra large').default('md')
 
 export const muiDialog = define(MuiDialog, 'MuiDialog')
   .category(feedbackCategory)
@@ -72,7 +77,7 @@ export const muiDialog = define(MuiDialog, 'MuiDialog')
     disableEscapeKeyDown: boolean,
     onOpen: event,
     onClose: event,
-    sx
+    sx,
   })
   .componentRole('modal')
   .hideFromComponentPalette()

@@ -11,9 +11,11 @@ import {ComponentViewer} from './ComponentViewer'
  * @returns the React element.
  */
 export const ComponentTree = ({data, componentDataViewer}: ComponentTreeProps) => {
-  const children = data.map(cd => <ComponentDataProvider key={cd.id} value={cd}>
-    {createElement(componentDataViewer ?? ComponentViewer)}
-  </ComponentDataProvider>)
+  const children = data.map(cd => (
+    <ComponentDataProvider key={cd.id} value={cd}>
+      {createElement(componentDataViewer ?? ComponentViewer)}
+    </ComponentDataProvider>
+  ))
 
   return <>{children}</>
 }

@@ -24,7 +24,7 @@ export interface MuiFormControlLabelProps extends Omit<FormControlLabelProps, 'c
  */
 const controlMap: Record<string, ComponentType> = {
   Checkbox,
-  Switch
+  Switch,
 }
 
 /**
@@ -36,15 +36,19 @@ const MuiFormControlLabel = (props: MuiFormControlLabelProps) => {
   const {control, value, checked, onChange, ...otherProps} = props
   const controlElement = useMemo(() => {
     const Component = controlMap[control] ?? Checkbox
-    return <Component/>
+    return <Component />
   }, [control])
 
-  const handleChange = useCallback((_: SyntheticEvent, checked: boolean) => {
-    onChange?.(checked)
-  }, [onChange])
+  const handleChange = useCallback(
+    (_: SyntheticEvent, checked: boolean) => {
+      onChange?.(checked)
+    },
+    [onChange]
+  )
 
-  return <FormControlLabel value={value} checked={checked} onChange={handleChange}
-                           control={controlElement} {...otherProps}></FormControlLabel>
+  return (
+    <FormControlLabel value={value} checked={checked} onChange={handleChange} control={controlElement} {...otherProps}></FormControlLabel>
+  )
 }
 
 export const muiFormControlLabelType = 'MuiFormControlLabel'
@@ -53,13 +57,12 @@ export const muiFormControlLabel = define(MuiFormControlLabel, muiFormControlLab
   .icon('Label')
   .category(formCategory)
   .props({
-    control: oneOfStrict(...Object.keys(controlMap))
-      .setup({required: true}),
+    control: oneOfStrict(...Object.keys(controlMap)).setup({required: true}),
     value: string,
     checked: boolean.valued.uncontrolledValue(false),
     disabled: disabled,
     disableTypography: boolean,
     label: string.required.default('Label'),
     labelPlacement: oneOf('bottom', 'end', 'start', 'top').default('end'),
-    onChange: event
+    onChange: event,
   })

@@ -2,7 +2,7 @@ import {BiDi, loadResource, unloadResource} from '@react-form-builder/core'
 
 const resourceIds: Record<BiDi, string> = {
   [BiDi.LTR]: 'rsuite-ltr-css',
-  [BiDi.RTL]: 'rsuite-rtl-css'
+  [BiDi.RTL]: 'rsuite-rtl-css',
 }
 
 /**

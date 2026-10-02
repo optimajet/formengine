@@ -2,8 +2,8 @@ import {useMemo} from 'react'
 
 const readOnlySlotProps = {
   input: {
-    readOnly: true
-  }
+    readOnly: true,
+  },
 }
 
 /**
@@ -12,5 +12,5 @@ const readOnlySlotProps = {
  * @returns the component props with slotProps.
  */
 export const useReadOnlySlotProp = (readOnly?: boolean) => {
-  return useMemo(() => readOnly ? readOnlySlotProps : undefined, [readOnly])
+  return useMemo(() => (readOnly ? readOnlySlotProps : undefined), [readOnly])
 }

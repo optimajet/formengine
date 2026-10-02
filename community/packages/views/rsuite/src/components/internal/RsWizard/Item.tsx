@@ -12,5 +12,5 @@ type StepItemProps = ComponentProps<typeof Steps.Item>
  * @returns the React element.
  */
 export const SItem = ({className, ...props}: StepItemProps) => {
-  return <Steps.Item {...props} className={cx(styles.item, className)}/>
+  return <Steps.Item {...props} className={cx(styles.item, className)} />
 }

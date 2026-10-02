@@ -6,8 +6,7 @@ import {isUniqueKey} from './utils/isUniqueKey'
  */
 export const key = createAnnotation('key')
   .typed('string')
-  .required
-  .hinted('Unique component key')
+  .required.hinted('Unique component key')
   .calculable(false)
   .validated(isUniqueKey, {code: 'unique_key', message: 'The key must be unique!'})
   .build('key')

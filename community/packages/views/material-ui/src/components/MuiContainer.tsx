@@ -10,8 +10,7 @@ import type {ReadOnlyProps} from './internal/ReadOnlyProps'
 /**
  * The MuiContainer component properties.
  */
-export interface MuiContainerProps extends ContainerProps, DisabledProps, ReadOnlyProps {
-}
+export interface MuiContainerProps extends ContainerProps, DisabledProps, ReadOnlyProps {}
 
 /**
  * Container component with flex layout.
@@ -20,7 +19,7 @@ export interface MuiContainerProps extends ContainerProps, DisabledProps, ReadOn
  */
 const MuiContainer = forwardRef((props: MuiContainerProps, ref: ForwardedRef<any>) => {
   const {disabled, readOnly, ...otherProps} = props
-  return <Container {...otherProps} ref={ref}/>
+  return <Container {...otherProps} ref={ref} />
 })
 
 export const muiContainer = define(MuiContainer, 'MuiContainer')
@@ -34,8 +33,8 @@ export const muiContainer = define(MuiContainer, 'MuiContainer')
     disableGutters: boolean,
     fixed: boolean,
     maxWidth: oneOf('xs', 'sm', 'md', 'lg', 'xl'),
-    sx
+    sx,
   })
   .css({
-    gap: size.default('10px')
+    gap: size.default('10px'),
   })

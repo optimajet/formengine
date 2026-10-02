@@ -13,14 +13,14 @@ import type {ValidationRuleSet} from '../types/ValidationRuleSet'
 import {ruleBuilder} from './ruleBuilder'
 
 export const ZodValidationRules: Record<SchemaType, ValidationRuleSet> = {
-  'string': ZodStringRules,
-  'number': ZodNumberRules,
-  'boolean': ZodBooleanRules,
-  'date': ZodDateRules,
-  'time': ZodTimeRules,
-  'object': ZodObjectRules,
-  'array': ZodArrayRules,
-  'enum': {}
+  string: ZodStringRules,
+  number: ZodNumberRules,
+  boolean: ZodBooleanRules,
+  date: ZodDateRules,
+  time: ZodTimeRules,
+  object: ZodObjectRules,
+  array: ZodArrayRules,
+  enum: {},
 }
 
 const emptyCodeValidator = () => Promise.resolve(true)

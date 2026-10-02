@@ -16,16 +16,13 @@ export const mtNumberInput = define(NumberInput, 'MtNumberInput')
     allowNegative: boolean.default(true),
     clampBehavior: oneOf('none', 'blur', 'strict').default('blur'),
     decimalScale: number,
-    decimalSeparator: oneOfStrict('.', ',', ' ')
-      .labeled('.', ',', '[space]')
-      .default('.'),
+    decimalSeparator: oneOfStrict('.', ',', ' ').labeled('.', ',', '[space]').default('.'),
     fixedDecimalScale: boolean.default(false),
     hideControls: boolean.default(false),
     prefix: string,
     suffix: string,
     startValue: number,
-    thousandSeparator: oneOfStrict(',', '.', ' ', '\'')
-      .labeled(',', '.', '[space]', '\''),
+    thousandSeparator: oneOfStrict(',', '.', ' ', "'").labeled(',', '.', '[space]', "'"),
     thousandsGroupStyle: oneOf('none', 'thousand', 'lakh', 'wan'),
     trimLeadingZeroesOnBlur: boolean.default(true),
     min: number,

@@ -15,10 +15,7 @@ export type AriaAttributesOptions = {
 /**
  * The record with 'aria' attributes.
  */
-export type AriaAttributesIds = Record<
-  keyof Pick<AriaAttributes, 'aria-labelledby' | 'aria-errormessage'>,
-  string
->
+export type AriaAttributesIds = Record<keyof Pick<AriaAttributes, 'aria-labelledby' | 'aria-errormessage'>, string>
 
 /**
  * @param options options for configuring the generation of ARIA attributes.
@@ -41,9 +38,12 @@ export const useAriaAttributesIds = (options: AriaAttributesOptions): AriaAttrib
  */
 export const useAriaErrorMessage = () => {
   const {id} = useComponentData()
-  return useMemo(() => ({
-    'aria-errormessage': `${id}-error`
-  }), [id])
+  return useMemo(
+    () => ({
+      'aria-errormessage': `${id}-error`,
+    }),
+    [id]
+  )
 }
 
 /**
@@ -65,7 +65,7 @@ export const useAriaAttributes = (options: AriaAttributesOptions) => {
   return useMemo(() => {
     return {
       ...attributesIds,
-      ...invalid
+      ...invalid,
     }
   }, [attributesIds, invalid])
 }

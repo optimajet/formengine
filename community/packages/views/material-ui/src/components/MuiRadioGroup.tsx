@@ -8,7 +8,7 @@ const muiRadioGroupType = 'MuiRadioGroup'
 
 const getInitialJson = () => {
   const componentStore = new ComponentStore(muiRadioGroupType, muiRadioGroupType)
-  componentStore.children = [1, 2, 3].map((itemNumber) => {
+  componentStore.children = [1, 2, 3].map(itemNumber => {
     const item = new ComponentStore('MuiRadioItem', 'MuiRadioItem')
     item.props = {
       label: {
@@ -16,7 +16,7 @@ const getInitialJson = () => {
       },
       value: {
         value: itemNumber,
-      }
+      },
     }
     return item
   })
@@ -24,7 +24,7 @@ const getInitialJson = () => {
 }
 
 const options = {
-  labelComponent: FormLabel
+  labelComponent: FormLabel,
 }
 
 const MuiRadioGroup = withFormControl(RadioGroup, options)
@@ -38,6 +38,6 @@ export const muiRadioGroup = define(MuiRadioGroup, muiRadioGroupType)
     value: string.valued.uncontrolledValue(''),
     children: node,
     onChange: event,
-    ...formControlProperties
+    ...formControlProperties,
   })
   .initialJson(getInitialJson())

@@ -23,5 +23,5 @@ export const eventListeners: ComponentMetadataEventListeners = {
       const stepIndex = self.children.indexOf(parentWithParams)
       if (stepIndex >= 0) self.field?.setValue(stepIndex)
     }
-  }
+  },
 }

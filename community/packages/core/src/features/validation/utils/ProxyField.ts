@@ -16,7 +16,6 @@ import type {FieldType} from './FieldType'
  * Field with form data, contains only one value. **Internal use only.**
  */
 export class ProxyField implements Field {
-
   /**
    * @inheritDoc
    */
@@ -53,7 +52,7 @@ export class ProxyField implements Field {
     readonly createDataValidator: (valueType: SchemaType, onError: Setter<string | undefined>) => DataValidator,
     readonly componentStore: ComponentStore,
     readonly model: Model,
-    public deferFieldCalculation: boolean,
+    public deferFieldCalculation: boolean
   ) {
     if (!model.valued) throw new Error(`'model.valued' is falsy`)
     if (!model.valueType) throw new Error(`'model.typeOfValue' is undefined`)
@@ -62,20 +61,22 @@ export class ProxyField implements Field {
 
     const className = 'ProxyField'
 
-    makeAutoObservable(this, {
-      model: false,
-      dataValidator: observable.ref,
-    }, {name: nameObservable(className, {key: componentStore.key}), autoBind: true})
+    makeAutoObservable(
+      this,
+      {
+        model: false,
+        dataValidator: observable.ref,
+      },
+      {name: nameObservable(className, {key: componentStore.key}), autoBind: true}
+    )
 
     this.#disposers = [
       autorun(
         () => {
-          this.dataValidator = this.createDataValidator(
-            this.valueType,
-            error => this.error = error
-          )
-        }
-        , {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}),
+          this.dataValidator = this.createDataValidator(this.valueType, error => (this.error = error))
+        },
+        {name: nameAutorun(className, 'setValidator', {key: componentStore.key})}
+      ),
     ]
   }
 

@@ -35,7 +35,7 @@ type PanelHeaderProps = Pick<RsCardProps, 'title' | 'headerSize' | 'header'>
  */
 const PanelHeader = ({title, headerSize, header}: PanelHeaderProps) => (
   <div>
-    {!!title && <RsHeader headerSize={headerSize} content={title}/>}
+    {!!title && <RsHeader headerSize={headerSize} content={title} />}
     {header}
   </div>
 )
@@ -51,10 +51,10 @@ const PanelHeader = ({title, headerSize, header}: PanelHeaderProps) => (
  */
 const RsCard = ({header, title, headerSize, ...props}: RsCardProps) => {
   const panelHeader = useMemo(() => {
-    return <PanelHeader title={title} headerSize={headerSize} header={header}/>
+    return <PanelHeader title={title} headerSize={headerSize} header={header} />
   }, [header, headerSize, title])
 
-  return <Panel header={panelHeader} {...props}/>
+  return <Panel header={panelHeader} {...props} />
 }
 
 export const rsCard = define(RsCard, 'RsCard')
@@ -71,5 +71,5 @@ export const rsCard = define(RsCard, 'RsCard')
     defaultExpanded: boolean.default(false),
     collapsible: boolean.default(false),
     eventKey: string,
-    onSelect: event
+    onSelect: event,
   })

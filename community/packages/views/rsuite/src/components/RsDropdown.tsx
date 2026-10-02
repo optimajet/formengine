@@ -46,35 +46,34 @@ export interface RsDropdownProps extends InputPickerProps, LoadDataProps {
  * @returns the React element.
  */
 const RsDropdown = ({
-                      data,
-                      label,
-                      onLoadData,
-                      onSearch,
-                      onOpen,
-                      value = '',
-                      className,
-                      preload,
-                      disableVirtualized,
-                      ...props
-                    }: RsDropdownProps) => {
+  data,
+  label,
+  onLoadData,
+  onSearch,
+  onOpen,
+  value = '',
+  className,
+  preload,
+  disableVirtualized,
+  ...props
+}: RsDropdownProps) => {
   const {loading, ...loadProps} = useLoadData({data, onLoadData, onSearch, onOpen, value, preload, disableVirtualized})
   const onClean = useTouchOnEvent(props, 'onClean')
   const inputRef = useFixAriaAttributesForInputPicker()
 
-  const renderMenu = useCallback((menu: ReactNode) => <>
-    {menu}
-    {loading && <SLoader/>}
-  </>, [loading])
+  const renderMenu = useCallback(
+    (menu: ReactNode) => (
+      <>
+        {menu}
+        {loading && <SLoader />}
+      </>
+    ),
+    [loading]
+  )
 
   return (
     <Labeled label={label} className={className} passAriaToChildren={true}>
-      <InputPicker
-        {...props}
-        {...loadProps}
-        onClean={onClean}
-        renderMenu={renderMenu}
-        ref={inputRef}
-      />
+      <InputPicker {...props} {...loadProps} onClean={onClean} renderMenu={renderMenu} ref={inputRef} />
     </Labeled>
   )
 }
@@ -86,5 +85,5 @@ export const rsDropdown = define(RsDropdown, 'RsDropdown')
     ...pickerProps,
     preload: boolean.default(false),
     label: string.default('Select'),
-    data: array.localize.default(toLabeledValues(['a', 'b', 'c']))
+    data: array.localize.default(toLabeledValues(['a', 'b', 'c'])),
   })

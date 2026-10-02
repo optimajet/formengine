@@ -1,9 +1,4 @@
-import {
-  ltrCssLoader,
-  RsViewWrapper,
-  rSuiteComponents,
-  rtlCssLoader
-} from '@react-form-builder/components-rsuite'
+import {ltrCssLoader, RsViewWrapper, rSuiteComponents, rtlCssLoader} from '@react-form-builder/components-rsuite'
 import {BiDi} from '@react-form-builder/core'
 import {BuilderView, FormBuilder} from '@react-form-builder/designer'
 import {IndexedDbFormStorage} from '@react-form-builder/indexed-db-form-storage'
@@ -29,18 +24,21 @@ export const FormBuilderExample = () => {
   const [ready, setReady] = useState<boolean>(false)
 
   useEffect(() => {
-    formStorage.init({
-      SampleForm: JSON.stringify(SampleForm)
-    }).then(() => {
-      setReady(true)
-    }).catch(console.error)
+    formStorage
+      .init({
+        SampleForm: JSON.stringify(SampleForm),
+      })
+      .then(() => {
+        setReady(true)
+      })
+      .catch(console.error)
   }, [])
 
   if (!ready) return null
 
   return (
     <div style={divStyle}>
-      <FormBuilder view={builderView} formStorage={formStorage} formName="SampleForm"/>
+      <FormBuilder view={builderView} formStorage={formStorage} formName="SampleForm" />
     </div>
   )
 }

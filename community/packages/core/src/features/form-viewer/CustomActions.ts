@@ -17,9 +17,7 @@ export function customActionsToActionsValues(actions?: CustomActions): ActionVal
 
   const result: ActionValues = {}
   Object.entries(actions).forEach(([name, value]) => {
-    result[name] = value instanceof ActionDefinition
-      ? value
-      : ActionDefinition.functionalAction(value)
+    result[name] = value instanceof ActionDefinition ? value : ActionDefinition.functionalAction(value)
   })
   return result
 }

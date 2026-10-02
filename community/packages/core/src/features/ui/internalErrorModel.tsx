@@ -20,17 +20,30 @@ const InternalError = ({error}: InternalErrorProps) => {
 }
 const typeName = 'InternalError'
 
-const internalErrorFeatures = addOrUpdateFeatures({},
-  {name: cfHideFromComponentPalette, value: true},
-)
+const internalErrorFeatures = addOrUpdateFeatures({}, {name: cfHideFromComponentPalette, value: true})
 
 /**
  * Form viewer internal error metadata. **Internal use only.**
  * @internal
  */
-export const internalErrorModel = new Model(InternalError, typeName, undefined, undefined, undefined,
-  undefined, undefined, undefined, typeName, undefined, undefined, undefined,
-  undefined, undefined, undefined, internalErrorFeatures)
+export const internalErrorModel = new Model(
+  InternalError,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  typeName,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  internalErrorFeatures
+)
 
 /**
  * Creates the component setting for the internal form viewer error.

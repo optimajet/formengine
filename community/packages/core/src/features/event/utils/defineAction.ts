@@ -1,5 +1,5 @@
 import type {ActionDefinition} from '../ActionDefinition'
-import type {ParameterType} from '../types'
+import type {ActionResult, ParameterType} from '../types'
 import type {ActionEventArgs} from './ActionEventArgs'
 
 /**
@@ -11,7 +11,12 @@ import type {ActionEventArgs} from './ActionEventArgs'
  * @template T the type of action parameter.
  * @returns the definition of an action.
  */
-export type DefineActionHelper = <T>(name: string, func: ActionHandler<T>, params?: ParameterDefinition<T>[], description?: string) => ActionDefinition
+export type DefineActionHelper = <T>(
+  name: string,
+  func: ActionHandler<T>,
+  params?: ParameterDefinition<T>[],
+  description?: string
+) => ActionDefinition
 
 /**
  * The type to describe the action parameter.
@@ -31,4 +36,4 @@ export type PropertyKey<T> = keyof T & string
  * @param params the action parameters arguments.
  * @template T the type of action parameters.
  */
-export type ActionHandler<T> = (e: ActionEventArgs, params: { [k in keyof T]: any }) => void | Promise<void>
+export type ActionHandler<T> = (e: ActionEventArgs, params: {[k in keyof T]: any}) => ActionResult | Promise<ActionResult>

@@ -9,12 +9,10 @@ import {RsThemeWrapper} from './RsThemeWrapper'
  * @param props the FormViewerWrapper props.
  * @returns the wrapped components with theme and localization settings applied.
  */
-export const RsViewWrapper: FormViewerWrapper = (props) => {
+export const RsViewWrapper: FormViewerWrapper = props => {
   return (
     <RsThemeWrapper {...props}>
-      <RsLocalizationWrapper {...props}>
-        {props.children}
-      </RsLocalizationWrapper>
+      <RsLocalizationWrapper {...props}>{props.children}</RsLocalizationWrapper>
     </RsThemeWrapper>
   )
 }

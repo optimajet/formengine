@@ -18,8 +18,8 @@ const getStyleProps = (inputType?: HTMLInputTypeAttribute) => {
   if (inputType === 'range') {
     return {
       style: {
-        paddingInline: '15px'
-      }
+        paddingInline: '15px',
+      },
     }
   }
 }
@@ -27,35 +27,39 @@ const getStyleProps = (inputType?: HTMLInputTypeAttribute) => {
 /**
  * Props for the MuiTextField component.
  */
-export type MuiTextFieldProps = TextFieldProps & MuiControlProps & {
-  /**
-   * If true, the form control will be read-only.
-   */
-  readOnly?: boolean
-  /**
-   * Callback function when the text field value changes.
-   */
-  onChange?: (value: string) => void
-}
+export type MuiTextFieldProps = TextFieldProps &
+  MuiControlProps & {
+    /**
+     * If true, the form control will be read-only.
+     */
+    readOnly?: boolean
+    /**
+     * Callback function when the text field value changes.
+     */
+    onChange?: (value: string) => void
+  }
 
 const useInputSlotProps = (props: MuiTextFieldProps) => {
   const {type, readOnly} = props
   const readOnlyProp = useReadOnlySlotProp(readOnly)
 
-  return useMemo(() => ({
-    input: {
-      ...readOnlyProp?.input,
-      ...getStyleProps(type)
-    },
-    inputLabel: getLabelProps(type)
-  }), [type, readOnlyProp?.input])
+  return useMemo(
+    () => ({
+      input: {
+        ...readOnlyProp?.input,
+        ...getStyleProps(type),
+      },
+      inputLabel: getLabelProps(type),
+    }),
+    [type, readOnlyProp?.input]
+  )
 }
 
 const MuiTextField = (props: MuiTextFieldProps) => {
   const [formControlProps, componentProps] = useFormControlProps(props)
   const slotProps = useInputSlotProps(props)
 
-  return <TextField {...formControlProps} {...componentProps} slotProps={slotProps}/>
+  return <TextField {...formControlProps} {...componentProps} slotProps={slotProps} />
 }
 
 export const muiTextField = define(MuiTextField, 'MuiTextField')
@@ -63,14 +67,12 @@ export const muiTextField = define(MuiTextField, 'MuiTextField')
   .category(inputsCategory)
   .props({
     value: string.valued.uncontrolledValue(''),
-    type: oneOfStrict(
-      'text', 'number', 'password', 'date', 'time', 'datetime-local', 'month', 'week', 'range', 'color'
-    ).default('text'),
+    type: oneOfStrict('text', 'number', 'password', 'date', 'time', 'datetime-local', 'month', 'week', 'range', 'color').default('text'),
     multiline: boolean,
     maxRows: number,
     variant: oneOfStrict('standard', 'outlined', 'filled'),
     ...formControlProperties,
     readOnly: readOnly,
     size: oneOfStrict('small', 'medium'),
-    margin: oneOfStrict('dense', 'normal', 'none')
+    margin: oneOfStrict('dense', 'normal', 'none'),
   })

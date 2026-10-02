@@ -6,7 +6,7 @@ import {staticCategory} from './categories'
 import styles from './RsMessage.module.css'
 
 const RsMessage = ({className, ...props}: MessageProps) => {
-  return <Message {...props} className={cx(styles.message, className)}/>
+  return <Message {...props} className={cx(styles.message, className)} />
 }
 
 export const rsMessage = define(RsMessage, 'RsMessage')
@@ -16,6 +16,5 @@ export const rsMessage = define(RsMessage, 'RsMessage')
     children: node,
     closable: boolean.default(false),
     header: node,
-    type: oneOf('info', 'success', 'warning', 'error').default('info')
-      .withEditorProps({creatable: false})
+    type: oneOf('info', 'success', 'warning', 'error').default('info').withEditorProps({creatable: false}),
   })

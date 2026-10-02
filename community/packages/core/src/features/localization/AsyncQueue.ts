@@ -2,7 +2,6 @@
  * A simple asynchronous queue that executes asynchronous tasks in a specified order.
  */
 export class AsyncQueue {
-
   queue = Promise.resolve()
 
   /**
@@ -17,7 +16,7 @@ export class AsyncQueue {
           const result = await task()
           resolve(result)
         } catch (error) {
-          reject(error as Error)
+          reject(error instanceof Error ? error : new Error(String(error)))
         }
       })
     })

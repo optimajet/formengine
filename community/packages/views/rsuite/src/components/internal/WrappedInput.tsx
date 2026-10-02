@@ -12,5 +12,5 @@ import {Input} from 'rsuite'
 export const WrappedInput = ({onChange, ...props}: InputProps) => {
   const handleChange = useCallback((value: any, event: any) => onChange?.(event, value), [onChange])
 
-  return <Input onChange={handleChange} {...props}/>
+  return <Input onChange={handleChange} {...props} />
 }

@@ -9,8 +9,7 @@ import styles from './RsImage.module.css'
 /**
  * Props for the RsImage component.
  */
-export interface RsImageProps extends ComponentProps<'img'>, AreaProps {
-}
+export interface RsImageProps extends ComponentProps<'img'>, AreaProps {}
 
 const inlineLogo = `data:image/svg+xml,${encodeURIComponent(rawLogo)}`
 
@@ -25,7 +24,7 @@ const inlineLogo = `data:image/svg+xml,${encodeURIComponent(rawLogo)}`
 const RsImage = ({alt, src, className, ...props}: RsImageProps) => {
   const source = useBuilderValue(src, inlineLogo)
 
-  return <img {...props} className={cx(styles.image, className)} alt={alt} src={source}/>
+  return <img {...props} className={cx(styles.image, className)} alt={alt} src={source} />
 }
 
 export const rsImage = define(RsImage, 'RsImage')
@@ -37,6 +36,5 @@ export const rsImage = define(RsImage, 'RsImage')
   })
   .css({
     objectPosition: oneOf('top', 'bottom', 'left', 'right', 'center').default('left'),
-    objectFit: oneOf('contain', 'cover', 'fill', 'none', 'scale-down').default('scale-down')
-      .withEditorProps({creatable: false}),
+    objectFit: oneOf('contain', 'cover', 'fill', 'none', 'scale-down').default('scale-down').withEditorProps({creatable: false}),
   })

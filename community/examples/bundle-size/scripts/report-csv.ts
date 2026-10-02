@@ -2,9 +2,9 @@
 
 import {writeFileSync} from 'node:fs'
 import {join} from 'node:path'
+import {calculateDuplicateSizes, escapeCsvValue, processChunks} from './report-common.ts'
 import type {BundleInfo} from './tool.ts'
 import {formatSize} from './utils.ts'
-import {calculateDuplicateSizes, escapeCsvValue, processChunks} from './report-common.ts'
 
 /**
  * Exports bundle size results to CSV format.

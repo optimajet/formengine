@@ -23,19 +23,22 @@ export interface RsModalProps extends ModalProps {
 const RsModal = (props: RsModalProps) => {
   const {children, handleClose, onClose, ...rest} = props
 
-  const close = useCallback((e: SyntheticEvent) => {
-    handleClose?.()
-    onClose?.(e)
-  }, [handleClose, onClose])
+  const close = useCallback(
+    (e: SyntheticEvent) => {
+      handleClose?.()
+      onClose?.(e)
+    },
+    [handleClose, onClose]
+  )
 
-  return <Modal {...rest} onClose={close}>
-    {children}
-  </Modal>
+  return (
+    <Modal {...rest} onClose={close}>
+      {children}
+    </Modal>
+  )
 }
 
-const modalSize = oneOf('xs', 'sm', 'md', 'lg', 'full')
-  .labeled('Extra small', 'Small', 'Medium', 'Large', 'Full')
-  .default('md')
+const modalSize = oneOf('xs', 'sm', 'md', 'lg', 'full').labeled('Extra small', 'Small', 'Medium', 'Large', 'Full').default('md')
 
 export const rsModal = define(RsModal, 'RsModal')
   .name('Modal')

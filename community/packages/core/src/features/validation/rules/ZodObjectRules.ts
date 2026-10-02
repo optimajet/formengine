@@ -12,9 +12,17 @@ const scheme = z.union([z.looseObject({}), z.string()])
  * Object "nonEmpty" only checks truthiness, so {}, strings, and other truthy values pass.
  */
 export const ZodObjectRules: ValidationRuleSet = {
-  required: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(z.unknown(), z.refine(val => isObject(val) && !isEmpty(val), {error: requiredMessage}))),
+  required: ruleBuilder().withValidatorFactory(() =>
+    toRuleValidator(
+      z.unknown(),
+      z.refine(val => isObject(val) && !isEmpty(val), {error: requiredMessage})
+    )
+  ),
 
-  nonEmpty: ruleBuilder()
-    .withValidatorFactory(({message}) => toRuleValidator(scheme, z.refine(arg => arg, zodErrorParams(message)))),
+  nonEmpty: ruleBuilder().withValidatorFactory(({message}) =>
+    toRuleValidator(
+      scheme,
+      z.refine(arg => arg, zodErrorParams(message))
+    )
+  ),
 }

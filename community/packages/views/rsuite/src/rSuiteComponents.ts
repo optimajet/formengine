@@ -53,7 +53,7 @@ const categories = {
     rsTagPicker,
     rsTextArea,
     rsToggle,
-    rsUploader
+    rsUploader,
   ],
   [staticCategory]: [
     rsButton,
@@ -73,18 +73,8 @@ const categories = {
     rsTooltip,
     rsLink,
   ],
-  [modalCategory]: [
-    rsModal,
-    rsModalLayout,
-  ],
-  [structureCategory]: [
-    rsBreadcrumb,
-    rsCard,
-    rsContainer,
-    rsTab,
-    rsWizard,
-    rsWizardStep
-  ],
+  [modalCategory]: [rsModal, rsModalLayout],
+  [structureCategory]: [rsBreadcrumb, rsCard, rsContainer, rsTab, rsWizard, rsWizardStep],
 }
 
 /**

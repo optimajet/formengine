@@ -9,5 +9,5 @@ export default function Viewer_index() {
     setMounted(true)
   }, [])
 
-  return mounted ? <ViewerClient/> : null
+  return mounted ? <ViewerClient /> : null
 }

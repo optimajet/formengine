@@ -18,8 +18,12 @@ type LocalizeComponent = (type: LocalizationType, componentStore: ComponentStore
  * @returns the array, where the first element of the array is the sign whether the property was calculated or not,
  * the second element of the array is the calculated value of the property.
  */
-export function calculateProperty(component: ComponentStore, key: string,
-                                  formData: IFormData, localizerComponent: LocalizeComponent): [boolean, any?] {
+export function calculateProperty(
+  component: ComponentStore,
+  key: string,
+  formData: IFormData,
+  localizerComponent: LocalizeComponent
+): [boolean, any?] {
   const property = component.props[key]
   if (isFunctionalProperty(property)) {
     const {result} = calculatePropertyValue(property, formData)

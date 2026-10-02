@@ -12,7 +12,6 @@ export const mtTextInput = define(TextInput, 'MtTextInput')
     ...inputSectionProps,
     ...inputFocusProps,
     placeholder: string,
-    type: oneOf('text', 'password', 'email', 'number', 'search', 'tel', 'url', 'time')
-      .default('text'),
+    type: oneOf('text', 'password', 'email', 'number', 'search', 'tel', 'url', 'time').default('text'),
   })
   .overrideEventHandlers(valueEventHandlers)

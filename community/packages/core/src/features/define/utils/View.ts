@@ -23,7 +23,7 @@ export type CssLoaderType = BiDi | 'common'
  */
 export class View implements IView {
   #modelMap = new Map<string, Model>()
-  #cssLoaders = new Map<BiDi, Array<CssLoaderFunction>>
+  #cssLoaders = new Map<BiDi, Array<CssLoaderFunction>>()
   #wrappers = new Array<FormViewerWrapper>()
 
   /**
@@ -87,8 +87,7 @@ export class View implements IView {
    * @inheritDoc
    */
   filterModels(predicate: (model: Model) => boolean) {
-    return [...this.#modelMap.values()]
-      .filter(predicate)
+    return [...this.#modelMap.values()].filter(predicate)
   }
 
   /**

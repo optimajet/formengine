@@ -1,5 +1,5 @@
-import type {BuildToolPlugin} from './types.ts'
 import type {BundleStats} from '../analyze-bundle-sizes.ts'
+import type {BuildToolPlugin} from './types.ts'
 
 /**
  * Vite build tool plugin.

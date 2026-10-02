@@ -33,6 +33,6 @@ export const rsLabel = define(RsLabel, 'RsLabel')
     text: string.default(defaultText).dataBound,
   })
   .css({
-    ...textStyles
+    ...textStyles,
   })
   .componentRole('label')

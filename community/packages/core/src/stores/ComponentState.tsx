@@ -28,8 +28,8 @@ const getCustomEventHandlers = (model: Model) => {
   if (customHandlers) return customHandlers as Record<EventName, ActionEventHandler>
 }
 
-const getHtmlAttributes = (componentStore: ComponentStore) => componentStore.htmlAttributes
-  ?.reduce((result: Record<string, string>, {name, value}) => {
+const getHtmlAttributes = (componentStore: ComponentStore) =>
+  componentStore.htmlAttributes?.reduce((result: Record<string, string>, {name, value}) => {
     try {
       result[name] = JSON.parse(value)
     } catch {
@@ -65,7 +65,7 @@ const bindFunctionsInArgs = (e: ActionEventArgs, args: Record<string, any>) => {
 function createActionHandlersChain(store: Store, actionDataList: ActionData[]) {
   const actions = actionDataList.map(data => ({
     func: store.findAction(data).func,
-    args: {...data.args}
+    args: {...data.args},
   }))
 
   return async (e: ActionEventArgs) => {
@@ -73,8 +73,9 @@ function createActionHandlersChain(store: Store, actionDataList: ActionData[]) {
       for (const {func, args} of actions) {
         const withBoundFnArgs = bindFunctionsInArgs(e, args)
         const result = func(e, withBoundFnArgs)
+        const resolved = isPromise(result) ? await result : result
 
-        if (isPromise(result)) await result
+        if (resolved === false) return
       }
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -100,21 +101,24 @@ const computeEvents = (componentState: ComponentState) => {
 
   const eventHandlers = getCustomEventHandlers(data.model) ?? componentState.context.eventHandlers ?? {}
 
-  const eventKeyArray = [
-    ...Object.keys(data.store.events ?? {}),
-    ...Object.keys(eventHandlers)
-  ]
+  const eventKeyArray = [...Object.keys(data.store.events ?? {}), ...Object.keys(eventHandlers)]
 
   const set = new Set(eventKeyArray)
   set.delete(DidMountEvent)
   set.delete(WillUnmountEvent)
 
-  set.forEach((name) => {
+  set.forEach(name => {
     events[name] = async (...args: unknown[]) => {
       const handler = eventHandlers[name]
       if (handler) {
-        const actionEventArgs = new ActionEventArgs(name, data, componentState.store, args, componentState.get,
-          componentState.context.cellInfo)
+        const actionEventArgs = new ActionEventArgs(
+          name,
+          data,
+          componentState.store,
+          args,
+          componentState.get,
+          componentState.context.cellInfo
+        )
         const handlerResult = handler(actionEventArgs)
         if (isPromise(handlerResult)) await handlerResult
       }
@@ -143,7 +147,7 @@ export class ComponentState implements IComponentState {
     },
     wrapperCss: {
       className: generateClass('wc-'),
-    }
+    },
   }
 
   /**
@@ -169,7 +173,7 @@ export class ComponentState implements IComponentState {
     readonly store: Store,
     readonly localizer: ComponentStoreLocalizer,
     readonly computeChildren: ComputeChildren,
-    context?: ComponentPropertiesContext,
+    context?: ComponentPropertiesContext
   ) {
     this.context = context ?? getDefaultPropertiesContext(data)
     this.#componentRef = null
@@ -209,7 +213,7 @@ export class ComponentState implements IComponentState {
       this.events,
       htmlAttributes ?? this.htmlAttributes,
       this.style,
-      this.data.userDefinedProps,
+      this.data.userDefinedProps
     )
   }
 
@@ -241,7 +245,7 @@ export class ComponentState implements IComponentState {
     if (!requiredProps || !this.hasRequiredValidation) return
 
     const result: Record<string, boolean> = {}
-    requiredProps.forEach(prop => result[prop] = true)
+    requiredProps.forEach(prop => (result[prop] = true))
     return result
   }
 
@@ -250,9 +254,7 @@ export class ComponentState implements IComponentState {
    */
   get isReadOnly() {
     const selfReadOnly = this.data.model.readOnly && this.selfProps[this.data.model.readOnly]
-    return this.store.formViewerPropsStore.readOnly
-      || this.data.parent?.componentState.isReadOnly
-      || (selfReadOnly ?? false)
+    return this.store.formViewerPropsStore.readOnly || this.data.parent?.componentState.isReadOnly || (selfReadOnly ?? false)
   }
 
   /**
@@ -269,9 +271,7 @@ export class ComponentState implements IComponentState {
    */
   get isDisabled() {
     const selfDisabled = this.data.model.disabled && this.selfProps[this.data.model.disabled]
-    return this.store.formViewerPropsStore.disabled
-      || this.data.parent?.componentState.isDisabled
-      || (selfDisabled ?? false)
+    return this.store.formViewerPropsStore.disabled || this.data.parent?.componentState.isDisabled || (selfDisabled ?? false)
   }
 
   /**
@@ -300,11 +300,7 @@ export class ComponentState implements IComponentState {
    * @returns the Record that contains the className property for the component.
    */
   get className() {
-    return cx(
-      this.requiredClassName,
-      this.propsWithoutChildren.className,
-      this.#styles.css.className
-    )
+    return cx(this.requiredClassName, this.propsWithoutChildren.className, this.#styles.css.className)
   }
 
   /**
@@ -379,16 +375,14 @@ export class ComponentState implements IComponentState {
    */
   private cleanStyles() {
     const styleSheets: CSSStyleSheet[] = []
-    Object.values(this.#styles)
-      .forEach(item => {
-        if (item.styleSheet) styleSheets.push(item.styleSheet)
-        item.styleSheet = undefined
-        item.flatCss = undefined
-      })
+    Object.values(this.#styles).forEach(item => {
+      if (item.styleSheet) styleSheets.push(item.styleSheet)
+      item.styleSheet = undefined
+      item.flatCss = undefined
+    })
 
     if (styleSheets.length) {
-      document.adoptedStyleSheets = document.adoptedStyleSheets
-        .filter(existing => !styleSheets.includes(existing))
+      document.adoptedStyleSheets = document.adoptedStyleSheets.filter(existing => !styleSheets.includes(existing))
     }
   }
 
@@ -439,37 +433,22 @@ export class ComponentState implements IComponentState {
     const {model, store} = this.data
     const {viewMode} = this.store
 
-    const cssObjectAny = reactStylesToCss(Object.assign({},
-      model[cssPart]?.any?.object,
-      store[cssPart]?.any?.object
-    ))
+    const cssObjectAny = reactStylesToCss(Object.assign({}, model[cssPart]?.any?.object, store[cssPart]?.any?.object))
 
-    const cssObjectDevice = reactStylesToCss(Object.assign({},
-      model[cssPart]?.[viewMode]?.object,
-      store[cssPart]?.[viewMode]?.object
-    ))
+    const cssObjectDevice = reactStylesToCss(Object.assign({}, model[cssPart]?.[viewMode]?.object, store[cssPart]?.[viewMode]?.object))
 
-    const anyStyles = store[cssPart]?.any?.string
-      ? store[cssPart]?.any?.string?.replaceAll('\n', ' ')
-      : ''
+    const anyStyles = store[cssPart]?.any?.string ? store[cssPart]?.any?.string?.replaceAll('\n', ' ') : ''
 
-    const deviceStyles = store[cssPart]?.[viewMode]?.string
-      ? store[cssPart]?.[viewMode]?.string?.replaceAll('\n', ' ')
-      : ''
+    const deviceStyles = store[cssPart]?.[viewMode]?.string ? store[cssPart]?.[viewMode]?.string?.replaceAll('\n', ' ') : ''
 
-    const cssData = [cssObjectAny, cssObjectDevice, anyStyles, deviceStyles]
-      .map(item => item?.trim())
-      .filter(Boolean)
+    const cssData = [cssObjectAny, cssObjectDevice, anyStyles, deviceStyles].map(item => item?.trim()).filter(Boolean)
 
     if (!cssData.length) {
       return ''
     }
 
     const className = this.#styles[cssPart].className
-    const css = `.${className}.${className} {`
-      + cssData
-        .join('\n')
-      + '}'
+    const css = `.${className}.${className} {` + cssData.join('\n') + '}'
 
     return flattenNestedCSS(css)
   }

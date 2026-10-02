@@ -8,7 +8,7 @@ import {restoreDots} from './dots'
  */
 export function createLocalizationDataProxy(
   localizationData: Record<string, unknown>,
-  missingProperties: string[],
+  missingProperties: string[]
 ): Record<string, unknown> {
   return new Proxy(localizationData, {
     get(target, property: string) {

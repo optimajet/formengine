@@ -10,7 +10,6 @@ import type {EditorType} from './EditorType'
  * Basic metadata class for a React component property for the form builder.
  */
 export class Annotation {
-
   /**
    * The component property key.
    */

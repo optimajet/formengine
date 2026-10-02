@@ -10,7 +10,7 @@ import {
   oneOf,
   string,
   useBuilderMode,
-  useComponentData
+  useComponentData,
 } from '@react-form-builder/core'
 import cx from 'clsx'
 import type {ForwardedRef, PropsWithChildren, SyntheticEvent} from 'react'
@@ -163,89 +163,107 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
 
   const componentData = useComponentData()
 
-  const labels = useArrayMapMemo(
-    componentData.store.children,
-    ({props}) => ({label: props.label?.value})
+  const labels = useArrayMapMemo(componentData.store.children, ({props}) => ({label: props.label?.value}))
+
+  const openStep = useCallback(
+    (index: number) => {
+      if (visited < index) setVisited(index)
+      onChange?.(index)
+    },
+    [visited, onChange]
   )
 
-  const openStep = useCallback((index: number) => {
-    if (visited < index) setVisited(index)
-    onChange?.(index)
-  }, [visited, onChange])
+  const handleFinish = useCallback(
+    (event: SyntheticEvent) => {
+      if (validateOnFinish) {
+        componentData.validate().then(() => {
+          if (componentData.hasErrors) return
+          onFinish?.(event)
+        })
+        return
+      }
 
-  const handleFinish = useCallback((event: SyntheticEvent) => {
-    if (validateOnFinish) {
-      componentData.validate().then(() => {
-        if (componentData.hasErrors) return
-        onFinish?.(event)
-      })
-      return
-    }
+      onFinish?.(event)
+    },
+    [componentData, onFinish, validateOnFinish]
+  )
 
-    onFinish?.(event)
-  }, [componentData, onFinish, validateOnFinish])
+  const handleNext = useCallback(
+    (event: SyntheticEvent) => {
+      let newIndex = activeIndex ?? 0
+      if (newIndex < labels.length) newIndex = newIndex + 1
 
-  const handleNext = useCallback((event: SyntheticEvent) => {
-    let newIndex = activeIndex ?? 0
-    if (newIndex < labels.length) newIndex = newIndex + 1
+      const child = componentData.children[activeIndex]
+      if (validateOnNext) {
+        child?.validate().then(() => {
+          if (child?.hasErrors) return
+          openStep(newIndex)
+          onNext?.(event)
+        })
+        return
+      }
+      openStep(newIndex)
+      onNext?.(event)
+    },
+    [activeIndex, componentData.children, labels.length, onNext, openStep, validateOnNext]
+  )
 
-    const child = componentData.children[activeIndex]
-    if (validateOnNext) {
-      child?.validate().then(() => {
-        if (child?.hasErrors) return
-        openStep(newIndex)
-        onNext?.(event)
-      })
-      return
-    }
-    openStep(newIndex)
-    onNext?.(event)
-  }, [activeIndex, componentData.children, labels.length, onNext, openStep, validateOnNext])
+  const handlePrev = useCallback(
+    (event: SyntheticEvent) => {
+      let newIndex = activeIndex ?? 0
+      if (newIndex > 0) newIndex = newIndex - 1
+      openStep(newIndex)
+      onPrev?.(event)
+    },
+    [activeIndex, onPrev, openStep]
+  )
 
-  const handlePrev = useCallback((event: SyntheticEvent) => {
-    let newIndex = activeIndex ?? 0
-    if (newIndex > 0) newIndex = newIndex - 1
-    openStep(newIndex)
-    onPrev?.(event)
-  }, [activeIndex, onPrev, openStep])
+  const isStepAvailable = useCallback(
+    (index: number) => {
+      return isBuilderMode || stepsNavigation === 'any' || (stepsNavigation === 'onlyVisited' && index <= visited)
+    },
+    [visited, isBuilderMode, stepsNavigation]
+  )
 
-  const isStepAvailable = useCallback((index: number) => {
-    return isBuilderMode || (
-      stepsNavigation === 'any' || stepsNavigation === 'onlyVisited' && index <= visited
-    )
-  }, [visited, isBuilderMode, stepsNavigation])
+  const getStepStatus = useCallback(
+    (index: number): StepItemProps['status'] => {
+      return index <= visited ? 'process' : 'wait'
+    },
+    [visited]
+  )
 
-  const getStepStatus = useCallback((index: number): StepItemProps['status'] => {
-    return index <= visited ? 'process' : 'wait'
-  }, [visited])
-
-  const handleStepClick = useCallback((index: number) => {
-    if (isStepAvailable(index)) openStep(index)
-  }, [openStep, isStepAvailable])
+  const handleStepClick = useCallback(
+    (index: number) => {
+      if (isStepAvailable(index)) openStep(index)
+    },
+    [openStep, isStepAvailable]
+  )
 
   const isStart = activeIndex <= 0
   const isFinish = activeIndex >= labels.length - 1
   const disableNextButton = isFinish && finishButtonLabel === nextButtonLabel
 
-  const content = Array.isArray(children)
-    ? children[activeIndex] ?? children[0]
-    : null
+  const content = Array.isArray(children) ? (children[activeIndex] ?? children[0]) : null
 
-  const buttons = useMemo(() => (
-    <ButtonToolbar className={cx('buttons', styles.toolbar)}>
-      {!isStart && <Button onClick={handlePrev} disabled={isStart}>{prevButtonLabel}</Button>}
-      <Button onClick={isFinish ? handleFinish : handleNext} disabled={disableNextButton} appearance={'primary'}>
-        {isFinish ? finishButtonLabel : nextButtonLabel}
-      </Button>
-    </ButtonToolbar>
-  ), [disableNextButton, finishButtonLabel, handleFinish, handleNext, handlePrev, isFinish, isStart, nextButtonLabel, prevButtonLabel])
+  const buttons = useMemo(
+    () => (
+      <ButtonToolbar className={cx('buttons', styles.toolbar)}>
+        {!isStart && (
+          <Button onClick={handlePrev} disabled={isStart}>
+            {prevButtonLabel}
+          </Button>
+        )}
+        <Button onClick={isFinish ? handleFinish : handleNext} disabled={disableNextButton} appearance={'primary'}>
+          {isFinish ? finishButtonLabel : nextButtonLabel}
+        </Button>
+      </ButtonToolbar>
+    ),
+    [disableNextButton, finishButtonLabel, handleFinish, handleNext, handlePrev, isFinish, isStart, nextButtonLabel, prevButtonLabel]
+  )
 
   const wizardItems: WizardStepItemProps[] = useMemo(() => {
     return labels.map(({label}, index) => {
-      const itemClassName = cx(
-        isStepAvailable(index) && 'available',
-        index === activeIndex && 'active'
-      )
+      const itemClassName = cx(isStepAvailable(index) && 'available', index === activeIndex && 'active')
 
       const onClick = () => handleStepClick(index)
       const status = getStepStatus(index)
@@ -254,7 +272,7 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
         label,
         className: itemClassName,
         status,
-        onClick
+        onClick,
       }
     })
   }, [activeIndex, getStepStatus, handleStepClick, isStepAvailable, labels])
@@ -265,17 +283,11 @@ const RsWizard = forwardRef(function Wizard(wProps: RsWizardProps, ref: Forwarde
         {showSteps && !!content && (
           <Steps current={activeIndex} vertical={verticalSteps} className={'steps'}>
             {wizardItems.map(({label, onClick, status, className}, index) => (
-              <SItem
-                key={index}
-                title={showStepsLabels && label}
-                onClick={onClick}
-                status={status}
-                className={className}
-              />
+              <SItem key={index} title={showStepsLabels && label} onClick={onClick} status={status} className={className} />
             ))}
           </Steps>
         )}
-        <div className={'content'}>{content ?? <EmptyContent/>}</div>
+        <div className={'content'}>{content ?? <EmptyContent />}</div>
       </div>
       {!!content && buttons}
     </div>
@@ -306,28 +318,23 @@ export const rsWizard = define(RsWizard, RsWizardComponentType)
   .initialJson(getInitialJson())
   .eventListeners(eventListeners)
   .props({
-    activeIndex: number
-      .valued
-      .withEditorProps({
-        calculateEditorProps: ({store}: ComponentData) => {
-          const length = store.children?.length || 1
-          return {
-            min: 0,
-            max: length - 1
-          }
+    activeIndex: number.valued.withEditorProps({
+      calculateEditorProps: ({store}: ComponentData) => {
+        const length = store.children?.length || 1
+        return {
+          min: 0,
+          max: length - 1,
         }
-      }),
+      },
+    }),
     stepsNavigation: oneOf('disable', 'onlyVisited', 'any')
       .labeled('Disable', 'Only visited', 'Any')
       .default('onlyVisited')
       .withEditorProps({creatable: false}),
-    steps: array
-      .default([])
-      .withEditorProps(editorProps),
-    children: nodeArray
-      .withInsertRestriction((_, child) => {
-        return child.model.type === RsWizardStepComponentType
-      }),
+    steps: array.default([]).withEditorProps(editorProps),
+    children: nodeArray.withInsertRestriction((_, child) => {
+      return child.model.type === RsWizardStepComponentType
+    }),
     prevButtonLabel: string.default('Previous'),
     nextButtonLabel: string.default('Next'),
     finishButtonLabel: string.default('Finish'),
@@ -338,5 +345,5 @@ export const rsWizard = define(RsWizard, RsWizardComponentType)
     validateOnFinish: boolean.default(true),
     onNext: event,
     onPrev: event,
-    onFinish: event
+    onFinish: event,
   })

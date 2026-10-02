@@ -3,7 +3,7 @@ import {ComponentStore} from '@react-form-builder/core'
 import {InputCell} from '../InputCell'
 import {RsWizardStepComponentType} from './RsWizardStep'
 
-type LabelValue = { label: string }
+type LabelValue = {label: string}
 
 /**
  * Creates a component store containing the Wizard step.
@@ -20,7 +20,7 @@ export const editorProps = {
   onAdd: (index: number, wizardComponentData: ComponentData, viewerStore: Store) => {
     const componentStore = createStep(index + 1)
     const componentData = viewerStore.createComponentData(componentStore)
-    const activeIndex = wizardComponentData.store.props.activeIndex ??= {}
+    const activeIndex = (wizardComponentData.store.props.activeIndex ??= {})
     activeIndex.value = index
     if (wizardComponentData.children?.length) {
       wizardComponentData.children[index - 1]?.insertAfterMe(componentData)
@@ -37,9 +37,10 @@ export const editorProps = {
   },
   columns: [{name: 'label', input: InputCell}],
   calculateEditorProps: ({store}: ComponentData) => {
-    const data = store.children?.map(({props}) => ({
-      label: props.label?.value
-    })) ?? []
+    const data =
+      store.children?.map(({props}) => ({
+        label: props.label?.value,
+      })) ?? []
     const handleChange = (labels: LabelValue[]) => {
       labels.forEach(({label}, index) => {
         if (!store.children?.[index]) return
@@ -48,5 +49,5 @@ export const editorProps = {
       })
     }
     return {data, onChange: handleChange}
-  }
+  },
 }

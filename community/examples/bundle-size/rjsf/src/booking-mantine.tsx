@@ -1,5 +1,5 @@
-import Form from '@rjsf/mantine'
 import {Button, MantineProvider} from '@mantine/core'
+import Form from '@rjsf/mantine'
 import {type ButtonHTMLAttributes, StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import {App} from './booking-form.tsx'

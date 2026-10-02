@@ -1,7 +1,7 @@
 import {existsSync} from 'node:fs'
 import {join} from 'node:path'
-import type {BuildToolPlugin} from './types.ts'
 import type {BundleStats} from '../analyze-bundle-sizes.ts'
+import type {BuildToolPlugin} from './types.ts'
 
 /**
  * Rspack build tool plugin.

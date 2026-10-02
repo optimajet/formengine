@@ -40,7 +40,6 @@ export interface RsTabProps extends NavProps {
   pane: ReactNode
 }
 
-
 /**
  * Tab component with navigation and pane support.
  * @param props the component props.
@@ -52,41 +51,36 @@ export interface RsTabProps extends NavProps {
  * @param props.props the additional tab props.
  * @returns the React element.
  */
-const RsTab = ({
-                 pane,
-                 onSelect,
-                 showNavigation,
-                 items,
-                 className,
-                 ...props
-               }: RsTabProps) => {
+const RsTab = ({pane, onSelect, showNavigation, items, className, ...props}: RsTabProps) => {
   const componentData = useComponentData()
 
-  const onNavSelect = useCallback((eventKey: string, event: SyntheticEvent) => {
-    componentData.userDefinedProps ??= {}
-    componentData.userDefinedProps.activeKey = eventKey
-    onSelect?.(eventKey, event)
-  }, [componentData, onSelect])
+  const onNavSelect = useCallback(
+    (eventKey: string, event: SyntheticEvent) => {
+      componentData.userDefinedProps ??= {}
+      componentData.userDefinedProps.activeKey = eventKey
+      onSelect?.(eventKey, event)
+    },
+    [componentData, onSelect]
+  )
 
   if (!items?.length) return null
 
   const activeKey = props.activeKey ?? items?.[0].value
 
-  return <>
-    {showNavigation === true &&
-      <Nav onSelect={onNavSelect} activeKey={activeKey} {...props} className={cx(styles.tabs, className)}>
-        {items.map((item, index) => <Nav.Item key={index}
-                                              eventKey={item.value}
-                                              role="tab"
-                                              as="button"
-                                              type="button">
-            {item.label}
-          </Nav.Item>
-        )}
-      </Nav>
-    }
-    <div>{pane}</div>
-  </>
+  return (
+    <>
+      {showNavigation === true && (
+        <Nav onSelect={onNavSelect} activeKey={activeKey} {...props} className={cx(styles.tabs, className)}>
+          {items.map((item, index) => (
+            <Nav.Item key={index} eventKey={item.value} role="tab" as="button" type="button">
+              {item.label}
+            </Nav.Item>
+          ))}
+        </Nav>
+      )}
+      <div>{pane}</div>
+    </>
+  )
 }
 
 export const rsTab = define(RsTab, 'RsTab')

@@ -1,8 +1,8 @@
 import type {ComponentStore} from '../../stores/ComponentStore'
 import type {IForm} from '../../stores/IForm'
 import type {IFormData} from '../../utils/IFormData'
-import type {Language, LanguageFullCode} from './language'
 import type {LocalizationError} from './LocalizationError'
+import type {Language, LanguageFullCode} from './language'
 import type {LocalizationType} from './types'
 
 /**
@@ -38,11 +38,13 @@ export interface ILocalizationEngine {
    * @param type the type of localization (default: 'component').
    * @returns the object with localized property values.
    */
-  localizeProperties(form: IForm,
-                     formData: IFormData,
-                     language: Language,
-                     componentStore: ComponentStore,
-                     type?: LocalizationType): Record<string, any>
+  localizeProperties(
+    form: IForm,
+    formData: IFormData,
+    language: Language,
+    componentStore: ComponentStore,
+    type?: LocalizationType
+  ): Record<string, any>
 
   /**
    * Localizes error messages for validation rules.
@@ -53,11 +55,13 @@ export interface ILocalizationEngine {
    * @param ruleKey the validation rule key.
    * @returns the localized error message or undefined.
    */
-  localizeErrorMessage(form: IForm,
-                       formData: IFormData,
-                       language: Language,
-                       componentStore: ComponentStore,
-                       ruleKey: string): string | undefined
+  localizeErrorMessage(
+    form: IForm,
+    formData: IFormData,
+    language: Language,
+    componentStore: ComponentStore,
+    ruleKey: string
+  ): string | undefined
 
   /**
    * Tests localization by formatting a message with given data.
@@ -67,8 +71,10 @@ export interface ILocalizationEngine {
    * @param formData the data to use for variable substitution.
    * @returns the array of errors or the formatted result string.
    */
-  testLocalization?: (localization: string,
-                      localizationStringId: string,
-                      language: Language,
-                      formData: IFormData) => Array<LocalizationError> | string
+  testLocalization?: (
+    localization: string,
+    localizationStringId: string,
+    language: Language,
+    formData: IFormData
+  ) => Array<LocalizationError> | string
 }

@@ -74,8 +74,13 @@ export class Form implements IForm {
    * @param languages the localization languages of the form.
    * @param defaultLanguage the default localization language of the form.
    */
-  constructor(componentTree: ComponentData, localization: LocalizationStore, actions: ActionValues,
-              languages: Language[], defaultLanguage: Language) {
+  constructor(
+    componentTree: ComponentData,
+    localization: LocalizationStore,
+    actions: ActionValues,
+    languages: Language[],
+    defaultLanguage: Language
+  ) {
     this.componentTree = componentTree
     this.localization = localization
     this.actions = actions
@@ -162,14 +167,12 @@ export class Form implements IForm {
     })
   }
 
-  private rebindEvents = (events: ComponentStore['events'], oldActionName: string,
-                          newAction: NamedActionDefinition) => {
+  private rebindEvents = (events: ComponentStore['events'], oldActionName: string, newAction: NamedActionDefinition) => {
     if (!events) return
 
     Object.keys(events).forEach(value => {
       const bindings = events[value]
-      bindings?.filter(item => item.type === 'code' && item.name === oldActionName)
-        .forEach(item => this.rebindActionData(item, newAction))
+      bindings?.filter(item => item.type === 'code' && item.name === oldActionName).forEach(item => this.rebindActionData(item, newAction))
     })
   }
 
@@ -203,7 +206,7 @@ export class Form implements IForm {
     this.localization.removeLocalization(component.key)
   }
 
-  private onComponentDataAfterKeyChanged(_: ComponentData, {oldKey, newKey}: { oldKey: string, newKey: string }) {
+  private onComponentDataAfterKeyChanged(_: ComponentData, {oldKey, newKey}: {oldKey: string; newKey: string}) {
     this.localization.changeComponentKey(oldKey, newKey)
   }
 }

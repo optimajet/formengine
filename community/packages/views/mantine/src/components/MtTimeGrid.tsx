@@ -9,9 +9,7 @@ import {description, label, onChange, size} from './internal/sharedProps'
 /**
  * Props for the MtTimeGrid component.
  */
-export interface MtTimeGridProps
-  extends Omit<TimeGridProps, 'data'>,
-    Omit<InputWrapperProps, 'children' | keyof TimeGridProps> {
+export interface MtTimeGridProps extends Omit<TimeGridProps, 'data'>, Omit<InputWrapperProps, 'children' | keyof TimeGridProps> {
   /**
    * Time values to render in 24h format.
    */
@@ -40,41 +38,20 @@ const simpleGridProps = {
  * @returns time grid component.
  */
 export function MtTimeGrid(props: MtTimeGridProps) {
-  const {
-    label,
-    description,
-    error,
-    id,
-    required,
-    withAsterisk,
-    data,
-    startTime,
-    endTime,
-    ...others
-  } = props
+  const {label, description, error, id, required, withAsterisk, data, startTime, endTime, ...others} = props
 
-  const timeData = data && data.length > 0
-    ? data
-    : getTimeRange({
-      startTime: startTime || '00:00',
-      endTime: endTime || '23:59',
-      interval: '01:00',
-    })
+  const timeData =
+    data && data.length > 0
+      ? data
+      : getTimeRange({
+          startTime: startTime || '00:00',
+          endTime: endTime || '23:59',
+          interval: '01:00',
+        })
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      id={id}
-      required={required}
-      withAsterisk={withAsterisk}
-    >
-      <TimeGrid
-        data={timeData}
-        simpleGridProps={simpleGridProps}
-        {...others}
-      />
+    <Input.Wrapper label={label} description={description} error={error} id={id} required={required} withAsterisk={withAsterisk}>
+      <TimeGrid data={timeData} simpleGridProps={simpleGridProps} {...others} />
     </Input.Wrapper>
   )
 }

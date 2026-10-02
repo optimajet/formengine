@@ -17,7 +17,6 @@ export type CssLoaderFunction = () => Promise<void | CssCleanupFunction>
  * Represents all the metadata of the form viewer components.
  */
 export interface IView {
-
   /**
    * Defines the component's metadata for the form viewer.
    * @param model the component's metadata.

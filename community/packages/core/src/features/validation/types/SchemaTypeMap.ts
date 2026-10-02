@@ -5,33 +5,33 @@ export type SchemaTypeMap = {
   /**
    * The string.
    */
-  'string': string
+  string: string
   /**
    * The number.
    */
-  'number': number
+  number: number
   /**
    * The boolean.
    */
-  'boolean': boolean
+  boolean: boolean
   /**
    * The object.
    */
-  'object': object
+  object: object
   /**
    * The array.
    */
-  'array': any[]
+  array: any[]
   /**
    * The enumeration.
    */
-  'enum': any
+  enum: any
   /**
    * The date.
    */
-  'date': Date
+  date: Date
   /**
    * The time.
    */
-  'time': string
+  time: string
 }

@@ -21,10 +21,7 @@ export const fluentEncodeValue = (value: unknown): string => {
   const [first, ...rest] = lines
 
   // https://projectfluent.org/fluent/guide/syntax.html#multiline-text
-  return [
-    first ?? '',
-    ...rest.map((line) => `    ${line}`),
-  ].join('\n')
+  return [first ?? '', ...rest.map(line => `    ${line}`)].join('\n')
 }
 
 /**

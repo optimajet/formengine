@@ -11,7 +11,7 @@ interface MtTextProps extends TextProps {
 }
 
 const MtText = (props: MtTextProps) => {
-  return <Text {...props}/>
+  return <Text {...props} />
 }
 
 export const mtText = define(MtText, 'MtText')

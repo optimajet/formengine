@@ -1,11 +1,10 @@
-import {exportsToEntries, getDirname, getFilesByMask, readPackageJson} from '@react-form-builder/cli-lib/view-pack-tools'
 import {normalize, resolve} from 'node:path'
+import {exportsToEntries, getDirname, getFilesByMask, readPackageJson} from '@react-form-builder/cli-lib/view-pack-tools'
 import type {ModuleFormat} from 'rollup'
 import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
 import {defineConfig, mergeConfig} from 'vite'
-import {libDts} from '../../../vite-plugin-api-extractor.ts'
-
 import base from '../../../vite.config'
+import {libDts} from '../../../vite-plugin-api-extractor.ts'
 
 const __dirname = getDirname(import.meta.url)
 
@@ -19,8 +18,8 @@ const entry = exportsToEntries(__dirname, packageJson)
 
 const entryFilePaths = new Set(
   (Object.values(entry) as string[])
-    .filter((filePath) => normalize(filePath).includes(normalize(cmpPath)))
-    .map((filePath) => normalize(filePath)),
+    .filter(filePath => normalize(filePath).includes(normalize(cmpPath)))
+    .map(filePath => normalize(filePath))
 )
 
 const allComponentsNormalized = allComponents.map(filePath => normalize(filePath))

@@ -52,7 +52,7 @@ export interface RsBreadcrumbProps extends BreadcrumbProps {
 const columns = [
   {name: 'title', input: InputCell},
   {name: 'href', title: 'Url', input: InputCell},
-  {name: 'active', input: CheckCell}
+  {name: 'active', input: CheckCell},
 ] as const
 
 /**
@@ -72,9 +72,13 @@ const containerStyle = {display: 'flex'} as const
  * @returns the React element.
  */
 const RsBreadcrumb = ({items, onItemClick, ...props}: RsBreadcrumbProps) => {
-  const clickHandlers = useMemo(() => (items ?? []).map((it) => {
-    return () => onItemClick?.(it)
-  }), [items, onItemClick])
+  const clickHandlers = useMemo(
+    () =>
+      (items ?? []).map(it => {
+        return () => onItemClick?.(it)
+      }),
+    [items, onItemClick]
+  )
 
   return (
     <Breadcrumb {...props} style={containerStyle}>
@@ -83,7 +87,8 @@ const RsBreadcrumb = ({items, onItemClick, ...props}: RsBreadcrumbProps) => {
         return (
           <Breadcrumb.Item {...itemProps} onClick={clickHandlers[idx]} key={title}>
             {title}
-          </Breadcrumb.Item>)
+          </Breadcrumb.Item>
+        )
       })}
     </Breadcrumb>
   )
@@ -95,13 +100,10 @@ export const rsBreadcrumb = define(RsBreadcrumb, 'RsBreadcrumb')
   .props({
     separator: string.default('/'),
     maxItems: nonNegNumber,
-    items: array.localize
-      .default(makeItems(['one', 'two', 'three']))
-      .withEditorProps({columns}),
+    items: array.localize.default(makeItems(['one', 'two', 'three'])).withEditorProps({columns}),
     onItemClick: event,
-    onExpand: event
+    onExpand: event,
   })
   .css({
-    justifyContent: oneOf('left', 'center', 'right')
-      .default('left').radio().named('Alignment'),
+    justifyContent: oneOf('left', 'center', 'right').default('left').radio().named('Alignment'),
   })

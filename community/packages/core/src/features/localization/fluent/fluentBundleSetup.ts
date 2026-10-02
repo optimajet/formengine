@@ -1,8 +1,8 @@
 import type {FluentBundle} from '@fluent/bundle'
 import {FluentResource} from '@fluent/bundle'
 import type {IForm} from '../../../stores/IForm'
-import type {LanguageFullCode} from '../language'
 import type {LocalizationError} from '../LocalizationError'
+import type {LanguageFullCode} from '../language'
 import type {LocalizationBundleSetup} from './componentLocalizationContext'
 import {createFluentBundle} from './createFluentBundle'
 import {convertFluentError, logFluentErrors} from './fluentErrors'
@@ -19,7 +19,7 @@ import {objectToFluentResource} from './fluentResource'
 const addItemsToFluentBundle = (
   bundle: FluentBundle,
   items: Record<string, unknown>,
-  options?: { allowOverrides?: boolean },
+  options?: {allowOverrides?: boolean}
 ): Array<LocalizationError> => {
   const source = objectToFluentResource(items)
   const resource = new FluentResource(source)
@@ -37,7 +37,7 @@ const addItemsToFluentBundle = (
 export const populateFluentBundle = (
   items: Record<string, unknown>,
   errors: Array<LocalizationError>,
-  targetBundle: FluentBundle,
+  targetBundle: FluentBundle
 ): FluentBundle => {
   const fluentErrors = addItemsToFluentBundle(targetBundle, items)
   errors.length = 0
@@ -71,11 +71,7 @@ export class FluentBundleCache {
    * @param options.allowOverrides when true, allows overriding existing message ids in the bundle.
    * @returns localization errors from fluent.
    */
-  addMessages(
-    locale: LanguageFullCode,
-    messages: Record<string, unknown>,
-    options?: { allowOverrides?: boolean },
-  ): Array<LocalizationError> {
+  addMessages(locale: LanguageFullCode, messages: Record<string, unknown>, options?: {allowOverrides?: boolean}): Array<LocalizationError> {
     return addItemsToFluentBundle(this.getOrCreate(locale), messages, options)
   }
 }
@@ -91,22 +87,16 @@ export class FluentBundleCache {
 export const setupLocalizationBundles = (
   form: IForm,
   requestedFullCode: LanguageFullCode,
-  errors: Array<LocalizationError>,
+  errors: Array<LocalizationError>
 ): LocalizationBundleSetup => {
   const defaultFullCode = form.defaultLanguage.fullCode
-  const defaultItemsRaw = defaultFullCode !== requestedFullCode
-    ? form.localization.getItems(defaultFullCode)
-    : undefined
+  const defaultItemsRaw = defaultFullCode !== requestedFullCode ? form.localization.getItems(defaultFullCode) : undefined
   const formItemsRaw = form.localization.getItems(requestedFullCode)
   const defaultItems = defaultItemsRaw ?? undefined
   const formItems = formItemsRaw ?? undefined
 
-  const defaultBundle = defaultItems
-    ? populateFluentBundle(defaultItems, errors, createFluentBundle(defaultFullCode))
-    : undefined
-  const formBundle = formItems
-    ? populateFluentBundle(formItems, errors, createFluentBundle(requestedFullCode))
-    : undefined
+  const defaultBundle = defaultItems ? populateFluentBundle(defaultItems, errors, createFluentBundle(defaultFullCode)) : undefined
+  const formBundle = formItems ? populateFluentBundle(formItems, errors, createFluentBundle(requestedFullCode)) : undefined
 
   return {defaultBundle, defaultItems, formBundle, formItems}
 }

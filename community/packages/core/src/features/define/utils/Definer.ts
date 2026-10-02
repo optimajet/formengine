@@ -22,18 +22,24 @@ import {
   cfComponentRole,
   cfDisableActionEditors,
   cfDisableComponentRemove,
+  cfDisableStyleProperties,
   cfDisableStyles,
   cfDisableStylesForClassNameEditor,
+  cfDisableToolbarAdd,
   cfDisableTooltipProperties,
   cfDisableWrapperStyles,
   cfEnableInlineStylesEditor,
   cfEventHandlers,
   cfHideFromComponentPalette,
+  cfNonVisual,
   cfRequiredProperties,
-  cfSkipChildrenDuringFieldCollection
+  cfSingleton,
+  cfSkipChildrenDuringFieldCollection,
+  cfUncoverOverflowScrollbar,
 } from './integratedComponentFeatures'
 import {Meta} from './Meta'
 import {Model} from './Model'
+import {createSingletonInsertRestriction} from './singletonInsertRestriction'
 
 /**
  * CSS rules declaration map.
@@ -48,19 +54,19 @@ export type DefinerData<T extends object> = {
   /**
    * The React component.
    */
-  readonly component: ComponentType<T>,
+  readonly component: ComponentType<T>
   /**
    * The component name.
    */
-  name?: string,
+  name?: string
   /**
    * The component type name.
    */
-  typeName?: string,
+  typeName?: string
   /**
    * The component kind.
    */
-  kind?: ComponentKind,
+  kind?: ComponentKind
   /**
    * The set of component features.
    */
@@ -68,27 +74,27 @@ export type DefinerData<T extends object> = {
   /**
    * The component category.
    */
-  category?: string,
+  category?: string
   /**
    * The component CSS metadata.
    */
-  cssObject?: Annotations<CSSObject>,
+  cssObject?: Annotations<CSSObject>
   /**
    * The wrapper CSS metadata.
    */
-  wrapperCssObject?: Annotations<CSSObject>,
+  wrapperCssObject?: Annotations<CSSObject>
   /**
    * The component icon or the icon name.
    */
-  icon?: ComponentType | string,
+  icon?: ComponentType | string
   /**
    * The function that initializes an actions on a component (for internal use only).
    */
-  readonly actionsInitializer?: ActionsInitializer,
+  readonly actionsInitializer?: ActionsInitializer
   /**
    * The property metadata.
    */
-  properties?: Annotations<T>,
+  properties?: Annotations<T>
   /**
    * The JSON source for the component (instance of {@link ComponentStore} class serialised to JSON).
    */
@@ -137,10 +143,7 @@ export class Definer<T extends object> {
   static definePreset(name: string, components: ComponentStore[]) {
     if (!name) throw Error('Anonymous components are not allowed!')
     const PresetComponent = () => null
-    const definer = new Definer(PresetComponent)
-      .addFeature(cfComponentIsPreset, true)
-      .type(name)
-      .name(name)
+    const definer = new Definer(PresetComponent).addFeature(cfComponentIsPreset, true).type(name).name(name)
 
     const source = new ComponentStore('', name)
     source.children = components
@@ -268,6 +271,17 @@ export class Definer<T extends object> {
   }
 
   /**
+   * Keeps the designer drag overlay off the component overflow scrollbar.
+   * Sets `--fe-uncover-inset` (default 16px) on the editable host for the overlay gap; matching view
+   * padding should use the same CSS variable.
+   * @param value true to leave the scrollbar uncovered, false otherwise.
+   * @returns the modified Definer class instance.
+   */
+  uncoverOverflowScrollbar(value = true) {
+    return this.addFeature(cfUncoverOverflowScrollbar, value)
+  }
+
+  /**
    * Hides a component from the component palette.
    * @param value true to hide the component, false otherwise.
    * @returns the modified Definer class instance.
@@ -283,6 +297,43 @@ export class Definer<T extends object> {
    */
   disableRemove(value = true) {
     return this.addFeature(cfDisableComponentRemove, value)
+  }
+
+  /**
+   * Hides the add button on the designer component toolbar.
+   * @param value true to hide the add button, false otherwise.
+   * @returns the modified Definer class instance.
+   */
+  disableToolbarAdd(value = true) {
+    return this.addFeature(cfDisableToolbarAdd, value)
+  }
+
+  /**
+   * Marks the component as a singleton. At most one instance of this type may exist on a form.
+   * @param value true to allow only one instance, false otherwise.
+   * @returns the modified Definer class instance.
+   */
+  singleton(value = true) {
+    return this.addFeature(cfSingleton, value)
+  }
+
+  /**
+   * Marks the component as non-visual. Instances are kept under the form root and shown in the designer bar only.
+   * The designer hides Additional properties for non-visual components.
+   * @param value true to mark as non-visual, false otherwise.
+   * @returns the modified Definer class instance.
+   */
+  nonVisual(value = true) {
+    return this.addFeature(cfNonVisual, value)
+  }
+
+  /**
+   * Hides the properties editor on the styles tab.
+   * @param value true to hide the properties editor, false otherwise.
+   * @returns the modified Definer class instance.
+   */
+  hideStyleProperties(value = true) {
+    return this.addFeature(cfDisableStyleProperties, value)
   }
 
   /**
@@ -367,36 +418,37 @@ export class Definer<T extends object> {
     const cssAns = toStyleProperties(this.data.cssObject)
     const cssWrapperAns = toStyleProperties({
       ...commonStyles,
-      ...this.data.wrapperCssObject
+      ...this.data.wrapperCssObject,
     })
     const valuedAnnotations = propAns.filter(an => an.valued === true)
     const firstValuedAn = valuedAnnotations[0]
     if (valuedAnnotations.length > 1) {
-      console.warn('Several annotations with the "valued" property were found.' +
-        ' There should be only one "valued" property in the component description!' +
-        ` The annotation with the key "${valuedAnnotations[0].key}" will be used.`)
+      console.warn(
+        'Several annotations with the "valued" property were found.' +
+          ' There should be only one "valued" property in the component description!' +
+          ` The annotation with the key "${valuedAnnotations[0].key}" will be used.`
+      )
     }
     const valuedAn = firstValuedAn ?? propAns.find(an => an.name === 'value')
     const readOnlyAn = propAns.find(an => an.readOnly)
     const disabledAn = propAns.find(an => an.disabled)
-    const propsBindingTypes = propAns.reduce((props, an) => {
-      if (an.bindingType) props[an.key] = an.bindingType
-      return props
-    }, {} as Record<string, ComponentPropertyBindType>)
+    const propsBindingTypes = propAns.reduce(
+      (props, an) => {
+        if (an.bindingType) props[an.key] = an.bindingType
+        return props
+      },
+      {} as Record<string, ComponentPropertyBindType>
+    )
 
     const features = {...this.data.features}
 
-    const requiredProps = propAns
-      .filter(an => an.controlsRequiredProp)
-      .map(an => an.key)
+    const requiredProps = propAns.filter(an => an.controlsRequiredProp).map(an => an.key)
 
     if (requiredProps.length > 0) {
       features[cfRequiredProperties] = requiredProps
     }
 
-    const dateProperties = propAns
-      .filter(annotation => annotation.type === 'date')
-      .map(annotation => annotation.key)
+    const dateProperties = propAns.filter(annotation => annotation.type === 'date').map(annotation => annotation.key)
 
     const model = new Model(
       this.data.component,
@@ -414,8 +466,12 @@ export class Definer<T extends object> {
       valuedAn?.uncontrolledValue,
       disabledAn?.key,
       valuedAn?.dataBindingType,
-      features,
+      features
     ).withDateProperties(dateProperties)
+
+    const insertRestriction = model.isFeatureEnabled(cfSingleton)
+      ? createSingletonInsertRestriction(this.data.insertRestriction)
+      : this.data.insertRestriction
 
     const meta = new Meta(
       this.getType(),
@@ -427,7 +483,7 @@ export class Definer<T extends object> {
       this.data.initialJson,
       this.data.eventListeners,
       this.data.icon,
-      this.data.insertRestriction
+      insertRestriction
     )
 
     return {model, meta, category: this.data.category} as const

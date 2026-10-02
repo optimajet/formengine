@@ -18,8 +18,7 @@ function initActionDataKey(actionData: ActionData) {
 function initActionDataKeys(componentStore: ComponentStore) {
   const events = componentStore.events
   if (events) {
-    Object.values(events)
-      .forEach(data => data.forEach(initActionDataKey))
+    Object.values(events).forEach(data => data.forEach(initActionDataKey))
   }
   componentStore.children?.forEach(initActionDataKeys)
 }
@@ -117,7 +116,6 @@ export type ModalComponentStore = {
  * Component settings for serialization in JSON.
  */
 export class ComponentStore {
-
   /**
    * The React component key.
    */

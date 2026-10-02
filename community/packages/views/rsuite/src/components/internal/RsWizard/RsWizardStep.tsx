@@ -1,6 +1,6 @@
-import {containerStyles, define, node, string} from '@react-form-builder/core'
+import {containerStyles, define, forwardRef, node, string} from '@react-form-builder/core'
 import cx from 'clsx'
-import type {PropsWithChildren} from 'react'
+import type {ForwardedRef, PropsWithChildren} from 'react'
 import {structureCategory} from '../../categories'
 import styles from './RsWizardStep.module.css'
 import {WizardStepIcon} from './WizardStepIcon'
@@ -24,11 +24,12 @@ export interface RsWizardStepProps extends PropsWithChildren<any> {
  * @param props the component props.
  * @param props.className the CSS class name.
  * @param props.props the additional step props.
+ * @param ref the forwarded ref to the step element.
  * @returns the React element.
  */
-const RsWizardStep = ({className, ...props}: RsWizardStepProps) => {
-  return <div {...props} className={cx(styles.step, className)}/>
-}
+const RsWizardStep = forwardRef(({className, ...props}: RsWizardStepProps, ref: ForwardedRef<HTMLDivElement>) => {
+  return <div {...props} ref={ref} className={cx(styles.step, className)} />
+})
 
 const {flexDirection, gap} = containerStyles
 
@@ -39,13 +40,14 @@ export const rsWizardStep = define(RsWizardStep, RsWizardStepComponentType)
   .category(structureCategory)
   .kind('container')
   .icon(WizardStepIcon)
+  .disableToolbarAdd()
   .props({
     label: string.default('Step'),
-    children: node
+    children: node,
   })
   .css({
     ...containerStyles,
     flexDirection: flexDirection.default('column'),
-    gap: gap.default('10px')
+    gap: gap.default('10px'),
   })
   .insertRestriction((_, parent) => parent.model.type === 'RsWizard')

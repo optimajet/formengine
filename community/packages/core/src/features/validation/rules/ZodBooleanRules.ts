@@ -9,12 +9,24 @@ import {booleanScheme, toRuleValidator} from './zodRuleBuilders'
  * Both undefined/null and false fail validation.
  */
 export const ZodBooleanRules: ValidationRuleSet = {
-  required: ruleBuilder()
-    .withValidatorFactory(() => toRuleValidator(booleanScheme, z.refine(val => val, {error: requiredMessage}))),
+  required: ruleBuilder().withValidatorFactory(() =>
+    toRuleValidator(
+      booleanScheme,
+      z.refine(val => val, {error: requiredMessage})
+    )
+  ),
 
-  truthy: ruleBuilder()
-    .withValidatorFactory(({message}) => toRuleValidator(booleanScheme, z.refine(arg => arg, zodErrorParams(message)))),
+  truthy: ruleBuilder().withValidatorFactory(({message}) =>
+    toRuleValidator(
+      booleanScheme,
+      z.refine(arg => arg, zodErrorParams(message))
+    )
+  ),
 
-  falsy: ruleBuilder()
-    .withValidatorFactory(({message}) => toRuleValidator(booleanScheme, z.refine(arg => !arg, zodErrorParams(message)))),
+  falsy: ruleBuilder().withValidatorFactory(({message}) =>
+    toRuleValidator(
+      booleanScheme,
+      z.refine(arg => !arg, zodErrorParams(message))
+    )
+  ),
 }

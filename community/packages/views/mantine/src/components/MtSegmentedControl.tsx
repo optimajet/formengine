@@ -10,8 +10,7 @@ import {mantineColor} from './internal/mantineColor'
  */
 export interface MtSegmentedControlProps
   extends Omit<SegmentedControlProps, 'size' | 'label'>,
-    Omit<InputWrapperProps, 'children' | Exclude<keyof SegmentedControlProps, 'size' | 'label'>> {
-}
+    Omit<InputWrapperProps, 'children' | Exclude<keyof SegmentedControlProps, 'size' | 'label'>> {}
 
 /**
  * Mantine segmented control component for React Form Builder.
@@ -19,38 +18,12 @@ export interface MtSegmentedControlProps
  * @returns segmented control component.
  */
 export function MtSegmentedControl(props: MtSegmentedControlProps) {
-  const {
-    label,
-    description,
-    error,
-    required,
-    withAsterisk,
-    value,
-    data,
-    disabled,
-    size,
-    onChange,
-    ...others
-  } = props
+  const {label, description, error, required, withAsterisk, value, data, disabled, size, onChange, ...others} = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      required={required}
-      withAsterisk={withAsterisk}
-      size={size}
-    >
+    <Input.Wrapper label={label} description={description} error={error} required={required} withAsterisk={withAsterisk} size={size}>
       <div>
-        <SegmentedControl
-          value={value}
-          data={data}
-          disabled={disabled}
-          size={size}
-          onChange={onChange}
-          {...others}
-        />
+        <SegmentedControl value={value} data={data} disabled={disabled} size={size} onChange={onChange} {...others} />
       </div>
     </Input.Wrapper>
   )
@@ -61,12 +34,10 @@ export const mtSegmentedControl = define(MtSegmentedControl, 'MtSegmentedControl
   .props({
     ...baseInputProps,
     value: string.valued,
-    data: array.localize
-      .default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
+    data: array.localize.default(toLabeledValues(['Option 1', 'Option 2', 'Option 3'])),
     color: mantineColor,
     fullWidth: boolean.default(false),
-    orientation: oneOfStrict('horizontal', 'vertical')
-      .default('horizontal'),
+    orientation: oneOfStrict('horizontal', 'vertical').default('horizontal'),
     radius: string,
     readOnly: boolean.default(false),
     withItemsBorders: boolean.default(true),

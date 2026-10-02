@@ -14,7 +14,6 @@ import type {FormValidators} from './FormValidators'
  * Form viewer React component properties.
  */
 export interface FormViewerProps {
-
   /**
    * Loads the form.
    * @param name the form name.

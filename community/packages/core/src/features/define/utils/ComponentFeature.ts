@@ -74,9 +74,7 @@ export function addOrUpdateFeature(features: ComponentFeatures, name: string, va
   const result = {...features}
   const item: any = result[name]
 
-  result[name] = feature.allowMultiple
-    ? (item ? [...item, value] : [value])
-    : value
+  result[name] = feature.allowMultiple ? (item ? [...item, value] : [value]) : value
   return result
 }
 
@@ -86,8 +84,7 @@ export function addOrUpdateFeature(features: ComponentFeatures, name: string, va
  * @param values the component feature values.
  * @returns the modified component features.
  */
-export function addOrUpdateFeatures(features: ComponentFeatures,
-                                    ...values: Array<{ name: string, value: unknown }>): ComponentFeatures {
+export function addOrUpdateFeatures(features: ComponentFeatures, ...values: Array<{name: string; value: unknown}>): ComponentFeatures {
   let result = features ?? {}
   values.forEach(item => {
     result = addOrUpdateFeature(result, item.name, item.value)

@@ -7,9 +7,7 @@ export const mtTitle = define(Title, 'MtTitle')
   .category(typographyCategory)
   .props({
     children: string.required.default('Title').dataBound,
-    order: oneOf(1, 2, 3, 4, 5, 6)
-      .default(4)
-      .withEditorProps({creatable: false}),
+    order: oneOf(1, 2, 3, 4, 5, 6).default(4).withEditorProps({creatable: false}),
     size: string,
     lineClamp: number,
     textWrap: oneOfStrict('wrap', 'nowrap', 'balance'),

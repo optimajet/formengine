@@ -4,6 +4,19 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 11.0.0 - October 2, 2026
+
+Print headers and page breaks, RSuite table usability in the designer, and stop an action chain by returning false.
+
+### Highlights
+
+- [Page break](https://formengine.io/documentation/components-library/structure-components/page-break) and [Print settings](https://formengine.io/documentation/components-library/structure-components/print-settings). [Print your form](https://learn.formengine.io/preview-and-handoff/print-your-form/).
+- [RSuite table](https://formengine.io/documentation/formengine-designer/components/table) design-mode layout and usability are reworked and improved. [showDataInDesigner](https://formengine.io/documentation/formengine-designer/components/table#table-main-properties) shows the row data.
+- Return `false` ([ActionResult](https://formengine.io/documentation/api-reference/@react-form-builder/core/type-aliases/ActionResult)) to stop the chain. [Interrupting the Action Chain](https://formengine.io/documentation/formengine-core/actions-and-events#interrupting-the-action-chain).
+- [useSemanticHTML](https://formengine.io/documentation/api-reference/@react-form-builder/components-rich-text/interfaces/RichTextEditorProps#usesemantichtml) on Rich Text, default `true`.
+
+[Full release notes for 11.0.0](https://formengine.io/documentation/release-notes/11.0.0)
+
 ## 10.3.0 - September 10, 2026
 
 Fixes RSuite ESM imports for webpack, restores date validation args after JSON load, and adds CSS clear in Designer.

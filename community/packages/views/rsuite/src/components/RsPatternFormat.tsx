@@ -51,11 +51,18 @@ const RsPatternFormat = ({style, className, label, format, onChange, value, ...p
 
   const handleValueChange = useCallback((values: any) => onChange?.(values.formattedValue), [onChange])
 
-  return <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
-    <PatternFormat customInput={WrappedInput} format={format ?? ''} {...props} mask={mask}
-                   onValueChange={handleValueChange}
-                   value={value ?? ''}/>
-  </Labeled>
+  return (
+    <Labeled label={label} style={style} className={className} passAriaToChildren={true}>
+      <PatternFormat
+        customInput={WrappedInput}
+        format={format ?? ''}
+        {...props}
+        mask={mask}
+        onValueChange={handleValueChange}
+        value={value ?? ''}
+      />
+    </Labeled>
+  )
 }
 
 export const rsPatternFormat = define(RsPatternFormat, 'RsPatternFormat')
@@ -68,5 +75,5 @@ export const rsPatternFormat = define(RsPatternFormat, 'RsPatternFormat')
     format: string,
     mask: string,
     patternChar: string,
-    allowEmptyFormatting: boolean.default(false)
+    allowEmptyFormatting: boolean.default(false),
   })

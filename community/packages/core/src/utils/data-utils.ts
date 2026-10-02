@@ -22,9 +22,7 @@ const isMergeableObject = (value: any): value is Record<string, unknown> => {
 
 const mergeValues = (generatedData: ValueType, initialData: ValueType) => {
   if (Array.isArray(generatedData)) {
-    return Array.isArray(initialData)
-      ? mergeArrays(generatedData as ValueType[], initialData as ValueType[])
-      : generatedData
+    return Array.isArray(initialData) ? mergeArrays(generatedData as ValueType[], initialData as ValueType[]) : generatedData
   }
 
   if (Array.isArray(initialData)) return generatedData

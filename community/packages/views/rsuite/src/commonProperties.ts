@@ -8,11 +8,11 @@ import {
   oneOf,
   readOnly as readOnlyProp,
   string,
-  toLabeledValues
+  toLabeledValues,
 } from '@react-form-builder/core'
 import type {TypeAttributes} from 'rsuite/esm/internals/types'
 
-type Placement = TypeAttributes.Placement;
+type Placement = TypeAttributes.Placement
 
 export const nonNegNumber = number.withEditorProps({min: 0})
 
@@ -29,23 +29,13 @@ export const placement = oneOf<Placement>(
   'rightEnd'
 )
 
-export const size = oneOf(
-  'xs',
-  'sm',
-  'md',
-  'lg'
-).labeled(
-  'Extra small',
-  'Small',
-  'Medium',
-  'Large'
-).default('md')
+export const size = oneOf('xs', 'sm', 'md', 'lg')
+  .labeled('Extra small', 'Small', 'Medium', 'Large')
+  .default('md')
   .withEditorProps({creatable: false})
 
 export const textStyles = {
-  textAlign: oneOf('start', 'center', 'end')
-    .default('start')
-    .radio(),
+  textAlign: oneOf('start', 'center', 'end').default('start').radio(),
   fontSize: nonNegNumber.default(14),
   fontWeight: oneOf('lighter', 'normal', 'bold').default('normal'),
   color,
@@ -61,20 +51,16 @@ export const inputProps = {
   onChange: event,
 }
 
-export const headerSize = oneOf('h1', 'h2', 'h3', 'h4', 'h5', 'h6')
-  .default('h4')
-  .withEditorProps({creatable: false})
+export const headerSize = oneOf('h1', 'h2', 'h3', 'h4', 'h5', 'h6').default('h4').withEditorProps({creatable: false})
 
 export const navProps = {
   activeKey: string.default('Item1'),
-  appearance: oneOf('default', 'tabs', 'subtle', 'pills')
-    .default('default')
-    .withEditorProps({creatable: false}),
+  appearance: oneOf('default', 'tabs', 'subtle', 'pills').default('default').withEditorProps({creatable: false}),
   items: array.localize.default(toLabeledValues(['Item1', 'Item2', 'Item3'])),
   justified: boolean.default(false),
   onSelect: event,
   reversed: boolean.default(false),
-  vertical: boolean.default(false)
+  vertical: boolean.default(false),
 }
 
 export const pickerProps = {
@@ -99,5 +85,4 @@ export const pickerProps = {
   onSearch: event,
 }
 
-export const controlColor = oneOf('red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'violet')
-  .withEditorProps({creatable: false})
+export const controlColor = oneOf('red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'violet').withEditorProps({creatable: false})

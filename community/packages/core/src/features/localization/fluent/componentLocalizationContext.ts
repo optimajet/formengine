@@ -10,24 +10,24 @@ import type {LocalizationType} from '../types'
  */
 export type LocalizationBundleSetup = {
   /** Fluent bundle for the form default language. */
-  defaultBundle?: FluentBundle;
+  defaultBundle?: FluentBundle
   /** Localization items for the form default language. */
-  defaultItems?: Record<string, unknown>;
+  defaultItems?: Record<string, unknown>
   /** Fluent bundle for the requested language. */
-  formBundle?: FluentBundle;
+  formBundle?: FluentBundle
   /** Localization items for the requested language. */
-  formItems?: Record<string, unknown>;
+  formItems?: Record<string, unknown>
 }
 
 /**
  * Shared context for resolving localized values of one component.
  */
 export type ComponentLocalizationContext = LocalizationBundleSetup & {
-  form: IForm;
-  formData: IFormData;
-  componentStore: ComponentStore;
-  type: LocalizationType;
-  requestedFullCode: LanguageFullCode;
-  messageIdPrefix: string;
-  getFluentData: () => Record<string, FluentVariable>;
+  form: IForm
+  formData: IFormData
+  componentStore: ComponentStore
+  type: LocalizationType
+  requestedFullCode: LanguageFullCode
+  messageIdPrefix: string
+  getFluentData: () => Record<string, FluentVariable>
 }

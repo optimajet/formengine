@@ -9,15 +9,9 @@ import {generateTemplateTypeName} from '../ui/templateUtil'
 import {embeddedFormStyleProperties} from './embeddedFormStyleProperties'
 import type {TemplateProps} from './TemplateProps'
 
-const storeDataInParentForm = boolean
-  .default(true)
-  .calculable(false)
-  .hinted('Store data in parent form')
-  .named('Store data in parent form')
+const storeDataInParentForm = boolean.default(true).calculable(false).hinted('Store data in parent form').named('Store data in parent form')
 
-const templateOptions = object
-  .hinted('The additional options for loading the template')
-  .named('Template options')
+const templateOptions = object.hinted('The additional options for loading the template').named('Template options')
 
 /**
  * Creates the template component metadata for the form builder.
@@ -26,12 +20,16 @@ const templateOptions = object
  */
 export function createTemplateMeta(name: string) {
   const typeName = generateTemplateTypeName(name)
-  return new Meta(typeName,
+  return new Meta(
+    typeName,
     toArray<TemplateProps>({
       storeDataInParentForm,
       options: templateOptions,
       disabled: disabled,
       readOnly: readOnly,
     }),
-    [], embeddedFormStyleProperties, modules)
+    [],
+    embeddedFormStyleProperties,
+    modules
+  )
 }

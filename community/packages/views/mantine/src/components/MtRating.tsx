@@ -10,8 +10,7 @@ import {mantineColor} from './internal/mantineColor'
  */
 export interface MtRatingProps
   extends Omit<RatingProps, 'size'>,
-    Omit<InputWrapperProps, 'children' | Exclude<keyof RatingProps, 'size'>> {
-}
+    Omit<InputWrapperProps, 'children' | Exclude<keyof RatingProps, 'size'>> {}
 
 /**
  * Mantine rating component for React Form Builder.
@@ -19,37 +18,11 @@ export interface MtRatingProps
  * @returns rating component.
  */
 export function MtRating(props: MtRatingProps) {
-  const {
-    label,
-    description,
-    error,
-    required,
-    withAsterisk,
-    value,
-    readOnly,
-    count,
-    size,
-    fractions,
-    ...others
-  } = props
+  const {label, description, error, required, withAsterisk, value, readOnly, count, size, fractions, ...others} = props
 
   return (
-    <Input.Wrapper
-      label={label}
-      description={description}
-      error={error}
-      required={required}
-      withAsterisk={withAsterisk}
-      size={size}
-    >
-      <Rating
-        value={value}
-        readOnly={readOnly}
-        count={count}
-        size={size}
-        fractions={fractions}
-        {...others}
-      />
+    <Input.Wrapper label={label} description={description} error={error} required={required} withAsterisk={withAsterisk} size={size}>
+      <Rating value={value} readOnly={readOnly} count={count} size={size} fractions={fractions} {...others} />
     </Input.Wrapper>
   )
 }

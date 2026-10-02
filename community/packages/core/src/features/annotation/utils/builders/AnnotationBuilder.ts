@@ -12,7 +12,6 @@ import {TypedBuilder} from './TypedBuilder'
  * @template T the property type.
  */
 export class AnnotationBuilder<T> extends BaseBuilder<T> {
-
   /**
    * Creates a component property metadata builder.
    * @param editor the property editor type.
@@ -36,8 +35,7 @@ export class AnnotationBuilder<T> extends BaseBuilder<T> {
    * @returns the instance of the metadata property builder.
    */
   get array() {
-    return new ArrayBuilder<T[] | undefined>()
-      .setup({...this.options, ...this.annotation, type: 'array'})
+    return new ArrayBuilder<T[] | undefined>().setup({...this.options, ...this.annotation, type: 'array'})
   }
 
   /**
@@ -46,8 +44,7 @@ export class AnnotationBuilder<T> extends BaseBuilder<T> {
    * @returns the instance of the metadata property builder.
    */
   typed<T extends SchemaType>(type: T) {
-    return new TypedBuilder<SchemaTypeMap[T] | undefined>()
-      .setup({...this.options, ...this.annotation, type})
+    return new TypedBuilder<SchemaTypeMap[T] | undefined>().setup({...this.options, ...this.annotation, type})
   }
 
   /**

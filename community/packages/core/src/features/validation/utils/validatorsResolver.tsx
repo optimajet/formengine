@@ -12,7 +12,7 @@ import type {ResolvedValidator} from './DataValidator'
 import {getValidationRuleDefinition} from './getValidationRuleDefinition'
 
 type ValidatorWithSettings = {
-  settings: ValidationRuleSettings,
+  settings: ValidationRuleSettings
   validator: RuleValidator
   params?: ValidationRuleParameter[]
 }
@@ -47,14 +47,14 @@ function parse(validationRules: FormViewerValidationRules, schema?: BoundValueSc
       return {
         settings: rule,
         validator: resolved.definition.validatorFactory(rule.args ?? {}),
-        params: resolved.definition.params
+        params: resolved.definition.params,
       }
     }
 
     return {
       settings: rule,
       validator: resolved.definition.validate,
-      params: resolved.definition.params
+      params: resolved.definition.params,
     }
   }
 
@@ -78,7 +78,8 @@ function validatorsResolver(validationRules: FormViewerValidationRules, schema?:
       const args: Record<string, unknown> = {}
       if (!needValidate(settings.validateWhen, getFormData?.())) continue
 
-      params?.filter(param => !isUndefined(param.default))
+      params
+        ?.filter(param => !isUndefined(param.default))
         .forEach(param => {
           args[param.key] = coerceIfDate(param.type, param.default)
         })
@@ -88,7 +89,7 @@ function validatorsResolver(validationRules: FormViewerValidationRules, schema?:
       if (ruleResult !== true) {
         validationResults.push({
           settings: settings,
-          message: (args.message ?? ruleResult) as string
+          message: (args.message ?? ruleResult) as string,
         })
       }
     }

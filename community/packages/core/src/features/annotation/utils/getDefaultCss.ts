@@ -7,9 +7,9 @@ import {getDefault} from './getDefault'
  * @returns the object with CSS properties default values.
  */
 export function getDefaultCss(annotations: Annotation[]): Readonly<Record<string, any>> {
-  return ({
+  return {
     any: {
-      object: getDefault(annotations)
-    }
-  })
+      object: getDefault(annotations),
+    },
+  }
 }
