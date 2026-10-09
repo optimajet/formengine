@@ -51,16 +51,26 @@ jobs:
           VERSION="${VERSION:?}"
           REPO="${GITHUB_REPOSITORY:?}"
           TAG="${NPM_PUBLISH_TAG:-latest}"
+          PATTERN="react-form-builder-*-${VERSION}.tgz"
           mkdir -p .archives
-          gh release download "${VERSION}" \
+          RELEASE_ID="$(
+            gh api "repos/${REPO}/releases" --paginate \
+              --jq "[.[] | select(.draft==true and .tag_name==\"${VERSION}\")][0].id // empty"
+          )"
+          if [ -z "${RELEASE_ID}" ] || [ "${RELEASE_ID}" = "null" ]; then
+            echo "No draft release with tag_name=${VERSION} on ${REPO}" >&2
+            exit 1
+          fi
+          echo "==> Download ${PATTERN} from draft release id=${RELEASE_ID}"
+          gh release download "${RELEASE_ID}" \
             --repo "${REPO}" \
-            --pattern "react-form-builder-*-${VERSION}.tgz" \
+            --pattern "${PATTERN}" \
             --dir .archives \
             --clobber
           shopt -s nullglob
           archives=(.archives/react-form-builder-*-"${VERSION}".tgz)
           if [ "${#archives[@]}" -eq 0 ]; then
-            echo "No archives matching react-form-builder-*-${VERSION}.tgz" >&2
+            echo "No archives matching ${PATTERN}" >&2
             exit 1
           fi
           for tarball in "${archives[@]}"; do
