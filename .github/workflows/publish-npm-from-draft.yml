@@ -2,6 +2,7 @@
 # Lives on optimajet/formengine (seed via mirror compose). TeamCity dispatches it.
 #
 # Trusted publisher: org=optimajet repo=formengine workflow=publish-npm-from-draft.yml
+# See formengine-tools/scripts/release/npm-trusted-publishing.md
 
 name: Publish npm from draft
 
@@ -49,21 +50,30 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
+          if [ -f scripts/release/publish-npm-from-draft.sh ]; then
+            bash scripts/release/publish-npm-from-draft.sh
+            exit 0
+          fi
+
+          # Fallback when mirror only has the workflow (drafts are untagged — download by untagged slug).
+          echo "scripts/release/publish-npm-from-draft.sh missing; using inline publish"
           VERSION="${VERSION:?}"
           REPO="${GITHUB_REPOSITORY:?}"
           TAG="${NPM_PUBLISH_TAG:-latest}"
           PATTERN="react-form-builder-*-${VERSION}.tgz"
           mkdir -p .archives
-          RELEASE_ID="$(
+          DRAFT_JSON="$(
             gh api "repos/${REPO}/releases" --paginate \
-              --jq "[.[] | select(.draft==true and .tag_name==\"${VERSION}\")][0].id // empty"
+              --jq "[.[] | select(.draft==true and .tag_name==\"${VERSION}\")][0] | select(.!=null) | {id, html_url}"
           )"
-          if [ -z "${RELEASE_ID}" ] || [ "${RELEASE_ID}" = "null" ]; then
+          if [ -z "${DRAFT_JSON}" ] || [ "${DRAFT_JSON}" = "null" ]; then
             echo "No draft release with tag_name=${VERSION} on ${REPO}" >&2
             exit 1
           fi
-          echo "==> Download ${PATTERN} from draft release id=${RELEASE_ID}"
-          gh release download "${RELEASE_ID}" \
+          DOWNLOAD_REF="$(printf '%s' "${DRAFT_JSON}" | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>{const u=JSON.parse(d).html_url;console.log(u.split("/").pop())})')"
+          RELEASE_ID="$(printf '%s' "${DRAFT_JSON}" | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>console.log(JSON.parse(d).id))')"
+          echo "==> Download ${PATTERN} (draft id=${RELEASE_ID}, ref=${DOWNLOAD_REF})"
+          gh release download "${DOWNLOAD_REF}" \
             --repo "${REPO}" \
             --pattern "${PATTERN}" \
             --dir .archives \
