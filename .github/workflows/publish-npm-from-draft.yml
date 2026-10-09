@@ -1,0 +1,73 @@
+# Publish react-form-builder-*.tgz from the draft GitHub Release on this repo to npm via OIDC.
+# Lives on optimajet/formengine (seed via mirror compose).
+#
+# Trusted publisher: org=optimajet repo=formengine workflow=publish-npm-from-draft.yml
+
+name: Publish npm from draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Draft release tag (lerna version, e.g. 11.0.0)
+        required: true
+        type: string
+      npm_tag:
+        description: npm dist-tag
+        required: false
+        default: latest
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Publish draft tarballs to npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          # Do not set registry-url / NODE_AUTH_TOKEN — that disables OIDC trusted publishing.
+
+      - name: Ensure npm supports trusted publishing
+        run: |
+          npm install -g npm@latest
+          npm --version
+
+      - name: Download draft npm archives and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+          NPM_PUBLISH_TAG: ${{ inputs.npm_tag }}
+          # Draft release and OIDC identity are both optimajet/formengine.
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          if [ -f scripts/release/publish-npm-from-draft.sh ]; then
+            bash scripts/release/publish-npm-from-draft.sh
+          else
+            # Mirror layout may only ship the workflow; inline download+publish.
+            bash -euo pipefail <<'INLINE'
+            VERSION="${VERSION:?}"
+            REPO="${GITHUB_REPOSITORY:?}"
+            TAG="${NPM_PUBLISH_TAG:-latest}"
+            mkdir -p .archives
+            gh release download "${VERSION}" --repo "${REPO}" --pattern "react-form-builder-*-${VERSION}.tgz" --dir .archives --clobber
+            shopt -s nullglob
+            archives=(.archives/react-form-builder-*-"${VERSION}".tgz)
+            test "${#archives[@]}" -gt 0
+            for tarball in "${archives[@]}"; do
+              name_version="$(tar -xOf "${tarball}" package/package.json | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>{const j=JSON.parse(d);console.log(`${j.name}@${j.version}`)})')"
+              if npm view "${name_version}" version >/dev/null 2>&1; then
+                echo "Already published ${name_version} — skipping"
+                continue
+              fi
+              npm publish "${tarball}" --access public --tag "${TAG}"
+            done
+            INLINE
+          fi
