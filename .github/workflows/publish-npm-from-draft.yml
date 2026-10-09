@@ -91,5 +91,17 @@ jobs:
               echo "Already published ${name_version} — skipping"
               continue
             fi
-            npm publish "${tarball}" --access public --tag "${TAG}"
+            # OIDC may stage a version before npm view sees it; republish then hits E409.
+            log="$(mktemp)"
+            if npm publish "${tarball}" --access public --tag "${TAG}" >"${log}" 2>&1; then
+              cat "${log}"
+              rm -f "${log}"
+            elif grep -qE 'npm error code E409|Cannot publish over previously staged version|cannot publish over existing version' "${log}"; then
+              echo "Already staged/published ${name_version} — skipping"
+              rm -f "${log}"
+            else
+              cat "${log}" >&2
+              rm -f "${log}"
+              exit 1
+            fi
           done
