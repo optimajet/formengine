@@ -1,14 +1,15 @@
 {
   "name": "@react-form-builder/core",
   "description": "React JSON Schema Form Builder to create complex, validated, reusable forms with no deep React knowledge required",
-  "version": "11.0.0",
+  "version": "11.1.0",
   "license": "MIT",
   "private": false,
   "author": "Optimajet",
   "homepage": "https://formengine.io/",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/optimajet/formengine.git"
+    "url": "git+https://github.com/optimajet/formengine.git",
+    "directory": "packages/core"
   },
   "keywords": [
     "react",
@@ -69,7 +70,7 @@
   },
   "devDependencies": {
     "@react-form-builder/cli-lib": "*",
-    "ts-json-schema-generator": "^2.4.0",
+    "ts-json-schema-generator": "^2.9.0",
     "vite-node": "^5.2.0"
   },
   "browserslist": {

@@ -34,6 +34,7 @@ module.exports = {
       'location': 'anywhere'
     }],
     'one-var': ['error', 'never'],
+    'react-hooks/immutability': 'off',
     'react-hooks/exhaustive-deps': ['error', {
       'additionalHooks': ''
     }],

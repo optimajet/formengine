@@ -20,6 +20,7 @@ export function useDisposable<T extends IDisposable>(factory: () => T): T | unde
 
   useEffect(() => {
     const disposable = factory()
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the disposable must be created after mount and it drives the returned value
     setState(disposable)
     return () => disposable.dispose()
     // the dispose function should only be called when a component is unmounted

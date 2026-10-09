@@ -72,10 +72,9 @@ export {rsWizard, rsWizardStep} from './components/RsWizard'
 export {ltrCssLoader, rtlCssLoader} from './cssLoader'
 export {components} from './definitions'
 export type {LoadCallback, LoadDataHandler} from './hooks'
+export {rSuiteComponentsDescriptions} from './i18n/rSuiteComponentsDescriptions'
 export {models} from './models'
 export {rSuiteComponents} from './rSuiteComponents'
 export {view} from './view'
 export {viewWithCss} from './viewWithCss'
-
 export {rSuiteEnUsComponentsDescriptions}
-export {rSuiteComponentsDescriptions} from './i18n/rSuiteComponentsDescriptions'

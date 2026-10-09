@@ -742,4 +742,4 @@ const [
   ComponentDataProvider,
 ] = createNonNullableContext<ComponentData>('ComponentDataContext')
 
-export {useComponentData, ComponentDataProvider}
+export {ComponentDataProvider, useComponentData}

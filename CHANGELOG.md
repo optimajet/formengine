@@ -4,6 +4,12 @@ All notable changes to FormEngine are documented here. For full, detailed releas
 
 - Latest release notes: https://formengine.io/documentation/release-notes
 
+## 11.1.0 - October 9, 2026
+
+Maintenance release with dependency updates.
+
+[Full release notes for 11.1.0](https://formengine.io/documentation/release-notes/11.1.0)
+
 ## 11.0.0 - October 2, 2026
 
 Print headers and page breaks, RSuite table usability in the designer, and stop an action chain by returning false.

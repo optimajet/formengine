@@ -27,6 +27,6 @@ export function getAvailableBuildTools(): string[] {
   return Object.keys(buildToolPlugins)
 }
 
-export type {BuildToolPlugin}
 // export {rspackPlugin} from './rspack.ts'
 export {vitePlugin} from './vite.ts'
+export type {BuildToolPlugin}

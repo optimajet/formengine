@@ -20,9 +20,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@react-form-builder/components-rsuite": "^11.0.0",
-    "@react-form-builder/core": "^11.0.0",
-    "@react-form-builder/designer": "^11.0.0",
+    "@react-form-builder/components-rsuite": "^11.1.0",
+    "@react-form-builder/core": "^11.1.0",
+    "@react-form-builder/designer": "^11.1.0",
     "@remix-run/node": "^2.17.5",
     "@remix-run/react": "^2.17.5",
     "@remix-run/serve": "^2.17.5",

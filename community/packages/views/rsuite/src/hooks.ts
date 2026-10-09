@@ -80,12 +80,14 @@ export const useLoadData = ({data: initialData, onLoadData, value, preload, disa
 
   useEffect(() => {
     const valueItem = value && !initialData?.some(hasValue) ? [{value, label: value}] : []
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the list is reset when the initial data changes
     setData([...valueItem, ...(initialData ?? [])])
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData])
 
   useEffect(() => {
     if (!searchValue) return
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the loading indicator is shown while the data is being loaded
     if (onLoadData) setLoading(true)
     onLoadData?.(searchValue, loadCallback, 0)
     // eslint-disable-next-line react-hooks/exhaustive-deps

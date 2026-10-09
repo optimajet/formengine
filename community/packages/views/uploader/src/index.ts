@@ -6,6 +6,6 @@ import {uploader} from './Uploader'
 export const uploaderComponent: Definer<UploaderProps> = uploader
 export const uploaderModel: Model = uploader.build().model
 
-export {uploaderEnUsComponentsDescriptions}
 export {uploaderComponentsDescriptions} from './i18n/uploaderComponentsDescriptions'
 export type {FileType, OnError, OnSuccess, UploaderProps} from './types'
+export {uploaderEnUsComponentsDescriptions}
