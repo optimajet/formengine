@@ -19,7 +19,8 @@ on:
         type: string
 
 permissions:
-  contents: read
+  # write required so GITHUB_TOKEN can list draft releases (API omits drafts for read-only)
+  contents: write
   id-token: write
 
 jobs:
