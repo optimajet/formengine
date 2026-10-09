@@ -1,8 +1,8 @@
 # Publish react-form-builder-*.tgz from the draft GitHub Release on this repo to npm via OIDC.
-# Lives on optimajet/formengine (seed via mirror compose). TeamCity dispatches it.
-#
-# Trusted publisher: org=optimajet repo=formengine workflow=publish-npm-from-draft.yml
-# See formengine-tools/scripts/release/npm-trusted-publishing.md
+# Canonical copy: formengine-tools/scripts/release/publish-npm-from-draft.yml
+# Compose seeds it onto optimajet/formengine as .github/workflows/publish-npm-from-draft.yml.
+# TeamCity dispatches it there (Trusted publisher: org=optimajet repo=formengine).
+# See scripts/release/npm-trusted-publishing.md
 
 name: Publish npm from draft
 
@@ -48,60 +48,4 @@ jobs:
           VERSION: ${{ inputs.version }}
           NPM_PUBLISH_TAG: ${{ inputs.npm_tag }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: |
-          set -euo pipefail
-          if [ -f scripts/release/publish-npm-from-draft.sh ]; then
-            bash scripts/release/publish-npm-from-draft.sh
-            exit 0
-          fi
-
-          # Fallback when mirror only has the workflow (drafts are untagged — download by untagged slug).
-          echo "scripts/release/publish-npm-from-draft.sh missing; using inline publish"
-          VERSION="${VERSION:?}"
-          REPO="${GITHUB_REPOSITORY:?}"
-          TAG="${NPM_PUBLISH_TAG:-latest}"
-          PATTERN="react-form-builder-*-${VERSION}.tgz"
-          mkdir -p .archives
-          DRAFT_JSON="$(
-            gh api "repos/${REPO}/releases" --paginate \
-              --jq "[.[] | select(.draft==true and .tag_name==\"${VERSION}\")][0] | select(.!=null) | {id, html_url}"
-          )"
-          if [ -z "${DRAFT_JSON}" ] || [ "${DRAFT_JSON}" = "null" ]; then
-            echo "No draft release with tag_name=${VERSION} on ${REPO}" >&2
-            exit 1
-          fi
-          DOWNLOAD_REF="$(printf '%s' "${DRAFT_JSON}" | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>{const u=JSON.parse(d).html_url;console.log(u.split("/").pop())})')"
-          RELEASE_ID="$(printf '%s' "${DRAFT_JSON}" | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>console.log(JSON.parse(d).id))')"
-          echo "==> Download ${PATTERN} (draft id=${RELEASE_ID}, ref=${DOWNLOAD_REF})"
-          gh release download "${DOWNLOAD_REF}" \
-            --repo "${REPO}" \
-            --pattern "${PATTERN}" \
-            --dir .archives \
-            --clobber
-          shopt -s nullglob
-          archives=(.archives/react-form-builder-*-"${VERSION}".tgz)
-          if [ "${#archives[@]}" -eq 0 ]; then
-            echo "No archives matching ${PATTERN}" >&2
-            exit 1
-          fi
-          for tarball in "${archives[@]}"; do
-            name_version="$(tar -xOf "${tarball}" package/package.json | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>{const j=JSON.parse(d);console.log(`${j.name}@${j.version}`)})')"
-            echo "==> npm publish ${tarball} (${name_version})"
-            if npm view "${name_version}" version >/dev/null 2>&1; then
-              echo "Already published ${name_version} — skipping"
-              continue
-            fi
-            # OIDC may stage a version before npm view sees it; republish then hits E409.
-            log="$(mktemp)"
-            if npm publish "${tarball}" --access public --tag "${TAG}" >"${log}" 2>&1; then
-              cat "${log}"
-              rm -f "${log}"
-            elif grep -qE 'npm error code E409|Cannot publish over previously staged version|cannot publish over existing version' "${log}"; then
-              echo "Already staged/published ${name_version} — skipping"
-              rm -f "${log}"
-            else
-              cat "${log}" >&2
-              rm -f "${log}"
-              exit 1
-            fi
-          done
+        run: bash scripts/release/publish-npm-from-draft.sh
